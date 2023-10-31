@@ -1,8 +1,8 @@
 {
-  "name": "Liga-A-accelerator-template",
+  "name": "Speak your mind",
   "version": "2.0.0",
   "type": "module",
-  "description": "Стартовый шаблон сборки Лиги А",
+  "description": "Speak your mind",
   "browserslist": [
     "last 3 versions",
     "IE 11",
@@ -15,7 +15,8 @@
     "build": "gulp build",
     "dev": "gulp dev",
     "start": "gulp start",
-    "webp": "gulp webp"
+    "webp": "gulp webp",
+    "deploy": "gulp build && gh-pages -d build"
   },
   "editorconfig-cli": [
     "*.json",

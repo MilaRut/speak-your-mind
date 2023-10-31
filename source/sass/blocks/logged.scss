@@ -1,0 +1,30 @@
+.logged {
+  display: flex;
+  align-items: center;
+
+  &__wrapper {
+    display: flex;
+    align-items: center;
+    margin-left: 76px;
+  }
+
+  &__user-thumb {
+    width: 24px;
+    height: 24px;
+    border-radius: 50%;
+    overflow: hidden;
+    margin-right: 1px;
+
+    img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+  }
+
+  &__btn {
+    background: transparent;
+    border: none;
+    cursor: pointer;
+  }
+}

@@ -1,0 +1,28 @@
+.therapists {
+  .container {
+    padding: 0 80px 80px;
+  }
+
+  &__heading {
+    margin-bottom: 80px;
+  }
+
+  &__list {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 80px;
+  }
+
+  &__btn-wrapper {
+    display: flex;
+    justify-content: center;
+  }
+
+  &__btn {
+    padding: 24px 32px;
+    font-size: 31px;
+    font-weight: 400;
+    line-height: 1;
+    border-radius: 38px;
+  }
+}

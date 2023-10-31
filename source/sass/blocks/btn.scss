@@ -1,22 +1,23 @@
 .btn {
   display: inline-flex;
-  padding: 10px 20px;
-
   color: $color-default-white;
 
-  background-color: $color-neon-blue;
-  border: none;
+  background-color: $color-jade;
+  border: 1px solid $color-jade;
   cursor: pointer;
 
   transition: opacity $trans-default;
 
-  &--red {
-    background-color: $color-torch-red;
+  &--white {
+    background-color: $color-default-white;
+    border: 1px solid $color-jade;
+    color: $color-jade;
   }
 
   &:disabled {
     opacity: 0.5;
-
+    background-color: $color-whisper;
+    border: 1px solid $color-whisper;
     pointer-events: none;
   }
 

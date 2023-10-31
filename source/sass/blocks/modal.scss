@@ -16,9 +16,7 @@
   visibility: hidden;
   opacity: 0;
 
-  transition: opacity $trans-modal,
-    transform $trans-modal,
-    visibility $trans-modal;
+  transition: opacity $trans-modal, transform $trans-modal, visibility $trans-modal;
 
   pointer-events: none;
 
@@ -83,6 +81,12 @@
     background: $color-transparent;
     border: none;
     cursor: pointer;
+
+    transition: opacity $trans-default;
+
+    @include hover-focus {
+      opacity: 0.5;
+    }
   }
 
   &--responsive {

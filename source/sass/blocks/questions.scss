@@ -1,0 +1,146 @@
+.questions {
+  .container {
+    padding-top: 72px;
+  }
+
+  &__heading {
+    max-width: 55%;
+    margin-bottom: 43px;
+
+    .subtitle {
+      margin-bottom: 23px;
+    }
+  }
+
+  &__tabs {
+    margin-bottom: 80px;
+  }
+
+  &__tabs &__tabs-link {
+    display: inline-block;
+    min-width: 304px;
+    color: $color-jade;
+    text-align: center;
+  }
+
+  &__tabs &__tabs-link.is-active {
+    color: $color-default-black;
+    border-bottom: 3px solid $color-jade;
+  }
+
+  fieldset {
+    margin: 0;
+    padding: 0;
+    border: 0;
+  }
+
+  &__main {
+    margin-bottom: 80px;
+  }
+
+  &__main-row {
+    display: grid;
+    height: 48px;
+    grid-template-columns: 300px auto;
+    column-gap: 80px;
+    margin-bottom: 50px;
+
+    .inputs-wrapper,
+    span.text-20 {
+      align-self: center;
+    }
+
+    &--age {
+      input {
+        max-width: 100px;
+        height: 44px;
+        padding: 0 10px;
+        border: 1px solid #202020;
+        background: $color-default-white;
+        box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.25) inset;
+      }
+    }
+  }
+
+    &__main-row--experience,
+    &__main-row--therapy-type,
+    &__therapist-gender,
+    &__therapy-time,
+    &__therapy-price {
+      .inputs-wrapper {
+        display: flex;
+        align-items: center;
+        max-width: fit-content;
+        height: 40px;
+        border: 1px solid $color-jade;
+        border-radius: 38px;
+        overflow: hidden;
+      }
+
+      input[type="radio"] {
+        position: absolute;
+        width: 1px;
+        height: 1px;
+      }
+
+      label {
+        padding: 10px 12px;
+        display: flex;
+        align-items: center;
+        cursor: pointer;
+
+        svg {
+          margin-right: 8px;
+        }
+      }
+
+      input[type="radio"]:checked+label {
+        color: $color-default-white;
+        background-color: $color-jade;
+      }
+
+
+    &__legend {
+      text-18 {
+        max-width: 40%;
+      }
+    }
+  }
+
+
+
+
+
+
+
+
+  &__legend {
+    margin-bottom: 22px;
+
+    .text-31 {
+      margin-bottom: 22px;
+    }
+  }
+
+
+
+
+
+
+
+
+
+  &__btn-wrapper {
+    display: flex;
+    justify-content: center;
+  }
+
+  &__btn {
+    margin-bottom: 50px;
+    border-radius: 38px;
+    padding: 16px 24px;
+    font-size: 20px;
+    font-weight: 700;
+    line-height: 1;
+  }
+}

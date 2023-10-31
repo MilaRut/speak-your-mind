@@ -1,0 +1,18 @@
+.unlogged {
+  display: flex;
+  align-items: center;
+
+  &__login-btn,
+  &__signup-btn {
+    border-radius: 38px;
+    margin-left: 20px;
+  }
+
+  &__login-btn {
+    padding: 8px 24px;
+  }
+
+  &__signup-btn {
+    padding: 8px 16px;
+  }
+}

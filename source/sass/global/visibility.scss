@@ -1,0 +1,19 @@
+.user-unlogged {
+  .logged {
+    display: none;
+  }
+}
+
+.user-logged {
+  .unlogged {
+    display: none;
+  }
+
+  .nav__item {
+
+    &--psychologists,
+    &--businnes {
+      display: none;
+    }
+  }
+}

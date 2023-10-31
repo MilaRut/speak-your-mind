@@ -1,0 +1,55 @@
+.intro {
+  background: $color-honeydew;
+
+  .container {
+    padding-top: 70px;
+  }
+
+  &__heading {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 54px;
+  }
+
+  &__text {
+    max-width: 43%;
+  }
+
+  &__title {
+    margin-bottom: 32px;
+  }
+
+  &__list {
+    padding-left: 60px;
+    margin-top: -16px;
+  }
+
+  &__item {
+    font-family: Montserrat;
+    margin-top: 16px;
+  }
+
+  &__button-wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 80px;
+  }
+
+  .subtitle {
+    margin-bottom: 8px;
+  }
+
+  .text-25 {
+    margin-bottom: 32px;
+  }
+
+  &__btn {
+    padding: 24px 32px;
+    border-radius: 50px;
+    font-size: 20px;
+    font-weight: 700;
+    line-height: 1;
+  }
+}

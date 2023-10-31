@@ -1,0 +1,324 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Speak your mind">
+  <title>Speak your mind</title>
+  <link rel="icon" type="image/x-icon" href="./favicon.ico">
+  <link rel="icon" type="image/png" sizes="32x32" href="./img/favicon/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="./img/favicon/favicon-16x16.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="./img/favicon/apple-touch-icon.png">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.css">
+  <link rel="stylesheet" href="css/style.min.css">
+</head>
+
+<body>
+  <div class="wrapper user-unlogged">
+    <header class="header">
+      <div class="container">
+        <div class="header__logo">
+          <div class="header__logo-wrapper">
+            <img src="./img/svg/logo.svg" width="182" height="44" alt="Speak your mind.">
+          </div>
+        </div>
+        <nav class="header__nav nav">
+          <div class="nav__wrapper">
+            <ul class="nav__list">
+              <li class="nav__item nav__item--psychologists">
+                <a class="nav__link" href="#">Для психологов</a>
+              </li>
+              <li class="nav__item nav__item--businnes">
+                <a class="nav__link" href="#">Для бизнеса</a>
+              </li>
+              <li class="nav__item">
+                <a class="nav__link" href="faq.html">FAQ</a>
+              </li>
+              <li class="nav__item">
+                <a class="nav__link" href="#">Контакты</a>
+              </li>
+            </ul>
+          </div>
+        </nav>
+        <div class="header__unlogged unlogged">
+          <a class="unlogged__login-btn btn" href="login.html">Вход
+          </a>
+          <a class="unlogged__signup-btn btn btn--white" href="signup-start.html">Регистрация
+          </a>
+        </div>
+        <div class="header__lang-switcher lang-switcher">
+          <button class="lang-switcher__btn">
+            <span>Русский</span>
+            <svg width="10" height="10" fill="currentColor">
+              <use xlink:href="./img/sprite.svg#dropdown"></use>
+            </svg>
+          </button>
+        </div>
+        <div class="header__logged logged">
+          <div class="logged__wrapper">
+            <div class="logged__user-thumb">
+              <img src="./img/content/user-thumb.png" width="24" height="24" alt="">
+            </div>
+            <button class="logged__btn">
+              <span class="logged__username">Александр</span>
+              <svg width="10" height="10" fill="currentColor">
+                <use xlink:href="./img/sprite.svg#dropdown"></use>
+              </svg>
+            </button>
+          </div>
+        </div>
+      </div>
+    </header>
+    <main>
+      <section class="intro">
+        <div class="container">
+          <div class="intro__heading">
+            <div class="intro__text">
+              <h1 class="intro__title title">Онлайн-консультации &nbsp;&nbsp;с&nbsp;психологом</h1>
+              <ul class="intro__list list-reset">
+                <li class="intro__item">
+                  <p class="text-18">&mdash;&nbsp;Доступные цены от&nbsp;<b>10&nbsp;000</b>&nbsp;HUF</p>
+                </li>
+                <li class="intro__item">
+                  <p class="text-18">&mdash;&nbsp;<b>850</b> опытных специалистов</p>
+                </li>
+                <li class="intro__item">
+                  <p class="text-18">&mdash;&nbsp;удобное время и&nbsp;формат консультаций</p>
+                </li>
+              </ul>
+            </div>
+            <div class="intro__image">
+              <img src="./img/content/intro-img.png" width="550" height="309 " alt="">
+            </div>
+          </div>
+          <div class="intro__button-wrapper">
+            <p class="subtitle">Найди путь к себе и своей идеальной жизни</p>
+            <p class="text-25">Подбери психолога, который поможет тебе в этом</p>
+            <a href="#" class="intro__btn btn">Найти психолога</a>
+          </div>
+        </div>
+      </section>
+      <section class="advantages">
+        <div class="container">
+          <div class="advantages__heading">
+            <div class="advantages__image">
+              <img src="./img/content/placeholder.png" width="266" height="203" alt="">
+            </div>
+            <p class="subtitle">Консультации с&nbsp;психологом&nbsp;&mdash; необходимость для&nbsp;успешной современной
+              жизни
+            </p>
+          </div>
+          <ul class="advantages__list list-reset">
+            <li class="advantages__item">
+              <div class="advantages__item-img">
+                <img src="./img/content/placeholder.png" width="175" height="130" alt="">
+              </div>
+              <p class="advantages__item-title text-25">Справься со стрессом</p>
+              <p class="text-18">Победишь тревожность и почувствуешь легкость и энергичность.</p>
+            </li>
+            <li class="advantages__item">
+              <div class="advantages__item-img">
+                <img src="./img/content/placeholder.png" width="175" height="130" alt="">
+              </div>
+              <p class="advantages__item-title text-25">Наладь отношения в семье</p>
+              <p class="text-18">Все обиды останутся в прошлом.</p>
+            </li>
+            <li class="advantages__item">
+              <div class="advantages__item-img">
+                <img src="./img/content/placeholder.png" width="175" height="130" alt="">
+              </div>
+              <p class="advantages__item-title text-25">Люби счастливо</p>
+              <p class="text-18">Сделаешь свои отношения гармоничными.</p>
+            </li>
+            <li class="advantages__item">
+              <div class="advantages__item-img">
+                <img src="./img/content/placeholder.png" width="175" height="130" alt="">
+              </div>
+              <p class="advantages__item-title text-25">Проявляй себя</p>
+              <p class="text-18">Реализуешься и будешь заниматься любимым делом.</p>
+            </li>
+            <li class="advantages__item">
+              <div class="advantages__item-img">
+                <img src="./img/content/placeholder.png" width="175" height="130" alt="">
+              </div>
+              <p class="advantages__item-title text-25">Достигай своих целей</p>
+              <p class="text-18">Сможешь воплотить все свои идеи.</p>
+            </li>
+          </ul>
+          <a href="#" class="advantages__btn btn">Начать терапию сейчас</a>
+        </div>
+      </section>
+      <section class="help">
+        <div class="container">
+          <div class="help__wrapper-top">
+            <div class="help__heading">
+              <p class="subtitle">Стресс и&nbsp;депрессия распространены по&nbsp;всему миру</p>
+            </div>
+            <ul class="help__list list-reset">
+              <li class="help__item">
+                <p class="text-96">25%</p>
+                <p class="text-20">людей борются с&nbsp;психическими заболеваниями в&nbsp;течение всей жизни</p>
+              </li>
+              <li class="help__item">
+                <p class="text-96">60%</p>
+                <p class="text-20">взрослых не&nbsp;хотят тратить время на&nbsp;поиски психолога и&nbsp;работу над собой
+                </p>
+              </li>
+              <li class="help__item">
+                <p class="text-96">45%</p>
+                <p class="text-20">взрослых не&nbsp;получают необходимую помощь из-за недоступности и&nbsp;высокой
+                  стоимости психологических услуг</p>
+              </li>
+            </ul>
+          </div>
+          <div class="help__wrapper-bottom">
+            <div class="help__text-wrapper">
+              <p class="title">Чем мы можем помочь вам?</p>
+              <p class="text-25">Основная цель нашего сервиса&nbsp;&mdash; чтобы каждый мог получить своевременную
+                психологическую поддержку.</p>
+              <p class="text-25">Здесь за&nbsp;15&nbsp;минут вы&nbsp;можете найти подходящего специалиста и&nbsp;начать
+                с&nbsp;ним работать. Если общий язык не&nbsp;найдётся, также быстро можно подобрать другого психолога.
+              </p>
+              <p class="text-25">У&nbsp;нас очень лояльная ценовая политика. Для нас важно, чтобы психологическая помощь
+                становилась доступной большему количеству людей. Цена за&nbsp;час приема начинается
+                от&nbsp;10&nbsp;000&nbsp;HUF
+              </p>
+            </div>
+            <div class="help__btn-wrapper">
+              <div class="help__image">
+                <img src="./img/content/intro-img.png" width="452" height="319" alt="">
+              </div>
+              <a href="#" class="help__btn btn">Подобрать психолога</a>
+            </div>
+          </div>
+        </div>
+      </section>
+      <section class="selection">
+        <div class="container">
+          <div class="selection__heading">
+            <p class="title">Как мы выбираем специалистов?</p>
+          </div>
+          <ul class="selection__list selection__list--first list-reset">
+            <li class="selection__item">
+              <img src="./img/content/placeholder.png" width="149" height="150" alt="">
+            </li>
+            <li class="selection__item">
+              <img src="./img/content/placeholder.png" width="149" height="150" alt="">
+            </li>
+            <li class="selection__item">
+              <img src="./img/content/placeholder.png" width="149" height="150" alt="">
+            </li>
+            <li class="selection__item">
+              <img src="./img/content/placeholder.png" width="149" height="150" alt="">
+            </li>
+            <li class="selection__item">
+              <img src="./img/content/placeholder.png" width="149" height="150" alt="">
+            </li>
+            <li class="selection__item">
+              <img src="./img/content/placeholder.png" width="149" height="150" alt="">
+            </li>
+            <li class="selection__item">
+              <img src="./img/content/placeholder.png" width="149" height="150" alt="">
+            </li>
+          </ul>
+          <ul class="selection__list selection__list--second list-reset">
+            <li class="selection__item">
+              <p class="text-31">Образование и опыт</p>
+              <p class="text-20">Внимательно проверяем дипломы, места работы и&nbsp;опыт специалиста. С&nbsp;вами будут
+                работать только профессионалы.</p>
+            </li>
+            <li class="selection__item">
+              <p class="text-31">Личное общение</p>
+              <p class="text-20">Проводим собеседование, узнаем основы профессионального подхода и&nbsp;ценности
+                специалиста.</p>
+            </li>
+            <li class="selection__item">
+              <p class="text-31">Довольные клиенты</p>
+              <p class="text-20">Смотрим на&nbsp;результативные кейсы и&nbsp;счастливых клиентов.</p>
+            </li>
+          </ul>
+          <div class="selection__btn-wrapper">
+            <a href="#" class="selection__btn btn">Найти своего специалиста</a>
+          </div>
+        </div>
+      </section>
+      <section class="therapists">
+        <div class="container">
+          <div class="therapists__heading">
+            <p class="title">Наши терапевты</p>
+          </div>
+          <ul class="therapists__list list-reset">
+            <li class="therapists__item">
+              <img src="./img/content/placeholder.png" width="149" height="150" alt="">
+            </li>
+            <li class="therapists__item">
+              <img src="./img/content/placeholder.png" width="149" height="150" alt="">
+            </li>
+            <li class="therapists__item">
+              <img src="./img/content/placeholder.png" width="149" height="150" alt="">
+            </li>
+            <li class="therapists__item">
+              <img src="./img/content/placeholder.png" width="149" height="150" alt="">
+            </li>
+            <li class="therapists__item">
+              <img src="./img/content/placeholder.png" width="149" height="150" alt="">
+            </li>
+            <li class="therapists__item">
+              <img src="./img/content/placeholder.png" width="149" height="150" alt="">
+            </li>
+            <li class="therapists__item">
+              <img src="./img/content/placeholder.png" width="149" height="150" alt="">
+            </li>
+          </ul>
+          <div class="therapists__btn-wrapper">
+            <a href="#" class="therapists__btn btn">Найти своего специалиста</a>
+          </div>
+        </div>
+      </section>
+      <section class="guide">
+        <div class="container">
+          <div class="guide__heading">
+            <p class="title">Как работать с сервисом?</p>
+          </div>
+          <div class="guide__tabs tabs">
+            <div class="guide__image">
+              <img src="./img/content/placeholder.png" width="1120" height="523" alt="">
+            </div>
+            <ul class="guide__list list-reset">
+              <li class="guide__item tab is-active">
+                <p class="guide__counter">1</p>
+                <p class="text-20">Пройдите тестирование и&nbsp;определите уровень тревоги</p>
+              </li>
+              <li class="guide__item tab">
+                <p class="guide__counter">2</p>
+                <p class="text-20">Выберете специалиста из&nbsp;предложенных алгоритмом</p>
+              </li>
+              <li class="guide__item tab">
+                <p class="guide__counter">3</p>
+                <p class="text-20">Выберите удобное для вас время и&nbsp;запланируйте регулярные встречи</p>
+              </li>
+            </ul>
+          </div>
+          <div class="guide__btn-wrapper">
+            <a href="#" class="guide__btn btn">Найти своего специалиста</a>
+          </div>
+        </div>
+      </section>
+    </main>
+    <footer class="footer">
+      <div class="container">
+        <div class="footer__copyright">
+          <span>&copy;</span>
+          <span>Speak Your Mind</span>
+          <span>2023</span>
+        </div>
+      </div>
+    </footer>
+  </div>
+  <script src="js/vendor.min.js"></script>
+  <script src="js/main.min.js"></script>
+</body>
+
+</html>
