@@ -1,0 +1,36 @@
+.choice {
+  .container {
+    padding-top: 44px;
+    padding-bottom: 80px;
+  }
+
+  &__swiper {
+    display: flex;
+    align-items: center;
+  }
+
+  &__thumbs-list {
+    display: flex;
+    justify-content: space-between;
+    width: 80%;
+    max-width: 1127px;
+    margin: 0 auto;
+  }
+
+  &__item {
+    cursor: pointer;
+  }
+
+  &__btn-wrapper {
+    display: flex;
+    justify-content: flex-start;
+  }
+
+  &__btn {
+    margin-bottom: 67px;
+    padding: 16px 24px;
+    font-size: 20px;
+    font-weight: 700;
+    line-height: 1;
+  }
+}

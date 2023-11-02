@@ -1,0 +1,117 @@
+.user-account {
+  .container {
+    padding-top: 67px;
+    padding-bottom: 80px;
+  }
+
+  &__wrapper {
+    display: grid;
+    grid-template-columns: 173px auto;
+    gap: 80px;
+  }
+
+  &__left-col &__item {
+    color: $color-jade;
+    padding: 10px 8px;
+    font-size: 18px;
+    font-weight: 400;
+    line-height: 1.2;
+  }
+
+  &__left-col &__item.is-active {
+    color: $color-nero;
+    background: $color-humming-bird;
+    border-bottom: 3px solid $color-jade;
+  }
+
+  &__right-col {
+    .title {
+      margin-bottom: 40px;
+    }
+  }
+
+  .text-success {
+    display: flex;
+    align-items: center;
+    margin-bottom: 72px;
+
+    svg {
+      margin-right: 10px;
+    }
+  }
+
+  &__description {
+    margin-bottom: 48px;
+
+    .text-25 {
+      margin-bottom: 24px;
+    }
+  }
+
+  &__doctor {
+    display: flex;
+    margin-bottom: 56px;
+  }
+
+  &__doctor-image {
+    margin-right: 10px;
+  }
+
+  &__doctor-info {
+    p {
+      margin-bottom: 10px;
+    }
+  }
+
+  &__contact {
+    display: flex;
+    align-items: center;
+    border-radius: 73px;
+    border: 1px solid $color-jade;
+    padding: 8px 24px;
+
+    svg {
+      margin-right: 8px;
+    }
+
+    span {
+      font-size: 20px;
+      font-weight: 700;
+      line-height: 1;
+    }
+  }
+
+  &__session-info {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 800px;
+    height: 450px;
+    background: $color-whisper;
+
+    .icon {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      width: 150px;
+      height: 150px;
+      border-radius: 50%;
+      border: 3px solid $color-dark-gray;
+      margin-bottom: 8px;
+    }
+
+    .text-18 {
+      font-weight: 700;
+      margin-bottom: 8px;
+    }
+
+    .date {
+      margin-bottom: 24px;
+    }
+  }
+
+  &__change-btn {
+    padding: 8px 24px;
+  }
+}

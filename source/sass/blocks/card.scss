@@ -1,0 +1,103 @@
+.card {
+  .container {
+    padding-top: 44px;
+    padding-bottom: 150px;
+  }
+
+  &__heading {
+    margin-bottom: 48px;
+  }
+
+  .title {
+    margin-bottom: 16px;
+  }
+
+  &__description {
+    margin-bottom: 72px;
+  }
+
+  p {
+    margin-bottom: 16px;
+  }
+
+  form {
+    max-width: 400px;
+  }
+
+  fieldset {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  label {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 32px;
+
+    &[for="card-owner"],
+    &[for="card-number"] {
+      width: 100%;
+    }
+
+    &[for="card-exp"] {
+      width: 150px;
+    }
+
+    &[for="card-cvc"] {
+      width: 100px;
+    }
+  }
+
+  span {
+    font-size: 20px;
+    font-weight: 400;
+    line-height: 1;
+    margin-bottom: 10px;
+  }
+
+  input {
+    padding: 7px 10px;
+    font-size: 18px;
+    font-weight: 400;
+    line-height: 1.2;
+    border: 1px solid #202020;
+    background: $color-default-white;
+    box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.25) inset;
+
+    &#card-exp {
+      max-width: 150px;
+      height: 44px;
+    }
+
+    &#card-cvc {
+      max-width: 100px;
+      height: 35px;
+    }
+  }
+
+  &__submit-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    padding: 16px 24px;
+    text-align: center;
+    font-size: 20px;
+    line-height: 1;
+    font-weight: 400;
+  }
+
+  .text-error {
+    display: flex;
+    align-items: center;
+
+    svg {
+      margin-right: 10px;
+    }
+
+    span {
+      margin-bottom: 0;
+    }
+  }
+}

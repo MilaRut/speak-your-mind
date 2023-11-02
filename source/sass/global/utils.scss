@@ -77,3 +77,13 @@ h6 {
   padding: 0;
   list-style: none;
 }
+
+input::placeholder {
+  color: #a3a3a3;
+}
+
+fieldset {
+  margin: 0;
+  padding: 0;
+  border: none;
+}

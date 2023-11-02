@@ -19,9 +19,6 @@
   fieldset {
     display: flex;
     flex-direction: column;
-    border: none;
-    margin: 0;
-    padding: 0;
   }
 
   input {
@@ -43,7 +40,6 @@
 
   &__btn {
     margin: 0 auto 50px;
-    border-radius: 38px;
     padding: 16px 24px;
     font-size: 20px;
     font-weight: 700;

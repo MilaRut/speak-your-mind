@@ -72,59 +72,58 @@
       </div>
     </header>
     <main>
-      <section class="card">
+      <section class="user-account">
         <div class="container">
-          <div class="signup-header">
-            <div class="signup-header__tabs">
-              <a class="signup-header__tabs-link text-18" href="#">Общие вопросы</a>
-              <a class="signup-header__tabs-link text-18" href="#">Выбор терапевта</a>
-              <a class="signup-header__tabs-link text-18 is-active" href="#">Запись и оплата</a>
+          <div class="user-account__wrapper">
+            <div class="user-account__left-col">
+              <ul class="user-account__tabs-list list-reset">
+                <li class="user-account__item is-active">
+                  <a href="#">Главная</a>
+                </li>
+                <li class="user-account__item">
+                  <a href="#">Настройки</a>
+                </li>
+                <li class="user-account__item">
+                  <a href="#">Платежи</a>
+                </li>
+              </ul>
             </div>
-          </div>
-          <div class="card__heading">
-            <h2 class="title">Привяжите карту для записи</h2>
-            <p class="text-18">Запрос на назначение сессии на 15:00 6 июля отправлен терапевту Олесе Параде.</p>
-          </div>
-          <div class="card__description">
-            <p class="text-error text-25">
-              <svg width="36" height="36" fill="currentColor">
-                <use xlink:href="./img/sprite.svg#error"></use>
-              </svg>
-              <span>Произошла ошибка.</span>
-            </p>
-            <p class="text-18">Не удалось привязать карту. Проверьте данные карты и повторите попытку или привяжите
-              другую карту</p>
-          </div>
-          <div class="card__card-info">
-            <form action="" method="post">
-              <fieldset>
-                <label for="card-owner">
-                  <span>Имя владельца карты</span>
-                  <input type="text" id="card-owner" placeholder="Имя на лицевой стороне карты">
-                </label>
-              </fieldset>
-              <fieldset>
-                <label for="card-number">
-                  <span>Номер карты</span>
-                  <input type="number" id="card-number" placeholder="x x x x    x x x x    x x x x    x x x x">
-                </label>
-              </fieldset>
-              <fieldset>
-                <label for="card-exp">
-                  <span>Срок действия</span>
-                  <input type="number" id="card-owner" placeholder="m m  /  y y">
-                </label>
-                <label for="card-cvc">
-                  <span>Код CVС</span>
-                  <input type="number" id="card-cvc" placeholder="x x x">
-                </label>
-              </fieldset>
-              <p class="card__permission text-18">
-                Добавляя карту вы принимаете <a href="#" class="text-green">условия сервиса</a> и разрешаете
-                <a href="#" class="text-green">автосписания</a>
-              </p>
-              <button type="submit" class="card__submit-btn btn">Добавить карту</button>
-            </form>
+            <div class="user-account__right-col">
+              <h2 class="title">Личный кабинет</h2>
+              <div class="user-account__description">
+                <p class="text-25">Ваш терапевт</p>
+                <p class="text-18">Поздравляем, вы успешно записались на первую сессию. Олеся Парада подтвердила вашу
+                  запись.<br>
+                  Мы отправили вам по почте инструкцию, как подготовиться к первой сессии.</p>
+              </div>
+              <div class="user-account__session-wrapper">
+                <div class="user-account__doctor">
+                  <div class="user-account__doctor-image">
+                    <img src="./img/content/doctor-thumb.png" width="100" height="100" alt="">
+                  </div>
+                  <div class="user-account__doctor-info">
+                    <p class="text-31">Олеся Парада</p>
+                    <a class="user-account__contact" href="#">
+                      <svg width="30" height="22" fill="currentColor">
+                        <use xlink:href="./img/sprite.svg#envelope"></use>
+                      </svg>
+                      <span class="text-green">Написать терапевту</span>
+                    </a>
+                  </div>
+
+                </div>
+                <div class="user-account__session-info">
+                  <div class="icon">
+                    <svg width="59" height="41" fill="currentColor">
+                      <use xlink:href="./img/sprite.svg#video"></use>
+                    </svg>
+                  </div>
+                  <p class="text-18">Ближайшая сессия:</p>
+                  <p class="date text-20">6 июля, четверг, 15:00</p>
+                  <a href="#" class="user-account__change-btn btn">Перенести сессию</a>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       </section>

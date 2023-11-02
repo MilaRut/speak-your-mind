@@ -21,9 +21,6 @@
     display: flex;
     flex-direction: column;
     min-width: 862px;
-    border: none;
-    margin: 0;
-    padding: 0;
   }
 
   label {
@@ -51,10 +48,27 @@
 
   &__btn {
     margin-bottom: 50px;
-    border-radius: 38px;
     padding: 16px 24px;
     font-size: 20px;
     font-weight: 700;
     line-height: 1;
+  }
+}
+
+.signup-header {
+  &__tabs {
+    margin-bottom: 40px;
+  }
+
+  &__tabs &__tabs-link {
+    display: inline-block;
+    min-width: 304px;
+    color: $color-jade;
+    text-align: center;
+  }
+
+  &__tabs &__tabs-link.is-active {
+    color: $color-default-black;
+    border-bottom: 3px solid $color-jade;
   }
 }
