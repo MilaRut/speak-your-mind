@@ -1,0 +1,39 @@
+.payments {
+  &__heading {
+    margin-bottom: 23px;
+  }
+
+  &__card {
+    margin-bottom: 23px;
+  }
+
+  &__btn {
+    padding: 8px 30px;
+    margin-bottom: 80px;
+    font-size: 20px;
+    font-weight: 700;
+    line-height: 1;
+  }
+
+  &__history {
+    table {
+      width: 100%;
+      border-collapse: collapse;
+    }
+
+    tr {
+      border-bottom: 1px solid $color-dark-gray;
+    }
+
+    th {
+      text-align: start;
+      font-weight: 400;
+      padding: 8px;
+    }
+
+    td {
+      vertical-align: top;
+      padding: 8px;
+    }
+  }
+}

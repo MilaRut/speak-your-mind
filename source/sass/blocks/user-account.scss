@@ -16,12 +16,19 @@
     font-size: 18px;
     font-weight: 400;
     line-height: 1.2;
+
+    a {
+      color: $color-jade;
+    }
   }
 
   &__left-col &__item.is-active {
-    color: $color-nero;
     background: $color-humming-bird;
     border-bottom: 3px solid $color-jade;
+
+    a {
+      color: $color-nero;
+    }
   }
 
   &__right-col {
@@ -50,6 +57,7 @@
 
   &__doctor {
     display: flex;
+    align-items: center;
     margin-bottom: 56px;
   }
 
@@ -113,5 +121,13 @@
 
   &__change-btn {
     padding: 8px 24px;
+  }
+}
+
+.change-requested {
+
+  .next-session,
+  .requested-session {
+    color: $color-dark-gray;
   }
 }

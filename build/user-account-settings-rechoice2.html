@@ -1,29 +1,454 @@
 <!DOCTYPE html>
 <html lang="ru">
-  <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="description" content="Описание проекта">
-    <title>ProjectName</title>
-    <link rel="stylesheet" href="css/style.min.css">
-  </head>
-  <body>
-    <div class="wrapper">
-      <header>
-        <div class="container"></div>
-      </header>
-      <main>
-        <section class="intro">
-          <div class="container">
-            <h1>Тестовая страница.</h1>
-            <p>На данной странице показан пример модальных окон.</p>
-            <p>Перед началом разработки не забудьте удалить всё содержимое &#8249;main&#8250;&#8249;&#8260;main&#8250;.</p>
-            <p><a class="btn" href="#" data-open-modal="feedback">modal--feedback link</a></p>
-            <p><a class="btn" href="#" data-open-modal="success">modal--success link</a></p>
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Speak your mind">
+  <title>Speak your mind</title>
+  <link rel="icon" type="image/x-icon" href="./favicon.ico">
+  <link rel="icon" type="image/png" sizes="32x32" href="./img/favicon/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="./img/favicon/favicon-16x16.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="./img/favicon/apple-touch-icon.png">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.css">
+  <link rel="stylesheet" href="css/style.min.css">
+</head>
+
+<body>
+  <div class="wrapper user-logged">
+    <header class="header">
+      <div class="container">
+        <div class="header__logo">
+          <div class="header__logo-wrapper">
+            <img src="./img/svg/logo.svg" width="182" height="44" alt="Speak your mind.">
           </div>
-        </section>
-      </main>
+        </div>
+        <nav class="header__nav nav">
+          <div class="nav__wrapper">
+            <ul class="nav__list">
+              <li class="nav__item nav__item--psychologists">
+                <a class="nav__link" href="#">Для психологов</a>
+              </li>
+              <li class="nav__item nav__item--businnes">
+                <a class="nav__link" href="#">Для бизнеса</a>
+              </li>
+              <li class="nav__item">
+                <a class="nav__link" href="faq.html">FAQ</a>
+              </li>
+              <li class="nav__item">
+                <a class="nav__link" href="#">Контакты</a>
+              </li>
+            </ul>
+          </div>
+        </nav>
+        <div class="header__unlogged unlogged">
+          <a class="unlogged__login-btn btn" href="login.html">Вход
+          </a>
+          <a class="unlogged__signup-btn btn btn--white" href="signup-start.html">Регистрация
+          </a>
+        </div>
+        <div class="header__lang-switcher lang-switcher">
+          <button class="lang-switcher__btn">
+            <span>Русский</span>
+            <svg width="10" height="10" fill="currentColor">
+              <use xlink:href="./img/sprite.svg#dropdown"></use>
+            </svg>
+          </button>
+        </div>
+        <div class="header__logged logged">
+          <div class="logged__wrapper">
+            <div class="logged__user-thumb">
+              <img src="./img/content/user-thumb.png" width="24" height="24" alt="">
+            </div>
+            <button class="logged__btn">
+              <span class="logged__username">Александр</span>
+              <svg width="10" height="10" fill="currentColor">
+                <use xlink:href="./img/sprite.svg#dropdown"></use>
+              </svg>
+            </button>
+          </div>
+        </div>
+      </div>
+    </header>
+    <main>
+      <section class="user-account">
+        <div class="container">
+          <div class="user-account__wrapper">
+            <div class="user-account__left-col">
+              <ul class="user-account__tabs-list list-reset">
+                <li class="user-account__item">
+                  <a href="user-account-confirmed.html">Главная</a>
+                </li>
+                <li class="user-account__item is-active">
+                  <a href="user-account-settings-main.html">Настройки</a>
+                </li>
+                <li class="user-account__item">
+                  <a href="user-account-settings-payments.html">Платежи</a>
+                </li>
+              </ul>
+            </div>
+            <div class="user-account__right-col rechoice">
+              <div class="rechoice__heading">
+                <h2 class="text-31">Лучшие совпадения</h2>
+              </div>
+              <div class="choice__swiper swiper">
+                <ul class="choice__list choice__thumbs-list list-reset">
+                  <li class="choice__item">
+                    <div class="choice__item-image">
+                      <img src="./img/content/doctor-thumb.png" width="100" height="100" alt="">
+                    </div>
+                  </li>
+                  <li class="choice__item">
+                    <div class="choice__item-image">
+                      <img src="./img/content/doctor-thumb.png" width="100" height="100" alt="">
+                    </div>
+                  </li>
+                  <li class="choice__item">
+                    <div class="choice__item-image">
+                      <img src="./img/content/doctor-thumb.png" width="100" height="100" alt="">
+                    </div>
+                  </li>
+                  <li class="choice__item">
+                    <div class="choice__item-image">
+                      <img src="./img/content/doctor-thumb.png" width="100" height="100" alt="">
+                    </div>
+                  </li>
+                  <li class="choice__item">
+                    <div class="choice__item-image">
+                      <img src="./img/content/doctor-thumb.png" width="100" height="100" alt="">
+                    </div>
+                  </li>
+                  <li class="choice__item">
+                    <div class="choice__item-image">
+                      <img src="./img/content/doctor-thumb.png" width="100" height="100" alt="">
+                    </div>
+                  </li>
+                  <li class="choice__item">
+                    <div class="choice__item-image">
+                      <img src="./img/content/doctor-thumb.png" width="100" height="100" alt="">
+                    </div>
+                  </li>
+                  <li class="choice__item">
+                    <div class="choice__item-image">
+                      <img src="./img/content/doctor-thumb.png" width="100" height="100" alt="">
+                    </div>
+                  </li>
+                </ul>
+                <button type="button" class="swiper-btn swiper-btn--prev disabled" disabled
+                  aria-label="Previous slide.">
+                  <svg width="42" height="102" viewBox="0 0 42 102" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M6 6L36 51L6 96" stroke="#202020" stroke-width="12" stroke-linecap="round"
+                      stroke-linejoin="round">
+                  </svg>
+
+                </button>
+                <button type="button" class="swiper-btn swiper-btn--next" aria-label="Next slide.">
+                  <svg width="42" height="102" viewBox="0 0 42 102" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M6 6L36 51L6 96" stroke="#202020" stroke-width="12" stroke-linecap="round"
+                      stroke-linejoin="round">
+                  </svg>
+
+                </button>
+              </div>
+              <div class="choice__doctors">
+                <ul class="choices__doctors-list list-reset">
+                  <li class="choices__doctors-item doctor">
+                    <div class="doctor__image">
+                      <img src="./img/content/doctor-thumb.png" width="300" height="300" alt="">
+                    </div>
+                    <div class="doctor__content">
+                      <div class="doctor__heading">
+                        <p class="doctor__name">Сергей Никитин</p>
+                        <p class="doctor__experience">Опыт 6 лет</p>
+                        <p class="doctor__details">
+                          <span class="doctor__type">Индивидуальная сессия</span>
+                          <span class="divider">&#8226;</span>
+                          <span class="doctor__time">50 мин</span>
+                          <span class="divider">&#8226;</span>
+                          <span class="doctor__price">10&nbsp;000 HUF</span>
+                        </p>
+                        <p class="doctor__themes">Работает со всеми темами вашей анкеты</p>
+                        <a href="#schedule" class="doctor__btn doctor__schedule-btn btn">Выбрать время сессии</a>
+                      </div>
+                      <div class="doctor__content-block" id="about-doctor">
+                        <h2 class="text-25 doctor__title">О специалисте</h2>
+                        <p class="text-18">В своей работе я опираюсь на базовую идею гештальта основанную на способности
+                          психики к саморегуляции. Что предполагает целостный подход к человеку в котором мысли, эмоции,
+                          чувства и среда в которой находится человек рассматривается как взаимосвязанные между собой
+                          элементы. Этот простой и свободолюбивый метод помогает превращать кажущееся в действительное,
+                          запутанное в очевидное, а самое сложное и скучное может оказаться легким и
+                          увлекательным.Психотерапевтическая сессия - это пространство где есть возможность
+                          вентилировать свое эмоциональное состояние, сбрасывать с себя лишнее, прояснять и разрешать
+                          дилеммы, путаницы, удовлетворять свои потребности. Это предполагает погружение на глубину
+                          своего бытия для отслеживания своих автоматических реакций, сдерживающих привычек, установок и
+                          обнаружения затемненных зон своей личности. Проще говоря понимание о том, что со мной
+                          происходит дает возможность к изменениям как внутри личности так в отношениях с окружающей
+                          средой.
+                        </p>
+                      </div>
+                      <div class="doctor__content-block" id="doctor__edu">
+                        <h2 class="text-25 doctor__title">Образование</h2>
+                        <ul class="doctor__edu-list list-reset">
+                          <li class="doctor__edu-item">
+                            <p class="doctor__edu-year">2023</p>
+                            <p class="doctor__edu-uni">Международный Институт Гештальт-Анализа и Супервизии. Основы
+                              семейной терапии и консультировании пар.</p>
+                          </li>
+                          <li class="doctor__edu-item">
+                            <p class="doctor__edu-year">2022</p>
+                            <p class="doctor__edu-uni">Институт прикладной психологии в социальной сфере. Системный
+                              подход к консультированию семьи. Методы системной семейной психотерапии в психологической
+                              практике.</p>
+                          </li>
+                          <li class="doctor__edu-item">
+                            <p class="doctor__edu-year">2022</p>
+                            <p class="doctor__edu-uni">Институт прикладной психологии в социальной сфере. Различные
+                              аспекты сексологии в современной практике психологического консультирования.</p>
+                          </li>
+                          <li class="doctor__edu-item">
+                            <p class="doctor__edu-year">2021</p>
+                            <p class="doctor__edu-uni">Международный Институт Гештальт-Анализа и Супервизии. Групповая
+                              психотерапия.</p>
+                          </li>
+                          <li class="doctor__edu-item">
+                            <p class="doctor__edu-year">2021</p>
+                            <p class="doctor__edu-uni">Международный Институт Гештальт-Анализа и Супервизии.
+                              Гештальт-подход в клинической практике.</p>
+                          </li>
+                          <li class="doctor__edu-item">
+                            <p class="doctor__edu-year">2019</p>
+                            <p class="doctor__edu-uni">Московский Гештальт Институт. Теория и практика гештальт терапии.
+                            </p>
+                          </li>
+                          <li class="doctor__edu-item">
+                            <p class="doctor__edu-year">2008</p>
+                            <p class="doctor__edu-uni">Московский педагогический государственный университет. Психолог,
+                              преподаватель психологии.
+                            </p>
+                          </li>
+                        </ul>
+                      </div>
+                      <div class="doctor__content-block" id="schedule">
+                        <h2 class="text-25 doctor__title">Расписание</h2>
+                        <form action="" method="post">
+                          <div class="doctor__day-wrapper">
+                            <p class="doctor__day">
+                              <time datetime="2024-07-05">5 июля</time>
+                              <span>, среда</span>
+                            </p>
+                            <fieldset>
+                              <label>
+                                <input type="radio" name="appointment-time" id="">
+                                <span>07:00</span>
+                              </label>
+                              <label>
+                                <input type="radio" name="appointment-time" id="">
+                                <span>08:00</span>
+                              </label>
+                              <label>
+                                <input type="radio" name="appointment-time" id="">
+                                <span>09:00</span>
+                              </label>
+                              <label>
+                                <input type="radio" name="appointment-time" id="">
+                                <span>10:00</span>
+                              </label>
+                              <label>
+                                <input type="radio" name="appointment-time" id="">
+                                <span>11:00</span>
+                              </label>
+                              <label>
+                                <input type="radio" name="appointment-time" id="">
+                                <span>12:00</span>
+                              </label>
+                              <label>
+                                <input type="radio" name="appointment-time" id="">
+                                <span>13:00</span>
+                              </label>
+                              <label>
+                                <input type="radio" name="appointment-time" id="">
+                                <span>14:00</span>
+                              </label>
+                              <label>
+                                <input type="radio" name="appointment-time" id="">
+                                <span>15:00</span>
+                              </label>
+                              <label>
+                                <input type="radio" name="appointment-time" id="">
+                                <span>16:00</span>
+                              </label>
+                              <label>
+                                <input type="radio" name="appointment-time" id="">
+                                <span>17:00</span>
+                              </label>
+                              <label>
+                                <input type="radio" name="appointment-time" id="">
+                                <span>18:00</span>
+                              </label>
+                              <label>
+                                <input type="radio" name="appointment-time" id="">
+                                <span>19:00</span>
+                              </label>
+                              <label>
+                                <input type="radio" name="appointment-time" id="">
+                                <span>20:00</span>
+                              </label>
+                            </fieldset>
+                          </div>
+                          <div class="doctor__day-wrapper">
+                            <p class="doctor__day">
+                              <time datetime="2024-07-06">6 июля</time>
+                              <span>, четверг</span>
+                            </p>
+                            <fieldset>
+                              <label>
+                                <input type="radio" name="appointment-time" id="">
+                                <span>07:00</span>
+                              </label>
+                              <label>
+                                <input type="radio" name="appointment-time" id="">
+                                <span>08:00</span>
+                              </label>
+                              <label>
+                                <input type="radio" name="appointment-time" id="">
+                                <span>09:00</span>
+                              </label>
+                              <label>
+                                <input type="radio" name="appointment-time" id="">
+                                <span>10:00</span>
+                              </label>
+                              <label>
+                                <input type="radio" name="appointment-time" id="">
+                                <span>11:00</span>
+                              </label>
+                              <label>
+                                <input type="radio" name="appointment-time" id="">
+                                <span>12:00</span>
+                              </label>
+                              <label>
+                                <input type="radio" name="appointment-time" id="">
+                                <span>13:00</span>
+                              </label>
+                              <label>
+                                <input type="radio" name="appointment-time" id="">
+                                <span>14:00</span>
+                              </label>
+                              <label>
+                                <input type="radio" name="appointment-time" id="">
+                                <span>15:00</span>
+                              </label>
+                              <label>
+                                <input type="radio" name="appointment-time" id="">
+                                <span>16:00</span>
+                              </label>
+                              <label>
+                                <input type="radio" name="appointment-time" id="">
+                                <span>17:00</span>
+                              </label>
+                              <label>
+                                <input type="radio" name="appointment-time" id="">
+                                <span>18:00</span>
+                              </label>
+                              <label>
+                                <input type="radio" name="appointment-time" id="">
+                                <span>19:00</span>
+                              </label>
+                              <label>
+                                <input type="radio" name="appointment-time" id="">
+                                <span>20:00</span>
+                              </label>
+                            </fieldset>
+                          </div>
+                          <div class="doctor__day-wrapper">
+                            <p class="doctor__day">
+                              <time datetime="2024-07-07">7 июля</time>
+                              <span>, пятница</span>
+                            </p>
+                            <fieldset>
+                              <label>
+                                <input type="radio" name="appointment-time" id="">
+                                <span>07:00</span>
+                              </label>
+                              <label>
+                                <input type="radio" name="appointment-time" id="">
+                                <span>08:00</span>
+                              </label>
+                              <label>
+                                <input type="radio" name="appointment-time" id="" checked>
+                                <span>09:00</span>
+                              </label>
+                              <label>
+                                <input type="radio" name="appointment-time" id="">
+                                <span>10:00</span>
+                              </label>
+                              <label>
+                                <input type="radio" name="appointment-time" id="">
+                                <span>11:00</span>
+                              </label>
+                              <label>
+                                <input type="radio" name="appointment-time" id="">
+                                <span>12:00</span>
+                              </label>
+                              <label>
+                                <input type="radio" name="appointment-time" id="">
+                                <span>13:00</span>
+                              </label>
+                              <label>
+                                <input type="radio" name="appointment-time" id="">
+                                <span>14:00</span>
+                              </label>
+                              <label>
+                                <input type="radio" name="appointment-time" id="">
+                                <span>15:00</span>
+                              </label>
+                              <label>
+                                <input type="radio" name="appointment-time" id="">
+                                <span>16:00</span>
+                              </label>
+                              <label>
+                                <input type="radio" name="appointment-time" id="">
+                                <span>17:00</span>
+                              </label>
+                              <label>
+                                <input type="radio" name="appointment-time" id="">
+                                <span>18:00</span>
+                              </label>
+                              <label>
+                                <input type="radio" name="appointment-time" id="">
+                                <span>19:00</span>
+                              </label>
+                              <label>
+                                <input type="radio" name="appointment-time" id="">
+                                <span>20:00</span>
+                              </label>
+                            </fieldset>
+                          </div>
+
+                          <button type="button" class="doctor__expand-btn">
+                            <span>Показать еще 3 дня</span>
+                            <svg width="10" height="10" fill="currentColor">
+                              <use xlink:href="./img/sprite.svg#dropdown-green"></use>
+                            </svg>
+                          </button>
+
+                          <button type="submit" class="doctor__submit-btn btn">
+                            <span class="doctor__submit-text">Выбрать&nbsp;</span>
+                            <span class="doctor__submit-date"><time datetime="2024-07-06-15-00">7 июля
+                                09:00</time></span>
+                          </button>
+                        </form>
+                      </div>
+                    </div>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+    </main>
     <footer class="footer">
       <div class="container">
         <div class="footer__copyright">
@@ -33,38 +458,9 @@
         </div>
       </div>
     </footer>
-    </div>
+  </div>
+  <script src="js/vendor.min.js"></script>
+  <script src="js/main.min.js"></script>
+</body>
 
-    <!-- Модалки -->
-    <div class="modal modal--preload" data-modal="feedback">
-      <div class="modal__wrapper">
-        <div class="modal__overlay" data-close-modal></div>
-        <div class="modal__content">
-          <p class="modal__description">Обычная модалка</p>
-          <button class="modal__close-btn btn-reset" type="button" aria-label="Закрыть попап" data-close-modal>
-            <svg width="15" height="15">
-              <use xlink:href="img/sprite.svg#icon-close"></use>
-            </svg>
-          </button>
-        </div>
-      </div>
-    </div>
-
-    <div class="modal modal--preload modal--fit-content modal--no-scale" data-modal="success">
-      <div class="modal__wrapper">
-        <div class="modal__overlay" data-close-modal></div>
-        <div class="modal__content">
-          <p class="modal__description">Размер этой модалки зависит от ширины контента,<br> отключена анимация-скейл</p>
-          <button class="modal__close-btn btn-reset" type="button" aria-label="Закрыть попап" data-close-modal>
-            <svg width="15" height="15">
-              <use xlink:href="img/sprite.svg#icon-close"></use>
-            </svg>
-          </button>
-        </div>
-      </div>
-    </div>
-
-    <script src="js/vendor.min.js"></script>
-    <script src="js/main.min.js"></script>
-  </body>
 </html>

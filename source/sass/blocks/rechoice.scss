@@ -1,0 +1,106 @@
+.rechoice {
+  &__heading {
+    margin-bottom: 24px;
+  }
+
+  fieldset {
+    margin-bottom: 32px;
+
+    .text-20 {
+      margin-bottom: 24px;
+    }
+
+    .inputs-wrapper {
+      &--checkboxes {
+        display: flex;
+        flex-direction: column;
+
+        label:not(:last-child) {
+          margin-bottom: 26px;
+        }
+
+        input[type="checkbox"] {
+          opacity: 0;
+        }
+
+        span {
+          position: relative;
+          font-size: 18px;
+          font-weight: 400;
+          line-height: 1.2;
+          padding-left: 40px;
+
+          &::before {
+            position: absolute;
+            content: "";
+            width: 18px;
+            height: 18px;
+            top: 50%;
+            transform: translateY(-50%);
+            left: 0;
+            border-radius: 2px;
+            border: 2px solid $color-nero;
+          }
+        }
+
+        input[type="checkbox"]:checked+span::before {
+          border-color: $color-jade;
+          background: $color-jade url("../img/svg/check-small.svg") center no-repeat;
+        }
+      }
+
+      &--radio {
+        display: flex;
+        align-items: center;
+        max-width: fit-content;
+        height: 40px;
+        border: 1px solid $color-jade;
+        border-radius: 38px;
+        overflow: hidden;
+
+        input[type="radio"] {
+          position: absolute;
+          width: 1px;
+          height: 1px;
+        }
+
+        label {
+          padding: 10px 12px;
+          display: flex;
+          align-items: center;
+          cursor: pointer;
+
+          svg {
+            display: none;
+          }
+        }
+
+        input[type="radio"]:checked+label svg {
+          display: inline-block;
+          margin-right: 8px;
+        }
+
+        .divider {
+          height: 100%;
+          width: 1px;
+          background-color: $color-jade;
+        }
+      }
+
+      input[type="radio"]:checked+label {
+        color: $color-default-white;
+        background-color: $color-jade;
+      }
+    }
+  }
+
+  &__submit-btn,
+  &__back-btn {
+    padding: 16px 24px;
+    margin-top: 48px;
+  }
+
+  &__back-btn {
+    margin-right: 56px;
+  }
+}

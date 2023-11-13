@@ -1,0 +1,19 @@
+.faq {
+  .container {
+    padding-top: 87px;
+    padding-bottom: 41px;
+  }
+
+  .title {
+    margin-bottom: 40px;
+  }
+
+  &__question {
+    margin-bottom: 24px;
+  }
+
+  &__answer {
+    margin-bottom: 64px;
+    max-width: 60%;
+  }
+}

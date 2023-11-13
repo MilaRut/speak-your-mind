@@ -1,0 +1,81 @@
+.settings {
+  &__heading {
+    display: flex;
+    align-items: center;
+    gap: 32px;
+    margin-bottom: 23px;
+
+  }
+
+  &__username {
+    font-size: 39px;
+    font-weight: 400;
+    line-height: 1;
+  }
+
+  &__edit-avatar {
+    font-size: 13px;
+    font-weight: 400;
+    line-height: 1;
+  }
+
+  &__description {
+    max-width: 70%;
+    margin-bottom: 60px;
+  }
+
+  &__userinfo {
+    margin-bottom: 60px;
+
+    fieldset {
+      display: flex;
+      flex-direction: column;
+    }
+
+    label {
+      display: flex;
+      align-items: center;
+      margin-bottom: 61px;
+
+      span {
+        display: inline-block;
+        min-width: 180px;
+        margin-right: 56px;
+      }
+    }
+
+    input {
+      display: block;
+      max-width: fit-content;
+    }
+
+    input[readonly] {
+      border: none;
+    }
+
+    input[id="age"] {
+      width: 100px;
+      height: 44px;
+      padding: 11px 10px;
+      border: 1px solid $color-nero;
+      background: $color-default-white;
+      box-shadow: 0 0 10px 0 rgba(82, 162, 255, 0.75) inset;
+    }
+  }
+
+  &__edit-btn {
+    background-color: transparent;
+    border: none;
+    font-size: 13px;
+    font-weight: 400;
+    line-height: 1;
+  }
+
+  &__submit-btn {
+    padding: 16px 30px;
+  }
+
+  &__doctor-heading {
+    margin-bottom: 23px;
+  }
+}

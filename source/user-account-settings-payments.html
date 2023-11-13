@@ -1,29 +1,145 @@
 <!DOCTYPE html>
 <html lang="ru">
-  <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="description" content="Описание проекта">
-    <title>ProjectName</title>
-    <link rel="stylesheet" href="css/style.min.css">
-  </head>
-  <body>
-    <div class="wrapper">
-      <header>
-        <div class="container"></div>
-      </header>
-      <main>
-        <section class="intro">
-          <div class="container">
-            <h1>Тестовая страница.</h1>
-            <p>На данной странице показан пример модальных окон.</p>
-            <p>Перед началом разработки не забудьте удалить всё содержимое &#8249;main&#8250;&#8249;&#8260;main&#8250;.</p>
-            <p><a class="btn" href="#" data-open-modal="feedback">modal--feedback link</a></p>
-            <p><a class="btn" href="#" data-open-modal="success">modal--success link</a></p>
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="widtr=device-widtr, initial-scale=1.0">
+  <meta name="description" content="Speak your mind">
+  <title>Speak your mind</title>
+  <link rel="icon" type="image/x-icon" href="./favicon.ico">
+  <link rel="icon" type="image/png" sizes="32x32" href="./img/favicon/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="./img/favicon/favicon-16x16.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="./img/favicon/apple-touch-icon.png">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.css">
+  <link rel="stylesheet" href="css/style.min.css">
+</head>
+
+<body>
+  <div class="wrapper user-logged">
+    <header class="header">
+      <div class="container">
+        <div class="header__logo">
+          <div class="header__logo-wrapper">
+            <img src="./img/svg/logo.svg" width="182" height="44" alt="Speak your mind.">
           </div>
-        </section>
-      </main>
+        </div>
+        <nav class="header__nav nav">
+          <div class="nav__wrapper">
+            <ul class="nav__list">
+              <li class="nav__item nav__item--psychologists">
+                <a class="nav__link" href="#">Для психологов</a>
+              </li>
+              <li class="nav__item nav__item--businnes">
+                <a class="nav__link" href="#">Для бизнеса</a>
+              </li>
+              <li class="nav__item">
+                <a class="nav__link" href="faq.html">FAQ</a>
+              </li>
+              <li class="nav__item">
+                <a class="nav__link" href="#">Контакты</a>
+              </li>
+            </ul>
+          </div>
+        </nav>
+        <div class="header__unlogged unlogged">
+          <a class="unlogged__login-btn btn" href="login.html">Вход
+          </a>
+          <a class="unlogged__signup-btn btn btn--white" href="signup-start.html">Регистрация
+          </a>
+        </div>
+        <div class="header__lang-switcher lang-switcher">
+          <button class="lang-switcher__btn">
+            <span>Русский</span>
+            <svg width="10" height="10" fill="currentColor">
+              <use xlink:href="./img/sprite.svg#dropdown"></use>
+            </svg>
+          </button>
+        </div>
+        <div class="header__logged logged">
+          <div class="logged__wrapper">
+            <div class="logged__user-thumb">
+              <img src="./img/content/user-thumb.png" width="24" height="24" alt="">
+            </div>
+            <button class="logged__btn">
+              <span class="logged__username">Александр</span>
+              <svg width="10" height="10" fill="currentColor">
+                <use xlink:href="./img/sprite.svg#dropdown"></use>
+              </svg>
+            </button>
+          </div>
+        </div>
+      </div>
+    </header>
+    <main>
+      <section class="user-account">
+        <div class="container">
+          <div class="user-account__wrapper">
+            <div class="user-account__left-col">
+              <ul class="user-account__tabs-list list-reset">
+                <li class="user-account__item">
+                  <a href="user-account-confirmed.html">Главная</a>
+                </li>
+                <li class="user-account__item">
+                  <a href="user-account-settings-main.html">Настройки</a>
+                </li>
+                <li class="user-account__item is-active">
+                  <a href="user-account-settings-payments.html">Платежи</a>
+                </li>
+              </ul>
+            </div>
+            <div class="user-account__right-col payments">
+              <div class="payments__heading">
+                <h2 class="text-25">Способы оплаты</h2>
+              </div>
+              <div class="payments__card">
+                <p class="payments__card-info">Оплата производится с карты <span>4276 55ХХ ХХХХ 3200</span></p>
+              </div>
+              <button class="payments__btn btn btn--white" data-open-modal data-modal-id="#new-card-popup">Привязать
+                другую карту</button>
+              <div class="payments__heading">
+                <h2 class="text-25">История платежей</h2>
+              </div>
+              <div class="payments__history">
+                <table>
+                  <tr>
+                    <th>No</th>
+                    <th>Сессия </th>
+                    <th>Сумма</th>
+                    <th>Холд</th>
+                    <th>Списание</th>
+                    <th>Статус</th>
+                  </tr>
+                  <tr>
+                    <td><span class="payments__transaction-number">25262740</span></td>
+                    <td><span class="payments__doctor-name text-green">Олеся Парада</span><br>Сессия <span
+                        class="payments__session-time"><time>06 июля,
+                          20:00</time></span></td>
+                    <td><span class="payments__sum">10000 HUF</span></td>
+                    <td><span class="payments__hold"><time>06 июля,
+                          07:59</time></span> запланировано</td>
+                    <td>-</td>
+                    <td><span class="payments__status">К оплате</span></td>
+                  </tr>
+                  <tr>
+                    <td><span class="payments__transaction-number">25262740</span></td>
+                    <td><span class="payments__doctor-name text-green">Олеся Парада</span><br>Сессия <span
+                        class="payments__session-time"><time>06 июля,
+                          20:00</time></span></td>
+                    <td><span class="payments__sum">10000 HUF</span></td>
+                    <td><span class="payments__hold"><time>06 июля,
+                          07:59</time></span> запланировано</td>
+                    <td>-</td>
+                    <td><span class="payments__status">К оплате</span></td>
+                  </tr>
+                </table>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+    </main>
     <footer class="footer">
       <div class="container">
         <div class="footer__copyright">
@@ -33,38 +149,55 @@
         </div>
       </div>
     </footer>
-    </div>
+  </div>
 
-    <!-- Модалки -->
-    <div class="modal modal--preload" data-modal="feedback">
-      <div class="modal__wrapper">
-        <div class="modal__overlay" data-close-modal></div>
-        <div class="modal__content">
-          <p class="modal__description">Обычная модалка</p>
-          <button class="modal__close-btn btn-reset" type="button" aria-label="Закрыть попап" data-close-modal>
-            <svg width="15" height="15">
-              <use xlink:href="img/sprite.svg#icon-close"></use>
-            </svg>
-          </button>
+  <div class="modal modal--preload" id="new-card-popup">
+    <div class="modal__wrapper">
+      <div class="modal__overlay" data-close-modal></div>
+      <div class="modal__content modal__content--new-card">
+        <button class="modal__close-btn" type="button" aria-label="Закрыть окно." data-close-modal>
+          <svg width="32" height="32" fill="currentColor">
+            <use xlink:href="./img/sprite.svg#close-modal"></use>
+          </svg>
+        </button>
+        <h2 class="modal__title text-31">Привязать карту</h2>
+        <div class="card">
+          <div class="card__card-info">
+            <form action="" method="post">
+              <fieldset>
+                <label for="card-owner">
+                  <span>Имя владельца карты</span>
+                  <input type="text" id="card-owner" placeholder="Имя на лицевой стороне карты">
+                </label>
+              </fieldset>
+              <fieldset>
+                <label for="card-number">
+                  <span>Номер карты</span>
+                  <input type="number" id="card-number" placeholder="x x x x    x x x x    x x x x    x x x x">
+                </label>
+              </fieldset>
+              <fieldset>
+                <label for="card-exp">
+                  <span>Срок действия</span>
+                  <input type="number" id="card-owner" placeholder="m m  /  y y">
+                </label>
+                <label for="card-cvc">
+                  <span>Код CVС</span>
+                  <input type="number" id="card-cvc" maxlength="3" placeholder="x x x">
+                </label>
+              </fieldset>
+              <p class="card__permission text-18">
+                Добавляя карту вы принимаете <a href="#" class="text-green">условия сервиса</a>
+              </p>
+              <button type="submit" class="card__submit-btn btn">Добавить карту</button>
+            </form>
+          </div>
         </div>
       </div>
     </div>
+  </div>
+  <script src="js/vendor.min.js"></script>
+  <script src="js/main.min.js"></script>
+</body>
 
-    <div class="modal modal--preload modal--fit-content modal--no-scale" data-modal="success">
-      <div class="modal__wrapper">
-        <div class="modal__overlay" data-close-modal></div>
-        <div class="modal__content">
-          <p class="modal__description">Размер этой модалки зависит от ширины контента,<br> отключена анимация-скейл</p>
-          <button class="modal__close-btn btn-reset" type="button" aria-label="Закрыть попап" data-close-modal>
-            <svg width="15" height="15">
-              <use xlink:href="img/sprite.svg#icon-close"></use>
-            </svg>
-          </button>
-        </div>
-      </div>
-    </div>
-
-    <script src="js/vendor.min.js"></script>
-    <script src="js/main.min.js"></script>
-  </body>
 </html>
