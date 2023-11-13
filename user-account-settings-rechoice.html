@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Speak your mind">
+  <title>Speak your mind</title>
+  <link rel="icon" type="image/x-icon" href="./favicon.ico">
+  <link rel="icon" type="image/png" sizes="32x32" href="./img/favicon/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="./img/favicon/favicon-16x16.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="./img/favicon/apple-touch-icon.png">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.css">
+  <link rel="stylesheet" href="css/style.min.css">
+</head>
+
+<body>
+  <div class="wrapper user-logged">
+    <header class="header">
+      <div class="container">
+        <div class="header__logo">
+          <div class="header__logo-wrapper">
+            <img src="./img/svg/logo.svg" width="182" height="44" alt="Speak your mind.">
+          </div>
+        </div>
+        <nav class="header__nav nav">
+          <div class="nav__wrapper">
+            <ul class="nav__list">
+              <li class="nav__item nav__item--psychologists">
+                <a class="nav__link" href="#">Для психологов</a>
+              </li>
+              <li class="nav__item nav__item--businnes">
+                <a class="nav__link" href="#">Для бизнеса</a>
+              </li>
+              <li class="nav__item">
+                <a class="nav__link" href="faq.html">FAQ</a>
+              </li>
+              <li class="nav__item">
+                <a class="nav__link" href="#">Контакты</a>
+              </li>
+            </ul>
+          </div>
+        </nav>
+        <div class="header__unlogged unlogged">
+          <a class="unlogged__login-btn btn" href="login.html">Вход
+          </a>
+          <a class="unlogged__signup-btn btn btn--white" href="signup-start.html">Регистрация
+          </a>
+        </div>
+        <div class="header__lang-switcher lang-switcher">
+          <button class="lang-switcher__btn">
+            <span>Русский</span>
+            <svg width="10" height="10" fill="currentColor">
+              <use xlink:href="./img/sprite.svg#dropdown"></use>
+            </svg>
+          </button>
+        </div>
+        <div class="header__logged logged">
+          <div class="logged__wrapper">
+            <div class="logged__user-thumb">
+              <img src="./img/content/user-thumb.png" width="24" height="24" alt="">
+            </div>
+            <button class="logged__btn">
+              <span class="logged__username">Александр</span>
+              <svg width="10" height="10" fill="currentColor">
+                <use xlink:href="./img/sprite.svg#dropdown"></use>
+              </svg>
+            </button>
+          </div>
+        </div>
+      </div>
+    </header>
+    <main>
+      <section class="user-account">
+        <div class="container">
+          <div class="user-account__wrapper">
+            <div class="user-account__left-col">
+              <ul class="user-account__tabs-list list-reset">
+                <li class="user-account__item">
+                  <a href="user-account-confirmed.html">Главная</a>
+                </li>
+                <li class="user-account__item is-active">
+                  <a href="user-account-settings-main.html">Настройки</a>
+                </li>
+                <li class="user-account__item">
+                  <a href="user-account-settings-payments.html">Платежи</a>
+                </li>
+              </ul>
+            </div>
+            <div class="user-account__right-col rechoice">
+              <div class="rechoice__heading">
+                <h2 class="text-31">Смена терапевта</h2>
+              </div>
+              <div class="rechoice__form">
+                <form action="" method="post">
+                  <fieldset>
+                    <p class="text-20">Укажите, пожалуйста, причину смены терапевта. Эта информация не видна терапевту и
+                      позволит нам улучшить работу сервиса</p>
+                    <div class="inputs-wrapper inputs-wrapper--checkboxes">
+                      <label>
+                        <input type="checkbox" id="rechoice-1" name="rechoice-1">
+                        <span>Не возникло ощущения, что меня слышат, понимают</span>
+                      </label>
+                      <label>
+                        <input type="checkbox" id="rechoice-2" name="rechoice-2" checked>
+                        <span>Психолог опоздал на сессию</span>
+                      </label>
+                      <label>
+                        <input type="checkbox" id="rechoice-3" name="rechoice-3">
+                        <span>Психолог не объяснил, как будет строиться наша с ним работа</span>
+                      </label>
+                      <label>
+                        <input type="checkbox" id="rechoice-4" name="rechoice-4">
+                        <span>Не подошли условия психолога</span>
+                      </label>
+                      <label>
+                        <input type="checkbox" id="rechoice-4" name="rechoice-4">
+                        <span>У психолога не оказалось удобного времени</span>
+                      </label>
+                      <label>
+                        <input type="checkbox" id="rechoice-4" name="rechoice-4">
+                        <span>Психолог все время молчал</span>
+                      </label>
+                      <label>
+                        <input type="checkbox" id="rechoice-4" name="rechoice-4">
+                        <span>Психолог много говорил, мы не успели обсудить мой запрос</span>
+                      </label>
+                      <label>
+                        <input type="checkbox" id="rechoice-4" name="rechoice-4">
+                        <span>Не чувствую результат</span>
+                      </label>
+                      <label>
+                        <input type="checkbox" id="rechoice-4" name="rechoice-4">
+                        <span>Сессии не было</span>
+                      </label>
+                      <label>
+                        <input type="checkbox" id="rechoice-4" name="rechoice-4">
+                        <span>Проблема решена</span>
+                      </label>
+                      <label>
+                        <input type="checkbox" id="rechoice-4" name="rechoice-4">
+                        <span>Другое</span>
+                      </label>
+                    </div>
+                  </fieldset>
+                  <fieldset>
+                    <p class="text-20">Расскажите подробнее</p>
+                    <textarea name="rechoice-comment" id="rechoice-comment" cols="50" rows="5"></textarea>
+                  </fieldset>
+                  <fieldset>
+                    <p class="text-20">Как бы вы хотели продолжить</p>
+                    <div class="inputs-wrapper inputs-wrapper--radio">
+                      <input type="radio" id="contact-call" name="contact" value="contact-call">
+                      <label for="contact-call">
+                        <svg width="18" height="18" fill="currentColor">
+                          <use xlink:href="./img/sprite.svg#check-mark"></use>
+                        </svg>
+                        <span class="text-14">Звонок</span>
+                      </label>
+                      <div class="divider"></div>
+                      <input type="radio" id="contact-email" name="contact" value="contact-email">
+                      <label for="contact-email">
+                        <svg width="18" height="18" fill="currentColor">
+                          <use xlink:href="./img/sprite.svg#check-mark"></use>
+                        </svg>
+                        <span class="text-14">Email</span>
+                      </label>
+                      <div class="divider"></div>
+                      <input type="radio" id="contact-whatsapp" name="contact" value="contact-whatsapp">
+                      <label for="contact-whatsapp">
+                        <svg width="18" height="18" fill="currentColor">
+                          <use xlink:href="./img/sprite.svg#check-mark"></use>
+                        </svg>
+                        <span class="text-14">WhatsApp</span>
+                      </label>
+                      <div class="divider"></div>
+                      <input type="radio" id="contact-no" name="contact" value="contact-no">
+                      <label for="contact-no">
+                        <svg width="18" height="18" fill="currentColor">
+                          <use xlink:href="./img/sprite.svg#check-mark"></use>
+                        </svg>
+                        <span class="text-14">Не нужно</span>
+                      </label>
+                    </div>
+                  </fieldset>
+                  <a href="user-account-settings-main.html" class="rechoice__back-btn btn btn--white">Вернуться
+                    назад</a>
+                  <button type="submit" class="rechoice__submit-btn btn">Сменить терапевта</button>
+                </form>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+    </main>
+    <footer class="footer">
+      <div class="container">
+        <div class="footer__copyright">
+          <span>&copy;</span>
+          <span>Speak Your Mind</span>
+          <span>2023</span>
+        </div>
+      </div>
+    </footer>
+  </div>
+  <script src="js/vendor.min.js"></script>
+  <script src="js/main.min.js"></script>
+</body>
+
+</html>
