@@ -115,37 +115,28 @@
       </div>
     </header>
     <main>
-      <section class="signup">
+      <section class="login">
         <div class="container">
-          <div class="signup__wrapper">
-            <div class="signup__heading">
-              <h1 class="subtitle">Создайте аккаунт</h1>
+          <div class="login__wrapper">
+            <div class="login__heading">
+              <h1 class="title">Восстановить пароль</h1>
             </div>
-            <form action="" method="post">
+            <form action="" method="post" id="pass-restore-form">
               <fieldset>
                 <label>
-                  <span class="text-20">Как вас зовут</span>
-                  <input type="text" name="username" id="username" placeholder="Ваше имя">
-                </label>
-                <label>
-                  <span class="text-20">Ваш email</span>
-                  <input type="email" name="email" id="email" placeholder="Ваш email">
-                </label>
-                <label>
-                  <span class="text-20">Придумайте пароль</span>
-                  <input type="password" name="password" id="password" placeholder="Пароль">
-                  <button type="button" class="show-password-btn">Показать пароль</button>
+                  <input type="text" placeholder="Ваш email">
                 </label>
               </fieldset>
-              <div class="signup__btn-wrapper">
-                <button type="submit" class="signup__btn btn">Далее</button>
+              <div class="login__btn-wrapper">
+                <button type="submit" class="login__btn btn">Восстановить пароль</button>
               </div>
             </form>
-            <div class="signup__links-wrapper">
+            <div class="login__links-wrapper">
               <p class="text-18">
-                <span>У вас уже есть аккаунт?</span>
-                <a href="login.html" class="signup__signup-link text-green">Войти</a>
+                <span>Нет аккаунта?</span>
+                <a href="signup-start.html" class="login__signup-link text-green">Зарегистрироваться</a>
             </div>
+            </p>
           </div>
         </div>
       </section>
