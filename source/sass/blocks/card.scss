@@ -88,6 +88,14 @@
     font-weight: 400;
   }
 
+  &__description-wrapper {
+    display: none;
+
+    &.is-active {
+      display: block;
+    }
+  }
+
   .text-error {
     display: flex;
     align-items: center;

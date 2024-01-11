@@ -125,4 +125,30 @@
   &__title {
     margin-bottom: 40px;
   }
+
+  &__text {
+    margin-bottom: 24px;
+  }
+}
+
+.doctor-reschedule {
+  width: 840px;
+  padding: 24px 40px;
+
+  .doctor__day-wrapper {
+    fieldset {
+      max-width: 100%;
+    }
+  }
+
+  .doctor__expand-btn {
+    margin-bottom: 31px;
+  }
+
+  .doctor__submit-btn {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
 }

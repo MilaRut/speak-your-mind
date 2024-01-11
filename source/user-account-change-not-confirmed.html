@@ -28,7 +28,7 @@
           <div class="nav__wrapper">
             <ul class="nav__list">
               <li class="nav__item nav__item--psychologists">
-                <a class="nav__link" href="#">Для психологов</a>
+                <a class="nav__link" href="doctor-landing.html">Для психологов</a>
               </li>
               <li class="nav__item nav__item--businnes">
                 <a class="nav__link" href="#">Для бизнеса</a>
@@ -43,30 +43,88 @@
           </div>
         </nav>
         <div class="header__unlogged unlogged">
-          <a class="unlogged__login-btn btn" href="login.html">Вход
+          <a class="unlogged__login-btn btn" href="user-login.html">Вход
           </a>
-          <a class="unlogged__signup-btn btn btn--white" href="signup-start.html">Регистрация
+          <a class="unlogged__signup-btn btn btn--white" href="user-signup-start.html">Регистрация
           </a>
         </div>
         <div class="header__lang-switcher lang-switcher">
-          <button class="lang-switcher__btn">
+          <button class="lang-switcher__btn js-dropdown-trigger" data-id="#lang-switcher">
             <span>Русский</span>
             <svg width="10" height="10" fill="currentColor">
               <use xlink:href="./img/sprite.svg#dropdown"></use>
             </svg>
           </button>
+          <ul class="lang-switcher__list list-reset" id="lang-switcher">
+            <li class="lang-switcher__item">
+              <a href="#">Hu</a>
+            </li>
+            <li class="lang-switcher__item">
+              <a href="#">En</a>
+            </li>
+            <li class="lang-switcher__item">
+              <a href="#">Ru</a>
+            </li>
+          </ul>
         </div>
         <div class="header__logged logged">
           <div class="logged__wrapper">
             <div class="logged__user-thumb">
               <img src="./img/content/user-thumb.png" width="24" height="24" alt="">
             </div>
-            <button class="logged__btn">
+            <button class="logged__btn js-dropdown-trigger" data-id="#logged-menu">
               <span class="logged__username">Александр</span>
               <svg width="10" height="10" fill="currentColor">
                 <use xlink:href="./img/sprite.svg#dropdown"></use>
               </svg>
             </button>
+            <ul class="logged__menu-list list-reset" id="logged-menu">
+              <li class="logged__menu-item logged__menu-item--user">
+                <a href="#">Главная</a>
+              </li>
+              <li class="logged__menu-item logged__menu-item--user">
+                <a href="#">Записаться</a>
+              </li>
+              <li class="logged__menu-item logged__menu-item--user">
+                <a href="#">Настройки</a>
+              </li>
+              <li class="logged__menu-item logged__menu-item--user">
+                <a href="#">Платежи</a>
+              </li>
+              <li class="logged__menu-item logged__menu-item--user">
+                <a href="#">Абонемент на сессии</a>
+              </li>
+              <li class="logged__menu-item logged__menu-item--user">
+                <a href="#">Подарочные сертификаты</a>
+              </li>
+              <li class="logged__menu-item logged__menu-item--user">
+                <a href="#">Служба поддержки</a>
+              </li>
+              <li class="logged__menu-item logged__menu-item--user">
+                <a href="#">Психологические тесты</a>
+              </li>
+              <li class="logged__menu-item logged__menu-item--user">
+                <a href="#">Вопросы-ответы</a>
+              </li>
+              <li class="logged__menu-item logged__menu-item--doctor">
+                <a href="#">Профиль</a>
+              </li>
+              <li class="logged__menu-item logged__menu-item--doctor">
+                <a href="#"> Опыт и образование</a>
+              </li>
+              <li class="logged__menu-item logged__menu-item--doctor">
+                <a href="#"> Метод и специализация</a>
+              </li>
+              <li class="logged__menu-item logged__menu-item--doctor">
+                <a href="#">Стоимость сессии</a>
+              </li>
+              <li class="logged__menu-item logged__menu-item--doctor">
+                <a href="#">Настройки</a>
+              </li>
+              <li class="logged__menu-item">
+                <a href="#">Выйти</a>
+              </li>
+            </ul>
           </div>
         </div>
       </div>
@@ -77,9 +135,15 @@
           <div class="user-account__wrapper">
             <div class="user-account__left-col">
               <ul class="user-account__tabs-list list-reset">
-                <li class="user-account__item is-active">Главная</li>
-                <li class="user-account__item">Настройки</li>
-                <li class="user-account__item">Платежи</li>
+                <li class="user-account__item is-active">
+                  <a href="user-account-confirmed.html">Главная</a>
+                </li>
+                <li class="user-account__item">
+                  <a href="user-account-settings-main.html">Настройки</a>
+                </li>
+                <li class="user-account__item">
+                  <a href="user-account-settings-payments.html">Платежи</a>
+                </li>
               </ul>
             </div>
             <div class="user-account__right-col">

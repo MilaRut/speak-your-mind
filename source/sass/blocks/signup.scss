@@ -24,6 +24,7 @@
   }
 
   label {
+    position: relative;
     display: flex;
     justify-content: space-between;
     width: 100%;
@@ -56,19 +57,46 @@
 }
 
 .signup-header {
+  .container {
+    padding-top: 44px;
+  }
+
   &__tabs {
     margin-bottom: 40px;
   }
 
-  &__tabs &__tabs-link {
+  &__tabs &__tab {
     display: inline-block;
     min-width: 304px;
+    background-color: $color-transparent;
+    border: none;
+    border-bottom: 3px solid $color-transparent;
     color: $color-jade;
     text-align: center;
+    padding-bottom: 5px;
+    transition: all 0.5s ease-in;
   }
 
-  &__tabs &__tabs-link.is-active {
+  &__tabs &__tab:hover {
+    border-bottom: 3px solid $color-jade;
+    transition: all 0.5s ease-in;
+  }
+
+  &__tabs &__tab.is-active {
     color: $color-default-black;
     border-bottom: 3px solid $color-jade;
+    transition: all 0.5s ease-in;
   }
+}
+
+.show-password-btn {
+  position: absolute;
+  top: 10px;
+  right: -120px;
+  background-color: transparent;
+  border: none;
+  font-size: 13px;
+  line-height: 1;
+  color: $color-jade;
+  cursor: pointer;
 }

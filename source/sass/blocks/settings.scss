@@ -13,10 +13,12 @@
     line-height: 1;
   }
 
-  &__edit-avatar {
+  &__edit-avatar-btn {
     font-size: 13px;
     font-weight: 400;
     line-height: 1;
+    background-color: transparent;
+    border: none;
   }
 
   &__description {
@@ -33,6 +35,7 @@
     }
 
     label {
+      position: relative;
       display: flex;
       align-items: center;
       margin-bottom: 61px;
@@ -49,8 +52,20 @@
       max-width: fit-content;
     }
 
+    input[id="email"],
+    input[id="password"] {
+      padding: 4px 10px;
+      border: 1px solid $color-nero;
+      background: $color-default-white;
+      box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.25) inset;
+      font-size: 20px;
+      font-weight: 400;
+      line-height: 1;
+    }
+
     input[readonly] {
-      border: none;
+      border: 1px solid transparent;
+      box-shadow: none;
     }
 
     input[id="age"] {
@@ -60,6 +75,11 @@
       border: 1px solid $color-nero;
       background: $color-default-white;
       box-shadow: 0 0 10px 0 rgba(82, 162, 255, 0.75) inset;
+    }
+
+    .show-password-btn {
+      top: 40px;
+      right: 740px;
     }
   }
 
@@ -77,5 +97,306 @@
 
   &__doctor-heading {
     margin-bottom: 23px;
+  }
+}
+
+.doctor-account {
+  .settings {
+    &__heading {
+      flex-direction: column;
+      align-items: flex-start;
+    }
+
+    &__user-view {
+      label {
+        pointer-events: none;
+      }
+    }
+
+    &__user-view-btn,
+    &__doctor-name {
+      display: inline;
+      background-color: $color-transparent;
+      border: none;
+      font-weight: 700;
+      padding: 0;
+    }
+
+    &__form {
+      h3 {
+        margin-bottom: 32px;
+      }
+    }
+
+    &__input-wrapper {
+      margin-bottom: 32px;
+      display: grid;
+      grid-template-columns: 300px 1fr;
+      column-gap: 16px;
+
+      &.pt25 {
+        padding-top: 25px;
+      }
+
+      &.pb40 {
+        padding-bottom: 40px;
+      }
+    }
+
+    &__avatar-wrapper {
+      display: flex;
+      align-items: center;
+    }
+
+    label {
+      position: relative;
+      display: flex;
+      align-items: center;
+    }
+
+    input {
+      position: relative;
+      padding: 5px 10px;
+
+      &:not([readonly]) {
+        border: 1px solid $color-nero;
+        background: $color-default-white;
+        box-shadow: 0px 0px 10px 0px rgba(123, 97, 255, 0.25) inset;
+      }
+    }
+
+    &__input-birthday {
+      display: flex;
+      align-items: center;
+    }
+
+    #doctor-name,
+    #doctor-gender {
+      min-width: 350px;
+    }
+
+    #doctor-birth-day {
+      width: 37px;
+      height: 32px;
+    }
+
+    select {
+      width: 100px;
+      height: 32px;
+      border: 1px solid $color-nero;
+      background: $color-default-white;
+      box-shadow: 0px 0px 10px 0px rgba(123, 97, 255, 0.25) inset;
+    }
+
+    #doctor-birth-month {
+      margin: 0 16px;
+    }
+
+    #doctor-birth-year {
+      width: 60px;
+      height: 32px;
+    }
+
+    #doctor-birth-day,
+    #doctor-birth-month {
+      text-align: center;
+    }
+
+    input[readonly] {
+      border: 1px solid $color-dark-gray;
+      background: $color-whisper;
+      color: $color-dark-gray;
+    }
+
+    input[readonly]+svg {
+      display: none;
+    }
+
+    &__tooltip {
+      display: none;
+      color: $color-default-black;
+      text-align: center;
+      font-size: 13px;
+      font-weight: 400;
+      line-height: 1;
+      padding: 7px 10px;
+      background-color: $color-dark-gray;
+      margin-left: -2px;
+    }
+
+    input[readonly]:hover+svg,
+    input[readonly]:hover~.settings__tooltip {
+      display: inline-block;
+    }
+
+    #doctor-start {
+      width: 148px;
+    }
+
+    &__textarea-wrapper {
+      width: 100%;
+
+      textarea {
+        width: 100%;
+        margin-bottom: 24px;
+      }
+    }
+
+    hr {
+      margin: 0;
+      margin-bottom: 32px;
+      border-bottom: none;
+      color: $color-dark-gray;
+    }
+
+    &__checkboxes,
+    &__radio {
+      display: flex;
+    }
+
+    &__checkboxes {
+      .inputs-wrapper {
+        display: flex;
+        flex-direction: column;
+        margin-right: 20px;
+      }
+
+      input[type="checkbox"] {
+        opacity: 0;
+      }
+
+      label {
+        margin-bottom: 30px;
+      }
+
+      span {
+        position: relative;
+        font-size: 18px;
+        font-weight: 400;
+        line-height: 1.2;
+        padding-left: 40px;
+
+        &::before {
+          position: absolute;
+          content: "";
+          width: 18px;
+          height: 18px;
+          top: 50%;
+          transform: translateY(-50%);
+          left: 0;
+          border-radius: 2px;
+          border: 2px solid $color-nero;
+        }
+      }
+
+      input[type="checkbox"]:checked+span::before {
+        border-color: $color-jade;
+        background: $color-jade url("../img/svg/check-small.svg") center no-repeat;
+      }
+    }
+
+    &__radio {
+      display: flex;
+      align-items: center;
+      max-width: fit-content;
+      height: 40px;
+      border: 1px solid $color-jade;
+      border-radius: 38px;
+      overflow: hidden;
+
+      input[type="radio"] {
+        position: absolute;
+        width: 1px;
+        height: 1px;
+      }
+
+      label {
+        min-width: 140px;
+        padding: 10px 12px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        cursor: pointer;
+
+        svg {
+          display: none;
+        }
+      }
+
+      input[type="radio"]:checked+label {
+        color: $color-default-white;
+        background-color: $color-jade;
+      }
+
+      input[type="radio"]:checked+label svg {
+        display: inline-block;
+        margin-right: 8px;
+      }
+    }
+
+    &__symptoms-title {
+      margin-bottom: 46px;
+    }
+
+    &__symptoms-wrapper {
+      padding-top: 6px;
+
+      p {
+        font-weight: 700;
+        margin-bottom: 25px;
+      }
+    }
+
+    &__symptoms-title {
+      margin-bottom: 46px;
+    }
+
+    &__edu {
+      margin-bottom: 56px;
+    }
+
+    &__edu-wrapper {
+      margin-top: 32px;
+
+      p {
+        border: 1px solid $color-dark-gray;
+        background: $color-whisper;
+        color: $color-dark-gray;
+      }
+    }
+
+    &__edu-year {
+      width: fit-content;
+      margin-bottom: 16px;
+      padding: 5px 10px;
+    }
+
+    &__edu-uni {
+      padding: 8px;
+    }
+
+    &__payment-info {
+      h3 {
+        margin-bottom: 23px;
+      }
+
+      p {
+        margin-bottom: 23px;
+      }
+    }
+
+    &__payment-btn {
+      margin-bottom: 32px;
+      padding: 8px 30px;
+      font-size: 20px;
+      font-weight: 700;
+      line-height: 1;
+    }
+
+    &__btn-wrapper {
+      display: flex;
+      justify-content: center;
+      margin-bottom: 4px;
+    }
   }
 }

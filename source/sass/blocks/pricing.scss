@@ -1,0 +1,30 @@
+.pricing {
+  &__tab-btns {
+    display: flex;
+    margin-bottom: 32px;
+  }
+
+  &__tab-btn {
+    width: 304px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 10px;
+    color: $color-jade;
+    border-bottom: 3px solid transparent;
+    cursor: pointer;
+
+    &.is-active {
+      color: $color-nero;
+      border-bottom: 3px solid $color-jade;
+    }
+  }
+
+  &__item {
+    margin-bottom: 32px;
+
+    p.text-20 {
+      margin-bottom: 8px;
+    }
+  }
+}

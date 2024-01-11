@@ -1,0 +1,28 @@
+.videochat {
+  &__heading {
+    margin-bottom: 34px;
+
+    span {
+      margin-left: 10px;
+    }
+  }
+
+  &__session-info {
+    height: 400px;
+  }
+
+  &__buttons-wrapper {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 24px;
+  }
+
+  &__btn {
+    padding: 8px 24px;
+
+    svg {
+      margin-right: 8px;
+    }
+  }
+}

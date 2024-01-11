@@ -1,0 +1,123 @@
+.doctor-account {
+  .container {
+    padding-top: 67px;
+    padding-bottom: 80px;
+  }
+
+  &__wrapper {
+    display: grid;
+    grid-template-columns: 173px auto;
+    gap: 60px;
+  }
+
+  &__tab {
+    color: $color-jade;
+    padding: 10px 8px;
+    font-size: 18px;
+    font-weight: 400;
+    line-height: 1.2;
+    background-color: $color-transparent;
+    border: none;
+    border-bottom: 3px solid $color-transparent;
+    width: 100%;
+    text-align: start;
+    transition: all 0.5s ease-in;
+
+    a {
+      color: $color-jade;
+    }
+  }
+
+  &__tab:hover {
+    border-bottom: 3px solid $color-jade;
+    transition: all 0.5s ease-in;
+  }
+
+  &__tab.is-active {
+    background: $color-humming-bird;
+    border-bottom: 3px solid $color-jade;
+    color: $color-default-black;
+    transition: all 0.5s ease-in;
+
+    a {
+      color: $color-nero;
+    }
+  }
+
+  &__heading {
+    margin-bottom: 48px;
+  }
+}
+
+// состояния кабинета
+
+.doctor-account__main {
+
+  .text-success,
+  .message_1,
+  .message_2,
+  .message_3,
+  .doctor-account__session-wrapper,
+  .doctor-account__session-change-wrapper {
+    display: none;
+  }
+}
+
+.doctor-account__main[data-utils="main-1-not-confirmed"] {
+
+  .text-success {
+    display: flex;
+  }
+
+  .message_1 {
+    display: block;
+  }
+}
+
+.doctor-account__settings[data-utils="settings-main-start"] {
+
+  .settings__payment-no-card,
+  .settings__payment-add-card {
+    display: block;
+  }
+
+  .settings__payment-card,
+  .settings__payment-change-card {
+    display: none;
+  }
+
+  .settings__user-view {
+    display: none;
+  }
+}
+
+.doctor-account__settings[data-utils="settings-main"] {
+  .settings__main-content {
+    display: block;
+  }
+
+  .settings__payment-no-card,
+  .settings__payment-add-card {
+    display: none;
+  }
+
+  .settings__payment-card,
+  .settings__payment-change-card {
+    display: block;
+  }
+
+  .settings__user-view {
+    display: none;
+  }
+}
+
+.doctor-account__settings[data-utils="settings-user-view"] {
+  .settings__main-content {
+    display: none;
+  }
+
+  .settings__user-view {
+    display: block;
+  }
+
+}

@@ -3,11 +3,20 @@
     margin-bottom: 24px;
   }
 
+  .text-20 {
+    margin-bottom: 24px;
+  }
+
   fieldset {
     margin-bottom: 32px;
 
-    .text-20 {
-      margin-bottom: 24px;
+    &.fieldset-row {
+      display: flex;
+      align-items: center;
+
+      span {
+        margin-right: 24px;
+      }
     }
 
     .inputs-wrapper {
@@ -65,9 +74,11 @@
         }
 
         label {
+          min-width: 140px;
           padding: 10px 12px;
           display: flex;
           align-items: center;
+          justify-content: center;
           cursor: pointer;
 
           svg {

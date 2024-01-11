@@ -87,3 +87,25 @@ fieldset {
   padding: 0;
   border: none;
 }
+
+button {
+  cursor: pointer;
+}
+
+[subtab-item],
+[tab-item] {
+  display: none;
+}
+
+[subtab-item].is-active,
+[tab-item].is-active {
+  display: block;
+}
+
+.other-input {
+  display: none;
+
+  &.is-active {
+    display: block;
+  }
+}

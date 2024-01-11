@@ -20,6 +20,8 @@
 // Blocks
 // ---------------------------------
 
+@import "blocks/modal";
+@import "blocks/btn";
 @import "blocks/header";
 @import "blocks/nav";
 @import "blocks/lang-switcher";
@@ -27,14 +29,12 @@
 @import "blocks/logged";
 @import "blocks/intro";
 @import "blocks/advantages";
+@import "blocks/terms";
 @import "blocks/help";
 @import "blocks/selection";
 @import "blocks/therapists";
 @import "blocks/guide";
 @import "blocks/footer";
-@import "blocks/modal";
-@import "blocks/btn";
-
 @import "blocks/login";
 @import "blocks/signup";
 @import "blocks/questions";
@@ -43,8 +43,17 @@
 @import "blocks/doctor";
 @import "blocks/card";
 @import "blocks/user-account";
+@import "blocks/session-info";
 @import "blocks/settings";
+@import "blocks/avatar-upload";
 @import "blocks/rechoice";
-@import "blocks/payments";
-
 @import "blocks/faq";
+@import "blocks/doc-questionary";
+@import "blocks/doctor-account";
+@import "blocks/sessions";
+@import "blocks/videochat";
+@import "blocks/schedule";
+@import "blocks/clients";
+@import "blocks/client-card";
+@import "blocks/payments";
+@import "blocks/pricing";

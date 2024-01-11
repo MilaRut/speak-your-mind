@@ -10,27 +10,46 @@
     gap: 80px;
   }
 
+  // TODO: удалить строку &__left-col &__item
+  &__tab,
   &__left-col &__item {
     color: $color-jade;
     padding: 10px 8px;
     font-size: 18px;
     font-weight: 400;
     line-height: 1.2;
+    background-color: $color-transparent;
+    border: none;
+    border-bottom: 3px solid $color-transparent;
+    width: 100%;
+    text-align: start;
+    transition: all 0.5s ease-in;
 
     a {
       color: $color-jade;
     }
   }
 
+  &__tab:hover {
+    border-bottom: 3px solid $color-jade;
+    transition: all 0.5s ease-in;
+  }
+
+  // TODO: удалить строку &__left-col &__item.is-active
+  &__tab.is-active,
   &__left-col &__item.is-active {
     background: $color-humming-bird;
     border-bottom: 3px solid $color-jade;
+    color: $color-default-black;
+    transition: all 0.5s ease-in;
 
     a {
       color: $color-nero;
     }
   }
 
+  // TODO: удалить строку  &__right-col
+  &__main,
   &__right-col {
     .title {
       margin-bottom: 40px;
@@ -89,34 +108,8 @@
     }
   }
 
-  &__session-info {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
+  .session-info {
     width: 800px;
-    height: 450px;
-    background: $color-whisper;
-
-    .icon {
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      width: 150px;
-      height: 150px;
-      border-radius: 50%;
-      border: 3px solid $color-dark-gray;
-      margin-bottom: 8px;
-    }
-
-    .text-18 {
-      font-weight: 700;
-      margin-bottom: 8px;
-    }
-
-    .date {
-      margin-bottom: 24px;
-    }
   }
 
   &__change-btn {
@@ -129,5 +122,140 @@
   .next-session,
   .requested-session {
     color: $color-dark-gray;
+  }
+}
+
+// состояния кабинета
+
+.user-account__main {
+
+  .text-success,
+  .message_1,
+  .message_2,
+  .message_3,
+  .user-account__session-wrapper,
+  .user-account__session-change-wrapper {
+    display: none;
+  }
+}
+
+.user-account__main[data-utils="main-1-not-confirmed"] {
+
+  .text-success {
+    display: flex;
+  }
+
+  .message_1 {
+    display: block;
+  }
+}
+
+.user-account__main[data-utils="main-1-confirmed"] {
+
+  .message_2,
+  .user-account__session-wrapper {
+    display: block;
+  }
+
+  .requested-session {
+    display: none;
+  }
+}
+
+.user-account__main[data-utils="main-not-confirmed"] {
+  .text-success {
+    display: none;
+  }
+
+  .message_1 {
+    display: block;
+  }
+}
+
+.user-account__main[data-utils="main-change-confirmed"],
+.user-account__main[data-utils="main-confirmed"] {
+
+  .text-success,
+  .message_2 {
+    display: none;
+  }
+
+  .user-account__session-wrapper {
+    display: block;
+  }
+
+  .requested-session {
+    display: none;
+  }
+}
+
+.user-account__main[data-utils="main-change"] {
+
+  .title,
+  .user-account__description {
+    display: none;
+  }
+
+  .user-account__session-change-wrapper {
+    display: block;
+  }
+}
+
+.user-account__main[data-utils="main-change-not-confirmed"] {
+  .message_3 {
+    display: block;
+  }
+
+  .user-account__session-wrapper {
+    display: block;
+  }
+
+  .user-account__change-btn {
+    display: none;
+  }
+
+  .requested-session {
+    display: block;
+  }
+
+  .next-session,
+  .requested-session {
+    color: $color-dark-gray;
+  }
+}
+
+.user-account__settings[data-utils="settings-main"] {
+
+  .settings__rechoice.rechoice-1,
+  .settings__rechoice.rechoice-2 {
+    display: none;
+  }
+}
+
+.user-account__settings[data-utils="settings-rechoice-1"] {
+  .settings__main {
+    display: none;
+  }
+
+  .settings__rechoice.rechoice-1 {
+    display: block;
+  }
+
+  .settings__rechoice.rechoice-2 {
+    display: none;
+  }
+}
+
+.user-account__settings[data-utils="settings-rechoice-2"] {
+  .settings__main {
+    display: none;
+  }
+
+  .settings__rechoice.rechoice-1 {
+    display: none;
+  }
+
+  .settings__rechoice.rechoice-2 {
+    display: block;
   }
 }

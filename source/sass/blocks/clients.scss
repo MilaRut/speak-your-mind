@@ -1,0 +1,58 @@
+.clients {
+  &__table {
+    table {
+      width: 100%;
+      border-collapse: collapse;
+    }
+
+    tr {
+      border-bottom: 1px solid $color-dark-gray;
+    }
+
+    th {
+      background-color: $color-humming-bird;
+      text-align: start;
+      font-weight: 400;
+      padding: 8px;
+    }
+
+    td {
+      vertical-align: top;
+      padding: 8px;
+    }
+  }
+
+  &__client-name {
+    cursor: pointer;
+    color: $color-jade;
+  }
+
+  &__actions-btn {
+    padding: 4px 8px;
+  }
+
+  &__item {
+    &--scheduled {
+      .clients__actions-btn {
+        background-color: $color-default-white;
+        border: 1px solid $color-jade;
+        color: $color-jade;
+      }
+    }
+
+    &--unapproved {
+      .clients__session-status {
+        font-weight: 700;
+      }
+
+      .clients__actions-btn {
+        opacity: 0.5;
+        background-color: $color-default-white;
+        border-radius: 8px;
+        border: 1px solid $color-whisper;
+        color: $color-whisper;
+        pointer-events: none;
+      }
+    }
+  }
+}

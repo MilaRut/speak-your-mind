@@ -43,9 +43,9 @@
           </div>
         </nav>
         <div class="header__unlogged unlogged">
-          <a class="unlogged__login-btn btn" href="login.html">Вход
+          <a class="unlogged__login-btn btn" href="user-login.html">Вход
           </a>
-          <a class="unlogged__signup-btn btn btn--white" href="signup-start.html">Регистрация
+          <a class="unlogged__signup-btn btn btn--white" href="user-signup-start.html">Регистрация
           </a>
         </div>
         <div class="header__lang-switcher lang-switcher">
@@ -76,9 +76,9 @@
         <div class="container">
           <div class="signup-header">
             <div class="signup-header__tabs">
-              <a class="signup-header__tabs-link text-18" href="#">Общие вопросы</a>
-              <a class="signup-header__tabs-link text-18" href="#">Выбор терапевта</a>
-              <a class="signup-header__tabs-link text-18 is-active" href="#">Запись и оплата</a>
+              <a class="signup-header__tab text-18" href="signup-main-questions.html">Общие вопросы</a>
+              <a class="signup-header__tab text-18" href="signup-choice.html">Выбор терапевта</a>
+              <a class="signup-header__tab text-18 is-active" href="#">Оплата</a>
             </div>
           </div>
 
@@ -87,24 +87,36 @@
             <p class="text-18">Запрос на назначение сессии на 15:00 6 июля отправлен терапевту Олесе Параде.</p>
           </div>
           <div class="card__description">
-            <p class="text-25">Что произойдет дальше?</p>
-            <p class="text-18">Терапевт подтвердит ваш запрос или предложит альтернативное время.</p>
-            <p class="text-18">Тем временем вам необходимо привязать к своему аккаунту банковскую карту. Деньги с нее
-              списываются только тогда, когда вы записались на сессию – ровно за 12 часов.</p>
-            <p class="text-25">Почему деньги списываются до оказания услуги?</p>
-            <p class="text-18">У консультации с психологом существуют свои законы, в том числе и те, что
-              регламентируют
-              денежные отношения между терапевтом и клиентом. Один из таких законов гласит, что сессия, которую клиент
-              пропускает, предупреждая об этом менее, чем за 12 часов, оплачивается. Это сделано для того, чтобы
-              внести
-              в психотерапию элемент дисциплины и избежать сопротивления, которое неизбежно возникает у клиента при
-              приближении к потайным уголкам его психики. В этом случае, он начинает пропускать сессии, придумывая для
-              того миллион причин – и, в итоге, никакой нормальной работы не получается, а получается одна ерунда. Вы
-              ведь этого не хотите? Вот и мы не хотим.</p>
-            <p class="text-25">Что делать, если у меня поменялись планы после списания денег?</p>
-            <p class="text-18">К сожалению, ничего – если вы предупреждаете о переносе сессии позже, чем за 12 часов
-              до
-              её начала, то деньги не возвращаются.</p>
+            <div class="card__description-wrapper is-active">
+              <p class="text-25">Что произойдет дальше?</p>
+              <p class="text-18">Терапевт подтвердит ваш запрос или предложит альтернативное время.</p>
+              <p class="text-18">Тем временем вам необходимо привязать к своему аккаунту банковскую карту. Деньги с нее
+                списываются только тогда, когда вы записались на сессию – ровно за 12 часов.</p>
+              <p class="text-25">Почему деньги списываются до оказания услуги?</p>
+              <p class="text-18">У консультации с психологом существуют свои законы, в том числе и те, что
+                регламентируют
+                денежные отношения между терапевтом и клиентом. Один из таких законов гласит, что сессия, которую клиент
+                пропускает, предупреждая об этом менее, чем за 12 часов, оплачивается. Это сделано для того, чтобы
+                внести
+                в психотерапию элемент дисциплины и избежать сопротивления, которое неизбежно возникает у клиента при
+                приближении к потайным уголкам его психики. В этом случае, он начинает пропускать сессии, придумывая для
+                того миллион причин – и, в итоге, никакой нормальной работы не получается, а получается одна ерунда. Вы
+                ведь этого не хотите? Вот и мы не хотим.</p>
+              <p class="text-25">Что делать, если у меня поменялись планы после списания денег?</p>
+              <p class="text-18">К сожалению, ничего – если вы предупреждаете о переносе сессии позже, чем за 12 часов
+                до
+                её начала, то деньги не возвращаются.</p>
+            </div>
+            <div class="card__description-wrapper">
+              <p class="text-error text-25">
+                <svg width="36" height="36" fill="currentColor">
+                  <use xlink:href="./img/sprite.svg#error"></use>
+                </svg>
+                <span>Произошла ошибка.</span>
+              </p>
+              <p class="text-18">Не удалось привязать карту. Проверьте данные карты и повторите попытку или привяжите
+                другую карту</p>
+            </div>
           </div>
           <div class="card__card-info">
             <form action="" method="post">
@@ -131,27 +143,51 @@
                 </label>
               </fieldset>
               <p class="card__permission text-18">
-                Добавляя карту вы принимаете <a href="#" class="text-green">условия сервиса</a> и разрешаете
-                <a href="#" class="text-green">автосписания</a>
+                Добавляя карту вы принимаете <a href="#" class="text-green" data-open-modal
+                  data-modal-id="#payment-terms">условия сервиса</a> и разрешаете
+                <a href="#" class="text-green" data-open-modal data-modal-id="#payment-terms">автосписания</a>
               </p>
               <button type="submit" class="card__submit-btn btn">Добавить карту</button>
             </form>
           </div>
         </div>
+      </section>
+    </main>
+    <footer class="footer">
+      <div class="container">
+        <div class="footer__copyright">
+          <span>&copy;</span>
+          <span>Speak Your Mind</span>
+          <span>2023</span>
+        </div>
+      </div>
+    </footer>
   </div>
-  </section>
 
-  </main>
-  <footer class="footer">
-    <div class="container">
-      <div class="footer__copyright">
-        <span>&copy;</span>
-        <span>Speak Your Mind</span>
-        <span>2023</span>
+  <div class="modal modal--preload" id="payment-terms">
+    <div class="modal__wrapper">
+      <div class="modal__overlay" data-close-modal></div>
+      <div class="modal__content modal__content--new-card">
+        <button class="modal__close-btn" type="button" aria-label="Закрыть окно." data-close-modal>
+          <svg width="32" height="32" fill="currentColor">
+            <use xlink:href="./img/sprite.svg#close-modal"></use>
+          </svg>
+        </button>
+        <h2 class="modal__title text-31">Условия сервиса и автосписания</h2>
+        <p class="modal__text text-18"> Пользователю доступна функция безналичной оплаты Видеоконсультаций, в этом
+          случае «Speak your mind» действует по поручению соответствующего Психолога с привлечением уполномоченной
+          платежной системы и является получателем платежа в качестве агента Психолога (далее – «безналичная оплата»).
+        </p>
+        <p class="modal__text text-18">«Speak your mind» не гарантирует отсутствия ошибок и сбоев в работе Сервиса в отношении предоставления
+          возможности безналичной оплаты. Списание денежных средств за Видеоконсультацию осуществляется за 24 часа до
+          момента проведения Видеоконсультации, а если Пользователь записался на Видеоконсультацию менее, чем за 24
+          часа, то списание осуществляется за 12 часов до Видеоконсультации или в момент записи на Видеоконсультацию, в
+          зависимости от того, что наступит ранее. В случае невозможности списания денежных средств за 12 часов до
+          проведения Видеоконсультации, Видеоконсультация подлежит отмене.</p>
       </div>
     </div>
-  </footer>
   </div>
+
   <script src="js/vendor.min.js"></script>
   <script src="js/main.min.js"></script>
 </body>

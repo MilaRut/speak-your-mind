@@ -1,0 +1,45 @@
+.client-card {
+  width: 800px;
+  padding: 29px 40px;
+
+  &__heading {
+    margin-bottom: 22px;
+  }
+
+  &__username {
+    margin-right: 15px;
+  }
+
+  &__info {
+    margin-bottom: 22px;
+    display: grid;
+    grid-template-columns: 150px 1fr;
+    column-gap: 16px;
+
+    span {
+      display: inline-block;
+    }
+
+    .client-card__info-subhead {
+      width: 150px;
+    }
+  }
+
+  &__btns-wrapper {
+    padding: 18px 0 40px;
+    display: flex;
+    justify-content: center;
+  }
+
+  &__btn {
+    width: 100%;
+    padding: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    &--chat {
+      margin-right: 10px;
+    }
+  }
+}

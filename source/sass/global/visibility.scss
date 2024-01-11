@@ -11,9 +11,28 @@
 
   .nav__item {
 
-    &--psychologists,
-    &--businnes {
+    &--psychologists {
       display: none;
     }
+  }
+}
+
+.user-logged.user-logged-doctor {
+  .logged__menu-item--user {
+    display: none;
+  }
+
+  .logged__menu-item--doctor {
+    display: block;
+  }
+}
+
+.user-logged:not(.user-logged-doctor) {
+  .logged__menu-item--doctor {
+    display: none;
+  }
+
+  .logged__menu-item--user {
+    display: block;
   }
 }

@@ -26,6 +26,7 @@
     }
 
     th {
+      background-color: $color-humming-bird;
       text-align: start;
       font-weight: 400;
       padding: 8px;
@@ -34,6 +35,22 @@
     td {
       vertical-align: top;
       padding: 8px;
+    }
+
+    &__session-time {
+      font-size: 13px;
+    }
+  }
+}
+
+.doctor-account {
+  .payments {
+    th {
+      background-color: $color-humming-bird;
+    }
+
+    &__session-time {
+      font-size: 13px;
     }
   }
 }
