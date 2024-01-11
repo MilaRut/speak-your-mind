@@ -10,9 +10,7 @@
     gap: 80px;
   }
 
-  // TODO: удалить строку &__left-col &__item
-  &__tab,
-  &__left-col &__item {
+  &__tab {
     color: $color-jade;
     padding: 10px 8px;
     font-size: 18px;
@@ -35,9 +33,7 @@
     transition: all 0.5s ease-in;
   }
 
-  // TODO: удалить строку &__left-col &__item.is-active
-  &__tab.is-active,
-  &__left-col &__item.is-active {
+  &__tab.is-active {
     background: $color-humming-bird;
     border-bottom: 3px solid $color-jade;
     color: $color-default-black;
@@ -48,9 +44,7 @@
     }
   }
 
-  // TODO: удалить строку  &__right-col
-  &__main,
-  &__right-col {
+  &__main {
     .title {
       margin-bottom: 40px;
     }
