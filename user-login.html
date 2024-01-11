@@ -2,9 +2,9 @@
 <html lang="ru">
 
 <head>
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta name="description" content="Speak your mind">
   <title>Speak your mind</title>
   <link rel="icon" type="image/x-icon" href="./favicon.ico">
@@ -16,7 +16,7 @@
 </head>
 
 <body>
-  <div class="wrapper user-logged">
+  <div class="wrapper user-unlogged">
     <header class="header">
       <div class="container">
         <div class="header__logo">
@@ -130,64 +130,32 @@
       </div>
     </header>
     <main>
-      <section class="user-account">
+      <section class="login">
         <div class="container">
-          <div class="user-account__wrapper">
-            <div class="user-account__left-col">
-              <ul class="user-account__tabs-list list-reset">
-                <li class="user-account__item is-active">
-                  <a href="user-account-confirmed.html">Главная</a>
-                </li>
-                <li class="user-account__item">
-                  <a href="user-account-settings-main.html">Настройки</a>
-                </li>
-                <li class="user-account__item">
-                  <a href="user-account-settings-payments.html">Платежи</a>
-                </li>
-              </ul>
+          <div class="login__wrapper">
+            <div class="login__heading">
+              <h1 class="title">Войдите в свой аккаунт</h1>
             </div>
-            <div class="user-account__right-col">
-              <h2 class="title">Личный кабинет</h2>
-
-              <div class="user-account__description">
-                <p class="text-25">Ваш терапевт</p>
-                <p class="text-18">Запрос на перенос сессии на <span class="session-time">20:00 6 июля</span> отправлен
-                  терапевту <span class="doctor-name">Олесе Параде</span>.<br>
-                  Как только терапевт подтвердит время, вы получите уведомление об этом на ваш адрес электронной почты.
-                </p>
+            <form action="" method="post">
+              <fieldset>
+                <label>
+                  <input type="text" placeholder="Ваш email">
+                </label>
+                <label>
+                  <input type="password" placeholder="Ваш пароль">
+                </label>
+              </fieldset>
+              <div class="login__btn-wrapper">
+                <button type="submit" class="login__btn btn">Войти</button>
               </div>
-              <div class="user-account__session-wrapper">
-                <div class="user-account__doctor">
-                  <div class="user-account__doctor-image">
-                    <img src="./img/content/doctor-thumb.png" width="100" height="100" alt="">
-                  </div>
-                  <div class="user-account__doctor-info">
-                    <p class="text-31">Олеся Парада</p>
-                    <a class="user-account__contact" href="#">
-                      <svg width="30" height="22" fill="currentColor">
-                        <use xlink:href="./img/sprite.svg#envelope"></use>
-                      </svg>
-                      <span class="text-green">Написать терапевту</span>
-                    </a>
-                  </div>
-                </div>
-                <div class="user-account__session-info change-requested">
-                  <div class="icon">
-                    <svg width="59" height="41" fill="currentColor">
-                      <use xlink:href="./img/sprite.svg#video"></use>
-                    </svg>
-                  </div>
-                  <div class="next-session">
-                    <p class="text-18">Ближайшая сессия:</p>
-                    <p class="date text-20">6 июля, четверг, 15:00</p>
-                  </div>
-                  <div class="requested-session">
-                    <p class="requested-session text-18">Запрошен перенос на:</p>
-                    <p class="date text-20">6 июля, четверг, 20:00</p>
-                  </div>
-                </div>
-              </div>
+            </form>
+            <div class="login__links-wrapper">
+              <a href="user-login-pass-restore.html" class="login__pass-reset text-18 text-green">Забыли пароль?</a>
+              <p class="text-18">
+                <span>Нет аккаунта?</span>
+                <a href="user-signup-start.html" class="login__signup-link text-green">Зарегистрироваться</a>
             </div>
+            </p>
           </div>
         </div>
       </section>
