@@ -2494,8 +2494,7 @@ button {
   gap: 80px;
 }
 
-.user-account__tab,
-.user-account__left-col .user-account__item {
+.user-account__tab {
   color: #00ac72;
   padding: 10px 8px;
   font-size: 18px;
@@ -2510,8 +2509,7 @@ button {
   transition: all 0.5s ease-in;
 }
 
-.user-account__tab a,
-.user-account__left-col .user-account__item a {
+.user-account__tab a {
   color: #00ac72;
 }
 
@@ -2521,8 +2519,7 @@ button {
   transition: all 0.5s ease-in;
 }
 
-.user-account__tab.is-active,
-.user-account__left-col .user-account__item.is-active {
+.user-account__tab.is-active {
   background: #c5fdea;
   border-bottom: 3px solid #00ac72;
   color: #000000;
@@ -2530,13 +2527,11 @@ button {
   transition: all 0.5s ease-in;
 }
 
-.user-account__tab.is-active a,
-.user-account__left-col .user-account__item.is-active a {
+.user-account__tab.is-active a {
   color: #202020;
 }
 
-.user-account__main .title,
-.user-account__right-col .title {
+.user-account__main .title {
   margin-bottom: 40px;
 }
 

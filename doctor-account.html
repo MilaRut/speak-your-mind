@@ -135,12 +135,12 @@
           <div class="doctor-account__wrapper">
             <div class="doctor-account__left-col">
               <div class="doctor-account__tabs">
-                <button class="doctor-account__tab is-active" type="button" tab-btn data-tab="#dacc-sessions">Сессии</button>
+                <button class="doctor-account__tab is-active" type="button" tab-btn
+                  data-tab="#dacc-sessions">Сессии</button>
                 <button class="doctor-account__tab" type="button" tab-btn data-tab="#dacc-schedule">Расписание</button>
                 <button class="doctor-account__tab" type="button" tab-btn data-tab="#dacc-clients">Клиенты</button>
                 <button class="doctor-account__tab" type="button" tab-btn data-tab="#dacc-payments">Платежи</button>
-                <button class="doctor-account__tab" type="button" tab-btn
-                  data-tab="#dacc-settings">Настройки</button>
+                <button class="doctor-account__tab" type="button" tab-btn data-tab="#dacc-settings">Настройки</button>
               </div>
 
               <!-- Временное вспомогательное меню  -->
@@ -295,10 +295,23 @@
                   </div>
                 </div>
               </div>
-              <div class="doctor-account__schedule" tab-item id="dacc-schedule">
+              <div class="doctor-account__schedule schedule" tab-item id="dacc-schedule">
                 <div class="doctor-account__heading">
                   <h2 class="text-40">Расписание</h2>
-                  <i>стилизация после интеграции с календарем</i>
+                  <div class="schedule__subtab-btns">
+                    <div class="schedule__subtab-btn" subtab data-tab="week-current">
+                      <p>Текущая неделя (<span>41 час</span>)</p>
+                    </div>
+                    <div class="schedule__subtab-btn" subtab data-tab="week2">
+                      <p>10-16 июля (<span>41 час</span>)</p>
+                    </div>
+                    <div class="schedule__subtab-btn" subtab data-tab="week3">
+                      <p>17-23 июля (<span>35 часов</span>)</p>
+                    </div>
+                    <div class="schedule__subtab-btn" subtab data-tab="week4">
+                      <p>24-30 июля (<span>40 часов</span>)</p>
+                    </div>
+                  </div>
                 </div>
               </div>
               <div class="doctor-account__clients clients" tab-item id="dacc-clients">
