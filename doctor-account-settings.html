@@ -143,15 +143,11 @@
           <div class="doctor-account__wrapper">
             <div class="doctor-account__left-col">
               <nav class="doctor-account__nav">
-                <button class="doctor-account__nav-link is-active" type="button" tab-btn
-                  data-tab="#dacc-sessions">Сессии</button>
-                <button class="doctor-account__nav-link" type="button" tab-btn
-                  data-tab="#dacc-schedule">Расписание</button>
-                <button class="doctor-account__nav-link" type="button" tab-btn data-tab="#dacc-clients">Клиенты</button>
-                <button class="doctor-account__nav-link" type="button" tab-btn
-                  data-tab="#dacc-payments">Платежи</button>
-                <button class="doctor-account__nav-link" type="button" tab-btn
-                  data-tab="#dacc-settings">Настройки</button>
+                <a href="doctor-account-sessions.html" class="doctor-account__nav-link">Сессии</a>
+                <a href="doctor-account-schedule.html" class="doctor-account__nav-link">Расписание</a>
+                <a href="doctor-account-clients.html" class="doctor-account__nav-link">Клиенты</a>
+                <a href="doctor-account-payments.html" class="doctor-account__nav-link">Платежи</a>
+                <a href="doctor-account-settings.html" class="doctor-account__nav-link is-active">Настройки</a>
               </nav>
 
               <!-- Временное вспомогательное меню  -->
@@ -171,308 +167,7 @@
 
             </div>
             <div class="doctor-account__right-col">
-              <div class="doctor-account__sessions sessions is-active" tab-item id="dacc-sessions">
-                <div class="doctor-account__heading">
-                  <h2 class="text-40">Ваши сессии</h2>
-                </div>
-                <div class="sessions__content">
-                  <div class="sessions__clients">
-                    <details open>
-                      <summary>
-                        <span class="text-20">Записанные</span>
-                        <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
-                          <path d="M3.2002 11.2002L8.0002 6.4002L12.8002 11.2002" stroke="#202020" stroke-width="2"
-                            stroke-linecap="round" stroke-linejoin="round" />
-                        </svg>
-                      </summary>
-                      <ul class="sessions__clients-list sessions__clients-list--scheduled list-reset"
-                        id="clients-list-scheduled">
-                        <li class="sessions__clients-item sessions__clients-item--scheduled">
-                          <div class="sessions__clinet-wrapper">
-                            <p class="sessions__client-name">Ксения</p>
-                            <span class="sessions__client-id visually-hidden">#663385</span>
-                            <p class="sessions__info">
-                              <span class="sessions__count">12 сессия</span>
-                              <span class="sessions__date"><time>06 июля, 15:00</time></span>
-                            </p>
-                          </div>
-                        </li>
-                        <li class="sessions__clients-item">
-                          <div class="sessions__clinet-wrapper">
-                            <p class="sessions__client-name">Ирина</p>
-                            <span class="sessions__client-id visually-hidden">#1111111</span>
-                            <p class="sessions__info">
-                              <span class="sessions__count">12 сессия</span>
-                              <span class="sessions__date"><time>07 июля, 20:00</time></span>
-                            </p>
-                          </div>
-                        </li>
-                        <li class="sessions__clients-item">
-                          <div class="sessions__clinet-wrapper">
-                            <p class="sessions__client-name">Николай</p>
-                            <span class="sessions__client-id visually-hidden">#2222222</span>
-                            <p class="sessions__info">
-                              <span class="sessions__count">12 сессия</span>
-                              <span class="sessions__date"><time>08 июля, 09:00</time></span>
-                            </p>
-                          </div>
-                        </li>
-                      </ul>
-                    </details>
-                    <details>
-                      <summary>
-                        <span class="text-20">Не записанные</span>
-                        <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
-                          <path d="M3.2002 11.2002L8.0002 6.4002L12.8002 11.2002" stroke="#202020" stroke-width="2"
-                            stroke-linecap="round" stroke-linejoin="round" />
-                        </svg>
-                      </summary>
-                      <ul class="sessions__clients-list sessions__clients-list--unscheduled list-reset">
-                        <li class="sessions__clients-item">
-                          <div class="sessions__clinet-wrapper">
-                            <p class="sessions__client-name">Ксения</p>
-                            <span class="sessions__client-id visually-hidden">#663385</span>
-                            <p class="sessions__info">
-                              <span class="sessions__count">1 сессия</span>
-                              <span class="sessions__date"><span class="sessions__last">Последняя <br></span><time>06
-                                  июля, 15:00</time></span>
-                            </p>
-                          </div>
-                        </li>
-                        <li class="sessions__clients-item">
-                          <div class="sessions__clinet-wrapper">
-                            <p class="sessions__client-name">Ксения</p>
-                            <span class="sessions__client-id visually-hidden">#663385</span>
-                            <p class="sessions__info">
-                              <span class="sessions__count">1 сессия</span>
-                              <span class="sessions__date"><span class="sessions__last">Последняя <br></span><time>06
-                                  июля, 15:00</time></span>
-                            </p>
-                          </div>
-                        </li>
-                        <li class="sessions__clients-item">
-                          <div class="sessions__clinet-wrapper">
-                            <p class="sessions__client-name">Ксения</p>
-                            <span class="sessions__client-id visually-hidden">#663385</span>
-                            <p class="sessions__info">
-                              <span class="sessions__count">1 сессия</span>
-                              <span class="sessions__date"><span class="sessions__last">Последняя <br></span><time>06
-                                  июля, 15:00</time></span>
-                            </p>
-                          </div>
-                        </li>
-                        <li class="sessions__clients-item">
-                          <div class="sessions__clinet-wrapper">
-                            <p class="sessions__client-name">Ксения</p>
-                            <span class="sessions__client-id visually-hidden">#663385</span>
-                            <p class="sessions__info">
-                              <span class="sessions__count">1 сессия</span>
-                              <span class="sessions__date"><span class="sessions__last">Последняя <br></span><time>06
-                                  июля, 15:00</time></span>
-                            </p>
-                          </div>
-                        </li>
-                      </ul>
-                    </details>
-                    <button class="sessions__expand-btn btn" type="button">Все клиенты</button>
-                  </div>
-                  <div class="sessions__videochat videochat">
-                    <h3 class="videochat__heading">
-                      <span class="text-25 videochat__client-name"></span>
-                      <span class="text-18 videochat__client-id"></span>
-                    </h3>
-                    <div class="sessions__session-info session-info">
-                      <div class="icon">
-                        <svg width="59" height="41" fill="currentColor">
-                          <use xlink:href="./img/sprite.svg#video"></use>
-                        </svg>
-                      </div>
-                      <div class="next-session">
-                        <p class="text-18">Ближайшая сессия:</p>
-                        <p class="videochat__date text-20"></p>
-                      </div>
-                    </div>
-                    <div class="videochat__buttons-wrapper">
-                      <a href="#" class="videochat__btn btn btn--white text-20" id="cancel-session">Отменить</a>
-                      <a href="#" class="videochat__btn btn btn--white text-20" id="reschedule-session">Перенести
-                        сессию</a>
-                      <a href="#" class="videochat__btn btn btn--white text-20" id="chat-with-client">
-                        <svg width="30" height="22" fill="currentColor">
-                          <use xlink:href="./img/sprite.svg#chat"></use>
-                        </svg>
-                        <span>Чат с клиентом</span>
-                      </a>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <div class="doctor-account__schedule schedule" tab-item id="dacc-schedule">
-                <div class="doctor-account__heading">
-                  <h2 class="text-40">Расписание</h2>
-                  <div class="schedule__subtab-btns">
-                    <div class="schedule__subtab-btn" subtab data-tab="week-current">
-                      <p>Текущая неделя (<span>41 час</span>)</p>
-                    </div>
-                    <div class="schedule__subtab-btn" subtab data-tab="week2">
-                      <p>10-16 июля (<span>41 час</span>)</p>
-                    </div>
-                    <div class="schedule__subtab-btn" subtab data-tab="week3">
-                      <p>17-23 июля (<span>35 часов</span>)</p>
-                    </div>
-                    <div class="schedule__subtab-btn" subtab data-tab="week4">
-                      <p>24-30 июля (<span>40 часов</span>)</p>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <div class="doctor-account__clients clients" tab-item id="dacc-clients">
-                <div class="doctor-account__heading">
-                  <h2 class="text-40">Клиенты</h2>
-                </div>
-                <div class="clients__table">
-                  <table>
-                    <tr>
-                      <th>Клиент</th>
-                      <th>Имя</th>
-                      <th>Возраст</th>
-                      <th>Всего сессий</th>
-                      <th>Следующая сессия</th>
-                      <th>Статус сессии</th>
-                      <th>Действия</th>
-                    </tr>
-                    <tr class="clients__item clients__item--scheduled">
-                      <td><span class="clients__client-id">#663385</span></td>
-                      <td><span class="clients__client-name" data-open-modal data-modal-id="#client-card">Ксения</span>
-                      </td>
-                      <td><span class="clients__client-age">36</span></td>
-                      <td><span class="clients__sessions-amount">11</span></td>
-                      <td><span class="clients__next-session"><time>05 июля, 15:00</time></span></td>
-                      <td><span class="clients__session-status"> </span></td>
-                      <td><button class="btn clients__actions-btn" data-action="" data-open-modal
-                          data-modal-id="#doctor-reschedule"></button></td>
-                    </tr>
-                    <tr class="clients__item clients__item--not-scheduled">
-                      <td><span class="clients__client-id">#213715</span></td>
-                      <td><span class="clients__client-name" data-open-modal data-modal-id="#client-card">Петр</span>
-                      </td>
-                      <td><span class="clients__client-age">23</span></td>
-                      <td><span class="clients__sessions-amount">48</span></td>
-                      <td><span class="clients__next-session"><time>-</time></span></td>
-                      <td><span class="clients__session-status"></span></td>
-                      <td><button class="btn clients__actions-btn" data-action=""></button></td>
-                    </tr>
-                    <tr class="clients__item clients__item--requested">
-                      <td><span class="clients__client-id">#784556</span></td>
-                      <td><span class="clients__client-name" data-open-modal
-                          data-modal-id="#client-card">Афанасий</span></td>
-                      <td><span class="clients__client-age">56</span></td>
-                      <td><span class="clients__sessions-amount">5</span></td>
-                      <td><span class="clients__next-session"><time>06 июля, 12:00</time></span></td>
-                      <td><span class="clients__session-status"></span></td>
-                      <td><button class="btn clients__actions-btn" data-action=""></button></td>
-                    </tr>
-                    <tr class="clients__item clients__item--scheduled">
-                      <td><span class="clients__client-id">#663385</span></td>
-                      <td><span class="clients__client-name" data-open-modal data-modal-id="#client-card">Мария</span>
-                      </td>
-                      <td><span class="clients__client-age">56</span></td>
-                      <td><span class="clients__sessions-amount">5</span></td>
-                      <td><span class="clients__next-session"><time>09 июля, 16:00</time></span></td>
-                      <td><span class="clients__session-status"></span></td>
-                      <td><button class="btn clients__actions-btn" data-action="" data-open-modal
-                          data-modal-id="#doctor-reschedule"></button></td>
-                    </tr>
-                    <tr class="clients__item clients__item--unapproved">
-                      <td><span class="clients__client-id">#663385</span></td>
-                      <td><span class="clients__client-name" data-open-modal
-                          data-modal-id="#client-card">Афанасий</span></td>
-                      <td><span class="clients__client-age">56</span></td>
-                      <td><span class="clients__sessions-amount">5</span></td>
-                      <td><span class="clients__next-session"><time>09 июля, 16:00</time></span></td>
-                      <td><span class="clients__session-status"></span></td>
-                      <td><button class="btn clients__actions-btn" data-action=""></button></td>
-                    </tr>
-                  </table>
-                </div>
-              </div>
-              <div class="doctor-account__payments payments" tab-item id="dacc-payments">
-                <div class="doctor-account__heading">
-                  <h2 class="text-40">Выплаты</h2>
-                </div>
-                <div class="payments__history">
-                  <table>
-                    <tr>
-                      <th>No</th>
-                      <th>Сессия</th>
-                      <th>Сумма</th>
-                      <th>Дата выплаты</th>
-                      <th>Статус</th>
-                    </tr>
-                    <tr>
-                      <td><span class="payments__transaction-number">2558736</span></td>
-                      <td><span class="payments__user-name">Ксения&nbsp;</span><span
-                          class="payments__user-id">#663385</span><br>
-                        <span class="payments__session-time"><time>06 июля 15:00</time></span>
-                      </td>
-                      <td><span class="payments__sum">10000 HUF</span></td>
-                      <td><span class="payments__date"><time>09 июля 03:03</time></span></td>
-                      <td><span class="payments__status">Сессия запланирована</span></td>
-                    </tr>
-                    <tr>
-                      <td><span class="payments__transaction-number">2558736</span></td>
-                      <td><span class="payments__user-name">Ксения&nbsp;</span><span
-                          class="payments__user-id">#663385</span><br>
-                        <span class="payments__session-time"><time>06 июля 15:00</time></span>
-                      </td>
-                      <td><span class="payments__sum">10000 HUF</span></td>
-                      <td><span class="payments__date"><time>09 июля 03:03</time></span></td>
-                      <td><span class="payments__status">Сессия запланирована</span></td>
-                    </tr>
-                    <tr>
-                      <td><span class="payments__transaction-number">2558736</span></td>
-                      <td><span class="payments__user-name">Ксения&nbsp;</span><span
-                          class="payments__user-id">#663385</span><br>
-                        <span class="payments__session-time"><time>06 июля 15:00</time></span>
-                      </td>
-                      <td><span class="payments__sum">10000 HUF</span></td>
-                      <td><span class="payments__date"><time>09 июля 03:03</time></span></td>
-                      <td><span class="payments__status">Сессия запланирована</span></td>
-                    </tr>
-                    <tr>
-                      <td><span class="payments__transaction-number">2558736</span></td>
-                      <td><span class="payments__user-name">Ксения&nbsp;</span><span
-                          class="payments__user-id">#663385</span><br>
-                        <span class="payments__session-time"><time>06 июля 15:00</time></span>
-                      </td>
-                      <td><span class="payments__sum">10000 HUF</span></td>
-                      <td><span class="payments__date"><time>09 июля 03:03</time></span></td>
-                      <td><span class="payments__status">Запланировано</span></td>
-                    </tr>
-                    <tr>
-                      <td><span class="payments__transaction-number">2558736</span></td>
-                      <td><span class="payments__user-name">Ксения&nbsp;</span><span
-                          class="payments__user-id">#663385</span><br>
-                        <span class="payments__session-time"><time>06 июля 15:00</time></span>
-                      </td>
-                      <td><span class="payments__sum">10000 HUF</span></td>
-                      <td><span class="payments__date"><time>09 июля 03:03</time></span></td>
-                      <td><span class="payments__status">Выплачено</span></td>
-                    </tr>
-                    <tr>
-                      <td><span class="payments__transaction-number">2558736</span></td>
-                      <td><span class="payments__user-name">Ксения&nbsp;</span><span
-                          class="payments__user-id">#663385</span><br>
-                        <span class="payments__session-time"><time>06 июля 15:00</time></span>
-                      </td>
-                      <td><span class="payments__sum">10000 HUF</span></td>
-                      <td><span class="payments__date"><time>09 июля 03:03</time></span></td>
-                      <td><span class="payments__status">Выплачено</span></td>
-                    </tr>
-                  </table>
-                </div>
-              </div>
-              <div class="doctor-account__settings settings" data-utils="settings-main-start" tab-item
-                id="dacc-settings">
+              <div class="doctor-account__settings settings" data-utils="settings-main-start">
                 <div class="settings__main-content">
                   <div class="doctor-account__heading settings__heading">
                     <h2 class="text-40">Ваш профиль</h2>
@@ -542,11 +237,20 @@
                         </div>
                         <div class="settings__input-wrapper">
                           <p class="text-20">Язык консультаций</p>
-                          <select name="doctor-language" id="doctor-language">
-                            <option value="ru">русский</option>
-                            <option value="hu">magyar</option>
-                            <option value="en">english</option>
-                          </select>
+                          <div class="settings__checkboxes">
+                            <label>
+                              <input type="checkbox" id="lang-ru" name="language[]">
+                              <span>русский</span>
+                            </label>
+                            <label>
+                              <input type="checkbox" id="lang-ma" name="language[]">
+                              <span>magyar</span>
+                            </label>
+                            <label>
+                              <input type="checkbox" id="lang-en" name="language[]">
+                              <span>english</span>
+                            </label>
+                          </div>
                         </div>
                         <div class="settings__input-wrapper">
                           <p class="text-20">Начало практики</p>
