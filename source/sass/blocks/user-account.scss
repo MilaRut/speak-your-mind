@@ -10,7 +10,8 @@
     gap: 80px;
   }
 
-  &__tab {
+  &__nav-link {
+    display: block;
     color: $color-jade;
     padding: 10px 8px;
     font-size: 18px;
@@ -28,12 +29,12 @@
     }
   }
 
-  &__tab:hover {
+  &__nav-link:hover {
     border-bottom: 3px solid $color-jade;
     transition: all 0.5s ease-in;
   }
 
-  &__tab.is-active {
+  &__nav-link.is-active {
     background: $color-humming-bird;
     border-bottom: 3px solid $color-jade;
     color: $color-default-black;
@@ -60,7 +61,7 @@
     }
   }
 
-  &__description {
+  &__message {
     margin-bottom: 48px;
 
     .text-25 {
@@ -128,7 +129,9 @@
   .message_2,
   .message_3,
   .user-account__session-wrapper,
-  .user-account__session-change-wrapper {
+  .user-account__session-change-wrapper,
+  .date-not-scheduled,
+  .change-btn-schedule {
     display: none;
   }
 }
@@ -183,10 +186,37 @@
   }
 }
 
+.user-account__main[data-utils="main-not-scheduled"] {
+  .user-account__session-wrapper {
+    display: block;
+  }
+
+  .requested-session {
+    display: none;
+  }
+
+  .date {
+    display: none;
+  }
+
+  .date-not-scheduled {
+    display: block;
+    text-align: center;
+  }
+
+  .change-btn-reschedule {
+    display: none;
+  }
+
+  .change-btn-schedule {
+    display: block;
+  }
+}
+
 .user-account__main[data-utils="main-change"] {
 
   .title,
-  .user-account__description {
+  .user-account__message {
     display: none;
   }
 

@@ -919,6 +919,56 @@ button {
   align-items: center;
 }
 
+#businnes-popup form {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -ms-flex-direction: column;
+  flex-direction: column;
+}
+
+#businnes-popup form label {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  margin-bottom: 32px;
+}
+
+#businnes-popup form label span {
+  margin-bottom: 10px;
+}
+
+#businnes-popup form label input {
+  padding: 7px 10px;
+  font-size: 18px;
+  font-weight: 400;
+  line-height: 1.2;
+  border: 1px solid #202020;
+  background: #ffffff;
+  -webkit-box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.25) inset;
+  box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.25) inset;
+}
+
+#businnes-popup form .submit-btn {
+  padding: 16px;
+  margin: 24px 0;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+}
+
 .btn {
   display: -webkit-inline-box;
   display: -ms-inline-flexbox;
@@ -964,6 +1014,58 @@ button {
 
 .header__logo {
   margin-right: auto;
+}
+
+.header__unlogged {
+  position: relative;
+}
+
+.header__signup-wrapper,
+.header__login-wrapper {
+  display: none;
+  position: absolute;
+  top: 50px;
+  left: 50%;
+  -webkit-transform: translateX(-50%);
+  -ms-transform: translateX(-50%);
+  transform: translateX(-50%);
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  min-width: 280px;
+  background-color: #ffffff;
+  border: 1px solid grey;
+  padding: 20px 10px;
+  border-radius: 20px;
+}
+
+.header__signup-wrapper a,
+.header__login-wrapper a {
+  text-align: center;
+}
+
+.header__signup-wrapper a:hover,
+.header__login-wrapper a:hover {
+  color: #00ac72;
+}
+
+.header__signup-wrapper a:not(:last-child),
+.header__login-wrapper a:not(:last-child) {
+  margin-bottom: 20px;
+}
+
+.header__signup-wrapper.is-active,
+.header__login-wrapper.is-active {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
 }
 
 .nav {
@@ -1172,6 +1274,10 @@ button {
   background: #f8fdf8;
 }
 
+.intro--businnes {
+  background: #ffffff;
+}
+
 .intro .container {
   padding-top: 70px;
 }
@@ -1236,9 +1342,11 @@ button {
 .intro__btn {
   padding: 24px 32px;
   border-radius: 50px;
-  font-size: 20px;
-  font-weight: 700;
-  line-height: 1;
+}
+
+.intro__btn--businnes {
+  margin-top: 45px;
+  padding: 15px 17px;
 }
 
 .advantages .container {
@@ -1372,9 +1480,6 @@ button {
 .terms__btn {
   margin-top: 27px;
   padding: 32px;
-  font-size: 31px;
-  font-weight: 400;
-  line-height: 1;
   margin-bottom: 335px;
 }
 
@@ -1628,9 +1733,13 @@ button {
 }
 
 .guide__dots {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: (1fr)[3];
+  grid-template-columns: repeat(3, 1fr);
+  -webkit-column-gap: 64px;
+  -moz-column-gap: 64px;
+  column-gap: 64px;
 }
 
 .guide__dot {
@@ -1646,6 +1755,7 @@ button {
   -ms-flex-align: center;
   align-items: center;
   cursor: pointer;
+  text-align: center;
 }
 
 .guide__counter {
@@ -2494,7 +2604,8 @@ button {
   gap: 80px;
 }
 
-.user-account__tab {
+.user-account__nav-link {
+  display: block;
   color: #00ac72;
   padding: 10px 8px;
   font-size: 18px;
@@ -2509,17 +2620,17 @@ button {
   transition: all 0.5s ease-in;
 }
 
-.user-account__tab a {
+.user-account__nav-link a {
   color: #00ac72;
 }
 
-.user-account__tab:hover {
+.user-account__nav-link:hover {
   border-bottom: 3px solid #00ac72;
   -webkit-transition: all 0.5s ease-in;
   transition: all 0.5s ease-in;
 }
 
-.user-account__tab.is-active {
+.user-account__nav-link.is-active {
   background: #c5fdea;
   border-bottom: 3px solid #00ac72;
   color: #000000;
@@ -2527,7 +2638,7 @@ button {
   transition: all 0.5s ease-in;
 }
 
-.user-account__tab.is-active a {
+.user-account__nav-link.is-active a {
   color: #202020;
 }
 
@@ -2549,11 +2660,11 @@ button {
   margin-right: 10px;
 }
 
-.user-account__description {
+.user-account__message {
   margin-bottom: 48px;
 }
 
-.user-account__description .text-25 {
+.user-account__message .text-25 {
   margin-bottom: 24px;
 }
 
@@ -2615,7 +2726,9 @@ button {
 .user-account__main .message_2,
 .user-account__main .message_3,
 .user-account__main .user-account__session-wrapper,
-.user-account__main .user-account__session-change-wrapper {
+.user-account__main .user-account__session-change-wrapper,
+.user-account__main .date-not-scheduled,
+.user-account__main .change-btn-schedule {
   display: none;
 }
 
@@ -2663,8 +2776,33 @@ button {
   display: none;
 }
 
+.user-account__main[data-utils=main-not-scheduled] .user-account__session-wrapper {
+  display: block;
+}
+
+.user-account__main[data-utils=main-not-scheduled] .requested-session {
+  display: none;
+}
+
+.user-account__main[data-utils=main-not-scheduled] .date {
+  display: none;
+}
+
+.user-account__main[data-utils=main-not-scheduled] .date-not-scheduled {
+  display: block;
+  text-align: center;
+}
+
+.user-account__main[data-utils=main-not-scheduled] .change-btn-reschedule {
+  display: none;
+}
+
+.user-account__main[data-utils=main-not-scheduled] .change-btn-schedule {
+  display: block;
+}
+
 .user-account__main[data-utils=main-change] .title,
-.user-account__main[data-utils=main-change] .user-account__description {
+.user-account__main[data-utils=main-change] .user-account__message {
   display: none;
 }
 
@@ -2763,7 +2901,21 @@ button {
   margin-bottom: 8px;
 }
 
-.session-info .date {
+.session-info .next-session {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+}
+
+.session-info .date,
+.session-info .date-not-scheduled {
   margin-bottom: 24px;
 }
 
@@ -2930,6 +3082,12 @@ button {
   padding-bottom: 40px;
 }
 
+.doctor-account .settings__input-wrapper .divider {
+  height: 100%;
+  width: 1px;
+  background-color: #00ac72;
+}
+
 .doctor-account .settings__avatar-wrapper {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -3081,7 +3239,7 @@ button {
   font-size: 18px;
   font-weight: 400;
   line-height: 1.2;
-  padding-left: 40px;
+  padding-left: 30px;
 }
 
 .doctor-account .settings__checkboxes span::before {
@@ -3126,7 +3284,7 @@ button {
 }
 
 .doctor-account .settings__radio label {
-  min-width: 140px;
+  min-width: 165px;
   padding: 10px 12px;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -3610,7 +3768,8 @@ button {
   gap: 60px;
 }
 
-.doctor-account__tab {
+.doctor-account__nav-link {
+  display: block;
   color: #00ac72;
   padding: 10px 8px;
   font-size: 18px;
@@ -3625,25 +3784,23 @@ button {
   transition: all 0.5s ease-in;
 }
 
-.doctor-account__tab a {
+.doctor-account__nav-link a {
   color: #00ac72;
 }
 
-.doctor-account__tab:hover {
+.doctor-account__nav-link:hover {
   border-bottom: 3px solid #00ac72;
   -webkit-transition: all 0.5s ease-in;
   transition: all 0.5s ease-in;
 }
 
-.doctor-account__tab.is-active {
+.doctor-account__nav-link.is-active {
   background: #c5fdea;
   border-bottom: 3px solid #00ac72;
   color: #000000;
-  -webkit-transition: all 0.5s ease-in;
-  transition: all 0.5s ease-in;
 }
 
-.doctor-account__tab.is-active a {
+.doctor-account__nav-link.is-active a {
   color: #202020;
 }
 

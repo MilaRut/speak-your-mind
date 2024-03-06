@@ -31,7 +31,7 @@
                 <a class="nav__link" href="doctor-landing.html">Для психологов</a>
               </li>
               <li class="nav__item nav__item--businnes">
-                <a class="nav__link" href="#">Для бизнеса</a>
+                <a class="nav__link" href="businnes-landing.html">Для бизнеса</a>
               </li>
               <li class="nav__item">
                 <a class="nav__link" href="faq.html">FAQ</a>
@@ -43,10 +43,18 @@
           </div>
         </nav>
         <div class="header__unlogged unlogged">
-          <a class="unlogged__login-btn btn" href="doctor-login.html">Вход
-          </a>
-          <a class="unlogged__signup-btn btn btn--white" href="doctor-signup.html">Регистрация
-          </a>
+          <button type="button" class="js-dropdown-trigger unlogged__login-btn btn"
+            data-id="#login-wrapper">Вход</button>
+          <div class="header__login-wrapper" id="login-wrapper">
+            <a class="text-18" href="user-login.html">Вход для клиентов</a>
+            <a class="text-18" href="doctor-login.html">Вход для психологов</a>
+          </div>
+          <button type="button" class="js-dropdown-trigger unlogged__signup-btn btn btn--white"
+            data-id="#signup-wrapper">Регистрация</button>
+          <div class="header__signup-wrapper" id="signup-wrapper">
+            <a class="text-18" href="user-signup-start.html">Регистрация для клиентов</a>
+            <a class="text-18" href="doctor-signup.html">Регистрация для психологов</a>
+          </div>
         </div>
         <div class="header__lang-switcher lang-switcher">
           <button class="lang-switcher__btn js-dropdown-trigger" data-id="#lang-switcher">
@@ -80,16 +88,16 @@
             </button>
             <ul class="logged__menu-list list-reset" id="logged-menu">
               <li class="logged__menu-item logged__menu-item--user">
-                <a href="#">Главная</a>
+                <a href="user-account-main.html">Главная</a>
               </li>
               <li class="logged__menu-item logged__menu-item--user">
                 <a href="#">Записаться</a>
               </li>
               <li class="logged__menu-item logged__menu-item--user">
-                <a href="#">Настройки</a>
+                <a href="user-account-settings.html">Настройки</a>
               </li>
               <li class="logged__menu-item logged__menu-item--user">
-                <a href="#">Платежи</a>
+                <a href="user-account-payments.html">Платежи</a>
               </li>
               <li class="logged__menu-item logged__menu-item--user">
                 <a href="#">Абонемент на сессии</a>
@@ -119,7 +127,7 @@
                 <a href="#">Стоимость сессии</a>
               </li>
               <li class="logged__menu-item logged__menu-item--doctor">
-                <a href="#">Настройки</a>
+                <a href="doctor-account-settings.html">Настройки</a>
               </li>
               <li class="logged__menu-item">
                 <a href="#">Выйти</a>
@@ -134,14 +142,17 @@
         <div class="container">
           <div class="doctor-account__wrapper">
             <div class="doctor-account__left-col">
-              <div class="doctor-account__tabs">
-                <button class="doctor-account__tab is-active" type="button" tab-btn
+              <nav class="doctor-account__nav">
+                <button class="doctor-account__nav-link is-active" type="button" tab-btn
                   data-tab="#dacc-sessions">Сессии</button>
-                <button class="doctor-account__tab" type="button" tab-btn data-tab="#dacc-schedule">Расписание</button>
-                <button class="doctor-account__tab" type="button" tab-btn data-tab="#dacc-clients">Клиенты</button>
-                <button class="doctor-account__tab" type="button" tab-btn data-tab="#dacc-payments">Платежи</button>
-                <button class="doctor-account__tab" type="button" tab-btn data-tab="#dacc-settings">Настройки</button>
-              </div>
+                <button class="doctor-account__nav-link" type="button" tab-btn
+                  data-tab="#dacc-schedule">Расписание</button>
+                <button class="doctor-account__nav-link" type="button" tab-btn data-tab="#dacc-clients">Клиенты</button>
+                <button class="doctor-account__nav-link" type="button" tab-btn
+                  data-tab="#dacc-payments">Платежи</button>
+                <button class="doctor-account__nav-link" type="button" tab-btn
+                  data-tab="#dacc-settings">Настройки</button>
+              </nav>
 
               <!-- Временное вспомогательное меню  -->
               <!-- TODO: удалить -->
@@ -150,8 +161,8 @@
                 style="position: fixed; min-width: 300px; z-index: 100; cursor: pointer; display: flex; flex-direction: column; top: 0; right: 0; background-color: lightgray;">
                 <summary>Варианты состояний</summary>
                 <p><b>Настройки:</b></p>
-                <div utils-btn-settings data-id="settings-main-start">настройки первичная</div>
-                <div utils-btn-settings data-id="settings-main">настройки основная</div>
+                <div utils-btn-settings data-id="settings-main-start">настройки первичная (карта не привязана)</div>
+                <div utils-btn-settings data-id="settings-main">настройки основная (карта привязана)</div>
                 <div utils-btn-settings data-id="settings-user-view">вид профиля для клиентов</div>
               </details>
 
@@ -668,6 +679,7 @@
                               </svg>
                               <span class="text-14">Индивидуальная</span>
                             </label>
+                            <div class="divider"></div>
                             <input type="radio" id="therapy-type-couple" name="therapy-type"
                               value="therapy-type-couple">
                             <label for="therapy-type-couple">
@@ -675,6 +687,14 @@
                                 <use xlink:href="./img/sprite.svg#check-mark"></use>
                               </svg>
                               <span class="text-14">Парная</span>
+                            </label>
+                            <div class="divider"></div>
+                            <input type="radio" id="therapy-type-both" name="therapy-type" value="therapy-type-both">
+                            <label for="therapy-type-both">
+                              <svg width="18" height="18" fill="currentColor">
+                                <use xlink:href="./img/sprite.svg#check-mark"></use>
+                              </svg>
+                              <span class="text-14">Оба варианта</span>
                             </label>
                           </div>
                         </div>
@@ -1038,60 +1058,60 @@
                             </p>
                             <fieldset>
                               <label>
-                                <input type="radio" name="appointment-time" id="">
-                                <span>07:00</span>
+                                <input type="radio" name="appointment-time" value="">
+                                <span class="time-value">07:00</span>
                               </label>
                               <label>
-                                <input type="radio" name="appointment-time" id="">
-                                <span>08:00</span>
+                                <input type="radio" name="appointment-time" value="">
+                                <span class="time-value">08:00</span>
                               </label>
                               <label>
-                                <input type="radio" name="appointment-time" id="">
-                                <span>09:00</span>
+                                <input type="radio" name="appointment-time" value="">
+                                <span class="time-value">09:00</span>
                               </label>
                               <label>
-                                <input type="radio" name="appointment-time" id="">
-                                <span>10:00</span>
+                                <input type="radio" name="appointment-time" value="">
+                                <span class="time-value">10:00</span>
                               </label>
                               <label>
-                                <input type="radio" name="appointment-time" id="">
-                                <span>11:00</span>
+                                <input type="radio" name="appointment-time" value="">
+                                <span class="time-value">11:00</span>
                               </label>
                               <label>
-                                <input type="radio" name="appointment-time" id="">
-                                <span>12:00</span>
+                                <input type="radio" name="appointment-time" value="">
+                                <span class="time-value">12:00</span>
                               </label>
                               <label>
-                                <input type="radio" name="appointment-time" id="">
-                                <span>13:00</span>
+                                <input type="radio" name="appointment-time" value="">
+                                <span class="time-value">13:00</span>
                               </label>
                               <label>
-                                <input type="radio" name="appointment-time" id="">
-                                <span>14:00</span>
+                                <input type="radio" name="appointment-time" value="">
+                                <span class="time-value">14:00</span>
                               </label>
                               <label>
-                                <input type="radio" name="appointment-time" id="">
-                                <span>15:00</span>
+                                <input type="radio" name="appointment-time" value="">
+                                <span class="time-value">15:00</span>
                               </label>
                               <label>
-                                <input type="radio" name="appointment-time" id="">
-                                <span>16:00</span>
+                                <input type="radio" name="appointment-time" value="">
+                                <span class="time-value">16:00</span>
                               </label>
                               <label>
-                                <input type="radio" name="appointment-time" id="">
-                                <span>17:00</span>
+                                <input type="radio" name="appointment-time" value="">
+                                <span class="time-value">17:00</span>
                               </label>
                               <label>
-                                <input type="radio" name="appointment-time" id="">
-                                <span>18:00</span>
+                                <input type="radio" name="appointment-time" value="">
+                                <span class="time-value">18:00</span>
                               </label>
                               <label>
-                                <input type="radio" name="appointment-time" id="">
-                                <span>19:00</span>
+                                <input type="radio" name="appointment-time" value="">
+                                <span class="time-value">19:00</span>
                               </label>
                               <label>
-                                <input type="radio" name="appointment-time" id="">
-                                <span>20:00</span>
+                                <input type="radio" name="appointment-time" value="">
+                                <span class="time-value">20:00</span>
                               </label>
                             </fieldset>
                           </div>
@@ -1102,60 +1122,60 @@
                             </p>
                             <fieldset>
                               <label>
-                                <input type="radio" name="appointment-time" id="">
-                                <span>07:00</span>
+                                <input type="radio" name="appointment-time" value="">
+                                <span class="time-value">07:00</span>
                               </label>
                               <label>
-                                <input type="radio" name="appointment-time" id="">
-                                <span>08:00</span>
+                                <input type="radio" name="appointment-time" value="">
+                                <span class="time-value">08:00</span>
                               </label>
                               <label>
-                                <input type="radio" name="appointment-time" id="">
-                                <span>09:00</span>
+                                <input type="radio" name="appointment-time" value="">
+                                <span class="time-value">09:00</span>
                               </label>
                               <label>
-                                <input type="radio" name="appointment-time" id="">
-                                <span>10:00</span>
+                                <input type="radio" name="appointment-time" value="">
+                                <span class="time-value">10:00</span>
                               </label>
                               <label>
-                                <input type="radio" name="appointment-time" id="">
-                                <span>11:00</span>
+                                <input type="radio" name="appointment-time" value="">
+                                <span class="time-value">11:00</span>
                               </label>
                               <label>
-                                <input type="radio" name="appointment-time" id="">
-                                <span>12:00</span>
+                                <input type="radio" name="appointment-time" value="">
+                                <span class="time-value">12:00</span>
                               </label>
                               <label>
-                                <input type="radio" name="appointment-time" id="">
-                                <span>13:00</span>
+                                <input type="radio" name="appointment-time" value="">
+                                <span class="time-value">13:00</span>
                               </label>
                               <label>
-                                <input type="radio" name="appointment-time" id="">
-                                <span>14:00</span>
+                                <input type="radio" name="appointment-time" value="">
+                                <span class="time-value">14:00</span>
                               </label>
                               <label>
-                                <input type="radio" name="appointment-time" id="">
-                                <span>15:00</span>
+                                <input type="radio" name="appointment-time" value="">
+                                <span class="time-value">15:00</span>
                               </label>
                               <label>
-                                <input type="radio" name="appointment-time" id="">
-                                <span>16:00</span>
+                                <input type="radio" name="appointment-time" value="">
+                                <span class="time-value">16:00</span>
                               </label>
                               <label>
-                                <input type="radio" name="appointment-time" id="">
-                                <span>17:00</span>
+                                <input type="radio" name="appointment-time" value="">
+                                <span class="time-value">17:00</span>
                               </label>
                               <label>
-                                <input type="radio" name="appointment-time" id="">
-                                <span>18:00</span>
+                                <input type="radio" name="appointment-time" value="">
+                                <span class="time-value">18:00</span>
                               </label>
                               <label>
-                                <input type="radio" name="appointment-time" id="">
-                                <span>19:00</span>
+                                <input type="radio" name="appointment-time" value="">
+                                <span class="time-value">19:00</span>
                               </label>
                               <label>
-                                <input type="radio" name="appointment-time" id="">
-                                <span>20:00</span>
+                                <input type="radio" name="appointment-time" value="">
+                                <span class="time-value">20:00</span>
                               </label>
                             </fieldset>
                           </div>
@@ -1166,60 +1186,60 @@
                             </p>
                             <fieldset>
                               <label>
-                                <input type="radio" name="appointment-time" id="">
-                                <span>07:00</span>
+                                <input type="radio" name="appointment-time" value="">
+                                <span class="time-value">07:00</span>
                               </label>
                               <label>
-                                <input type="radio" name="appointment-time" id="">
-                                <span>08:00</span>
+                                <input type="radio" name="appointment-time" value="">
+                                <span class="time-value">08:00</span>
                               </label>
                               <label>
-                                <input type="radio" name="appointment-time" id="">
-                                <span>09:00</span>
+                                <input type="radio" name="appointment-time" value="">
+                                <span class="time-value">09:00</span>
                               </label>
                               <label>
-                                <input type="radio" name="appointment-time" id="">
-                                <span>10:00</span>
+                                <input type="radio" name="appointment-time" value="">
+                                <span class="time-value">10:00</span>
                               </label>
                               <label>
-                                <input type="radio" name="appointment-time" id="">
-                                <span>11:00</span>
+                                <input type="radio" name="appointment-time" value="">
+                                <span class="time-value">11:00</span>
                               </label>
                               <label>
-                                <input type="radio" name="appointment-time" id="">
-                                <span>12:00</span>
+                                <input type="radio" name="appointment-time" value="">
+                                <span class="time-value">12:00</span>
                               </label>
                               <label>
-                                <input type="radio" name="appointment-time" id="">
-                                <span>13:00</span>
+                                <input type="radio" name="appointment-time" value="">
+                                <span class="time-value">13:00</span>
                               </label>
                               <label>
-                                <input type="radio" name="appointment-time" id="">
-                                <span>14:00</span>
+                                <input type="radio" name="appointment-time" value="">
+                                <span class="time-value">14:00</span>
                               </label>
                               <label>
-                                <input type="radio" name="appointment-time" id="">
-                                <span>15:00</span>
+                                <input type="radio" name="appointment-time" value="">
+                                <span class="time-value">15:00</span>
                               </label>
                               <label>
-                                <input type="radio" name="appointment-time" id="">
-                                <span>16:00</span>
+                                <input type="radio" name="appointment-time" value="">
+                                <span class="time-value">16:00</span>
                               </label>
                               <label>
-                                <input type="radio" name="appointment-time" id="">
-                                <span>17:00</span>
+                                <input type="radio" name="appointment-time" value="">
+                                <span class="time-value">17:00</span>
                               </label>
                               <label>
-                                <input type="radio" name="appointment-time" id="">
-                                <span>18:00</span>
+                                <input type="radio" name="appointment-time" value="">
+                                <span class="time-value">18:00</span>
                               </label>
                               <label>
-                                <input type="radio" name="appointment-time" id="">
-                                <span>19:00</span>
+                                <input type="radio" name="appointment-time" value="">
+                                <span class="time-value">19:00</span>
                               </label>
                               <label>
-                                <input type="radio" name="appointment-time" id="">
-                                <span>20:00</span>
+                                <input type="radio" name="appointment-time" value="">
+                                <span class="time-value">20:00</span>
                               </label>
                             </fieldset>
                           </div>
@@ -1238,18 +1258,17 @@
             </div>
           </div>
         </div>
-  </div>
-  </section>
-  </main>
-  <footer class="footer">
-    <div class="container">
-      <div class="footer__copyright">
-        <span>&copy;</span>
-        <span>Speak Your Mind</span>
-        <span>2023</span>
+      </section>
+    </main>
+    <footer class="footer">
+      <div class="container">
+        <div class="footer__copyright">
+          <span>&copy;</span>
+          <span>Speak Your Mind</span>
+          <span>2023</span>
+        </div>
       </div>
-    </div>
-  </footer>
+    </footer>
   </div>
 
   <div class="modal modal--preload" id="upload-avatar">
@@ -1409,60 +1428,60 @@
             </p>
             <fieldset>
               <label>
-                <input type="radio" name="appointment-time" id="">
-                <span>07:00</span>
+                <input type="radio" name="appointment-time" value="">
+                <span class="time-value">07:00</span>
               </label>
               <label>
-                <input type="radio" name="appointment-time" id="">
-                <span>08:00</span>
+                <input type="radio" name="appointment-time" value="">
+                <span class="time-value">08:00</span>
               </label>
               <label>
-                <input type="radio" name="appointment-time" id="">
-                <span>09:00</span>
+                <input type="radio" name="appointment-time" value="">
+                <span class="time-value">09:00</span>
               </label>
               <label>
-                <input type="radio" name="appointment-time" id="">
-                <span>10:00</span>
+                <input type="radio" name="appointment-time" value="">
+                <span class="time-value">10:00</span>
               </label>
               <label>
-                <input type="radio" name="appointment-time" id="">
-                <span>11:00</span>
+                <input type="radio" name="appointment-time" value="">
+                <span class="time-value">11:00</span>
               </label>
               <label>
-                <input type="radio" name="appointment-time" id="">
-                <span>12:00</span>
+                <input type="radio" name="appointment-time" value="">
+                <span class="time-value">12:00</span>
               </label>
               <label>
-                <input type="radio" name="appointment-time" id="">
-                <span>13:00</span>
+                <input type="radio" name="appointment-time" value="">
+                <span class="time-value">13:00</span>
               </label>
               <label>
-                <input type="radio" name="appointment-time" id="">
-                <span>14:00</span>
+                <input type="radio" name="appointment-time" value="">
+                <span class="time-value">14:00</span>
               </label>
               <label>
-                <input type="radio" name="appointment-time" id="">
-                <span>15:00</span>
+                <input type="radio" name="appointment-time" value="">
+                <span class="time-value">15:00</span>
               </label>
               <label>
-                <input type="radio" name="appointment-time" id="">
-                <span>16:00</span>
+                <input type="radio" name="appointment-time" value="">
+                <span class="time-value">16:00</span>
               </label>
               <label>
-                <input type="radio" name="appointment-time" id="">
-                <span>17:00</span>
+                <input type="radio" name="appointment-time" value="">
+                <span class="time-value">17:00</span>
               </label>
               <label>
-                <input type="radio" name="appointment-time" id="">
-                <span>18:00</span>
+                <input type="radio" name="appointment-time" value="">
+                <span class="time-value">18:00</span>
               </label>
               <label>
-                <input type="radio" name="appointment-time" id="">
-                <span>19:00</span>
+                <input type="radio" name="appointment-time" value="">
+                <span class="time-value">19:00</span>
               </label>
               <label>
-                <input type="radio" name="appointment-time" id="">
-                <span>20:00</span>
+                <input type="radio" name="appointment-time" value="">
+                <span class="time-value">20:00</span>
               </label>
             </fieldset>
           </div>
@@ -1473,60 +1492,60 @@
             </p>
             <fieldset>
               <label>
-                <input type="radio" name="appointment-time" id="">
-                <span>07:00</span>
+                <input type="radio" name="appointment-time" value="">
+                <span class="time-value">07:00</span>
               </label>
               <label>
-                <input type="radio" name="appointment-time" id="">
-                <span>08:00</span>
+                <input type="radio" name="appointment-time" value="">
+                <span class="time-value">08:00</span>
               </label>
               <label>
-                <input type="radio" name="appointment-time" id="">
-                <span>09:00</span>
+                <input type="radio" name="appointment-time" value="">
+                <span class="time-value">09:00</span>
               </label>
               <label>
-                <input type="radio" name="appointment-time" id="">
-                <span>10:00</span>
+                <input type="radio" name="appointment-time" value="">
+                <span class="time-value">10:00</span>
               </label>
               <label>
-                <input type="radio" name="appointment-time" id="">
-                <span>11:00</span>
+                <input type="radio" name="appointment-time" value="">
+                <span class="time-value">11:00</span>
               </label>
               <label>
-                <input type="radio" name="appointment-time" id="">
-                <span>12:00</span>
+                <input type="radio" name="appointment-time" value="">
+                <span class="time-value">12:00</span>
               </label>
               <label>
-                <input type="radio" name="appointment-time" id="">
-                <span>13:00</span>
+                <input type="radio" name="appointment-time" value="">
+                <span class="time-value">13:00</span>
               </label>
               <label>
-                <input type="radio" name="appointment-time" id="">
-                <span>14:00</span>
+                <input type="radio" name="appointment-time" value="">
+                <span class="time-value">14:00</span>
               </label>
               <label>
-                <input type="radio" name="appointment-time" id="">
-                <span>15:00</span>
+                <input type="radio" name="appointment-time" value="">
+                <span class="time-value">15:00</span>
               </label>
               <label>
-                <input type="radio" name="appointment-time" id="">
-                <span>16:00</span>
+                <input type="radio" name="appointment-time" value="">
+                <span class="time-value">16:00</span>
               </label>
               <label>
-                <input type="radio" name="appointment-time" id="">
-                <span>17:00</span>
+                <input type="radio" name="appointment-time" value="">
+                <span class="time-value">17:00</span>
               </label>
               <label>
-                <input type="radio" name="appointment-time" id="">
-                <span>18:00</span>
+                <input type="radio" name="appointment-time" value="">
+                <span class="time-value">18:00</span>
               </label>
               <label>
-                <input type="radio" name="appointment-time" id="">
-                <span>19:00</span>
+                <input type="radio" name="appointment-time" value="">
+                <span class="time-value">19:00</span>
               </label>
               <label>
-                <input type="radio" name="appointment-time" id="" checked>
-                <span>20:00</span>
+                <input type="radio" name="appointment-time" value="">
+                <span class="time-value">20:00</span>
               </label>
             </fieldset>
           </div>
@@ -1537,60 +1556,60 @@
             </p>
             <fieldset>
               <label>
-                <input type="radio" name="appointment-time" id="">
-                <span>07:00</span>
+                <input type="radio" name="appointment-time" value="">
+                <span class="time-value">07:00</span>
               </label>
               <label>
-                <input type="radio" name="appointment-time" id="">
-                <span>08:00</span>
+                <input type="radio" name="appointment-time" value="">
+                <span class="time-value">08:00</span>
               </label>
               <label>
-                <input type="radio" name="appointment-time" id="">
-                <span>09:00</span>
+                <input type="radio" name="appointment-time" value="">
+                <span class="time-value">09:00</span>
               </label>
               <label>
-                <input type="radio" name="appointment-time" id="">
-                <span>10:00</span>
+                <input type="radio" name="appointment-time" value="">
+                <span class="time-value">10:00</span>
               </label>
               <label>
-                <input type="radio" name="appointment-time" id="">
-                <span>11:00</span>
+                <input type="radio" name="appointment-time" value="">
+                <span class="time-value">11:00</span>
               </label>
               <label>
-                <input type="radio" name="appointment-time" id="">
-                <span>12:00</span>
+                <input type="radio" name="appointment-time" value="">
+                <span class="time-value">12:00</span>
               </label>
               <label>
-                <input type="radio" name="appointment-time" id="">
-                <span>13:00</span>
+                <input type="radio" name="appointment-time" value="">
+                <span class="time-value">13:00</span>
               </label>
               <label>
-                <input type="radio" name="appointment-time" id="">
-                <span>14:00</span>
+                <input type="radio" name="appointment-time" value="">
+                <span class="time-value">14:00</span>
               </label>
               <label>
-                <input type="radio" name="appointment-time" id="">
-                <span>15:00</span>
+                <input type="radio" name="appointment-time" value="">
+                <span class="time-value">15:00</span>
               </label>
               <label>
-                <input type="radio" name="appointment-time" id="">
-                <span>16:00</span>
+                <input type="radio" name="appointment-time" value="">
+                <span class="time-value">16:00</span>
               </label>
               <label>
-                <input type="radio" name="appointment-time" id="">
-                <span>17:00</span>
+                <input type="radio" name="appointment-time" value="">
+                <span class="time-value">17:00</span>
               </label>
               <label>
-                <input type="radio" name="appointment-time" id="">
-                <span>18:00</span>
+                <input type="radio" name="appointment-time" value="">
+                <span class="time-value">18:00</span>
               </label>
               <label>
-                <input type="radio" name="appointment-time" id="">
-                <span>19:00</span>
+                <input type="radio" name="appointment-time" value="">
+                <span class="time-value">19:00</span>
               </label>
               <label>
-                <input type="radio" name="appointment-time" id="">
-                <span>20:00</span>
+                <input type="radio" name="appointment-time" value="">
+                <span class="time-value">20:00</span>
               </label>
             </fieldset>
           </div>

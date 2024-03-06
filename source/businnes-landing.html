@@ -136,32 +136,112 @@
       </div>
     </header>
     <main>
-      <section class="login">
+      <section class="intro intro--businnes">
         <div class="container">
-          <div class="login__wrapper">
-            <div class="login__heading">
-              <h1 class="title">Войдите в свой аккаунт</h1>
+          <div class="intro__heading">
+            <div class="intro__text">
+              <h1 class="intro__title text-40">Психологическая поддержка ваших сотрудников</h1>
+              <p class="text-18">Помогаем сотрудникам быть здоровыми и эффективными.</p>
+              <button class="intro__btn intro__btn--businnes btn text-25" data-open-modal
+                data-modal-id="#businnes-popup">Оставить заявку</button>
             </div>
-            <form action="" method="post">
-              <fieldset>
-                <label>
-                  <input type="text" placeholder="Ваш email">
-                </label>
-                <label>
-                  <input type="password" placeholder="Ваш пароль">
-                </label>
-              </fieldset>
-              <div class="login__btn-wrapper">
-                <button type="submit" class="login__btn btn">Войти</button>
+            <div class="intro__image">
+              <img src="./img/content/intro-img.png" width="550" height="309 " alt="">
+            </div>
+          </div>
+        </div>
+      </section>
+      <section class="guide">
+        <div class="container">
+          <div class="guide__heading">
+            <p class="text-40">Подберем психолога,с которым сотруднику будет комфортно</p>
+          </div>
+          <div class="guide__slider slider">
+            <div class="guide__slides">
+              <div class="guide__slide slide is-active">
+                <div class="guide__image">
+                  <img src="./img/content/slide-1.png" width="1120" height="523" alt="">
+                </div>
               </div>
-            </form>
-            <div class="login__links-wrapper">
-              <a href="user-login-pass-restore.html" class="login__pass-reset text-18 text-green">Забыли пароль?</a>
-              <p class="text-18">
-                <span>Нет аккаунта?</span>
-                <a href="user-signup-start.html" class="login__signup-link text-green">Зарегистрироваться</a>
+              <div class="guide__slide slide">
+                <div class="guide__image">
+                  <img src="./img/content/slide-2.png" width="1120" height="523" alt="">
+                </div>
+              </div>
+              <div class="guide__slide slide">
+                <div class="guide__image">
+                  <img src="./img/content/slide-3.png" width="1120" height="523" alt="">
+                </div>
+              </div>
+              <div class="guide__nav-btns">
+                <button type="button" class="guide__btn-prev btn-prev">
+                  <svg width="21" height="51" viewBox="0 0 42 102" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M36 6L6 51L36 96" stroke="#EAEAEA" stroke-width="12" stroke-linecap="round"
+                      stroke-linejoin="round" />
+                  </svg>
+                </button>
+                <button type="button" class="guide__btn-next btn-next">
+                  <svg width="21" height="51" viewBox="0 0 42 102" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M6 6L36 51L6 96" stroke="#EAEAEA" stroke-width="12" stroke-linecap="round"
+                      stroke-linejoin="round" />
+                  </svg>
+                </button>
+              </div>
             </div>
-            </p>
+            <div class="guide__dots">
+              <div class="guide__dot dot is-active">
+                <p class="guide__counter">1</p>
+                <p class="text-20">Сотрудник заполняет анкету</p>
+              </div>
+              <div class="guide__dot dot">
+                <p class="guide__counter">2</p>
+                <p class="text-20">Алгоритм предложит подходящих специалистов</p>
+              </div>
+              <div class="guide__dot dot">
+                <p class="guide__counter">3</p>
+                <p class="text-20">Алгоритм предложит подходящих специалистов</p>
+              </div>
+            </div>
+
+          </div>
+          <div class="guide__btn-wrapper">
+            <a href="#" class="guide__btn btn">Подробнее о сервисе</a>
+          </div>
+        </div>
+      </section>
+      <section class="therapists">
+        <div class="container">
+          <div class="therapists__heading">
+            <p class="text-40">Наши терапевты</p>
+            <p class="text-25">Мы строго отбираем психологов и работаем только с самыми опытными</p>
+          </div>
+          <ul class="therapists__list list-reset">
+            <li class="therapists__item">
+              <img src="./img/content/placeholder.png" width="149" height="150" alt="">
+            </li>
+            <li class="therapists__item">
+              <img src="./img/content/placeholder.png" width="149" height="150" alt="">
+            </li>
+            <li class="therapists__item">
+              <img src="./img/content/placeholder.png" width="149" height="150" alt="">
+            </li>
+            <li class="therapists__item">
+              <img src="./img/content/placeholder.png" width="149" height="150" alt="">
+            </li>
+            <li class="therapists__item">
+              <img src="./img/content/placeholder.png" width="149" height="150" alt="">
+            </li>
+            <li class="therapists__item">
+              <img src="./img/content/placeholder.png" width="149" height="150" alt="">
+            </li>
+            <li class="therapists__item">
+              <img src="./img/content/placeholder.png" width="149" height="150" alt="">
+            </li>
+          </ul>
+          <div class="therapists__btn-wrapper">
+            <button class="intro__btn btn text-25" data-open-modal data-modal-id="#businnes-popup">Повысить
+              эффективность своих
+              сотрудников</button>
           </div>
         </div>
       </section>
@@ -177,6 +257,46 @@
       </div>
     </footer>
   </div>
+
+  <div class="modal modal--preload" id="businnes-popup">
+    <div class="modal__wrapper">
+      <div class="modal__overlay" data-close-modal></div>
+      <div class="modal__content modal__content--businnes">
+        <button class="modal__close-btn" type="button" aria-label="Закрыть окно." data-close-modal>
+          <svg width="32" height="32" fill="currentColor">
+            <use xlink:href="./img/sprite.svg#close-modal"></use>
+          </svg>
+        </button>
+        <h2 class="modal__title text-31">Оставить заявку</h2>
+        <div class="businnes-popup-form">
+          <form action="" method="post">
+            <label for="company-name">
+              <span>Название компании</span>
+              <input type="text" id="company-name" name="company-name" required>
+            </label>
+            <label for="employees-number">
+              <span>Количество сотрудников</span>
+              <input type="text" id="employees-number" name="employees-number" required>
+            </label>
+            <label for="rep-name">
+              <span>Имя</span>
+              <input type="text" id="rep-name" name="rep-name" required>
+            </label>
+            <label for="rep-tel">
+              <span>Телефон</span>
+              <input type="text" id="rep-tel" name="rep-tel" required>
+            </label>
+            <label for="rep-email">
+              <span>Email</span>
+              <input type="email" id="rep-email" name="rep-email" required>
+            </label>
+            <button type="submit" class="submit-btn btn text-20">Отправить</button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+
   <script src="js/vendor.min.js"></script>
   <script src="js/main.min.js"></script>
 </body>

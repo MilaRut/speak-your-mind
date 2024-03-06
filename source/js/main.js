@@ -13,6 +13,7 @@ import {setActiveItem} from './modules/clients-list';
 import {setSessionStatus, initActionsBtns} from './modules/clients-btns';
 import {initModal} from './modules/modal';
 import {setClientCard} from './modules/client-card';
+import {setTimeValue} from './modules/inputs-value';
 
 // ---------------------------------
 
@@ -42,5 +43,6 @@ window.addEventListener('DOMContentLoaded', () => {
     initActionsBtns();
     initModal();
     setClientCard();
+    setTimeValue();
   });
 });

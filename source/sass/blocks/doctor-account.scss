@@ -10,7 +10,8 @@
     gap: 60px;
   }
 
-  &__tab {
+  &__nav-link {
+    display: block;
     color: $color-jade;
     padding: 10px 8px;
     font-size: 18px;
@@ -28,16 +29,15 @@
     }
   }
 
-  &__tab:hover {
+  &__nav-link:hover {
     border-bottom: 3px solid $color-jade;
     transition: all 0.5s ease-in;
   }
 
-  &__tab.is-active {
+  &__nav-link.is-active {
     background: $color-humming-bird;
     border-bottom: 3px solid $color-jade;
     color: $color-default-black;
-    transition: all 0.5s ease-in;
 
     a {
       color: $color-nero;

@@ -1,6 +1,10 @@
 .intro {
   background: $color-honeydew;
 
+  &--businnes {
+    background: $color-default-white;
+  }
+
   .container {
     padding-top: 70px;
   }
@@ -52,8 +56,10 @@
   &__btn {
     padding: 24px 32px;
     border-radius: 50px;
-    font-size: 20px;
-    font-weight: 700;
-    line-height: 1;
+
+    &--businnes {
+      margin-top: 45px;
+      padding: 15px 17px;
+    }
   }
 }

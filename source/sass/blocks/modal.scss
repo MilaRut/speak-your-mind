@@ -152,3 +152,38 @@
     align-items: center;
   }
 }
+
+#businnes-popup {
+  form {
+    display: flex;
+    flex-direction: column;
+
+    label {
+      display: flex;
+      flex-direction: column;
+      margin-bottom: 32px;
+
+      span {
+        margin-bottom: 10px;
+      }
+
+      input {
+        padding: 7px 10px;
+        font-size: 18px;
+        font-weight: 400;
+        line-height: 1.2;
+        border: 1px solid #202020;
+        background: $color-default-white;
+        box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.25) inset;
+      }
+    }
+
+    .submit-btn {
+      padding: 16px;
+      margin: 24px 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+  }
+}

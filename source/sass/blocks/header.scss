@@ -11,4 +11,40 @@
   &__logo {
     margin-right: auto;
   }
+
+  &__unlogged {
+    position: relative;
+  }
+
+  &__signup-wrapper,
+  &__login-wrapper {
+    display: none;
+    position: absolute;
+    top: 50px;
+    left: 50%;
+    transform: translateX(-50%);
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    min-width: 280px;
+    background-color: $color-default-white;
+    border: 1px solid grey;
+    padding: 20px 10px;
+    border-radius: 20px;
+
+    a {
+      text-align: center;
+      &:hover {
+        color: $color-jade;
+      }
+
+      &:not(:last-child) {
+        margin-bottom: 20px;
+      }
+    }
+
+    &.is-active {
+      display: flex;
+    }
+  }
 }

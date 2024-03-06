@@ -23,7 +23,14 @@
     margin-bottom: 8px;
   }
 
-  .date {
+  .next-session {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .date,
+  .date-not-scheduled {
     margin-bottom: 24px;
   }
 }
