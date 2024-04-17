@@ -751,22 +751,6 @@ button {
   display: none;
 }
 
-.user-logged.user-logged-doctor .logged__menu-item--user {
-  display: none;
-}
-
-.user-logged.user-logged-doctor .logged__menu-item--doctor {
-  display: block;
-}
-
-.user-logged:not(.user-logged-doctor) .logged__menu-item--doctor {
-  display: none;
-}
-
-.user-logged:not(.user-logged-doctor) .logged__menu-item--user {
-  display: block;
-}
-
 .modal {
   position: fixed;
   top: 0;
@@ -1243,7 +1227,7 @@ button {
   position: absolute;
   top: 40px;
   right: 0;
-  min-width: 250px;
+  min-width: 80px;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -1261,12 +1245,7 @@ button {
   box-shadow: 0 0 2px 2px rgba(0, 0, 0, 0.2);
 }
 
-.logged__menu-item {
-  margin-bottom: 7px;
-}
-
 .logged__menu-item a:hover {
-  font-weight: 700;
   color: #00ac72;
 }
 
@@ -3841,6 +3820,10 @@ button {
   display: none;
 }
 
+.doctor-account__settings[data-utils=settings-main-start] .settings__payment-show-history {
+  display: none;
+}
+
 .doctor-account__settings[data-utils=settings-main] .settings__main-content {
   display: block;
 }
@@ -3857,6 +3840,10 @@ button {
 
 .doctor-account__settings[data-utils=settings-main] .settings__user-view {
   display: none;
+}
+
+.doctor-account__settings[data-utils=settings-main] .settings__payment-show-history {
+  display: block;
 }
 
 .doctor-account__settings[data-utils=settings-user-view] .settings__main-content {
