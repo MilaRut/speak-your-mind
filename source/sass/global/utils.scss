@@ -109,3 +109,14 @@ button {
     display: block;
   }
 }
+
+.error-message {
+  display: none;
+}
+
+.error-message.is-active {
+  position: absolute;
+  bottom: -25px;
+  display: block;
+  color: #ff0000;
+}

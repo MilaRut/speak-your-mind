@@ -89,6 +89,10 @@
   .settings__user-view {
     display: none;
   }
+
+  .settings__payment-show-history {
+    display: none;
+  }
 }
 
 .doctor-account__settings[data-utils="settings-main"] {
@@ -108,6 +112,10 @@
 
   .settings__user-view {
     display: none;
+  }
+
+  .settings__payment-show-history {
+    display: block;
   }
 }
 

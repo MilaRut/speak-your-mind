@@ -140,5 +140,14 @@
   &__submit-btn {
     padding: 16px 24px;
     cursor: pointer;
+    opacity: 0.5;
+
+    &.is-enabled {
+      opacity: 1;
+    }
   }
+}
+
+#choice-date-form {
+  position: relative;
 }

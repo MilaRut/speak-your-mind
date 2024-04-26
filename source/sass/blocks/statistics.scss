@@ -1,13 +1,27 @@
-.help {
-  padding: 69px ;
+.statistics {
+  background-color: $color-romance;
+  padding: 80px 0;
+
   .container {
     padding: 0;
   }
 
-  &__wrapper {
+  &__heading {
+    max-width: 40%;
+    margin-bottom: 80px;
+  }
+
+  &__list {
+    display: grid;
+    grid-template-columns: repeat(3, auto);
+    column-gap: 90px;
+  }
+
+  &__wrapper-bottom {
     display: flex;
-    align-items: center;
     background: $color-default-white;
+    background: linear-gradient(180deg, $color-honeydew 0%, $color-honeydew 10%, $color-default-white 10%);
+    padding: 0 94px 116px 94px;
   }
 
   &__text-wrapper {

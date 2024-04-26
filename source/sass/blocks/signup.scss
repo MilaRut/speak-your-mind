@@ -61,11 +61,11 @@
     padding-top: 44px;
   }
 
-  &__tabs {
+  &__links {
     margin-bottom: 40px;
   }
 
-  &__tabs &__tab {
+  &__link {
     display: inline-block;
     min-width: 304px;
     background-color: $color-transparent;
@@ -77,12 +77,12 @@
     transition: all 0.5s ease-in;
   }
 
-  &__tabs &__tab:hover {
+  &__link:hover {
     border-bottom: 3px solid $color-jade;
     transition: all 0.5s ease-in;
   }
 
-  &__tabs &__tab.is-active {
+  &__link.is-active {
     color: $color-default-black;
     border-bottom: 3px solid $color-jade;
     transition: all 0.5s ease-in;
