@@ -21,7 +21,7 @@
       <div class="container">
         <div class="header__logo">
           <div class="header__logo-wrapper">
-            <img src="./img/svg/logo.svg" width="182" height="44" alt="Speak your mind.">
+            <img src="./img/svg/logo.svg" width="387" height="52" alt="Speak your mind.">
           </div>
         </div>
         <nav class="header__nav nav">
@@ -87,48 +87,6 @@
               </svg>
             </button>
             <ul class="logged__menu-list list-reset" id="logged-menu">
-              <li class="logged__menu-item logged__menu-item--user">
-                <a href="user-account-main.html">Главная</a>
-              </li>
-              <li class="logged__menu-item logged__menu-item--user">
-                <a href="#">Записаться</a>
-              </li>
-              <li class="logged__menu-item logged__menu-item--user">
-                <a href="user-account-settings.html">Настройки</a>
-              </li>
-              <li class="logged__menu-item logged__menu-item--user">
-                <a href="user-account-payments.html">Платежи</a>
-              </li>
-              <li class="logged__menu-item logged__menu-item--user">
-                <a href="#">Абонемент на сессии</a>
-              </li>
-              <li class="logged__menu-item logged__menu-item--user">
-                <a href="#">Подарочные сертификаты</a>
-              </li>
-              <li class="logged__menu-item logged__menu-item--user">
-                <a href="#">Служба поддержки</a>
-              </li>
-              <li class="logged__menu-item logged__menu-item--user">
-                <a href="#">Психологические тесты</a>
-              </li>
-              <li class="logged__menu-item logged__menu-item--user">
-                <a href="#">Вопросы-ответы</a>
-              </li>
-              <li class="logged__menu-item logged__menu-item--doctor">
-                <a href="#">Профиль</a>
-              </li>
-              <li class="logged__menu-item logged__menu-item--doctor">
-                <a href="#"> Опыт и образование</a>
-              </li>
-              <li class="logged__menu-item logged__menu-item--doctor">
-                <a href="#"> Метод и специализация</a>
-              </li>
-              <li class="logged__menu-item logged__menu-item--doctor">
-                <a href="#">Стоимость сессии</a>
-              </li>
-              <li class="logged__menu-item logged__menu-item--doctor">
-                <a href="doctor-account-settings.html">Настройки</a>
-              </li>
               <li class="logged__menu-item">
                 <a href="#">Выйти</a>
               </li>
@@ -154,18 +112,261 @@
               <div class="doctor-account__schedule schedule">
                 <div class="doctor-account__heading">
                   <h2 class="text-40">Расписание</h2>
-                  <div class="schedule__subtab-btns">
-                    <div class="schedule__subtab-btn" subtab data-tab="week-current">
-                      <p>Текущая неделя (<span>41 час</span>)</p>
+                  <div class="schedule__tab-btns tabs">
+                    <button type="button" class="schedule__tab-btn is-active" tab-btn data-tab="#week-current">
+                      <p>Текущая неделя (<span class="hours-sum">0 ч.</span>)</p>
+                    </button>
+                    <button type="button" class="schedule__tab-btn" tab-btn data-tab="#week-2">
+                      <p>6.05-12.05 (<span class="hours-sum">0 ч.</span>)</p>
+                    </button>
+                    <button type="button" class="schedule__tab-btn" tab-btn data-tab="#week-3">
+                      <p>13.05-19.05 (<span class="hours-sum">0 ч.</span>)</p>
+                    </button>
+                    <button type="button" class="schedule__tab-btn" tab-btn data-tab="#week-4">
+                      <p>20.05-26.05 (<span class="hours-sum">0 ч.</span>)</p>
+                    </button>
+                    <button type="button" class="schedule__tab-btn" tab-btn data-tab="#week-5">
+                      <p>27.05-02.06 (<span class="hours-sum">0 ч.</span>)</p>
+                    </button>
+                  </div>
+                  <div class="schedule__calender">
+                    <div class="schedule__calender-timeoptions">
+                      <span>&nbsp;</span>
+                      <span class="schedule__calender-timeoption">06:00</span>
+                      <span class="schedule__calender-timeoption">07:00</span>
+                      <span class="schedule__calender-timeoption">08:00</span>
+                      <span class="schedule__calender-timeoption">09:00</span>
+                      <span class="schedule__calender-timeoption">10:00</span>
+                      <span class="schedule__calender-timeoption">11:00</span>
+                      <span class="schedule__calender-timeoption">12:00</span>
+                      <span class="schedule__calender-timeoption">13:00</span>
+                      <span class="schedule__calender-timeoption">14:00</span>
+                      <span class="schedule__calender-timeoption">15:00</span>
+                      <span class="schedule__calender-timeoption">16:00</span>
+                      <span class="schedule__calender-timeoption">17:00</span>
+                      <span class="schedule__calender-timeoption">18:00</span>
+                      <span class="schedule__calender-timeoption">19:00</span>
+                      <span class="schedule__calender-timeoption">20:00</span>
                     </div>
-                    <div class="schedule__subtab-btn" subtab data-tab="week2">
-                      <p>10-16 июля (<span>41 час</span>)</p>
+                    <div class="schedule__calender-week is-active" tab-item id="week-current">
+                      <div class="schedule__calender-day" data-time="2024-04-29">
+                        <div class="schedule__calender-day-title">
+                          <span class="dayweek">Пн</span>,&nbsp;<span class="daydate">29</span>
+                        </div>
+                        <div class="schedule__calender-day-slots"></div>
+                      </div>
+                      <div class="schedule__calender-day" data-time="2024-04-30">
+                        <div class="schedule__calender-day-title">
+                          <span class="dayweek">Вт</span>,&nbsp;<span class="daydate">30</span>
+                        </div>
+                        <div class="schedule__calender-day-slots"></div>
+                      </div>
+                      <div class="schedule__calender-day" data-time="2024-05-01">
+                        <div class="schedule__calender-day-title">
+                          <span class="dayweek">Ср</span>,&nbsp;<span class="daydate">1</span>
+                        </div>
+                        <div class="schedule__calender-day-slots"></div>
+                      </div>
+                      <div class="schedule__calender-day" data-time="2024-05-02">
+                        <div class="schedule__calender-day-title">
+                          <span class="dayweek">Чт</span>,&nbsp;<span class="daydate">2</span>
+                        </div>
+                        <div class="schedule__calender-day-slots"></div>
+                      </div>
+                      <div class="schedule__calender-day" data-time="2024-05-03">
+                        <div class="schedule__calender-day-title">
+                          <span class="dayweek">Пт</span>,&nbsp;<span class="daydate">3</span>
+                        </div>
+                        <div class="schedule__calender-day-slots"></div>
+                      </div>
+                      <div class="schedule__calender-day" data-time="2024-05-04">
+                        <div class="schedule__calender-day-title">
+                          <span class="dayweek">Сб</span>,&nbsp;<span class="daydate">4</span>
+                        </div>
+                        <div class="schedule__calender-day-slots"></div>
+                      </div>
+                      <div class="schedule__calender-day" data-time="2024-05-05">
+                        <div class="schedule__calender-day-title">
+                          <span class="dayweek">Вс</span>,&nbsp;<span class="daydate">5</span>
+                        </div>
+                        <div class="schedule__calender-day-slots"></div>
+                      </div>
                     </div>
-                    <div class="schedule__subtab-btn" subtab data-tab="week3">
-                      <p>17-23 июля (<span>35 часов</span>)</p>
+                    <div class="schedule__calender-week" tab-item id="week-2">
+                      <div class="schedule__calender-day" data-time="2024-05-06">
+                        <div class="schedule__calender-day-title">
+                          <span class="dayweek">Пн</span>,&nbsp;<span class="daydate">6</span>
+                        </div>
+                        <div class="schedule__calender-day-slots"></div>
+                      </div>
+                      <div class="schedule__calender-day" data-time="2024-05-07">
+                        <div class="schedule__calender-day-title">
+                          <span class="dayweek">Вт</span>,&nbsp;<span class="daydate">7</span>
+                        </div>
+                        <div class="schedule__calender-day-slots"></div>
+                      </div>
+                      <div class="schedule__calender-day" data-time="2024-05-08">
+                        <div class="schedule__calender-day-title">
+                          <span class="dayweek">Ср</span>,&nbsp;<span class="daydate">8</span>
+                        </div>
+                        <div class="schedule__calender-day-slots"></div>
+                      </div>
+                      <div class="schedule__calender-day" data-time="2024-05-09">
+                        <div class="schedule__calender-day-title">
+                          <span class="dayweek">Чт</span>,&nbsp;<span class="daydate">9</span>
+                        </div>
+                        <div class="schedule__calender-day-slots"></div>
+                      </div>
+                      <div class="schedule__calender-day" data-time="2024-05-10">
+                        <div class="schedule__calender-day-title">
+                          <span class="dayweek">Пт</span>,&nbsp;<span class="daydate">10</span>
+                        </div>
+                        <div class="schedule__calender-day-slots"></div>
+                      </div>
+                      <div class="schedule__calender-day" data-time="2024-05-11">
+                        <div class="schedule__calender-day-title">
+                          <span class="dayweek">Сб</span>,&nbsp;<span class="daydate">11</span>
+                        </div>
+                        <div class="schedule__calender-day-slots"></div>
+                      </div>
+                      <div class="schedule__calender-day" data-time="2024-05-12">
+                        <div class="schedule__calender-day-title">
+                          <span class="dayweek">Вс</span>,&nbsp;<span class="daydate">12</span>
+                        </div>
+                        <div class="schedule__calender-day-slots"></div>
+                      </div>
                     </div>
-                    <div class="schedule__subtab-btn" subtab data-tab="week4">
-                      <p>24-30 июля (<span>40 часов</span>)</p>
+                    <div class="schedule__calender-week" tab-item id="week-3">
+                      <div class="schedule__calender-day" data-time="2024-05-13">
+                        <div class="schedule__calender-day-title">
+                          <span class="dayweek">Пн</span>,&nbsp;<span class="daydate">13</span>
+                        </div>
+                        <div class="schedule__calender-day-slots"></div>
+                      </div>
+                      <div class="schedule__calender-day" data-time="2024-05-14">
+                        <div class="schedule__calender-day-title">
+                          <span class="dayweek">Вт</span>,&nbsp;<span class="daydate">14</span>
+                        </div>
+                        <div class="schedule__calender-day-slots"></div>
+                      </div>
+                      <div class="schedule__calender-day" data-time="2024-05-15">
+                        <div class="schedule__calender-day-title">
+                          <span class="dayweek">Ср</span>,&nbsp;<span class="daydate">15</span>
+                        </div>
+                        <div class="schedule__calender-day-slots"></div>
+                      </div>
+                      <div class="schedule__calender-day" data-time="2024-05-16">
+                        <div class="schedule__calender-day-title">
+                          <span class="dayweek">Чт</span>,&nbsp;<span class="daydate">16</span>
+                        </div>
+                        <div class="schedule__calender-day-slots"></div>
+                      </div>
+                      <div class="schedule__calender-day" data-time="2024-05-17">
+                        <div class="schedule__calender-day-title">
+                          <span class="dayweek">Пт</span>,&nbsp;<span class="daydate">17</span>
+                        </div>
+                        <div class="schedule__calender-day-slots"></div>
+                      </div>
+                      <div class="schedule__calender-day" data-time="2024-05-18">
+                        <div class="schedule__calender-day-title">
+                          <span class="dayweek">Сб</span>,&nbsp;<span class="daydate">18</span>
+                        </div>
+                        <div class="schedule__calender-day-slots"></div>
+                      </div>
+                      <div class="schedule__calender-day" data-time="2024-05-19">
+                        <div class="schedule__calender-day-title">
+                          <span class="dayweek">Вс</span>,&nbsp;<span class="daydate">19</span>
+                        </div>
+                        <div class="schedule__calender-day-slots"></div>
+                      </div>
+                    </div>
+                    <div class="schedule__calender-week" tab-item id="week-4">
+                      <div class="schedule__calender-day" data-time="2024-05-20">
+                        <div class="schedule__calender-day-title">
+                          <span class="dayweek">Пн</span>,&nbsp;<span class="daydate">20</span>
+                        </div>
+                        <div class="schedule__calender-day-slots"></div>
+                      </div>
+                      <div class="schedule__calender-day" data-time="2024-05-21">
+                        <div class="schedule__calender-day-title">
+                          <span class="dayweek">Вт</span>,&nbsp;<span class="daydate">21</span>
+                        </div>
+                        <div class="schedule__calender-day-slots"></div>
+                      </div>
+                      <div class="schedule__calender-day" data-time="2024-05-22">
+                        <div class="schedule__calender-day-title">
+                          <span class="dayweek">Ср</span>,&nbsp;<span class="daydate">22</span>
+                        </div>
+                        <div class="schedule__calender-day-slots"></div>
+                      </div>
+                      <div class="schedule__calender-day" data-time="2024-05-23">
+                        <div class="schedule__calender-day-title">
+                          <span class="dayweek">Чт</span>,&nbsp;<span class="daydate">23</span>
+                        </div>
+                        <div class="schedule__calender-day-slots"></div>
+                      </div>
+                      <div class="schedule__calender-day" data-time="2024-05-24">
+                        <div class="schedule__calender-day-title">
+                          <span class="dayweek">Пт</span>,&nbsp;<span class="daydate">24</span>
+                        </div>
+                        <div class="schedule__calender-day-slots"></div>
+                      </div>
+                      <div class="schedule__calender-day" data-time="2024-05-25">
+                        <div class="schedule__calender-day-title">
+                          <span class="dayweek">Сб</span>,&nbsp;<span class="daydate">25</span>
+                        </div>
+                        <div class="schedule__calender-day-slots"></div>
+                      </div>
+                      <div class="schedule__calender-day" data-time="2024-05-26">
+                        <div class="schedule__calender-day-title">
+                          <span class="dayweek">Вс</span>,&nbsp;<span class="daydate">26</span>
+                        </div>
+                        <div class="schedule__calender-day-slots"></div>
+                      </div>
+                    </div>
+                    <div class="schedule__calender-week" tab-item id="week-5">
+                      <div class="schedule__calender-day" data-time="2024-05-27">
+                        <div class="schedule__calender-day-title">
+                          <span class="dayweek">Пн</span>,&nbsp;<span class="daydate">27</span>
+                        </div>
+                        <div class="schedule__calender-day-slots"></div>
+                      </div>
+                      <div class="schedule__calender-day" data-time="2024-05-28">
+                        <div class="schedule__calender-day-title">
+                          <span class="dayweek">Вт</span>,&nbsp;<span class="daydate">28</span>
+                        </div>
+                        <div class="schedule__calender-day-slots"></div>
+                      </div>
+                      <div class="schedule__calender-day" data-time="2024-05-29">
+                        <div class="schedule__calender-day-title">
+                          <span class="dayweek">Ср</span>,&nbsp;<span class="daydate">29</span>
+                        </div>
+                        <div class="schedule__calender-day-slots"></div>
+                      </div>
+                      <div class="schedule__calender-day" data-time="2024-05-30">
+                        <div class="schedule__calender-day-title">
+                          <span class="dayweek">Чт</span>,&nbsp;<span class="daydate">30</span>
+                        </div>
+                        <div class="schedule__calender-day-slots"></div>
+                      </div>
+                      <div class="schedule__calender-day" data-time="2024-05-31">
+                        <div class="schedule__calender-day-title">
+                          <span class="dayweek">Пт</span>,&nbsp;<span class="daydate">31</span>
+                        </div>
+                        <div class="schedule__calender-day-slots"></div>
+                      </div>
+                      <div class="schedule__calender-day" data-time="2024-06-01">
+                        <div class="schedule__calender-day-title">
+                          <span class="dayweek">Сб</span>,&nbsp;<span class="daydate">01</span>
+                        </div>
+                        <div class="schedule__calender-day-slots"></div>
+                      </div>
+                      <div class="schedule__calender-day" data-time="2024-06-02">
+                        <div class="schedule__calender-day-title">
+                          <span class="dayweek">Вс</span>,&nbsp;<span class="daydate">02</span>
+                        </div>
+                        <div class="schedule__calender-day-slots"></div>
+                      </div>
                     </div>
                   </div>
                 </div>
