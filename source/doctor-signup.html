@@ -21,7 +21,7 @@
       <div class="container">
         <div class="header__logo">
           <div class="header__logo-wrapper">
-            <img src="./img/svg/logo.svg" width="182" height="44" alt="Speak your mind.">
+            <img src="./img/svg/logo.svg" width="387" height="52" alt="Speak your mind.">
           </div>
         </div>
         <nav class="header__nav nav">
@@ -85,48 +85,6 @@
               </svg>
             </button>
             <ul class="logged__menu-list list-reset" id="logged-menu">
-              <li class="logged__menu-item logged__menu-item--user">
-                <a href="user-account-main.html">Главная</a>
-              </li>
-              <li class="logged__menu-item logged__menu-item--user">
-                <a href="#">Записаться</a>
-              </li>
-              <li class="logged__menu-item logged__menu-item--user">
-                <a href="user-account-settings.html">Настройки</a>
-              </li>
-              <li class="logged__menu-item logged__menu-item--user">
-                <a href="user-account-payments.html">Платежи</a>
-              </li>
-              <li class="logged__menu-item logged__menu-item--user">
-                <a href="#">Абонемент на сессии</a>
-              </li>
-              <li class="logged__menu-item logged__menu-item--user">
-                <a href="#">Подарочные сертификаты</a>
-              </li>
-              <li class="logged__menu-item logged__menu-item--user">
-                <a href="#">Служба поддержки</a>
-              </li>
-              <li class="logged__menu-item logged__menu-item--user">
-                <a href="#">Психологические тесты</a>
-              </li>
-              <li class="logged__menu-item logged__menu-item--user">
-                <a href="#">Вопросы-ответы</a>
-              </li>
-              <li class="logged__menu-item logged__menu-item--doctor">
-                <a href="#">Профиль</a>
-              </li>
-              <li class="logged__menu-item logged__menu-item--doctor">
-                <a href="#"> Опыт и образование</a>
-              </li>
-              <li class="logged__menu-item logged__menu-item--doctor">
-                <a href="#"> Метод и специализация</a>
-              </li>
-              <li class="logged__menu-item logged__menu-item--doctor">
-                <a href="#">Стоимость сессии</a>
-              </li>
-              <li class="logged__menu-item logged__menu-item--doctor">
-                <a href="doctor-account-settings.html">Настройки</a>
-              </li>
               <li class="logged__menu-item">
                 <a href="#">Выйти</a>
               </li>
@@ -150,7 +108,7 @@
             <div class="doc-questionary__wrapper">
               <p class="text-20">Ваша дата рождения? Число. Месяц. Год.*</p>
               <p class="text-13">Пример формата: 08.05.1970</p>
-              <input class="text-18" type="text" name="doc-date-of-birth" id="doc-date-of-birth"
+              <input class="text-18" type="date" name="doc-date-of-birth" id="doc-date-of-birth"
                 placeholder="Число. Месяц. Год." required>
             </div>
             <div class="doc-questionary__wrapper">
@@ -188,6 +146,25 @@
                 <input type="text" name="doc-method-other" id="doc-method-other" placeholder="Ваш вариант">
               </label>
             </div>
+
+            <div class="doc-questionary__wrapper">
+              <p class="text-20">Язык консультаций*</p>
+              <div class="doc-questionary__checkboxes">
+                <label>
+                  <input type="checkbox" id="lang-ru" name="language[]">
+                  <span>русский</span>
+                </label>
+                <label>
+                  <input type="checkbox" id="lang-ma" name="language[]">
+                  <span>magyar</span>
+                </label>
+                <label>
+                  <input type="checkbox" id="lang-en" name="language[]">
+                  <span>english</span>
+                </label>
+              </div>
+            </div>
+
             <div class="doc-questionary__wrapper">
               <p class="text-18">Выберите, если у вас есть дополнительное образование, касающееся следующих тем</p>
               <div class="doc-questionary__checkboxes">
@@ -240,13 +217,13 @@
             <div class="doc-questionary__wrapper">
               <p class="text-20">Есть ли опыт работы онлайн?*</p>
               <p class="text-18">Если да, то сколько лет?</p>
-              <input class="text-18" type="text" name="doc-online-experience" id="doc-online-experience"
+              <input class="text-18" type="number" name="doc-online-experience" id="doc-online-experience"
                 placeholder="Ваш ответ" required>
             </div>
             <div class="doc-questionary__wrapper">
               <p class="text-20">Сколько клиентов у вас сейчас в практике?*</p>
               <p class="text-18">Пожалуйста, не за всю историю практики, а на текущий момент</p>
-              <input class="text-18" type="text" name="doc-customers-amount" id="doc-customers-amount"
+              <input class="text-18" type="number" name="doc-customers-amount" id="doc-customers-amount"
                 placeholder="Число" required>
             </div>
             <div class="doc-questionary__wrapper">
@@ -363,7 +340,7 @@
               <p class="text-18">Всё общение с нами происходит через письма на почту. Мы пришлём вам письмо с итогом по
                 вашей заявке. Пожалуйста, проверьте правильность адреса несколько раз.
               </p>
-              <input class="text-18" type="text" name="doc-email" id="doc-email" placeholder="Ваш email" required>
+              <input class="text-18" type="email" name="doc-email" id="doc-email" placeholder="Ваш email" required>
             </div>
             <div class="doc-questionary__wrapper">
               <p class="text-20">Расскажите нам о себе в свободной форме.*</p>
