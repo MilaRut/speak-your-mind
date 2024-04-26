@@ -21,7 +21,7 @@
       <div class="container">
         <div class="header__logo">
           <div class="header__logo-wrapper">
-            <img src="./img/svg/logo.svg" width="182" height="44" alt="Speak your mind.">
+            <img src="./img/svg/logo.svg" width="387" height="52" alt="Speak your mind.">
           </div>
         </div>
         <nav class="header__nav nav">
@@ -43,12 +43,14 @@
           </div>
         </nav>
         <div class="header__unlogged unlogged">
-          <button type="button" class="js-dropdown-trigger unlogged__login-btn btn" data-id="#login-wrapper">Вход</button>
+          <button type="button" class="js-dropdown-trigger unlogged__login-btn btn"
+            data-id="#login-wrapper">Вход</button>
           <div class="header__login-wrapper" id="login-wrapper">
             <a class="text-18" href="user-login.html">Вход для клиентов</a>
             <a class="text-18" href="doctor-login.html">Вход для психологов</a>
           </div>
-          <button type="button" class="js-dropdown-trigger unlogged__signup-btn btn btn--white" data-id="#signup-wrapper">Регистрация</button>
+          <button type="button" class="js-dropdown-trigger unlogged__signup-btn btn btn--white"
+            data-id="#signup-wrapper">Регистрация</button>
           <div class="header__signup-wrapper" id="signup-wrapper">
             <a class="text-18" href="user-signup-start.html">Регистрация для клиентов</a>
             <a class="text-18" href="doctor-signup.html">Регистрация для психологов</a>
@@ -85,48 +87,6 @@
               </svg>
             </button>
             <ul class="logged__menu-list list-reset" id="logged-menu">
-              <li class="logged__menu-item logged__menu-item--user">
-                <a href="user-account-main.html">Главная</a>
-              </li>
-              <li class="logged__menu-item logged__menu-item--user">
-                <a href="#">Записаться</a>
-              </li>
-              <li class="logged__menu-item logged__menu-item--user">
-                <a href="user-account-settings.html">Настройки</a>
-              </li>
-              <li class="logged__menu-item logged__menu-item--user">
-                <a href="user-account-payments.html">Платежи</a>
-              </li>
-              <li class="logged__menu-item logged__menu-item--user">
-                <a href="#">Абонемент на сессии</a>
-              </li>
-              <li class="logged__menu-item logged__menu-item--user">
-                <a href="#">Подарочные сертификаты</a>
-              </li>
-              <li class="logged__menu-item logged__menu-item--user">
-                <a href="#">Служба поддержки</a>
-              </li>
-              <li class="logged__menu-item logged__menu-item--user">
-                <a href="#">Психологические тесты</a>
-              </li>
-              <li class="logged__menu-item logged__menu-item--user">
-                <a href="#">Вопросы-ответы</a>
-              </li>
-              <li class="logged__menu-item logged__menu-item--doctor">
-                <a href="#">Профиль</a>
-              </li>
-              <li class="logged__menu-item logged__menu-item--doctor">
-                <a href="#"> Опыт и образование</a>
-              </li>
-              <li class="logged__menu-item logged__menu-item--doctor">
-                <a href="#"> Метод и специализация</a>
-              </li>
-              <li class="logged__menu-item logged__menu-item--doctor">
-                <a href="#">Стоимость сессии</a>
-              </li>
-              <li class="logged__menu-item logged__menu-item--doctor">
-                <a href="doctor-account-settings.html">Настройки</a>
-              </li>
               <li class="logged__menu-item">
                 <a href="#">Выйти</a>
               </li>
@@ -140,7 +100,7 @@
         <div class="container">
           <div class="intro__heading">
             <div class="intro__text">
-              <h1 class="intro__title title">Онлайн-консультации &nbsp;&nbsp;с&nbsp;психологом</h1>
+              <h1 class="intro__title title">Консультации с психологом <span class="text-white">онлайн</span></h1>
               <ul class="intro__list list-reset">
                 <li class="intro__item">
                   <p class="text-18">&mdash;&nbsp;Доступные цены от&nbsp;<b>10&nbsp;000</b>&nbsp;HUF</p>
@@ -157,6 +117,10 @@
               <img src="./img/content/intro-img.png" width="550" height="309 " alt="">
             </div>
           </div>
+        </div>
+      </section>
+      <section class="intro">
+        <div class="container">
           <div class="intro__button-wrapper">
             <p class="subtitle">Найди путь к себе и своей идеальной жизни</p>
             <p class="text-25">Подбери психолога, который поможет тебе в этом</p>
@@ -214,41 +178,53 @@
           <a href="user-signup-start.html" class="advantages__btn btn text-31">Начать терапию сейчас</a>
         </div>
       </section>
-      <section class="help">
+      <section class="statistics">
         <div class="container">
-          <div class="help__wrapper-top">
-            <div class="help__heading">
+          <div class="statistics__wrapper">
+            <div class="statistics__heading">
               <p class="subtitle">Стресс и&nbsp;депрессия распространены по&nbsp;всему миру</p>
             </div>
-            <ul class="help__list list-reset">
-              <li class="help__item">
+            <ul class="statistics__list list-reset">
+              <li class="statistics__item">
                 <p class="text-96">25%</p>
                 <p class="text-20">людей борются с&nbsp;психическими заболеваниями в&nbsp;течение всей жизни</p>
               </li>
-              <li class="help__item">
+              <li class="statistics__item">
                 <p class="text-96">60%</p>
                 <p class="text-20">взрослых не&nbsp;хотят тратить время на&nbsp;поиски психолога и&nbsp;работу над собой
                 </p>
               </li>
-              <li class="help__item">
+              <li class="statistics__item">
                 <p class="text-96">45%</p>
                 <p class="text-20">взрослых не&nbsp;получают необходимую помощь из-за недоступности и&nbsp;высокой
                   стоимости психологических услуг</p>
               </li>
             </ul>
           </div>
-          <div class="help__wrapper-bottom">
+        </div>
+      </section>
+      <section class="help">
+        <div class="container">
+          <div class="help__wrapper">
             <div class="help__text-wrapper">
               <p class="title">Чем мы можем помочь вам?</p>
-              <p class="text-25">Основная цель нашего сервиса&nbsp;&mdash; чтобы каждый мог получить своевременную
-                психологическую поддержку.</p>
-              <p class="text-25">Здесь за&nbsp;15&nbsp;минут вы&nbsp;можете найти подходящего специалиста и&nbsp;начать
-                с&nbsp;ним работать. Если общий язык не&nbsp;найдётся, также быстро можно подобрать другого психолога.
-              </p>
-              <p class="text-25">У&nbsp;нас очень лояльная ценовая политика. Для нас важно, чтобы психологическая помощь
-                становилась доступной большему количеству людей. Цена за&nbsp;час приема начинается
-                от&nbsp;10&nbsp;000&nbsp;HUF
-              </p>
+              <p class="text-25">Speak your mind — сервис профессиональной психологической помощи.
+                Наша цель — оказать каждому своевременную поддержку.
+                Наши специалисты обеспечат профессиональное решение ваших проблем и помогут найти
+                выход из сложных ситуаций.
+                Мы поможем вам сформулировать запрос, если вы чувствуете, что вам нужна помощь, но не
+                можете определить причины.</p>
+              <p class="text-25">За 15 минут у нас вы сможете найти психолога, работающего именно с вашими запросами, и
+                начать
+                с ним работать. При желании вы в любой момент можете сменить специалиста. Все эксперты нашего
+                сервиса имеют профильное образование и богатый опыт.
+                Принятие себя, отстаивание личных границ, легкое принятие перемен (расставание, переезд, смена
+                или потеря работы) — вот лишь малая часть сложностей, которые вы сможете преодолеть с нашей
+                помощью.</p>
+              <p class="text-25">Консультации психолога проходят строго конфиденциально и в удобное для вас время. У нас
+                очень
+                лояльная ценовая политика. Для нас важно, чтобы психологическая помощь становилась доступной
+                большему количеству людей. Цена за час приема начинается от 19 500 HUF</p>
             </div>
             <div class="help__btn-wrapper">
               <div class="help__image">
