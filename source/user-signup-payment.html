@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Speak your mind">
+  <title>Speak your mind</title>
+  <link rel="icon" type="image/x-icon" href="./favicon.ico">
+  <link rel="icon" type="image/png" sizes="32x32" href="./img/favicon/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="./img/favicon/favicon-16x16.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="./img/favicon/apple-touch-icon.png">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.css">
+  <link rel="stylesheet" href="css/style.min.css">
+</head>
+
+<body>
+  <div class="wrapper user-logged">
+    <header class="header">
+      <div class="container">
+        <div class="header__logo">
+          <div class="header__logo-wrapper">
+            <img src="./img/svg/logo.svg" width="387" height="52" alt="Speak your mind.">
+          </div>
+        </div>
+        <nav class="header__nav nav">
+          <div class="nav__wrapper">
+            <ul class="nav__list">
+              <li class="nav__item nav__item--psychologists">
+                <a class="nav__link" href="doctor-landing.html">Для психологов</a>
+              </li>
+              <li class="nav__item nav__item--businnes">
+                <a class="nav__link" href="businnes-landing.html">Для бизнеса</a>
+              </li>
+              <li class="nav__item">
+                <a class="nav__link" href="faq.html">FAQ</a>
+              </li>
+              <li class="nav__item">
+                <a class="nav__link" href="#">Контакты</a>
+              </li>
+            </ul>
+          </div>
+        </nav>
+        <div class="header__unlogged unlogged">
+          <button type="button" class="js-dropdown-trigger unlogged__login-btn btn" data-id="#login-wrapper">Вход</button>
+          <div class="header__login-wrapper" id="login-wrapper">
+            <a class="text-18" href="user-login.html">Вход для клиентов</a>
+            <a class="text-18" href="doctor-login.html">Вход для психологов</a>
+          </div>
+          <button type="button" class="js-dropdown-trigger unlogged__signup-btn btn btn--white" data-id="#signup-wrapper">Регистрация</button>
+          <div class="header__signup-wrapper" id="signup-wrapper">
+            <a class="text-18" href="user-signup-start.html">Регистрация для клиентов</a>
+            <a class="text-18" href="doctor-signup.html">Регистрация для психологов</a>
+          </div>
+        </div>
+        <div class="header__lang-switcher lang-switcher">
+          <button class="lang-switcher__btn js-dropdown-trigger" data-id="#lang-switcher">
+            <span>Русский</span>
+            <svg width="10" height="10" fill="currentColor">
+              <use xlink:href="./img/sprite.svg#dropdown"></use>
+            </svg>
+          </button>
+          <ul class="lang-switcher__list list-reset" id="lang-switcher">
+            <li class="lang-switcher__item">
+              <a href="#">Hu</a>
+            </li>
+            <li class="lang-switcher__item">
+              <a href="#">En</a>
+            </li>
+            <li class="lang-switcher__item">
+              <a href="#">Ru</a>
+            </li>
+          </ul>
+        </div>
+        <div class="header__logged logged">
+          <div class="logged__wrapper">
+            <div class="logged__user-thumb">
+              <img src="./img/content/user-thumb.png" width="24" height="24" alt="">
+            </div>
+            <button class="logged__btn js-dropdown-trigger" data-id="#logged-menu">
+              <span class="logged__username">Александр</span>
+              <svg width="10" height="10" fill="currentColor">
+                <use xlink:href="./img/sprite.svg#dropdown"></use>
+              </svg>
+            </button>
+            <ul class="logged__menu-list list-reset" id="logged-menu">
+              <li class="logged__menu-item">
+                <a href="#">Выйти</a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </header>
+    <main class="signup-main">
+      <div class="signup-header">
+        <div class="container">
+          <div class="signup-header__links tabs">
+            <a class="signup-header__link text-18" href="user-signup-main.html">Общие вопросы</a>
+            <a class="signup-header__link text-18" href="user-signup-choice.html">Выбор терапевта</a>
+            <a class="signup-header__link text-18 is-active" href="">Оплата</a>
+          </div>
+        </div>
+      </div>
+      <section class="card">
+        <div class="container">
+          <div class="card__heading">
+            <h2 class="title">Привяжите карту для записи</h2>
+            <p class="text-18">Запрос на назначение сессии на 15:00 6 июля отправлен терапевту Олесе Параде.</p>
+          </div>
+          <div class="card__description">
+            <div class="card__description-wrapper card__description-wrapper--start is-active">
+              <p class="text-25">Что произойдет дальше?</p>
+              <p class="text-18">Терапевт подтвердит ваш запрос или предложит альтернативное время.</p>
+              <p class="text-18">Тем временем вам необходимо привязать к своему аккаунту банковскую карту. Деньги с нее
+                списываются только тогда, когда вы записались на сессию – ровно за 12 часов.</p>
+              <p class="text-25">Почему деньги списываются до оказания услуги?</p>
+              <p class="text-18">У консультации с психологом существуют свои законы, в том числе и те, что
+                регламентируют денежные отношения между терапевтом и клиентом. Один из таких законов гласит, что сессия,
+                которую клиент пропускает, предупреждая об этом менее, чем за 12 часов, оплачивается. Это сделано для
+                того, чтобы внести в психотерапию элемент дисциплины и избежать сопротивления, которое неизбежно
+                возникает у клиента при приближении к потайным уголкам его психики. В этом случае, он начинает
+                пропускать сессии, придумывая для того миллион причин – и, в итоге, никакой нормальной работы не
+                получается, а получается одна ерунда. Вы ведь этого не хотите? Вот и мы не хотим.</p>
+              <p class="text-25">Что делать, если у меня поменялись планы после списания денег?</p>
+              <p class="text-18">К сожалению, ничего – если вы предупреждаете о переносе сессии позже, чем за 12 часов
+                до её начала, то деньги не возвращаются.</p>
+            </div>
+            <div class="card__description-wrapper card__description-wrapper--error">
+              <p class="text-error text-25">
+                <svg width="36" height="36" fill="currentColor">
+                  <use xlink:href="./img/sprite.svg#error"></use>
+                </svg>
+                <span>Произошла ошибка.</span>
+              </p>
+              <p class="text-18">Не удалось привязать карту. Проверьте данные карты и повторите попытку или привяжите
+                другую карту</p>
+            </div>
+          </div>
+          <div class="card__card-info">
+            <form action="" method="post">
+              <fieldset>
+                <label for="card-owner">
+                  <span>Имя владельца карты</span>
+                  <input type="text" id="card-owner" placeholder="Имя на лицевой стороне карты">
+                </label>
+              </fieldset>
+              <fieldset>
+                <label for="card-number">
+                  <span>Номер карты</span>
+                  <input type="number" id="card-number" placeholder="x x x x    x x x x    x x x x    x x x x">
+                </label>
+              </fieldset>
+              <fieldset>
+                <label for="card-exp">
+                  <span>Срок действия</span>
+                  <input type="number" id="card-exp" placeholder="m m  /  y y">
+                </label>
+                <label for="card-cvc">
+                  <span>Код CVС</span>
+                  <input type="number" id="card-cvc" maxlength="3" placeholder="x x x">
+                </label>
+              </fieldset>
+              <p class="card__permission text-18">
+                Добавляя карту вы принимаете <a href="#" class="text-green" data-open-modal
+                  data-modal-id="#payment-terms">условия сервиса</a> и разрешаете
+                <a href="#" class="text-green" data-open-modal data-modal-id="#payment-terms">автосписания</a>
+              </p>
+              <button type="submit" class="card__submit-btn btn">Добавить карту</button>
+            </form>
+          </div>
+        </div>
+      </section>
+    </main>
+    <footer class="footer">
+      <div class="container">
+        <div class="footer__copyright">
+          <span>&copy;</span>
+          <span>Speak Your Mind</span>
+          <span>2023</span>
+        </div>
+      </div>
+    </footer>
+  </div>
+
+  <div class="modal modal--preload" id="payment-terms">
+    <div class="modal__wrapper">
+      <div class="modal__overlay" data-close-modal></div>
+      <div class="modal__content modal__content--new-card">
+        <button class="modal__close-btn" type="button" aria-label="Закрыть окно." data-close-modal>
+          <svg width="32" height="32" fill="currentColor">
+            <use xlink:href="./img/sprite.svg#close-modal"></use>
+          </svg>
+        </button>
+        <h2 class="modal__title text-31">Условия сервиса и автосписания</h2>
+        <p class="modal__text text-18"> Пользователю доступна функция безналичной оплаты Видеоконсультаций, в этом
+          случае «Speak your mind» действует по поручению соответствующего Психолога с привлечением уполномоченной
+          платежной системы и является получателем платежа в качестве агента Психолога (далее – «безналичная оплата»).
+        </p>
+        <p class="modal__text text-18">«Speak your mind» не гарантирует отсутствия ошибок и сбоев в работе Сервиса в отношении предоставления
+          возможности безналичной оплаты. Списание денежных средств за Видеоконсультацию осуществляется за 24 часа до
+          момента проведения Видеоконсультации, а если Пользователь записался на Видеоконсультацию менее, чем за 24
+          часа, то списание осуществляется за 12 часов до Видеоконсультации или в момент записи на Видеоконсультацию, в
+          зависимости от того, что наступит ранее. В случае невозможности списания денежных средств за 12 часов до
+          проведения Видеоконсультации, Видеоконсультация подлежит отмене.</p>
+      </div>
+    </div>
+  </div>
+
+  <script src="js/vendor.min.js"></script>
+  <script src="js/main.min.js"></script>
+</body>
+
+</html>
