@@ -669,6 +669,17 @@ button {
   display: block;
 }
 
+.error-message {
+  display: none;
+}
+
+.error-message.is-active {
+  position: absolute;
+  bottom: -25px;
+  display: block;
+  color: #ff0000;
+}
+
 .container {
   width: 100%;
   max-width: 1440px;
@@ -737,6 +748,10 @@ button {
 
 .text-error {
   color: #dc0000;
+}
+
+.text-white {
+  color: #ffffff;
 }
 
 .user-unlogged .logged {
@@ -985,7 +1000,7 @@ button {
 
 .header {
   padding: 26px 0;
-  background: #ffffff;
+  background: #00ac72;
   -webkit-box-shadow: 0px 10px 15px 0px rgba(0, 0, 0, 0.1);
   box-shadow: 0px 10px 15px 0px rgba(0, 0, 0, 0.1);
 }
@@ -1088,7 +1103,7 @@ button {
 }
 
 .nav__link:hover {
-  color: #00ac72;
+  color: #ffffff;
 }
 
 .lang-switcher {
@@ -1250,7 +1265,12 @@ button {
 }
 
 .intro {
-  background: #f8fdf8;
+  background-color: #f5f3ee;
+  padding-bottom: 54px;
+}
+
+.intro:first-child {
+  background-color: #00ac72;
 }
 
 .intro--businnes {
@@ -1271,7 +1291,6 @@ button {
   -webkit-box-align: center;
   -ms-flex-align: center;
   align-items: center;
-  margin-bottom: 54px;
 }
 
 .intro__description {
@@ -1462,21 +1481,21 @@ button {
   margin-bottom: 335px;
 }
 
-.help .container {
+.statistics {
+  background-color: #f5f3ee;
+  padding: 80px 0;
+}
+
+.statistics .container {
   padding: 0;
 }
 
-.help__wrapper-top {
-  padding: 80px 47px 80px 80px;
-  background: #f8fdf8;
-}
-
-.help__heading {
+.statistics__heading {
   max-width: 40%;
   margin-bottom: 80px;
 }
 
-.help__list {
+.statistics__list {
   display: -ms-grid;
   display: grid;
   -ms-grid-columns: (auto)[3];
@@ -1486,7 +1505,7 @@ button {
   column-gap: 90px;
 }
 
-.help__wrapper-bottom {
+.statistics__wrapper-bottom {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -1494,6 +1513,70 @@ button {
   background: -webkit-gradient(linear, left top, left bottom, from(#f8fdf8), color-stop(10%, #f8fdf8), color-stop(10%, #ffffff));
   background: linear-gradient(180deg, #f8fdf8 0%, #f8fdf8 10%, #ffffff 10%);
   padding: 0 94px 116px 94px;
+}
+
+.statistics__text-wrapper {
+  margin-right: 90px;
+}
+
+.statistics__text-wrapper .title {
+  margin-bottom: 56px;
+}
+
+.statistics__text-wrapper .text-25:not(:last-child) {
+  margin-bottom: 32px;
+}
+
+.statistics__btn-wrapper {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -ms-flex-direction: column;
+  flex-direction: column;
+}
+
+.statistics__image {
+  min-width: 452px;
+  height: 319px;
+  margin-bottom: 40px;
+}
+
+.statistics__image img {
+  width: 100%;
+  height: 100%;
+  -o-object-fit: contain;
+  object-fit: contain;
+}
+
+.statistics__btn {
+  width: -webkit-fit-content;
+  width: -moz-fit-content;
+  width: fit-content;
+  padding: 32px;
+  font-size: 31px;
+  font-weight: 400;
+  line-height: 1;
+  margin: 0 auto;
+}
+
+.help {
+  padding: 69px;
+}
+
+.help .container {
+  padding: 0;
+}
+
+.help__wrapper {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  background: #ffffff;
 }
 
 .help__text-wrapper {
@@ -1542,9 +1625,9 @@ button {
   margin: 0 auto;
 }
 
-.selection .container {
-  background: #f8fdf8;
-  padding: 80px;
+.selection {
+  background-color: #f5f3ee;
+  padding: 80px 0;
 }
 
 .selection__heading {
@@ -1598,8 +1681,8 @@ button {
   line-height: 1;
 }
 
-.therapists .container {
-  padding: 0 80px 80px;
+.therapists {
+  padding: 80px 0;
 }
 
 .therapists__heading {
@@ -1632,9 +1715,9 @@ button {
   line-height: 1;
 }
 
-.guide .container {
-  background: #f8fdf8;
-  padding: 80px;
+.guide {
+  background-color: #f5f3ee;
+  padding: 80px 0;
 }
 
 .guide__heading {
@@ -1956,11 +2039,11 @@ button {
   padding-top: 44px;
 }
 
-.signup-header__tabs {
+.signup-header__links {
   margin-bottom: 40px;
 }
 
-.signup-header__tabs .signup-header__tab {
+.signup-header__link {
   display: inline-block;
   min-width: 304px;
   background-color: rgba(255, 255, 255, 0);
@@ -1973,13 +2056,13 @@ button {
   transition: all 0.5s ease-in;
 }
 
-.signup-header__tabs .signup-header__tab:hover {
+.signup-header__link:hover {
   border-bottom: 3px solid #00ac72;
   -webkit-transition: all 0.5s ease-in;
   transition: all 0.5s ease-in;
 }
 
-.signup-header__tabs .signup-header__tab.is-active {
+.signup-header__link.is-active {
   color: #000000;
   border-bottom: 3px solid #00ac72;
   -webkit-transition: all 0.5s ease-in;
@@ -2045,6 +2128,13 @@ button {
   background: #ffffff;
   -webkit-box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.25) inset;
   box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.25) inset;
+}
+
+.questions__main-row--language .questions__checkboxes .inputs-wrapper {
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+  -ms-flex-direction: row;
+  flex-direction: row;
 }
 
 .questions__radio {
@@ -2231,6 +2321,7 @@ button {
 
 .choice__item {
   cursor: pointer;
+  max-width: 100px;
 }
 
 .choice__btn-wrapper {
@@ -2259,7 +2350,8 @@ button {
   position: absolute;
   width: 50px;
   height: 108px;
-  background: transparent;
+  background: #ffffff;
+  z-index: 100;
   border: none;
   cursor: pointer;
 }
@@ -2436,6 +2528,15 @@ button {
 .doctor__submit-btn {
   padding: 16px 24px;
   cursor: pointer;
+  opacity: 0.5;
+}
+
+.doctor__submit-btn.is-enabled {
+  opacity: 1;
+}
+
+#choice-date-form {
+  position: relative;
 }
 
 .card .container {
@@ -3567,6 +3668,8 @@ button {
 
 .doc-questionary input[type=text],
 .doc-questionary input[type=number],
+.doc-questionary input[type=date],
+.doc-questionary input[type=email],
 .doc-questionary select {
   max-width: 350px;
   height: 32px;
@@ -3979,6 +4082,204 @@ button {
 
 .videochat__btn svg {
   margin-right: 8px;
+}
+
+.schedule h2 {
+  margin-bottom: 48px;
+}
+
+.schedule__tab-btns {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.schedule__tab-btn {
+  cursor: pointer;
+  padding: 10px 4px;
+  background-color: transparent;
+  border: none;
+  border-bottom: 3px solid transparent;
+  color: #00ac72;
+  margin-right: 10px;
+}
+
+.schedule__tab-btn.is-active {
+  background-color: #c5fdea;
+  border-bottom: 3px solid #00ac72;
+  color: #000000;
+}
+
+.schedule__calender {
+  width: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.schedule__calender-timeoptions {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -ms-flex-direction: column;
+  flex-direction: column;
+}
+
+.schedule__calender-timeoptions span:not(.schedule__calender-timeoption) {
+  width: 100%;
+  height: 38px;
+  background-color: #c5fdea;
+  border-bottom: 1px solid #a3a3a3;
+}
+
+.schedule__calender-timeoption {
+  width: 130px;
+  height: 64px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  border-bottom: 1px solid #a3a3a3;
+}
+
+.schedule__calender-week.is-active {
+  width: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.schedule__calender-day {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  width: 130px;
+}
+
+.schedule__calender-day-title {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  width: 100%;
+  height: 38px;
+  background-color: #c5fdea;
+  border-bottom: 1px solid #a3a3a3;
+  text-align: center;
+}
+
+.schedule__calender-day-slots {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -ms-flex-direction: column;
+  flex-direction: column;
+}
+
+.schedule__calender-day-slots label {
+  position: relative;
+  width: 130px;
+  height: 64px;
+  border-bottom: 1px solid #a3a3a3;
+}
+
+.schedule__calender-day-slots label::before {
+  position: absolute;
+  content: "";
+  width: 18px;
+  height: 18px;
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+  border-radius: 2px;
+  border: 2px solid #202020;
+}
+
+.schedule__calender-day-slots label .tooltip {
+  display: none;
+}
+
+.schedule__calender-day-slots input[type=checkbox] {
+  opacity: 0;
+}
+
+.schedule__calender-day-slots label:has(input[type=checkbox]:checked)::before {
+  border-color: #00ac72;
+  background: #00ac72 url("../img/svg/check-small.svg") center no-repeat;
+}
+
+.schedule__calender-day-slots label:has(.requested)::before {
+  left: 35%;
+}
+
+.schedule__calender-day-slots label:has(.requested)::after {
+  position: absolute;
+  content: "";
+  top: 50%;
+  right: 35%;
+  -webkit-transform: translate(50%, -50%);
+  -ms-transform: translate(50%, -50%);
+  transform: translate(50%, -50%);
+  width: 32px;
+  height: 32px;
+  background: url("../img/svg/requested.svg") center no-repeat;
+}
+
+.schedule__calender-day-slots label:has(.scheduled)::after {
+  position: absolute;
+  content: "";
+  width: 32px;
+  height: 32px;
+  background: url("../img/svg/scheduled.svg") center no-repeat;
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+}
+
+.schedule__calender-day-slots label:has(.scheduled):hover .tooltip {
+  display: block;
+  position: absolute;
+  bottom: -44px;
+  right: -2px;
+  background-color: #a3a3a3;
+  border-radius: 4px;
+  padding: 10px;
+  z-index: 200;
+}
+
+.schedule__calender-day-slots label:has(.scheduled):hover .tooltip::before {
+  position: absolute;
+  content: "";
+  top: -19px;
+  left: 16px;
+  width: 20px;
+  height: 20px;
+  background: linear-gradient(45deg, #a3a3a3 0%, #a3a3a3 50%, rgba(255, 255, 255, 0) 50%, rgba(255, 255, 255, 0) 100%);
 }
 
 .clients__table table {

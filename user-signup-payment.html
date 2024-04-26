@@ -93,117 +93,51 @@
         </div>
       </div>
     </header>
-    <main>
-      <section class="user-account">
+    <main class="signup-main">
+      <div class="signup-header">
         <div class="container">
-          <div class="user-account__wrapper">
-            <div class="user-account__left-col">
-              <nav class="user-account__nav">
-                <a href="user-account-main.html" class="user-account__nav-link">Главная</a>
-                <a href="user-account-settings.html" class="user-account__nav-link">Настройки</a>
-                <a href="user-account-payments.html" class="user-account__nav-link is-active">Платежи</a>
-              </nav>
-            </div>
-            <div class="user-account__right-col">
-              <div class="user-account__payments payments">
-                <div class="payments__heading">
-                  <h2 class="text-25">Способы оплаты</h2>
-                </div>
-                <div class="payments__card">
-                  <p class="payments__card-info">Оплата производится с карты <span>4276 55ХХ ХХХХ 3200</span></p>
-                </div>
-                <button class="payments__btn btn btn--white" data-open-modal data-modal-id="#new-card-popup">Привязать
-                  другую карту</button>
-                <div class="payments__heading">
-                  <h2 class="text-25">История платежей</h2>
-                </div>
-                <div class="payments__history">
-                  <table>
-                    <tr>
-                      <th>No</th>
-                      <th>Сессия </th>
-                      <th>Сумма</th>
-                      <th>Холд</th>
-                      <th>Списание</th>
-                      <th>Статус</th>
-                    </tr>
-                    <tr>
-                      <td><span class="payments__transaction-number">25262740</span></td>
-                      <td><span class="payments__doctor-name text-green">Олеся Парада</span><br>Сессия <span
-                          class="payments__session-time"><time>06 июля,
-                            20:00</time></span></td>
-                      <td><span class="payments__sum">10000 HUF</span></td>
-                      <td><span class="payments__hold"><time>06 июля,
-                            07:59</time></span> запланировано</td>
-                      <td>-</td>
-                      <td><span class="payments__status">К оплате</span></td>
-                    </tr>
-                    <tr>
-                      <td><span class="payments__transaction-number">25262740</span></td>
-                      <td><span class="payments__doctor-name text-green">Олеся Парада</span><br>Сессия <span
-                          class="payments__session-time"><time>06 июля,
-                            20:00</time></span></td>
-                      <td><span class="payments__sum">10000 HUF</span></td>
-                      <td><span class="payments__hold"><time>06 июля,
-                            07:59</time></span> запланировано</td>
-                      <td>-</td>
-                      <td><span class="payments__status">К оплате</span></td>
-                    </tr>
-                  </table>
-                </div>
-              </div>
-            </div>
+          <div class="signup-header__links tabs">
+            <a class="signup-header__link text-18" href="user-signup-main.html">Общие вопросы</a>
+            <a class="signup-header__link text-18" href="user-signup-choice.html">Выбор терапевта</a>
+            <a class="signup-header__link text-18 is-active" href="">Оплата</a>
           </div>
         </div>
-      </section>
-
-    </main>
-    <footer class="footer">
-      <div class="container">
-        <div class="footer__copyright">
-          <span>&copy;</span>
-          <span>Speak Your Mind</span>
-          <span>2023</span>
-        </div>
       </div>
-    </footer>
-  </div>
-
-  <div class="modal modal--preload" id="upload-avatar">
-    <div class="modal__wrapper">
-      <div class="modal__overlay" data-close-modal></div>
-      <div class="modal__content modal__content--upload-avatar">
-        <button class="modal__close-btn" type="button" aria-label="Закрыть окно." data-close-modal>
-          <svg width="32" height="32" fill="currentColor">
-            <use xlink:href="./img/sprite.svg#close-modal"></use>
-          </svg>
-        </button>
-        <div class="avatar-upload">
-          <h2 class="modal__title text-31">Загрузите фото</h2>
-          <form action="" method="post" id="avatar-upload-form">
-            <fieldset>
-              <label>
-                <input type="file" name="avatar" id="avatar">
-              </label>
-            </fieldset>
-            <button type="submit" class="avatar-upload__submit-btn btn">Загрузить фото</button>
-          </form>
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <div class="modal modal--preload" id="new-card-popup">
-    <div class="modal__wrapper">
-      <div class="modal__overlay" data-close-modal></div>
-      <div class="modal__content modal__content--new-card">
-        <button class="modal__close-btn" type="button" aria-label="Закрыть окно." data-close-modal>
-          <svg width="32" height="32" fill="currentColor">
-            <use xlink:href="./img/sprite.svg#close-modal"></use>
-          </svg>
-        </button>
-        <h2 class="modal__title text-31">Привязать карту</h2>
-        <div class="card">
+      <section class="card">
+        <div class="container">
+          <div class="card__heading">
+            <h2 class="title">Привяжите карту для записи</h2>
+            <p class="text-18">Запрос на назначение сессии на 15:00 6 июля отправлен терапевту Олесе Параде.</p>
+          </div>
+          <div class="card__description">
+            <div class="card__description-wrapper card__description-wrapper--start is-active">
+              <p class="text-25">Что произойдет дальше?</p>
+              <p class="text-18">Терапевт подтвердит ваш запрос или предложит альтернативное время.</p>
+              <p class="text-18">Тем временем вам необходимо привязать к своему аккаунту банковскую карту. Деньги с нее
+                списываются только тогда, когда вы записались на сессию – ровно за 12 часов.</p>
+              <p class="text-25">Почему деньги списываются до оказания услуги?</p>
+              <p class="text-18">У консультации с психологом существуют свои законы, в том числе и те, что
+                регламентируют денежные отношения между терапевтом и клиентом. Один из таких законов гласит, что сессия,
+                которую клиент пропускает, предупреждая об этом менее, чем за 12 часов, оплачивается. Это сделано для
+                того, чтобы внести в психотерапию элемент дисциплины и избежать сопротивления, которое неизбежно
+                возникает у клиента при приближении к потайным уголкам его психики. В этом случае, он начинает
+                пропускать сессии, придумывая для того миллион причин – и, в итоге, никакой нормальной работы не
+                получается, а получается одна ерунда. Вы ведь этого не хотите? Вот и мы не хотим.</p>
+              <p class="text-25">Что делать, если у меня поменялись планы после списания денег?</p>
+              <p class="text-18">К сожалению, ничего – если вы предупреждаете о переносе сессии позже, чем за 12 часов
+                до её начала, то деньги не возвращаются.</p>
+            </div>
+            <div class="card__description-wrapper card__description-wrapper--error">
+              <p class="text-error text-25">
+                <svg width="36" height="36" fill="currentColor">
+                  <use xlink:href="./img/sprite.svg#error"></use>
+                </svg>
+                <span>Произошла ошибка.</span>
+              </p>
+              <p class="text-18">Не удалось привязать карту. Проверьте данные карты и повторите попытку или привяжите
+                другую карту</p>
+            </div>
+          </div>
           <div class="card__card-info">
             <form action="" method="post">
               <fieldset>
@@ -229,15 +163,25 @@
                 </label>
               </fieldset>
               <p class="card__permission text-18">
-                Добавляя карту вы принимаете <a href="#" data-open-modal data-modal-id="#payment-terms"
-                  class="text-green">условия сервиса</a>
+                Добавляя карту вы принимаете <a href="#" class="text-green" data-open-modal
+                  data-modal-id="#payment-terms">условия сервиса</a> и разрешаете
+                <a href="#" class="text-green" data-open-modal data-modal-id="#payment-terms">автосписания</a>
               </p>
               <button type="submit" class="card__submit-btn btn">Добавить карту</button>
             </form>
           </div>
         </div>
+      </section>
+    </main>
+    <footer class="footer">
+      <div class="container">
+        <div class="footer__copyright">
+          <span>&copy;</span>
+          <span>Speak Your Mind</span>
+          <span>2023</span>
+        </div>
       </div>
-    </div>
+    </footer>
   </div>
 
   <div class="modal modal--preload" id="payment-terms">
