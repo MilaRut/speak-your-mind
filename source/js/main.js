@@ -16,7 +16,7 @@ import {initModal} from './modules/modal';
 import {setClientCard} from './modules/client-card';
 import {setTimeValue} from './modules/inputs-value';
 import {renderSchedule, markScheduleSlots, saveState} from './modules/schedule';
-import {initSwiper} from './my-swiper';
+import {initSwiper} from './modules/my-swiper';
 import {setChoiceBtn} from './modules/pickdate';
 
 // ---------------------------------
