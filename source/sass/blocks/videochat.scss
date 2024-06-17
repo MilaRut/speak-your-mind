@@ -16,6 +16,23 @@
     justify-content: space-between;
     align-items: center;
     margin-top: 24px;
+
+    &:not(.unscheduled) {
+      #schedule-session {
+        display: none;
+      }
+    }
+
+    &.unscheduled {
+
+      #cancel-session,
+      #reschedule-session {
+        display: none;
+      }
+      #schedule-session {
+        display: inline-flex;
+      }
+    }
   }
 
   &__btn {

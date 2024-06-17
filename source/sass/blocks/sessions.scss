@@ -5,6 +5,28 @@
     }
   }
 
+  &__requests {
+    margin-bottom: 24px;
+
+    p:first-child {
+      margin-bottom: 16px;
+    }
+  }
+
+  &__requests-item {
+    margin-bottom: 30px;
+  }
+
+  &__requests-btns {
+    margin: 20px 0 0;
+    display: flex;
+    gap: 10px;
+
+    button {
+      padding: 8px 14px;
+    }
+  }
+
   &__content {
     display: grid;
     grid-template-columns: 367px 640px;

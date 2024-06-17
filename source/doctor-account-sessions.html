@@ -113,6 +113,39 @@
                 <div class="doctor-account__heading">
                   <h2 class="text-40">Ваши сессии</h2>
                 </div>
+                <div class="sessions__requests">
+                  <ul class="sessions__requests-list list-reset">
+                    <li class="sessions__requests-item sessions__requests-item--reschedule">
+                      <p class="text-25">
+                        <a href="#" class="sessions__requests-client">Ксения</a> запросила перенос сессии <span
+                          class="sessions__requests-date">13 июля</span>
+                      </p>
+                      <p class="text-18">Предложено новое время: <b><span class="sessions__requests-new-date">пятница 14
+                            июля, 16:00</span></b></p>
+                      <p class="text-18"> Если вы согласны, нажмите “Подтвердить”.</p>
+                      <p class="text-18">Если вас не устраивает предложенное время, нажмите “Предложить другое время”.
+                      </p>
+                      <div class="sessions__requests-btns">
+                        <button type="button" class="btn">Подтвердить</button>
+                        <button type="button" class="btn btn--white">Предложить другое время</button>
+                      </div>
+                    </li>
+                    <li class="sessions__requests-item sessions__requests-item--schedule">
+                      <p class="text-25">
+                        <a href="#" class="sessions__requests-client">Татьяна</a> записалась к вам на прием
+                      </p>
+                      <p class="text-18">Выбранное время: <b><span class="sessions__requests-new-date">пятница 14
+                            июля, 16:00</span></b></p>
+                      <p class="text-18"> Если вы согласны, нажмите “Подтвердить”.</p>
+                      <p class="text-18">Если вас не устраивает предложенное время, нажмите “Предложить другое время”.
+                      </p>
+                      <div class="sessions__requests-btns">
+                        <button type="button" class="btn">Подтвердить</button>
+                        <button type="button" class="btn btn--white">Предложить другое время</button>
+                      </div>
+                    </li>
+                  </ul>
+                </div>
                 <div class="sessions__content">
                   <div class="sessions__clients">
                     <details open>
@@ -157,7 +190,7 @@
                         </li>
                       </ul>
                     </details>
-                    <details>
+                    <details open>
                       <summary>
                         <span class="text-20">Не записанные</span>
                         <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -172,7 +205,8 @@
                             <span class="sessions__client-id visually-hidden">#663385</span>
                             <p class="sessions__info">
                               <span class="sessions__count">1 сессия</span>
-                              <span class="sessions__date"><span class="sessions__last">Последняя <br></span><time>06
+                              <span class="sessions__date"><span class="sessions__last">Последняя сессия
+                                  <br></span><time>06
                                   июля, 15:00</time></span>
                             </p>
                           </div>
@@ -183,7 +217,8 @@
                             <span class="sessions__client-id visually-hidden">#663385</span>
                             <p class="sessions__info">
                               <span class="sessions__count">1 сессия</span>
-                              <span class="sessions__date"><span class="sessions__last">Последняя <br></span><time>06
+                              <span class="sessions__date"><span class="sessions__last">Последняя сессия
+                                  <br></span><time>06
                                   июля, 15:00</time></span>
                             </p>
                           </div>
@@ -194,7 +229,8 @@
                             <span class="sessions__client-id visually-hidden">#663385</span>
                             <p class="sessions__info">
                               <span class="sessions__count">1 сессия</span>
-                              <span class="sessions__date"><span class="sessions__last">Последняя <br></span><time>06
+                              <span class="sessions__date"><span class="sessions__last">Последняя сессия
+                                  <br></span><time>06
                                   июля, 15:00</time></span>
                             </p>
                           </div>
@@ -205,7 +241,8 @@
                             <span class="sessions__client-id visually-hidden">#663385</span>
                             <p class="sessions__info">
                               <span class="sessions__count">1 сессия</span>
-                              <span class="sessions__date"><span class="sessions__last">Последняя <br></span><time>06
+                              <span class="sessions__date"><span class="sessions__last">Последняя сессия
+                                  <br></span><time>06
                                   июля, 15:00</time></span>
                             </p>
                           </div>
@@ -233,6 +270,8 @@
                     <div class="videochat__buttons-wrapper">
                       <a href="#" class="videochat__btn btn btn--white text-20" id="cancel-session">Отменить</a>
                       <a href="#" class="videochat__btn btn btn--white text-20" id="reschedule-session">Перенести
+                        сессию</a>
+                      <a href="#" class="videochat__btn btn btn--white text-20" id="schedule-session">Назначить
                         сессию</a>
                       <a href="#" class="videochat__btn btn btn--white text-20" id="chat-with-client">
                         <svg width="30" height="22" fill="currentColor">

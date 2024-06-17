@@ -3,6 +3,7 @@ const clientItem = document.querySelectorAll('.sessions__clients-item');
 const videochatClientName = document.querySelector('.videochat__client-name');
 const videochatClientId = document.querySelector('.videochat__client-id');
 const videochatDate = document.querySelector('.videochat__date');
+const videochatButtons = document.querySelector('.videochat__buttons-wrapper');
 
 function clearClasses() {
   clientItem.forEach((item) => {
@@ -28,6 +29,11 @@ function setActiveItem() {
         videochatClientName.textContent = currentClientName.textContent;
         videochatClientId.textContent = currentClientId.textContent;
         videochatDate.textContent = currentDate.textContent;
+        if (item.closest('.sessions__clients-list').classList.contains('sessions__clients-list--unscheduled')) {
+          videochatButtons.classList.add('unscheduled');
+        } else {
+          videochatButtons.classList.remove('unscheduled');
+        }
       });
     });
   }

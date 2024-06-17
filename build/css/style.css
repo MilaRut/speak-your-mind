@@ -1906,6 +1906,10 @@ button {
   margin-bottom: 50px;
 }
 
+.login__links-wrapper {
+  margin-bottom: 30px;
+}
+
 .login fieldset {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -2035,6 +2039,10 @@ button {
   line-height: 1;
 }
 
+.signup__links-wrapper {
+  margin-bottom: 30px;
+}
+
 .signup-header .container {
   padding-top: 44px;
 }
@@ -2121,7 +2129,7 @@ button {
 }
 
 .questions__main-row--age input {
-  max-width: 100px;
+  max-width: 200px;
   height: 44px;
   padding: 0 10px;
   border: 1px solid #202020;
@@ -2283,6 +2291,7 @@ button {
   -webkit-box-pack: center;
   -ms-flex-pack: center;
   justify-content: center;
+  gap: 10px;
 }
 
 .questions__btn {
@@ -2531,8 +2540,16 @@ button {
   opacity: 0.5;
 }
 
+.doctor__submit-btn .doctor__submit-text-2 {
+  display: none;
+}
+
 .doctor__submit-btn.is-enabled {
   opacity: 1;
+}
+
+.doctor__submit-btn.is-enabled .doctor__submit-text-2 {
+  display: inline-block;
 }
 
 #choice-date-form {
@@ -2755,6 +2772,8 @@ button {
   -webkit-box-align: center;
   -ms-flex-align: center;
   align-items: center;
+  -ms-flex-wrap: wrap;
+  flex-wrap: wrap;
   margin-bottom: 56px;
 }
 
@@ -2801,6 +2820,32 @@ button {
   color: #a3a3a3;
 }
 
+.user-account__session-change-reset {
+  margin-left: 10px;
+  padding: 16px 24px;
+}
+
+.user-account__doctor-change-request {
+  width: 100%;
+  margin: 40px 0 0;
+}
+
+.user-account__doctor-change-request p:first-child {
+  margin-bottom: 20px;
+}
+
+.user-account__doctor-change-request .btns {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  gap: 10px;
+  margin: 30px 0 0;
+}
+
+.user-account__doctor-change-request .btns button {
+  padding: 8px 24px;
+}
+
 .user-account__main .text-success,
 .user-account__main .message_1,
 .user-account__main .message_2,
@@ -2808,7 +2853,8 @@ button {
 .user-account__main .user-account__session-wrapper,
 .user-account__main .user-account__session-change-wrapper,
 .user-account__main .date-not-scheduled,
-.user-account__main .change-btn-schedule {
+.user-account__main .change-btn-schedule,
+.user-account__main .user-account__doctor-change-request {
   display: none;
 }
 
@@ -2909,6 +2955,19 @@ button {
 .user-account__main[data-utils=main-change-not-confirmed] .next-session,
 .user-account__main[data-utils=main-change-not-confirmed] .requested-session {
   color: #a3a3a3;
+}
+
+.user-account__main[data-utils=main-doctor-change] .user-account__session-wrapper {
+  display: block;
+}
+
+.user-account__main[data-utils=main-doctor-change] .user-account__doctor-change-request {
+  display: block;
+}
+
+.user-account__main[data-utils=main-doctor-change] .user-account__change-btn,
+.user-account__main[data-utils=main-doctor-change] .requested-session {
+  display: none;
 }
 
 .user-account__settings[data-utils=settings-main] .settings__rechoice.rechoice-1,
@@ -3255,10 +3314,10 @@ button {
   display: none;
   color: #000000;
   text-align: center;
-  font-size: 13px;
+  font-size: 11px;
   font-weight: 400;
   line-height: 1;
-  padding: 7px 10px;
+  padding: 7px;
   background-color: #a3a3a3;
   margin-left: -2px;
 }
@@ -3961,6 +4020,30 @@ button {
   margin-bottom: 48px;
 }
 
+.sessions__requests {
+  margin-bottom: 24px;
+}
+
+.sessions__requests p:first-child {
+  margin-bottom: 16px;
+}
+
+.sessions__requests-item {
+  margin-bottom: 30px;
+}
+
+.sessions__requests-btns {
+  margin: 20px 0 0;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  gap: 10px;
+}
+
+.sessions__requests-btns button {
+  padding: 8px 14px;
+}
+
 .sessions__content {
   display: -ms-grid;
   display: grid;
@@ -4074,6 +4157,21 @@ button {
   -ms-flex-align: center;
   align-items: center;
   margin-top: 24px;
+}
+
+.videochat__buttons-wrapper:not(.unscheduled) #schedule-session {
+  display: none;
+}
+
+.videochat__buttons-wrapper.unscheduled #cancel-session,
+.videochat__buttons-wrapper.unscheduled #reschedule-session {
+  display: none;
+}
+
+.videochat__buttons-wrapper.unscheduled #schedule-session {
+  display: -webkit-inline-box;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
 }
 
 .videochat__btn {
@@ -4414,6 +4512,11 @@ button {
 
 .payments__history tr {
   border-bottom: 1px solid #a3a3a3;
+}
+
+.payments__history tr.error .payments__processed,
+.payments__history tr.error .payments__status {
+  color: #dc0000;
 }
 
 .payments__history th {

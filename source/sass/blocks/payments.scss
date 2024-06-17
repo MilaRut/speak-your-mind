@@ -23,6 +23,13 @@
 
     tr {
       border-bottom: 1px solid $color-dark-gray;
+
+      &.error {
+        .payments__processed,
+        .payments__status {
+          color: $color-red;
+        }
+      }
     }
 
     th {

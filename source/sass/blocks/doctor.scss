@@ -142,9 +142,19 @@
     cursor: pointer;
     opacity: 0.5;
 
+    .doctor__submit-text-2 {
+      display: none;
+    }
+
     &.is-enabled {
       opacity: 1;
+
+      .doctor__submit-text-2 {
+        display: inline-block; 
+      }
     }
+
+
   }
 }
 
