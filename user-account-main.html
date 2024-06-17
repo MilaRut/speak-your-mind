@@ -121,6 +121,7 @@
                 <div utils-btn-main data-id="main-change">перенос сессии</div>
                 <div utils-btn-main data-id="main-change-not-confirmed">перенос сессии не подтвержден</div>
                 <div utils-btn-main data-id="main-change-confirmed">перенос сессии подтвержден</div>
+                <div utils-btn-main data-id="main-doctor-change">доктор запросил перенос сессии</div>
               </details>
 
               <!-- TODO: удалить -->
@@ -163,6 +164,19 @@
                         </svg>
                         <span class="text-green">Написать терапевту</span>
                       </a>
+                    </div>
+                    <div class="user-account__doctor-change-request">
+                      <p class="text-25"><span class="doctor-name">Олеся Парада</span> запросила перенос сессии <span
+                          class="session-date">13 июля</span></p>
+                      <p class="text-18">Предложено новое время: <span class="new-date"><b>пятница 14 июля,
+                          16:30</b></span><br>
+                        Если вы согласны, нажмите “Подтвердить”.<br>
+                        Если вас не устраивает предложенное время, нажмите “Предложить другое время”.</p>
+                        <div class="btns">
+                          <button class="btn">Подтвердить</button>
+                          <button class="btn btn--white" utils-btn-main data-id="main-change">Предложить другое время</button>
+                          <button class="btn btn--white">Отменить сессию</button>
+                        </div>
                     </div>
                   </div>
                   <div class="user-account__session-info session-info">
@@ -399,8 +413,10 @@
                       <button type="submit" class="doctor__submit-btn btn">
                         <span class="doctor__submit-text">Выбрать&nbsp;</span>
                         <span class="doctor__submit-date"><time datetime="2024-07-06T20-00"></time></span>
+                        <span class="doctor__submit-text-2">&nbsp;и подолжить</span>
                       </button>
                       <span class="error-message">Пожалуйста, выберите дату</span>
+                      <button type="button" class="btn btn--white user-account__session-change-reset" utils-btn-main data-id="main-confirmed">Отмена</button>
                     </form>
                   </div>
                 </div>

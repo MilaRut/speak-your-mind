@@ -43,12 +43,14 @@
           </div>
         </nav>
         <div class="header__unlogged unlogged">
-          <button type="button" class="js-dropdown-trigger unlogged__login-btn btn" data-id="#login-wrapper">Вход</button>
+          <button type="button" class="js-dropdown-trigger unlogged__login-btn btn"
+            data-id="#login-wrapper">Вход</button>
           <div class="header__login-wrapper" id="login-wrapper">
             <a class="text-18" href="user-login.html">Вход для клиентов</a>
             <a class="text-18" href="doctor-login.html">Вход для психологов</a>
           </div>
-          <button type="button" class="js-dropdown-trigger unlogged__signup-btn btn btn--white" data-id="#signup-wrapper">Регистрация</button>
+          <button type="button" class="js-dropdown-trigger unlogged__signup-btn btn btn--white"
+            data-id="#signup-wrapper">Регистрация</button>
           <div class="header__signup-wrapper" id="signup-wrapper">
             <a class="text-18" href="user-signup-start.html">Регистрация для клиентов</a>
             <a class="text-18" href="doctor-signup.html">Регистрация для психологов</a>
@@ -127,27 +129,57 @@
                       <th>Списание</th>
                       <th>Статус</th>
                     </tr>
-                    <tr>
+                    <tr data-transaction="25262740">
                       <td><span class="payments__transaction-number">25262740</span></td>
                       <td><span class="payments__doctor-name text-green">Олеся Парада</span><br>Сессия <span
                           class="payments__session-time"><time>06 июля,
                             20:00</time></span></td>
                       <td><span class="payments__sum">10000 HUF</span></td>
                       <td><span class="payments__hold"><time>06 июля,
-                            07:59</time></span> запланировано</td>
-                      <td>-</td>
+                            07:59</time></span><br>
+                        <span class="payments__hold-status">запланировано</span>
+                      </td>
+                      <td><span class="payments__processed">-</span></td>
                       <td><span class="payments__status">К оплате</span></td>
                     </tr>
-                    <tr>
+                    <tr data-transaction="25262740">
                       <td><span class="payments__transaction-number">25262740</span></td>
                       <td><span class="payments__doctor-name text-green">Олеся Парада</span><br>Сессия <span
                           class="payments__session-time"><time>06 июля,
                             20:00</time></span></td>
                       <td><span class="payments__sum">10000 HUF</span></td>
                       <td><span class="payments__hold"><time>06 июля,
-                            07:59</time></span> запланировано</td>
-                      <td>-</td>
-                      <td><span class="payments__status">К оплате</span></td>
+                            07:59</time></span><br>
+                        <span class="payments__hold-status">выполнено</span>
+                      </td>
+                      <td><span class="payments__processed">-</span></td>
+                      <td><span class="payments__status">Ожидает списания</span></td>
+                    </tr>
+                    <tr data-transaction="25262740">
+                      <td><span class="payments__transaction-number">25262740</span></td>
+                      <td><span class="payments__doctor-name text-green">Олеся Парада</span><br>Сессия <span
+                          class="payments__session-time"><time>06 июля,
+                            20:00</time></span></td>
+                      <td><span class="payments__sum">10000 HUF</span></td>
+                      <td><span class="payments__hold">-</td>
+                      <td><span class="payments__processed"><time>06 июля,
+                            07:59</time><br>
+                          <span class="payments__processed-status">выполнено</span>
+                        </span></td>
+                      <td><span class="payments__status">Оплачено</span></td>
+                    </tr>
+                    <tr data-transaction="25262740" class="error">
+                      <td><span class="payments__transaction-number">25262740</span></td>
+                      <td><span class="payments__doctor-name text-green">Олеся Парада</span><br>Сессия <span
+                          class="payments__session-time"><time>06 июля,
+                            20:00</time></span></td>
+                      <td><span class="payments__sum">10000 HUF</span></td>
+                      <td><span class="payments__hold">-</td>
+                      <td><span class="payments__processed"><time>06 июля,
+                            07:59</time><br>
+                          <span class="payments__processed-status">ошибка карты</span>
+                        </span></td>
+                      <td><span class="payments__status">Не оплачено</span></td>
                     </tr>
                   </table>
                 </div>
@@ -254,7 +286,8 @@
           случае «Speak your mind» действует по поручению соответствующего Психолога с привлечением уполномоченной
           платежной системы и является получателем платежа в качестве агента Психолога (далее – «безналичная оплата»).
         </p>
-        <p class="modal__text text-18">«Speak your mind» не гарантирует отсутствия ошибок и сбоев в работе Сервиса в отношении предоставления
+        <p class="modal__text text-18">«Speak your mind» не гарантирует отсутствия ошибок и сбоев в работе Сервиса в
+          отношении предоставления
           возможности безналичной оплаты. Списание денежных средств за Видеоконсультацию осуществляется за 24 часа до
           момента проведения Видеоконсультации, а если Пользователь записался на Видеоконсультацию менее, чем за 24
           часа, то списание осуществляется за 12 часов до Видеоконсультации или в момент записи на Видеоконсультацию, в
