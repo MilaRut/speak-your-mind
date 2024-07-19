@@ -2302,6 +2302,27 @@ button {
   line-height: 1;
 }
 
+.questions__phone {
+  margin-bottom: 50px;
+}
+
+.questions__phone p {
+  margin-bottom: 24px;
+}
+
+.questions__phone input {
+  min-width: 330px;
+  margin-bottom: 50px;
+  padding: 4px 10px;
+  border: 1px solid #202020;
+  background: #ffffff;
+  -webkit-box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.25) inset;
+  box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.25) inset;
+  font-size: 20px;
+  font-weight: 400;
+  line-height: 1;
+}
+
 .choice .container {
   padding-top: 44px;
   padding-bottom: 80px;
