@@ -43,14 +43,12 @@
           </div>
         </nav>
         <div class="header__unlogged unlogged">
-          <button type="button" class="js-dropdown-trigger unlogged__login-btn btn"
-            data-id="#login-wrapper">Вход</button>
+          <button type="button" class="js-dropdown-trigger unlogged__login-btn btn" data-id="#login-wrapper">Вход</button>
           <div class="header__login-wrapper" id="login-wrapper">
             <a class="text-18" href="user-login.html">Вход для клиентов</a>
             <a class="text-18" href="doctor-login.html">Вход для психологов</a>
           </div>
-          <button type="button" class="js-dropdown-trigger unlogged__signup-btn btn btn--white"
-            data-id="#signup-wrapper">Регистрация</button>
+          <button type="button" class="js-dropdown-trigger unlogged__signup-btn btn btn--white" data-id="#signup-wrapper">Регистрация</button>
           <div class="header__signup-wrapper" id="signup-wrapper">
             <a class="text-18" href="user-signup-start.html">Регистрация для клиентов</a>
             <a class="text-18" href="doctor-signup.html">Регистрация для психологов</a>
@@ -137,25 +135,6 @@
       </div>
     </footer>
   </div>
-
-  <script>
-    let user = {
-      name: 'John',
-      surname: 'Smith'
-    };
-
-    let response = await fetch('/article/fetch/post/user', {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json;charset=utf-8'
-      },
-      body: JSON.stringify(user)
-    });
-
-    let result = await response.json();
-    alert(result.message);
-  </script>
-
   <script src="js/vendor.min.js"></script>
   <script src="js/main.min.js"></script>
 </body>
