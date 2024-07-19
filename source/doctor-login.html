@@ -141,11 +141,11 @@
       document.getElementById('user-login-form').addEventListener('submit', function (e) {
         e.preventDefault();
 
-        var username = document.getElementById('user_email').value;
+        var user_email = document.getElementById('user_email').value;
         var password = document.getElementById('password').value;
 
         var data = {
-          username: username,
+          user_email: user_email,
           password: password
         };
 
