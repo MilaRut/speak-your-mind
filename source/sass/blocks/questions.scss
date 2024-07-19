@@ -184,4 +184,24 @@
     font-weight: 700;
     line-height: 1;
   }
+
+  &__phone {
+    margin-bottom: 50px;
+
+    p {
+      margin-bottom: 24px;
+    }
+
+    input {
+      min-width: 330px;
+      margin-bottom: 50px;
+      padding: 4px 10px;
+      border: 1px solid $color-nero;
+      background: $color-default-white;
+      box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.25) inset;
+      font-size: 20px;
+      font-weight: 400;
+      line-height: 1;
+    }
+  }
 }
