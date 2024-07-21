@@ -36,9 +36,6 @@
               <li class="nav__item">
                 <a class="nav__link" href="faq.html">FAQ</a>
               </li>
-              <li class="nav__item">
-                <a class="nav__link" href="#">Контакты</a>
-              </li>
             </ul>
           </div>
         </nav>
@@ -100,15 +97,15 @@
             <div class="signup__heading">
               <h1 class="subtitle">Создайте аккаунт</h1>
             </div>
-            <form action="" method="post">
+            <form action="" method="post" id="user-signup-form">
               <fieldset>
                 <label>
                   <span class="text-20">Как вас зовут</span>
-                  <input type="text" name="username" id="username" placeholder="Ваше имя">
+                  <input type="text" name="user_name" id="user_name" placeholder="Ваше имя">
                 </label>
                 <label>
                   <span class="text-20">Ваш email</span>
-                  <input type="email" name="email" id="email" placeholder="Ваш email">
+                  <input type="email" name="user_email" id="user_email" placeholder="Ваш email">
                 </label>
                 <label>
                   <span class="text-20">Придумайте пароль</span>
@@ -140,6 +137,46 @@
       </div>
     </footer>
   </div>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+      document.getElementById('user-signup-form').addEventListener('submit', function (e) {
+        e.preventDefault();
+
+        var user_name = document.getElementById('user_name').value;
+        var user_email = document.getElementById('user_email').value;
+        var password = document.getElementById('password').value;
+
+        var data = {
+          user_name: user_name,
+          user_email: user_email,
+          password: password
+        };
+
+        fetch('http://127.0.0.1:8000/register', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json'
+          },
+          body: JSON.stringify(data)
+        })
+          .then(function (response) {
+            if (!response.ok) {
+              throw new Error('Network response was not ok');
+            }
+            return response.json();
+          })
+          .then(function (data) {
+            // Обработка успешного ответа от сервера
+            console.log(data);
+          })
+          .catch(function (error) {
+            // Обработка ошибки
+          });
+      });
+    });
+  </script>
+
   <script src="js/vendor.min.js"></script>
   <script src="js/main.min.js"></script>
 </body>

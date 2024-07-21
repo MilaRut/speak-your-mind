@@ -28,7 +28,7 @@
           <div class="nav__wrapper">
             <ul class="nav__list">
               <li class="nav__item nav__item--psychologists">
-                <a class="nav__link" href="doctor-landing.html">Для психологов</a>
+                <a class="nav__link" href="user-landing.html">Найти психолога</a>
               </li>
               <li class="nav__item nav__item--businnes">
                 <a class="nav__link" href="businnes-landing.html">Для бизнеса</a>
@@ -95,23 +95,23 @@
         <div class="container">
           <div class="login__wrapper">
             <div class="login__heading">
-              <h1 class="title">Восстановить пароль</h1>
+              <h1 class="title">Введите свой новый пароль</h1>
             </div>
-            <form action="" method="post" id="pass-restore-form">
+            <form action="" method="post" id="pass-assign-form">
               <fieldset>
+                <p class="text-20" style="margin-bottom: 10px;">Введите пароль</p>
                 <label>
-                  <input type="text" placeholder="Ваш email">
+                  <input type="password" id="password" name="password" placeholder="Ваш пароль">
+                </label>
+                <p class="text-20" style="margin-bottom: 10px;">Повторите пароль</p>
+                <label>
+                  <input type="password" id="password_repeat" name="password_repeat" placeholder="Ваш пароль">
                 </label>
               </fieldset>
               <div class="login__btn-wrapper">
-                <button type="submit" class="login__btn btn">Восстановить пароль</button>
+                <button type="submit" class="login__btn btn">Установить пароль</button>
               </div>
             </form>
-            <div class="login__links-wrapper">
-              <p class="text-18">
-                <span>Нет аккаунта?</span>
-                <a href="user-signup-start.html" class="login__signup-link text-green">Зарегистрироваться</a>
-            </div>
             </p>
           </div>
         </div>
