@@ -114,8 +114,8 @@
               <p class="text-20">Ваш пол*</p>
               <select name="doc-gender" id="doc_gender">
                 <option value="" disabled selected hidden>Выбрать</option>
-                <option value="doc-gender1">Мужской</option>
-                <option value="doc-gender2">Женский</option>
+                <option value="male">Мужской</option>
+                <option value="female">Женский</option>
               </select>
             </div>
             <div class="doc-questionary__wrapper">
@@ -132,17 +132,17 @@
               <p class="text-20">Ваш основной метод?*</p>
               <select name="doc-method" id="doc_method">
                 <option value="" disabled selected hidden>Выбрать</option>
-                <option value="method1">Психоаналитическая терапия</option>
-                <option value="method2">Системный семейный подход</option>
-                <option value="method3">Психодрама</option>
-                <option value="method4">Телесно-ориентированная психотерапия</option>
-                <option value="method5">Символдрама</option>
-                <option value="method6">Гештальт-терапия</option>
-                <option value="method7">КПТ</option>
-                <option value="method8">Экзистенциальная психотерапия</option>
-                <option value="method9">Понимающая / Клиент-центрированный подход</option>
-                <option value="method10">Интегративный подход</option>
-                <option value="method11">Юнгианский анализ</option>
+                <option value="0">Психоаналитическая терапия</option>
+                <option value="1">Системный семейный подход</option>
+                <option value="2">Психодрама</option>
+                <option value="3">Телесно-ориентированная психотерапия</option>
+                <option value="4">Символдрама</option>
+                <option value="5">Гештальт-терапия</option>
+                <option value="6">КПТ</option>
+                <option value="7">Экзистенциальная психотерапия</option>
+                <option value="8">Понимающая / Клиент-центрированный подход</option>
+                <option value="9">Интегративный подход</option>
+                <option value="10">Юнгианский анализ</option>
                 <option value="other">Другое</option>
               </select>
               <label class="other-input">
@@ -172,23 +172,23 @@
               <p class="text-18">Выберите, если у вас есть дополнительное образование, касающееся следующих тем</p>
               <div class="doc-questionary__checkboxes">
                 <label>
-                  <input type="checkbox" id="doc_edu_add_1" name="doc_edu_additional[]">
+                  <input type="checkbox" id="doc_edu_add_1" name="doc_edu_additional[]" value="0">
                   <span>Зависимости, аддикции</span>
                 </label>
                 <label>
-                  <input type="checkbox" id="doc_edu_add_2" name="doc_edu_additional[]" checked>
+                  <input type="checkbox" id="doc_edu_add_2" name="doc_edu_additional[]" value="1">
                   <span>Растройство пищевого поведения</span>
                 </label>
                 <label>
-                  <input type="checkbox" id="doc_edu_add_3" name="doc_edu_additional[]">
+                  <input type="checkbox" id="doc_edu_add_3" name="doc_edu_additional[]" value="2">
                   <span>Сексология</span>
                 </label>
                 <label>
-                  <input type="checkbox" id="doc_edu_add_4" name="doc_edu_additional[]">
+                  <input type="checkbox" id="doc_edu_add_4" name="doc_edu_additional[]" value="3">
                   <span>Экстремальные ситуации, ПТСР</span>
                 </label>
                 <label>
-                  <input type="checkbox" id="doc_edu_add_5" name="doc_edu_additional[]">
+                  <input type="checkbox" id="doc_edu_add_5" name="doc_edu_additional[]" value="4">
                   <span>Другое</span>
                 </label>
               </div>
@@ -303,11 +303,11 @@
               <p class="text-18">Нам это необходимо знать для нашей системы оплаты и налогообложения</p>
               <select name="doc-citizenship" id="doc_citizenship">
                 <option value="" disabled selected hidden>Выбрать вариант</option>
-                <option value="citizenship1">РФ</option>
-                <option value="citizenship2">Венгрия</option>
-                <option value="citizenship3">Казахстан</option>
-                <option value="citizenship4">Украина</option>
-                <option value="citizenship5">Беларусь</option>
+                <option value="0">РФ</option>
+                <option value="1">Венгрия</option>
+                <option value="2">Казахстан</option>
+                <option value="3">Украина</option>
+                <option value="4">Беларусь</option>
                 <option value="other">Другое</option>
               </select>
               <label class="other-input">
@@ -318,13 +318,13 @@
               <p class="text-20">Как вы узнали о наборе терапевтов на нашем сайте?*</p>
               <select name="doc_ref" id="doc_ref">
                 <option value="" disabled selected hidden>Выбрать вариант</option>
-                <option value="ref1">Рассказали коллеги / друзья</option>
-                <option value="ref2">Из рекламы во ВКонтакте</option>
-                <option value="ref3">Из рекламы в Фейсбук</option>
-                <option value="ref4">Из рекламы в Инстаграм</option>
-                <option value="ref5">Из вашего аккаунта в Инстаграм</option>
-                <option value="ref6">Нашёл/нашла на сайте информацию о наборе</option>
-                <option value="ref7">Через поиск работы в интернете</option>
+                <option value="0">Рассказали коллеги / друзья</option>
+                <option value="1">Из рекламы во ВКонтакте</option>
+                <option value="2">Из рекламы в Фейсбук</option>
+                <option value="3">Из рекламы в Инстаграм</option>
+                <option value="4">Из вашего аккаунта в Инстаграм</option>
+                <option value="5">Нашёл/нашла на сайте информацию о наборе</option>
+                <option value="6">Через поиск работы в интернете</option>
                 <option value="other">Другое</option>
               </select>
               <label class="other-input">
