@@ -421,7 +421,7 @@
     showValues();
 
     function sendDataToBackend() {
-      const dataToSend = JSON.stringify(dataObject);
+      const dataToSend = JSON.stringify({ schedule: dataObject });
 
       fetch('http://127.0.0.1:8000/doctor_schedule ', {
         method: 'POST',
