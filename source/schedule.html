@@ -406,8 +406,6 @@
       });
     }
 
-    restoreCheckboxState();
-
     function showValues() {
       const inputs = document.querySelectorAll('input[type="checkbox"]');
 
@@ -418,12 +416,13 @@
       });
     }
 
-    showValues();
-
     function sendDataToBackend() {
-      const dataToSend = JSON.stringify({ schedule: dataObject });
+      var x = new Date();
+      var currentTimeZoneOffsetInHours = x.getTimezoneOffset() / 60;
 
-      fetch('http://127.0.0.1:8000/doctor_schedule ', {
+      const dataToSend = JSON.stringify({ schedule: dataObject, timeZone: currentTimeZoneOffsetInHours });
+
+      fetch('http://127.0.0.1:8000/doctor_schedule', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json'
