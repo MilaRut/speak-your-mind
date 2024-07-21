@@ -112,10 +112,10 @@
             </div>
             <div class="doc-questionary__wrapper">
               <p class="text-20">Ваш пол*</p>
-              <select name="doc-gender" id="doc_gender">
+              <select name="doc_gender" id="doc_gender">
                 <option value="" disabled selected hidden>Выбрать</option>
-                <option value="male">Мужской</option>
-                <option value="female">Женский</option>
+                <option value="0">Мужской</option>
+                <option value="1">Женский</option>
               </select>
             </div>
             <div class="doc-questionary__wrapper">
@@ -130,7 +130,7 @@
             </div>
             <div class="doc-questionary__wrapper">
               <p class="text-20">Ваш основной метод?*</p>
-              <select name="doc-method" id="doc_method">
+              <select name="doc_method" id="doc_method">
                 <option value="" disabled selected hidden>Выбрать</option>
                 <option value="0">Психоаналитическая терапия</option>
                 <option value="1">Системный семейный подход</option>
@@ -154,15 +154,15 @@
               <p class="text-20">Язык консультаций*</p>
               <div class="doc-questionary__checkboxes">
                 <label>
-                  <input type="checkbox" id="doc_language_ru" name="doc_language[]">
+                  <input type="checkbox" id="doc_language_ru" name="doc_language" value="0">
                   <span>русский</span>
                 </label>
                 <label>
-                  <input type="checkbox" id="doc_language_ma" name="doc_language[]">
+                  <input type="checkbox" id="doc_language_ma" name="doc_language" value="1">
                   <span>magyar</span>
                 </label>
                 <label>
-                  <input type="checkbox" id="doc_language_en" name="doc_language[]">
+                  <input type="checkbox" id="doc_language_en" name="doc_language" value="2">
                   <span>english</span>
                 </label>
               </div>
@@ -172,23 +172,23 @@
               <p class="text-18">Выберите, если у вас есть дополнительное образование, касающееся следующих тем</p>
               <div class="doc-questionary__checkboxes">
                 <label>
-                  <input type="checkbox" id="doc_edu_add_1" name="doc_edu_additional[]" value="0">
+                  <input type="checkbox" id="doc_edu_add_1" name="doc_edu_additional" value="0">
                   <span>Зависимости, аддикции</span>
                 </label>
                 <label>
-                  <input type="checkbox" id="doc_edu_add_2" name="doc_edu_additional[]" value="1">
+                  <input type="checkbox" id="doc_edu_add_2" name="doc_edu_additional" value="1">
                   <span>Растройство пищевого поведения</span>
                 </label>
                 <label>
-                  <input type="checkbox" id="doc_edu_add_3" name="doc_edu_additional[]" value="2">
+                  <input type="checkbox" id="doc_edu_add_3" name="doc_edu_additional" value="2">
                   <span>Сексология</span>
                 </label>
                 <label>
-                  <input type="checkbox" id="doc_edu_add_4" name="doc_edu_additional[]" value="3">
+                  <input type="checkbox" id="doc_edu_add_4" name="doc_edu_additional" value="3">
                   <span>Экстремальные ситуации, ПТСР</span>
                 </label>
                 <label>
-                  <input type="checkbox" id="doc_edu_add_5" name="doc_edu_additional[]" value="4">
+                  <input type="checkbox" id="doc_edu_add_5" name="doc_edu_additional" value="4">
                   <span>Другое</span>
                 </label>
               </div>
@@ -301,7 +301,7 @@
             <div class="doc-questionary__wrapper">
               <p class="text-20">Какое у вас гражданство?*</p>
               <p class="text-18">Нам это необходимо знать для нашей системы оплаты и налогообложения</p>
-              <select name="doc-citizenship" id="doc_citizenship">
+              <select name="doc_citizenship" id="doc_citizenship">
                 <option value="" disabled selected hidden>Выбрать вариант</option>
                 <option value="0">РФ</option>
                 <option value="1">Венгрия</option>
@@ -361,9 +361,9 @@
               <p class="text-20">Каким способом нам связаться с вами?*</p>
               <select name="doc_contact" id="doc_contact">
                 <option value="" disabled selected hidden>Выбрать вариант</option>
-                <option value="contact1">Email</option>
-                <option value="contact2">WhatsApp</option>
-                <option value="other">Telegram</option>
+                <option value="doc_contact_email">Email</option>
+                <option value="doc_contact_whatsapp">WhatsApp</option>
+                <option value="doc_contact_telegram">Telegram</option>
               </select>
               <label class="other-input">
                 <input type="text" name="doc_contact_other" id="doc_contact_other" placeholder="Ваш ответ">
