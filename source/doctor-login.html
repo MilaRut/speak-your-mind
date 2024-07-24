@@ -161,7 +161,9 @@
           })
           .then(function (data) {
             // Обработка успешного ответа от сервера
-            console.log(data);
+            localStorage.setItem('token', data.token); // Сохраняем токен в localStorage
+            alert("Ваша заявка принята и будет рассмотрена нашим администратором. Ожидайте ответа на электронную почту");
+            window.location.href = '/doctor-landing.html';
           })
           .catch(function (error) {
             // Обработка ошибки

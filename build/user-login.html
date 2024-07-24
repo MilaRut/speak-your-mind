@@ -160,7 +160,8 @@
           })
           .then(function (data) {
             // Обработка успешного ответа от сервера
-            console.log(data);
+            localStorage.setItem('token', data.token); // Сохраняем токен в localStorage
+            window.location.href = '/user-signup-main.html';
           })
           .catch(function (error) {
             // Обработка ошибки
