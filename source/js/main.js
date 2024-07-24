@@ -15,7 +15,7 @@ import {setSessionStatus, initActionsBtns} from './modules/clients-btns';
 import {initModal} from './modules/modal';
 import {setClientCard} from './modules/client-card';
 import {setTimeValue} from './modules/inputs-value';
-import {renderSchedule, markScheduleSlots, saveState} from './modules/schedule';
+// import {renderSchedule, markScheduleSlots, saveState} from './modules/schedule';
 import {initSwiper} from './modules/my-swiper';
 import {setChoiceBtn} from './modules/pickdate';
 
@@ -49,9 +49,9 @@ window.addEventListener('DOMContentLoaded', () => {
     initModal();
     setClientCard();
     setTimeValue();
-    renderSchedule();
-    saveState();
-    markScheduleSlots();
+    // renderSchedule();
+    // saveState();
+    // markScheduleSlots();
     initSwiper();
     setChoiceBtn();
   });

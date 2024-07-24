@@ -4210,6 +4210,10 @@ button {
   margin-right: 8px;
 }
 
+.schedule {
+  position: relative;
+}
+
 .schedule h2 {
   margin-bottom: 48px;
 }
@@ -4399,6 +4403,91 @@ button {
 }
 
 .schedule__calender-day-slots label:has(.scheduled):hover .tooltip::before {
+  position: absolute;
+  content: "";
+  top: -19px;
+  left: 16px;
+  width: 20px;
+  height: 20px;
+  background: linear-gradient(45deg, #a3a3a3 0%, #a3a3a3 50%, rgba(255, 255, 255, 0) 50%, rgba(255, 255, 255, 0) 100%);
+}
+
+.schedule td label {
+  position: relative;
+  width: 130px;
+  height: 64px;
+  border-bottom: 1px solid #a3a3a3;
+}
+
+.schedule td label::before {
+  position: absolute;
+  content: "";
+  width: 18px;
+  height: 18px;
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+  border-radius: 2px;
+  border: 2px solid #202020;
+}
+
+.schedule td label .tooltip {
+  display: none;
+}
+
+.schedule td input[type=checkbox] {
+  opacity: 0;
+}
+
+.schedule td label:has(input[type=checkbox]:checked)::before {
+  border-color: #00ac72;
+  background: #00ac72 url("../img/svg/check-small.svg") center no-repeat;
+}
+
+.schedule td label:has(.requested)::before {
+  left: 35%;
+}
+
+.schedule td label:has(.requested)::after {
+  position: absolute;
+  content: "";
+  top: 50%;
+  right: 35%;
+  -webkit-transform: translate(50%, -50%);
+  -ms-transform: translate(50%, -50%);
+  transform: translate(50%, -50%);
+  width: 32px;
+  height: 32px;
+  background: url("../img/svg/requested.svg") center no-repeat;
+}
+
+.schedule td label:has(.scheduled)::after {
+  position: absolute;
+  content: "";
+  width: 32px;
+  height: 32px;
+  background: url("../img/svg/scheduled.svg") center no-repeat;
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+}
+
+.schedule td label:has(.scheduled):hover .tooltip {
+  display: block;
+  position: absolute;
+  bottom: -44px;
+  right: -2px;
+  background-color: #a3a3a3;
+  border-radius: 4px;
+  padding: 10px;
+  z-index: 200;
+}
+
+.schedule td label:has(.scheduled):hover .tooltip::before {
   position: absolute;
   content: "";
   top: -19px;

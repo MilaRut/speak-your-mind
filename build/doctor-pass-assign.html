@@ -40,12 +40,14 @@
           </div>
         </nav>
         <div class="header__unlogged unlogged">
-          <button type="button" class="js-dropdown-trigger unlogged__login-btn btn" data-id="#login-wrapper">Вход</button>
+          <button type="button" class="js-dropdown-trigger unlogged__login-btn btn"
+            data-id="#login-wrapper">Вход</button>
           <div class="header__login-wrapper" id="login-wrapper">
             <a class="text-18" href="user-login.html">Вход для клиентов</a>
             <a class="text-18" href="doctor-login.html">Вход для психологов</a>
           </div>
-          <button type="button" class="js-dropdown-trigger unlogged__signup-btn btn btn--white" data-id="#signup-wrapper">Регистрация</button>
+          <button type="button" class="js-dropdown-trigger unlogged__signup-btn btn btn--white"
+            data-id="#signup-wrapper">Регистрация</button>
           <div class="header__signup-wrapper" id="signup-wrapper">
             <a class="text-18" href="user-signup-start.html">Регистрация для клиентов</a>
             <a class="text-18" href="doctor-signup.html">Регистрация для психологов</a>
@@ -128,6 +130,62 @@
       </div>
     </footer>
   </div>
+
+  <script>
+
+    document.addEventListener('DOMContentLoaded', function () {
+
+      const submit = document.querySelector('.login__btn');
+      submit.disabled = true;
+
+      const inputs = document.querySelectorAll('input[type="password"]');
+      inputs.forEach((input) => {
+        input.addEventListener('input', () => {
+          if (document.querySelector('#password').value == document.querySelector('#password_repeat').value) {
+            submit.disabled = false;
+          }
+        });
+      });
+
+
+      document.getElementById('pass-assign-form').addEventListener('submit', function (e) {
+        e.preventDefault();
+
+        var hash = window.location.hash;
+        var pass_token = hash.replace("#", "");
+
+        var password = document.getElementById('password').value;
+
+        var data = {
+          token: pass_token,
+          password: password
+        };
+
+        fetch('http://127.0.0.1:8000/login', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json'
+          },
+          body: JSON.stringify(data)
+        })
+          .then(function (response) {
+            if (!response.ok) {
+              throw new Error('Network response was not ok');
+            }
+            return response.json();
+          })
+          .then(function (data) {
+            // Обработка успешного ответа от сервера
+            localStorage.setItem('token', data.token); // Сохраняем токен в localStorage
+            window.location.href = '/doctor-account-sessions.html';
+          })
+          .catch(function (error) {
+            // Обработка ошибки
+          });
+      });
+    });
+  </script>
+
   <script src="js/vendor.min.js"></script>
   <script src="js/main.min.js"></script>
 </body>
