@@ -143,6 +143,8 @@
         input.addEventListener('input', () => {
           if (document.querySelector('#password').value == document.querySelector('#password_repeat').value) {
             submit.disabled = false;
+          } else {
+            submit.disabled = true;
           }
         });
       });

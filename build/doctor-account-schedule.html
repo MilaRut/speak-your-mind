@@ -730,6 +730,9 @@
         clearBtnClasses();
         this.classList.add('is-active');
       });
+
+      // сюда добавить гет запрос на бэкенд с получением данных - вызов функции
+      // добавить loader
     }
 
     function checkPrevious() {
@@ -865,21 +868,21 @@
     });
 
 
-    function getDatafromBackend() {
-      fetch('http://127.0.0.1:8000/get_doctor_schedule/0')
-        .then(response => {
-          if (!response.ok) {
-            throw new Error('Network response was not ok');
-          }
-          return response.json();
-        })
-        .then(data => {
-          console.log(data);
-        })
-        .catch(error => {
-          console.error('There was a problem with your fetch operation:', error);
-        });
-    }
+    // function getDatafromBackend() {
+    //   fetch('http://127.0.0.1:8000/get_doctor_schedule/0')
+    //     .then(response => {
+    //       if (!response.ok) {
+    //         throw new Error('Network response was not ok');
+    //       }
+    //       return response.json();
+    //     })
+    //     .then(data => {
+    //       console.log(data);
+    //     })
+    //     .catch(error => {
+    //       console.error('There was a problem with your fetch operation:', error);
+    //     });
+    // }
   </script>
 
   <script src="js/vendor.min.js"></script>

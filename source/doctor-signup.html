@@ -193,7 +193,7 @@
                 </label>
               </div>
             </div>
-            <!-- <div class="doc-questionary__wrapper">
+            <div class="doc-questionary__wrapper">
               <p class="text-20">Пожалуйста, прикрепите фотографии развернутых дипломов и сертификатов,
                 подтверждающих обучение.*</p>
               <p class="text-18">Обязательные документы: (1) диплом о базовом психологическом (смежном) обучении /
@@ -203,7 +203,7 @@
                 <input type="file" multiple name="doc_edu_upload" id="doc_edu_upload">
                 <span class="btn btn--white">Выберите файл</span>
               </label>
-            </div> -->
+            </div>
             <div class="doc-questionary__wrapper">
               <p class="text-20">Состоите ли вы в каком-либо психотерапевтическом сообществе?*</p>
               <p class="text-18">Если да, то в каком?</p>
@@ -287,7 +287,7 @@
               <textarea class="text-20" name="doc_socials_links" id="doc_socials_links"
                 placeholder="Ваш ответ"></textarea>
             </div>
-            <!-- <div class="doc-questionary__wrapper">
+            <div class="doc-questionary__wrapper">
               <p class="text-20">Прикрепите ваши фотографии.*</p>
               <p class="text-18">Требования к фото: 1. Цветные; 2. Лицо по центру и хорошо освещено; 3. Размер не менее
                 1МБ; 4. В формате (название).jpg; 5. В количестве не более трех штук.</p>
@@ -297,7 +297,7 @@
                 <input type="file" multiple name="doc_photo_upload" id="doc_photo_upload">
                 <span class="btn btn--white">Выберите файлы</span>
               </label>
-            </div> -->
+            </div>
             <div class="doc-questionary__wrapper">
               <p class="text-20">Какое у вас гражданство?*</p>
               <p class="text-18">Нам это необходимо знать для нашей системы оплаты и налогообложения</p>
@@ -410,32 +410,112 @@
   </div>
 
   <script>
-    document.addEventListener('DOMContentLoaded', function () {
-      var form = document.getElementById('register-therapist-form');
+    const form = document.querySelector('#register-therapist-form');
+    const url = 'http://127.0.0.1:8000/register_therapist';
 
-      form.addEventListener('submit', function (event) {
-        event.preventDefault();
-        var formData = new FormData(form);
+    form.addEventListener('submit', function (e) {
+      e.preventDefault();
 
-        fetch('http://127.0.0.1:8000/register_therapist', {
-          method: 'POST',
-          headers: {
-            'Content-Type': 'application/json'
-          },
-          body: JSON.stringify(Object.fromEntries(formData.entries()))
-        })
-          .then(response => {
-            if (response.ok) {
-              console.log('Данные успешно отправлены на сервер');
-            } else {
-              console.error('Произошла ошибка при отправке данных на сервер');
-            }
-          })
-          .catch(error => {
-            console.error('Произошла ошибка при отправке данных на сервер:', error);
-          });
+      const doc_name = document.querySelector('#doc_name').value;
+      const doc_date_of_birth = document.querySelector('#doc_date_of_birth').value;
+      const doc_gender = document.querySelector('#doc_gender').value;
+      const doc_edu = document.querySelector('#doc_edu').value;
+      const doc_method = document.querySelector('#doc_method').value;
+      const doc_method_other = document.querySelector('#doc_method_other').value;
+      const doc_language = document.querySelector('[name="doc_language"]').value;
+      const doc_edu_additional = document.querySelector('[name="doc_edu_additional"]').value;
+      const doc_comunity = document.querySelector('#doc_comunity').value;
+      const doc_practice_start = document.querySelector('#doc_practice_start').value;
+      const doc_online_experience = document.querySelector('#doc_online_experience').value;
+      const doc_customers_amount_current = document.querySelector('#doc_customers_amount_current').value;
+      const doc_therapy_length = document.querySelector('#doc_therapy_length').value;
+      const doc_personal_therapy = document.querySelector('[name="doc_personal_therapy"]').value;
+      const doc_supervision = document.querySelector('[name="doc_supervision"]').value;
+      const doc_another_job = document.querySelector('#doc_another_job').value;
+      const doc_customers_slots_available = document.querySelector('#doc_customers_slots_available').value;
+      const doc_socials_links = document.querySelector('#doc_socials_links').value;
+      const doc_citizenship = document.querySelector('#doc_citizenship').value;
+      const doc_citizenship_other = document.querySelector('#doc_citizenship_other').value;
+      const doc_ref = document.querySelector('#doc_ref').value;
+      const doc_ref_other = document.querySelector('#doc_ref_other').value;
+      const doc_phone = document.querySelector('#doc_phone').value;
+      const doc_email = document.querySelector('#doc_email').value;
+      const doc_additional_info = document.querySelector('#doc_additional_info').value;
+      const doc_question_1 = document.querySelector('#doc_question_1').value;
+      const doc_question_2 = document.querySelector('#doc_question_2').value;
+      const doc_contact = document.querySelector('#doc_contact').value;
+
+      const fileInputs = document.querySelectorAll('input[type="file"]');
+      const files = Array.from(fileInputs).reduce((acc, fileInput) => {
+        if (fileInput.files) {
+          acc.push(...Array.from(fileInput.files));
+        }
+        return acc;
+      }, []);
+
+      const filePromises = files.map((file) => {
+        return new Promise((resolve, reject) => {
+          const reader = new FileReader();
+          reader.onload = () => resolve({ name: file.name, type: file.type, data: reader.result });
+          reader.onerror = reject;
+          reader.readAsDataURL(file);
+        });
       });
+
+      Promise.all(filePromises)
+        .then((base64Files) => {
+          const userData = {
+            doc_name: doc_name,
+            doc_date_of_birth: doc_date_of_birth,
+            doc_gender: doc_gender,
+            doc_edu: doc_edu,
+            doc_method: doc_method,
+            doc_method_other: doc_method_other,
+            doc_language: doc_language,
+            doc_edu_additional: doc_edu_additional,
+            doc_comunity: doc_comunity,
+            doc_practice_start: doc_practice_start,
+            doc_online_experience: doc_online_experience,
+            doc_customers_amount_current: doc_customers_amount_current,
+            doc_therapy_length: doc_therapy_length,
+            doc_personal_therapy: doc_personal_therapy,
+            doc_supervision: doc_supervision,
+            doc_another_job: doc_another_job,
+            doc_customers_slots_available: doc_customers_slots_available,
+            doc_socials_links: doc_socials_links,
+            doc_citizenship: doc_citizenship,
+            doc_citizenship_other: doc_citizenship_other,
+            doc_ref: doc_ref,
+            doc_ref_other: doc_ref_other,
+            doc_phone: doc_phone,
+            doc_email: doc_email,
+            doc_additional_info: doc_additional_info,
+            doc_question_1: doc_question_1,
+            doc_question_2: doc_question_2,
+            doc_contact: doc_contact,
+            user_photo: base64Files.map(file => ({ name: file.name, type: file.type, data: file.data }))
+          };
+
+          // Отправка данных на бэкенд с помощью fetch
+          fetch(url, {
+            method: 'POST',
+            headers: {
+              'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(userData)
+          })
+            .then(response => {
+              // Обработка ответа от сервера
+            })
+            .catch(error => {
+              // Обработка ошибки
+            });
+        })
+        .catch(error => {
+          // Обработка ошибки чтения файлов
+        });
     });
+
   </script>
 
   <script src="js/vendor.min.js"></script>
