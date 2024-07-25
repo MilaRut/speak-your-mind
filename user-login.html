@@ -160,10 +160,13 @@
           })
           .then(function (data) {
             // Обработка успешного ответа от сервера
-            console.log(data);
+            // доп проверки - анкета, выбор терапевта, привязка карты
+            localStorage.setItem('token', data.token); // Сохраняем токен в localStorage
+            window.location.href = '/user-signup-main.html';
           })
           .catch(function (error) {
             // Обработка ошибки
+            // добавить обработку ошибки по статусам
           });
       });
     });

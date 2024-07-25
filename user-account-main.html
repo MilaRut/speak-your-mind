@@ -119,6 +119,7 @@
                 <div utils-btn-main data-id="main-change-not-confirmed">перенос сессии не подтвержден</div>
                 <div utils-btn-main data-id="main-change-confirmed">перенос сессии подтвержден</div>
                 <div utils-btn-main data-id="main-doctor-change">доктор запросил перенос сессии</div>
+                <div utils-btn-main data-id="payment-error">ошибка оплаты</div>
               </details>
 
               <!-- TODO: удалить -->
@@ -134,6 +135,8 @@
                   </svg>
                   <span>Карта успешно привязана</span>
                 </p>
+                <p class="text-18 message_error">Невозможно списать средства за сессию, запланированную на 6 июля, 20:00.
+                  Пожалуйста, проверьте платежные данные.</p>
                 <div class="user-account__message">
                   <p class="text-25">Ваш терапевт</p>
                   <p class="text-18 message_1">Запрос на назначение сессии на <span class="session-time">15:00 6
@@ -166,14 +169,15 @@
                       <p class="text-25"><span class="doctor-name">Олеся Парада</span> запросила перенос сессии <span
                           class="session-date">13 июля</span></p>
                       <p class="text-18">Предложено новое время: <span class="new-date"><b>пятница 14 июля,
-                          16:30</b></span><br>
+                            16:30</b></span><br>
                         Если вы согласны, нажмите “Подтвердить”.<br>
                         Если вас не устраивает предложенное время, нажмите “Предложить другое время”.</p>
-                        <div class="btns">
-                          <button class="btn">Подтвердить</button>
-                          <button class="btn btn--white" utils-btn-main data-id="main-change">Предложить другое время</button>
-                          <button class="btn btn--white">Отменить сессию</button>
-                        </div>
+                      <div class="btns">
+                        <button class="btn">Подтвердить</button>
+                        <button class="btn btn--white" utils-btn-main data-id="main-change">Предложить другое
+                          время</button>
+                        <button class="btn btn--white">Отменить сессию</button>
+                      </div>
                     </div>
                   </div>
                   <div class="user-account__session-info session-info">
@@ -413,7 +417,8 @@
                         <span class="doctor__submit-text-2">&nbsp;и продолжить</span>
                       </button>
                       <span class="error-message">Пожалуйста, выберите дату</span>
-                      <button type="button" class="btn btn--white user-account__session-change-reset" utils-btn-main data-id="main-confirmed">Отмена</button>
+                      <button type="button" class="btn btn--white user-account__session-change-reset" utils-btn-main
+                        data-id="main-confirmed">Отмена</button>
                     </form>
                   </div>
                 </div>

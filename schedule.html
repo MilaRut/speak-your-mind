@@ -129,7 +129,7 @@
       background-color: #eaeaea;
     }
 
-    td.past input {
+    td.past label {
       display: none;
     }
   </style>
@@ -406,8 +406,6 @@
       });
     }
 
-    restoreCheckboxState();
-
     function showValues() {
       const inputs = document.querySelectorAll('input[type="checkbox"]');
 
@@ -418,12 +416,13 @@
       });
     }
 
-    showValues();
-
     function sendDataToBackend() {
-      const dataToSend = JSON.stringify(dataObject);
+      var x = new Date();
+      var currentTimeZoneOffsetInHours = x.getTimezoneOffset() / 60;
 
-      fetch('http://127.0.0.1:8000/doctor_schedule ', {
+      const dataToSend = JSON.stringify({ schedule: dataObject, timeZone: currentTimeZoneOffsetInHours });
+
+      fetch('http://127.0.0.1:8000/doctor_schedule', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json'
@@ -446,6 +445,23 @@
     saveButton.addEventListener('click', function () {
       sendDataToBackend();
     });
+
+
+    function getDatafromBakend() {
+      fetch('http://127.0.0.1:8000/get_doctor_scheldure/0')
+        .then(response => {
+          if (!response.ok) {
+            throw new Error('Network response was not ok');
+          }
+          return response.json();
+        })
+        .then(data => {
+          console.log(data);
+        })
+        .catch(error => {
+          console.error('There was a problem with your fetch operation:', error);
+        });
+    }
   </script>
 
 </body>

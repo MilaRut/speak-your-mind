@@ -13,74 +13,6 @@
   <link rel="apple-touch-icon" sizes="180x180" href="./img/favicon/apple-touch-icon.png">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.css">
   <link rel="stylesheet" href="css/style.min.css">
-
-  <style>
-    .calendar-wrapper {
-      width: 100%;
-      margin: 3em auto;
-    }
-
-    table {
-      clear: both;
-      width: 100%;
-      border: 1px solid #dcdcff;
-      border-radius: 3px;
-      border-collapse: collapse;
-      color: #444;
-    }
-
-    td {
-      height: 48px;
-      text-align: center;
-      vertical-align: middle;
-      width: 50px;
-    }
-
-    .days td {
-      background-color: #c5fdea;
-      border-bottom: 1px solid #a3a3a3;
-      height: 36px;
-    }
-
-    td.not-current {
-      color: #c0c0c0;
-    }
-
-    td.today {
-      font-weight: 700;
-      color: #28283b;
-      font-size: 1.5em;
-    }
-
-    thead td {
-      border: none;
-      color: #28283b;
-      text-transform: uppercase;
-      font-size: 1.5em;
-    }
-
-    td.past {
-      background-color: #eaeaea;
-    }
-
-    td.past label {
-      display: none;
-    }
-
-    td.check,
-    td.hours {
-      width: 130px;
-      height: 64px;
-      border-bottom: 1px solid #a3a3a3;
-    }
-
-    .send-btn {
-      position: absolute;
-      top: 0;
-      right: 0;
-      padding: 10px 20px;
-    }
-  </style>
 </head>
 
 <body>
@@ -177,15 +109,261 @@
               <div class="doctor-account__schedule schedule">
                 <div class="doctor-account__heading">
                   <h2 class="text-40">Расписание</h2>
-                  <button type="button" class="send-btn btn" id="send-btn">Сохранить изменения</button>
-                  <div class="calendar-wrapper">
-                    <button class="btn-current schedule__tab-btn is-active" id="btn-1">Текущая неделя</button>
-                    <button class="btn-2 schedule__tab-btn" id="btn-2">Неделя 2</button>
-                    <button class="btn-3 schedule__tab-btn" id="btn-3">Неделя 3</button>
-                    <button class="btn-4 schedule__tab-btn" id="btn-4">Неделя 4</button>
-                    <div class="cal-wrapper">
-
-                      <div id="divCal"></div>
+                  <div class="schedule__tab-btns tabs">
+                    <button type="button" class="schedule__tab-btn is-active" tab-btn data-tab="#week-current">
+                      <p>Текущая неделя (<span class="hours-sum">0 ч.</span>)</p>
+                    </button>
+                    <button type="button" class="schedule__tab-btn" tab-btn data-tab="#week-2">
+                      <p>6.05-12.05 (<span class="hours-sum">0 ч.</span>)</p>
+                    </button>
+                    <button type="button" class="schedule__tab-btn" tab-btn data-tab="#week-3">
+                      <p>13.05-19.05 (<span class="hours-sum">0 ч.</span>)</p>
+                    </button>
+                    <button type="button" class="schedule__tab-btn" tab-btn data-tab="#week-4">
+                      <p>20.05-26.05 (<span class="hours-sum">0 ч.</span>)</p>
+                    </button>
+                    <button type="button" class="schedule__tab-btn" tab-btn data-tab="#week-5">
+                      <p>27.05-02.06 (<span class="hours-sum">0 ч.</span>)</p>
+                    </button>
+                  </div>
+                  <div class="schedule__calender">
+                    <div class="schedule__calender-timeoptions">
+                      <span>&nbsp;</span>
+                      <span class="schedule__calender-timeoption">06:00</span>
+                      <span class="schedule__calender-timeoption">07:00</span>
+                      <span class="schedule__calender-timeoption">08:00</span>
+                      <span class="schedule__calender-timeoption">09:00</span>
+                      <span class="schedule__calender-timeoption">10:00</span>
+                      <span class="schedule__calender-timeoption">11:00</span>
+                      <span class="schedule__calender-timeoption">12:00</span>
+                      <span class="schedule__calender-timeoption">13:00</span>
+                      <span class="schedule__calender-timeoption">14:00</span>
+                      <span class="schedule__calender-timeoption">15:00</span>
+                      <span class="schedule__calender-timeoption">16:00</span>
+                      <span class="schedule__calender-timeoption">17:00</span>
+                      <span class="schedule__calender-timeoption">18:00</span>
+                      <span class="schedule__calender-timeoption">19:00</span>
+                      <span class="schedule__calender-timeoption">20:00</span>
+                    </div>
+                    <div class="schedule__calender-week is-active" tab-item id="week-current">
+                      <div class="schedule__calender-day" data-time="2024-04-29">
+                        <div class="schedule__calender-day-title">
+                          <span class="dayweek">Пн</span>,&nbsp;<span class="daydate">29</span>
+                        </div>
+                        <div class="schedule__calender-day-slots"></div>
+                      </div>
+                      <div class="schedule__calender-day" data-time="2024-04-30">
+                        <div class="schedule__calender-day-title">
+                          <span class="dayweek">Вт</span>,&nbsp;<span class="daydate">30</span>
+                        </div>
+                        <div class="schedule__calender-day-slots"></div>
+                      </div>
+                      <div class="schedule__calender-day" data-time="2024-05-01">
+                        <div class="schedule__calender-day-title">
+                          <span class="dayweek">Ср</span>,&nbsp;<span class="daydate">1</span>
+                        </div>
+                        <div class="schedule__calender-day-slots"></div>
+                      </div>
+                      <div class="schedule__calender-day" data-time="2024-05-02">
+                        <div class="schedule__calender-day-title">
+                          <span class="dayweek">Чт</span>,&nbsp;<span class="daydate">2</span>
+                        </div>
+                        <div class="schedule__calender-day-slots"></div>
+                      </div>
+                      <div class="schedule__calender-day" data-time="2024-05-03">
+                        <div class="schedule__calender-day-title">
+                          <span class="dayweek">Пт</span>,&nbsp;<span class="daydate">3</span>
+                        </div>
+                        <div class="schedule__calender-day-slots"></div>
+                      </div>
+                      <div class="schedule__calender-day" data-time="2024-05-04">
+                        <div class="schedule__calender-day-title">
+                          <span class="dayweek">Сб</span>,&nbsp;<span class="daydate">4</span>
+                        </div>
+                        <div class="schedule__calender-day-slots"></div>
+                      </div>
+                      <div class="schedule__calender-day" data-time="2024-05-05">
+                        <div class="schedule__calender-day-title">
+                          <span class="dayweek">Вс</span>,&nbsp;<span class="daydate">5</span>
+                        </div>
+                        <div class="schedule__calender-day-slots"></div>
+                      </div>
+                    </div>
+                    <div class="schedule__calender-week" tab-item id="week-2">
+                      <div class="schedule__calender-day" data-time="2024-05-06">
+                        <div class="schedule__calender-day-title">
+                          <span class="dayweek">Пн</span>,&nbsp;<span class="daydate">6</span>
+                        </div>
+                        <div class="schedule__calender-day-slots"></div>
+                      </div>
+                      <div class="schedule__calender-day" data-time="2024-05-07">
+                        <div class="schedule__calender-day-title">
+                          <span class="dayweek">Вт</span>,&nbsp;<span class="daydate">7</span>
+                        </div>
+                        <div class="schedule__calender-day-slots"></div>
+                      </div>
+                      <div class="schedule__calender-day" data-time="2024-05-08">
+                        <div class="schedule__calender-day-title">
+                          <span class="dayweek">Ср</span>,&nbsp;<span class="daydate">8</span>
+                        </div>
+                        <div class="schedule__calender-day-slots"></div>
+                      </div>
+                      <div class="schedule__calender-day" data-time="2024-05-09">
+                        <div class="schedule__calender-day-title">
+                          <span class="dayweek">Чт</span>,&nbsp;<span class="daydate">9</span>
+                        </div>
+                        <div class="schedule__calender-day-slots"></div>
+                      </div>
+                      <div class="schedule__calender-day" data-time="2024-05-10">
+                        <div class="schedule__calender-day-title">
+                          <span class="dayweek">Пт</span>,&nbsp;<span class="daydate">10</span>
+                        </div>
+                        <div class="schedule__calender-day-slots"></div>
+                      </div>
+                      <div class="schedule__calender-day" data-time="2024-05-11">
+                        <div class="schedule__calender-day-title">
+                          <span class="dayweek">Сб</span>,&nbsp;<span class="daydate">11</span>
+                        </div>
+                        <div class="schedule__calender-day-slots"></div>
+                      </div>
+                      <div class="schedule__calender-day" data-time="2024-05-12">
+                        <div class="schedule__calender-day-title">
+                          <span class="dayweek">Вс</span>,&nbsp;<span class="daydate">12</span>
+                        </div>
+                        <div class="schedule__calender-day-slots"></div>
+                      </div>
+                    </div>
+                    <div class="schedule__calender-week" tab-item id="week-3">
+                      <div class="schedule__calender-day" data-time="2024-05-13">
+                        <div class="schedule__calender-day-title">
+                          <span class="dayweek">Пн</span>,&nbsp;<span class="daydate">13</span>
+                        </div>
+                        <div class="schedule__calender-day-slots"></div>
+                      </div>
+                      <div class="schedule__calender-day" data-time="2024-05-14">
+                        <div class="schedule__calender-day-title">
+                          <span class="dayweek">Вт</span>,&nbsp;<span class="daydate">14</span>
+                        </div>
+                        <div class="schedule__calender-day-slots"></div>
+                      </div>
+                      <div class="schedule__calender-day" data-time="2024-05-15">
+                        <div class="schedule__calender-day-title">
+                          <span class="dayweek">Ср</span>,&nbsp;<span class="daydate">15</span>
+                        </div>
+                        <div class="schedule__calender-day-slots"></div>
+                      </div>
+                      <div class="schedule__calender-day" data-time="2024-05-16">
+                        <div class="schedule__calender-day-title">
+                          <span class="dayweek">Чт</span>,&nbsp;<span class="daydate">16</span>
+                        </div>
+                        <div class="schedule__calender-day-slots"></div>
+                      </div>
+                      <div class="schedule__calender-day" data-time="2024-05-17">
+                        <div class="schedule__calender-day-title">
+                          <span class="dayweek">Пт</span>,&nbsp;<span class="daydate">17</span>
+                        </div>
+                        <div class="schedule__calender-day-slots"></div>
+                      </div>
+                      <div class="schedule__calender-day" data-time="2024-05-18">
+                        <div class="schedule__calender-day-title">
+                          <span class="dayweek">Сб</span>,&nbsp;<span class="daydate">18</span>
+                        </div>
+                        <div class="schedule__calender-day-slots"></div>
+                      </div>
+                      <div class="schedule__calender-day" data-time="2024-05-19">
+                        <div class="schedule__calender-day-title">
+                          <span class="dayweek">Вс</span>,&nbsp;<span class="daydate">19</span>
+                        </div>
+                        <div class="schedule__calender-day-slots"></div>
+                      </div>
+                    </div>
+                    <div class="schedule__calender-week" tab-item id="week-4">
+                      <div class="schedule__calender-day" data-time="2024-05-20">
+                        <div class="schedule__calender-day-title">
+                          <span class="dayweek">Пн</span>,&nbsp;<span class="daydate">20</span>
+                        </div>
+                        <div class="schedule__calender-day-slots"></div>
+                      </div>
+                      <div class="schedule__calender-day" data-time="2024-05-21">
+                        <div class="schedule__calender-day-title">
+                          <span class="dayweek">Вт</span>,&nbsp;<span class="daydate">21</span>
+                        </div>
+                        <div class="schedule__calender-day-slots"></div>
+                      </div>
+                      <div class="schedule__calender-day" data-time="2024-05-22">
+                        <div class="schedule__calender-day-title">
+                          <span class="dayweek">Ср</span>,&nbsp;<span class="daydate">22</span>
+                        </div>
+                        <div class="schedule__calender-day-slots"></div>
+                      </div>
+                      <div class="schedule__calender-day" data-time="2024-05-23">
+                        <div class="schedule__calender-day-title">
+                          <span class="dayweek">Чт</span>,&nbsp;<span class="daydate">23</span>
+                        </div>
+                        <div class="schedule__calender-day-slots"></div>
+                      </div>
+                      <div class="schedule__calender-day" data-time="2024-05-24">
+                        <div class="schedule__calender-day-title">
+                          <span class="dayweek">Пт</span>,&nbsp;<span class="daydate">24</span>
+                        </div>
+                        <div class="schedule__calender-day-slots"></div>
+                      </div>
+                      <div class="schedule__calender-day" data-time="2024-05-25">
+                        <div class="schedule__calender-day-title">
+                          <span class="dayweek">Сб</span>,&nbsp;<span class="daydate">25</span>
+                        </div>
+                        <div class="schedule__calender-day-slots"></div>
+                      </div>
+                      <div class="schedule__calender-day" data-time="2024-05-26">
+                        <div class="schedule__calender-day-title">
+                          <span class="dayweek">Вс</span>,&nbsp;<span class="daydate">26</span>
+                        </div>
+                        <div class="schedule__calender-day-slots"></div>
+                      </div>
+                    </div>
+                    <div class="schedule__calender-week" tab-item id="week-5">
+                      <div class="schedule__calender-day" data-time="2024-05-27">
+                        <div class="schedule__calender-day-title">
+                          <span class="dayweek">Пн</span>,&nbsp;<span class="daydate">27</span>
+                        </div>
+                        <div class="schedule__calender-day-slots"></div>
+                      </div>
+                      <div class="schedule__calender-day" data-time="2024-05-28">
+                        <div class="schedule__calender-day-title">
+                          <span class="dayweek">Вт</span>,&nbsp;<span class="daydate">28</span>
+                        </div>
+                        <div class="schedule__calender-day-slots"></div>
+                      </div>
+                      <div class="schedule__calender-day" data-time="2024-05-29">
+                        <div class="schedule__calender-day-title">
+                          <span class="dayweek">Ср</span>,&nbsp;<span class="daydate">29</span>
+                        </div>
+                        <div class="schedule__calender-day-slots"></div>
+                      </div>
+                      <div class="schedule__calender-day" data-time="2024-05-30">
+                        <div class="schedule__calender-day-title">
+                          <span class="dayweek">Чт</span>,&nbsp;<span class="daydate">30</span>
+                        </div>
+                        <div class="schedule__calender-day-slots"></div>
+                      </div>
+                      <div class="schedule__calender-day" data-time="2024-05-31">
+                        <div class="schedule__calender-day-title">
+                          <span class="dayweek">Пт</span>,&nbsp;<span class="daydate">31</span>
+                        </div>
+                        <div class="schedule__calender-day-slots"></div>
+                      </div>
+                      <div class="schedule__calender-day" data-time="2024-06-01">
+                        <div class="schedule__calender-day-title">
+                          <span class="dayweek">Сб</span>,&nbsp;<span class="daydate">01</span>
+                        </div>
+                        <div class="schedule__calender-day-slots"></div>
+                      </div>
+                      <div class="schedule__calender-day" data-time="2024-06-02">
+                        <div class="schedule__calender-day-title">
+                          <span class="dayweek">Вс</span>,&nbsp;<span class="daydate">02</span>
+                        </div>
+                        <div class="schedule__calender-day-slots"></div>
+                      </div>
                     </div>
                   </div>
                 </div>
@@ -561,329 +739,6 @@
       </div>
     </div>
   </div>
-
-  <script>
-    class Calendar {
-      //Сохраняем идентификатор div
-      divId;
-
-      // Дни недели с понедельника
-      DaysOfWeek = ['Пн', 'Вт', 'Ср', 'Чт', 'Пт', 'Сб', 'Вс'
-      ];
-
-      //Устанавливаем текущий месяц, год
-      d = new Date();
-
-      currMonth = this.d.getMonth('9');
-      currYear = this.d.getFullYear('22');
-      currDay = this.d.getDate('3');
-
-      constructor(divId) {
-        this.divId = divId;
-      }
-
-      // Показать текущий месяц/неделю
-      showcurr() {
-        this.showWeek(this.currYear, this.currMonth);
-      };
-
-      // Показать неделю
-      showWeek(y, m, date = this.currDay) {
-
-        let curr = new Date(y, m, date);
-
-        let week = []
-
-        //
-        for (let i = 1; i <= 7; i++) {
-          const currDay = curr.getDay() ? curr.getDay() : 7;
-          let first = curr.getDate() - currDay + i + 1;
-          let day = new Date(curr.setDate(first)).toISOString().slice(0, 10)
-          week.push(day)
-        }
-
-        let html = '<table>';
-
-        html += '<tr class="days">';
-        html += '<td class="empty"</td>';
-        for (let i = 0; i < week.length; i++) {
-          const day = new Date(week[i])
-          html += `<td class="date" x-time="${day}">${this.DaysOfWeek[i]},  ${day.getDate()}</td>`;
-        }
-        html += '</tr>';
-        // добавлять checkbox и др
-        for (let i = 0; i < 24; i++) {
-          html += '<tr class="slots">'
-          html += '<td class="hours">'
-          if (i < 10) {
-            html += `0${i}:00`;
-          } else {
-            html += `${i}:00`;
-          }
-          html += '</td>'
-          for (let j = 0; j < 7; j++) {
-            const tdDay = new Date(week[j]).getDate();
-            const tdMonth = new Date(week[j]).getMonth() + 1;
-            const tdyear = new Date(week[j]).getFullYear();
-            html += '<td class="check">'
-            html += `<label><input type="checkbox" value="`
-            if (tdDay < 10) {
-              html += `0${tdDay}-`
-            } else {
-              html += `${tdDay}-`
-            }
-            if (tdMonth < 10) {
-              html += `0${tdMonth}-`
-            } else {
-              html += `${tdMonth}-`
-            }
-            html += `${tdyear}`
-            html += 'T';
-            if (i < 10) {
-              html += `0${i}`;
-            } else {
-              html += `${i}`;
-            }
-            html += `" name="schedule"></label>`
-            html += '</td>'
-          }
-          html += '</tr>'
-        }
-
-        // Конец таблицы
-        html += '</table>';
-
-        // Записываем HTML в div
-        document.getElementById(this.divId).innerHTML = html;
-      };
-
-      showWeek2() {
-        let nextDate = new Date(this.currYear, this.currMonth, this.currDay);
-        nextDate.setDate(nextDate.getDate() + 7);
-
-        this.showWeek(nextDate.getFullYear(), nextDate.getMonth(), nextDate.getDate());
-      };
-
-      showWeek3() {
-        let nextDate = new Date(this.currYear, this.currMonth, this.currDay);
-        nextDate.setDate(nextDate.getDate() + 14);
-
-        this.showWeek(nextDate.getFullYear(), nextDate.getMonth(), nextDate.getDate());
-      };
-
-      showWeek4() {
-        let nextDate = new Date(this.currYear, this.currMonth, this.currDay);
-        nextDate.setDate(nextDate.getDate() + 21);
-
-        this.showWeek(nextDate.getFullYear(), nextDate.getMonth(), nextDate.getDate());
-      };
-    }
-
-    function clearBtnClasses() {
-      const btns = document.querySelectorAll('.schedule__tab-btn');
-
-      btns.forEach((btn) => {
-        if (btn.classList.contains('is-active')) {
-          btn.classList.remove('is-active');
-        }
-      })
-    }
-
-
-    window.onload = function () {
-
-      // Начать календарь
-      var c = new Calendar("divCal");
-      c.showcurr();
-      updateCal();
-
-      // переключение кнопок
-
-      // Показать текущую неделю
-      document.querySelector("#btn-1").addEventListener("click", function () {
-        c.showcurr();
-        updateCal();
-        clearBtnClasses()
-        this.classList.add('is-active');
-      });
-
-      // Показать 2 неделю
-      document.querySelector("#btn-2").addEventListener("click", function () {
-        c.showWeek2();
-        updateCal();
-        clearBtnClasses();
-        this.classList.add('is-active');
-      });
-
-      // Показать 3 неделю
-      document.querySelector("#btn-3").addEventListener("click", function () {
-        c.showWeek3();
-        updateCal();
-        clearBtnClasses();
-        this.classList.add('is-active');
-      });
-
-      // Показать 4 неделю
-      document.querySelector("#btn-4").addEventListener("click", function () {
-        c.showWeek4();
-        updateCal();
-        clearBtnClasses();
-        this.classList.add('is-active');
-      });
-
-      // сюда добавить гет запрос на бэкенд с получением данных - вызов функции
-      // добавить loader
-    }
-
-    function checkPrevious() {
-      const days = document.querySelectorAll('.date');
-      const current = new Date();
-      current.setDate(current.getDate() - 1);
-      const currentParsed = Date.parse(current);
-      days.forEach((day) => {
-        const date = Date.parse(day.getAttribute('x-time'));
-        if (date <= currentParsed) {
-          day.classList.add('previous');
-        }
-      })
-    }
-
-    function setPreviousStyles() {
-      const dates = document.querySelectorAll('.date');
-      const slots = document.querySelectorAll('.slots');
-      for (let i = 0; i < dates.length; i++) {
-        if (dates[i].classList.contains('previous')) {
-          slots.forEach((slot) => {
-            const cells = slot.querySelectorAll('.check');
-            cells[i].classList.add('past');
-          });
-        }
-      }
-    }
-
-    function updateCal() {
-      const inputs = document.querySelectorAll('input[type="checkbox"]');
-
-      if (!inputs.length) {
-        setTimeout(() => {
-          updateCal();
-        }, 500);
-      }
-      checkPrevious();
-      setPreviousStyles();
-      showValues();
-      restoreCheckboxState();
-    }
-
-    // сохраняем данные в объект
-    let dataObject = {};
-
-    if (localStorage.getItem('checkboxData')) {
-      dataObject = JSON.parse(localStorage.getItem('checkboxData'));
-    }
-
-    function saveDataToLocalStorage() {
-      localStorage.setItem('checkboxData', JSON.stringify(dataObject));
-    }
-
-    function updateDataObject(checkbox) {
-      const value = checkbox.value;
-      const date = value.split('T')[0];
-      const time = value.split('T')[1];
-
-      if (checkbox.checked) {
-        if (dataObject[date]) {
-          dataObject[date].push(time);
-        } else {
-          dataObject[date] = [time];
-        }
-      } else {
-        if (dataObject[date]) {
-          const index = dataObject[date].indexOf(time);
-          if (index !== -1) {
-            dataObject[date].splice(index, 1);
-            if (dataObject[date].length === 0) {
-              delete dataObject[date];
-            }
-          }
-        }
-      }
-
-      saveDataToLocalStorage();
-      console.log(dataObject);
-    }
-
-    function restoreCheckboxState() {
-      const inputs = document.querySelectorAll('input[type="checkbox"]');
-
-      inputs.forEach((input) => {
-        const value = input.value;
-        const date = value.split('T')[0];
-        const time = value.split('T')[1];
-
-        if (dataObject[date] && dataObject[date].includes(time)) {
-          input.checked = true;
-        }
-      });
-    }
-
-    function showValues() {
-      const inputs = document.querySelectorAll('input[type="checkbox"]');
-
-      inputs.forEach((input) => {
-        input.addEventListener('change', function () {
-          updateDataObject(this);
-        });
-      });
-    }
-
-    function sendDataToBackend() {
-      var x = new Date();
-      var currentTimeZoneOffsetInHours = x.getTimezoneOffset() / 60;
-
-      const dataToSend = JSON.stringify({ schedule: dataObject, timeZone: currentTimeZoneOffsetInHours });
-
-      fetch('http://127.0.0.1:8000/doctor_schedule', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json'
-        },
-        body: dataToSend
-      })
-        .then(response => {
-          if (response.ok) {
-            console.log('Данные успешно отправлены на бэкенд');
-          } else {
-            console.error('Ошибка при отправке данных на бэкенд');
-          }
-        })
-        .catch(error => {
-          console.error('Произошла ошибка:', error);
-        });
-    }
-
-    const saveButton = document.getElementById('send-btn');
-    saveButton.addEventListener('click', function () {
-      sendDataToBackend();
-    });
-
-
-    // function getDatafromBackend() {
-    //   fetch('http://127.0.0.1:8000/get_doctor_schedule/0')
-    //     .then(response => {
-    //       if (!response.ok) {
-    //         throw new Error('Network response was not ok');
-    //       }
-    //       return response.json();
-    //     })
-    //     .then(data => {
-    //       console.log(data);
-    //     })
-    //     .catch(error => {
-    //       console.error('There was a problem with your fetch operation:', error);
-    //     });
-    // }
-  </script>
 
   <script src="js/vendor.min.js"></script>
   <script src="js/main.min.js"></script>
