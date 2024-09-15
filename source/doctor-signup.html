@@ -505,8 +505,23 @@
             body: JSON.stringify(userData)
           })
             .then(response => {
+              // Проверка, если сервер вернул ответ в формате JSON
+              return response.json(); // Предполагается, что сервер возвращает JSON
+            })
+            .then(data => {
               // Обработка ответа от сервера
-              console.log(userData);
+              console.log(data); // Выводим данные в консоль для отладки
+
+              // Предполагается, что токен находится в data.token
+              if (data.token) {
+                // Сохранение токена в Local Storage
+                localStorage.setItem('authToken', data.token);
+
+                // Редирект на страницу /doctor-account-clients.html
+                window.location.href = '/doctor-account-clients.html';
+              } else {
+                console.error('Токен не найден в ответе от сервера');
+              }
             })
             .catch(error => {
               // Обработка ошибки
