@@ -89,7 +89,7 @@
       <div class="container">
         <div class="header__logo">
           <div class="header__logo-wrapper">
-            <img src="./img/svg/logo.svg" width="387" height="52" alt="Speak your mind.">
+            <img src="./img/svg/logo.svg" width="196" height="23" alt="Speak your mind.">
           </div>
         </div>
         <nav class="header__nav nav">
@@ -180,9 +180,9 @@
                   <button type="button" class="send-btn btn" id="send-btn">Сохранить изменения</button>
                   <div class="calendar-wrapper">
                     <button class="btn-current schedule__tab-btn is-active" id="btn-1">Текущая неделя</button>
-                    <button class="btn-2 schedule__tab-btn" id="btn-2">Неделя 2</button>
-                    <button class="btn-3 schedule__tab-btn" id="btn-3">Неделя 3</button>
-                    <button class="btn-4 schedule__tab-btn" id="btn-4">Неделя 4</button>
+                    <button class="btn-2 schedule__tab-btn" id="btn-2">5.08 - 11.08</button>
+                    <button class="btn-3 schedule__tab-btn" id="btn-3">12.08 - 18.08</button>
+                    <button class="btn-4 schedule__tab-btn" id="btn-4">19.08 - 25.08</button>
                     <div class="cal-wrapper">
 
                       <div id="divCal"></div>
@@ -775,6 +775,8 @@
       restoreCheckboxState();
     }
 
+    // если на бэке уже есть сохраненный календарь, запускаю функцию getSchedule
+
     // сохраняем данные в объект
     let dataObject = {};
 
@@ -852,6 +854,7 @@
       })
         .then(response => {
           if (response.ok) {
+            // сюда прописываю getSchedule()
             console.log('Данные успешно отправлены на бэкенд');
           } else {
             console.error('Ошибка при отправке данных на бэкенд');
@@ -867,22 +870,6 @@
       sendDataToBackend();
     });
 
-
-    // function getDatafromBackend() {
-    //   fetch('http://127.0.0.1:8000/get_doctor_schedule/0')
-    //     .then(response => {
-    //       if (!response.ok) {
-    //         throw new Error('Network response was not ok');
-    //       }
-    //       return response.json();
-    //     })
-    //     .then(data => {
-    //       console.log(data);
-    //     })
-    //     .catch(error => {
-    //       console.error('There was a problem with your fetch operation:', error);
-    //     });
-    // }
   </script>
 
   <script src="js/vendor.min.js"></script>

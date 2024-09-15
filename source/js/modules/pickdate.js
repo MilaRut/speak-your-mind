@@ -22,6 +22,7 @@ function setChoiceBtn() {
   slots.forEach((slot) => {
     slot.addEventListener('change', function () {
       errorMsg.classList.remove('is-active');
+      submitBtn.disabled = false;
       submitBtn.classList.add('is-enabled');
       const currentDatetime = slot.value;
       const day = currentDatetime.slice(8, 10);

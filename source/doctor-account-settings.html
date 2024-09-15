@@ -21,7 +21,7 @@
       <div class="container">
         <div class="header__logo">
           <div class="header__logo-wrapper">
-            <img src="./img/svg/logo.svg" width="387" height="52" alt="Speak your mind.">
+            <img src="./img/svg/logo.svg" width="196" height="23" alt="Speak your mind.">
           </div>
         </div>
         <nav class="header__nav nav">
@@ -242,7 +242,7 @@
                         </div>
                         <div class="settings__input-wrapper">
                           <p class="text-20">Изменить пароль<br><span class="text-14">(нажмите "редактировать", чтобы
-                            изменить)</span></p>
+                              изменить)</span></p>
                           <label>
                             <input type="password" name="password" id="password" value="12345" readonly>
                             <button type="button"
@@ -1344,6 +1344,54 @@
       </div>
     </div>
   </div>
+
+  <script>
+    const url = 'http://127.0.0.1:8000/register_therapist';
+
+    window.addEventListener('DOMContentLoaded', () => {
+      fetch(url, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(userData)
+      })
+        .then(response => {
+          // Обработка ответа от сервера
+          console.log(userData);
+        })
+        .catch(error => {
+          // Обработка ошибки
+          console.log('Ошибка >' + error);
+        });
+    });
+
+    function getToken(loginData) {
+        fetch('http://127.0.0.1:8000/login', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json'
+          },
+          body: JSON.stringify(loginData)
+        })
+          .then(function (response) {
+            if (!response.ok) {
+              throw new Error('Network response was not ok');
+            }
+            return response.json();
+          })
+          .then(function (data) {
+            localStorage.setItem('token', data.token);
+            window.location.href = '/user-signup-main.html';
+            console.log(data);
+          })
+          .catch(function (error) {
+            console.error('Ошибка:', error);
+            // Обработка ошибки
+          });
+      }
+
+  </script>
 
   <script src="js/vendor.min.js"></script>
   <script src="js/main.min.js"></script>

@@ -25,6 +25,10 @@
     flex-direction: column;
   }
 
+  label {
+    position: relative;
+  }
+
   input {
     min-width: 330px;
     margin-bottom: 50px;

@@ -21,7 +21,7 @@
       <div class="container">
         <div class="header__logo">
           <div class="header__logo-wrapper">
-            <img src="./img/svg/logo.svg" width="387" height="52" alt="Speak your mind.">
+            <img src="./img/svg/logo.svg" width="196" height="23" alt="Speak your mind.">
           </div>
         </div>
         <nav class="header__nav nav">
@@ -100,7 +100,8 @@
             <form action="" method="post" id="pass-restore-form">
               <fieldset>
                 <label>
-                  <input type="text" placeholder="Ваш email">
+                  <input type="password" name="password" id="password" placeholder="Пароль">
+                  <button type="button" class="show-password-btn">Показать пароль</button>
                 </label>
               </fieldset>
               <div class="login__btn-wrapper">
@@ -128,6 +129,43 @@
       </div>
     </footer>
   </div>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+      document.getElementById('pass-restore-form').addEventListener('submit', function (e) {
+        e.preventDefault();
+
+        var password = document.getElementById('password').value;
+
+        var data = {
+          password: password
+        };
+
+        fetch('http://127.0.0.1:8000/pass-restore', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json'
+          },
+          body: JSON.stringify(data)
+        })
+          .then(function (response) {
+            if (!response.ok) {
+              throw new Error('Network response was not ok');
+            }
+            return response.json();
+          })
+          .then(function (data) {
+            // Обработка успешного ответа от сервера
+            console.log(data);
+          })
+          .catch(function (error) {
+            console.error('Ошибка:', error);
+            // Обработка ошибки
+          });
+      });
+    });
+  </script>
+
   <script src="js/vendor.min.js"></script>
   <script src="js/main.min.js"></script>
 </body>

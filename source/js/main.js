@@ -11,13 +11,15 @@ import {setUtilsBtns} from './modules/utils-btns';
 import {validateTextarea} from './modules/textarea';
 import {showTextInput} from './modules/select-other';
 import {setActiveItem} from './modules/clients-list';
-import {setSessionStatus, initActionsBtns} from './modules/clients-btns';
+import {initActionsBtns} from './modules/clients-btns';
+// import {setSessionStatus, initActionsBtns} from './modules/clients-btns';
 import {initModal} from './modules/modal';
 import {setClientCard} from './modules/client-card';
 import {setTimeValue} from './modules/inputs-value';
 // import {renderSchedule, markScheduleSlots, saveState} from './modules/schedule';
 import {initSwiper} from './modules/my-swiper';
 import {setChoiceBtn} from './modules/pickdate';
+import {showPopup, showClientProfile} from './modules/admin';
 
 // ---------------------------------
 
@@ -44,7 +46,7 @@ window.addEventListener('DOMContentLoaded', () => {
     validateTextarea();
     showTextInput();
     setActiveItem();
-    setSessionStatus();
+    // setSessionStatus();
     initActionsBtns();
     initModal();
     setClientCard();
@@ -54,5 +56,7 @@ window.addEventListener('DOMContentLoaded', () => {
     // markScheduleSlots();
     initSwiper();
     setChoiceBtn();
+    showPopup();
+    showClientProfile();
   });
 });

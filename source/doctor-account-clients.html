@@ -21,7 +21,7 @@
       <div class="container">
         <div class="header__logo">
           <div class="header__logo-wrapper">
-            <img src="./img/svg/logo.svg" width="387" height="52" alt="Speak your mind.">
+            <img src="./img/svg/logo.svg" width="196" height="23" alt="Speak your mind.">
           </div>
         </div>
         <nav class="header__nav nav">
@@ -119,7 +119,6 @@
                       <th>Всего сессий</th>
                       <th>Следующая сессия</th>
                       <th>Статус сессии</th>
-                      <th>Действия</th>
                     </tr>
                     <tr class="clients__item clients__item--scheduled">
                       <td><span class="clients__client-id">#663385</span></td>
@@ -128,9 +127,23 @@
                       <td><span class="clients__client-age">36</span></td>
                       <td><span class="clients__sessions-amount">11</span></td>
                       <td><span class="clients__next-session"><time>05 июля, 15:00</time></span></td>
-                      <td><span class="clients__session-status"> </span></td>
-                      <td><button class="btn clients__actions-btn" data-action="" data-open-modal
-                          data-modal-id="#doctor-reschedule"></button></td>
+                      <td>
+                        <span class="clients__session-status">Запланирована</span>
+                        <div class="clients__actions">
+                          <button type="button"
+                            class="clients__actions-btn clients__actions-btn--confirm">Подтвердить</button>
+                          <button type="button" class="clients__actions-btn clients__actions-btn--timeoffer"
+                            data-open-modal data-modal-id="#doctor-reschedule">Предложить
+                            другое время</button>
+                          <button type="button"
+                            class="clients__actions-btn clients__actions-btn--cancel">Отменить</button>
+                          <button type="button" class="clients__actions-btn clients__actions-btn--reschedule"
+                            data-open-modal data-modal-id="#doctor-reschedule">Перенести</button>
+                          <button type="button" class="clients__actions-btn clients__actions-btn--schedule"
+                            data-open-modal data-modal-id="#doctor-reschedule">Записать</button>
+                          <button type="button" class="clients__actions-close">+</button>
+                        </div>
+                      </td>
                     </tr>
                     <tr class="clients__item clients__item--not-scheduled">
                       <td><span class="clients__client-id">#213715</span></td>
@@ -139,8 +152,23 @@
                       <td><span class="clients__client-age">23</span></td>
                       <td><span class="clients__sessions-amount">48</span></td>
                       <td><span class="clients__next-session"><time>-</time></span></td>
-                      <td><span class="clients__session-status"></span></td>
-                      <td><button class="btn clients__actions-btn" data-action=""></button></td>
+                      <td>
+                        <span class="clients__session-status">Не записан</span>
+                        <div class="clients__actions">
+                          <button type="button"
+                            class="clients__actions-btn clients__actions-btn--confirm">Подтвердить</button>
+                          <button type="button" class="clients__actions-btn clients__actions-btn--timeoffer"
+                            data-open-modal data-modal-id="#doctor-reschedule">Предложить
+                            другое время</button>
+                          <button type="button"
+                            class="clients__actions-btn clients__actions-btn--cancel">Отменить</button>
+                          <button type="button" class="clients__actions-btn clients__actions-btn--reschedule"
+                            data-open-modal data-modal-id="#doctor-reschedule">Перенести</button>
+                          <button type="button" class="clients__actions-btn clients__actions-btn--schedule"
+                            data-open-modal data-modal-id="#doctor-reschedule">Записать</button>
+                          <button type="button" class="clients__actions-close">+</button>
+                        </div>
+                      </td>
                     </tr>
                     <tr class="clients__item clients__item--requested">
                       <td><span class="clients__client-id">#784556</span></td>
@@ -149,8 +177,23 @@
                       <td><span class="clients__client-age">56</span></td>
                       <td><span class="clients__sessions-amount">5</span></td>
                       <td><span class="clients__next-session"><time>06 июля, 12:00</time></span></td>
-                      <td><span class="clients__session-status"></span></td>
-                      <td><button class="btn clients__actions-btn" data-action=""></button></td>
+                      <td>
+                        <span class="clients__session-status">Запрос на сессию</span>
+                        <div class="clients__actions">
+                          <button type="button"
+                            class="clients__actions-btn clients__actions-btn--confirm">Подтвердить</button>
+                          <button type="button" class="clients__actions-btn clients__actions-btn--timeoffer"
+                            data-open-modal data-modal-id="#doctor-reschedule">Предложить
+                            другое время</button>
+                          <button type="button"
+                            class="clients__actions-btn clients__actions-btn--cancel">Отменить</button>
+                          <button type="button" class="clients__actions-btn clients__actions-btn--reschedule"
+                            data-open-modal data-modal-id="#doctor-reschedule">Перенести</button>
+                          <button type="button" class="clients__actions-btn clients__actions-btn--schedule"
+                            data-open-modal data-modal-id="#doctor-reschedule">Записать</button>
+                          <button type="button" class="clients__actions-close">+</button>
+                        </div>
+                      </td>
                     </tr>
                     <tr class="clients__item clients__item--scheduled">
                       <td><span class="clients__client-id">#663385</span></td>
@@ -159,9 +202,23 @@
                       <td><span class="clients__client-age">56</span></td>
                       <td><span class="clients__sessions-amount">5</span></td>
                       <td><span class="clients__next-session"><time>09 июля, 16:00</time></span></td>
-                      <td><span class="clients__session-status"></span></td>
-                      <td><button class="btn clients__actions-btn" data-action="" data-open-modal
-                          data-modal-id="#doctor-reschedule"></button></td>
+                      <td>
+                        <span class="clients__session-status">Запланирована</span>
+                        <div class="clients__actions">
+                          <button type="button"
+                            class="clients__actions-btn clients__actions-btn--confirm">Подтвердить</button>
+                          <button type="button" class="clients__actions-btn clients__actions-btn--timeoffer"
+                            data-open-modal data-modal-id="#doctor-reschedule">Предложить
+                            другое время</button>
+                          <button type="button"
+                            class="clients__actions-btn clients__actions-btn--cancel">Отменить</button>
+                          <button type="button" class="clients__actions-btn clients__actions-btn--reschedule"
+                            data-open-modal data-modal-id="#doctor-reschedule">Перенести</button>
+                          <button type="button" class="clients__actions-btn clients__actions-btn--schedule"
+                            data-open-modal data-modal-id="#doctor-reschedule">Записать</button>
+                          <button type="button" class="clients__actions-close">+</button>
+                        </div>
+                      </td>
                     </tr>
                     <tr class="clients__item clients__item--unapproved">
                       <td><span class="clients__client-id">#663385</span></td>
@@ -170,8 +227,23 @@
                       <td><span class="clients__client-age">56</span></td>
                       <td><span class="clients__sessions-amount">5</span></td>
                       <td><span class="clients__next-session"><time>09 июля, 16:00</time></span></td>
-                      <td><span class="clients__session-status"></span></td>
-                      <td><button class="btn clients__actions-btn" data-action=""></button></td>
+                      <td>
+                        <span class="clients__session-status">Ожидание<br>подтверждения</span>
+                        <div class="clients__actions">
+                          <button type="button"
+                            class="clients__actions-btn clients__actions-btn--confirm">Подтвердить</button>
+                          <button type="button" class="clients__actions-btn clients__actions-btn--timeoffer"
+                            data-open-modal data-modal-id="#doctor-reschedule">Предложить
+                            другое время</button>
+                          <button type="button"
+                            class="clients__actions-btn clients__actions-btn--cancel">Отменить</button>
+                          <button type="button" class="clients__actions-btn clients__actions-btn--reschedule"
+                            data-open-modal data-modal-id="#doctor-reschedule">Перенести</button>
+                          <button type="button" class="clients__actions-btn clients__actions-btn--schedule"
+                            data-open-modal data-modal-id="#doctor-reschedule">Записать</button>
+                          <button type="button" class="clients__actions-close">+</button>
+                        </div>
+                      </td>
                     </tr>
                   </table>
                 </div>

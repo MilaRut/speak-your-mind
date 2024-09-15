@@ -32,27 +32,84 @@
   }
 
   &__item {
+    position: relative;
+
+    .clients__actions-btn {
+      display: none;
+    }
+
     &--scheduled {
-      .clients__actions-btn {
-        background-color: $color-default-white;
-        border: 1px solid $color-jade;
-        color: $color-jade;
+
+      .clients__actions-btn--cancel,
+      .clients__actions-btn--reschedule {
+        display: block;
+      }
+    }
+
+    &--not-scheduled {
+      .clients__actions-btn--schedule {
+        display: block;
+      }
+    }
+
+    &--requested {
+      .clients__actions-btn--confirm,
+      .clients__actions-btn--timeoffer,
+      .clients__actions-btn--cancel {
+        display: block;
       }
     }
 
     &--unapproved {
       .clients__session-status {
         font-weight: 700;
-      }
-
-      .clients__actions-btn {
-        opacity: 0.5;
-        background-color: $color-default-white;
-        border-radius: 8px;
-        border: 1px solid $color-whisper;
-        color: $color-whisper;
+        color: $color-default-black;
         pointer-events: none;
       }
     }
+  }
+
+  &__session-status {
+    color: $color-jade;
+    cursor: pointer;
+
+    @include hover {
+      opacity: 0.7;
+    }
+  }
+
+  &__actions {
+    display: none;
+
+    &.is-active {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      right: 0;
+      display: flex;
+      background: $color-default-white;
+      box-shadow: 0 4px 4px 0 rgba(0, 0, 0, 0.25);
+      padding: 4px 7px;
+    }
+  }
+
+  &__actions-btn {
+    background-color: transparent;
+    border: none;
+    color: $color-jade;
+  }
+
+  &__actions-close {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 24px;
+    background-color: transparent;
+    width: 27px;
+    height: 27px;
+    border-radius: 50px;
+    border: none;
+    transform: rotate(45deg);
+    padding: 0;
   }
 }

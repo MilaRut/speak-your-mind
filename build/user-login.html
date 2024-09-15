@@ -21,7 +21,7 @@
       <div class="container">
         <div class="header__logo">
           <div class="header__logo-wrapper">
-            <img src="./img/svg/logo.svg" width="387" height="52" alt="Speak your mind.">
+            <img src="./img/svg/logo.svg" width="196" height="23" alt="Speak your mind.">
           </div>
         </div>
         <nav class="header__nav nav">
@@ -40,12 +40,14 @@
           </div>
         </nav>
         <div class="header__unlogged unlogged">
-          <button type="button" class="js-dropdown-trigger unlogged__login-btn btn" data-id="#login-wrapper">Вход</button>
+          <button type="button" class="js-dropdown-trigger unlogged__login-btn btn"
+            data-id="#login-wrapper">Вход</button>
           <div class="header__login-wrapper" id="login-wrapper">
             <a class="text-18" href="user-login.html">Вход для клиентов</a>
             <a class="text-18" href="doctor-login.html">Вход для психологов</a>
           </div>
-          <button type="button" class="js-dropdown-trigger unlogged__signup-btn btn btn--white" data-id="#signup-wrapper">Регистрация</button>
+          <button type="button" class="js-dropdown-trigger unlogged__signup-btn btn btn--white"
+            data-id="#signup-wrapper">Регистрация</button>
           <div class="header__signup-wrapper" id="signup-wrapper">
             <a class="text-18" href="user-signup-start.html">Регистрация для клиентов</a>
             <a class="text-18" href="doctor-signup.html">Регистрация для психологов</a>
@@ -161,12 +163,17 @@
           .then(function (data) {
             // Обработка успешного ответа от сервера
             // доп проверки - анкета, выбор терапевта, привязка карты
-            localStorage.setItem('token', data.token); // Сохраняем токен в localStorage
-            window.location.href = '/user-signup-main.html';
+            if (!data.status) {
+              alert('Ошибка');
+            } else {
+              localStorage.setItem('token', data.token); // Сохраняем токен в localStorage
+              window.location.href = '/user-signup-main.html';
+            };
           })
           .catch(function (error) {
             // Обработка ошибки
             // добавить обработку ошибки по статусам
+            alert('Ошибка');
           });
       });
     });

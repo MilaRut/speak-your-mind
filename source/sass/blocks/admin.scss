@@ -1,0 +1,522 @@
+.admin {
+  .header {
+    background-color: #555555;
+  }
+
+  .header__logo-wrapper {
+    color: $color-default-white;
+
+    svg {
+      color: $color-default-white;
+      fill: $color-default-white;
+    }
+  }
+
+  main {
+    display: flex;
+    justify-content: center;
+  }
+
+  .logged__username,
+  .lang-switcher__btn,
+  .nav__link {
+    color: $color-default-white;
+  }
+
+  .logged__btn,
+  .lang-switcher__btn {
+    svg {
+      color: $color-default-white;
+      fill: $color-default-white;
+
+      path {
+        stroke: white;
+      }
+    }
+  }
+}
+
+.admin-content {
+  background-color: #F5F3EE;
+  width: 100%;
+
+  .container {
+    display: flex;
+    height: 100%;
+    padding: 0;
+  }
+}
+
+.admin-content__wrapper {
+  display: grid;
+  grid-template-columns: 173px 1fr;
+  width: 100%;
+}
+
+.admin-content__left-col {
+  background-color: #555555;
+}
+
+.admin-content__nav {
+  display: flex;
+  flex-direction: column;
+}
+
+.admin-content__nav-link {
+  color: $color-default-white;
+  padding: 10px 16px;
+  display: flex;
+  align-items: center;
+
+  svg {
+    margin-right: 5px;
+  }
+
+  &.is-active {
+    background-color: $color-jade;
+  }
+}
+
+.admin-content__right-col {
+  padding: 22px 60px;
+}
+
+.admin-content__heading {
+  margin-bottom: 18px;
+
+  h1 {
+    font-weight: 700;
+    font-size: 35px;
+  }
+}
+
+.admin-stats {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  margin-bottom: 20px;
+}
+
+.admin-stats__wrapper {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  height: fit-content;
+
+  p {
+    display: flex;
+    flex-direction: column;
+    font-weight: 400;
+    font-size: 28px;
+    line-height: 1.1;
+  }
+
+  .num {
+    font-weight: 900;
+    font-size: 48px;
+    line-height: 1.1;
+  }
+}
+
+.admin-stats__calc {
+  display: flex;
+  gap: 48px;
+  width: 100%;
+  padding-top: 12px;
+
+  p {
+    font-weight: 400;
+    font-size: 14px;
+  }
+
+  .num {
+    font-weight: 400;
+    font-size: 28px;
+    line-height: 1.1;
+  }
+}
+
+.admin-content__widgets {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 41px 48px;
+
+  summary {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-weight: 700;
+    font-size: 28px;
+    line-height: 1.1;
+
+    svg {
+      transform: rotate(180deg);
+      cursor: pointer;
+    }
+  }
+
+  details[open] svg {
+    transform: rotate(0);
+  }
+
+  ul {
+    margin-top: 16px;
+  }
+
+  li {
+    display: flex;
+    gap: 8px;
+    width: 100%;
+    justify-content: space-between;
+    padding: 5px 0;
+  }
+
+  .name {
+    width: 100%;
+    color: $color-jade;
+  }
+}
+
+.admin-content__widget {
+  background-color: $color-default-white;
+  border-radius: 8px;
+  padding: 16px;
+  height: fit-content;
+}
+
+.admin-content__widget-btn {
+  width: 100%;
+  margin-top: 16px;
+  padding: 8px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.admin-content__widget--transactions {
+  grid-column: 1 / 3;
+
+  li {
+    display: grid;
+    gap: 8px;
+    grid-template-columns: auto 1fr 1fr repeat(2, auto);
+  }
+
+  .error {
+    span {
+      color: $color-red;
+    }
+  }
+}
+
+.admin-content__main {
+  &.is-hidden {
+    display: none;
+  }
+}
+
+.admin-table {
+  border-radius: 8px;
+  border: 1px solid #a3a3a3;
+  overflow: hidden;
+
+  table {
+    border-collapse: collapse;
+    width: 100%;
+  }
+
+  td {
+    padding: 5px 0;
+  }
+}
+
+.admin-table__head {
+  background-color: #555555;
+  color: $color-default-white;
+}
+
+.admin-table__item {
+  position: relative;
+  background-color: $color-default-white;
+  border-bottom: 1px solid #a3a3a3;
+  cursor: pointer;
+
+  &:last-child {
+    border: 0;
+  }
+
+  &.is-active {
+    background-color: #c5fdea;
+
+    .admin-table__popup {
+      display: flex;
+    }
+  }
+
+  &--inactive {
+    background-color: #D9EBFF;
+
+    .admin-table__popup-btn--deactivate {
+      display: none;
+    }
+
+    .admin-table__popup-btn--activate {
+      display: inline-block;
+    }
+  }
+
+  &--active {
+    .admin-table__popup-btn--deactivate {
+      display: inline-block;
+    }
+
+    .admin-table__popup-btn--activate {
+      display: none;
+    }
+  }
+}
+
+.admin-table__popup {
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  box-shadow: 0 4px 4px 0 rgba(0, 0, 0, 0.25);
+  background: $color-default-white;
+  display: none;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+}
+
+.admin-table__popup-btn {
+  background-color: transparent;
+  border: none;
+}
+
+.admin-profile {
+  &.is-hidden {
+    display: none;
+  }
+
+  details {
+    margin-bottom: 48px;
+
+    summary {
+      display: flex;
+      align-items: center;
+      gap: 24px;
+      cursor: pointer;
+      margin-bottom: 24px;
+
+      svg {
+        transform: rotate(180deg);
+      }
+    }
+
+    &[open] {
+      summary {
+        svg {
+          transform: rotate(0);
+        }
+      }
+    }
+  }
+
+  details summary::-webkit-details-marker {
+    display: none;
+  }
+
+  details summary::marker {
+    display: none;
+    content: '';
+  }
+}
+
+.admin-profile__heading {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 48px;
+
+  button {
+    height: 48px;
+    padding: 8px 24px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 13px;
+  }
+}
+
+.admin-profile__msg-btn {
+  display: flex;
+  align-items: center;
+  padding: 8px 24px;
+  gap: 13px;
+}
+
+.admin-profile__item {
+  display: grid;
+  grid-template-columns: 190px auto;
+  margin-bottom: 21px;
+
+  button {
+    width: fit-content;
+    padding: 8px 24px;
+  }
+
+  textarea {
+    background-color: #eaeaea;
+    color: #a3a3a3;
+    min-height: 406px;
+    border: 1px solid #a3a3a3;
+  }
+}
+
+input.personal {
+  border: 1px solid #555555;
+  border-radius: 4px;
+  padding: 8px 10px;
+  width: 350px;
+  height: 40px;
+  min-width: 350px;
+}
+
+.admin-profile__photo {
+  width: 64px;
+  height: 64px;
+  overflow: hidden;
+  border-radius: 50%;
+
+  img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+}
+
+.admin-profile__sessions {
+  .admin-table {
+    margin-top: 16px;
+  }
+}
+
+.admin-profile__buttons {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 20px;
+
+  button {
+    height: 48px;
+    padding: 8px 24px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 13px;
+  }
+}
+
+.admin-profile__back-btn {
+  background-color: transparent;
+  border: none;
+
+  @include hover {
+    opacity: 0.7;
+  }
+}
+
+.admin-profile__heading-btns {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+}
+
+.admin-profile__sessions.is-hidden {
+  display: none;
+}
+
+.admin-profile__checkboxes {
+  display: flex;
+
+  &--methods {
+    flex-direction: column;
+
+    label {
+      margin-bottom: 18px;
+    }
+  }
+
+  fieldset {
+    display: flex;
+    padding: 10px;
+    margin-bottom: 53px;
+  }
+
+  input[type="checkbox"] {
+    opacity: 0;
+  }
+
+  span {
+    position: relative;
+    font-size: 18px;
+    font-weight: 400;
+    line-height: 1.2;
+    padding-left: 40px;
+
+    &::before {
+      position: absolute;
+      content: "";
+      width: 18px;
+      height: 18px;
+      top: 50%;
+      transform: translateY(-50%);
+      left: 0;
+      border-radius: 2px;
+      border: 2px solid $color-nero;
+    }
+  }
+
+  input[type="checkbox"]:checked+span::before {
+    border-color: $color-jade;
+    background: $color-jade url("../img/svg/check-small.svg") center no-repeat;
+  }
+}
+
+.methods {
+  display: flex;
+  padding-top: 25px;
+  gap: 25px;
+}
+
+.all-sessions-button {
+  background-color: transparent;
+  border: none;
+}
+
+button.admin-profile__back-to-profile {
+  display: none;
+}
+
+.admin-profile__personal.is-hidden,
+.admin-profile__doc-info.is-hidden {
+  display: none;
+}
+
+.admin-content:has(.admin-content__main.sessions-shown),
+.admin-content:has(.admin-profile__buttons.sessions-shown) {
+
+  button.admin-profile__save-btn,
+  button.admin-profile__deactivate-btn,
+  button.admin-profile__back-btn {
+    display: none;
+  }
+
+  button.admin-profile__back-to-profile {
+    display: flex;
+  }
+}
+
+.admin-content textarea {
+  padding: 10px;
+}

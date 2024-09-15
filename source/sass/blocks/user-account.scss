@@ -145,6 +145,11 @@
   }
 }
 
+.message_error {
+  color: red;
+  margin-bottom: 48px;
+}
+
 // состояния кабинета
 
 .user-account__main {
@@ -157,7 +162,8 @@
   .user-account__session-change-wrapper,
   .date-not-scheduled,
   .change-btn-schedule,
-  .user-account__doctor-change-request {
+  .user-account__doctor-change-request,
+  .message_error {
     display: none;
   }
 }
@@ -287,6 +293,17 @@
   .user-account__change-btn,
   .requested-session {
     display: none;
+  }
+}
+
+.user-account__main[data-utils="payment-error"] {
+
+  .message_error {
+    display: block;
+  }
+
+  .user-account__session-wrapper {
+    display: block;
   }
 }
 
