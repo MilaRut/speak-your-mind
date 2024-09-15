@@ -21,7 +21,7 @@
       <div class="container">
         <div class="header__logo">
           <div class="header__logo-wrapper">
-            <img src="./img/svg/logo.svg" width="387" height="52" alt="Speak your mind.">
+            <img src="./img/svg/logo.svg" width="196" height="23" alt="Speak your mind.">
           </div>
         </div>
         <nav class="header__nav nav">
@@ -490,7 +490,7 @@
                           </svg>
                         </button>
 
-                        <button type="submit" class="doctor__submit-btn btn">
+                        <button type="submit" disabled class="doctor__submit-btn btn">
                           <span class="doctor__submit-text">Выбрать&nbsp;</span>
                           <span class="doctor__submit-date"><time datetime="2024-07-06T15-00"></time></span>
                           <span class="doctor__submit-text-2">&nbsp;и продолжить</span>
@@ -541,6 +541,15 @@
       </div>
     </div>
   </div>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+      document.getElementById('choice-date-form').addEventListener('submit', function (e) {
+        e.preventDefault();
+        window.location.href = '/user-signup-payment.html';
+      });
+    });
+  </script>
 
   <script src="js/vendor.min.js"></script>
   <script src="js/main.min.js"></script>
