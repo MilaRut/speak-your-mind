@@ -498,6 +498,7 @@
 
           // Отправка данных на бэкенд с помощью fetch
           fetch(url, {
+            // mode: 'no-cors',
             method: 'POST',
             headers: {
               'Content-Type': 'application/json'
@@ -505,7 +506,10 @@
             body: JSON.stringify(userData)
           })
             .then(response => {
-              // Проверка, если сервер вернул ответ в формате JSON
+              // Проверка, если сервер вернул успешный ответ
+              if (!response.ok) {
+                throw new Error('Ошибка сети: ' + response.status);
+              }
               return response.json(); // Предполагается, что сервер возвращает JSON
             })
             .then(data => {
@@ -515,10 +519,10 @@
               // Предполагается, что токен находится в data.token
               if (data.token) {
                 // Сохранение токена в Local Storage
-                localStorage.setItem('authToken', data.token);
+                localStorage.setItem('token', data.token);
 
-                // Редирект на страницу /doctor-account-clients.html
-                window.location.href = '/doctor-account-clients.html';
+                // Редирект на страницу /doctor-account-settings.html
+                window.location.href = '/doctor-account-settings.html';
               } else {
                 console.error('Токен не найден в ответе от сервера');
               }
