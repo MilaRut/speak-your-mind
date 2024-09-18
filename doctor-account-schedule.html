@@ -84,61 +84,54 @@
 </head>
 
 <body>
-  <div class="wrapper user-logged user-logged-doctor">
+  <div class="wrapper internal user-logged user-logged-doctor">
     <header class="header">
       <div class="container">
         <div class="header__logo">
           <div class="header__logo-wrapper">
-            <img src="./img/svg/logo.svg" width="196" height="23" alt="Speak your mind.">
+            <svg width="196" height="24" fill="currentColor">
+              <use xlink:href="./img/sprite.svg#logo"></use>
+            </svg>
           </div>
         </div>
         <nav class="header__nav nav">
           <div class="nav__wrapper">
             <ul class="nav__list">
               <li class="nav__item nav__item--psychologists">
-                <a class="nav__link" href="doctor-landing.html">Для психологов</a>
+                <a class="nav__link" data-translate="nav_doc" href="doctor-landing.html"></a>
               </li>
-              <li class="nav__item nav__item--businnes">
-                <a class="nav__link" href="businnes-landing.html">Для бизнеса</a>
-              </li>
+              <!-- <li class="nav__item nav__item--businnes">
+                <a class="nav__link href="businnes-landing.html" data-translate="nav_comp"></a>
+              </li> -->
               <li class="nav__item">
                 <a class="nav__link" href="faq.html">FAQ</a>
               </li>
             </ul>
           </div>
         </nav>
-        <div class="header__unlogged unlogged">
-          <button type="button" class="js-dropdown-trigger unlogged__login-btn btn"
-            data-id="#login-wrapper">Вход</button>
-          <div class="header__login-wrapper" id="login-wrapper">
-            <a class="text-18" href="user-login.html">Вход для клиентов</a>
-            <a class="text-18" href="doctor-login.html">Вход для психологов</a>
-          </div>
-          <button type="button" class="js-dropdown-trigger unlogged__signup-btn btn btn--white"
-            data-id="#signup-wrapper">Регистрация</button>
-          <div class="header__signup-wrapper" id="signup-wrapper">
-            <a class="text-18" href="user-signup-start.html">Регистрация для клиентов</a>
-            <a class="text-18" href="doctor-signup.html">Регистрация для психологов</a>
-          </div>
-        </div>
         <div class="header__lang-switcher lang-switcher">
           <button class="lang-switcher__btn js-dropdown-trigger" data-id="#lang-switcher">
-            <span>Русский</span>
+            <span data-translate="current_language"></span>
             <svg width="10" height="10" fill="currentColor">
               <use xlink:href="./img/sprite.svg#dropdown"></use>
             </svg>
           </button>
           <ul class="lang-switcher__list list-reset" id="lang-switcher">
+            <!-- <li class="lang-switcher__item">
+              <a href="#" data-lang="hu">Hu</a>
+            </li> -->
             <li class="lang-switcher__item">
-              <a href="#">Hu</a>
+              <a href="#" data-lang="en">En</a>
             </li>
             <li class="lang-switcher__item">
-              <a href="#">En</a>
-            </li>
-            <li class="lang-switcher__item">
-              <a href="#">Ru</a>
+              <a href="#" data-lang="ru">Ru</a>
             </li>
           </ul>
+        </div>
+        <div class="header__unlogged unlogged">
+          <a class="unlogged__login-btn btn btn--white" data-translate="header_login_btn"></a>
+          <a href="user-signup-start.html" class="unlogged__login-btn btn"
+            data-translate="header_signup_btn"></a>
         </div>
         <div class="header__logged logged">
           <div class="logged__wrapper">
@@ -153,7 +146,7 @@
             </button>
             <ul class="logged__menu-list list-reset" id="logged-menu">
               <li class="logged__menu-item">
-                <a href="#">Выйти</a>
+                <a href="#" data-translate="logout_btn">Выйти</a>
               </li>
             </ul>
           </div>
@@ -180,9 +173,9 @@
                   <button type="button" class="send-btn btn" id="send-btn">Сохранить изменения</button>
                   <div class="calendar-wrapper">
                     <button class="btn-current schedule__tab-btn is-active" id="btn-1">Текущая неделя</button>
-                    <button class="btn-2 schedule__tab-btn" id="btn-2">5.08 - 11.08</button>
-                    <button class="btn-3 schedule__tab-btn" id="btn-3">12.08 - 18.08</button>
-                    <button class="btn-4 schedule__tab-btn" id="btn-4">19.08 - 25.08</button>
+                    <button class="btn-2 schedule__tab-btn" id="btn-2">2 неделя</button>
+                    <button class="btn-3 schedule__tab-btn" id="btn-3">3 неделя</button>
+                    <button class="btn-4 schedule__tab-btn" id="btn-4">4 неделя</button>
                     <div class="cal-wrapper">
 
                       <div id="divCal"></div>
@@ -638,11 +631,11 @@
               html += `${tdMonth}-`
             }
             html += `${tdyear}`
-            html += 'T';
+            html += ' ';
             if (i < 10) {
-              html += `0${i}`;
+              html += `0${i}:00`;
             } else {
-              html += `${i}`;
+              html += `${i}:00`;
             }
             html += `" name="schedule"></label>`
             html += '</td>'
@@ -679,6 +672,41 @@
       };
     }
 
+    // функция для текста кнопок
+
+    function getWeekRange(weekOffset) {
+      const today = new Date();
+      const dayOfWeek = today.getDay(); // Получаем день недели (0 - воскресенье, 1 - понедельник, ..., 6 - суббота)
+
+      // Вычисляем разницу в днях до понедельника (1) и воскресенья (0)
+      const mondayOffset = dayOfWeek === 0 ? -6 : 1 - dayOfWeek; // Если сегодня воскресенье, то -6, иначе 1 - dayOfWeek
+      const sundayOffset = dayOfWeek === 0 ? 0 : 7 - dayOfWeek; // Если сегодня воскресенье, то 0, иначе 7 - dayOfWeek
+
+      // Получаем даты понедельника и воскресенья текущей недели
+      const monday = new Date(today);
+      monday.setDate(today.getDate() + mondayOffset + (weekOffset * 7));
+
+      const sunday = new Date(today);
+      sunday.setDate(today.getDate() + sundayOffset + (weekOffset * 7));
+
+      // Форматируем даты в нужный формат "DD.MM"
+      const formatDate = (date) => {
+        const day = String(date.getDate()).padStart(2, '0');
+        const month = String(date.getMonth() + 1).padStart(2, '0'); // Месяцы начинаются с 0
+        return `${day}.${month}`;
+      };
+
+      return `${formatDate(monday)} - ${formatDate(sunday)}`;
+    }
+
+    // Устанавливаем текст для кнопок
+
+    function setButtons() {
+      document.querySelector('#btn-2').textContent = getWeekRange(1);
+      document.querySelector('#btn-3').textContent = getWeekRange(2);
+      document.querySelector('#btn-4').textContent = getWeekRange(3);
+    }
+
     function clearBtnClasses() {
       const btns = document.querySelectorAll('.schedule__tab-btn');
 
@@ -689,50 +717,52 @@
       })
     }
 
+    // получение расписания с бэкенда
 
-    window.onload = function () {
+    function loadDataFromBackend() {
+      const token = localStorage.getItem('token');
 
-      // Начать календарь
-      var c = new Calendar("divCal");
-      c.showcurr();
-      updateCal();
-
-      // переключение кнопок
-
-      // Показать текущую неделю
-      document.querySelector("#btn-1").addEventListener("click", function () {
-        c.showcurr();
-        updateCal();
-        clearBtnClasses()
-        this.classList.add('is-active');
+      const dataToSend = JSON.stringify({
+        session_token: token,
+        schedule: [],
+        timezone: ''
       });
 
-      // Показать 2 неделю
-      document.querySelector("#btn-2").addEventListener("click", function () {
-        c.showWeek2();
-        updateCal();
-        clearBtnClasses();
-        this.classList.add('is-active');
-      });
+      if (token) {
+        // URL для получения данных пользователя
+        const url = 'http://63.250.47.203:3000/doctor_schedule';
 
-      // Показать 3 неделю
-      document.querySelector("#btn-3").addEventListener("click", function () {
-        c.showWeek3();
-        updateCal();
-        clearBtnClasses();
-        this.classList.add('is-active');
-      });
-
-      // Показать 4 неделю
-      document.querySelector("#btn-4").addEventListener("click", function () {
-        c.showWeek4();
-        updateCal();
-        clearBtnClasses();
-        this.classList.add('is-active');
-      });
-
-      // сюда добавить гет запрос на бэкенд с получением данных - вызов функции
-      // добавить loader
+        // Отправка запроса на сервер
+        fetch(url, {
+          // mode: 'no-cors',
+          method: 'POST',
+          headers: {
+            'Authorization': `Bearer ${token}`,
+            'Content-Type': 'application/json'
+          },
+          body: dataToSend
+        })
+          .then(response => {
+            if (!response.ok) {
+              throw new Error('Сеть не в порядке');
+            }
+            return response.json();
+          })
+          .then(data => {
+            // Обновляем dataObject и localStorage на основе полученных данных
+            if (data.schedule) {
+              console.log('Расписание:', data);
+              dataObject = data.schedule; // Предполагается, что данные расписания находятся в поле schedule
+              saveDataToLocalStorage(); // Сохраняем обновленные данные в localStorage
+              restoreCheckboxState(); // Обновляем состояние чекбоксов на странице
+            }
+          })
+          .catch(error => {
+            console.error('Ошибка при получении данных:', error);
+          });
+      } else {
+        console.log('Токен не найден. Пожалуйста, войдите в систему.');
+      }
     }
 
     function checkPrevious() {
@@ -773,15 +803,18 @@
       setPreviousStyles();
       showValues();
       restoreCheckboxState();
+      setButtons();
     }
 
-    // если на бэке уже есть сохраненный календарь, запускаю функцию getSchedule
+    // сохраняем данные в массив
+    let dataObject = [];
 
-    // сохраняем данные в объект
-    let dataObject = {};
-
+    // Проверяем, есть ли сохраненные данные в localStorage
     if (localStorage.getItem('checkboxData')) {
-      dataObject = JSON.parse(localStorage.getItem('checkboxData'));
+      const storedData = JSON.parse(localStorage.getItem('checkboxData'));
+      if (Array.isArray(storedData)) {
+        dataObject = storedData;
+      }
     }
 
     function saveDataToLocalStorage() {
@@ -789,41 +822,30 @@
     }
 
     function updateDataObject(checkbox) {
-      const value = checkbox.value;
-      const date = value.split('T')[0];
-      const time = value.split('T')[1];
+
+      const formattedTime = checkbox.value;
 
       if (checkbox.checked) {
-        if (dataObject[date]) {
-          dataObject[date].push(time);
-        } else {
-          dataObject[date] = [time];
+        if (!dataObject.includes(formattedTime)) {
+          dataObject.push(formattedTime);
         }
       } else {
-        if (dataObject[date]) {
-          const index = dataObject[date].indexOf(time);
-          if (index !== -1) {
-            dataObject[date].splice(index, 1);
-            if (dataObject[date].length === 0) {
-              delete dataObject[date];
-            }
-          }
+        const index = dataObject.indexOf(formattedTime);
+        if (index !== -1) {
+          dataObject.splice(index, 1);
         }
       }
 
       saveDataToLocalStorage();
-      console.log(dataObject);
     }
 
     function restoreCheckboxState() {
       const inputs = document.querySelectorAll('input[type="checkbox"]');
 
       inputs.forEach((input) => {
-        const value = input.value;
-        const date = value.split('T')[0];
-        const time = value.split('T')[1];
+        const formattedTime = input.value;
 
-        if (dataObject[date] && dataObject[date].includes(time)) {
+        if (dataObject.includes(formattedTime)) {
           input.checked = true;
         }
       });
@@ -841,11 +863,17 @@
 
     function sendDataToBackend() {
       var x = new Date();
-      var currentTimeZoneOffsetInHours = x.getTimezoneOffset() / 60;
+      var currentTimeZoneOffsetInHours = String(x.getTimezoneOffset() / 60);
 
-      const dataToSend = JSON.stringify({ schedule: dataObject, timeZone: currentTimeZoneOffsetInHours });
+      const token = localStorage.getItem('token');
 
-      fetch('http://127.0.0.1:8000/doctor_schedule', {
+      const dataToSend = JSON.stringify({
+        session_token: token,
+        schedule: dataObject,
+        timezone: currentTimeZoneOffsetInHours
+      });
+
+      fetch('http://63.250.47.203:3000/doctor_schedule', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json'
@@ -853,12 +881,15 @@
         body: dataToSend
       })
         .then(response => {
-          if (response.ok) {
-            // сюда прописываю getSchedule()
-            console.log('Данные успешно отправлены на бэкенд');
-          } else {
-            console.error('Ошибка при отправке данных на бэкенд');
+          // Проверка, если сервер вернул успешный ответ
+          if (!response.ok) {
+            throw new Error('Ошибка сети: ' + response.status);
           }
+          return response.json(); // Предполагается, что сервер возвращает JSON
+        })
+        .then(data => {
+          // Обработка ответа от сервера
+          console.log(data); // Выводим данные в консоль для отладки
         })
         .catch(error => {
           console.error('Произошла ошибка:', error);
@@ -868,6 +899,54 @@
     const saveButton = document.getElementById('send-btn');
     saveButton.addEventListener('click', function () {
       sendDataToBackend();
+    });
+
+    window.addEventListener('load', function () {
+
+      // Начать календарь
+      var c = new Calendar("divCal");
+      c.showcurr();
+      updateCal();
+
+      // переключение кнопок
+
+      // Показать текущую неделю
+      document.querySelector("#btn-1").addEventListener("click", function () {
+        c.showcurr();
+        updateCal();
+        clearBtnClasses()
+        this.classList.add('is-active');
+      });
+
+      // Показать 2 неделю
+      document.querySelector("#btn-2").addEventListener("click", function () {
+        c.showWeek2();
+        updateCal();
+        clearBtnClasses();
+        this.classList.add('is-active');
+      });
+
+      // Показать 3 неделю
+      document.querySelector("#btn-3").addEventListener("click", function () {
+        c.showWeek3();
+        updateCal();
+        clearBtnClasses();
+        this.classList.add('is-active');
+      });
+
+      // Показать 4 неделю
+      document.querySelector("#btn-4").addEventListener("click", function () {
+        c.showWeek4();
+        updateCal();
+        clearBtnClasses();
+        this.classList.add('is-active');
+      });
+
+      loadDataFromBackend();
+      showValues();
+
+      // сюда добавить гет запрос на бэкенд с получением данных - вызов функции
+      // добавить loader
     });
 
   </script>

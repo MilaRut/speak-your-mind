@@ -21,7 +21,9 @@
       <div class="container">
         <div class="header__logo">
           <div class="header__logo-wrapper">
-            <img src="./img/svg/logo.svg" width="196" height="23" alt="Speak your mind.">
+            <svg width="196" height="24" fill="currentColor">
+              <use xlink:href="./img/sprite.svg#logo"></use>
+            </svg>
           </div>
         </div>
         <nav class="header__nav nav">
@@ -30,9 +32,9 @@
               <li class="nav__item nav__item--psychologists">
                 <a class="nav__link" href="user-landing.html">Найти психолога</a>
               </li>
-              <li class="nav__item nav__item--businnes">
-                <a class="nav__link" href="businnes-landing.html">Для бизнеса</a>
-              </li>
+              <!-- <li class="nav__item nav__item--businnes">
+                <a class="nav__link" href="businnes-landing.html">Для компаний</a>
+              </li> -->
               <li class="nav__item">
                 <a class="nav__link" href="faq.html">FAQ</a>
               </li>
@@ -40,18 +42,8 @@
           </div>
         </nav>
         <div class="header__unlogged unlogged">
-          <button type="button" class="js-dropdown-trigger unlogged__login-btn btn"
-            data-id="#login-wrapper">Вход</button>
-          <div class="header__login-wrapper" id="login-wrapper">
-            <a class="text-18" href="user-login.html">Вход для клиентов</a>
-            <a class="text-18" href="doctor-login.html">Вход для психологов</a>
-          </div>
-          <button type="button" class="js-dropdown-trigger unlogged__signup-btn btn btn--white"
-            data-id="#signup-wrapper">Регистрация</button>
-          <div class="header__signup-wrapper" id="signup-wrapper">
-            <a class="text-18" href="user-signup-start.html">Регистрация для клиентов</a>
-            <a class="text-18" href="doctor-signup.html">Регистрация для психологов</a>
-          </div>
+          <a href="login.html" class="unlogged__login-btn btn btn--white">Вход</a>
+          <a class="unlogged__login-btn btn">Регистрация</a>
         </div>
         <div class="header__lang-switcher lang-switcher">
           <button class="lang-switcher__btn js-dropdown-trigger" data-id="#lang-switcher">
@@ -85,7 +77,7 @@
             </button>
             <ul class="logged__menu-list list-reset" id="logged-menu">
               <li class="logged__menu-item">
-                <a href="#">Выйти</a>
+                <a href="#" data-translate="logout_btn">Выйти</a>
               </li>
             </ul>
           </div>
@@ -129,25 +121,57 @@
               <textarea class="text-18" name="doc_edu" id="doc_edu" placeholder="Образование"></textarea>
             </div>
             <div class="doc-questionary__wrapper">
-              <p class="text-20">Ваш основной метод?*</p>
-              <select name="doc_method" id="doc_method">
-                <option value="" disabled selected hidden>Выбрать</option>
-                <option value="0">Психоаналитическая терапия</option>
-                <option value="1">Системный семейный подход</option>
-                <option value="2">Психодрама</option>
-                <option value="3">Телесно-ориентированная психотерапия</option>
-                <option value="4">Символдрама</option>
-                <option value="5">Гештальт-терапия</option>
-                <option value="6">КПТ</option>
-                <option value="7">Экзистенциальная психотерапия</option>
-                <option value="8">Понимающая / Клиент-центрированный подход</option>
-                <option value="9">Интегративный подход</option>
-                <option value="10">Юнгианский анализ</option>
-                <option value="other">Другое</option>
-              </select>
-              <label class="other-input">
-                <input type="text" name="doc_method_other" id="doc_method_other" placeholder="Ваш вариант">
-              </label>
+              <p class="text-20">Выберите 1-2 метода, в которых вы работаете онлайн*</p>
+              <div class="checkboxes-wrapper">
+                <div class="doc-questionary__checkboxes">
+                  <label>
+                    <input type="checkbox" id="doc_method-0" name="doc_method" value="0">
+                    <span>Психоаналитическая терапия</span>
+                  </label>
+                  <label>
+                    <input type="checkbox" id="doc_method-1" name="doc_method" value="1">
+                    <span>Системный семейный подход</span>
+                  </label>
+                  <label>
+                    <input type="checkbox" id="doc_method-2" name="doc_method" value="2">
+                    <span>Психодрама</span>
+                  </label>
+                  <label>
+                    <input type="checkbox" id="doc_method-3" name="doc_method" value="3">
+                    <span>Телесно-ориентированная психотерапия</span>
+                  </label>
+                  <label>
+                    <input type="checkbox" id="doc_method-4" name="doc_method" value="4">
+                    <span>Символдрама</span>
+                  </label>
+                  <label>
+                    <input type="checkbox" id="doc_method-5" name="doc_method" value="5">
+                    <span>Гештальт-терапия</span>
+                  </label>
+                </div>
+                <div class="doc-questionary__checkboxes">
+                  <label>
+                    <input type="checkbox" id="doc_method-6" name="doc_method" value="6">
+                    <span>КПТ</span>
+                  </label>
+                  <label>
+                    <input type="checkbox" id="doc_method-7" name="doc_method" value="7">
+                    <span>Экзистенциальная психотерапия</span>
+                  </label>
+                  <label>
+                    <input type="checkbox" id="doc_method-8" name="doc_method" value="8">
+                    <span>Понимающая / Клиент-центрированный подход</span>
+                  </label>
+                  <label>
+                    <input type="checkbox" id="doc_method-9" name="doc_method" value="9">
+                    <span>Интегративный подход</span>
+                  </label>
+                  <label>
+                    <input type="checkbox" id="doc_method-10" name="doc_method" value="10">
+                    <span>Юнгианский анализ</span>
+                  </label>
+                </div>
+              </div>
             </div>
 
             <div class="doc-questionary__wrapper">
@@ -216,6 +240,17 @@
               <p class="text-13">Например, май 2019</p>
               <input class="text-18" type="text" name="doc_practice_start" id="doc_practice_start"
                 placeholder="Ваш ответ">
+            </div>
+            <div class="doc-questionary__wrapper">
+              <p class="text-20">Когда вы начали консультировать?*</p>
+              <p class="text-18">За деньги, не в рамках учебной программы. Обязательно напишите месяц, не только год.
+              </p>
+              <p class="text-13">Например, май 2019</p>
+
+              <div class="start">
+                <input class="text-18" type="number" name="doc_practice_start" placeholder="месяц">
+                <input class="text-18" type="text" name="doc_practice_start" id="doc_practice_start" placeholder="год">
+              </div>
             </div>
             <div class="doc-questionary__wrapper">
               <p class="text-20">Есть ли опыт работы онлайн?*</p>
@@ -411,7 +446,7 @@
 
   <script>
     const form = document.querySelector('#register-therapist-form');
-    const url = 'http://127.0.0.1:8000/register_therapist';
+    const url = 'http://63.250.47.203:3000/register_therapist';
 
     form.addEventListener('submit', function (e) {
       e.preventDefault();
@@ -420,9 +455,22 @@
       const doc_date_of_birth = document.querySelector('#doc_date_of_birth').value;
       const doc_gender = document.querySelector('#doc_gender').value;
       const doc_edu = document.querySelector('#doc_edu').value;
-      const doc_method = document.querySelector('#doc_method').value;
-      const doc_method_other = document.querySelector('#doc_method_other').value;
-      const doc_language = document.querySelector('[name="doc_language"]').value;
+
+      // массив методов
+      const methods = document.querySelectorAll('[name="doc_language"]');
+      const methodsValues = Array.from(languages)
+        .filter(checkbox => checkbox.checked)
+        .map(checkbox => checkbox.value);
+      const doc_method = methodsValues;
+      // const doc_method_other = document.querySelector('#doc_method_other').value;
+
+      // массив языков
+      const languages = document.querySelectorAll('[name="doc_language"]');
+      const languagesValues = Array.from(languages)
+        .filter(checkbox => checkbox.checked)
+        .map(checkbox => checkbox.value);
+      const doc_language = languagesValues;
+
       const doc_edu_additional = document.querySelector('[name="doc_edu_additional"]').value;
       const doc_comunity = document.querySelector('#doc_comunity').value;
       const doc_practice_start = document.querySelector('#doc_practice_start').value;
@@ -498,6 +546,7 @@
 
           // Отправка данных на бэкенд с помощью fetch
           fetch(url, {
+            // mode: 'no-cors',
             method: 'POST',
             headers: {
               'Content-Type': 'application/json'
@@ -505,8 +554,26 @@
             body: JSON.stringify(userData)
           })
             .then(response => {
+              // Проверка, если сервер вернул успешный ответ
+              if (!response.ok) {
+                throw new Error('Ошибка сети: ' + response.status);
+              }
+              return response.json(); // Предполагается, что сервер возвращает JSON
+            })
+            .then(data => {
               // Обработка ответа от сервера
-              console.log(userData);
+              console.log(data); // Выводим данные в консоль для отладки
+
+              // Предполагается, что токен находится в data.token
+              if (data.token) {
+                // Сохранение токена в Local Storage
+                localStorage.setItem('token', data.token);
+
+                // Редирект на страницу /doctor-account-settings.html
+                window.location.href = '/doctor-account-settings.html';
+              } else {
+                console.error('Токен не найден в ответе от сервера');
+              }
             })
             .catch(error => {
               // Обработка ошибки

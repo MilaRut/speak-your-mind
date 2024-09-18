@@ -577,6 +577,10 @@ button,
   clip-path: inset(100%);
 }
 
+.hidden {
+  display: none;
+}
+
 .scroll-lock-ios {
   position: fixed;
   overflow: hidden;
@@ -684,7 +688,7 @@ button {
   width: 100%;
   max-width: 1440px;
   margin: 0 auto;
-  padding: 0 50px;
+  padding: 0 80px;
 }
 
 .title {
@@ -749,7 +753,7 @@ button {
 }
 
 .text-green {
-  color: #00ac72;
+  color: #039c69;
 }
 
 .text-error {
@@ -769,6 +773,10 @@ button {
 }
 
 .user-logged .nav__item--psychologists {
+  display: none;
+}
+
+.internal .header {
   display: none;
 }
 
@@ -980,8 +988,8 @@ button {
   display: inline-flex;
   color: #ffffff;
   border-radius: 38px;
-  background-color: #00ac72;
-  border: 1px solid #00ac72;
+  background-color: #039c69;
+  border: 1px solid #039c69;
   cursor: pointer;
   -webkit-transition: opacity 0.3s ease;
   transition: opacity 0.3s ease;
@@ -989,8 +997,8 @@ button {
 
 .btn--white {
   background-color: #ffffff;
-  border: 1px solid #00ac72;
-  color: #00ac72;
+  border: 1px solid #039c69;
+  color: #00ac73;
 }
 
 .btn:disabled {
@@ -1006,9 +1014,7 @@ button {
 
 .header {
   padding: 26px 0;
-  background: #00ac72;
-  -webkit-box-shadow: 0px 10px 15px 0px rgba(0, 0, 0, 0.1);
-  box-shadow: 0px 10px 15px 0px rgba(0, 0, 0, 0.1);
+  background: #ffffff;
 }
 
 .header .container {
@@ -1019,6 +1025,10 @@ button {
 
 .header__logo {
   margin-right: auto;
+}
+
+.header__logo svg {
+  color: #00ac73;
 }
 
 .header__unlogged {
@@ -1058,7 +1068,7 @@ button {
 
 .header__signup-wrapper a:hover,
 .header__login-wrapper a:hover {
-  color: #00ac72;
+  color: #00ac73;
 }
 
 .header__signup-wrapper a:not(:last-child),
@@ -1105,11 +1115,12 @@ button {
 }
 
 .nav__link {
+  font-size: 16px;
   color: #000000;
 }
 
 .nav__link:hover {
-  color: #ffffff;
+  color: #00ac73;
 }
 
 .lang-switcher {
@@ -1127,6 +1138,10 @@ button {
   background: transparent;
   border: none;
   cursor: pointer;
+}
+
+.lang-switcher__btn span {
+  font-size: 16px;
 }
 
 .lang-switcher__btn.is-active svg {
@@ -1167,7 +1182,7 @@ button {
 
 .lang-switcher__item a:hover {
   font-weight: 700;
-  color: #00ac72;
+  color: #00ac73;
 }
 
 .unlogged {
@@ -1185,11 +1200,11 @@ button {
 }
 
 .unlogged__login-btn {
-  padding: 8px 24px;
+  padding: 5px 24px;
 }
 
 .unlogged__signup-btn {
-  padding: 8px 16px;
+  padding: 5px 16px;
 }
 
 .logged {
@@ -1267,7 +1282,7 @@ button {
 }
 
 .logged__menu-item a:hover {
-  color: #00ac72;
+  color: #00ac73;
 }
 
 .intro {
@@ -1276,7 +1291,7 @@ button {
 }
 
 .intro:first-child {
-  background-color: #00ac72;
+  background-color: #00ac73;
 }
 
 .intro--businnes {
@@ -1841,15 +1856,15 @@ button {
   font-size: 48px;
   font-style: normal;
   font-weight: 700;
-  color: #00ac72;
+  color: #00ac73;
   margin-bottom: 16px;
   border-radius: 50%;
   border-radius: 88px;
-  border: 5px dashed #00ac72;
+  border: 5px dashed #00ac73;
 }
 
 .guide__dot.is-active .guide__counter {
-  background: #00ac72;
+  background: #00ac73;
   color: #ffffff;
 }
 
@@ -1870,7 +1885,7 @@ button {
 }
 
 .footer {
-  background: #eaeaea;
+  background: #ffffff;
   padding: 32px 60px;
 }
 
@@ -1879,6 +1894,7 @@ button {
   font-size: 13px;
   font-weight: 400;
   line-height: 1;
+  text-align: center;
 }
 
 .login .container {
@@ -1906,14 +1922,26 @@ button {
   -webkit-box-align: center;
   -ms-flex-align: center;
   align-items: center;
+  width: 100%;
+  max-width: 749px;
+  background-color: #F5F3EE;
+  border-radius: 24px;
+  padding: 40px;
+  border: 1px solid #A3A3A3;
 }
 
 .login__heading {
-  margin-bottom: 50px;
+  margin-bottom: 48px;
+}
+
+.login__heading h2 {
+  font-size: 44px;
 }
 
 .login__links-wrapper {
-  margin-bottom: 30px;
+  width: 100%;
+  text-align: center;
+  margin: 0 auto;
 }
 
 .login fieldset {
@@ -1924,20 +1952,23 @@ button {
   -webkit-box-direction: normal;
   -ms-flex-direction: column;
   flex-direction: column;
+  margin-bottom: 24px;
 }
 
 .login label {
   position: relative;
 }
 
+.login label:not(:last-child) {
+  margin-bottom: 24px;
+}
+
 .login input {
-  min-width: 330px;
-  margin-bottom: 50px;
-  padding: 4px 10px;
-  border: 1px solid #202020;
-  background: #ffffff;
-  -webkit-box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.25) inset;
-  box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.25) inset;
+  min-width: 350px;
+  height: 54px;
+  border: 1px solid #555555;
+  border-radius: 37px;
+  padding: 16px;
   font-size: 20px;
   font-weight: 400;
   line-height: 1;
@@ -1953,7 +1984,7 @@ button {
 }
 
 .login__btn {
-  margin: 0 auto 50px;
+  margin: 0 auto 24px;
   padding: 16px 24px;
   font-size: 20px;
   font-weight: 700;
@@ -1990,11 +2021,24 @@ button {
   -webkit-box-align: start;
   -ms-flex-align: start;
   align-items: flex-start;
-  min-width: 862px;
+  width: 100%;
+  max-width: 749px;
+  background-color: #F5F3EE;
+  border-radius: 24px;
+  padding: 40px;
+  border: 1px solid #A3A3A3;
 }
 
 .signup__heading {
-  margin-bottom: 65px;
+  margin-bottom: 48px;
+}
+
+.signup__heading h2 {
+  font-size: 44px;
+}
+
+.signup form {
+  width: 100%;
 }
 
 .signup fieldset {
@@ -2005,7 +2049,7 @@ button {
   -webkit-box-direction: normal;
   -ms-flex-direction: column;
   flex-direction: column;
-  min-width: 862px;
+  margin-bottom: 48px;
 }
 
 .signup label {
@@ -2016,17 +2060,23 @@ button {
   -webkit-box-pack: justify;
   -ms-flex-pack: justify;
   justify-content: space-between;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
   width: 100%;
+  padding-right: 79px;
+}
+
+.signup label:not(:last-child) {
+  margin-bottom: 24px;
 }
 
 .signup input {
-  min-width: 330px;
-  margin-bottom: 50px;
-  padding: 4px 10px;
-  border: 1px solid #202020;
-  background: #ffffff;
-  -webkit-box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.25) inset;
-  box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.25) inset;
+  min-width: 350px;
+  height: 54px;
+  border: 1px solid #555555;
+  border-radius: 37px;
+  padding: 16px;
   font-size: 20px;
   font-weight: 400;
   line-height: 1;
@@ -2042,7 +2092,17 @@ button {
 }
 
 .signup__btn {
-  margin-bottom: 50px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  min-width: 350px;
+  margin: 0 auto 24px;
   padding: 16px 24px;
   font-size: 20px;
   font-weight: 700;
@@ -2050,7 +2110,9 @@ button {
 }
 
 .signup__links-wrapper {
-  margin-bottom: 30px;
+  width: 100%;
+  text-align: center;
+  margin: 0 auto;
 }
 
 .signup-header .container {
@@ -2059,15 +2121,22 @@ button {
 
 .signup-header__links {
   margin-bottom: 40px;
+  width: -webkit-fit-content;
+  width: -moz-fit-content;
+  width: fit-content;
+  border-bottom: 1px solid #039c69;
 }
 
 .signup-header__link {
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 110%;
   display: inline-block;
   min-width: 304px;
   background-color: rgba(255, 255, 255, 0);
   border: none;
   border-bottom: 3px solid rgba(255, 255, 255, 0);
-  color: #00ac72;
+  color: #00ac73;
   text-align: center;
   padding-bottom: 5px;
   -webkit-transition: all 0.5s ease-in;
@@ -2075,14 +2144,16 @@ button {
 }
 
 .signup-header__link:hover {
-  border-bottom: 3px solid #00ac72;
+  color: #000000;
+  border-bottom: 3px solid #039c69;
   -webkit-transition: all 0.5s ease-in;
   transition: all 0.5s ease-in;
 }
 
 .signup-header__link.is-active {
+  font-weight: 700;
   color: #000000;
-  border-bottom: 3px solid #00ac72;
+  border-bottom: 3px solid #039c69;
   -webkit-transition: all 0.5s ease-in;
   transition: all 0.5s ease-in;
 }
@@ -2095,7 +2166,7 @@ button {
   border: none;
   font-size: 13px;
   line-height: 1;
-  color: #00ac72;
+  color: #00ac73;
   cursor: pointer;
 }
 
@@ -2110,6 +2181,10 @@ button {
 
 .questions__heading .subtitle {
   margin-bottom: 23px;
+}
+
+.questions__heading p {
+  color: #A3A3A3;
 }
 
 .questions__main {
@@ -2139,13 +2214,33 @@ button {
 }
 
 .questions__main-row--age input {
-  max-width: 200px;
+  width: 100%;
+  max-width: 250px;
   height: 44px;
   padding: 0 10px;
   border: 1px solid #202020;
   background: #ffffff;
-  -webkit-box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.25) inset;
-  box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.25) inset;
+  border-radius: 4px;
+}
+
+.questions__main-row--age input::-webkit-input-placeholder {
+  color: #555555;
+}
+
+.questions__main-row--age input::-moz-placeholder {
+  color: #555555;
+}
+
+.questions__main-row--age input:-ms-input-placeholder {
+  color: #555555;
+}
+
+.questions__main-row--age input::-ms-input-placeholder {
+  color: #555555;
+}
+
+.questions__main-row--age input::placeholder {
+  color: #555555;
 }
 
 .questions__main-row--language .questions__checkboxes .inputs-wrapper {
@@ -2174,7 +2269,7 @@ button {
   max-width: -moz-fit-content;
   max-width: fit-content;
   height: 40px;
-  border: 1px solid #00ac72;
+  border: 1px solid #039c69;
   border-radius: 38px;
   overflow: hidden;
 }
@@ -2212,16 +2307,17 @@ button {
 .questions__radio .divider {
   height: 100%;
   width: 1px;
-  background-color: #00ac72;
+  background-color: #039c69;
 }
 
 .questions__radio input[type=radio]:checked + label {
   color: #ffffff;
-  background-color: #00ac72;
+  background-color: #039c69;
 }
 
 .questions__legend .text-18 {
   max-width: 48%;
+  color: #A3A3A3;
 }
 
 .questions__checkboxes p {
@@ -2278,8 +2374,8 @@ button {
 }
 
 .questions__checkboxes input[type=checkbox]:checked + span::before {
-  border-color: #00ac72;
-  background: #00ac72 url("../img/svg/check-small.svg") center no-repeat;
+  border-color: #039c69;
+  background: #039c69 url("../img/svg/check-small.svg") center no-repeat;
 }
 
 .questions__legend {
@@ -2305,6 +2401,11 @@ button {
 }
 
 .questions__btn {
+  font-weight: 900;
+  font-size: 20px;
+  line-height: 110%;
+  text-transform: uppercase;
+  text-align: center;
   margin-bottom: 50px;
   padding: 16px 24px;
   font-size: 20px;
@@ -2321,20 +2422,24 @@ button {
 }
 
 .questions__phone input {
-  min-width: 330px;
+  width: 100%;
+  max-width: 330px;
+  height: 44px;
   margin-bottom: 50px;
   padding: 4px 10px;
-  border: 1px solid #202020;
-  background: #ffffff;
-  -webkit-box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.25) inset;
-  box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.25) inset;
   font-size: 20px;
   font-weight: 400;
   line-height: 1;
+  border: 1px solid #202020;
+  background: #ffffff;
+  border-radius: 4px;
+}
+
+.questions .signup-header__link {
+  font-size: 28px;
 }
 
 .choice .container {
-  padding-top: 44px;
   padding-bottom: 80px;
 }
 
@@ -2347,6 +2452,13 @@ button {
   align-items: center;
 }
 
+.choice__heading h2 {
+  font-weight: 400;
+  font-size: 28px;
+  line-height: 110%;
+  margin-bottom: 28px;
+}
+
 .choice__thumbs-list {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -2354,7 +2466,6 @@ button {
   -webkit-box-pack: justify;
   -ms-flex-pack: justify;
   justify-content: space-between;
-  width: 80%;
   max-width: 1127px;
   margin: 0 auto;
 }
@@ -2362,6 +2473,30 @@ button {
 .choice__item {
   cursor: pointer;
   max-width: 100px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+}
+
+.choice__item-image {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  overflow: hidden;
+}
+
+.choice__item-image img {
+  width: 100%;
+  height: 100%;
+  -o-object-fit: cover;
+  object-fit: cover;
 }
 
 .choice__btn-wrapper {
@@ -2383,13 +2518,12 @@ button {
 
 .swiper {
   position: relative;
-  height: 108px;
 }
 
 .swiper-btn {
   position: absolute;
   width: 50px;
-  height: 108px;
+  height: 100%;
   background: #ffffff;
   z-index: 100;
   border: none;
@@ -2399,19 +2533,18 @@ button {
 .swiper-btn--prev {
   left: 0;
   top: 0;
-  -webkit-transform: rotate(180deg);
-  -ms-transform: rotate(180deg);
-  transform: rotate(180deg);
 }
 
 .swiper-btn--next {
   right: 0;
   top: 0;
+  -webkit-transform: rotate(180deg);
+  -ms-transform: rotate(180deg);
+  transform: rotate(180deg);
 }
 
 .swiper-btn:disabled,
 .swiper-btn .disabled {
-  opacity: 0.5;
   cursor: default;
 }
 
@@ -2475,6 +2608,10 @@ button {
 }
 
 .doctor__schedule-btn {
+  font-weight: 900;
+  font-size: 20px;
+  line-height: 110%;
+  text-transform: uppercase;
   padding: 10px 24px;
   font-size: 20px;
   font-weight: 700;
@@ -2535,7 +2672,7 @@ button {
 }
 
 .doctor__day-wrapper input[type=radio]:checked + span {
-  background-color: #00ac72;
+  background-color: #00ac73;
   color: #ffffff;
 }
 
@@ -2557,8 +2694,12 @@ button {
   font-size: 20px;
   line-height: 1;
   font-weight: 400;
-  color: #00ac72;
+  color: #00ac73;
   cursor: pointer;
+}
+
+.doctor__expand-btn.hidden {
+  display: none;
 }
 
 .doctor__expand-btn span {
@@ -2566,6 +2707,10 @@ button {
 }
 
 .doctor__submit-btn {
+  font-weight: 900;
+  font-size: 20px;
+  line-height: 110%;
+  text-transform: uppercase;
   padding: 16px 24px;
   cursor: pointer;
   opacity: 0.5;
@@ -2596,6 +2741,10 @@ button {
   margin-bottom: 48px;
 }
 
+.card__heading p span {
+  text-transform: none;
+}
+
 .card .title {
   margin-bottom: 16px;
 }
@@ -2609,7 +2758,16 @@ button {
 }
 
 .card form {
-  max-width: 400px;
+  width: 100%;
+  max-width: 720px;
+  border-radius: 20px;
+  padding: 24px 160px 48px;
+  background-color: #F5F3EE;
+  border: 1px solid #A3A3A3;
+}
+
+.card form p {
+  margin-bottom: 32px;
 }
 
 .card fieldset {
@@ -2649,9 +2807,9 @@ button {
 }
 
 .card span {
-  font-size: 20px;
+  font-size: 16px;
   font-weight: 400;
-  line-height: 1;
+  text-transform: uppercase;
   margin-bottom: 10px;
 }
 
@@ -2702,7 +2860,7 @@ button {
   display: block;
 }
 
-.card .text-error {
+.card p.text-error {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -2711,12 +2869,20 @@ button {
   align-items: center;
 }
 
-.card .text-error svg {
+.card p.text-error svg {
   margin-right: 10px;
 }
 
-.card .text-error span {
+.card p.text-error span {
+  font-weight: 400;
+  font-size: 28px;
+  line-height: 110%;
+  text-transform: none;
   margin-bottom: 0;
+}
+
+.card__permission span {
+  text-transform: none !important;
 }
 
 .user-account .container {
@@ -2734,7 +2900,7 @@ button {
 
 .user-account__nav-link {
   display: block;
-  color: #00ac72;
+  color: #00ac73;
   padding: 10px 8px;
   font-size: 18px;
   font-weight: 400;
@@ -2749,18 +2915,18 @@ button {
 }
 
 .user-account__nav-link a {
-  color: #00ac72;
+  color: #00ac73;
 }
 
 .user-account__nav-link:hover {
-  border-bottom: 3px solid #00ac72;
+  border-bottom: 3px solid #00ac73;
   -webkit-transition: all 0.5s ease-in;
   transition: all 0.5s ease-in;
 }
 
 .user-account__nav-link.is-active {
   background: #c5fdea;
-  border-bottom: 3px solid #00ac72;
+  border-bottom: 3px solid #00ac73;
   color: #000000;
   -webkit-transition: all 0.5s ease-in;
   transition: all 0.5s ease-in;
@@ -2824,7 +2990,7 @@ button {
   -ms-flex-align: center;
   align-items: center;
   border-radius: 73px;
-  border: 1px solid #00ac72;
+  border: 1px solid #00ac73;
   padding: 8px 24px;
 }
 
@@ -3269,7 +3435,7 @@ button {
 .doctor-account .settings__input-wrapper .divider {
   height: 100%;
   width: 1px;
-  background-color: #00ac72;
+  background-color: #00ac73;
 }
 
 .doctor-account .settings__avatar-wrapper {
@@ -3448,8 +3614,8 @@ button {
 }
 
 .doctor-account .settings__checkboxes input[type=checkbox]:checked + span::before {
-  border-color: #00ac72;
-  background: #00ac72 url("../img/svg/check-small.svg") center no-repeat;
+  border-color: #00ac73;
+  background: #00ac73 url("../img/svg/check-small.svg") center no-repeat;
 }
 
 .doctor-account .settings__radio {
@@ -3463,7 +3629,7 @@ button {
   max-width: -moz-fit-content;
   max-width: fit-content;
   height: 40px;
-  border: 1px solid #00ac72;
+  border: 1px solid #00ac73;
   border-radius: 38px;
   overflow: hidden;
 }
@@ -3495,7 +3661,7 @@ button {
 
 .doctor-account .settings__radio input[type=radio]:checked + label {
   color: #ffffff;
-  background-color: #00ac72;
+  background-color: #00ac73;
 }
 
 .doctor-account .settings__radio input[type=radio]:checked + label svg {
@@ -3660,8 +3826,8 @@ button {
 }
 
 .rechoice fieldset .inputs-wrapper--checkboxes input[type=checkbox]:checked + span::before {
-  border-color: #00ac72;
-  background: #00ac72 url("../img/svg/check-small.svg") center no-repeat;
+  border-color: #00ac73;
+  background: #00ac73 url("../img/svg/check-small.svg") center no-repeat;
 }
 
 .rechoice fieldset .inputs-wrapper--radio {
@@ -3675,7 +3841,7 @@ button {
   max-width: -moz-fit-content;
   max-width: fit-content;
   height: 40px;
-  border: 1px solid #00ac72;
+  border: 1px solid #00ac73;
   border-radius: 38px;
   overflow: hidden;
 }
@@ -3713,12 +3879,12 @@ button {
 .rechoice fieldset .inputs-wrapper--radio .divider {
   height: 100%;
   width: 1px;
-  background-color: #00ac72;
+  background-color: #00ac73;
 }
 
 .rechoice fieldset .inputs-wrapper input[type=radio]:checked + label {
   color: #ffffff;
-  background-color: #00ac72;
+  background-color: #00ac73;
 }
 
 .rechoice__submit-btn,
@@ -3750,9 +3916,7 @@ button {
 }
 
 .doc-questionary .container {
-  max-width: 862px;
-  padding-top: 73px;
-  padding-bottom: 133px;
+  padding: 73px 230px 133px;
 }
 
 .doc-questionary__heading {
@@ -3855,8 +4019,8 @@ button {
 }
 
 .doc-questionary__checkboxes input[type=checkbox]:checked + span::before {
-  border-color: #00ac72;
-  background: #00ac72 url("../img/svg/check-small.svg") center no-repeat;
+  border-color: #00ac73;
+  background: #00ac73 url("../img/svg/check-small.svg") center no-repeat;
 }
 
 .doc-questionary .input-file {
@@ -3890,7 +4054,7 @@ button {
   max-width: fit-content;
   height: 40px;
   margin: 16px 0 50px;
-  border: 1px solid #00ac72;
+  border: 1px solid #00ac73;
   border-radius: 38px;
   overflow: hidden;
 }
@@ -3928,16 +4092,31 @@ button {
 .doc-questionary__radio .divider {
   height: 100%;
   width: 1px;
-  background-color: #00ac72;
+  background-color: #00ac73;
 }
 
 .doc-questionary__radio input[type=radio]:checked + label {
   color: #ffffff;
-  background-color: #00ac72;
+  background-color: #00ac73;
 }
 
 .doc-questionary__submit-btn {
   padding: 16px 30px;
+}
+
+.doc-questionary .checkboxes-wrapper {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  gap: 30px;
+  margin-top: 30px;
+}
+
+.doc-questionary .checkboxes-wrapper .doc-questionary__checkboxes {
+  margin: 0;
+  width: -webkit-fit-content;
+  width: -moz-fit-content;
+  width: fit-content;
 }
 
 .doctor-account .container {
@@ -3955,7 +4134,7 @@ button {
 
 .doctor-account__nav-link {
   display: block;
-  color: #00ac72;
+  color: #00ac73;
   padding: 10px 8px;
   font-size: 18px;
   font-weight: 400;
@@ -3970,18 +4149,18 @@ button {
 }
 
 .doctor-account__nav-link a {
-  color: #00ac72;
+  color: #00ac73;
 }
 
 .doctor-account__nav-link:hover {
-  border-bottom: 3px solid #00ac72;
+  border-bottom: 3px solid #00ac73;
   -webkit-transition: all 0.5s ease-in;
   transition: all 0.5s ease-in;
 }
 
 .doctor-account__nav-link.is-active {
   background: #c5fdea;
-  border-bottom: 3px solid #00ac72;
+  border-bottom: 3px solid #00ac73;
   color: #000000;
 }
 
@@ -4141,6 +4320,9 @@ button {
 
 .sessions__client-name {
   margin-bottom: 11px;
+  width: -webkit-fit-content;
+  width: -moz-fit-content;
+  width: fit-content;
 }
 
 .sessions__info {
@@ -4246,13 +4428,13 @@ button {
   background-color: transparent;
   border: none;
   border-bottom: 3px solid transparent;
-  color: #00ac72;
+  color: #00ac73;
   margin-right: 10px;
 }
 
 .schedule__tab-btn.is-active {
   background-color: #c5fdea;
-  border-bottom: 3px solid #00ac72;
+  border-bottom: 3px solid #00ac73;
   color: #000000;
 }
 
@@ -4373,8 +4555,8 @@ button {
 }
 
 .schedule__calender-day-slots label:has(input[type=checkbox]:checked)::before {
-  border-color: #00ac72;
-  background: #00ac72 url("../img/svg/check-small.svg") center no-repeat;
+  border-color: #00ac73;
+  background: #00ac73 url("../img/svg/check-small.svg") center no-repeat;
 }
 
 .schedule__calender-day-slots label:has(.requested)::before {
@@ -4458,8 +4640,8 @@ button {
 }
 
 .schedule td label:has(input[type=checkbox]:checked)::before {
-  border-color: #00ac72;
-  background: #00ac72 url("../img/svg/check-small.svg") center no-repeat;
+  border-color: #00ac73;
+  background: #00ac73 url("../img/svg/check-small.svg") center no-repeat;
 }
 
 .schedule td label:has(.requested)::before {
@@ -4536,7 +4718,7 @@ button {
 
 .clients__client-name {
   cursor: pointer;
-  color: #00ac72;
+  color: #00ac73;
 }
 
 .clients__actions-btn {
@@ -4573,7 +4755,7 @@ button {
 }
 
 .clients__session-status {
-  color: #00ac72;
+  color: #00ac73;
   cursor: pointer;
 }
 
@@ -4600,7 +4782,7 @@ button {
 .clients__actions-btn {
   background-color: transparent;
   border: none;
-  color: #00ac72;
+  color: #00ac73;
 }
 
 .clients__actions-close {
@@ -4758,14 +4940,14 @@ button {
   -ms-flex-pack: center;
   justify-content: center;
   padding: 10px;
-  color: #00ac72;
+  color: #00ac73;
   border-bottom: 3px solid transparent;
   cursor: pointer;
 }
 
 .pricing__tab-btn.is-active {
   color: #202020;
-  border-bottom: 3px solid #00ac72;
+  border-bottom: 3px solid #00ac73;
 }
 
 .pricing__item {
@@ -4866,7 +5048,7 @@ button {
 }
 
 .admin-content__nav-link.is-active {
-  background-color: #00ac72;
+  background-color: #00ac73;
 }
 
 .admin-content__right-col {
@@ -4997,7 +5179,7 @@ button {
 
 .admin-content__widgets .name {
   width: 100%;
-  color: #00ac72;
+  color: #00ac73;
 }
 
 .admin-content__widget {
@@ -5360,8 +5542,8 @@ input.personal {
 }
 
 .admin-profile__checkboxes input[type=checkbox]:checked + span::before {
-  border-color: #00ac72;
-  background: #00ac72 url("../img/svg/check-small.svg") center no-repeat;
+  border-color: #00ac73;
+  background: #00ac73 url("../img/svg/check-small.svg") center no-repeat;
 }
 
 .methods {
@@ -5444,6 +5626,10 @@ button.admin-profile__back-to-profile {
 
   .btn:hover:not(.focus-visible) {
     opacity: 0.8;
+  }
+
+  .sessions__client-name:hover:not(.focus-visible) {
+    color: #00ac73;
   }
 
   .clients__session-status:hover:not(.focus-visible) {
