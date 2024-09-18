@@ -1,25 +1,25 @@
 import {iosVhFix} from './utils/ios-vh-fix';
+import {loadLanguage} from './modules/localisation';
 import {initSlider} from './modules/slider';
 import {initTabs} from './modules/tabs';
 import {showDropdownList} from './modules/dropdown';
-import {setLangBtn} from './modules/lang-switcher';
 import {showPassword} from './modules/show-password';
 import {switchReadonly} from './modules/readonly-switch';
-// TODO: delete
-import {setUtilsBtns} from './modules/utils-btns';
-// END TODO
 import {validateTextarea} from './modules/textarea';
 import {showTextInput} from './modules/select-other';
 import {setActiveItem} from './modules/clients-list';
 import {initActionsBtns} from './modules/clients-btns';
-// import {setSessionStatus, initActionsBtns} from './modules/clients-btns';
 import {initModal} from './modules/modal';
 import {setClientCard} from './modules/client-card';
-import {setTimeValue} from './modules/inputs-value';
-// import {renderSchedule, markScheduleSlots, saveState} from './modules/schedule';
 import {initSwiper} from './modules/my-swiper';
 import {setChoiceBtn} from './modules/pickdate';
 import {showPopup, showClientProfile} from './modules/admin';
+import {initScheduleDropdown, expandList} from './modules/schedule';
+// TODO: delete
+import {setUtilsBtns} from './modules/utils-btns';
+// END TODO
+
+const savedLanguage = localStorage.getItem('language') || 'en';
 
 // ---------------------------------
 
@@ -29,34 +29,31 @@ window.addEventListener('DOMContentLoaded', () => {
   // ---------------------------------
 
   iosVhFix();
+  loadLanguage(savedLanguage);
 
   // Modules
   // ---------------------------------
 
   window.addEventListener('load', () => {
-    setLangBtn();
     initSlider();
     initTabs();
     showDropdownList();
     showPassword();
     switchReadonly();
-    // TODO: delete
-    setUtilsBtns();
-    // END TODO
     validateTextarea();
     showTextInput();
     setActiveItem();
-    // setSessionStatus();
     initActionsBtns();
     initModal();
     setClientCard();
-    setTimeValue();
-    // renderSchedule();
-    // saveState();
-    // markScheduleSlots();
     initSwiper();
     setChoiceBtn();
     showPopup();
     showClientProfile();
+    expandList();
+    initScheduleDropdown();
+    // TODO: delete
+    setUtilsBtns();
+    // END TODO
   });
 });

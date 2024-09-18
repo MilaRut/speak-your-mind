@@ -3,15 +3,15 @@
   color: $color-default-white;
   border-radius: 38px;
 
-  background-color: $color-jade;
-  border: 1px solid $color-jade;
+  background-color: $color-shamrock-green;
+  border: 1px solid $color-shamrock-green;
   cursor: pointer;
 
   transition: opacity $trans-default;
 
   &--white {
     background-color: $color-default-white;
-    border: 1px solid $color-jade;
+    border: 1px solid $color-shamrock-green;
     color: $color-jade;
   }
 

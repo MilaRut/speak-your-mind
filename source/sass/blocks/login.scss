@@ -10,32 +10,48 @@
     display: flex;
     flex-direction: column;
     align-items: center;
+    width: 100%;
+    max-width: 749px;
+    background-color: #F5F3EE;
+    border-radius: 24px;
+    padding: 40px;
+    border: 1px solid #A3A3A3;
   }
 
   &__heading {
-    margin-bottom: 50px;
+    margin-bottom: 48px;
+
+    h2 {
+      font-size: 44px;
+    }
   }
 
   &__links-wrapper {
-    margin-bottom: 30px;
+    width: 100%;
+    text-align: center;
+    margin: 0 auto;
   }
 
   fieldset {
     display: flex;
     flex-direction: column;
+    margin-bottom: 24px;
   }
 
   label {
     position: relative;
+
+    &:not(:last-child) {
+      margin-bottom: 24px;
+    }
   }
 
   input {
-    min-width: 330px;
-    margin-bottom: 50px;
-    padding: 4px 10px;
-    border: 1px solid $color-nero;
-    background: $color-default-white;
-    box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.25) inset;
+    min-width: 350px;
+    height: 54px;
+    border: 1px solid #555555;
+    border-radius: 37px;
+    padding: 16px;
     font-size: 20px;
     font-weight: 400;
     line-height: 1;
@@ -47,7 +63,7 @@
   }
 
   &__btn {
-    margin: 0 auto 50px;
+    margin: 0 auto 24px;
     padding: 16px 24px;
     font-size: 20px;
     font-weight: 700;

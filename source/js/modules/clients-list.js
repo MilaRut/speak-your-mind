@@ -1,3 +1,5 @@
+// Страница /doctor-account-sessions.html, отображение информации в окне видеочата
+
 const sessions = document.querySelector('.sessions ');
 const clientItem = document.querySelectorAll('.sessions__clients-item');
 const videochatClientName = document.querySelector('.videochat__client-name');

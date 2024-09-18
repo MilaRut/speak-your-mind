@@ -9,6 +9,10 @@
     border: none;
     cursor: pointer;
 
+    span {
+      font-size: 16px;
+    }
+
     &.is-active {
       svg {
         transform: rotate(180deg);

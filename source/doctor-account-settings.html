@@ -16,61 +16,54 @@
 </head>
 
 <body>
-  <div class="wrapper user-logged user-logged-doctor">
+  <div class="wrapper internal user-logged user-logged-doctor">
     <header class="header">
       <div class="container">
         <div class="header__logo">
           <div class="header__logo-wrapper">
-            <img src="./img/svg/logo.svg" width="196" height="23" alt="Speak your mind.">
+            <svg width="196" height="24" fill="currentColor">
+              <use xlink:href="./img/sprite.svg#logo"></use>
+            </svg>
           </div>
         </div>
         <nav class="header__nav nav">
           <div class="nav__wrapper">
             <ul class="nav__list">
               <li class="nav__item nav__item--psychologists">
-                <a class="nav__link" href="doctor-landing.html">Для психологов</a>
+                <a class="nav__link" data-translate="nav_doc" href="doctor-landing.html"></a>
               </li>
-              <li class="nav__item nav__item--businnes">
-                <a class="nav__link" href="businnes-landing.html">Для бизнеса</a>
-              </li>
+              <!-- <li class="nav__item nav__item--businnes">
+                <a class="nav__link href="businnes-landing.html" data-translate="nav_comp"></a>
+              </li> -->
               <li class="nav__item">
                 <a class="nav__link" href="faq.html">FAQ</a>
               </li>
             </ul>
           </div>
         </nav>
-        <div class="header__unlogged unlogged">
-          <button type="button" class="js-dropdown-trigger unlogged__login-btn btn"
-            data-id="#login-wrapper">Вход</button>
-          <div class="header__login-wrapper" id="login-wrapper">
-            <a class="text-18" href="user-login.html">Вход для клиентов</a>
-            <a class="text-18" href="doctor-login.html">Вход для психологов</a>
-          </div>
-          <button type="button" class="js-dropdown-trigger unlogged__signup-btn btn btn--white"
-            data-id="#signup-wrapper">Регистрация</button>
-          <div class="header__signup-wrapper" id="signup-wrapper">
-            <a class="text-18" href="user-signup-start.html">Регистрация для клиентов</a>
-            <a class="text-18" href="doctor-signup.html">Регистрация для психологов</a>
-          </div>
-        </div>
         <div class="header__lang-switcher lang-switcher">
           <button class="lang-switcher__btn js-dropdown-trigger" data-id="#lang-switcher">
-            <span>Русский</span>
+            <span data-translate="current_language"></span>
             <svg width="10" height="10" fill="currentColor">
               <use xlink:href="./img/sprite.svg#dropdown"></use>
             </svg>
           </button>
           <ul class="lang-switcher__list list-reset" id="lang-switcher">
+            <!-- <li class="lang-switcher__item">
+              <a href="#" data-lang="hu">Hu</a>
+            </li> -->
             <li class="lang-switcher__item">
-              <a href="#">Hu</a>
+              <a href="#" data-lang="en">En</a>
             </li>
             <li class="lang-switcher__item">
-              <a href="#">En</a>
-            </li>
-            <li class="lang-switcher__item">
-              <a href="#">Ru</a>
+              <a href="#" data-lang="ru">Ru</a>
             </li>
           </ul>
+        </div>
+        <div class="header__unlogged unlogged">
+          <a class="unlogged__login-btn btn btn--white" data-translate="header_login_btn"></a>
+          <a href="user-signup-start.html" class="unlogged__login-btn btn"
+            data-translate="header_signup_btn"></a>
         </div>
         <div class="header__logged logged">
           <div class="logged__wrapper">
@@ -85,7 +78,7 @@
             </button>
             <ul class="logged__menu-list list-reset" id="logged-menu">
               <li class="logged__menu-item">
-                <a href="#">Выйти</a>
+                <a href="#" data-translate="logout_btn">Выйти</a>
               </li>
             </ul>
           </div>
@@ -240,16 +233,6 @@
                               class="settings__edit-btn settings__edit-btn--email text-green">Редактировать</button>
                           </label>
                         </div>
-                        <!-- <div class="settings__input-wrapper">
-                          <p class="text-20">Изменить пароль<br><span class="text-14">(нажмите "редактировать", чтобы
-                              изменить)</span></p>
-                          <label>
-                            <input type="password" name="password" id="password" value="12345" readonly>
-                            <button type="button"
-                              class="settings__edit-btn settings__edit-btn--password text-green">Редактировать</button>
-                            <button type="button" class="show-password-btn">Показать&nbsp;пароль</button>
-                          </label>
-                        </div> -->
                       </fieldset>
                       <hr>
                       <fieldset class="settings__methods">
@@ -278,12 +261,12 @@
                                 <input type="checkbox" id="doc_method-4" name="doc_method" value="4">
                                 <span>Символдрама</span>
                               </label>
-                            </div>
-                            <div class="inputs-wrapper">
                               <label>
                                 <input type="checkbox" id="doc_method-5" name="doc_method" value="5">
                                 <span>Гештальт-терапия</span>
                               </label>
+                            </div>
+                            <div class="inputs-wrapper">
                               <label>
                                 <input type="checkbox" id="doc_method-6" name="doc_method" value="6">
                                 <span>КПТ</span>
@@ -764,209 +747,15 @@
                           </li> -->
                         </ul>
                       </div>
-                      <div class="doctor__content-block" id="schedule">
+                      <div class="doctor__content-block schedule-dropdown" id="schedule">
                         <h2 class="text-25 doctor__title">Расписание</h2>
-                        <div id="schedule-container"></div>
-                        <!-- <form action="" method="post">
-                          <div class="doctor__day-wrapper">
-                            <p class="doctor__day">
-                              <time datetime="2024-07-05">5 июля</time>
-                              <span>, среда</span>
-                            </p>
-                            <fieldset>
-                              <label>
-                                <input type="radio" name="appointment-time" value="">
-                                <span class="time-value">07:00</span>
-                              </label>
-                              <label>
-                                <input type="radio" name="appointment-time" value="">
-                                <span class="time-value">08:00</span>
-                              </label>
-                              <label>
-                                <input type="radio" name="appointment-time" value="">
-                                <span class="time-value">09:00</span>
-                              </label>
-                              <label>
-                                <input type="radio" name="appointment-time" value="">
-                                <span class="time-value">10:00</span>
-                              </label>
-                              <label>
-                                <input type="radio" name="appointment-time" value="">
-                                <span class="time-value">11:00</span>
-                              </label>
-                              <label>
-                                <input type="radio" name="appointment-time" value="">
-                                <span class="time-value">12:00</span>
-                              </label>
-                              <label>
-                                <input type="radio" name="appointment-time" value="">
-                                <span class="time-value">13:00</span>
-                              </label>
-                              <label>
-                                <input type="radio" name="appointment-time" value="">
-                                <span class="time-value">14:00</span>
-                              </label>
-                              <label>
-                                <input type="radio" name="appointment-time" value="">
-                                <span class="time-value">15:00</span>
-                              </label>
-                              <label>
-                                <input type="radio" name="appointment-time" value="">
-                                <span class="time-value">16:00</span>
-                              </label>
-                              <label>
-                                <input type="radio" name="appointment-time" value="">
-                                <span class="time-value">17:00</span>
-                              </label>
-                              <label>
-                                <input type="radio" name="appointment-time" value="">
-                                <span class="time-value">18:00</span>
-                              </label>
-                              <label>
-                                <input type="radio" name="appointment-time" value="">
-                                <span class="time-value">19:00</span>
-                              </label>
-                              <label>
-                                <input type="radio" name="appointment-time" value="">
-                                <span class="time-value">20:00</span>
-                              </label>
-                            </fieldset>
-                          </div>
-                          <div class="doctor__day-wrapper">
-                            <p class="doctor__day">
-                              <time datetime="2024-07-06">6 июля</time>
-                              <span>, четверг</span>
-                            </p>
-                            <fieldset>
-                              <label>
-                                <input type="radio" name="appointment-time" value="">
-                                <span class="time-value">07:00</span>
-                              </label>
-                              <label>
-                                <input type="radio" name="appointment-time" value="">
-                                <span class="time-value">08:00</span>
-                              </label>
-                              <label>
-                                <input type="radio" name="appointment-time" value="">
-                                <span class="time-value">09:00</span>
-                              </label>
-                              <label>
-                                <input type="radio" name="appointment-time" value="">
-                                <span class="time-value">10:00</span>
-                              </label>
-                              <label>
-                                <input type="radio" name="appointment-time" value="">
-                                <span class="time-value">11:00</span>
-                              </label>
-                              <label>
-                                <input type="radio" name="appointment-time" value="">
-                                <span class="time-value">12:00</span>
-                              </label>
-                              <label>
-                                <input type="radio" name="appointment-time" value="">
-                                <span class="time-value">13:00</span>
-                              </label>
-                              <label>
-                                <input type="radio" name="appointment-time" value="">
-                                <span class="time-value">14:00</span>
-                              </label>
-                              <label>
-                                <input type="radio" name="appointment-time" value="">
-                                <span class="time-value">15:00</span>
-                              </label>
-                              <label>
-                                <input type="radio" name="appointment-time" value="">
-                                <span class="time-value">16:00</span>
-                              </label>
-                              <label>
-                                <input type="radio" name="appointment-time" value="">
-                                <span class="time-value">17:00</span>
-                              </label>
-                              <label>
-                                <input type="radio" name="appointment-time" value="">
-                                <span class="time-value">18:00</span>
-                              </label>
-                              <label>
-                                <input type="radio" name="appointment-time" value="">
-                                <span class="time-value">19:00</span>
-                              </label>
-                              <label>
-                                <input type="radio" name="appointment-time" value="">
-                                <span class="time-value">20:00</span>
-                              </label>
-                            </fieldset>
-                          </div>
-                          <div class="doctor__day-wrapper">
-                            <p class="doctor__day">
-                              <time datetime="2024-07-07">7 июля</time>
-                              <span>, пятница</span>
-                            </p>
-                            <fieldset>
-                              <label>
-                                <input type="radio" name="appointment-time" value="">
-                                <span class="time-value">07:00</span>
-                              </label>
-                              <label>
-                                <input type="radio" name="appointment-time" value="">
-                                <span class="time-value">08:00</span>
-                              </label>
-                              <label>
-                                <input type="radio" name="appointment-time" value="">
-                                <span class="time-value">09:00</span>
-                              </label>
-                              <label>
-                                <input type="radio" name="appointment-time" value="">
-                                <span class="time-value">10:00</span>
-                              </label>
-                              <label>
-                                <input type="radio" name="appointment-time" value="">
-                                <span class="time-value">11:00</span>
-                              </label>
-                              <label>
-                                <input type="radio" name="appointment-time" value="">
-                                <span class="time-value">12:00</span>
-                              </label>
-                              <label>
-                                <input type="radio" name="appointment-time" value="">
-                                <span class="time-value">13:00</span>
-                              </label>
-                              <label>
-                                <input type="radio" name="appointment-time" value="">
-                                <span class="time-value">14:00</span>
-                              </label>
-                              <label>
-                                <input type="radio" name="appointment-time" value="">
-                                <span class="time-value">15:00</span>
-                              </label>
-                              <label>
-                                <input type="radio" name="appointment-time" value="">
-                                <span class="time-value">16:00</span>
-                              </label>
-                              <label>
-                                <input type="radio" name="appointment-time" value="">
-                                <span class="time-value">17:00</span>
-                              </label>
-                              <label>
-                                <input type="radio" name="appointment-time" value="">
-                                <span class="time-value">18:00</span>
-                              </label>
-                              <label>
-                                <input type="radio" name="appointment-time" value="">
-                                <span class="time-value">19:00</span>
-                              </label>
-                              <label>
-                                <input type="radio" name="appointment-time" value="">
-                                <span class="time-value">20:00</span>
-                              </label>
-                            </fieldset>
-                          </div>
-                          <button type="button" class="doctor__expand-btn">
-                            <span>Показать еще 3 дня</span>
-                            <svg width="10" height="10" fill="currentColor">
-                              <use xlink:href="./img/sprite.svg#dropdown-green"></use>
-                            </svg>
-                          </button>
-                        </form> -->
+                        <div class="schedule-container" id="schedule-container-1"></div>
+                        <button type="button" class="doctor__expand-btn schedule__show-more" data-id="#schedule-container-1">
+                          <span>Показать еще 3 дня</span>
+                          <svg width="10" height="10" fill="currentColor">
+                            <use xlink:href="./img/sprite.svg#dropdown-green"></use>
+                          </svg>
+                        </button>
                       </div>
                     </div>
                   </div>
@@ -1138,199 +927,8 @@
         </button>
         <h2 class="text-25 doctor__title">Мое расписание</h2>
         <form action="" method="post">
-          <div class="doctor__day-wrapper">
-            <p class="doctor__day">
-              <time datetime="2024-07-05">5 июля</time>
-              <span>, среда</span>
-            </p>
-            <fieldset>
-              <label>
-                <input type="radio" name="appointment-time" value="">
-                <span class="time-value">07:00</span>
-              </label>
-              <label>
-                <input type="radio" name="appointment-time" value="">
-                <span class="time-value">08:00</span>
-              </label>
-              <label>
-                <input type="radio" name="appointment-time" value="">
-                <span class="time-value">09:00</span>
-              </label>
-              <label>
-                <input type="radio" name="appointment-time" value="">
-                <span class="time-value">10:00</span>
-              </label>
-              <label>
-                <input type="radio" name="appointment-time" value="">
-                <span class="time-value">11:00</span>
-              </label>
-              <label>
-                <input type="radio" name="appointment-time" value="">
-                <span class="time-value">12:00</span>
-              </label>
-              <label>
-                <input type="radio" name="appointment-time" value="">
-                <span class="time-value">13:00</span>
-              </label>
-              <label>
-                <input type="radio" name="appointment-time" value="">
-                <span class="time-value">14:00</span>
-              </label>
-              <label>
-                <input type="radio" name="appointment-time" value="">
-                <span class="time-value">15:00</span>
-              </label>
-              <label>
-                <input type="radio" name="appointment-time" value="">
-                <span class="time-value">16:00</span>
-              </label>
-              <label>
-                <input type="radio" name="appointment-time" value="">
-                <span class="time-value">17:00</span>
-              </label>
-              <label>
-                <input type="radio" name="appointment-time" value="">
-                <span class="time-value">18:00</span>
-              </label>
-              <label>
-                <input type="radio" name="appointment-time" value="">
-                <span class="time-value">19:00</span>
-              </label>
-              <label>
-                <input type="radio" name="appointment-time" value="">
-                <span class="time-value">20:00</span>
-              </label>
-            </fieldset>
-          </div>
-          <div class="doctor__day-wrapper">
-            <p class="doctor__day">
-              <time datetime="2024-07-06">6 июля</time>
-              <span>, четверг</span>
-            </p>
-            <fieldset>
-              <label>
-                <input type="radio" name="appointment-time" value="">
-                <span class="time-value">07:00</span>
-              </label>
-              <label>
-                <input type="radio" name="appointment-time" value="">
-                <span class="time-value">08:00</span>
-              </label>
-              <label>
-                <input type="radio" name="appointment-time" value="">
-                <span class="time-value">09:00</span>
-              </label>
-              <label>
-                <input type="radio" name="appointment-time" value="">
-                <span class="time-value">10:00</span>
-              </label>
-              <label>
-                <input type="radio" name="appointment-time" value="">
-                <span class="time-value">11:00</span>
-              </label>
-              <label>
-                <input type="radio" name="appointment-time" value="">
-                <span class="time-value">12:00</span>
-              </label>
-              <label>
-                <input type="radio" name="appointment-time" value="">
-                <span class="time-value">13:00</span>
-              </label>
-              <label>
-                <input type="radio" name="appointment-time" value="">
-                <span class="time-value">14:00</span>
-              </label>
-              <label>
-                <input type="radio" name="appointment-time" value="">
-                <span class="time-value">15:00</span>
-              </label>
-              <label>
-                <input type="radio" name="appointment-time" value="">
-                <span class="time-value">16:00</span>
-              </label>
-              <label>
-                <input type="radio" name="appointment-time" value="">
-                <span class="time-value">17:00</span>
-              </label>
-              <label>
-                <input type="radio" name="appointment-time" value="">
-                <span class="time-value">18:00</span>
-              </label>
-              <label>
-                <input type="radio" name="appointment-time" value="">
-                <span class="time-value">19:00</span>
-              </label>
-              <label>
-                <input type="radio" name="appointment-time" value="">
-                <span class="time-value">20:00</span>
-              </label>
-            </fieldset>
-          </div>
-          <div class="doctor__day-wrapper">
-            <p class="doctor__day">
-              <time datetime="2024-07-07">7 июля</time>
-              <span>, пятница</span>
-            </p>
-            <fieldset>
-              <label>
-                <input type="radio" name="appointment-time" value="">
-                <span class="time-value">07:00</span>
-              </label>
-              <label>
-                <input type="radio" name="appointment-time" value="">
-                <span class="time-value">08:00</span>
-              </label>
-              <label>
-                <input type="radio" name="appointment-time" value="">
-                <span class="time-value">09:00</span>
-              </label>
-              <label>
-                <input type="radio" name="appointment-time" value="">
-                <span class="time-value">10:00</span>
-              </label>
-              <label>
-                <input type="radio" name="appointment-time" value="">
-                <span class="time-value">11:00</span>
-              </label>
-              <label>
-                <input type="radio" name="appointment-time" value="">
-                <span class="time-value">12:00</span>
-              </label>
-              <label>
-                <input type="radio" name="appointment-time" value="">
-                <span class="time-value">13:00</span>
-              </label>
-              <label>
-                <input type="radio" name="appointment-time" value="">
-                <span class="time-value">14:00</span>
-              </label>
-              <label>
-                <input type="radio" name="appointment-time" value="">
-                <span class="time-value">15:00</span>
-              </label>
-              <label>
-                <input type="radio" name="appointment-time" value="">
-                <span class="time-value">16:00</span>
-              </label>
-              <label>
-                <input type="radio" name="appointment-time" value="">
-                <span class="time-value">17:00</span>
-              </label>
-              <label>
-                <input type="radio" name="appointment-time" value="">
-                <span class="time-value">18:00</span>
-              </label>
-              <label>
-                <input type="radio" name="appointment-time" value="">
-                <span class="time-value">19:00</span>
-              </label>
-              <label>
-                <input type="radio" name="appointment-time" value="">
-                <span class="time-value">20:00</span>
-              </label>
-            </fieldset>
-          </div>
-          <button type="button" class="doctor__expand-btn">
+          <div class="schedule-container" id="schedule-container-2"></div>
+          <button type="button" class="doctor__expand-btn schedule__show-more" data-id="#schedule-container-2">
             <span>Показать еще 3 дня</span>
             <svg width="10" height="10" fill="currentColor">
               <use xlink:href="./img/sprite.svg#dropdown-green"></use>
@@ -1361,7 +959,7 @@
         });
 
         // Отправка запроса на сервер для получения расписания
-        fetch('http://127.0.0.1:8000/doctor_schedule', {
+        fetch('http://63.250.47.203:3000/doctor_schedule', {
           // mode: 'no-cors',
           method: 'POST',
           headers: {
@@ -1390,7 +988,7 @@
 
       if (token) {
         // Отправка запроса на сервер для получения данных пользования
-        fetch('http://127.0.0.1:8000/get_doc_data', {
+        fetch('http://63.250.47.203:3000/get_doc_data', {
           // mode: 'no-cors',
           method: 'POST',
           headers: {
@@ -1535,7 +1133,10 @@
         }
 
         // Вставка HTML в нужное место на странице
-        document.getElementById('schedule-container').innerHTML = html; // Предполагается, что у вас есть элемент с id="schedule-container"
+        // document.getElementById('schedule-container').innerHTML = html;
+        document.querySelectorAll('.schedule-container').forEach((el) => {
+          el.innerHTML = html;
+        })
       }
 
     });

@@ -21,56 +21,49 @@
       <div class="container">
         <div class="header__logo">
           <div class="header__logo-wrapper">
-            <img src="./img/svg/logo.svg" width="196" height="23" alt="Speak your mind.">
+            <svg width="196" height="24" fill="currentColor">
+              <use xlink:href="./img/sprite.svg#logo"></use>
+            </svg>
           </div>
         </div>
         <nav class="header__nav nav">
           <div class="nav__wrapper">
             <ul class="nav__list">
               <li class="nav__item nav__item--psychologists">
-                <a class="nav__link" href="doctor-landing.html">Для психологов</a>
+                <a class="nav__link" data-translate="nav_doc" href="doctor-landing.html"></a>
               </li>
-              <li class="nav__item nav__item--businnes">
-                <a class="nav__link" href="businnes-landing.html">Для бизнеса</a>
-              </li>
+              <!-- <li class="nav__item nav__item--businnes">
+                <a class="nav__link href="businnes-landing.html" data-translate="nav_comp"></a>
+              </li> -->
               <li class="nav__item">
                 <a class="nav__link" href="faq.html">FAQ</a>
               </li>
             </ul>
           </div>
         </nav>
-        <div class="header__unlogged unlogged">
-          <button type="button" class="js-dropdown-trigger unlogged__login-btn btn"
-            data-id="#login-wrapper">Вход</button>
-          <div class="header__login-wrapper" id="login-wrapper">
-            <a class="text-18" href="user-login.html">Вход для клиентов</a>
-            <a class="text-18" href="doctor-login.html">Вход для психологов</a>
-          </div>
-          <button type="button" class="js-dropdown-trigger unlogged__signup-btn btn btn--white"
-            data-id="#signup-wrapper">Регистрация</button>
-          <div class="header__signup-wrapper" id="signup-wrapper">
-            <a class="text-18" href="user-signup-start.html">Регистрация для клиентов</a>
-            <a class="text-18" href="doctor-signup.html">Регистрация для психологов</a>
-          </div>
-        </div>
         <div class="header__lang-switcher lang-switcher">
           <button class="lang-switcher__btn js-dropdown-trigger" data-id="#lang-switcher">
-            <span>Русский</span>
+            <span data-translate="current_language"></span>
             <svg width="10" height="10" fill="currentColor">
               <use xlink:href="./img/sprite.svg#dropdown"></use>
             </svg>
           </button>
           <ul class="lang-switcher__list list-reset" id="lang-switcher">
+            <!-- <li class="lang-switcher__item">
+              <a href="#" data-lang="hu">Hu</a>
+            </li> -->
             <li class="lang-switcher__item">
-              <a href="#">Hu</a>
+              <a href="#" data-lang="en">En</a>
             </li>
             <li class="lang-switcher__item">
-              <a href="#">En</a>
-            </li>
-            <li class="lang-switcher__item">
-              <a href="#">Ru</a>
+              <a href="#" data-lang="ru">Ru</a>
             </li>
           </ul>
+        </div>
+        <div class="header__unlogged unlogged">
+          <a class="unlogged__login-btn btn btn--white" data-translate="header_login_btn"></a>
+          <a href="user-signup-start.html" class="unlogged__login-btn btn"
+            data-translate="header_signup_btn"></a>
         </div>
         <div class="header__logged logged">
           <div class="logged__wrapper">
@@ -85,7 +78,7 @@
             </button>
             <ul class="logged__menu-list list-reset" id="logged-menu">
               <li class="logged__menu-item">
-                <a href="#">Выйти</a>
+                <a href="#" data-translate="logout_btn">Выйти</a>
               </li>
             </ul>
           </div>

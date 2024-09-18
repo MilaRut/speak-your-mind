@@ -77,6 +77,11 @@
 
   &__client-name {
     margin-bottom: 11px;
+    width: fit-content;
+
+    @include hover {
+      color: $color-jade;
+    }
   }
 
   &__info {

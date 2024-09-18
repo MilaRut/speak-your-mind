@@ -1,8 +1,6 @@
 .doc-questionary {
   .container {
-    max-width: 862px;
-    padding-top: 73px;
-    padding-bottom: 133px;
+    padding: 73px 230px 133px;
   }
 
   &__heading {
@@ -163,5 +161,16 @@
 
   &__submit-btn {
     padding: 16px 30px;
+  }
+
+  .checkboxes-wrapper {
+    display: flex;
+    gap: 30px;
+    margin-top: 30px;
+
+    .doc-questionary__checkboxes {
+      margin: 0;
+      width: fit-content;
+    }
   }
 }

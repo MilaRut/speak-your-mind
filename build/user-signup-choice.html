@@ -21,56 +21,48 @@
       <div class="container">
         <div class="header__logo">
           <div class="header__logo-wrapper">
-            <img src="./img/svg/logo.svg" width="196" height="23" alt="Speak your mind.">
+            <svg width="196" height="24" fill="currentColor">
+              <use xlink:href="./img/sprite.svg#logo"></use>
+            </svg>
           </div>
         </div>
         <nav class="header__nav nav">
           <div class="nav__wrapper">
             <ul class="nav__list">
               <li class="nav__item nav__item--psychologists">
-                <a class="nav__link" href="doctor-landing.html">Для психологов</a>
+                <a class="nav__link" data-translate="nav_doc" href="doctor-landing.html"></a>
               </li>
-              <li class="nav__item nav__item--businnes">
-                <a class="nav__link" href="businnes-landing.html">Для бизнеса</a>
-              </li>
+              <!-- <li class="nav__item nav__item--businnes">
+                <a class="nav__link href="businnes-landing.html" data-translate="nav_comp"></a>
+              </li> -->
               <li class="nav__item">
                 <a class="nav__link" href="faq.html">FAQ</a>
               </li>
             </ul>
           </div>
         </nav>
-        <div class="header__unlogged unlogged">
-          <button type="button" class="js-dropdown-trigger unlogged__login-btn btn"
-            data-id="#login-wrapper">Вход</button>
-          <div class="header__login-wrapper" id="login-wrapper">
-            <a class="text-18" href="user-login.html">Вход для клиентов</a>
-            <a class="text-18" href="doctor-login.html">Вход для психологов</a>
-          </div>
-          <button type="button" class="js-dropdown-trigger unlogged__signup-btn btn btn--white"
-            data-id="#signup-wrapper">Регистрация</button>
-          <div class="header__signup-wrapper" id="signup-wrapper">
-            <a class="text-18" href="user-signup-start.html">Регистрация для клиентов</a>
-            <a class="text-18" href="doctor-signup.html">Регистрация для психологов</a>
-          </div>
-        </div>
         <div class="header__lang-switcher lang-switcher">
           <button class="lang-switcher__btn js-dropdown-trigger" data-id="#lang-switcher">
-            <span>Русский</span>
+            <span data-translate="current_language"></span>
             <svg width="10" height="10" fill="currentColor">
               <use xlink:href="./img/sprite.svg#dropdown"></use>
             </svg>
           </button>
           <ul class="lang-switcher__list list-reset" id="lang-switcher">
+            <!-- <li class="lang-switcher__item">
+              <a href="#" data-lang="hu">Hu</a>
+            </li> -->
             <li class="lang-switcher__item">
-              <a href="#">Hu</a>
+              <a href="#" data-lang="en">En</a>
             </li>
             <li class="lang-switcher__item">
-              <a href="#">En</a>
-            </li>
-            <li class="lang-switcher__item">
-              <a href="#">Ru</a>
+              <a href="#" data-lang="ru">Ru</a>
             </li>
           </ul>
+        </div>
+        <div class="header__unlogged unlogged">
+          <a class="unlogged__login-btn btn btn--white" data-translate="header_login_btn"></a>
+          <a href="user-signup-start.html" class="unlogged__login-btn btn" data-translate="header_signup_btn"></a>
         </div>
         <div class="header__logged logged">
           <div class="logged__wrapper">
@@ -85,7 +77,7 @@
             </button>
             <ul class="logged__menu-list list-reset" id="logged-menu">
               <li class="logged__menu-item">
-                <a href="#">Выйти</a>
+                <a href="#" data-translate="logout_btn">Выйти</a>
               </li>
             </ul>
           </div>
@@ -95,119 +87,152 @@
     <main class="signup-main">
       <div class="signup-header">
         <div class="container">
-          <div class="signup-header__links tabs">
-            <a class="signup-header__link text-18" href="user-signup-main.html">Общие вопросы</a>
-            <a class="signup-header__link text-18 is-active" href="">Выбор терапевта</a>
-            <a class="signup-header__link text-18" href="user-signup-payment.html">Оплата</a>
+          <div class="signup-header__links">
+            <a class="signup-header__link" href="user-signup-main.html" data-translate="signup_header_link_main">Общие вопросы</a>
+            <a class="signup-header__link is-active" href="#"
+              data-translate="signup_header_link_choice">Выбор терапевта</a>
+            <a class="signup-header__link" href="user-signup-payment.html"
+              data-translate="signup_header_link_payment">Оплата</a>
           </div>
         </div>
       </div>
       <section class="choice">
         <div class="container">
           <div class="choice__wrapper">
+            <div class="choice__heading">
+              <h2 data-translate="choice_heading">Лучшие совпадения</h2>
+            </div>
             <div class="choice__swiper swiper" id="swiper-1">
               <ul class="choice__list choice__thumbs-list list-reset swiper-wrapper">
                 <li class="choice__item swiper-slide" id="1">
                   <div class="choice__item-image">
-                    <img src="./img/content/doctor-thumb.png" width="100" height="100" alt="">
+                    <img src="./img/temp/doc-1.png" width="100" height="100" alt="">
                   </div>
+                  <p class="choice__item-name">Ирина</p>
+                  <p class="choice__item-exp"><span>13 лет</span> опыта</p>
                 </li>
                 <li class="choice__item swiper-slide" id="2">
                   <div class="choice__item-image">
-                    <img src="./img/content/doctor-thumb.png" width="100" height="100" alt="">
+                    <img src="./img/temp/doc-2.png" width="100" height="100" alt="">
                   </div>
+                  <p class="choice__item-name">Анатолий</p>
+                  <p class="choice__item-exp"><span>6 лет</span> опыта</p>
                 </li>
                 <li class="choice__item swiper-slide" id="3">
                   <div class="choice__item-image">
-                    <img src="./img/content/doctor-thumb.png" width="100" height="100" alt="">
+                    <img src="./img/temp/doc-3.png" width="100" height="100" alt="">
                   </div>
+                  <p class="choice__item-name">Константин</p>
+                  <p class="choice__item-exp"><span>3 года</span> опыта</p>
                 </li>
                 <li class="choice__item swiper-slide" id="4">
                   <div class="choice__item-image">
-                    <img src="./img/content/doctor-thumb.png" width="100" height="100" alt="">
+                    <img src="./img/temp/doc-4.png" width="100" height="100" alt="">
                   </div>
+                  <p class="choice__item-name">Александр</p>
+                  <p class="choice__item-exp"><span>7 лет</span> опыта</p>
                 </li>
                 <li class="choice__item swiper-slide" id="5">
                   <div class="choice__item-image">
-                    <img src="./img/content/doctor-thumb.png" width="100" height="100" alt="">
+                    <img src="./img/temp/doc-5.png" width="100" height="100" alt="">
                   </div>
+                  <p class="choice__item-name">Анастасия</p>
+                  <p class="choice__item-exp"><span>4 года</span> опыта</p>
                 </li>
                 <li class="choice__item swiper-slide" id="6">
                   <div class="choice__item-image">
-                    <img src="./img/content/doctor-thumb.png" width="100" height="100" alt="">
+                    <img src="./img/temp/doc-6.png" width="100" height="100" alt="">
                   </div>
+                  <p class="choice__item-name">Александра</p>
+                  <p class="choice__item-exp"><span>5 лет</span> опыта</p>
                 </li>
                 <li class="choice__item swiper-slide" id="7">
                   <div class="choice__item-image">
-                    <img src="./img/content/doctor-thumb.png" width="100" height="100" alt="">
+                    <img src="./img/temp/doc-7.png" width="100" height="100" alt="">
                   </div>
+                  <p class="choice__item-name">Сергей</p>
+                  <p class="choice__item-exp"><span>8 лет</span> опыта</p>
                 </li>
                 <li class="choice__item swiper-slide" id="8">
                   <div class="choice__item-image">
-                    <img src="./img/content/doctor-thumb.png" width="100" height="100" alt="">
+                    <img src="./img/temp/doc-8.png" width="100" height="100" alt="">
                   </div>
+                  <p class="choice__item-name">Александр</p>
+                  <p class="choice__item-exp"><span>4 года</span> опыта</p>
                 </li>
                 <li class="choice__item swiper-slide" id="9">
                   <div class="choice__item-image">
-                    <img src="./img/content/doctor-thumb.png" width="100" height="100" alt="">
+                    <img src="./img/temp/doc-3.png" width="100" height="100" alt="">
                   </div>
+                  <p class="choice__item-name">Ирина</p>
+                  <p class="choice__item-exp"><span>13 лет</span> опыта</p>
                 </li>
                 <li class="choice__item swiper-slide" id="10">
                   <div class="choice__item-image">
-                    <img src="./img/content/doctor-thumb.png" width="100" height="100" alt="">
+                    <img src="./img/temp/doc-5.png" width="100" height="100" alt="">
                   </div>
+                  <p class="choice__item-name">Анастасия</p>
+                  <p class="choice__item-exp"><span>4 года</span> опыта</p>
                 </li>
                 <li class="choice__item swiper-slide" id="11">
                   <div class="choice__item-image">
-                    <img src="./img/content/doctor-thumb.png" width="100" height="100" alt="">
+                    <img src="./img/temp/doc-7.png" width="100" height="100" alt="">
                   </div>
+                  <p class="choice__item-name">Александр</p>
+                  <p class="choice__item-exp"><span>4 года</span> опыта</p>
                 </li>
                 <li class="choice__item swiper-slide" id="12">
                   <div class="choice__item-image">
-                    <img src="./img/content/doctor-thumb.png" width="100" height="100" alt="">
+                    <img src="./img/temp/doc-2.png" width="100" height="100" alt="">
                   </div>
+                  <p class="choice__item-name">Сергей</p>
+                  <p class="choice__item-exp"><span>8 лет</span> опыта</p>
                 </li>
                 <li class="choice__item swiper-slide" id="13">
                   <div class="choice__item-image">
-                    <img src="./img/content/doctor-thumb.png" width="100" height="100" alt="">
+                    <img src="./img/temp/doc-4.png" width="100" height="100" alt="">
                   </div>
+                  <p class="choice__item-name">Александр</p>
+                  <p class="choice__item-exp"><span>7 лет</span> опыта</p>
                 </li>
                 <li class="choice__item swiper-slide" id="14">
                   <div class="choice__item-image">
-                    <img src="./img/content/doctor-thumb.png" width="100" height="100" alt="">
+                    <img src="./img/temp/doc-1.png" width="100" height="100" alt="">
                   </div>
+                  <p class="choice__item-name">Ирина</p>
+                  <p class="choice__item-exp"><span>13 лет</span> опыта</p>
                 </li>
                 <li class="choice__item swiper-slide" id="15">
                   <div class="choice__item-image">
-                    <img src="./img/content/doctor-thumb.png" width="100" height="100" alt="">
+                    <img src="./img/temp/doc-4.png" width="100" height="100" alt="">
                   </div>
+                  <p class="choice__item-name">Сергей</p>
+                  <p class="choice__item-exp"><span>8 лет</span> опыта</p>
                 </li>
                 <li class="choice__item swiper-slide" id="16">
                   <div class="choice__item-image">
-                    <img src="./img/content/doctor-thumb.png" width="100" height="100" alt="">
+                    <img src="./img/temp/doc-3.png" width="100" height="100" alt="">
                   </div>
+                  <p class="choice__item-name">Александр</p>
+                  <p class="choice__item-exp"><span>7 лет</span> опыта</p>
                 </li>
               </ul>
               <button type="button" class="swiper-btn swiper-btn--prev" aria-label="Previous slide.">
-                <svg width="42" height="102" viewBox="0 0 42 102" fill="none" xmlns="http://www.w3.org/2000/svg">
-                  <path d="M6 6L36 51L6 96" stroke="#202020" stroke-width="12" stroke-linecap="round"
-                    stroke-linejoin="round">
+                <svg width="30" height="64" fill="currentColor">
+                  <use xlink:href="./img/sprite.svg#swiper-arrow"></use>
                 </svg>
-
               </button>
               <button type="button" class="swiper-btn swiper-btn--next" aria-label="Next slide.">
-                <svg width="42" height="102" viewBox="0 0 42 102" fill="none" xmlns="http://www.w3.org/2000/svg">
-                  <path d="M6 6L36 51L6 96" stroke="#202020" stroke-width="12" stroke-linecap="round"
-                    stroke-linejoin="round">
+                <svg width="30" height="64" fill="currentColor">
+                  <use xlink:href="./img/sprite.svg#swiper-arrow"></use>
                 </svg>
-
               </button>
             </div>
             <div class="choice__doctors">
               <ul class="choices__doctors-list list-reset">
                 <li class="choices__doctors-item doctor">
                   <div class="doctor__image">
-                    <img src="./img/content/doctor-thumb.png" width="300" height="300" alt="">
+                    <img src="./img/temp/doc-9.png" width="300" height="300" alt="">
                   </div>
                   <div class="doctor__content">
                     <div class="doctor__heading">
@@ -221,7 +246,7 @@
                         <span class="doctor__price">10&nbsp;000 HUF</span>
                       </p>
                       <p class="doctor__themes">Работает со всеми темами вашей анкеты</p>
-                      <a href="#schedule" class="doctor__btn doctor__schedule-btn btn">Выбрать время сессии</a>
+                      <a href="#schedule" class="doctor__btn doctor__schedule-btn btn" data-translate="doctor_schedule_btn">Выбрать время сессии</a>
                     </div>
                     <div class="doctor__content-block" id="about-doctor">
                       <h2 class="text-25 doctor__title">О специалисте</h2>
@@ -286,9 +311,9 @@
                       </ul>
                     </div>
                     <div class="doctor__content-block" id="schedule">
-                      <h2 class="text-25 doctor__title">Расписание
-                        <p class="text-18">Выберите дату и время</p>
-                      </h2>
+                      <h2 class="text-25 doctor__title" data-translate="doctor_schedule_title">Расписание</h2>
+                      <p class="text-18" data-translate="doctor_schedule_subtitle">Выберите дату и время</p>
+                      <br>
                       <form action="" method="post" id="choice-date-form">
                         <div class="doctor__day-wrapper">
                           <p class="doctor__day">
@@ -484,18 +509,18 @@
                         </div>
 
                         <button type="button" class="doctor__expand-btn">
-                          <span>Показать еще 3 дня</span>
+                          <span data-translate="schedule_show_more">Показать еще 3 дня</span>
                           <svg width="10" height="10" fill="currentColor">
                             <use xlink:href="./img/sprite.svg#dropdown-green"></use>
                           </svg>
                         </button>
 
                         <button type="submit" disabled class="doctor__submit-btn btn">
-                          <span class="doctor__submit-text">Выбрать&nbsp;</span>
+                          <span class="doctor__submit-text" data-translate="doctor_submit_btn_1">Выбрать&nbsp;</span>
                           <span class="doctor__submit-date"><time datetime="2024-07-06T15-00"></time></span>
-                          <span class="doctor__submit-text-2">&nbsp;и продолжить</span>
+                          <span class="doctor__submit-text-2" data-translate="doctor_submit_btn_2">&nbsp;и продолжить</span>
                         </button>
-                        <span class="error-message">Пожалуйста, выберите дату</span>
+                        <span class="error-message" data-translate="doctor_submit_err">Пожалуйста, выберите дату</span>
                       </form>
                     </div>
                   </div>

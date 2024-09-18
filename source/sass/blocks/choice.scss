@@ -1,6 +1,5 @@
 .choice {
   .container {
-    padding-top: 44px;
     padding-bottom: 80px;
   }
 
@@ -9,10 +8,18 @@
     align-items: center;
   }
 
+  &__heading {
+    h2 {
+      font-weight: 400;
+      font-size: 28px;
+      line-height: 110%;
+      margin-bottom: 28px;
+    }
+  }
+
   &__thumbs-list {
     display: flex;
     justify-content: space-between;
-    width: 80%;
     max-width: 1127px;
     margin: 0 auto;
   }
@@ -20,6 +27,22 @@
   &__item {
     cursor: pointer;
     max-width: 100px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  &__item-image {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    overflow: hidden;
+
+    img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
   }
 
   &__btn-wrapper {

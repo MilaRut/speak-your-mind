@@ -10,6 +10,10 @@
     .subtitle {
       margin-bottom: 23px;
     }
+
+    p {
+      color: #A3A3A3;
+    }
   }
 
   &__main {
@@ -31,12 +35,17 @@
       margin-bottom: 50px;
 
       input {
-        max-width: 200px;
+        width: 100%;
+        max-width: 250px;
         height: 44px;
         padding: 0 10px;
         border: 1px solid #202020;
         background: $color-default-white;
-        box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.25) inset;
+        border-radius: 4px;
+
+        &::placeholder {
+          color: #555555;
+        }
       }
     }
 
@@ -61,7 +70,7 @@
       align-items: center;
       max-width: fit-content;
       height: 40px;
-      border: 1px solid $color-jade;
+      border: 1px solid $color-shamrock-green;
       border-radius: 38px;
       overflow: hidden;
     }
@@ -93,18 +102,19 @@
     .divider {
       height: 100%;
       width: 1px;
-      background-color: $color-jade;
+      background-color: $color-shamrock-green;
     }
 
     input[type="radio"]:checked+label {
       color: $color-default-white;
-      background-color: $color-jade;
+      background-color: $color-shamrock-green;
     }
   }
 
   &__legend {
     .text-18 {
       max-width: 48%;
+      color: #A3A3A3;
     }
   }
 
@@ -154,8 +164,8 @@
     }
 
     input[type="checkbox"]:checked+span::before {
-      border-color: $color-jade;
-      background: $color-jade url("../img/svg/check-small.svg") center no-repeat;
+      border-color: $color-shamrock-green;
+      background: $color-shamrock-green url("../img/svg/check-small.svg") center no-repeat;
     }
   }
 
@@ -178,6 +188,11 @@
   }
 
   &__btn {
+    font-weight: 900;
+    font-size: 20px;
+    line-height: 110%;
+    text-transform: uppercase;
+    text-align: center;
     margin-bottom: 50px;
     padding: 16px 24px;
     font-size: 20px;
@@ -193,15 +208,23 @@
     }
 
     input {
-      min-width: 330px;
+      width: 100%;
+      max-width: 330px;
+      height: 44px;
       margin-bottom: 50px;
       padding: 4px 10px;
-      border: 1px solid $color-nero;
-      background: $color-default-white;
-      box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.25) inset;
       font-size: 20px;
       font-weight: 400;
       line-height: 1;
+      border: 1px solid #202020;
+      background: $color-default-white;
+      border-radius: 4px;
+    }
+  }
+
+  .signup-header {
+    &__link {
+      font-size: 28px;
     }
   }
 }

@@ -20,10 +20,11 @@
   }
 
   &__link {
+    font-size: 16px;
     color: $color-default-black;
 
     &:hover {
-      color: $color-default-white;
+      color: $color-jade;
     }
   }
 }

@@ -54,6 +54,10 @@
   }
 
   &__schedule-btn {
+    font-weight: 900;
+    font-size: 20px;
+    line-height: 110%;
+    text-transform: uppercase;
     padding: 10px 24px;
     font-size: 20px;
     font-weight: 700;
@@ -132,12 +136,20 @@
     color: $color-jade;
     cursor: pointer;
 
+    &.hidden {
+      display: none;
+    }
+
     span {
       margin-right: 8px;
     }
   }
 
   &__submit-btn {
+    font-weight: 900;
+    font-size: 20px;
+    line-height: 110%;
+    text-transform: uppercase;
     padding: 16px 24px;
     cursor: pointer;
     opacity: 0.5;
@@ -150,7 +162,7 @@
       opacity: 1;
 
       .doctor__submit-text-2 {
-        display: inline-block; 
+        display: inline-block;
       }
     }
 

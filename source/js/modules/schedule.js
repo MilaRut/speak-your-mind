@@ -1,88 +1,73 @@
-const schedule = document.querySelector('.schedule');
+const showMoreBtn = document.querySelectorAll('.schedule__show-more');
+const scheduleDropdown = document.querySelectorAll('.schedule-container');
 
-function renderSchedule() {
-  if (!schedule) {
+function initScheduleDropdown() {
+  if (!scheduleDropdown) {
     return;
   }
 
-  const timeOptions = document.querySelectorAll('.schedule__calender-timeoption');
-  const daySlots = document.querySelectorAll('.schedule__calender-day-slots');
+  scheduleDropdown.forEach((list) => {
+    const items = list.querySelectorAll('.doctor__day-wrapper');
 
-  daySlots.forEach((el) => {
-    const day = el.closest('.schedule__calender-day').getAttribute('data-time');
-
-    for (let i = 0; i < timeOptions.length; i++) {
-      const slot = document.createElement('div');
-      el.append(slot);
-      slot.outerHTML = `<label>
-    <input type="checkbox" id="" value="${day}T${timeOptions[i].textContent}" name="schedule">
-  </label>`;
+    if (items.length === 0) {
+      setTimeout(() => {
+        initScheduleDropdown();
+      }, 200);
     }
 
-    const inputs = document.querySelectorAll('input[name="schedule"]');
-    inputs.forEach((input) => {
-      input.addEventListener('change', function () {
-        setHours(input);
+    items.forEach((item) => {
+      item.style.display = 'none';
+    });
+    if (items.length <= 3) {
+      items.forEach((item) => {
+        item.style.display = 'block';
       });
+    } else {
+      for (let i = 0; i < 3; i++) {
+        items[i].style.display = 'block';
+      }
+    }
+  });
+}
+
+function expandList() {
+  if (!showMoreBtn) {
+    return;
+  }
+
+  showMoreBtn.forEach((btn) => {
+    btn.addEventListener('click', () => {
+      const currentId = btn.getAttribute('data-id');
+      const currentList = document.querySelector(currentId);
+
+      const items = currentList.querySelectorAll('.doctor__day-wrapper');
+
+      if (items.length === 0) {
+        setTimeout(() => {
+          expandList();
+        }, 200);
+        return;
+      }
+
+      let shownCount = 0;
+
+      items.forEach((item) => {
+        if (item.style.display === 'block') {
+          shownCount++;
+        }
+      });
+
+      // Показываем следующие 3 элемента
+      for (let i = shownCount; i < shownCount + 3 && i < items.length; i++) {
+        items[i].style.display = 'block';
+      }
+
+      // Если все элементы показаны, скрываем кнопку
+      if (shownCount + 3 >= items.length) {
+        btn.classList.add('hidden');
+      }
     });
   });
 }
 
-function setHours(el) {
-
-  if (!schedule) {
-    return;
-  }
-  const currentWeek = el.closest('.schedule__calender-week');
-  const currentWeekId = currentWeek.getAttribute('id');
-  const currentChecked = currentWeek.querySelectorAll('input[name="schedule"]:checked');
-  let currentBtn = document.querySelector(`[data-tab="#${currentWeekId}"]`);
-  const num = currentBtn.querySelector('.hours-sum');
-  num.textContent = `${currentChecked.length} ч.`;
-}
-
-function markScheduleSlots() {
-
-  if (!schedule) {
-    return;
-  }
-
-  // имитация передачи в инпут для запланированной сессии класса для статуса
-  const test1 = document.querySelector('input[value="2024-04-29T07:00"]');
-  const test2 = document.querySelector('input[value="2024-05-02T13:00"]');
-  test1.classList.add('requested');
-  test2.classList.add('scheduled');
-
-  // конец
-
-  const scheduled = document.querySelectorAll('.scheduled');
-
-  function createTooltip(el) {
-    const tooltip = document.createElement('div');
-    tooltip.classList = 'tooltip';
-    tooltip.textContent = 'Ксения';
-    el.closest('label').append(tooltip);
-  }
-
-  scheduled.forEach((el) => {
-    el.disabled = 'true';
-    createTooltip(el);
-  });
-}
-
-// временная функция для демонстрации сохранения расписания
-function saveState() {
-
-  if (!schedule) {
-    return;
-  }
-  const inputs = document.querySelectorAll('input[name="schedule"]');
-
-  inputs.forEach((el) => {
-    el.onchange = () => localStorage.setItem(el.value, el.checked);
-    el.checked = localStorage.getItem(el.value) === 'true';
-    setHours(el);
-  });
-}
-
-export {renderSchedule, markScheduleSlots, saveState};
+export {initScheduleDropdown, expandList};

@@ -6,6 +6,12 @@
 
   &__heading {
     margin-bottom: 48px;
+
+    p {
+      span {
+        text-transform: none;
+      }
+    }
   }
 
   .title {
@@ -21,7 +27,16 @@
   }
 
   form {
-    max-width: 400px;
+    width: 100%;
+    max-width: 720px;
+    border-radius: 20px;
+    padding: 24px 160px 48px;
+    background-color: #F5F3EE;
+    border: 1px solid #A3A3A3;
+
+    p {
+      margin-bottom: 32px;
+    }
   }
 
   fieldset {
@@ -50,9 +65,9 @@
   }
 
   span {
-    font-size: 20px;
+    font-size: 16px;
     font-weight: 400;
-    line-height: 1;
+    text-transform: uppercase;
     margin-bottom: 10px;
   }
 
@@ -96,7 +111,7 @@
     }
   }
 
-  .text-error {
+  p.text-error {
     display: flex;
     align-items: center;
 
@@ -105,7 +120,17 @@
     }
 
     span {
+      font-weight: 400;
+      font-size: 28px;
+      line-height: 110%;
+      text-transform: none;
       margin-bottom: 0;
+    }
+  }
+
+  &__permission {
+    span {
+      text-transform: none !important;
     }
   }
 }
