@@ -30,7 +30,7 @@
           <div class="nav__wrapper">
             <ul class="nav__list">
               <li class="nav__item nav__item--psychologists">
-                <a class="nav__link" href="user-landing.html">Найти психолога</a>
+                <a class="nav__link" href="index.html">Найти психолога</a>
               </li>
               <!-- <li class="nav__item nav__item--businnes">
                 <a class="nav__link" href="businnes-landing.html">Для компаний</a>
@@ -126,49 +126,73 @@
                 <div class="doc-questionary__checkboxes">
                   <label>
                     <input type="checkbox" id="doc_method-0" name="doc_method" value="0">
-                    <span>Психоаналитическая терапия</span>
+                    <span>Психоанализ</span>
                   </label>
                   <label>
                     <input type="checkbox" id="doc_method-1" name="doc_method" value="1">
-                    <span>Системный семейный подход</span>
+                    <span>Терапия внутренних семейных систем (IFS)</span>
                   </label>
                   <label>
                     <input type="checkbox" id="doc_method-2" name="doc_method" value="2">
-                    <span>Психодрама</span>
+                    <span>Когнитивно-поведенческая терапия (КПТ)</span>
                   </label>
                   <label>
                     <input type="checkbox" id="doc_method-3" name="doc_method" value="3">
-                    <span>Телесно-ориентированная психотерапия</span>
+                    <span>Травма-фокусированный КПТ</span>
                   </label>
                   <label>
                     <input type="checkbox" id="doc_method-4" name="doc_method" value="4">
-                    <span>Символдрама</span>
+                    <span>Терапия, сфокусированная на сострадании (CFT)</span>
                   </label>
                   <label>
                     <input type="checkbox" id="doc_method-5" name="doc_method" value="5">
+                    <span>Диалектическая поведенческая терапия (ДБТ/DBT)</span>
+                  </label>
+                  <label>
+                    <input type="checkbox" id="doc_method-6" name="doc_method" value="6">
                     <span>Гештальт-терапия</span>
+                  </label>
+                  <label>
+                    <input type="checkbox" id="doc_method-7" name="doc_method" value="7">
+                    <span>Системная семейная терапия</span>
+                  </label>
+                  <label>
+                    <input type="checkbox" id="doc_method-8" name="doc_method" value="8">
+                    <span>Системная сексуальная терапия</span>
                   </label>
                 </div>
                 <div class="doc-questionary__checkboxes">
                   <label>
-                    <input type="checkbox" id="doc_method-6" name="doc_method" value="6">
-                    <span>КПТ</span>
-                  </label>
-                  <label>
-                    <input type="checkbox" id="doc_method-7" name="doc_method" value="7">
-                    <span>Экзистенциальная психотерапия</span>
-                  </label>
-                  <label>
-                    <input type="checkbox" id="doc_method-8" name="doc_method" value="8">
-                    <span>Понимающая / Клиент-центрированный подход</span>
-                  </label>
-                  <label>
                     <input type="checkbox" id="doc_method-9" name="doc_method" value="9">
-                    <span>Интегративный подход</span>
+                    <span>Терапия принятия и ответственности</span>
                   </label>
                   <label>
                     <input type="checkbox" id="doc_method-10" name="doc_method" value="10">
-                    <span>Юнгианский анализ</span>
+                    <span>Схема-терапия (CBT)</span>
+                  </label>
+                  <label>
+                    <input type="checkbox" id="doc_method-11" name="doc_method" value="11">
+                    <span>Экзистенциальная психотерапия(лого и клиент-центрированная)</span>
+                  </label>
+                  <label>
+                    <input type="checkbox" id="doc_method-12" name="doc_method" value="12">
+                    <span>Трансактный анализ</span>
+                  </label>
+                  <label>
+                    <input type="checkbox" id="doc_method-13" name="doc_method" value="13">
+                    <span>Десенсибилизация и переработка движением глаз(EMDR/ДПДГ)</span>
+                  </label>
+                  <label>
+                    <input type="checkbox" id="doc_method-14" name="doc_method" value="14">
+                    <span>Рационально эмоционально поведенческая терапия(REBT)</span>
+                  </label>
+                  <label>
+                    <input type="checkbox" id="doc_method-15" name="doc_method" value="15">
+                    <span>Эмоционально-фокусированная терапия (ЭФТ)</span>
+                  </label>
+                  <label>
+                    <input type="checkbox" id="doc_method-16" name="doc_method" value="16">
+                    <span>Арт-терапия</span>
                   </label>
                 </div>
               </div>
@@ -248,8 +272,22 @@
               <p class="text-13">Например, май 2019</p>
 
               <div class="start">
-                <input class="text-18" type="number" name="doc_practice_start" placeholder="месяц">
-                <input class="text-18" type="text" name="doc_practice_start" id="doc_practice_start" placeholder="год">
+                <select name="doc_practice_start_month" id="doc_practice_start_month">
+                  <option value="01">январь</option>
+                  <option value="02">февраль</option>
+                  <option value="03">март</option>
+                  <option value="04">апрель</option>
+                  <option value="05">май</option>
+                  <option value="06">июнь</option>
+                  <option value="07">июль</option>
+                  <option value="08">август</option>
+                  <option value="9">сентябрь</option>
+                  <option value="10">октябрь</option>
+                  <option value="11">ноябрь</option>
+                  <option value="12">декабрь</option>
+                </select>
+                <input class="text-18" type="number" name="doc_practice_start_year" id="doc_practice_start_year"
+                  placeholder="год">
               </div>
             </div>
             <div class="doc-questionary__wrapper">
@@ -457,12 +495,11 @@
       const doc_edu = document.querySelector('#doc_edu').value;
 
       // массив методов
-      const methods = document.querySelectorAll('[name="doc_language"]');
+      const methods = document.querySelectorAll('[name="doc_method"]');
       const methodsValues = Array.from(languages)
         .filter(checkbox => checkbox.checked)
         .map(checkbox => checkbox.value);
       const doc_method = methodsValues;
-      // const doc_method_other = document.querySelector('#doc_method_other').value;
 
       // массив языков
       const languages = document.querySelectorAll('[name="doc_language"]');
@@ -471,9 +508,15 @@
         .map(checkbox => checkbox.value);
       const doc_language = languagesValues;
 
-      const doc_edu_additional = document.querySelector('[name="doc_edu_additional"]').value;
+      // массив доп образования
+      const addEducations = document.querySelectorAll('[name="doc_language"]');
+      const addEducationsValues = Array.from(addEducations)
+        .filter(checkbox => checkbox.checked)
+        .map(checkbox => checkbox.value);
+      const doc_edu_additional = addEducationsValues;
+
       const doc_comunity = document.querySelector('#doc_comunity').value;
-      const doc_practice_start = document.querySelector('#doc_practice_start').value;
+      const doc_practice_start = `${document.querySelector('#doc_practice_start_month').value} ${document.querySelector('#doc_practice_start_year').value}`;
       const doc_online_experience = document.querySelector('#doc_online_experience').value;
       const doc_customers_amount_current = document.querySelector('#doc_customers_amount_current').value;
       const doc_therapy_length = document.querySelector('#doc_therapy_length').value;
@@ -518,7 +561,6 @@
             doc_gender: doc_gender,
             doc_edu: doc_edu,
             doc_method: doc_method,
-            doc_method_other: doc_method_other,
             doc_language: doc_language,
             doc_edu_additional: doc_edu_additional,
             doc_comunity: doc_comunity,
@@ -546,7 +588,6 @@
 
           // Отправка данных на бэкенд с помощью fetch
           fetch(url, {
-            // mode: 'no-cors',
             method: 'POST',
             headers: {
               'Content-Type': 'application/json'

@@ -162,11 +162,17 @@
           })
           .then(function (data) {
             // Обработка успешного ответа от сервера
-            localStorage.setItem('token', data.token); // Сохраняем токен в localStorage
-            window.location.href = '/doctor-account-settings.html';
+            if (!data.status) {
+              alert('Ошибка');
+            } else {
+              localStorage.setItem('token', data.token); // Сохраняем токен в localStorage
+              window.location.href = '/doctor-account-settings.html';
+            }
           })
           .catch(function (error) {
             // Обработка ошибки
+            // добавить обработку ошибки по статусам
+            alert('Ошибка');
           });
       });
     });

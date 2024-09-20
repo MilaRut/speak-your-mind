@@ -3997,6 +3997,7 @@ button {
 }
 
 .doc-questionary__checkboxes span {
+  display: block;
   position: relative;
   font-size: 18px;
   font-weight: 400;
