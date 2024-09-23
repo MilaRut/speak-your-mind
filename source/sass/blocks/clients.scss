@@ -10,7 +10,7 @@
     }
 
     th {
-      background-color: $color-humming-bird;
+      background-color: #F5F3EE;
       text-align: start;
       font-weight: 400;
       padding: 8px;
@@ -57,6 +57,10 @@
       .clients__actions-btn--timeoffer,
       .clients__actions-btn--cancel {
         display: block;
+      }
+
+      .clients__next-session {
+        color: #FF5C00;
       }
     }
 

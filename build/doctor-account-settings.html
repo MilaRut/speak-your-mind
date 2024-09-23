@@ -62,8 +62,7 @@
         </div>
         <div class="header__unlogged unlogged">
           <a class="unlogged__login-btn btn btn--white" data-translate="header_login_btn"></a>
-          <a href="user-signup-start.html" class="unlogged__login-btn btn"
-            data-translate="header_signup_btn"></a>
+          <a href="user-signup-start.html" class="unlogged__login-btn btn" data-translate="header_signup_btn"></a>
         </div>
         <div class="header__logged logged">
           <div class="logged__wrapper">
@@ -91,11 +90,51 @@
           <div class="doctor-account__wrapper">
             <div class="doctor-account__left-col">
               <nav class="doctor-account__nav">
-                <a href="doctor-account-sessions.html" class="doctor-account__nav-link">Сессии</a>
-                <a href="doctor-account-schedule.html" class="doctor-account__nav-link">Расписание</a>
-                <a href="doctor-account-clients.html" class="doctor-account__nav-link">Клиенты</a>
-                <a href="doctor-account-payments.html" class="doctor-account__nav-link">Платежи</a>
-                <a href="doctor-account-settings.html" class="doctor-account__nav-link is-active">Настройки</a>
+                <div class="user-account__nav-logo">
+                  <img src="./img/svg/nav-logo.svg" width="72" height="72" alt="Speak your mind.">
+                </div>
+                <a href="doctor-account-sessions.html" class="doctor-account__nav-link">
+                  <svg width="25" height="25" fill="currentColor">
+                    <use xlink:href="./img/sprite.svg#doc-sessions"></use>
+                  </svg>
+                  <span>Сессии</span>
+                </a>
+                <a href="doctor-account-schedule.html" class="doctor-account__nav-link">
+                  <svg width="25" height="25" fill="currentColor">
+                    <use xlink:href="./img/sprite.svg#doc-schedule"></use>
+                  </svg>
+                  <span>Расписание</span>
+                </a>
+                <a href="doctor-account-clients.html" class="doctor-account__nav-link">
+                  <svg width="25" height="25" fill="currentColor">
+                    <use xlink:href="./img/sprite.svg#doc-clients"></use>
+                  </svg>
+                  <span>Клиенты</span>
+                </a>
+                <a href="doctor-account-payments.html" class="doctor-account__nav-link">
+                  <svg width="25" height="25" fill="currentColor">
+                    <use xlink:href="./img/sprite.svg#user-payment"></use>
+                  </svg>
+                  <span>Платежи</span>
+                </a>
+                <a href="doctor-account-settings.html" class="doctor-account__nav-link is-active">
+                  <svg width="25" height="25" fill="currentColor">
+                    <use xlink:href="./img/sprite.svg#user-settings"></use>
+                  </svg>
+                  <span>Профиль</span>
+                </a>
+                <a href="/faq.html" class="user-account__nav-link">
+                  <svg width="25" height="25" fill="currentColor">
+                    <use xlink:href="./img/sprite.svg#user-help"></use>
+                  </svg>
+                  <span>Помощь</span>
+                </a>
+                <a href="doctor-landing.html" class="user-account__nav-link" id="logout-btn">
+                  <svg width="25" height="25" fill="currentColor">
+                    <use xlink:href="./img/sprite.svg#user-logout"></use>
+                  </svg>
+                  <span>Выход</span>
+                </a>
               </nav>
 
               <!-- Временное вспомогательное меню  -->
@@ -184,6 +223,7 @@
                             <button type="button" class="settings__edit-avatar-btn text-green" data-open-modal
                               data-modal-id="#upload-avatar">Редактировать</button>
                           </div>
+                          <input type="hidden" name="doc_avatar" id="doc_avatar">
                         </div>
                         <div class="settings__input-wrapper">
                           <p class="text-20">Язык консультаций</p>
@@ -217,7 +257,7 @@
                           <p class="text-20">О себе</p>
                           <label>
                             <div class="settings__textarea-wrapper">
-                              <textarea name="doctor-about" id="doctor-about" cols="30" rows="10"
+                              <textarea name="doc_additional_info" id="doc_additional_info" cols="30" rows="10"
                                 maxlength="2000"></textarea>
                               <p class="text-18">Осталось <span class="symbols-count text-green"
                                   id="symbols-count">2000</span> символов</p>
@@ -228,7 +268,7 @@
                           <p class="text-20">Ваш email<br><span class="text-14">(нажмите "редактировать", чтобы
                               изменить)</span></p>
                           <label>
-                            <input type="text" name="doctor-email" id="doctor-email" value="doctor@mail.hu" readonly>
+                            <input type="text" name="doc_email" id="doc_email" value="doctor@mail.hu" readonly>
                             <button type="button"
                               class="settings__edit-btn settings__edit-btn--email text-green">Редактировать</button>
                           </label>
@@ -317,14 +357,14 @@
                         <div class="settings__input-wrapper pt25">
                           <p class="text-20">Возраст клиентов</p>
                           <div class="settings__radio">
-                            <input type="radio" id="client-age-16" name="client-age" value="16+" checked>
+                            <input type="radio" id="client_age-16" name="client_age" value="0" checked>
                             <label for="client-age-16">
                               <svg width="18" height="18" fill="currentColor">
                                 <use xlink:href="./img/sprite.svg#check-mark"></use>
                               </svg>
                               <span class="text-14">16+</span>
                             </label>
-                            <input type="radio" id="client-age-18" name="client-age" value="18+">
+                            <input type="radio" id="client_age-18" name="client_age" value="1">
                             <label for="client-age-18">
                               <svg width="18" height="18" fill="currentColor">
                                 <use xlink:href="./img/sprite.svg#check-mark"></use>
@@ -336,14 +376,14 @@
                         <div class="settings__input-wrapper">
                           <p class="text-20">Опыт работы с LGBTQ+</p>
                           <div class="settings__radio">
-                            <input type="radio" id="lgbtq-yes" name="lgbtq" value="lgbtq-yes" checked>
+                            <input type="radio" id="lgbtq-yes" name="lgbtq" value="0" checked>
                             <label for="lgbtq-yes">
                               <svg width="18" height="18" fill="currentColor">
                                 <use xlink:href="./img/sprite.svg#check-mark"></use>
                               </svg>
                               <span class="text-14">Да</span>
                             </label>
-                            <input type="radio" id="lgbtq-no" name="lgbtq" value="lgbtq-no">
+                            <input type="radio" id="lgbtq-no" name="lgbtq" value="1">
                             <label for="lgbtq-no">
                               <svg width="18" height="18" fill="currentColor">
                                 <use xlink:href="./img/sprite.svg#check-mark"></use>
@@ -355,26 +395,24 @@
                         <div class="settings__input-wrapper pb40">
                           <p class="text-20">Вид терапии</p>
                           <div class="settings__radio">
-                            <input type="radio" id="therapy-type-indiv" name="therapy-type" value="therapy-type-indiv"
-                              checked>
-                            <label for="therapy-type-indiv">
+                            <input type="radio" id="therapy_type-indiv" name="therapy_type" value="0" checked>
+                            <label for="therapy_type-indiv">
                               <svg width="18" height="18" fill="currentColor">
                                 <use xlink:href="./img/sprite.svg#check-mark"></use>
                               </svg>
                               <span class="text-14">Индивидуальная</span>
                             </label>
                             <div class="divider"></div>
-                            <input type="radio" id="therapy-type-couple" name="therapy-type"
-                              value="therapy-type-couple">
-                            <label for="therapy-type-couple">
+                            <input type="radio" id="therapy_type-couple" name="therapy_type" value="1">
+                            <label for="therapy_type-couple">
                               <svg width="18" height="18" fill="currentColor">
                                 <use xlink:href="./img/sprite.svg#check-mark"></use>
                               </svg>
                               <span class="text-14">Парная</span>
                             </label>
                             <div class="divider"></div>
-                            <input type="radio" id="therapy-type-both" name="therapy-type" value="therapy-type-both">
-                            <label for="therapy-type-both">
+                            <input type="radio" id="therapy_type-both" name="therapy_type" value="2">
+                            <label for="therapy_type-both">
                               <svg width="18" height="18" fill="currentColor">
                                 <use xlink:href="./img/sprite.svg#check-mark"></use>
                               </svg>
@@ -390,51 +428,51 @@
                             <div class="settings__checkboxes">
                               <div class="inputs-wrapper">
                                 <label>
-                                  <input type="checkbox" id="doctor-checkbox2-1" name="doctor-checkbox2-1">
+                                  <input type="checkbox" id="symptoms-0" name="symptoms" value="0">
                                   <span>Усталость</span>
                                 </label>
                                 <label>
-                                  <input type="checkbox" id="doctor-checkbox2-2" name="doctor-checkbox2-2">
+                                  <input type="checkbox" id="symptoms-1" name="symptoms" value="1">
                                   <span>Депрессивные состояния</span>
                                 </label>
                                 <label>
-                                  <input type="checkbox" id="doctor-checkbox2-3" name="doctor-checkbox2-3">
+                                  <input type="checkbox" id="symptoms-2" name="symptoms" value="2">
                                   <span>Раздражительность</span>
                                 </label>
                                 <label>
-                                  <input type="checkbox" id="doctor-checkbox2-4" name="doctor-checkbox2-4">
+                                  <input type="checkbox" id="symptoms-3" name="symptoms" value="3">
                                   <span>Тревожность</span>
                                 </label>
                               </div>
                               <div class="inputs-wrapper">
                                 <label>
-                                  <input type="checkbox" id="doctor-checkbox2-5" name="doctor-checkbox2-5">
+                                  <input type="checkbox" id="symptoms-4" name="symptoms" value="4">
                                   <span>Панические атаки</span>
                                 </label>
                                 <label>
-                                  <input type="checkbox" id="doctor-checkbox2-6" name="doctor-checkbox2-6">
+                                  <input type="checkbox" id="symptoms-5" name="symptoms" value="5">
                                   <span>Самооценка</span>
                                 </label>
                                 <label>
-                                  <input type="checkbox" id="doctor-checkbox2-7" name="doctor-checkbox2-7">
+                                  <input type="checkbox" id="symptoms-6" name="symptoms" value="6">
                                   <span>Одиночество</span>
                                 </label>
                                 <label>
-                                  <input type="checkbox" id="doctor-checkbox2-8" name="doctor-checkbox2-8">
+                                  <input type="checkbox" id="symptoms-7" name="symptoms" value="7">
                                   <span>Поведенческая зависимость</span>
                                 </label>
                               </div>
                               <div class="inputs-wrapper">
                                 <label>
-                                  <input type="checkbox" id="doctor-checkbox2-9" name="doctor-checkbox2-9">
+                                  <input type="checkbox" id="symptoms-8" name="symptoms" value="8">
                                   <span>Химические зависимости</span>
                                 </label>
                                 <label>
-                                  <input type="checkbox" id="doctor-checkbox2-10" name="doctor-checkbox2-10">
+                                  <input type="checkbox" id="symptoms-9" name="symptoms" value="9">
                                   <span>Критические состояния</span>
                                 </label>
                                 <label>
-                                  <input type="checkbox" id="doctor-checkbox2-11" name="doctor-checkbox2-11">
+                                  <input type="checkbox" id="symptoms-10" name="symptoms" value="10">
                                   <span>ЛГБТ+</span>
                                 </label>
                               </div>
@@ -445,29 +483,29 @@
                             <div class="settings__checkboxes">
                               <div class="inputs-wrapper">
                                 <label>
-                                  <input type="checkbox" id="doctor-checkbox3-1" name="doctor-checkbox3-1">
+                                  <input type="checkbox" id="symptoms-11" name="symptoms" value="11">
                                   <span>C партнером</span>
                                 </label>
                                 <label>
-                                  <input type="checkbox" id="doctor-checkbox3-2" name="doctor-checkbox3-2">
+                                  <input type="checkbox" id="symptoms-12" name="symptoms" value="12">
                                   <span>С родителями</span>
                                 </label>
                                 <label>
-                                  <input type="checkbox" id="doctor-checkbox3-3" name="doctor-checkbox3-3">
+                                  <input type="checkbox" id="symptoms-13" name="symptoms" value="13">
                                   <span>Сексуальные</span>
                                 </label>
                               </div>
                               <div class="inputs-wrapper">
                                 <label>
-                                  <input type="checkbox" id="doctor-checkbox3-4" name="doctor-checkbox3-4">
+                                  <input type="checkbox" id="symptoms-14" name="symptoms" value="14">
                                   <span>В целом, с окружающими</span>
                                 </label>
                                 <label>
-                                  <input type="checkbox" id="doctor-checkbox3-5" name="doctor-checkbox3-5">
+                                  <input type="checkbox" id="symptoms-15" name="symptoms" value="15">
                                   <span>С детьми</span>
                                 </label>
                                 <label>
-                                  <input type="checkbox" id="doctor-checkbox3-6" name="doctor-checkbox3-6">
+                                  <input type="checkbox" id="symptoms-16" name="symptoms" value="16">
                                   <span>Сложности с ориентацией, ее поиск</span>
                                 </label>
                               </div>
@@ -478,29 +516,29 @@
                             <div class="settings__checkboxes">
                               <div class="inputs-wrapper">
                                 <label>
-                                  <input type="checkbox" id="doctor-checkbox4-1" name="doctor-checkbox4-1">
+                                  <input type="checkbox" id="symptoms-17" name="symptoms" value="17">
                                   <span>Недостаток мотивации</span>
                                 </label>
                                 <label>
-                                  <input type="checkbox" id="doctor-checkbox4-2" name="doctor-checkbox4-2">
+                                  <input type="checkbox" id="symptoms-18" name="symptoms" value="18">
                                   <span>“Не знаю, чем хочу заниматься”</span>
                                 </label>
                                 <label>
-                                  <input type="checkbox" id="doctor-checkbox4-3" name="doctor-checkbox4-3">
+                                  <input type="checkbox" id="symptoms-19" name="symptoms" value="19">
                                   <span>Отсутствие цели</span>
                                 </label>
                               </div>
                               <div class="inputs-wrapper">
                                 <label>
-                                  <input type="checkbox" id="doctor-checkbox4-4" name="doctor-checkbox4-4">
+                                  <input type="checkbox" id="symptoms-20" name="symptoms" value="20>
                                   <span>Выгорание</span>
                                 </label>
                                 <label>
-                                  <input type="checkbox" id="doctor-checkbox4-5" name="doctor-checkbox4-5">
+                                  <input type=" checkbox" id="symptoms-21" name="symptoms" value="21">
                                   <span>Прокрастинация</span>
                                 </label>
                                 <label>
-                                  <input type="checkbox" id="doctor-checkbox4-6" name="doctor-checkbox4-6">
+                                  <input type="checkbox" id="symptoms-22" name="symptoms" value="22">
                                   <span>Смена, потеря работы</span>
                                 </label>
                               </div>
@@ -511,29 +549,29 @@
                             <div class="settings__checkboxes">
                               <div class="inputs-wrapper">
                                 <label>
-                                  <input type="checkbox" id="checkbox4-1" name="checkbox4-1">
+                                  <input type="checkbox" id="symptoms-23" name="symptoms" value="23">
                                   <span>Переезд, эмиграция</span>
                                 </label>
                                 <label>
-                                  <input type="checkbox" id="checkbox4-2" name="checkbox4-2">
+                                  <input type="checkbox" id="symptoms-24" name="symptoms" value="24">
                                   <span>Разрыв отношений, развод</span>
                                 </label>
                                 <label>
-                                  <input type="checkbox" id="checkbox4-3" name="checkbox4-3">
+                                  <input type="checkbox" id="symptoms-25" name="symptoms" value="25">
                                   <span>Утрата близкого человека</span>
                                 </label>
                               </div>
                               <div class="inputs-wrapper">
                                 <label>
-                                  <input type="checkbox" id="checkbox4-4" name="checkbox4-4">
+                                  <input type="checkbox" id="symptoms-26" name="symptoms" value="26">
                                   <span>Беременность, рождение ребенка</span>
                                 </label>
                                 <label>
-                                  <input type="checkbox" id="checkbox4-5" name="checkbox4-5">
+                                  <input type="checkbox" id="symptoms-27" name="symptoms" value="27">
                                   <span>Финансовые изменения</span>
                                 </label>
                                 <label>
-                                  <input type="checkbox" id="checkbox4-6" name="checkbox4-6">
+                                  <input type="checkbox" id="symptoms-28" name="symptoms" value="28">
                                   <span>Болезнь, своя или близких</span>
                                 </label>
                               </div>
@@ -595,23 +633,23 @@
                               <p class="text-18">Текущая стоимость ваших сессий</p>
                             </li>
                             <li class="pricing__item">
-                              <p class="text-20">Опыт от 3 лет</p>
+                              <p class="text-23">Опыт от 3 лет</p>
                               <p class="text-18">Подтвержденные навыки и кейсы</p>
                             </li>
                             <li class="pricing__item">
-                              <p class="text-20">Психологическое образование</p>
+                              <p class="text-23">Психологическое образование</p>
                               <p class="text-18">Высшее или смежное</p>
                             </li>
                             <li class="pricing__item">
-                              <p class="text-20">Более 500 часов обучения методу</p>
+                              <p class="text-23">Более 500 часов обучения методу</p>
                               <p class="text-18">Подтверждено сертификатами</p>
                             </li>
                             <li class="pricing__item">
-                              <p class="text-20">Рекомендации</p>
+                              <p class="text-23">Рекомендации</p>
                               <p class="text-18">От коллег и преподавателей</p>
                             </li>
                             <li class="pricing__item">
-                              <p class="text-20">Вступительное собеседование</p>
+                              <p class="text-23">Вступительное собеседование</p>
                               <p class="text-18">С нашим куратором</p>
                             </li>
                           </ul>
@@ -620,22 +658,22 @@
                               <p class="text-18">Условия для перехода на этот уровень:</p>
                             </li>
                             <li class="pricing__item">
-                              <p class="text-20">Опыт от 5 лет</p>
+                              <p class="text-23">Опыт от 5 лет</p>
                               <p class="text-18">Подтвержденные навыки и кейсы</p>
                             </li>
                             <li class="pricing__item">
-                              <p class="text-20">На платформе более 12 месяцев</p>
+                              <p class="text-23">На платформе более 12 месяцев</p>
                             </li>
                             <li class="pricing__item">
-                              <p class="text-20">Более 20 клиентов</p>
+                              <p class="text-23">Более 20 клиентов</p>
                               <p class="text-18">с которыми была хотя бы одна сессия</p>
                             </li>
                             <li class="pricing__item">
-                              <p class="text-20">Средняя длительность терапии 9 сессий</p>
+                              <p class="text-23">Средняя длительность терапии 9 сессий</p>
                               <p class="text-18">Среднее количество сессий на одного клиента</p>
                             </li>
                             <li class="pricing__item">
-                              <p class="text-20">Устойчивость терапии 75 %</p>
+                              <p class="text-23">Устойчивость терапии 75 %</p>
                               <p class="text-18">Доля клиентов, записавшихся на 7+ сессий</p>
                             </li>
                           </ul>
@@ -644,22 +682,22 @@
                               <p class="text-18">Условия для перехода на этот уровень:</p>
                             </li>
                             <li class="pricing__item">
-                              <p class="text-20">Опыт от 7 лет</p>
+                              <p class="text-23">Опыт от 7 лет</p>
                               <p class="text-18">Подтвержденные навыки и кейсы</p>
                             </li>
                             <li class="pricing__item">
-                              <p class="text-20">На платформе более 18 месяцев</p>
+                              <p class="text-23">На платформе более 18 месяцев</p>
                             </li>
                             <li class="pricing__item">
-                              <p class="text-20">Более 20 клиентов</p>
+                              <p class="text-23">Более 20 клиентов</p>
                               <p class="text-18">с которыми была хотя бы одна сессия</p>
                             </li>
                             <li class="pricing__item">
-                              <p class="text-20">Средняя длительность терапии 13 сессий</p>
+                              <p class="text-23">Средняя длительность терапии 13 сессий</p>
                               <p class="text-18">Среднее количество сессий на одного клиента</p>
                             </li>
                             <li class="pricing__item">
-                              <p class="text-20">Устойчивость терапии 85 %</p>
+                              <p class="text-23">Устойчивость терапии 85 %</p>
                               <p class="text-18">Доля клиентов, записавшихся на 8+ сессий</p>
                             </li>
                           </ul>
@@ -774,7 +812,8 @@
                       <div class="doctor__content-block schedule-dropdown" id="schedule">
                         <h2 class="text-25 doctor__title">Расписание</h2>
                         <div class="schedule-container" id="schedule-container-1"></div>
-                        <button type="button" class="doctor__expand-btn schedule__show-more" data-id="#schedule-container-1">
+                        <button type="button" class="doctor__expand-btn schedule__show-more"
+                          data-id="#schedule-container-1">
                           <span>Показать еще 3 дня</span>
                           <svg width="10" height="10" fill="currentColor">
                             <use xlink:href="./img/sprite.svg#dropdown-green"></use>
@@ -792,10 +831,9 @@
     </main>
     <footer class="footer">
       <div class="container">
+        <div class="footer__left"></div>
         <div class="footer__copyright">
-          <span>&copy;</span>
-          <span>Speak Your Mind</span>
-          <span>2023</span>
+          <span>&copy; Speak Your Mind 2023</span>
         </div>
       </div>
     </footer>
@@ -983,7 +1021,7 @@
         });
 
         // Отправка запроса на сервер для получения расписания
-        fetch('http://63.250.47.203:3000/doctor_schedule', {
+        fetch('http://63.250.47.203:8000/doctor_schedule', {
           // mode: 'no-cors',
           method: 'POST',
           headers: {
@@ -1012,7 +1050,7 @@
 
       if (token) {
         // Отправка запроса на сервер для получения данных пользования
-        fetch('http://63.250.47.203:3000/get_doc_data', {
+        fetch('http://63.250.47.203:8000/get_doc_data', {
           // mode: 'no-cors',
           method: 'POST',
           headers: {
@@ -1088,13 +1126,30 @@
         document.querySelector('#doctor-birth-year').value = year;
         document.querySelector('#doc_edu_uni').textContent = data.doc_edu;
         document.querySelector('#doc_edu-uni-2').textContent = data.doc_edu;
+
+        const lang = localStorage.getItem('language') || 'en';
+        // function getExperienceWord(years) {
+        //   if (years % 10 === 1 && years % 100 !== 11) {
+        //     return "год";
+        //   } else if ((years % 10 >= 2 && years % 10 <= 4) && (years % 100 < 12 || years % 100 > 14)) {
+        //     return "года";
+        //   } else {
+        //     return "лет";
+        //   }
+        // }
         function getExperienceWord(years) {
-          if (years % 10 === 1 && years % 100 !== 11) {
-            return "год";
-          } else if ((years % 10 >= 2 && years % 10 <= 4) && (years % 100 < 12 || years % 100 > 14)) {
-            return "года";
+          if (lang === 'en') {
+            return years === 1 ? "year" : "years";
+          } else if (lang === 'hu') {
+            return "év";
           } else {
-            return "лет";
+            if (years % 10 === 1 && years % 100 !== 11) {
+              return "год";
+            } else if ((years % 10 >= 2 && years % 10 <= 4) && (years % 100 < 12 || years % 100 > 14)) {
+              return "года";
+            } else {
+              return "лет";
+            }
           }
         }
         const experience = data.doc_online_experience;

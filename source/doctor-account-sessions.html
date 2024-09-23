@@ -62,8 +62,7 @@
         </div>
         <div class="header__unlogged unlogged">
           <a class="unlogged__login-btn btn btn--white" data-translate="header_login_btn"></a>
-          <a href="user-signup-start.html" class="unlogged__login-btn btn"
-            data-translate="header_signup_btn"></a>
+          <a href="user-signup-start.html" class="unlogged__login-btn btn" data-translate="header_signup_btn"></a>
         </div>
         <div class="header__logged logged">
           <div class="logged__wrapper">
@@ -91,11 +90,51 @@
           <div class="doctor-account__wrapper">
             <div class="doctor-account__left-col">
               <nav class="doctor-account__nav">
-                <a href="doctor-account-sessions.html" class="doctor-account__nav-link is-active">Сессии</a>
-                <a href="doctor-account-schedule.html" class="doctor-account__nav-link">Расписание</a>
-                <a href="doctor-account-clients.html" class="doctor-account__nav-link">Клиенты</a>
-                <a href="doctor-account-payments.html" class="doctor-account__nav-link">Платежи</a>
-                <a href="doctor-account-settings.html" class="doctor-account__nav-link">Настройки</a>
+                <div class="user-account__nav-logo">
+                  <img src="./img/svg/nav-logo.svg" width="72" height="72" alt="Speak your mind.">
+                </div>
+                <a href="doctor-account-sessions.html" class="doctor-account__nav-link is-active">
+                  <svg width="25" height="25" fill="currentColor">
+                    <use xlink:href="./img/sprite.svg#doc-sessions"></use>
+                  </svg>
+                  <span>Сессии</span>
+                </a>
+                <a href="doctor-account-schedule.html" class="doctor-account__nav-link">
+                  <svg width="25" height="25" fill="currentColor">
+                    <use xlink:href="./img/sprite.svg#doc-schedule"></use>
+                  </svg>
+                  <span>Расписание</span>
+                </a>
+                <a href="doctor-account-clients.html" class="doctor-account__nav-link">
+                  <svg width="25" height="25" fill="currentColor">
+                    <use xlink:href="./img/sprite.svg#doc-clients"></use>
+                  </svg>
+                  <span>Клиенты</span>
+                </a>
+                <a href="doctor-account-payments.html" class="doctor-account__nav-link">
+                  <svg width="25" height="25" fill="currentColor">
+                    <use xlink:href="./img/sprite.svg#user-payment"></use>
+                  </svg>
+                  <span>Платежи</span>
+                </a>
+                <a href="doctor-account-settings.html" class="doctor-account__nav-link">
+                  <svg width="25" height="25" fill="currentColor">
+                    <use xlink:href="./img/sprite.svg#user-settings"></use>
+                  </svg>
+                  <span>Профиль</span>
+                </a>
+                <a href="/faq.html" class="user-account__nav-link">
+                  <svg width="25" height="25" fill="currentColor">
+                    <use xlink:href="./img/sprite.svg#user-help"></use>
+                  </svg>
+                  <span>Помощь</span>
+                </a>
+                <a href="doctor-landing.html" class="user-account__nav-link" id="logout-btn">
+                  <svg width="25" height="25" fill="currentColor">
+                    <use xlink:href="./img/sprite.svg#user-logout"></use>
+                  </svg>
+                  <span>Выход</span>
+                </a>
               </nav>
             </div>
             <div class="doctor-account__right-col">
@@ -107,7 +146,8 @@
                   <ul class="sessions__requests-list list-reset">
                     <li class="sessions__requests-item sessions__requests-item--reschedule">
                       <p class="text-25">
-                        Запрос на перенос сессии от клиента: <a href="#" class="sessions__requests-client" data-open-modal data-modal-id="#client-card">Ксения</a>&nbsp;<span
+                        Запрос на перенос сессии от клиента: <a href="#" class="sessions__requests-client"
+                          data-open-modal data-modal-id="#client-card">Ксения</a>&nbsp;<span
                           class="sessions__requests-date">13 июля</span>
                       </p>
                       <p class="text-18">Предложено новое время: <b><span class="sessions__requests-new-date">пятница 14
@@ -116,13 +156,30 @@
                       <p class="text-18">Если вас не устраивает предложенное время, нажмите “Предложить другое время”.
                       </p>
                       <div class="sessions__requests-btns">
-                        <button type="button" class="btn">Подтвердить</button>
-                        <button type="button" class="btn btn--white" data-open-modal data-modal-id="#doctor-reschedule">Предложить другое время</button>
+                        <button type="button" class="btn">
+                          <svg width="32" height="32" fill="currentColor">
+                            <use xlink:href="./img/sprite.svg#calendar-check"></use>
+                          </svg>
+                          <span>Подтвердить</span>
+                        </button>
+                        <button type="button" class="btn btn--white" data-open-modal data-modal-id="#doctor-reschedule">
+                          <svg width="32" height="32" fill="currentColor">
+                            <use xlink:href="./img/sprite.svg#calendar-reschedule"></use>
+                          </svg>
+                          <span>Предложить другое время</span>
+                        </button>
+                        <button type="button" class="btn btn--red" data-open-modal data-modal-id="#doctor-reschedule">
+                          <svg width="32" height="32" fill="currentColor">
+                            <use xlink:href="./img/sprite.svg#calendar-cancel"></use>
+                          </svg>
+                          <span>Отменить сессию</span>
+                        </button>
                       </div>
                     </li>
                     <li class="sessions__requests-item sessions__requests-item--schedule">
                       <p class="text-25">
-                        Запрос на новую сессию от клиента: <a href="#" class="sessions__requests-client" data-open-modal data-modal-id="#client-card">Ксения</a>
+                        Запрос на новую сессию от клиента: <a href="#" class="sessions__requests-client" data-open-modal
+                          data-modal-id="#client-card">Ксения</a>
                       </p>
                       <p class="text-18">Выбранное время: <b><span class="sessions__requests-new-date">пятница 14
                             июля, 16:00</span></b></p>
@@ -130,8 +187,24 @@
                       <p class="text-18">Если вас не устраивает предложенное время, нажмите “Предложить другое время”.
                       </p>
                       <div class="sessions__requests-btns">
-                        <button type="button" class="btn">Подтвердить</button>
-                        <button type="button" class="btn btn--white" data-open-modal data-modal-id="#doctor-reschedule">Предложить другое время</button>
+                        <button type="button" class="btn">
+                          <svg width="32" height="32" fill="currentColor">
+                            <use xlink:href="./img/sprite.svg#calendar-check"></use>
+                          </svg>
+                          <span>Подтвердить</span>
+                        </button>
+                        <button type="button" class="btn btn--white" data-open-modal data-modal-id="#doctor-reschedule">
+                          <svg width="32" height="32" fill="currentColor">
+                            <use xlink:href="./img/sprite.svg#calendar-reschedule"></use>
+                          </svg>
+                          <span>Предложить другое время</span>
+                        </button>
+                        <button type="button" class="btn btn--red" data-open-modal data-modal-id="#doctor-reschedule">
+                          <svg width="32" height="32" fill="currentColor">
+                            <use xlink:href="./img/sprite.svg#calendar-cancel"></use>
+                          </svg>
+                          <span>Отменить сессию</span>
+                        </button>
                       </div>
                     </li>
                   </ul>
@@ -247,10 +320,10 @@
                       <span class="text-18 videochat__client-id"></span>
                     </h3>
                     <div class="sessions__session-info session-info">
-                      <div class="icon">
-                        <svg width="59" height="41" fill="currentColor">
-                          <use xlink:href="./img/sprite.svg#video"></use>
-                        </svg>
+                      <div class="videochat__user-photo-wrapper">
+                        <div class="videochat__user-photo">
+                          <img src="./img/temp/doc-1.png" width="150" height="150" alt="User photo.">
+                        </div>
                       </div>
                       <div class="next-session">
                         <p class="text-18">Ближайшая сессия:</p>
@@ -280,10 +353,9 @@
     </main>
     <footer class="footer">
       <div class="container">
+        <div class="footer__left"></div>
         <div class="footer__copyright">
-          <span>&copy;</span>
-          <span>Speak Your Mind</span>
-          <span>2023</span>
+          <span>&copy; Speak Your Mind 2023</span>
         </div>
       </div>
     </footer>

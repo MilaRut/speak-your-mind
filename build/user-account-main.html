@@ -62,8 +62,7 @@
         </div>
         <div class="header__unlogged unlogged">
           <a class="unlogged__login-btn btn btn--white" data-translate="header_login_btn"></a>
-          <a href="user-signup-start.html" class="unlogged__login-btn btn"
-            data-translate="header_signup_btn"></a>
+          <a href="user-signup-start.html" class="unlogged__login-btn btn" data-translate="header_signup_btn"></a>
         </div>
         <div class="header__logged logged">
           <div class="logged__wrapper">
@@ -91,9 +90,39 @@
           <div class="user-account__wrapper">
             <div class="user-account__left-col">
               <nav class="user-account__nav">
-                <a href="user-account-main.html" class="user-account__nav-link is-active">Главная</a>
-                <a href="user-account-settings.html" class="user-account__nav-link">Настройки</a>
-                <a href="user-account-payments.html" class="user-account__nav-link">Платежи</a>
+                <div class="user-account__nav-logo">
+                  <img src="./img/svg/nav-logo.svg" width="72" height="72" alt="Speak your mind.">
+                </div>
+                <a href="user-account-main.html" class="user-account__nav-link is-active">
+                  <svg width="25" height="25" fill="currentColor">
+                    <use xlink:href="./img/sprite.svg#user-main"></use>
+                  </svg>
+                  <span>Главная</span>
+                </a>
+                <a href="user-account-payments.html" class="user-account__nav-link">
+                  <svg width="25" height="25" fill="currentColor">
+                    <use xlink:href="./img/sprite.svg#user-payment"></use>
+                  </svg>
+                  <span>Платежи</span>
+                </a>
+                <a href="user-account-settings.html" class="user-account__nav-link">
+                  <svg width="25" height="25" fill="currentColor">
+                    <use xlink:href="./img/sprite.svg#user-settings"></use>
+                  </svg>
+                  <span>Профиль</span>
+                </a>
+                <a href="/faq.html" class="user-account__nav-link">
+                  <svg width="25" height="25" fill="currentColor">
+                    <use xlink:href="./img/sprite.svg#user-help"></use>
+                  </svg>
+                  <span>Помощь</span>
+                </a>
+                <a href="/doctor-landing.html" class="user-account__nav-link" id="logout-btn">
+                  <svg width="25" height="25" fill="currentColor">
+                    <use xlink:href="./img/sprite.svg#user-logout"></use>
+                  </svg>
+                  <span>Выход</span>
+                </a>
               </nav>
 
               <!-- Временное вспомогательное меню  -->
@@ -103,10 +132,9 @@
                 style="position: fixed; min-width: 360px; z-index: 100; cursor: pointer; display: flex; flex-direction: column; top: 0; right: 0; background-color: lightgray;">
                 <summary>Варианты состояний</summary>
                 <p><b>Главная:</b></p>
-                <div utils-btn-main data-id="main-1-not-confirmed">1-я сессия: нет подтверждения терапевта</div>
-                <div utils-btn-main data-id="main-1-confirmed">1-я сессия: терапевт подтвердил</div>
-                <div utils-btn-main data-id="main-not-confirmed">след. сессии: нет подтверждения терапевта</div>
-                <div utils-btn-main data-id="main-confirmed">след. сессии: терапевт подтвердил</div>
+                <div utils-btn-main data-id="main-not-confirmed">нет подтверждения терапевта</div>
+                <div utils-btn-main data-id="main-1-confirmed">терапевт подтвердил 1 сессию</div>
+                <div utils-btn-main data-id="main-confirmed">терапевт подтвердил сессию</div>
                 <div utils-btn-main data-id="main-not-scheduled">нет текущей записи</div>
                 <div utils-btn-main data-id="main-change">перенос сессии</div>
                 <div utils-btn-main data-id="main-change-not-confirmed">перенос сессии не подтвержден</div>
@@ -120,17 +148,19 @@
 
             </div>
             <div class="user-account__right-col">
-              <div class="user-account__main" data-utils="main-1-not-confirmed">
-                <h2 class="title">Ваш профиль</h2>
-                <p class="text-25 text-success">
-                  <svg width="36" height="36" fill="currentColor">
-                    <use xlink:href="./img/sprite.svg#success"></use>
-                  </svg>
-                  <span>Карта успешно привязана</span>
-                </p>
-                <p class="text-18 message_error">Невозможно списать средства за сессию, запланированную на 6 июля,
-                  20:00.
-                  Пожалуйста, проверьте платежные данные.</p>
+              <div class="user-account__main" data-utils="main-not-confirmed">
+                <h2 class="user-account__title title">Личный кабинет</h2>
+                <div class="message_error">
+                  <p class="text-18">Невозможно списать средства за сессию, запланированную на 6 июля,
+                    20:00.<br>
+                    Пожалуйста, проверьте платежные данные.</p>
+                  <button type="button" class="btn user-account__check-card">
+                    <svg width="32" height="32" fill="currentColor">
+                      <use xlink:href="./img/sprite.svg#user-payment"></use>
+                    </svg>
+                    <span>Проверить карту</span>
+                  </button>
+                </div>
                 <div class="user-account__message">
                   <p class="text-25">Ваш терапевт</p>
                   <p class="text-18 message_1">Запрос на назначение сессии на <span class="session-time">15:00 6
@@ -148,7 +178,7 @@
                 <div class="user-account__session-wrapper">
                   <div class="user-account__doctor">
                     <div class="user-account__doctor-image">
-                      <img src="./img/content/doctor-thumb.png" width="100" height="100" alt="">
+                      <img src="./img/temp/doc-9.png" width="100" height="100" alt="">
                     </div>
                     <div class="user-account__doctor-info">
                       <p class="text-31">Олеся Парада</p>
@@ -163,12 +193,13 @@
                       <p class="text-25"><span class="doctor-name">Олеся Парада</span> запросила перенос сессии <span
                           class="session-date">13 июля</span></p>
                       <p class="text-18">Предложено новое время: <span class="new-date"><b>пятница 14 июля,
-                          16:30</b></span><br>
+                            16:30</b></span><br>
                         Если вы согласны, нажмите “Подтвердить”.<br>
                         Если вас не устраивает предложенное время, нажмите “Предложить другое время”.</p>
                       <div class="btns">
                         <button class="btn">Подтвердить</button>
-                        <button class="btn btn--white" utils-btn-main data-id="main-change">Предложить другое время</button>
+                        <button class="btn btn--white" utils-btn-main data-id="main-change">Предложить другое
+                          время</button>
                         <button class="btn btn--white">Отменить сессию</button>
                       </div>
                     </div>
@@ -197,7 +228,7 @@
                 <div class="user-account__session-change-wrapper">
                   <div class="user-account__doctor">
                     <div class="user-account__doctor-image">
-                      <img src="./img/content/doctor-thumb.png" width="100" height="100" alt="">
+                      <img src="./img/temp/doc-9.png" width="100" height="100" alt="">
                     </div>
                     <div class="user-account__doctor-info">
                       <p class="text-31">Олеся Парада</p>
@@ -410,7 +441,8 @@
                         <span class="doctor__submit-text-2">&nbsp;и продолжить</span>
                       </button>
                       <span class="error-message">Пожалуйста, выберите дату</span>
-                      <button type="button" class="btn btn--white user-account__session-change-reset" utils-btn-main data-id="main-confirmed">Отмена</button>
+                      <button type="button" class="btn btn--white user-account__session-change-reset" utils-btn-main
+                        data-id="main-confirmed">Отмена</button>
                     </form>
                   </div>
                 </div>
@@ -422,10 +454,9 @@
     </main>
     <footer class="footer">
       <div class="container">
+        <div class="footer__left"></div>
         <div class="footer__copyright">
-          <span>&copy;</span>
-          <span>Speak Your Mind</span>
-          <span>2023</span>
+          <span>&copy; Speak Your Mind 2023</span>
         </div>
       </div>
     </footer>

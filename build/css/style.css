@@ -561,6 +561,13 @@ button,
   -webkit-box-flex: 1;
   -ms-flex-positive: 1;
   flex-grow: 1;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -ms-flex-direction: column;
+  flex-direction: column;
 }
 
 .visually-hidden {
@@ -706,7 +713,7 @@ button {
 .text-96 {
   font-size: 96px;
   font-weight: 400;
-  line-height: 1;
+  line-height: 1.2;
 }
 
 .text-55 {
@@ -730,13 +737,19 @@ button {
 .text-25 {
   font-size: 25px;
   font-weight: 400;
-  line-height: 1;
+  line-height: 1.2;
+}
+
+.text-23 {
+  font-size: 23px;
+  font-weight: 400;
+  line-height: 1.2;
 }
 
 .text-20 {
   font-size: 20px;
   font-weight: 400;
-  line-height: 1;
+  line-height: 1.2;
 }
 
 .text-18 {
@@ -844,7 +857,7 @@ button {
 
 .modal__content {
   position: relative;
-  width: 600px;
+  width: 660px;
   padding: 40px;
   background-color: #ffffff;
   -webkit-box-shadow: 0px 0px 25px 0px rgba(0, 0, 0, 0.25);
@@ -999,6 +1012,12 @@ button {
   background-color: #ffffff;
   border: 1px solid #039c69;
   color: #00ac73;
+}
+
+.btn--red {
+  background-color: #ffffff;
+  border: 1px solid #DF0C4B;
+  color: #DF0C4B;
 }
 
 .btn:disabled {
@@ -1886,7 +1905,6 @@ button {
 
 .footer {
   background: #ffffff;
-  padding: 32px 60px;
 }
 
 .footer__copyright {
@@ -1894,7 +1912,30 @@ button {
   font-size: 13px;
   font-weight: 400;
   line-height: 1;
+  padding: 32px 48px;
   text-align: center;
+}
+
+.internal .footer .container {
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: 124px auto;
+  grid-template-columns: 124px auto;
+}
+
+.internal .footer__left {
+  background-color: #f5f3ee;
+}
+
+.internal .footer__copyright {
+  text-align: left;
+}
+
+.internal:has(.doctor-account) .footer .container {
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: 145px auto;
+  grid-template-columns: 145px auto;
 }
 
 .login .container {
@@ -2439,6 +2480,40 @@ button {
   font-size: 28px;
 }
 
+.time-specific-choose {
+  display: none;
+}
+
+.questions__therapy-time:has(input#time-specific:checked) .time-specific-choose {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.questions__therapy-time:has(input#time-specific:checked) .time-specific-choose label {
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: 200px auto;
+  grid-template-columns: 200px auto;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  padding-top: 20px;
+}
+
+.questions__therapy-time:has(input#time-specific:checked) .time-specific-choose input {
+  width: 100%;
+  max-width: 330px;
+  height: 44px;
+  padding: 4px 10px;
+  font-size: 20px;
+  font-weight: 400;
+  line-height: 1;
+  border: 1px solid #202020;
+  background: #ffffff;
+  border-radius: 4px;
+}
+
 .choice .container {
   padding-bottom: 80px;
 }
@@ -2885,24 +2960,83 @@ button {
   text-transform: none !important;
 }
 
+.modal .card form {
+  padding: 24px 24px 48px;
+}
+
+.user-account {
+  min-height: 100%;
+  -webkit-box-flex: 1;
+  -ms-flex-positive: 1;
+  flex-grow: 1;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
 .user-account .container {
-  padding-top: 67px;
-  padding-bottom: 80px;
+  min-height: 100%;
+  -webkit-box-flex: 1;
+  -ms-flex-positive: 1;
+  flex-grow: 1;
 }
 
 .user-account__wrapper {
   display: -ms-grid;
   display: grid;
-  -ms-grid-columns: 173px auto;
-  grid-template-columns: 173px auto;
+  -ms-grid-columns: 124px auto;
+  grid-template-columns: 124px auto;
   gap: 80px;
+  height: 100%;
+}
+
+.user-account__left-col,
+.user-account__right-col {
+  padding-top: 40px;
+}
+
+.user-account__left-col {
+  background-color: #f5f3ee;
+}
+
+.user-account__nav {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+}
+
+.user-account__nav-logo {
+  width: 72px;
+  height: 72px;
+  overflow: hidden;
+  margin-bottom: 24px;
+}
+
+.user-account__nav-logo img {
+  width: 100%;
+  height: 100%;
+  -o-object-fit: containx;
+  object-fit: containx;
 }
 
 .user-account__nav-link {
-  display: block;
-  color: #00ac73;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  gap: 5px;
+  color: #555555;
   padding: 10px 8px;
-  font-size: 18px;
+  font-size: 16px;
   font-weight: 400;
   line-height: 1.2;
   background-color: rgba(255, 255, 255, 0);
@@ -2910,34 +3044,55 @@ button {
   border-bottom: 3px solid rgba(255, 255, 255, 0);
   width: 100%;
   text-align: start;
-  -webkit-transition: all 0.5s ease-in;
-  transition: all 0.5s ease-in;
+}
+
+.user-account__nav-link svg {
+  fill: #555555;
+  stroke: #555555;
+  color: #555555;
 }
 
 .user-account__nav-link a {
-  color: #00ac73;
+  color: #039c69;
 }
 
+.user-account__nav-link.is-active,
 .user-account__nav-link:hover {
-  border-bottom: 3px solid #00ac73;
-  -webkit-transition: all 0.5s ease-in;
-  transition: all 0.5s ease-in;
+  color: #039c69;
 }
 
-.user-account__nav-link.is-active {
-  background: #c5fdea;
-  border-bottom: 3px solid #00ac73;
-  color: #000000;
-  -webkit-transition: all 0.5s ease-in;
-  transition: all 0.5s ease-in;
+.user-account__nav-link.is-active svg,
+.user-account__nav-link:hover svg {
+  color: #039c69;
 }
 
-.user-account__nav-link.is-active a {
-  color: #202020;
+.user-account__title {
+  font-size: 44px;
+  font-weight: 700;
+  margin-bottom: 48px;
+  line-height: 1.2;
 }
 
 .user-account__main .title {
-  margin-bottom: 40px;
+  margin-bottom: 24px;
+}
+
+.user-account__subtitle {
+  font-size: 18px;
+  line-height: 1.2;
+  color: #2e2e2e;
+  margin-bottom: 24px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -ms-flex-direction: column;
+  flex-direction: column;
+}
+
+.user-account__subtitle span {
+  margin-bottom: 10px;
 }
 
 .user-account .text-success {
@@ -2948,6 +3103,13 @@ button {
   -ms-flex-align: center;
   align-items: center;
   margin-bottom: 72px;
+  background-color: #f5f3ee;
+  border: 1px solid #a3a3a3;
+  border-radius: 16px;
+  padding: 16px;
+  width: -webkit-fit-content;
+  width: -moz-fit-content;
+  width: fit-content;
 }
 
 .user-account .text-success svg {
@@ -2975,7 +3137,14 @@ button {
 }
 
 .user-account__doctor-image {
+  width: 100px;
+  min-width: 100px;
+  height: 100px;
   margin-right: 10px;
+}
+
+.user-account__doctor-info {
+  width: 70%;
 }
 
 .user-account__doctor-info p {
@@ -2990,7 +3159,7 @@ button {
   -ms-flex-align: center;
   align-items: center;
   border-radius: 73px;
-  border: 1px solid #00ac73;
+  border: 1px solid #039c69;
   padding: 8px 24px;
 }
 
@@ -3025,6 +3194,10 @@ button {
 .user-account__doctor-change-request {
   width: 100%;
   margin: 40px 0 0;
+  border: 1px solid #A3A3A3;
+  border-radius: 16px;
+  padding: 16px 16px 40px;
+  background-color: #F5F3EE;
 }
 
 .user-account__doctor-change-request p:first-child {
@@ -3044,8 +3217,39 @@ button {
 }
 
 .message_error {
-  color: red;
+  border: 1px solid #a3a3a3;
+  border-radius: 16px;
+  padding: 16px 16px 24px;
+  width: 723px;
+  background-color: #ffcbdb;
   margin-bottom: 48px;
+}
+
+.message_error p {
+  font-size: 18px;
+  line-height: 1.2;
+  margin-bottom: 16px;
+  color: #df0c4b;
+}
+
+.user-account__check-card {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  padding: 8px 24px;
+}
+
+.user-account__check-card svg {
+  color: #ffffff;
+  margin-right: 8px;
+}
+
+.user-account__check-card span {
+  font-size: 20px;
+  color: #ffffff;
 }
 
 .user-account__main .text-success,
@@ -3059,16 +3263,6 @@ button {
 .user-account__main .user-account__doctor-change-request,
 .user-account__main .message_error {
   display: none;
-}
-
-.user-account__main[data-utils=main-1-not-confirmed] .text-success {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-}
-
-.user-account__main[data-utils=main-1-not-confirmed] .message_1 {
-  display: block;
 }
 
 .user-account__main[data-utils=main-1-confirmed] .message_2,
@@ -3181,8 +3375,21 @@ button {
   display: block;
 }
 
+.user-account__settings[data-utils=settings-reg-completed] .message,
+.user-account__settings[data-utils=settings-reg-completed] .user-account__contact,
+.user-account__settings[data-utils=settings-reg-completed] .settings__rechoice.rechoice-1,
+.user-account__settings[data-utils=settings-reg-completed] .settings__rechoice.rechoice-2 {
+  display: none;
+}
+
 .user-account__settings[data-utils=settings-main] .settings__rechoice.rechoice-1,
 .user-account__settings[data-utils=settings-main] .settings__rechoice.rechoice-2 {
+  display: none;
+}
+
+.user-account__settings[data-utils=settings-main] .first-session-msg,
+.user-account__settings[data-utils=settings-main] .welcome-message,
+.user-account__settings[data-utils=settings-main] .text-success {
   display: none;
 }
 
@@ -3208,6 +3415,10 @@ button {
 
 .user-account__settings[data-utils=settings-rechoice-2] .settings__rechoice.rechoice-2 {
   display: block;
+}
+
+.first-session-msg {
+  width: 100%;
 }
 
 .session-info {
@@ -3269,6 +3480,38 @@ button {
   margin-bottom: 24px;
 }
 
+.settings__main .title {
+  margin-bottom: 24px;
+}
+
+.settings__main .user-account__subtitle {
+  font-size: 18px;
+  line-height: 1.2;
+  color: #2e2e2e;
+  margin-bottom: 24px;
+}
+
+.settings .text-success {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  margin-bottom: 72px;
+  background-color: #f5f3ee;
+  border: 1px solid #a3a3a3;
+  border-radius: 16px;
+  padding: 16px;
+  width: -webkit-fit-content;
+  width: -moz-fit-content;
+  width: fit-content;
+}
+
+.settings .text-success svg {
+  margin-right: 10px;
+}
+
 .settings__heading {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -3321,7 +3564,7 @@ button {
   -webkit-box-align: center;
   -ms-flex-align: center;
   align-items: center;
-  margin-bottom: 61px;
+  margin-bottom: 24px;
 }
 
 .settings__userinfo label span {
@@ -3365,9 +3608,20 @@ button {
   box-shadow: 0 0 10px 0 rgba(82, 162, 255, 0.75) inset;
 }
 
+.settings__userinfo select {
+  border: 1px solid #2E2E2E;
+  border-radius: 4px;
+  padding: 8px 10px;
+  width: 350px;
+  height: 40px;
+  min-width: 350px;
+  -webkit-box-shadow: inset 0 0 10px 0 rgba(123, 97, 255, 0.25);
+  box-shadow: inset 0 0 10px 0 rgba(123, 97, 255, 0.25);
+}
+
 .settings__userinfo .show-password-btn {
-  top: 40px;
-  right: 740px;
+  top: 30px;
+  right: 720px;
 }
 
 .settings__edit-btn {
@@ -3480,11 +3734,11 @@ button {
 
 .doctor-account .settings #doctor-name,
 .doctor-account .settings #doctor-gender {
-  min-width: 350px;
+  min-width: 250px;
 }
 
 .doctor-account .settings #doctor-birth-day {
-  width: 37px;
+  width: 45px;
   height: 32px;
 }
 
@@ -3736,6 +3990,13 @@ button {
   -ms-flex-pack: center;
   justify-content: center;
   margin-bottom: 4px;
+}
+
+.settings__submit-btn {
+  text-transform: uppercase;
+  font-weight: 900;
+  font-size: 20px;
+  line-height: 1.1;
 }
 
 .avatar-upload fieldset {
@@ -4120,24 +4381,86 @@ button {
   width: fit-content;
 }
 
+.doc-questionary__submit-btn {
+  text-transform: uppercase;
+  font-weight: 900;
+  font-size: 20px;
+  line-height: 1.1;
+}
+
+.doctor-account {
+  min-height: 100%;
+  -webkit-box-flex: 1;
+  -ms-flex-positive: 1;
+  flex-grow: 1;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
 .doctor-account .container {
-  padding-top: 67px;
-  padding-bottom: 80px;
+  min-height: 100%;
+  -webkit-box-flex: 1;
+  -ms-flex-positive: 1;
+  flex-grow: 1;
 }
 
 .doctor-account__wrapper {
   display: -ms-grid;
   display: grid;
-  -ms-grid-columns: 173px auto;
-  grid-template-columns: 173px auto;
-  gap: 60px;
+  -ms-grid-columns: 145px auto;
+  grid-template-columns: 145px auto;
+  gap: 80px;
+  height: 100%;
+}
+
+.doctor-account__left-col,
+.doctor-account__right-col {
+  padding-top: 40px;
+}
+
+.doctor-account__left-col {
+  background-color: #f5f3ee;
+}
+
+.doctor-account__nav {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+}
+
+.doctor-account__nav-logo {
+  width: 72px;
+  height: 72px;
+  overflow: hidden;
+  margin-bottom: 24px;
+}
+
+.doctor-account__nav-logo img {
+  width: 100%;
+  height: 100%;
+  -o-object-fit: containx;
+  object-fit: containx;
 }
 
 .doctor-account__nav-link {
-  display: block;
-  color: #00ac73;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  gap: 5px;
+  color: #555555;
   padding: 10px 8px;
-  font-size: 18px;
+  font-size: 16px;
   font-weight: 400;
   line-height: 1.2;
   background-color: rgba(255, 255, 255, 0);
@@ -4145,28 +4468,26 @@ button {
   border-bottom: 3px solid rgba(255, 255, 255, 0);
   width: 100%;
   text-align: start;
-  -webkit-transition: all 0.5s ease-in;
-  transition: all 0.5s ease-in;
+}
+
+.doctor-account__nav-link svg {
+  fill: #555555;
+  stroke: #555555;
+  color: #555555;
 }
 
 .doctor-account__nav-link a {
-  color: #00ac73;
+  color: #039c69;
 }
 
+.doctor-account__nav-link.is-active,
 .doctor-account__nav-link:hover {
-  border-bottom: 3px solid #00ac73;
-  -webkit-transition: all 0.5s ease-in;
-  transition: all 0.5s ease-in;
+  color: #039c69;
 }
 
-.doctor-account__nav-link.is-active {
-  background: #c5fdea;
-  border-bottom: 3px solid #00ac73;
-  color: #000000;
-}
-
-.doctor-account__nav-link.is-active a {
-  color: #202020;
+.doctor-account__nav-link.is-active svg,
+.doctor-account__nav-link:hover svg {
+  color: #039c69;
 }
 
 .doctor-account__heading {
@@ -4253,7 +4574,11 @@ button {
 }
 
 .sessions__requests-item {
+  background-color: #F5F3EE;
+  border: 1px solid #A3A3A3;
+  border-radius: 16px;
   margin-bottom: 30px;
+  padding: 16px;
 }
 
 .sessions__requests-btns {
@@ -4266,6 +4591,16 @@ button {
 
 .sessions__requests-btns button {
   padding: 8px 14px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  gap: 8px;
 }
 
 .sessions__content {
@@ -4361,6 +4696,10 @@ button {
   align-items: center;
 }
 
+.sessions__requests-new-date {
+  color: #FF5C00;
+}
+
 .videochat__heading {
   margin-bottom: 34px;
 }
@@ -4407,6 +4746,47 @@ button {
 
 .videochat__btn svg {
   margin-right: 8px;
+}
+
+.videochat__user-photo-wrapper {
+  position: relative;
+}
+
+.videochat__user-photo-wrapper::after {
+  position: absolute;
+  content: "";
+  bottom: 0;
+  left: 50%;
+  width: 48px;
+  height: 48px;
+  background: url("../../img/svg/video-icon.svg") center no-repeat;
+}
+
+.videochat__user-photo {
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+  overflow: hidden;
+}
+
+.videochat__user-photo img {
+  width: 100%;
+  height: 100%;
+  -o-object-fit: cover;
+  object-fit: cover;
+}
+
+.videochat__client-name {
+  font-weight: 700;
+  font-size: 35px;
+}
+
+.videochat__client-id {
+  border-radius: 8px;
+  padding: 4px;
+  background-color: #EAEAEA;
+  font-size: 18px;
+  color: #777777;
 }
 
 .schedule {
@@ -4706,7 +5086,7 @@ button {
 }
 
 .clients__table th {
-  background-color: #c5fdea;
+  background-color: #F5F3EE;
   text-align: start;
   font-weight: 400;
   padding: 8px;
@@ -4747,6 +5127,10 @@ button {
 .clients__item--requested .clients__actions-btn--timeoffer,
 .clients__item--requested .clients__actions-btn--cancel {
   display: block;
+}
+
+.clients__item--requested .clients__next-session {
+  color: #FF5C00;
 }
 
 .clients__item--unapproved .clients__session-status {
@@ -4899,10 +5283,11 @@ button {
 }
 
 .payments__history th {
-  background-color: #c5fdea;
+  background-color: #555555;
   text-align: start;
   font-weight: 400;
   padding: 8px;
+  color: #ffffff;
 }
 
 .payments__history td {
@@ -4915,7 +5300,8 @@ button {
 }
 
 .doctor-account .payments th {
-  background-color: #c5fdea;
+  background-color: #F5F3EE;
+  color: #000000;
 }
 
 .doctor-account .payments__session-time {

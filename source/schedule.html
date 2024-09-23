@@ -422,7 +422,7 @@
 
       const dataToSend = JSON.stringify({ schedule: dataObject, timeZone: currentTimeZoneOffsetInHours });
 
-      fetch('http://63.250.47.203:3000/doctor_schedule', {
+      fetch('http://63.250.47.203:8000/doctor_schedule', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json'
@@ -448,7 +448,7 @@
 
 
     function getDatafromBakend() {
-      fetch('http://63.250.47.203:3000/get_doctor_scheldure/0')
+      fetch('http://63.250.47.203:8000/get_doctor_scheldure/0')
         .then(response => {
           if (!response.ok) {
             throw new Error('Network response was not ok');

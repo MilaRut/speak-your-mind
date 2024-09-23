@@ -44,7 +44,7 @@
         border-radius: 4px;
 
         &::placeholder {
-          color: #555555;
+          color: $color-matterhorn;
         }
       }
     }
@@ -225,6 +225,36 @@
   .signup-header {
     &__link {
       font-size: 28px;
+    }
+  }
+}
+
+.time-specific-choose {
+  display: none;
+}
+
+.questions__therapy-time:has(input#time-specific:checked) {
+  .time-specific-choose {
+    display: flex;
+
+    label {
+      display: grid;
+      grid-template-columns: 200px auto;
+      align-items: center;
+      padding-top: 20px;
+    }
+
+    input {
+      width: 100%;
+      max-width: 330px;
+      height: 44px;
+      padding: 4px 10px;
+      font-size: 20px;
+      font-weight: 400;
+      line-height: 1;
+      border: 1px solid #202020;
+      background: $color-default-white;
+      border-radius: 4px;
     }
   }
 }

@@ -25,6 +25,7 @@
       border-bottom: 1px solid $color-dark-gray;
 
       &.error {
+
         .payments__processed,
         .payments__status {
           color: $color-red;
@@ -33,10 +34,11 @@
     }
 
     th {
-      background-color: $color-humming-bird;
+      background-color: $color-matterhorn;
       text-align: start;
       font-weight: 400;
       padding: 8px;
+      color: $color-default-white;
     }
 
     td {
@@ -53,7 +55,8 @@
 .doctor-account {
   .payments {
     th {
-      background-color: $color-humming-bird;
+      background-color: #F5F3EE;
+      color: $color-default-black;
     }
 
     &__session-time {

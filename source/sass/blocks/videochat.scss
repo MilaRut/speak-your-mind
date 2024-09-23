@@ -29,6 +29,7 @@
       #reschedule-session {
         display: none;
       }
+
       #schedule-session {
         display: inline-flex;
       }
@@ -42,4 +43,44 @@
       margin-right: 8px;
     }
   }
+}
+
+.videochat__user-photo-wrapper {
+  position: relative;
+
+  &::after {
+    position: absolute;
+    content: "";
+    bottom: 0;
+    left: 50%;
+    width: 48px;
+    height: 48px;
+    background: url('../../img/svg/video-icon.svg') center no-repeat;
+  }
+}
+
+.videochat__user-photo {
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+  overflow: hidden;
+
+  img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+}
+
+.videochat__client-name {
+  font-weight: 700;
+  font-size: 35px;
+}
+
+.videochat__client-id {
+  border-radius: 8px;
+  padding: 4px;
+  background-color: #EAEAEA;
+  font-size: 18px;
+  color: #777777;
 }

@@ -62,8 +62,7 @@
         </div>
         <div class="header__unlogged unlogged">
           <a class="unlogged__login-btn btn btn--white" data-translate="header_login_btn"></a>
-          <a href="user-signup-start.html" class="unlogged__login-btn btn"
-            data-translate="header_signup_btn"></a>
+          <a href="user-signup-start.html" class="unlogged__login-btn btn" data-translate="header_signup_btn"></a>
         </div>
         <div class="header__logged logged">
           <div class="logged__wrapper">
@@ -116,8 +115,7 @@
               <br>
               <p class="text-18">
                 <span data-translate="signup_text_doc"></span>
-                <a href="doctor-signup.html" class="login__signup-link text-green"
-                  data-translate="signup_link_doc"></a>
+                <a href="doctor-signup.html" class="login__signup-link text-green" data-translate="signup_link_doc"></a>
               </p>
             </div>
           </div>
@@ -127,10 +125,9 @@
     </main>
     <footer class="footer">
       <div class="container">
+        <div class="footer__left"></div>
         <div class="footer__copyright">
-          <span>&copy;</span>
-          <span>Speak Your Mind</span>
-          <span>2023</span>
+          <span>&copy; Speak Your Mind 2023</span>
         </div>
       </div>
     </footer>
@@ -149,7 +146,7 @@
           password: password
         };
 
-        fetch('http://63.250.47.203:3000/login', {
+        fetch('http://63.250.47.203:8000/login', {
           method: 'POST',
           headers: {
             'Content-Type': 'application/json'
@@ -169,6 +166,11 @@
               alert('Ошибка');
             } else {
               localStorage.setItem('token', data.token); // Сохраняем токен в localStorage
+              if (data.is_therapist) {
+                window.location.href = '/doctor-account-settings.html'
+              } else {
+                window.location.href = '/user-signup-main.html';
+              }
 
               // Доп проверка и редиректы:
               // is_therapist && !карта - doctor-account-settings.html
@@ -177,14 +179,12 @@
               // !is_therapist && анкета && !терапевт && !карта - user-signup-choice.html
               // !is_therapist && анкета && терапевт && !карта - user-signup-payment.html
               // !is_therapist && анкета && терапевт && карта - user-account-main.html
-
-              window.location.href = '/user-signup-main.html';
             };
           })
           .catch(function (error) {
             // Обработка ошибки
             // добавить обработку ошибки по статусам
-            alert('Ошибка');
+            console.log(error);
           });
       });
     });

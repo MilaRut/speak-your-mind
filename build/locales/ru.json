@@ -110,6 +110,14 @@
   "card_permission_2": "условия сервиса",
   "card_permission_3": " и разрешаете ",
   "card_permission_4": "автосписания",
-  "card_submit_btn": "Добавить карту"
-
+  "card_submit_btn": "Добавить карту",
+  "doc_q_title": "Как начать сотрудничество с нами?",
+  "doc_q_subtitle": "Пожалуйста, заполните анкету (поля, помеченные звездочкой, обязатальны)",
+  "doc_q_name": "Ваши Фамилия Имя Отчество*",
+  "doc_q_name_placeholder": "ФИО",
+  "doc_q_dob": "Ваша дата рождения? Число. Месяц. Год.*",
+  "doc_q_gender": "Ваш пол*",
+  "doc_q_gender_choose": "Выбрать",
+  "doc_q_gender_male": "Мужской",
+  "doc_q_gender_female": "Женский"
 }

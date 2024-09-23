@@ -15,6 +15,12 @@
     color: $color-jade;
   }
 
+  &--red {
+    background-color: $color-default-white;
+    border: 1px solid #DF0C4B;
+    color: #DF0C4B;
+  }
+
   &:disabled {
     opacity: 0.5;
     background-color: $color-whisper;

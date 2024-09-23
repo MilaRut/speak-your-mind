@@ -386,6 +386,12 @@
                     <span class="text-14" data-translate="questions_therapy_time_specific">Конкретное</span>
                   </label>
                 </div>
+                <div class="time-specific-choose">
+                  <label for="specific_date_time">
+                    <span>Выберите дату и время</span>
+                    <input type="datetime-local" name="specific_date_time" id="specific_date_time">
+                  </label>
+                </div>
               </div>
               <hr>
               <div class="questions__radio questions__therapy-price">
@@ -440,10 +446,9 @@
     </main>
     <footer class="footer">
       <div class="container">
+        <div class="footer__left"></div>
         <div class="footer__copyright">
-          <span>&copy;</span>
-          <span>Speak Your Mind</span>
-          <span>2023</span>
+          <span>&copy; Speak Your Mind 2023</span>
         </div>
       </div>
     </footer>
@@ -480,7 +485,7 @@
 
       };
 
-      fetch('http://63.250.47.203:3000/register', {
+      fetch('http://63.250.47.203:8000/register', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json'
@@ -509,7 +514,7 @@
 
 
       function getToken(loginData) {
-        fetch('http://63.250.47.203:3000/login', {
+        fetch('http://63.250.47.203:8000/login', {
           method: 'POST',
           headers: {
             'Content-Type': 'application/json'

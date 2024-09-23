@@ -131,10 +131,9 @@
     </main>
     <footer class="footer">
       <div class="container">
+        <div class="footer__left"></div>
         <div class="footer__copyright">
-          <span>&copy;</span>
-          <span>Speak Your Mind</span>
-          <span>2023</span>
+          <span>&copy; Speak Your Mind 2023</span>
         </div>
       </div>
     </footer>
@@ -155,7 +154,7 @@
           password: password
         };
 
-        fetch('http://63.250.47.203:3000/register', {
+        fetch('http://63.250.47.203:8000/register', {
           method: 'POST',
           headers: {
             'Content-Type': 'application/json'
@@ -184,7 +183,7 @@
 
 
         function getToken(loginData) {
-          fetch('http://63.250.47.203:3000/login', {
+          fetch('http://63.250.47.203:8000/register', {
             method: 'POST',
             headers: {
               'Content-Type': 'application/json'

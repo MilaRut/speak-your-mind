@@ -1,6 +1,6 @@
 .admin {
   .header {
-    background-color: #555555;
+    background-color: $color-matterhorn;
   }
 
   .header__logo-wrapper {
@@ -54,7 +54,7 @@
 }
 
 .admin-content__left-col {
-  background-color: #555555;
+  background-color: $color-matterhorn;
 }
 
 .admin-content__nav {
@@ -230,7 +230,7 @@
 }
 
 .admin-table__head {
-  background-color: #555555;
+  background-color: $color-matterhorn;
   color: $color-default-white;
 }
 
@@ -374,7 +374,7 @@
 }
 
 input.personal {
-  border: 1px solid #555555;
+  border: 1px solid $color-matterhorn;
   border-radius: 4px;
   padding: 8px 10px;
   width: 350px;
