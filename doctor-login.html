@@ -125,10 +125,9 @@
     </main>
     <footer class="footer">
       <div class="container">
+        <div class="footer__left"></div>
         <div class="footer__copyright">
-          <span>&copy;</span>
-          <span>Speak Your Mind</span>
-          <span>2023</span>
+          <span>&copy; Speak Your Mind 2023</span>
         </div>
       </div>
     </footer>
@@ -147,7 +146,7 @@
           password: password
         };
 
-        fetch('http://63.250.47.203:3000/login', {
+        fetch('http://63.250.47.203:8000/login', {
           method: 'POST',
           headers: {
             'Content-Type': 'application/json'
@@ -162,11 +161,17 @@
           })
           .then(function (data) {
             // Обработка успешного ответа от сервера
-            localStorage.setItem('token', data.token); // Сохраняем токен в localStorage
-            window.location.href = '/doctor-account-settings.html';
+            if (!data.status) {
+              alert('Ошибка');
+            } else {
+              localStorage.setItem('token', data.token); // Сохраняем токен в localStorage
+              window.location.href = '/doctor-account-settings.html';
+            }
           })
           .catch(function (error) {
             // Обработка ошибки
+            // добавить обработку ошибки по статусам
+            alert('Ошибка');
           });
       });
     });

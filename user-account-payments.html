@@ -91,15 +91,45 @@
           <div class="user-account__wrapper">
             <div class="user-account__left-col">
               <nav class="user-account__nav">
-                <a href="user-account-main.html" class="user-account__nav-link">Главная</a>
-                <a href="user-account-settings.html" class="user-account__nav-link">Настройки</a>
-                <a href="user-account-payments.html" class="user-account__nav-link is-active">Платежи</a>
+                <div class="user-account__nav-logo">
+                  <img src="./img/svg/nav-logo.svg" width="72" height="72" alt="Speak your mind.">
+                </div>
+                <a href="user-account-main.html" class="user-account__nav-link">
+                  <svg width="25" height="25" fill="currentColor">
+                    <use xlink:href="./img/sprite.svg#user-main"></use>
+                  </svg>
+                  <span>Главная</span>
+                </a>
+                <a href="user-account-payments.html" class="user-account__nav-link is-active">
+                  <svg width="25" height="25" fill="currentColor">
+                    <use xlink:href="./img/sprite.svg#user-payment"></use>
+                  </svg>
+                  <span>Платежи</span>
+                </a>
+                <a href="user-account-settings.html" class="user-account__nav-link">
+                  <svg width="25" height="25" fill="currentColor">
+                    <use xlink:href="./img/sprite.svg#user-settings"></use>
+                  </svg>
+                  <span>Профиль</span>
+                </a>
+                <a href="/faq.html" class="user-account__nav-link">
+                  <svg width="25" height="25" fill="currentColor">
+                    <use xlink:href="./img/sprite.svg#user-help"></use>
+                  </svg>
+                  <span>Помощь</span>
+                </a>
+                <a href="index.html" class="user-account__nav-link" id="logout-btn">
+                  <svg width="25" height="25" fill="currentColor">
+                    <use xlink:href="./img/sprite.svg#user-logout"></use>
+                  </svg>
+                  <span>Выход</span>
+                </a>
               </nav>
             </div>
             <div class="user-account__right-col">
               <div class="user-account__payments payments">
-                <div class="payments__heading">
-                  <h2 class="text-25">Способы оплаты</h2>
+                <div class="user-account__heading">
+                  <h2 class="user-account__title">Способы оплаты</h2>
                 </div>
                 <div class="payments__card">
                   <p class="payments__card-info">Оплата производится с карты <span>4276 55ХХ ХХХХ 3200</span></p>
@@ -107,7 +137,7 @@
                 <button class="payments__btn btn btn--white" data-open-modal data-modal-id="#new-card-popup">Привязать
                   другую карту</button>
                 <div class="payments__heading">
-                  <h2 class="text-25">История платежей</h2>
+                  <h2>История платежей</h2>
                 </div>
                 <div class="payments__history">
                   <table>
@@ -182,10 +212,9 @@
     </main>
     <footer class="footer">
       <div class="container">
+        <div class="footer__left"></div>
         <div class="footer__copyright">
-          <span>&copy;</span>
-          <span>Speak Your Mind</span>
-          <span>2023</span>
+          <span>&copy; Speak Your Mind 2023</span>
         </div>
       </div>
     </footer>

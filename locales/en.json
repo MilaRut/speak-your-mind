@@ -111,5 +111,14 @@
   "card_permission_2": "the terms of service",
   "card_permission_3": " and allow ",
   "card_permission_4": "auto-debits",
-  "card_submit_btn": "Add a card"
+  "card_submit_btn": "Add a card",
+  "doc_q_title": "How to start cooperation with us?",
+  "doc_q_subtitle": "Please fill out the form (fields marked with an asterisk are required)",
+  "doc_q_name": "Your name*",
+  "doc_q_name_placeholder": "Your name",
+  "doc_q_dob": "Your date of birth*",
+  "doc_q_gender": "Your gender*",
+  "doc_q_gender_choose": "Choose",
+  "doc_q_gender_male": "Male",
+  "doc_q_gender_female": "Female"
 }

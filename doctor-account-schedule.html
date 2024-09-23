@@ -130,8 +130,7 @@
         </div>
         <div class="header__unlogged unlogged">
           <a class="unlogged__login-btn btn btn--white" data-translate="header_login_btn"></a>
-          <a href="user-signup-start.html" class="unlogged__login-btn btn"
-            data-translate="header_signup_btn"></a>
+          <a href="user-signup-start.html" class="unlogged__login-btn btn" data-translate="header_signup_btn"></a>
         </div>
         <div class="header__logged logged">
           <div class="logged__wrapper">
@@ -159,17 +158,59 @@
           <div class="doctor-account__wrapper">
             <div class="doctor-account__left-col">
               <div class="doctor-account__nav">
-                <a href="doctor-account-sessions.html" class="doctor-account__nav-link">Сессии</a>
-                <a href="doctor-account-schedule.html" class="doctor-account__nav-link is-active">Расписание</a>
-                <a href="doctor-account-clients.html" class="doctor-account__nav-link">Клиенты</a>
-                <a href="doctor-account-payments.html" class="doctor-account__nav-link">Платежи</a>
-                <a href="doctor-account-settings.html" class="doctor-account__nav-link">Настройки</a>
+                <div class="user-account__nav-logo">
+                  <img src="./img/svg/nav-logo.svg" width="72" height="72" alt="Speak your mind.">
+                </div>
+                <a href="doctor-account-sessions.html" class="doctor-account__nav-link">
+                  <svg width="25" height="25" fill="currentColor">
+                    <use xlink:href="./img/sprite.svg#doc-sessions"></use>
+                  </svg>
+                  <span>Сессии</span>
+                </a>
+                <a href="doctor-account-schedule.html" class="doctor-account__nav-link is-active">
+                  <svg width="25" height="25" fill="currentColor">
+                    <use xlink:href="./img/sprite.svg#doc-schedule"></use>
+                  </svg>
+                  <span>Расписание</span>
+                </a>
+                <a href="doctor-account-clients.html" class="doctor-account__nav-link">
+                  <svg width="25" height="25" fill="currentColor">
+                    <use xlink:href="./img/sprite.svg#doc-clients"></use>
+                  </svg>
+                  <span>Клиенты</span>
+                </a>
+                <a href="doctor-account-payments.html" class="doctor-account__nav-link">
+                  <svg width="25" height="25" fill="currentColor">
+                    <use xlink:href="./img/sprite.svg#user-payment"></use>
+                  </svg>
+                  <span>Платежи</span>
+                </a>
+                <a href="doctor-account-settings.html" class="doctor-account__nav-link">
+                  <svg width="25" height="25" fill="currentColor">
+                    <use xlink:href="./img/sprite.svg#user-settings"></use>
+                  </svg>
+                  <span>Профиль</span>
+                </a>
+                <a href="/faq.html" class="user-account__nav-link">
+                  <svg width="25" height="25" fill="currentColor">
+                    <use xlink:href="./img/sprite.svg#user-help"></use>
+                  </svg>
+                  <span>Помощь</span>
+                </a>
+                <a href="doctor-landing.html" class="user-account__nav-link" id="logout-btn">
+                  <svg width="25" height="25" fill="currentColor">
+                    <use xlink:href="./img/sprite.svg#user-logout"></use>
+                  </svg>
+                  <span>Выход</span>
+                </a>
               </div>
             </div>
             <div class="doctor-account__right-col">
               <div class="doctor-account__schedule schedule">
                 <div class="doctor-account__heading">
                   <h2 class="text-40">Расписание</h2>
+                  <p>Отметьте, пожалуйста, галочкой то время, когда вы свободны и на которое можно назначать
+                    консультации</p>
                   <button type="button" class="send-btn btn" id="send-btn">Сохранить изменения</button>
                   <div class="calendar-wrapper">
                     <button class="btn-current schedule__tab-btn is-active" id="btn-1">Текущая неделя</button>
@@ -190,10 +231,9 @@
     </main>
     <footer class="footer">
       <div class="container">
+        <div class="footer__left"></div>
         <div class="footer__copyright">
-          <span>&copy;</span>
-          <span>Speak Your Mind</span>
-          <span>2023</span>
+          <span>&copy; Speak Your Mind 2023</span>
         </div>
       </div>
     </footer>
@@ -730,7 +770,7 @@
 
       if (token) {
         // URL для получения данных пользователя
-        const url = 'http://63.250.47.203:3000/doctor_schedule';
+        const url = 'http://63.250.47.203:8000/doctor_schedule';
 
         // Отправка запроса на сервер
         fetch(url, {
@@ -873,7 +913,7 @@
         timezone: currentTimeZoneOffsetInHours
       });
 
-      fetch('http://63.250.47.203:3000/doctor_schedule', {
+      fetch('http://63.250.47.203:8000/doctor_schedule', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json'
