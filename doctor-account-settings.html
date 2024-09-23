@@ -77,7 +77,7 @@
             </button>
             <ul class="logged__menu-list list-reset" id="logged-menu">
               <li class="logged__menu-item">
-                <a href="#" data-translate="logout_btn">Выйти</a>
+                <a href="#" data-translate="logout_btn" class="logout-btn">Выйти</a>
               </li>
             </ul>
           </div>
@@ -90,48 +90,48 @@
           <div class="doctor-account__wrapper">
             <div class="doctor-account__left-col">
               <nav class="doctor-account__nav">
-                <div class="user-account__nav-logo">
+                <div class="doctor-account__nav-logo">
                   <img src="./img/svg/nav-logo.svg" width="72" height="72" alt="Speak your mind.">
                 </div>
                 <a href="doctor-account-sessions.html" class="doctor-account__nav-link">
                   <svg width="25" height="25" fill="currentColor">
-                    <use xlink:href="./img/sprite.svg#doc-sessions"></use>
+                    <use xlink:href="./img/sprite.svg#nav-sessions"></use>
                   </svg>
                   <span>Сессии</span>
                 </a>
                 <a href="doctor-account-schedule.html" class="doctor-account__nav-link">
                   <svg width="25" height="25" fill="currentColor">
-                    <use xlink:href="./img/sprite.svg#doc-schedule"></use>
+                    <use xlink:href="./img/sprite.svg#nav-schedule"></use>
                   </svg>
                   <span>Расписание</span>
                 </a>
                 <a href="doctor-account-clients.html" class="doctor-account__nav-link">
                   <svg width="25" height="25" fill="currentColor">
-                    <use xlink:href="./img/sprite.svg#doc-clients"></use>
+                    <use xlink:href="./img/sprite.svg#nav-clients"></use>
                   </svg>
                   <span>Клиенты</span>
                 </a>
                 <a href="doctor-account-payments.html" class="doctor-account__nav-link">
                   <svg width="25" height="25" fill="currentColor">
-                    <use xlink:href="./img/sprite.svg#user-payment"></use>
+                    <use xlink:href="./img/sprite.svg#nav-payment"></use>
                   </svg>
                   <span>Платежи</span>
                 </a>
                 <a href="doctor-account-settings.html" class="doctor-account__nav-link is-active">
                   <svg width="25" height="25" fill="currentColor">
-                    <use xlink:href="./img/sprite.svg#user-settings"></use>
+                    <use xlink:href="./img/sprite.svg#nav-settings"></use>
                   </svg>
                   <span>Профиль</span>
                 </a>
                 <a href="/faq.html" class="user-account__nav-link">
                   <svg width="25" height="25" fill="currentColor">
-                    <use xlink:href="./img/sprite.svg#user-help"></use>
+                    <use xlink:href="./img/sprite.svg#nav-help"></use>
                   </svg>
                   <span>Помощь</span>
                 </a>
-                <a href="doctor-landing.html" class="user-account__nav-link" id="logout-btn">
+                <a href="doctor-landing.html" class="user-account__nav-link logout-btn">
                   <svg width="25" height="25" fill="currentColor">
-                    <use xlink:href="./img/sprite.svg#user-logout"></use>
+                    <use xlink:href="./img/sprite.svg#nav-logout"></use>
                   </svg>
                   <span>Выход</span>
                 </a>
@@ -1021,8 +1021,7 @@
         });
 
         // Отправка запроса на сервер для получения расписания
-        fetch('http://63.250.47.203:8000/doctor_schedule', {
-          // mode: 'no-cors',
+        fetch('http://127.0.0.1:8000/doctor_schedule', {
           method: 'POST',
           headers: {
             'Authorization': `Bearer ${token}`,
@@ -1050,8 +1049,7 @@
 
       if (token) {
         // Отправка запроса на сервер для получения данных пользования
-        fetch('http://63.250.47.203:8000/get_doc_data', {
-          // mode: 'no-cors',
+        fetch('http://127.0.0.1:8000/get_doc_data', {
           method: 'POST',
           headers: {
             'Authorization': `Bearer ${token}`,
@@ -1085,24 +1083,18 @@
         document.querySelector('#doctor-name').value = data.doc_name;
         document.querySelector('#doctor-gender').value = data.doc_gender === 0 ? 'мужской' : 'женский';
         document.querySelector('#doctor-start').value = data.doc_practice_start;
-        document.querySelector('#doctor-about').value = data.doc_additional_info;
+        document.querySelector('#doc_additional_info').value = data.doc_additional_info;
         // TODO: переработать обработку языков
         document.querySelectorAll('input[name="doc_language"]').forEach((checkbox) => {
-          if (checkbox.value === data.doc_language) {
-            checkbox.checked = true;
-          } else {
-            checkbox.checked = false;
-          }
+          const value = Number(checkbox.value);
+          checkbox.checked = data.doc_language.includes(value);
         })
-        document.querySelector('#doctor-email').value = data.doc_email;
-        document.querySelector('#doctor-email').value = data.doc_email;
+        document.querySelector('#doc_email').value = data.doc_email;
         // TODO: переработать обработку метода
         document.querySelectorAll('input[name="doc_method"]').forEach((checkbox) => {
-          if (checkbox.value === data.doc_method) {
-            checkbox.checked = true;
-          } else {
-            checkbox.checked = false;
-          }
+          // Преобразуем значение чекбокса в число для корректного сравнения
+          const value = Number(checkbox.value);
+          checkbox.checked = data.doc_method.includes(value);
         })
         // дата рождения
         const dateOfBirth = data.doc_date_of_birth;
@@ -1125,18 +1117,8 @@
         document.querySelector('#doctor-birth-month').value = monthNames[month];
         document.querySelector('#doctor-birth-year').value = year;
         document.querySelector('#doc_edu_uni').textContent = data.doc_edu;
-        document.querySelector('#doc_edu-uni-2').textContent = data.doc_edu;
 
         const lang = localStorage.getItem('language') || 'en';
-        // function getExperienceWord(years) {
-        //   if (years % 10 === 1 && years % 100 !== 11) {
-        //     return "год";
-        //   } else if ((years % 10 >= 2 && years % 10 <= 4) && (years % 100 < 12 || years % 100 > 14)) {
-        //     return "года";
-        //   } else {
-        //     return "лет";
-        //   }
-        // }
         function getExperienceWord(years) {
           if (lang === 'en') {
             return years === 1 ? "year" : "years";
@@ -1152,10 +1134,24 @@
             }
           }
         }
-        const experience = data.doc_online_experience;
-        const experienceWord = getExperienceWord(experience);
+        const practiceStart = data.doc_practice_start;
+        const yearMatch = practiceStart.match(/(\d{4})$/);
+        const startYear = yearMatch ? parseInt(yearMatch[1], 10) : null;
 
-        document.querySelector('#doctor__experience > span').textContent = `${experience} ${experienceWord}`;
+        if (startYear) {
+          // Получаем текущий год
+          const currentYear = new Date().getFullYear();
+
+          // Вычисляем опыт
+          const experience = currentYear - startYear;
+          const experienceWord = getExperienceWord(experience);
+
+          // Выводим опыт на странице
+          document.querySelector('#doctor__experience > span').textContent = `${experience} ${experienceWord}`;
+        } else {
+          document.querySelector('#doctor__experience > span').textContent = '-';
+        }
+
         document.querySelector('#about-doctor > p').textContent = data.doc_additional_info;
       }
 
@@ -1183,40 +1179,127 @@
 
         // Генерация HTML-разметки
         let html = '';
+        const now = new Date();
 
         for (const date in scheduleByDate) {
+          const appointmentDate = new Date(date.split('-').reverse().join('-'));
+
+          // Проверка, если дата записи меньше текущей даты
+          if (appointmentDate < now) {
+            continue; // Пропускаем прошедшие дни
+          }
+
           const formattedDate = formatDate(date.split('-').reverse().join('-')); // Преобразуем формат даты
-          const dayOfWeek = new Date(date.split('-').reverse().join('-')).toLocaleString('ru-RU', { weekday: 'long' });
 
-          html += `
-        <div class="doctor__day-wrapper">
-            <p class="doctor__day">
-                <time datetime="${date.split('-').reverse().join('-')}">${formattedDate}</time>
-            </p>
-            <fieldset>
-    `;
-
-          scheduleByDate[date].forEach(time => {
-            html += `
-                <label>
-                    <input type="radio" name="appointment-time" value="${time}">
-                    <span class="time-value">${time}</span>
-                </label>
-        `;
+          // Сортировка времени по возрастанию
+          const sortedTimes = scheduleByDate[date].sort((a, b) => {
+            const timeA = new Date(appointmentDate.toISOString().split('T')[0] + 'T' + a + ':00');
+            const timeB = new Date(appointmentDate.toISOString().split('T')[0] + 'T' + b + ':00');
+            return timeA - timeB; // Сравнение по времени
           });
 
           html += `
-            </fieldset>
-        </div>
-    `;
+                  <div class="doctor__day-wrapper">
+                    <p class="doctor__day">
+                      <time datetime="${date.split('-').reverse().join('-')}">${formattedDate}</time>
+                    </p>
+                  <fieldset>
+                  `;
+
+          sortedTimes.forEach(time => {
+            const appointmentTime = new Date(appointmentDate.toISOString().split('T')[0] + 'T' + time + ':00');
+
+            // Проверка, если время записи больше текущего времени
+            if (appointmentTime > now) {
+              html += `
+                    <label>
+                        <input type="radio" name="appointment-time" value="${time}">
+                        <span class="time-value">${time}</span>
+                    </label>
+                    `;
+            }
+          });
+
+          html += `
+                    </fieldset>
+                  </div>
+                `;
         }
 
-        // Вставка HTML в нужное место на странице
-        // document.getElementById('schedule-container').innerHTML = html;
         document.querySelectorAll('.schedule-container').forEach((el) => {
           el.innerHTML = html;
-        })
+        });
       }
+
+      // Отправка анкеты первичных настроек
+      document.getElementById('doctor-settings-form').addEventListener('submit', function (e) {
+        e.preventDefault();
+
+        const doc_date_of_birth = document.getElementById('doctor-birth-day').value;
+
+        // массив языков
+        const languages = document.querySelectorAll('[name="doc_language"]');
+        const languagesValues = Array.from(languages)
+          .filter(checkbox => checkbox.checked)
+          .map(checkbox => checkbox.value); // Преобразуем строку в число
+        const doc_language = languagesValues;
+
+        // массив методов
+        const methods = document.querySelectorAll('[name="doc_method"]');
+        const methodsValues = Array.from(methods)
+          .filter(checkbox => checkbox.checked)
+          .map(checkbox => checkbox.value); // Преобразуем строку в число
+        const doc_method = methodsValues;
+
+        // массив симптомов
+        const symptoms = document.querySelectorAll('[name="symptoms"]');
+        const symptomsValues = Array.from(symptoms)
+          .filter(checkbox => checkbox.checked)
+          .map(checkbox => checkbox.value); // Преобразуем строку в число
+        const doc_symptoms = symptomsValues;
+
+        const doc_additional_info = document.getElementById('doc_additional_info').value;
+        const doc_email = document.getElementById('doc_email').value;
+        const client_age = document.querySelector('input[name="client_age"]:checked').value;
+        const lgbtq = document.querySelector('input[name="lgbtq"]:checked').value;
+        const therapy_type = document.querySelector('input[name="therapy_type"]:checked').value;
+
+
+        const data = {
+          doc_date_of_birth: doc_date_of_birth,
+          doc_language: doc_language,
+          doc_additional_info: doc_additional_info,
+          doc_method: doc_method,
+          client_age: client_age,
+          lgbtq: lgbtq,
+          therapy_type: therapy_type,
+          symptoms: doc_symptoms
+        };
+
+        fetch('http://127.0.0.1:8000/update_therapist', {
+          method: 'POST',
+          headers: {
+            'Authorization': `Bearer ${token}`,
+            'Content-Type': 'application/json'
+          },
+          body: JSON.stringify(data)
+        })
+          .then(response => {
+            if (!response.ok) {
+              throw new Error('Сеть не в порядке');
+            }
+            return response.json();
+          })
+          .then(data => {
+            // TODO удалить вывод в консоль
+            console.log('Данные пользователя:', data);
+            loadDataFromBackend();
+            updateProfile(data);
+          })
+          .catch(error => {
+            console.error('Ошибка при получении данных пользователя:', error);
+          });
+      });
 
     });
   </script>

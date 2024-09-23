@@ -61,7 +61,7 @@
           </ul>
         </div>
         <div class="header__unlogged unlogged">
-          <a href="user-login.html" class="unlogged__login-btn btn btn--white" data-translate="header_login_btn"></a>
+          <a href="login.html" class="unlogged__login-btn btn btn--white" data-translate="header_login_btn"></a>
           <a href="user-signup-start.html" class="unlogged__login-btn btn" data-translate="header_signup_btn"></a>
         </div>
         <div class="header__logged logged">
@@ -77,7 +77,7 @@
             </button>
             <ul class="logged__menu-list list-reset" id="logged-menu">
               <li class="logged__menu-item">
-                <a href="#" data-translate="logout_btn">Выйти</a>
+                <a href="#" data-translate="logout_btn" class="logout-btn">Выйти</a>
               </li>
             </ul>
           </div>
@@ -89,18 +89,14 @@
         <div class="container">
           <div class="intro__heading">
             <div class="intro__text">
-              <h1 class="intro__title title">Консультации с психологом <span class="text-white">онлайн</span></h1>
-              <ul class="intro__list list-reset">
-                <li class="intro__item">
-                  <p class="text-18">&mdash;&nbsp;Доступные цены от&nbsp;<b>10&nbsp;000</b>&nbsp;HUF</p>
-                </li>
-                <li class="intro__item">
-                  <p class="text-18">&mdash;&nbsp;<b>850</b> опытных специалистов</p>
-                </li>
-                <li class="intro__item">
-                  <p class="text-18">&mdash;&nbsp;удобное время и&nbsp;формат консультаций</p>
-                </li>
-              </ul>
+              <h1 class="intro__title title"><span data-translate="land_intro_title">Консультации с психологом
+                </span><span class="text-green" data-translate="land_intro_title_online">онлайн</span></h1>
+              <p class="text-28 intro__subtitle" data-translate="land_intro_subtitle">&mdash;&nbsp;Доступные цены
+                от&nbsp;<b>10&nbsp;000</b>&nbsp;HUF</p>
+              <p class="text-18" data-translate="land_intro_p_1">Найди путь к себе и своей идеальной жизни.</p>
+              <p class="text-18" data-translate="land_intro_p_2">Найди психолога, который поможет тебе в этом.</p>
+              <a href="user-signup-start.html" class="intro__btn btn text-20" data-translate="land_intro_btn">Подобрать
+                психолога</a>
             </div>
             <div class="intro__image">
               <img src="./img/content/intro-img.png" width="550" height="309 " alt="">
@@ -108,84 +104,75 @@
           </div>
         </div>
       </section>
-      <section class="intro">
-        <div class="container">
-          <div class="intro__button-wrapper">
-            <p class="subtitle">Найди путь к себе и своей идеальной жизни</p>
-            <p class="text-25">Подбери психолога, который поможет тебе в этом</p>
-            <a href="user-signup-start.html" class="intro__btn btn text-20">Найти психолога</a>
-          </div>
-        </div>
-      </section>
       <section class="advantages">
         <div class="container">
           <div class="advantages__heading">
-            <div class="advantages__image">
-              <img src="./img/content/placeholder.png" width="266" height="203" alt="">
-            </div>
-            <p class="subtitle">Консультации с&nbsp;психологом&nbsp;&mdash; необходимость для&nbsp;успешной современной
-              жизни
-            </p>
+            <p class="subtitle" data-translate="advantages_heading">Консультации с психологом — необходимость для
+              успешной современной жизни</p>
           </div>
           <ul class="advantages__list list-reset">
             <li class="advantages__item">
               <div class="advantages__item-img">
                 <img src="./img/content/placeholder.png" width="175" height="130" alt="">
               </div>
-              <p class="advantages__item-title text-25">Справься со стрессом</p>
-              <p class="text-18">Победишь тревожность и почувствуешь легкость и энергичность.</p>
+              <p class="advantages__item-title text-25" data-translate="advantages_item_title_1">Справься со стрессом
+              </p>
+              <p class="text-18" data-translate="advantages_item_text_1">Победишь тревожность и почувствуешь легкость и
+                энергичность.</p>
             </li>
             <li class="advantages__item">
               <div class="advantages__item-img">
                 <img src="./img/content/placeholder.png" width="175" height="130" alt="">
               </div>
-              <p class="advantages__item-title text-25">Наладь отношения в семье</p>
-              <p class="text-18">Все обиды останутся в прошлом.</p>
+              <p class="advantages__item-title text-25" data-translate="advantages_item_title_2">Наладь отношения в
+                семье</p>
+              <p class="text-18" data-translate="advantages_item_text_2">Все обиды останутся в прошлом.</p>
             </li>
             <li class="advantages__item">
               <div class="advantages__item-img">
                 <img src="./img/content/placeholder.png" width="175" height="130" alt="">
               </div>
-              <p class="advantages__item-title text-25">Люби счастливо</p>
-              <p class="text-18">Сделаешь свои отношения гармоничными.</p>
+              <p class="advantages__item-title text-25" data-translate="advantages_item_title_3">Люби счастливо</p>
+              <p class="text-18" data-translate="advantages_item_text_3">Сделаешь свои отношения гармоничными.</p>
             </li>
             <li class="advantages__item">
               <div class="advantages__item-img">
                 <img src="./img/content/placeholder.png" width="175" height="130" alt="">
               </div>
-              <p class="advantages__item-title text-25">Проявляй себя</p>
-              <p class="text-18">Реализуешься и будешь заниматься любимым делом.</p>
+              <p class="advantages__item-title text-25" data-translate="advantages_item_title_4">Проявляй себя</p>
+              <p class="text-18" data-translate="advantages_item_text_4">Реализуешься и будешь заниматься любимым делом.</p>
             </li>
             <li class="advantages__item">
               <div class="advantages__item-img">
                 <img src="./img/content/placeholder.png" width="175" height="130" alt="">
               </div>
-              <p class="advantages__item-title text-25">Достигай своих целей</p>
-              <p class="text-18">Сможешь воплотить все свои идеи.</p>
+              <p class="advantages__item-title text-25" data-translate="advantages_item_title_5">Достигай своих целей
+              </p>
+              <p class="text-18" data-translate="advantages_item_text_5">Сможешь воплотить все свои идеи.</p>
             </li>
           </ul>
-          <a href="user-signup-start.html" class="advantages__btn btn text-31">Начать терапию сейчас</a>
+          <a href="user-signup-start.html" class="advantages__btn btn text-31" data-translate="advantages_btn">Начать терапию сейчас</a>
         </div>
       </section>
       <section class="statistics">
         <div class="container">
           <div class="statistics__wrapper">
             <div class="statistics__heading">
-              <p class="subtitle">Стресс и&nbsp;депрессия распространены по&nbsp;всему миру</p>
+              <p class="subtitle" data-translate="statistics_1">Стресс и&nbsp;депрессия распространены по&nbsp;всему миру</p>
             </div>
             <ul class="statistics__list list-reset">
               <li class="statistics__item">
                 <p class="text-96">25%</p>
-                <p class="text-20">людей борются с&nbsp;психическими заболеваниями в&nbsp;течение всей жизни</p>
+                <p class="text-20" data-translate="statistics_2">людей борются с&nbsp;психическими заболеваниями в&nbsp;течение всей жизни</p>
               </li>
               <li class="statistics__item">
                 <p class="text-96">60%</p>
-                <p class="text-20">взрослых не&nbsp;хотят тратить время на&nbsp;поиски психолога и&nbsp;работу над собой
+                <p class="text-20" data-translate="statistics_3">взрослых не&nbsp;хотят тратить время на&nbsp;поиски психолога и&nbsp;работу над собой
                 </p>
               </li>
               <li class="statistics__item">
                 <p class="text-96">45%</p>
-                <p class="text-20">взрослых не&nbsp;получают необходимую помощь из-за недоступности и&nbsp;высокой
+                <p class="text-20" data-translate="statistics_4">взрослых не&nbsp;получают необходимую помощь из-за недоступности и&nbsp;высокой
                   стоимости психологических услуг</p>
               </li>
             </ul>
@@ -196,21 +183,21 @@
         <div class="container">
           <div class="help__wrapper">
             <div class="help__text-wrapper">
-              <p class="title">Чем мы можем помочь вам?</p>
-              <p class="text-25">Speak your mind — сервис профессиональной психологической помощи.
+              <p class="title" data-translate="help_title">Чем мы можем помочь вам?</p>
+              <p class="text-25" data-translate="help_text_1">Speak your mind — сервис профессиональной психологической помощи.
                 Наша цель — оказать каждому своевременную поддержку.
                 Наши специалисты обеспечат профессиональное решение ваших проблем и помогут найти
                 выход из сложных ситуаций.
                 Мы поможем вам сформулировать запрос, если вы чувствуете, что вам нужна помощь, но не
                 можете определить причины.</p>
-              <p class="text-25">За 15 минут у нас вы сможете найти психолога, работающего именно с вашими запросами, и
+              <p class="text-25" data-translate="help_text_2">За 15 минут у нас вы сможете найти психолога, работающего именно с вашими запросами, и
                 начать
                 с ним работать. При желании вы в любой момент можете сменить специалиста. Все эксперты нашего
                 сервиса имеют профильное образование и богатый опыт.
                 Принятие себя, отстаивание личных границ, легкое принятие перемен (расставание, переезд, смена
                 или потеря работы) — вот лишь малая часть сложностей, которые вы сможете преодолеть с нашей
                 помощью.</p>
-              <p class="text-25">Консультации психолога проходят строго конфиденциально и в удобное для вас время. У нас
+              <p class="text-25" data-translate="help_text_3">Консультации психолога проходят строго конфиденциально и в удобное для вас время. У нас
                 очень
                 лояльная ценовая политика. Для нас важно, чтобы психологическая помощь становилась доступной
                 большему количеству людей. Цена за час приема начинается от 19 500 HUF</p>
@@ -219,7 +206,7 @@
               <div class="help__image">
                 <img src="./img/content/intro-img.png" width="452" height="319" alt="">
               </div>
-              <a href="user-signup-start.html" class="help__btn btn text-31">Подобрать психолога</a>
+              <a href="user-signup-start.html" class="help__btn btn text-31" data-translate="land_intro_btn">Подобрать психолога</a>
             </div>
           </div>
         </div>
@@ -227,89 +214,56 @@
       <section class="selection">
         <div class="container">
           <div class="selection__heading">
-            <p class="title">Как мы выбираем специалистов?</p>
+            <p class="title" data-translate="selection_title">Как мы выбираем специалистов?</p>
           </div>
           <ul class="selection__list selection__list--first list-reset">
             <li class="selection__item">
-              <img src="./img/content/placeholder.png" width="149" height="150" alt="">
+              <img src="./img/temp/doc-1.png" width="150" height="150" alt="">
             </li>
             <li class="selection__item">
-              <img src="./img/content/placeholder.png" width="149" height="150" alt="">
+              <img src="./img/temp/doc-2.png" width="150" height="150" alt="">
             </li>
             <li class="selection__item">
-              <img src="./img/content/placeholder.png" width="149" height="150" alt="">
+              <img src="./img/temp/doc-3.png" width="150" height="150" alt="">
             </li>
             <li class="selection__item">
-              <img src="./img/content/placeholder.png" width="149" height="150" alt="">
+              <img src="./img/temp/doc-4.png" width="150" height="150" alt="">
             </li>
             <li class="selection__item">
-              <img src="./img/content/placeholder.png" width="149" height="150" alt="">
+              <img src="./img/temp/doc-5.png" width="150" height="150" alt="">
             </li>
             <li class="selection__item">
-              <img src="./img/content/placeholder.png" width="149" height="150" alt="">
+              <img src="./img/temp/doc-6.png" width="150" height="150" alt="">
             </li>
             <li class="selection__item">
-              <img src="./img/content/placeholder.png" width="149" height="150" alt="">
+              <img src="./img/temp/doc-7.png" width="150" height="150" alt="">
             </li>
           </ul>
           <ul class="selection__list selection__list--second list-reset">
             <li class="selection__item">
-              <p class="text-31">Образование и опыт</p>
-              <p class="text-20">Внимательно проверяем дипломы, места работы и&nbsp;опыт специалиста. С&nbsp;вами будут
+              <p class="text-31" data-translate="selection_item_title_1">Образование и опыт</p>
+              <p class="text-20" data-translate="selection_item_text_1">Внимательно проверяем дипломы, места работы и&nbsp;опыт специалиста. С&nbsp;вами будут
                 работать только профессионалы.</p>
             </li>
             <li class="selection__item">
-              <p class="text-31">Личное общение</p>
-              <p class="text-20">Проводим собеседование, узнаем основы профессионального подхода и&nbsp;ценности
+              <p class="text-31" data-translate="selection_item_title_2">Личное общение</p>
+              <p class="text-20" data-translate="selection_item_text_2">Проводим собеседование, узнаем основы профессионального подхода и&nbsp;ценности
                 специалиста.</p>
             </li>
             <li class="selection__item">
-              <p class="text-31">Довольные клиенты</p>
-              <p class="text-20">Смотрим на&nbsp;результативные кейсы и&nbsp;счастливых клиентов.</p>
+              <p class="text-31" data-translate="selection_item_title_3">Довольные клиенты</p>
+              <p class="text-20" data-translate="selection_item_text_3">Смотрим на&nbsp;результативные кейсы и&nbsp;счастливых клиентов.</p>
             </li>
           </ul>
           <div class="selection__btn-wrapper">
-            <a href="user-signup-start.html" class="selection__btn btn text-31">Найти своего специалиста</a>
-          </div>
-        </div>
-      </section>
-      <section class="therapists">
-        <div class="container">
-          <div class="therapists__heading">
-            <p class="title">Наши терапевты</p>
-          </div>
-          <ul class="therapists__list list-reset">
-            <li class="therapists__item">
-              <img src="./img/content/placeholder.png" width="149" height="150" alt="">
-            </li>
-            <li class="therapists__item">
-              <img src="./img/content/placeholder.png" width="149" height="150" alt="">
-            </li>
-            <li class="therapists__item">
-              <img src="./img/content/placeholder.png" width="149" height="150" alt="">
-            </li>
-            <li class="therapists__item">
-              <img src="./img/content/placeholder.png" width="149" height="150" alt="">
-            </li>
-            <li class="therapists__item">
-              <img src="./img/content/placeholder.png" width="149" height="150" alt="">
-            </li>
-            <li class="therapists__item">
-              <img src="./img/content/placeholder.png" width="149" height="150" alt="">
-            </li>
-            <li class="therapists__item">
-              <img src="./img/content/placeholder.png" width="149" height="150" alt="">
-            </li>
-          </ul>
-          <div class="therapists__btn-wrapper">
-            <a href="user-signup-start.html" class="therapists__btn btn text-31">Найти своего специалиста</a>
+            <a href="user-signup-start.html" class="selection__btn btn text-31" data-translate="selection_btn">Найти своего специалиста</a>
           </div>
         </div>
       </section>
       <section class="guide">
         <div class="container">
           <div class="guide__heading">
-            <p class="title">Как работать с сервисом?</p>
+            <p class="title" data-translate="guide_title">Как работать с сервисом?</p>
           </div>
           <div class="guide__slider slider">
             <div class="guide__slides">
@@ -346,21 +300,21 @@
             <div class="guide__dots">
               <div class="guide__dot dot is-active">
                 <p class="guide__counter">1</p>
-                <p class="text-20">Пройдите тестирование и&nbsp;определите уровень тревоги</p>
+                <p class="text-20" data-translate="guide_text_1">Пройдите тестирование и&nbsp;определите уровень тревоги</p>
               </div>
               <div class="guide__dot dot">
                 <p class="guide__counter">2</p>
-                <p class="text-20">Выберите специалиста из&nbsp;предложенных алгоритмом</p>
+                <p class="text-20" data-translate="guide_text_2">Выберите специалиста из&nbsp;предложенных алгоритмом</p>
               </div>
               <div class="guide__dot dot">
                 <p class="guide__counter">3</p>
-                <p class="text-20">Выберите удобное для вас время и&nbsp;запланируйте регулярные встречи</p>
+                <p class="text-20" data-translate="guide_text_3">Выберите удобное для вас время и&nbsp;запланируйте регулярные встречи</p>
               </div>
             </div>
 
           </div>
           <div class="guide__btn-wrapper">
-            <a href="user-signup-start.html" class="guide__btn btn text-31">Подобрать психолога</a>
+            <a href="user-signup-start.html" class="guide__btn btn text-31" data-translate="land_intro_btn">Подобрать психолога</a>
           </div>
         </div>
       </section>

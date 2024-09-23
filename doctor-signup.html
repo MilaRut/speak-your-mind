@@ -77,7 +77,7 @@
             </button>
             <ul class="logged__menu-list list-reset" id="logged-menu">
               <li class="logged__menu-item">
-                <a href="#" data-translate="logout_btn">Выйти</a>
+                <a href="#" data-translate="logout_btn" class="logout-btn">Выйти</a>
               </li>
             </ul>
           </div>
@@ -89,12 +89,14 @@
         <div class="container">
           <div class="doc-questionary__heading">
             <h1 class="title" data-translate="doc_q_title">Как начать сотрудничество с нами?</h1>
-            <p class="text-18" data-translate="doc_q_subtitle">Пожалуйста, заполните анкету (поля, помеченные звездочкой, обязатальны)</p>
+            <p class="text-18" data-translate="doc_q_subtitle">Пожалуйста, заполните анкету (поля, помеченные
+              звездочкой, обязатальны)</p>
           </div>
           <form action="" method="post" id="register-therapist-form">
             <div class="doc-questionary__wrapper">
               <p class="text-20" data-translate="doc_q_name">Ваши Фамилия Имя Отчество*</p>
-              <input class="text-18" type="text" name="doc_name" id="doc_name" placeholder="ФИО" data-translate="doc_q_name_placeholder">
+              <input class="text-18" type="text" name="doc_name" id="doc_name" placeholder="ФИО"
+                data-translate="doc_q_name_placeholder">
             </div>
             <div class="doc-questionary__wrapper">
               <p class="text-20" data-translate="doc_q_dob">Ваша дата рождения? Число. Месяц. Год.*</p>
@@ -110,102 +112,109 @@
               </select>
             </div>
             <div class="doc-questionary__wrapper">
-              <p class="text-20">Какое у вас высшее образование?*</p>
-              <p class="text-18">Напишите о базовом психологическом (смежном) обучении или переподготовке: 1. Год
+              <p class="text-20" data-translate="doc_q_edu_title">Какое у вас высшее образование?*</p>
+              <p class="text-18" data-translate="doc_q_edu_subtitle">Напишите о базовом психологическом (смежном)
+                обучении или переподготовке: 1. Год
                 окончания 2. Название ВУЗа 3. Название факультета и специалитета 4. Укажите академическую степень
                 (бакалавриат, магистратура) или ученую степень (если есть).</p>
-              <p class="text-13">Например,<br>
-                2003 - МГУ - факультет психологии, клиническая психология - бакалавр.<br>
-                2010 - ВШЭ - психоанализ - магистерская программа (2 года).</p>
-              <textarea class="text-18" name="doc_edu" id="doc_edu" placeholder="Образование"></textarea>
+              <p class="text-13"><span data-translate="doc_q_edu_text_1">Например,</span><br>
+                <span data-translate="doc_q_edu_text_2">2003 - МГУ - факультет психологии, клиническая психология -
+                  бакалавр.</span><br>
+                <span data-translate="doc_q_edu_text_3">2010 - ВШЭ - психоанализ - магистерская программа (2
+                  года).</span>
+              </p>
+              <textarea class="text-18" name="doc_edu" id="doc_edu" placeholder="Образование" data-translate="doc_q_edu_placeholder"></textarea>
             </div>
             <div class="doc-questionary__wrapper">
-              <p class="text-20">Выберите 1-2 метода, в которых вы работаете онлайн*</p>
+              <p class="text-20" data-translate="doc_q_method_title">Выберите 1-2 метода, в которых вы работаете онлайн*
+              </p>
               <div class="checkboxes-wrapper">
                 <div class="doc-questionary__checkboxes">
                   <label>
                     <input type="checkbox" id="doc_method-0" name="doc_method" value="0">
-                    <span>Психоанализ</span>
+                    <span data-translate="doc_q_method_0">Психоанализ</span>
                   </label>
                   <label>
                     <input type="checkbox" id="doc_method-1" name="doc_method" value="1">
-                    <span>Терапия внутренних семейных систем (IFS)</span>
+                    <span data-translate="doc_q_method_1">Терапия внутренних семейных систем (IFS)</span>
                   </label>
                   <label>
                     <input type="checkbox" id="doc_method-2" name="doc_method" value="2">
-                    <span>Когнитивно-поведенческая терапия (КПТ)</span>
+                    <span data-translate="doc_q_method_2">Когнитивно-поведенческая терапия (КПТ)</span>
                   </label>
                   <label>
                     <input type="checkbox" id="doc_method-3" name="doc_method" value="3">
-                    <span>Травма-фокусированный КПТ</span>
+                    <span data-translate="doc_q_method_3">Травма-фокусированный КПТ</span>
                   </label>
                   <label>
                     <input type="checkbox" id="doc_method-4" name="doc_method" value="4">
-                    <span>Терапия, сфокусированная на сострадании (CFT)</span>
+                    <span data-translate="doc_q_method_4">Терапия, сфокусированная на сострадании (CFT)</span>
                   </label>
                   <label>
                     <input type="checkbox" id="doc_method-5" name="doc_method" value="5">
-                    <span>Диалектическая поведенческая терапия (ДБТ/DBT)</span>
+                    <span data-translate="doc_q_method_5">Диалектическая поведенческая терапия (ДБТ/DBT)</span>
                   </label>
                   <label>
                     <input type="checkbox" id="doc_method-6" name="doc_method" value="6">
-                    <span>Гештальт-терапия</span>
+                    <span data-translate="doc_q_method_6">Гештальт-терапия</span>
                   </label>
                   <label>
                     <input type="checkbox" id="doc_method-7" name="doc_method" value="7">
-                    <span>Системная семейная терапия</span>
+                    <span data-translate="doc_q_method_7">Системная семейная терапия</span>
                   </label>
                   <label>
                     <input type="checkbox" id="doc_method-8" name="doc_method" value="8">
-                    <span>Системная сексуальная терапия</span>
+                    <span data-translate="doc_q_method_8">Системная сексуальная терапия</span>
                   </label>
                 </div>
                 <div class="doc-questionary__checkboxes">
                   <label>
                     <input type="checkbox" id="doc_method-9" name="doc_method" value="9">
-                    <span>Терапия принятия и ответственности</span>
+                    <span data-translate="doc_q_method_9">Терапия принятия и ответственности</span>
                   </label>
                   <label>
                     <input type="checkbox" id="doc_method-10" name="doc_method" value="10">
-                    <span>Схема-терапия (CBT)</span>
+                    <span data-translate="doc_q_method_10">Схема-терапия (CBT)</span>
                   </label>
                   <label>
                     <input type="checkbox" id="doc_method-11" name="doc_method" value="11">
-                    <span>Экзистенциальная психотерапия(лого и клиент-центрированная)</span>
+                    <span data-translate="doc_q_method_11">Экзистенциальная психотерапия(лого и
+                      клиент-центрированная)</span>
                   </label>
                   <label>
                     <input type="checkbox" id="doc_method-12" name="doc_method" value="12">
-                    <span>Трансактный анализ</span>
+                    <span data-translate="doc_q_method_12">Трансактный анализ</span>
                   </label>
                   <label>
                     <input type="checkbox" id="doc_method-13" name="doc_method" value="13">
-                    <span>Десенсибилизация и переработка движением глаз(EMDR/ДПДГ)</span>
+                    <span data-translate="doc_q_method_13">Десенсибилизация и переработка движением
+                      глаз(EMDR/ДПДГ)</span>
                   </label>
                   <label>
                     <input type="checkbox" id="doc_method-14" name="doc_method" value="14">
-                    <span>Рационально эмоционально поведенческая терапия(REBT)</span>
+                    <span data-translate="doc_q_method_14">Рационально эмоционально поведенческая терапия(REBT)</span>
                   </label>
                   <label>
                     <input type="checkbox" id="doc_method-15" name="doc_method" value="15">
-                    <span>Эмоционально-фокусированная терапия (ЭФТ)</span>
+                    <span data-translate="doc_q_method_15">Эмоционально-фокусированная терапия (ЭФТ)</span>
                   </label>
                   <label>
                     <input type="checkbox" id="doc_method-16" name="doc_method" value="16">
-                    <span>Арт-терапия</span>
+                    <span data-translate="doc_q_method_16">Арт-терапия</span>
                   </label>
                 </div>
               </div>
             </div>
 
             <div class="doc-questionary__wrapper">
-              <p class="text-20">Язык консультаций*</p>
+              <p class="text-20" data-translate="doc_q_language_title">Язык консультаций*</p>
               <div class="doc-questionary__checkboxes">
                 <label>
                   <input type="checkbox" id="doc_language_ru" name="doc_language" value="0">
-                  <span>русский</span>
+                  <span data-translate="doc_q_language_ru">русский</span>
                 </label>
                 <label>
-                  <input type="checkbox" id="doc_language_ma" name="doc_language" value="1">
+                  <input type="checkbox" id="doc_language_hu" name="doc_language" value="1">
                   <span>magyar</span>
                 </label>
                 <label>
@@ -216,32 +225,32 @@
             </div>
 
             <div class="doc-questionary__wrapper">
-              <p class="text-18">Выберите, если у вас есть дополнительное образование, касающееся следующих тем</p>
+              <p class="text-18" data-translate="doc_edu_additional_title">Выберите, если у вас есть дополнительное образование, касающееся следующих тем</p>
               <div class="doc-questionary__checkboxes">
                 <label>
-                  <input type="checkbox" id="doc_edu_add_1" name="doc_edu_additional" value="0">
-                  <span>Зависимости, аддикции</span>
+                  <input type="checkbox" id="doc_edu_add_0" name="doc_edu_additional" value="0">
+                  <span data-translate="doc_edu_additional_0">Зависимости, аддикции</span>
                 </label>
                 <label>
-                  <input type="checkbox" id="doc_edu_add_2" name="doc_edu_additional" value="1">
-                  <span>Растройство пищевого поведения</span>
+                  <input type="checkbox" id="doc_edu_add_1" name="doc_edu_additional" value="1">
+                  <span data-translate="doc_edu_additional_1">Растройство пищевого поведения</span>
                 </label>
                 <label>
-                  <input type="checkbox" id="doc_edu_add_3" name="doc_edu_additional" value="2">
-                  <span>Сексология</span>
+                  <input type="checkbox" id="doc_edu_add_2" name="doc_edu_additional" value="2">
+                  <span data-translate="doc_edu_additional_2">Сексология</span>
                 </label>
                 <label>
-                  <input type="checkbox" id="doc_edu_add_4" name="doc_edu_additional" value="3">
-                  <span>Экстремальные ситуации, ПТСР</span>
+                  <input type="checkbox" id="doc_edu_add_3" name="doc_edu_additional" value="3">
+                  <span data-translate="doc_edu_additional_3">Экстремальные ситуации, ПТСР</span>
                 </label>
                 <label>
-                  <input type="checkbox" id="doc_edu_add_5" name="doc_edu_additional" value="4">
-                  <span>Другое</span>
+                  <input type="checkbox" id="doc_edu_add_4" name="doc_edu_additional" value="4">
+                  <span data-translate="doc_edu_additional_4">Другое</span>
                 </label>
               </div>
             </div>
             <div class="doc-questionary__wrapper">
-              <p class="text-20">Пожалуйста, прикрепите фотографии развернутых дипломов и сертификатов,
+              <p class="text-20" data-translate="doc_edu_upload_title">Пожалуйста, прикрепите фотографии развернутых дипломов и сертификатов,
                 подтверждающих обучение.*</p>
               <p class="text-18">Обязательные документы: (1) диплом о базовом психологическом (смежном) обучении /
                 переподготовке (2)документы об обучении методу. ⚠️ Если обучение не окончено, пожалуйста, прикрепите
@@ -474,7 +483,7 @@
 
   <script>
     const form = document.querySelector('#register-therapist-form');
-    const url = 'http://63.250.47.203:8000/register_therapist';
+    const url = 'http://127.0.0.1:8000/register_therapist';
 
     form.addEventListener('submit', function (e) {
       e.preventDefault();
@@ -488,21 +497,21 @@
       const methods = document.querySelectorAll('[name="doc_method"]');
       const methodsValues = Array.from(methods)
         .filter(checkbox => checkbox.checked)
-        .map(checkbox => Number(checkbox.value)); // Преобразуем строку в число
+        .map(checkbox => checkbox.value); // Преобразуем строку в число
       const doc_method = methodsValues;
 
       // массив языков
       const languages = document.querySelectorAll('[name="doc_language"]');
       const languagesValues = Array.from(languages)
         .filter(checkbox => checkbox.checked)
-        .map(checkbox => Number(checkbox.value)); // Преобразуем строку в число
+        .map(checkbox => checkbox.value); // Преобразуем строку в число
       const doc_language = languagesValues;
 
       // массив доп образования
       const addEducations = document.querySelectorAll('[name="doc_edu_additional"]');
       const addEducationsValues = Array.from(addEducations)
         .filter(checkbox => checkbox.checked)
-        .map(checkbox => Number(checkbox.value)); // Преобразуем строку в число
+        .map(checkbox => checkbox.value); // Преобразуем строку в число
       const doc_edu_additional = addEducationsValues;
 
       const doc_comunity = document.querySelector('#doc_comunity').value;
