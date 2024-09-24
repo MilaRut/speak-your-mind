@@ -13,74 +13,6 @@
   <link rel="apple-touch-icon" sizes="180x180" href="./img/favicon/apple-touch-icon.png">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.css">
   <link rel="stylesheet" href="css/style.min.css">
-
-  <style>
-    .calendar-wrapper {
-      width: 100%;
-      margin: 3em auto;
-    }
-
-    table {
-      clear: both;
-      width: 100%;
-      border: 1px solid #dcdcff;
-      border-radius: 3px;
-      border-collapse: collapse;
-      color: #444;
-    }
-
-    td {
-      height: 48px;
-      text-align: center;
-      vertical-align: middle;
-      width: 50px;
-    }
-
-    .days td {
-      background-color: #c5fdea;
-      border-bottom: 1px solid #a3a3a3;
-      height: 36px;
-    }
-
-    td.not-current {
-      color: #c0c0c0;
-    }
-
-    td.today {
-      font-weight: 700;
-      color: #28283b;
-      font-size: 1.5em;
-    }
-
-    thead td {
-      border: none;
-      color: #28283b;
-      text-transform: uppercase;
-      font-size: 1.5em;
-    }
-
-    td.past {
-      background-color: #eaeaea;
-    }
-
-    td.past label {
-      display: none;
-    }
-
-    td.check,
-    td.hours {
-      width: 130px;
-      height: 64px;
-      border-bottom: 1px solid #a3a3a3;
-    }
-
-    .send-btn {
-      position: absolute;
-      top: 0;
-      right: 0;
-      padding: 10px 20px;
-    }
-  </style>
 </head>
 
 <body>
@@ -138,14 +70,14 @@
               <img src="./img/content/user-thumb.png" width="24" height="24" alt="">
             </div>
             <button class="logged__btn js-dropdown-trigger" data-id="#logged-menu">
-              <span class="logged__username">Александр</span>
+              <span class="logged__username">Username</span>
               <svg width="10" height="10" fill="currentColor">
                 <use xlink:href="./img/sprite.svg#dropdown"></use>
               </svg>
             </button>
             <ul class="logged__menu-list list-reset" id="logged-menu">
               <li class="logged__menu-item">
-                <a href="#" data-translate="logout_btn">Выйти</a>
+                <a href="#" data-translate="logout_btn" class="logout-btn">Выйти</a>
               </li>
             </ul>
           </div>
@@ -163,45 +95,45 @@
                 </div>
                 <a href="doctor-account-sessions.html" class="doctor-account__nav-link">
                   <svg width="25" height="25" fill="currentColor">
-                    <use xlink:href="./img/sprite.svg#doc-sessions"></use>
+                    <use xlink:href="./img/sprite.svg#nav-sessions"></use>
                   </svg>
                   <span>Сессии</span>
                 </a>
                 <a href="doctor-account-schedule.html" class="doctor-account__nav-link is-active">
                   <svg width="25" height="25" fill="currentColor">
-                    <use xlink:href="./img/sprite.svg#doc-schedule"></use>
+                    <use xlink:href="./img/sprite.svg#nav-schedule"></use>
                   </svg>
                   <span>Расписание</span>
                 </a>
                 <a href="doctor-account-clients.html" class="doctor-account__nav-link">
                   <svg width="25" height="25" fill="currentColor">
-                    <use xlink:href="./img/sprite.svg#doc-clients"></use>
+                    <use xlink:href="./img/sprite.svg#nav-clients"></use>
                   </svg>
                   <span>Клиенты</span>
                 </a>
                 <a href="doctor-account-payments.html" class="doctor-account__nav-link">
                   <svg width="25" height="25" fill="currentColor">
-                    <use xlink:href="./img/sprite.svg#user-payment"></use>
+                    <use xlink:href="./img/sprite.svg#nav-payment"></use>
                   </svg>
-                  <span>Платежи</span>
+                  <span data-translate="int_nav_payments">Платежи</span>
                 </a>
                 <a href="doctor-account-settings.html" class="doctor-account__nav-link">
                   <svg width="25" height="25" fill="currentColor">
-                    <use xlink:href="./img/sprite.svg#user-settings"></use>
+                    <use xlink:href="./img/sprite.svg#nav-settings"></use>
                   </svg>
-                  <span>Профиль</span>
+                  <span data-translate="int_nav_profile">Профиль</span>
                 </a>
                 <a href="/faq.html" class="user-account__nav-link">
                   <svg width="25" height="25" fill="currentColor">
-                    <use xlink:href="./img/sprite.svg#user-help"></use>
+                    <use xlink:href="./img/sprite.svg#nav-help"></use>
                   </svg>
-                  <span>Помощь</span>
+                  <span data-translate="int_nav_help">Помощь</span>
                 </a>
-                <a href="doctor-landing.html" class="user-account__nav-link" id="logout-btn">
+                <a href="doctor-landing.html" class="user-account__nav-link logout-btn">
                   <svg width="25" height="25" fill="currentColor">
-                    <use xlink:href="./img/sprite.svg#user-logout"></use>
+                    <use xlink:href="./img/sprite.svg#nav-logout"></use>
                   </svg>
-                  <span>Выход</span>
+                  <span data-translate="int_nav_logout">Выход</span>
                 </a>
               </div>
             </div>
@@ -290,7 +222,7 @@
               </fieldset>
               <fieldset>
                 <label for="card-exp">
-                  <span>Срок действия</span>
+                        <span data-translate="card_exp">Срок действия</span>
                   <input type="number" id="card-exp" placeholder="m m  /  y y">
                 </label>
                 <label for="card-cvc">
@@ -378,223 +310,6 @@
     </div>
   </div>
 
-  <div class="modal modal--preload" id="doctor-reschedule">
-    <div class="modal__wrapper">
-      <div class="modal__overlay" data-close-modal></div>
-      <div class="modal__content modal__content--doctor-reschedule doctor-reschedule">
-        <button class="modal__close-btn" type="button" aria-label="Закрыть окно." data-close-modal>
-          <svg width="32" height="32" fill="currentColor">
-            <use xlink:href="./img/sprite.svg#close-modal"></use>
-          </svg>
-        </button>
-        <h2 class="text-25 doctor__title">Мое расписание</h2>
-        <form action="" method="post">
-          <div class="doctor__day-wrapper">
-            <p class="doctor__day">
-              <time datetime="2024-07-05">5 июля</time>
-              <span>, среда</span>
-            </p>
-            <fieldset>
-              <label>
-                <input type="radio" name="appointment-time" value="">
-                <span class="time-value">07:00</span>
-              </label>
-              <label>
-                <input type="radio" name="appointment-time" value="">
-                <span class="time-value">08:00</span>
-              </label>
-              <label>
-                <input type="radio" name="appointment-time" value="">
-                <span class="time-value">09:00</span>
-              </label>
-              <label>
-                <input type="radio" name="appointment-time" value="">
-                <span class="time-value">10:00</span>
-              </label>
-              <label>
-                <input type="radio" name="appointment-time" value="">
-                <span class="time-value">11:00</span>
-              </label>
-              <label>
-                <input type="radio" name="appointment-time" value="">
-                <span class="time-value">12:00</span>
-              </label>
-              <label>
-                <input type="radio" name="appointment-time" value="">
-                <span class="time-value">13:00</span>
-              </label>
-              <label>
-                <input type="radio" name="appointment-time" value="">
-                <span class="time-value">14:00</span>
-              </label>
-              <label>
-                <input type="radio" name="appointment-time" value="">
-                <span class="time-value">15:00</span>
-              </label>
-              <label>
-                <input type="radio" name="appointment-time" value="">
-                <span class="time-value">16:00</span>
-              </label>
-              <label>
-                <input type="radio" name="appointment-time" value="">
-                <span class="time-value">17:00</span>
-              </label>
-              <label>
-                <input type="radio" name="appointment-time" value="">
-                <span class="time-value">18:00</span>
-              </label>
-              <label>
-                <input type="radio" name="appointment-time" value="">
-                <span class="time-value">19:00</span>
-              </label>
-              <label>
-                <input type="radio" name="appointment-time" value="">
-                <span class="time-value">20:00</span>
-              </label>
-            </fieldset>
-          </div>
-          <div class="doctor__day-wrapper">
-            <p class="doctor__day">
-              <time datetime="2024-07-06">6 июля</time>
-              <span>, четверг</span>
-            </p>
-            <fieldset>
-              <label>
-                <input type="radio" name="appointment-time" value="">
-                <span class="time-value">07:00</span>
-              </label>
-              <label>
-                <input type="radio" name="appointment-time" value="">
-                <span class="time-value">08:00</span>
-              </label>
-              <label>
-                <input type="radio" name="appointment-time" value="">
-                <span class="time-value">09:00</span>
-              </label>
-              <label>
-                <input type="radio" name="appointment-time" value="">
-                <span class="time-value">10:00</span>
-              </label>
-              <label>
-                <input type="radio" name="appointment-time" value="">
-                <span class="time-value">11:00</span>
-              </label>
-              <label>
-                <input type="radio" name="appointment-time" value="">
-                <span class="time-value">12:00</span>
-              </label>
-              <label>
-                <input type="radio" name="appointment-time" value="">
-                <span class="time-value">13:00</span>
-              </label>
-              <label>
-                <input type="radio" name="appointment-time" value="">
-                <span class="time-value">14:00</span>
-              </label>
-              <label>
-                <input type="radio" name="appointment-time" value="">
-                <span class="time-value">15:00</span>
-              </label>
-              <label>
-                <input type="radio" name="appointment-time" value="">
-                <span class="time-value">16:00</span>
-              </label>
-              <label>
-                <input type="radio" name="appointment-time" value="">
-                <span class="time-value">17:00</span>
-              </label>
-              <label>
-                <input type="radio" name="appointment-time" value="">
-                <span class="time-value">18:00</span>
-              </label>
-              <label>
-                <input type="radio" name="appointment-time" value="">
-                <span class="time-value">19:00</span>
-              </label>
-              <label>
-                <input type="radio" name="appointment-time" value="">
-                <span class="time-value">20:00</span>
-              </label>
-            </fieldset>
-          </div>
-          <div class="doctor__day-wrapper">
-            <p class="doctor__day">
-              <time datetime="2024-07-07">7 июля</time>
-              <span>, пятница</span>
-            </p>
-            <fieldset>
-              <label>
-                <input type="radio" name="appointment-time" value="">
-                <span class="time-value">07:00</span>
-              </label>
-              <label>
-                <input type="radio" name="appointment-time" value="">
-                <span class="time-value">08:00</span>
-              </label>
-              <label>
-                <input type="radio" name="appointment-time" value="">
-                <span class="time-value">09:00</span>
-              </label>
-              <label>
-                <input type="radio" name="appointment-time" value="">
-                <span class="time-value">10:00</span>
-              </label>
-              <label>
-                <input type="radio" name="appointment-time" value="">
-                <span class="time-value">11:00</span>
-              </label>
-              <label>
-                <input type="radio" name="appointment-time" value="">
-                <span class="time-value">12:00</span>
-              </label>
-              <label>
-                <input type="radio" name="appointment-time" value="">
-                <span class="time-value">13:00</span>
-              </label>
-              <label>
-                <input type="radio" name="appointment-time" value="">
-                <span class="time-value">14:00</span>
-              </label>
-              <label>
-                <input type="radio" name="appointment-time" value="">
-                <span class="time-value">15:00</span>
-              </label>
-              <label>
-                <input type="radio" name="appointment-time" value="">
-                <span class="time-value">16:00</span>
-              </label>
-              <label>
-                <input type="radio" name="appointment-time" value="">
-                <span class="time-value">17:00</span>
-              </label>
-              <label>
-                <input type="radio" name="appointment-time" value="">
-                <span class="time-value">18:00</span>
-              </label>
-              <label>
-                <input type="radio" name="appointment-time" value="">
-                <span class="time-value">19:00</span>
-              </label>
-              <label>
-                <input type="radio" name="appointment-time" value="">
-                <span class="time-value">20:00</span>
-              </label>
-            </fieldset>
-          </div>
-          <button type="button" class="doctor__expand-btn">
-            <span>Показать еще 3 дня</span>
-            <svg width="10" height="10" fill="currentColor">
-              <use xlink:href="./img/sprite.svg#dropdown-green"></use>
-            </svg>
-          </button>
-          <button type="submit" class="doctor__submit-btn btn">
-            <span class="doctor__submit-text">Выбрать&nbsp;</span>
-          </button>
-        </form>
-      </div>
-    </div>
-  </div>
-
   <script>
     class Calendar {
       //Сохраняем идентификатор div
@@ -638,7 +353,7 @@
         let html = '<table>';
 
         html += '<tr class="days">';
-        html += '<td class="empty"</td>';
+        html += '<td class="empty"></td>';
         for (let i = 0; i < week.length; i++) {
           const day = new Date(week[i])
           html += `<td class="date" x-time="${day}">${this.DaysOfWeek[i]},  ${day.getDate()}</td>`;
@@ -770,7 +485,7 @@
 
       if (token) {
         // URL для получения данных пользователя
-        const url = 'http://63.250.47.203:8000/doctor_schedule';
+        const url = 'http://127.0.0.1:8000/doctor_schedule';
 
         // Отправка запроса на сервер
         fetch(url, {
@@ -805,30 +520,39 @@
       }
     }
 
-    function checkPrevious() {
-      const days = document.querySelectorAll('.date');
-      const current = new Date();
-      current.setDate(current.getDate() - 1);
-      const currentParsed = Date.parse(current);
-      days.forEach((day) => {
-        const date = Date.parse(day.getAttribute('x-time'));
-        if (date <= currentParsed) {
-          day.classList.add('previous');
-        }
-      })
+    function parseDateString(dateString) {
+      const [datePart, timePart] = dateString.split(' ');
+      const [day, month, year] = datePart.split('-').map(Number);
+      const [hours, minutes] = timePart.split(':').map(Number);
+      return new Date(year, month - 1, day, hours, minutes);
     }
 
-    function setPreviousStyles() {
-      const dates = document.querySelectorAll('.date');
-      const slots = document.querySelectorAll('.slots');
-      for (let i = 0; i < dates.length; i++) {
-        if (dates[i].classList.contains('previous')) {
-          slots.forEach((slot) => {
-            const cells = slot.querySelectorAll('.check');
-            cells[i].classList.add('past');
-          });
-        }
+    function markExpiredCheckboxes(inputs) {
+      if (!inputs.length) {
+        setTimeout(() => {
+          markExpiredCheckboxes(inputs);
+        }, 200);
+        return; // Добавляем return, чтобы избежать дальнейшего выполнения
       }
+
+      const currentTime = new Date();
+
+      inputs.forEach((checkbox) => {
+        const checkboxTime = parseDateString(checkbox.value);
+
+        // Проверяем, если время прошло
+        if (checkboxTime < currentTime) {
+          checkbox.closest('td').classList.add('expired');
+        }
+
+        // Проверяем, если только день прошел
+        const checkboxDate = new Date(checkboxTime.getFullYear(), checkboxTime.getMonth(), checkboxTime.getDate());
+        const currentDate = new Date(currentTime.getFullYear(), currentTime.getMonth(), currentTime.getDate());
+
+        if (checkboxDate < currentDate) {
+          checkbox.closest('td').classList.add('past');
+        }
+      });
     }
 
     function updateCal() {
@@ -839,11 +563,10 @@
           updateCal();
         }, 500);
       }
-      checkPrevious();
-      setPreviousStyles();
       showValues();
       restoreCheckboxState();
       setButtons();
+      markExpiredCheckboxes(inputs);
     }
 
     // сохраняем данные в массив
@@ -913,7 +636,7 @@
         timezone: currentTimeZoneOffsetInHours
       });
 
-      fetch('http://63.250.47.203:8000/doctor_schedule', {
+      fetch('http://127.0.0.1:8000/doctor_schedule', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json'
@@ -984,9 +707,6 @@
 
       loadDataFromBackend();
       showValues();
-
-      // сюда добавить гет запрос на бэкенд с получением данных - вызов функции
-      // добавить loader
     });
 
   </script>

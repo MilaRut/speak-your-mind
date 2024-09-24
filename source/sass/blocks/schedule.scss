@@ -5,9 +5,9 @@
     margin-bottom: 48px;
   }
 
-  &__tab-btns {
-    display: flex;
-  }
+  // &__tab-btns {
+  //   display: flex;
+  // }
 
   &__tab-btn {
     cursor: pointer;
@@ -25,152 +25,231 @@
     }
   }
 
-  &__calender {
+  // &__calender {
+  //   width: 100%;
+  //   display: flex;
+  // }
+
+  // &__calender-timeoptions {
+  //   display: flex;
+  //   flex-direction: column;
+
+  //   span:not(.schedule__calender-timeoption) {
+  //     width: 100%;
+  //     height: 38px;
+  //     background-color: $color-humming-bird;
+  //     border-bottom: 1px solid $color-dark-gray;
+  //   }
+  // }
+
+  // &__calender-timeoption {
+  //   width: 130px;
+  //   height: 64px;
+  //   display: flex;
+  //   justify-content: center;
+  //   align-items: center;
+  //   border-bottom: 1px solid $color-dark-gray;
+  // }
+
+  // &__calender-week.is-active {
+  //   width: 100%;
+  //   display: flex;
+  // }
+
+  // &__calender-day {
+  //   display: flex;
+  //   flex-direction: column;
+  //   align-items: center;
+  //   width: 130px;
+  // }
+
+  // &__calender-day-title {
+  //   display: flex;
+  //   align-items: center;
+  //   justify-content: center;
+  //   width: 100%;
+  //   height: 38px;
+  //   background-color: $color-humming-bird;
+  //   border-bottom: 1px solid $color-dark-gray;
+  //   text-align: center;
+  // }
+
+  // &__calender-day-slots {
+  //   display: flex;
+  //   flex-direction: column;
+  // }
+
+  // &__calender-day-slots {
+  //   label {
+  //     position: relative;
+  //     width: 130px;
+  //     height: 64px;
+  //     border-bottom: 1px solid $color-dark-gray;
+  //     cursor: pointer;
+
+  //     &::before {
+  //       position: absolute;
+  //       content: "";
+  //       width: 18px;
+  //       height: 18px;
+  //       top: 50%;
+  //       left: 50%;
+  //       transform: translate(-50%, -50%);
+  //       border-radius: 2px;
+  //       border: 2px solid $color-nero;
+  //     }
+
+  //     .tooltip {
+  //       display: none;
+  //     }
+  //   }
+
+  //   input[type="checkbox"] {
+  //     opacity: 0;
+  //   }
+
+  //   label:has(input[type="checkbox"]:checked)::before {
+  //     border-color: $color-jade;
+  //     background: $color-jade url("../img/svg/check-small.svg") center no-repeat;
+  //   }
+
+  //   label:has(.requested)::before {
+  //     left: 35%;
+  //   }
+
+  //   label:has(.requested)::after {
+  //     position: absolute;
+  //     content: "";
+  //     top: 50%;
+  //     right: 35%;
+  //     transform: translate(50%, -50%);
+  //     width: 32px;
+  //     height: 32px;
+  //     background: url("../img/svg/requested.svg") center no-repeat;
+  //   }
+
+  //   label:has(.scheduled) {
+  //     &::after {
+  //       position: absolute;
+  //       content: "";
+  //       width: 32px;
+  //       height: 32px;
+  //       background: url("../img/svg/scheduled.svg") center no-repeat;
+  //       top: 50%;
+  //       left: 50%;
+  //       transform: translate(-50%, -50%);
+  //     }
+
+  //     &:hover {
+  //       .tooltip {
+  //         display: block;
+  //         position: absolute;
+  //         bottom: -44px;
+  //         right: -2px;
+  //         background-color: $color-dark-gray;
+  //         border-radius: 4px;
+  //         padding: 10px;
+  //         z-index: 200;
+
+  //         &::before {
+  //           position: absolute;
+  //           content: "";
+  //           top: -19px;
+  //           left: 16px;
+  //           width: 20px;
+  //           height: 20px;
+  //           background: linear-gradient(45deg, $color-dark-gray 0%, $color-dark-gray 50%, $color-transparent 50%, $color-transparent 100%);
+  //         }
+  //       }
+  //     }
+  //   }
+  // }
+
+  .calendar-wrapper {
     width: 100%;
-    display: flex;
+    margin: 3em auto;
   }
 
-  &__calender-timeoptions {
-    display: flex;
-    flex-direction: column;
-
-    span:not(.schedule__calender-timeoption) {
-      width: 100%;
-      height: 38px;
-      background-color: $color-humming-bird;
-      border-bottom: 1px solid $color-dark-gray;
-    }
+  table {
+    clear: both;
+    width: 100%;
+    border: 1px solid #dcdcff;
+    border-radius: 3px;
+    border-collapse: collapse;
+    color: #444;
   }
 
-  &__calender-timeoption {
+  td {
+    height: 48px;
+    text-align: center;
+    vertical-align: middle;
+    width: 50px;
+  }
+
+  .days td {
+    background-color: #c5fdea;
+    border-bottom: 1px solid #a3a3a3;
+    height: 36px;
+  }
+
+  td.not-current {
+    color: #c0c0c0;
+  }
+
+  td.today {
+    font-weight: 700;
+    color: #28283b;
+    font-size: 1.5em;
+  }
+
+  thead td {
+    border: none;
+    color: #28283b;
+    text-transform: uppercase;
+    font-size: 1.5em;
+  }
+
+  td.past {
+    background-color: #eaeaea;
+  }
+
+  td.past label {
+    display: none;
+  }
+
+  td.check,
+  td.hours {
     width: 130px;
     height: 64px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    border-bottom: 1px solid #a3a3a3;
+  }
+
+  .expired {
+    background-color: #f7f6f6;
+  }
+
+  .expired label {
+    pointer-events: none;
+  }
+
+  .send-btn {
+    position: absolute;
+    top: 0;
+    right: 0;
+    padding: 10px 20px;
+  }
+
+  .slots {
     border-bottom: 1px solid $color-dark-gray;
   }
 
-  &__calender-week.is-active {
-    width: 100%;
-    display: flex;
-  }
-
-  &__calender-day {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    width: 130px;
-  }
-
-  &__calender-day-title {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    width: 100%;
-    height: 38px;
-    background-color: $color-humming-bird;
-    border-bottom: 1px solid $color-dark-gray;
-    text-align: center;
-  }
-
-  &__calender-day-slots {
-    display: flex;
-    flex-direction: column;
-  }
-
-  &__calender-day-slots {
-    label {
-      position: relative;
-      width: 130px;
-      height: 64px;
-      border-bottom: 1px solid $color-dark-gray;
-
-      &::before {
-        position: absolute;
-        content: "";
-        width: 18px;
-        height: 18px;
-        top: 50%;
-        left: 50%;
-        transform: translate(-50%, -50%);
-        border-radius: 2px;
-        border: 2px solid $color-nero;
-      }
-
-      .tooltip {
-        display: none;
-      }
-    }
-
-    input[type="checkbox"] {
-      opacity: 0;
-    }
-
-    label:has(input[type="checkbox"]:checked)::before {
-      border-color: $color-jade;
-      background: $color-jade url("../img/svg/check-small.svg") center no-repeat;
-    }
-
-    label:has(.requested)::before {
-      left: 35%;
-    }
-
-    label:has(.requested)::after {
-      position: absolute;
-      content: "";
-      top: 50%;
-      right: 35%;
-      transform: translate(50%, -50%);
-      width: 32px;
-      height: 32px;
-      background: url("../img/svg/requested.svg") center no-repeat;
-    }
-
-    label:has(.scheduled) {
-      &::after {
-        position: absolute;
-        content: "";
-        width: 32px;
-        height: 32px;
-        background: url("../img/svg/scheduled.svg") center no-repeat;
-        top: 50%;
-        left: 50%;
-        transform: translate(-50%, -50%);
-      }
-
-      &:hover {
-        .tooltip {
-          display: block;
-          position: absolute;
-          bottom: -44px;
-          right: -2px;
-          background-color: $color-dark-gray;
-          border-radius: 4px;
-          padding: 10px;
-          z-index: 200;
-
-          &::before {
-            position: absolute;
-            content: "";
-            top: -19px;
-            left: 16px;
-            width: 20px;
-            height: 20px;
-            background: linear-gradient(45deg, $color-dark-gray 0%, $color-dark-gray 50%, $color-transparent 50%, $color-transparent 100%);
-          }
-        }
-      }
-    }
-  }
 }
 
 .schedule td {
   label {
     position: relative;
-    width: 130px;
-    height: 64px;
-    border-bottom: 1px solid $color-dark-gray;
+    padding: 20px 40px;
+    cursor: pointer;
 
     &::before {
       position: absolute;
@@ -182,6 +261,7 @@
       transform: translate(-50%, -50%);
       border-radius: 2px;
       border: 2px solid $color-nero;
+      cursor: pointer;
     }
 
     .tooltip {
@@ -191,6 +271,7 @@
 
   input[type="checkbox"] {
     opacity: 0;
+    cursor: pointer;
   }
 
   label:has(input[type="checkbox"]:checked)::before {

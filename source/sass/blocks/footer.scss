@@ -36,3 +36,23 @@
     }
   }
 }
+
+.admin {
+  .footer {
+    background-color: #f5f3ee;
+
+    .container {
+      display: grid;
+      grid-template-columns: 173px auto;
+      padding: 0;
+    }
+
+    &__left {
+      background-color: $color-matterhorn;
+    }
+
+    &__copyright {
+      background-color: #f5f3ee;
+    }
+  }
+}

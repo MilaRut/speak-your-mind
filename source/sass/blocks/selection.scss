@@ -16,6 +16,12 @@
   &__list--first &__item {
     max-width: 149px;
     height: 150px;
+    border: 3px solid $color-romance;
+    border-radius: 150px;
+    width: 150px;
+    height: 150px;
+    overflow: hidden;
+    box-shadow: 0 0 0 2px $color-shamrock-green;
 
     img {
       width: 100%;

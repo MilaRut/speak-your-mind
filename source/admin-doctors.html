@@ -71,14 +71,14 @@
               <img src="./img/content/user-thumb.png" width="24" height="24" alt="">
             </div>
             <button class="logged__btn js-dropdown-trigger" data-id="#logged-menu">
-              <span class="logged__username">Александр</span>
+              <span class="logged__username">Username</span>
               <svg width="10" height="10" fill="currentColor">
                 <use xlink:href="./img/sprite.svg#dropdown"></use>
               </svg>
             </button>
             <ul class="logged__menu-list list-reset" id="logged-menu">
               <li class="logged__menu-item">
-                <a href="#" data-translate="logout_btn">Выйти</a>
+                <a href="#" data-translate="logout_btn" class="logout-btn">Выйти</a>
               </li>
             </ul>
           </div>
@@ -91,19 +91,20 @@
           <div class="admin-content__wrapper">
             <div class="admin-content__left-col">
               <nav class="admin-content__nav">
+                <div class="admin-content__nav-logo">
+                  <img src="./img/svg/nav-logo.svg" width="72" height="72" alt="Speak your mind.">
+                </div>
                 <a href="admin-main.html" class="admin-content__nav-link">
                   <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                     <path
                       d="M20 16.9987V11.4507C20 10.9167 20 10.6498 19.935 10.4008C19.8775 10.1806 19.7828 9.97198 19.655 9.78375C19.51 9.57075 19.31 9.39375 18.907 9.04275L14.107 4.84275C13.361 4.18975 12.987 3.86275 12.567 3.73875C12.197 3.62875 11.803 3.62875 11.432 3.73875C11.012 3.86275 10.64 4.18875 9.894 4.84075L5.093 9.04275C4.691 9.39475 4.49 9.57075 4.346 9.78275C4.2178 9.97123 4.12276 10.1802 4.065 10.4008C4 10.6488 4 10.9167 4 11.4507V16.9987C4 17.9307 4 18.3967 4.152 18.7637C4.2524 19.0065 4.39963 19.2271 4.58528 19.4129C4.77093 19.5987 4.99137 19.7461 5.234 19.8468C5.602 19.9988 6.068 19.9988 7 19.9988C7.932 19.9988 8.398 19.9988 8.766 19.8468C9.00863 19.7461 9.22907 19.5987 9.41472 19.4129C9.60037 19.2271 9.7476 19.0065 9.848 18.7637C10 18.3967 10 17.9307 10 16.9987V15.9987C10 15.4683 10.2107 14.9596 10.5858 14.5845C10.9609 14.2095 11.4696 13.9987 12 13.9987C12.5304 13.9987 13.0391 14.2095 13.4142 14.5845C13.7893 14.9596 14 15.4683 14 15.9987V16.9987C14 17.9307 14 18.3967 14.152 18.7637C14.2524 19.0065 14.3996 19.2271 14.5853 19.4129C14.7709 19.5987 14.9914 19.7461 15.234 19.8468C15.602 19.9988 16.068 19.9988 17 19.9988C17.932 19.9988 18.398 19.9988 18.766 19.8468C19.0086 19.7461 19.2291 19.5987 19.4147 19.4129C19.6004 19.2271 19.7476 19.0065 19.848 18.7637C20 18.3967 20 17.9307 20 16.9987Z"
                       stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
                   </svg>
-                  <span>Главная</span>
+                  <span data-translate="int_nav_main">Главная</span>
                 </a>
                 <a href="admin-clients.html" class="admin-content__nav-link">
-                  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <path
-                      d="M21 20C21 18.258 19.33 16.777 17 16.227M15 20C15 17.79 12.314 16 9 16C5.686 16 3 17.79 3 20M15 13C16.0609 13 17.0783 12.5786 17.8284 11.8284C18.5786 11.0783 19 10.0609 19 9C19 7.93913 18.5786 6.92172 17.8284 6.17157C17.0783 5.42143 16.0609 5 15 5M9 13C7.93913 13 6.92172 12.5786 6.17157 11.8284C5.42143 11.0783 5 10.0609 5 9C5 7.93913 5.42143 6.92172 6.17157 6.17157C6.92172 5.42143 7.93913 5 9 5C10.0609 5 11.0783 5.42143 11.8284 6.17157C12.5786 6.92172 13 7.93913 13 9C13 10.0609 12.5786 11.0783 11.8284 11.8284C11.0783 12.5786 10.0609 13 9 13Z"
-                      stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+                  <svg width="25" height="25" fill="currentColor">
+                    <use xlink:href="./img/sprite.svg#nav-clients"></use>
                   </svg>
                   <span>Клиенты</span>
                 </a>
@@ -760,7 +761,7 @@
               </fieldset>
               <fieldset>
                 <label for="card-exp">
-                  <span>Срок действия</span>
+                        <span data-translate="card_exp">Срок действия</span>
                   <input type="number" id="card-exp" placeholder="m m  /  y y">
                 </label>
                 <label for="card-cvc">
@@ -1052,7 +1053,7 @@
             </fieldset>
           </div>
           <button type="button" class="doctor__expand-btn">
-            <span>Показать еще 3 дня</span>
+            <span data-translate="schedule_show_more">Показать еще 3 дня</span>
             <svg width="10" height="10" fill="currentColor">
               <use xlink:href="./img/sprite.svg#dropdown-green"></use>
             </svg>

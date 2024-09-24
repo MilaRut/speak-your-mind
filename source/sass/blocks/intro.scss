@@ -1,10 +1,7 @@
 .intro {
   background-color: $color-romance;
   padding-bottom: 54px;
-
-  &:first-child {
-    background-color: $color-jade;
-  }
+  background-color: #C5FDEA;
 
   &--businnes {
     background: $color-default-white;
@@ -18,6 +15,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
+    gap: 60px;
   }
 
   &__description {
@@ -26,27 +24,14 @@
 
   &__text {
     max-width: 43%;
+
+    .intro__subtitle {
+      margin-bottom: 24px;
+    }
   }
 
   &__title {
     margin-bottom: 32px;
-  }
-
-  &__list {
-    padding-left: 60px;
-    margin-top: -16px;
-  }
-
-  &__item {
-    font-family: Montserrat;
-    margin-top: 16px;
-  }
-
-  &__button-wrapper {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    padding: 80px;
   }
 
   .subtitle {
@@ -58,8 +43,17 @@
   }
 
   &__btn {
+    width: 100%;
     padding: 24px 32px;
     border-radius: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 32px;
+    font-weight: 900;
+    font-size: 20px;
+    line-height: 110%;
+    text-transform: uppercase;
 
     &--businnes {
       margin-top: 45px;

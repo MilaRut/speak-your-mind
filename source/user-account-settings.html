@@ -70,14 +70,14 @@
               <img src="./img/content/user-thumb.png" width="24" height="24" alt="">
             </div>
             <button class="logged__btn js-dropdown-trigger" data-id="#logged-menu">
-              <span class="logged__username">Александр</span>
+              <span class="logged__username">Username</span>
               <svg width="10" height="10" fill="currentColor">
                 <use xlink:href="./img/sprite.svg#dropdown"></use>
               </svg>
             </button>
             <ul class="logged__menu-list list-reset" id="logged-menu">
               <li class="logged__menu-item">
-                <a href="#" data-translate="logout_btn">Выйти</a>
+                <a href="#" data-translate="logout_btn" class="logout-btn">Выйти</a>
               </li>
             </ul>
           </div>
@@ -95,33 +95,33 @@
                 </div>
                 <a href="user-account-main.html" class="user-account__nav-link">
                   <svg width="25" height="25" fill="currentColor">
-                    <use xlink:href="./img/sprite.svg#user-main"></use>
+                    <use xlink:href="./img/sprite.svg#nav-main"></use>
                   </svg>
-                  <span>Главная</span>
+                  <span data-translate="int_nav_main">Главная</span>
                 </a>
                 <a href="user-account-payments.html" class="user-account__nav-link">
                   <svg width="25" height="25" fill="currentColor">
-                    <use xlink:href="./img/sprite.svg#user-payment"></use>
+                    <use xlink:href="./img/sprite.svg#nav-payment"></use>
                   </svg>
-                  <span>Платежи</span>
+                  <span data-translate="int_nav_payments">Платежи</span>
                 </a>
                 <a href="user-account-settings.html" class="user-account__nav-link is-active">
                   <svg width="25" height="25" fill="currentColor">
-                    <use xlink:href="./img/sprite.svg#user-settings"></use>
+                    <use xlink:href="./img/sprite.svg#nav-settings"></use>
                   </svg>
-                  <span>Профиль</span>
+                  <span data-translate="int_nav_profile">Профиль</span>
                 </a>
                 <a href="/faq.html" class="user-account__nav-link">
                   <svg width="25" height="25" fill="currentColor">
-                    <use xlink:href="./img/sprite.svg#user-help"></use>
+                    <use xlink:href="./img/sprite.svg#nav-help"></use>
                   </svg>
-                  <span>Помощь</span>
+                  <span data-translate="int_nav_help">Помощь</span>
                 </a>
-                <a href="index.html" class="user-account__nav-link" id="logout-btn">
+                <a href="index.html" class="user-account__nav-link logout-btn">
                   <svg width="25" height="25" fill="currentColor">
-                    <use xlink:href="./img/sprite.svg#user-logout"></use>
+                    <use xlink:href="./img/sprite.svg#nav-logout"></use>
                   </svg>
-                  <span>Выход</span>
+                  <span data-translate="int_nav_logout">Выход</span>
                 </a>
               </nav>
 
@@ -130,12 +130,12 @@
 
               <details
                 style="position: fixed; min-width: 360px; z-index: 100; cursor: pointer; display: flex; flex-direction: column; top: 0; right: 0; background-color: lightgray;">
-                <summary>Варианты состояний</summary>
-                <p><b>Настройки:</b></p>
-                <div utils-btn-settings data-id="settings-reg-completed">завершение регистрации</div>
-                <div utils-btn-settings data-id="settings-main">настройки главная</div>
-                <div utils-btn-settings data-id="settings-rechoice-1">смена терапевта 1</div>
-                <div utils-btn-settings data-id="settings-rechoice-2">смена терапевта 2</div>
+                <summary>Temporary menu - profile variants</summary>
+                <p><b>Settings:</b></p>
+                <div utils-btn-settings data-id="settings-reg-completed">сomplete registration</div>
+                <div utils-btn-settings data-id="settings-main">settings main</div>
+                <div utils-btn-settings data-id="settings-rechoice-1">change therapist 1</div>
+                <div utils-btn-settings data-id="settings-rechoice-2">change therapist 2</div>
               </details>
 
               <!-- TODO: удалить -->
@@ -145,66 +145,70 @@
             <div class="user-account__right-col">
               <div class="user-account__settings settings" data-utils="settings-reg-completed">
                 <div class="settings__main">
-                  <h2 class="user-account__title title">Ваш профиль</h2>
+                  <h2 class="user-account__title title" data-translate="user_settings_title">Ваш профиль</h2>
                   <p class="user-account__subtitle">
-                    <span class="welcome-message">Добро пожаловать в приложение Speak Your Mind!</span>
-                    <span class="message">Здесь вы можете отредактировать ваши личные данные и переподобрать терапевта,
+                    <span class="welcome-message" data-translate="user_settings_msg_1">Добро пожаловать в приложение
+                      Speak Your Mind!</span>
+                    <span class="message" data-translate="user_settings_msg_2">Здесь вы можете отредактировать ваши
+                      личные данные и переподобрать терапевта,
                       если выбранный ранее вас по каким-то причинам не устраивает.</span>
                   </p>
                   <p class="text-25 text-success">
                     <svg width="36" height="36" fill="currentColor">
                       <use xlink:href="./img/sprite.svg#success"></use>
                     </svg>
-                    <span>Карта успешно привязана</span>
+                    <span data-translate="user_settings_text_success">Карта успешно привязана</span>
                   </p>
                   <div class="settings__heading">
                     <div class="settings__avatar">
                       <img src="./img/content/user-thumb.png" width="56" height="56" alt="">
                     </div>
                     <button type="button" class="settings__edit-avatar-btn text-green" data-open-modal
-                      data-modal-id="#upload-avatar">Загрузить фото</button>
+                      data-modal-id="#upload-avatar" data-translate="avatar_upload_btn">Загрузить фото</button>
                   </div>
                   <div class="settings__userinfo">
                     <form action="" method="post">
                       <fieldset>
                         <label>
-                          <span class="text-20">Ваше имя</span>
+                          <span class="text-20" data-translate="name_placeholder">Ваше имя</span>
                           <input type="text" name="user_name" id="user_name" value="Александр" readonly>
-                          <button type="button"
-                            class="settings__edit-btn settings__edit-btn--email text-green">Редактировать</button>
+                          <button type="button" class="settings__edit-btn settings__edit-btn--email text-green"
+                            data-translate="edit">Редактировать</button>
                         </label>
                         <label>
-                          <span class="text-20">Ваш email</span>
+                          <span class="text-20" data-translate="email_placeholder">Ваш email</span>
                           <input type="text" name="email" id="email" value="yanykin@mail.hu" readonly>
-                          <button type="button"
-                            class="settings__edit-btn settings__edit-btn--email text-green">Редактировать</button>
+                          <button type="button" class="settings__edit-btn settings__edit-btn--email text-green"
+                            data-translate="edit">Редактировать</button>
                         </label>
                         <label>
-                          <span class="text-20">Изменить пароль</span>
+                          <span class="text-20" data-translate="change_password">Изменить пароль</span>
                           <input type="password" name="password" id="password" value="password-value" readonly>
-                          <button type="button"
-                            class="settings__edit-btn settings__edit-btn--password text-green">Изменить</button>
-                          <button type="button" class="show-password-btn">Показать пароль</button>
+                          <button type="button" class="settings__edit-btn settings__edit-btn--password text-green"
+                            data-translate="edit">Редактировать</button>
+                          <button type="button" class="show-password-btn" data-translate="show_password">Показать
+                            пароль</button>
                         </label>
                         <label>
-                          <span class="text-20">Язык интерфейса</span>
+                          <span class="text-20" data-translate="ui_language">Язык интерфейса</span>
                           <select name="ui_language" id="ui_language">
-                            <option value="ru">Русский</option>
-                            <option value="en">English</option>
-                            <option value="hu">Magyar</option>
+                            <option value="ru" data-translate="lang_russian">русский</option>
+                            <option value="en">english</option>
+                            <option value="hu">magyar</option>
                           </select>
                         </label>
                         <label>
-                          <span class="text-20">Язык интерфейса</span>
+                          <span class="text-20" data-translate="user_timezone">Ваш часовой
+                            пояс</span>
                           <select name="user_timezone" id="user_timezone">
                             <option value="+1">(UTC +01:00) Europe / Budapest</option>
                           </select>
                         </label>
                       </fieldset>
-                      <button type="submit" class="settings__submit-btn btn">Сохранить</button>
+                      <button type="submit" class="settings__submit-btn btn" data-translate="save">Сохранить</button>
                     </form>
                   </div>
-                  <h2 class="settings__doctor-heading text-25">Ваш терапевт</h2>
+                  <h2 class="settings__doctor-heading text-25" data-translate="user_account_your_doc">Ваш терапевт</h2>
                   <div class="user-account__doctor">
                     <div class="user-account__doctor-image">
                       <img src="./img/content/doctor-thumb.png" width="100" height="100" alt="">
@@ -213,79 +217,90 @@
                       <p class="text-31">Олеся Парада</p>
                       <button class="user-account__contact btn btn--white" utils-btn-settings
                         data-id="settings-rechoice-1">
-                        <span class="text-green">Сменить терапевта</span>
+                        <span class="text-green" data-translate="change_therapist">Сменить терапевта</span>
                       </button>
-                      <p class="first-session-msg">Запрос на назначение сессии на 15:00 6 июля отправлен терапевту Олесе
-                        Параде.
-                        Как только терапевт подтвердит время, вы получите уведомление об этом на ваш адрес электронной
-                        почты, а на этой <a href="/user-account.main" class="text-green">главной странице приложения</a>
-                        появится окошко для видео-чата и возможность связаться с терапевтом.</p>
+                      <p class="first-session-msg">
+                        <span data-translate="first_session_msg_1">Запрос на назначение сессии на</span>&nbsp;
+                        <span class="session-time">15:00 6 июля</span>
+                        <span data-translate="first_session_msg_2">отправлен терапевту</span>&nbsp;
+                        <span class="doc-name">Олесе Параде</span>.
+                        <span data-translate="first_session_msg_3">Как только терапевт подтвердит время, вы получите
+                          уведомление об этом на ваш адрес электронной почты, а на</span>&nbsp;
+                        <a href="/user-account-main.html" class="text-green"
+                          data-translate="first_session_msg_4">главной странице приложения</a>
+                        <span data-translate="first_session_msg_5">появится окошко для видео-чата и возможность
+                          связаться с терапевтом.</span>&nbsp;
+                      </p>
                     </div>
                   </div>
                 </div>
                 <div class="settings__rechoice rechoice rechoice-1">
                   <div class="rechoice__heading">
-                    <h2 class="text-31">Смена терапевта</h2>
+                    <h2 class="text-31" data-translate="rechoice_title">Смена терапевта</h2>
                   </div>
                   <div class="rechoice__form">
                     <form action="" method="post">
                       <fieldset>
-                        <p class="text-20">Укажите, пожалуйста, причину смены терапевта. Эта информация не видна
+                        <p class="text-20" data-translate="rechoice_text">Укажите, пожалуйста, причину смены терапевта.
+                          Эта информация не видна
                           терапевту и позволит нам улучшить работу сервиса</p>
                         <div class="inputs-wrapper inputs-wrapper--checkboxes">
                           <label>
-                            <input type="checkbox" id="rechoice-1" name="rechoice-1">
-                            <span>Не возникло ощущения, что меня слышат, понимают</span>
+                            <input type="checkbox" id="rechoice-1" name="rechoice-reason">
+                            <span data-translate="rechoice_reason_1">Не возникло ощущения, что меня слышат,
+                              понимают</span>
                           </label>
                           <label>
-                            <input type="checkbox" id="rechoice-2" name="rechoice-2" checked>
-                            <span>Психолог опоздал на сессию</span>
+                            <input type="checkbox" id="rechoice-2" name="rechoice-reason" checked>
+                            <span data-translate="rechoice_reason_2">Психолог опоздал на сессию</span>
                           </label>
                           <label>
-                            <input type="checkbox" id="rechoice-3" name="rechoice-3">
-                            <span>Психолог не объяснил, как будет строиться наша с ним работа</span>
+                            <input type="checkbox" id="rechoice-3" name="rechoice-reason">
+                            <span data-translate="rechoice_reason_3">Психолог не объяснил, как будет строиться наша с
+                              ним работа</span>
                           </label>
                           <label>
-                            <input type="checkbox" id="rechoice-4" name="rechoice-4">
-                            <span>Не подошли условия психолога</span>
+                            <input type="checkbox" id="rechoice-4" name="rechoice-reason">
+                            <span data-translate="rechoice_reason_4">Не подошли условия психолога</span>
                           </label>
                           <label>
-                            <input type="checkbox" id="rechoice-4" name="rechoice-4">
-                            <span>У психолога не оказалось удобного времени</span>
+                            <input type="checkbox" id="rechoice-5" name="rechoice-reason">
+                            <span data-translate="rechoice_reason_5">У психолога не оказалось удобного времени</span>
                           </label>
                           <label>
-                            <input type="checkbox" id="rechoice-4" name="rechoice-4">
-                            <span>Психолог все время молчал</span>
+                            <input type="checkbox" id="rechoice-6" name="rechoice-reason">
+                            <span data-translate="rechoice_reason_6">Психолог все время молчал</span>
                           </label>
                           <label>
-                            <input type="checkbox" id="rechoice-4" name="rechoice-4">
-                            <span>Психолог много говорил, мы не успели обсудить мой запрос</span>
+                            <input type="checkbox" id="rechoice-7" name="rechoice-reason">
+                            <span data-translate="rechoice_reason_7">Психолог много говорил, мы не успели обсудить мой
+                              запрос</span>
                           </label>
                           <label>
-                            <input type="checkbox" id="rechoice-4" name="rechoice-4">
-                            <span>Не чувствую результат</span>
+                            <input type="checkbox" id="rechoice-8" name="rechoice-reason">
+                            <span data-translate="rechoice_reason_8">Не чувствую результат</span>
                           </label>
                           <label>
-                            <input type="checkbox" id="rechoice-4" name="rechoice-4">
-                            <span>Сессии не было</span>
+                            <input type="checkbox" id="rechoice-9" name="rechoice-reason">
+                            <span data-translate="rechoice_reason_9">Сессии не было</span>
                           </label>
                           <label>
-                            <input type="checkbox" id="rechoice-4" name="rechoice-4">
-                            <span>Проблема решена</span>
+                            <input type="checkbox" id="rechoice-10" name="rechoice-reason">
+                            <span data-translate="rechoice_reason_10">Проблема решена</span>
                           </label>
                           <label>
-                            <input type="checkbox" id="rechoice-4" name="rechoice-4">
-                            <span>Другое</span>
+                            <input type="checkbox" id="rechoice-11" name="rechoice-reason">
+                            <span data-translate="rechoice_reason_11">Другое</span>
                           </label>
                         </div>
                       </fieldset>
                       <fieldset>
-                        <p class="text-20">Расскажите подробнее</p>
+                        <p class="text-20" data-translate="rechoice_additional">Расскажите подробнее</p>
                         <textarea name="rechoice-comment" id="rechoice-comment" cols="50" rows="5"></textarea>
                       </fieldset>
-                      <p class="text-20">Как бы вы хотели продолжить</p>
+                      <p class="text-20" data-translate="rechoice_continue">Как бы вы хотели продолжить</p>
                       <fieldset class="fieldset-row">
-                        <span class="text18">Свяжитесь со мной</span>
+                        <span class="text18" data-translate="contact_me">Свяжитесь со мной</span>
                         <div class="inputs-wrapper inputs-wrapper--radio">
                           <input type="radio" id="contact-email" name="contact" value="contact-email" checked>
                           <label for="contact-email">
@@ -299,26 +314,26 @@
                             <svg width="18" height="18" fill="currentColor">
                               <use xlink:href="./img/sprite.svg#check-mark"></use>
                             </svg>
-                            <span class="text-14">Не нужно</span>
+                            <span class="text-14" data-translate="no_contact">Не нужно</span>
                           </label>
                         </div>
                       </fieldset>
-                      <p class="text-20">Что произойдет дальше?</p>
-                      <p class="text-18">Вы перейдете к списку рекомендованных терапевтов и сможете выбрать нового
-                        специалиста.
-                        Если ваш запрос изменился, вы можете отредактировать его <a class="text-green"
-                          href="user-account-rechoice.html">здесь</a>.</p>
+                      <p class="text-20" data-translate="rechoice_what_next_title">Что произойдет дальше?</p>
+                      <p class="text-18" data-translate="rechoice_what_next_text">Вы перейдете к списку рекомендованных
+                        терапевтов и сможете выбрать нового
+                        специалиста. Если ваш запрос изменился, вы можете отредактировать его
+                        <a class="text-green" href="user-account-rechoice.html" data-translate="here">здесь</a>.
+                      </p>
                       <button type="button" class="rechoice__back-btn btn btn--white" utils-btn-settings
-                        data-id="settings-main">Вернуться
-                        назад</button>
+                        data-id="settings-main" data-translate="return">Вернуться назад</button>
                       <button type="button" class="rechoice__submit-btn btn" utils-btn-settings
-                        data-id="settings-rechoice-2">Сменить терапевта</button>
+                        data-id="settings-rechoice-2" data-translate="change_therapist">Сменить терапевта</button>
                     </form>
                   </div>
                 </div>
                 <div class="settings__rechoice rechoice rechoice-2">
                   <div class="rechoice__heading">
-                    <h2 class="text-31">Лучшие совпадения</h2>
+                    <h2 class="text-31" data-translate="choice_heading">Лучшие совпадения</h2>
                   </div>
                   <div class="choice__swiper swiper" id="swiper-1">
                     <ul class="choice__list choice__thumbs-list list-reset swiper-wrapper">
@@ -455,19 +470,19 @@
                         <div class="doctor__content">
                           <div class="doctor__heading">
                             <p class="doctor__name">Сергей Никитин</p>
-                            <p class="doctor__experience">Опыт 6 лет</p>
+                            <p class="doctor__experience"><span data-translate="doctor__experience">Опыт</span> 6 лет</p>
                             <p class="doctor__details">
                               <span class="doctor__type">Индивидуальная сессия</span>
                               <span class="divider">&#8226;</span>
-                              <span class="doctor__time">50 мин</span>
+                              <span class="doctor__time">50 <span data-translate="doctor_time_min">мин</span></span>
                               <span class="divider">&#8226;</span>
                               <span class="doctor__price">10&nbsp;000 HUF</span>
                             </p>
-                            <p class="doctor__themes">Работает со всеми темами вашей анкеты</p>
-                            <a href="#schedule" class="doctor__btn doctor__schedule-btn btn">Выбрать время сессии</a>
+                            <p class="doctor__themes" data-translate="doctor_themes">Работает со всеми темами вашей анкеты</p>
+                            <a href="#schedule" class="doctor__btn doctor__schedule-btn btn" data-translate="doctor_schedule_btn">Выбрать время сессии</a>
                           </div>
                           <div class="doctor__content-block" id="about-doctor">
-                            <h2 class="text-25 doctor__title">О специалисте</h2>
+                            <h2 class="text-25 doctor__title" data-translate="about_doctor">О специалисте</h2>
                             <p class="text-18">В своей работе я опираюсь на базовую идею гештальта основанную на
                               способности психики к саморегуляции. Что предполагает целостный подход к человеку в
                               котором мысли, эмоции, чувства и среда в которой находится человек рассматривается как
@@ -483,7 +498,7 @@
                             </p>
                           </div>
                           <div class="doctor__content-block" id="doctor__edu">
-                            <h2 class="text-25 doctor__title">Образование</h2>
+                            <h2 class="text-25 doctor__title" data-translate="doc_q_edu_placeholder">Образование</h2>
                             <ul class="doctor__edu-list list-reset">
                               <li class="doctor__edu-item">
                                 <p class="doctor__edu-year">2023</p>
@@ -529,7 +544,7 @@
                             </ul>
                           </div>
                           <div class="doctor__content-block" id="schedule">
-                            <h2 class="text-25 doctor__title">Расписание</h2>
+                            <h2 class="text-25 doctor__title" data-translate="doctor_schedule_title">Расписание</h2>
                             <form action="" method="post" id="choice-date-form">
                               <div class="doctor__day-wrapper">
                                 <p class="doctor__day">
@@ -725,21 +740,24 @@
                               </div>
 
                               <button type="button" class="doctor__expand-btn">
-                                <span>Показать еще 3 дня</span>
+                                <span data-translate="schedule_show_more">Показать еще 3 дня</span>
                                 <svg width="10" height="10" fill="currentColor">
                                   <use xlink:href="./img/sprite.svg#dropdown-green"></use>
                                 </svg>
                               </button>
 
                               <button type="submit" class="doctor__submit-btn btn">
-                                <span class="doctor__submit-text">Выбрать&nbsp;</span>
-                                <span class="doctor__submit-date"><time datetime="2024-07-06T15-00"></time></span>
-                                <span class="doctor__submit-text-2">&nbsp;и продолжить</span>
+                                <span class="doctor__submit-text"
+                                  data-translate="doctor_submit_btn_1">Выбрать</span>&nbsp;
+                                <span class="doctor__submit-date"><time datetime="2024-07-06T20-00"></time></span>&nbsp;
+                                <span class="doctor__submit-text-2" data-translate="doctor_submit_btn_2">и
+                                  продолжить</span>
                               </button>
-                              <span class="error-message">Пожалуйста, выберите дату</span>
+                              <span class="error-message" data-translate="doctor_submit_err">Пожалуйста, выберите
+                                дату</span>
                             </form>
                             <button type="button" class="rechoice__back-btn btn btn--white" utils-btn-settings
-                              data-id="settings-main">Отменить</button>
+                              data-id="settings-main" data-translate="cancel">Отменить</button>
                           </div>
                         </div>
                       </li>
@@ -773,88 +791,17 @@
           </svg>
         </button>
         <div class="avatar-upload">
-          <h2 class="modal__title text-31">Загрузите фото</h2>
+          <h2 class="modal__title text-31" data-translate="avatar_upload">Загрузите фото</h2>
           <form action="" method="post" id="avatar-upload-form">
             <fieldset>
               <label>
                 <input type="file" name="avatar" id="avatar">
               </label>
             </fieldset>
-            <button type="submit" class="avatar-upload__submit-btn btn">Загрузить фото</button>
+            <button type="submit" class="avatar-upload__submit-btn btn" data-translate="avatar_upload_btn">Загрузить
+              фото</button>
           </form>
         </div>
-      </div>
-    </div>
-  </div>
-
-  <div class="modal modal--preload" id="new-card-popup">
-    <div class="modal__wrapper">
-      <div class="modal__overlay" data-close-modal></div>
-      <div class="modal__content modal__content--new-card">
-        <button class="modal__close-btn" type="button" aria-label="Закрыть окно." data-close-modal>
-          <svg width="32" height="32" fill="currentColor">
-            <use xlink:href="./img/sprite.svg#close-modal"></use>
-          </svg>
-        </button>
-        <h2 class="modal__title text-31">Привязать карту</h2>
-        <div class="card">
-          <div class="card__card-info">
-            <form action="" method="post">
-              <fieldset>
-                <label for="card-owner">
-                  <span>Имя владельца карты</span>
-                  <input type="text" id="card-owner" placeholder="Имя на лицевой стороне карты">
-                </label>
-              </fieldset>
-              <fieldset>
-                <label for="card-number">
-                  <span>Номер карты</span>
-                  <input type="number" id="card-number" placeholder="x x x x    x x x x    x x x x    x x x x">
-                </label>
-              </fieldset>
-              <fieldset>
-                <label for="card-exp">
-                  <span>Срок действия</span>
-                  <input type="number" id="card-exp" placeholder="m m  /  y y">
-                </label>
-                <label for="card-cvc">
-                  <span>Код CVС</span>
-                  <input type="number" id="card-cvc" maxlength="3" placeholder="x x x">
-                </label>
-              </fieldset>
-              <p class="card__permission text-18">
-                Добавляя карту вы принимаете <a href="#" data-open-modal data-modal-id="#payment-terms"
-                  class="text-green">условия сервиса</a>
-              </p>
-              <button type="submit" class="card__submit-btn btn">Добавить карту</button>
-            </form>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <div class="modal modal--preload" id="payment-terms">
-    <div class="modal__wrapper">
-      <div class="modal__overlay" data-close-modal></div>
-      <div class="modal__content modal__content--new-card">
-        <button class="modal__close-btn" type="button" aria-label="Закрыть окно." data-close-modal>
-          <svg width="32" height="32" fill="currentColor">
-            <use xlink:href="./img/sprite.svg#close-modal"></use>
-          </svg>
-        </button>
-        <h2 class="modal__title text-31">Условия сервиса и автосписания</h2>
-        <p class="modal__text text-18"> Пользователю доступна функция безналичной оплаты Видеоконсультаций, в этом
-          случае «Speak your mind» действует по поручению соответствующего Психолога с привлечением уполномоченной
-          платежной системы и является получателем платежа в качестве агента Психолога (далее – «безналичная оплата»).
-        </p>
-        <p class="modal__text text-18">«Speak your mind» не гарантирует отсутствия ошибок и сбоев в работе Сервиса в
-          отношении предоставления
-          возможности безналичной оплаты. Списание денежных средств за Видеоконсультацию осуществляется за 24 часа до
-          момента проведения Видеоконсультации, а если Пользователь записался на Видеоконсультацию менее, чем за 24
-          часа, то списание осуществляется за 12 часов до Видеоконсультации или в момент записи на Видеоконсультацию, в
-          зависимости от того, что наступит ранее. В случае невозможности списания денежных средств за 12 часов до
-          проведения Видеоконсультации, Видеоконсультация подлежит отмене.</p>
       </div>
     </div>
   </div>

@@ -70,14 +70,14 @@
               <img src="./img/content/user-thumb.png" width="24" height="24" alt="">
             </div>
             <button class="logged__btn js-dropdown-trigger" data-id="#logged-menu">
-              <span class="logged__username">Александр</span>
+              <span class="logged__username">Username</span>
               <svg width="10" height="10" fill="currentColor">
                 <use xlink:href="./img/sprite.svg#dropdown"></use>
               </svg>
             </button>
             <ul class="logged__menu-list list-reset" id="logged-menu">
               <li class="logged__menu-item">
-                <a href="#" data-translate="logout_btn">Выйти</a>
+                <a href="#" data-translate="logout_btn" class="logout-btn">Выйти</a>
               </li>
             </ul>
           </div>
@@ -95,33 +95,33 @@
                 </div>
                 <a href="user-account-main.html" class="user-account__nav-link is-active">
                   <svg width="25" height="25" fill="currentColor">
-                    <use xlink:href="./img/sprite.svg#user-main"></use>
+                    <use xlink:href="./img/sprite.svg#nav-main"></use>
                   </svg>
-                  <span>Главная</span>
+                  <span data-translate="int_nav_main">Главная</span>
                 </a>
                 <a href="user-account-payments.html" class="user-account__nav-link">
                   <svg width="25" height="25" fill="currentColor">
-                    <use xlink:href="./img/sprite.svg#user-payment"></use>
+                    <use xlink:href="./img/sprite.svg#nav-payment"></use>
                   </svg>
-                  <span>Платежи</span>
+                  <span data-translate="int_nav_payments">Платежи</span>
                 </a>
                 <a href="user-account-settings.html" class="user-account__nav-link">
                   <svg width="25" height="25" fill="currentColor">
-                    <use xlink:href="./img/sprite.svg#user-settings"></use>
+                    <use xlink:href="./img/sprite.svg#nav-settings"></use>
                   </svg>
-                  <span>Профиль</span>
+                  <span data-translate="int_nav_profile">Профиль</span>
                 </a>
                 <a href="/faq.html" class="user-account__nav-link">
                   <svg width="25" height="25" fill="currentColor">
-                    <use xlink:href="./img/sprite.svg#user-help"></use>
+                    <use xlink:href="./img/sprite.svg#nav-help"></use>
                   </svg>
-                  <span>Помощь</span>
+                  <span data-translate="int_nav_help">Помощь</span>
                 </a>
-                <a href="/doctor-landing.html" class="user-account__nav-link" id="logout-btn">
+                <a href="/doctor-landing.html" class="user-account__nav-link logout-btn">
                   <svg width="25" height="25" fill="currentColor">
-                    <use xlink:href="./img/sprite.svg#user-logout"></use>
+                    <use xlink:href="./img/sprite.svg#nav-logout"></use>
                   </svg>
-                  <span>Выход</span>
+                  <span data-translate="int_nav_logout">Выход</span>
                 </a>
               </nav>
 
@@ -130,17 +130,17 @@
 
               <details
                 style="position: fixed; min-width: 360px; z-index: 100; cursor: pointer; display: flex; flex-direction: column; top: 0; right: 0; background-color: lightgray;">
-                <summary>Варианты состояний</summary>
-                <p><b>Главная:</b></p>
-                <div utils-btn-main data-id="main-not-confirmed">нет подтверждения терапевта</div>
-                <div utils-btn-main data-id="main-1-confirmed">терапевт подтвердил 1 сессию</div>
-                <div utils-btn-main data-id="main-confirmed">терапевт подтвердил сессию</div>
-                <div utils-btn-main data-id="main-not-scheduled">нет текущей записи</div>
-                <div utils-btn-main data-id="main-change">перенос сессии</div>
-                <div utils-btn-main data-id="main-change-not-confirmed">перенос сессии не подтвержден</div>
-                <div utils-btn-main data-id="main-change-confirmed">перенос сессии подтвержден</div>
-                <div utils-btn-main data-id="main-doctor-change">доктор запросил перенос сессии</div>
-                <div utils-btn-main data-id="payment-error">ошибка оплаты</div>
+                <summary>Temporary menu - profile variants</summary>
+                <p><b>Main:</b></p>
+                <div utils-btn-main data-id="main-not-confirmed">no therapist confirmation</div>
+                <div utils-btn-main data-id="main-1-confirmed">therapist confirmed 1 session</div>
+                <div utils-btn-main data-id="main-confirmed">therapist confirmed the session</div>
+                <div utils-btn-main data-id="main-not-scheduled">no current session</div>
+                <div utils-btn-main data-id="main-change">session reschedule</div>
+                <div utils-btn-main data-id="main-change-not-confirmed">session reschedule not confirmed</div>
+                <div utils-btn-main data-id="main-change-confirmed">session reschedule confirmed</div>
+                <div utils-btn-main data-id="main-doctor-change">therapist requested a session reschedule</div>
+                <div utils-btn-main data-id="payment-error">payment error</div>
               </details>
 
               <!-- TODO: удалить -->
@@ -149,31 +149,48 @@
             </div>
             <div class="user-account__right-col">
               <div class="user-account__main" data-utils="main-not-confirmed">
-                <h2 class="user-account__title title">Личный кабинет</h2>
+                <h2 class="user-account__title title" data-translate="user_account_title">Личный кабинет</h2>
                 <div class="message_error">
-                  <p class="text-18">Невозможно списать средства за сессию, запланированную на 6 июля,
-                    20:00.<br>
-                    Пожалуйста, проверьте платежные данные.</p>
+                  <p class="text-18">
+                    <span data-translate="user_account_error_message_1">Невозможно списать средства за сессию,
+                      запланированную на</span>
+                    <span class="session-date">6 июля, 20:00</span>.<br>
+                    <span data-translate="user_account_error_message_2">Пожалуйста, проверьте платежные данные.</span>
+                  </p>
                   <button type="button" class="btn user-account__check-card">
                     <svg width="32" height="32" fill="currentColor">
-                      <use xlink:href="./img/sprite.svg#user-payment"></use>
+                      <use xlink:href="./img/sprite.svg#nav-payment"></use>
                     </svg>
-                    <span>Проверить карту</span>
+                    <span data-translate="user_account_check_card">Проверить карту</span>
                   </button>
                 </div>
                 <div class="user-account__message">
-                  <p class="text-25">Ваш терапевт</p>
-                  <p class="text-18 message_1">Запрос на назначение сессии на <span class="session-time">15:00 6
-                      июля</span> отправлен терапевту <span class="doctor-name">Олесе Параде</span>.<br>
-                    Как только терапевт подтвердит время, вы получите уведомление об этом на ваш адрес электронной
-                    почты, а на этой странице появится окошко для видео-чата и возможность связаться с терапевтом.</p>
-                  <p class="text-18 message_2">Поздравляем, вы успешно записались на первую сессию. <span
-                      class="doctor-name">Олеся Парада</span> подтвердила вашу запись.<br>
-                    Мы отправили вам по почте инструкцию, как подготовиться к первой сессии.</p>
-                  <p class="text-18 message_3">Запрос на перенос сессии на <span class="session-time">20:00 6
-                      июля</span> отправлен терапевту <span class="doctor-name">Олесе Параде</span>.<br>
-                    Как только терапевт подтвердит время, вы получите уведомление об этом на ваш адрес электронной
-                    почты.</p>
+                  <p class="text-25" data-translate="user_account_your_doc">Ваш терапевт</p>
+                  <p class="text-18 message_1">
+                    <span data-translate="user_account_message_1">Запрос на назначение сессии на</span>&nbsp;
+                    <span class="session-time">15:00 6 июля</span>&nbsp;
+                    <span data-translate="user_account_message_2">отправлен терапевту</span>&nbsp;
+                    <span class="doctor-name">Олесе Параде</span>.<br>
+                    <span data-translate="user_account_message_3">Как только терапевт подтвердит время, вы получите
+                      уведомление об этом на ваш адрес электронной почты, а на этой странице появится окошко для
+                      видео-чата и возможность связаться с терапевтом.</span>
+                  </p>
+                  <p class="text-18 message_2">
+                    <span data-translate="user_account_message_4">Поздравляем, вы успешно записались на первую
+                      сессию. Терапевт подтвердил вашу запись. Ваш терапевт:</span>&nbsp;
+                    <span class="doctor-name">Олеся Парада</span><br>
+                    <span data-translate="user_account_message_5">Мы отправили вам по почте инструкцию, как
+                      подготовиться к первой сессии.</span>
+                  </p>
+                  <p class="text-18 message_3">
+                    <span data-translate="user_account_message_6">Запрос на перенос сессии на</span>&nbsp;
+                    <span class="session-time">20:00 6 июля</span>&nbsp;
+                    <span data-translate="user_account_message_7">отправлен терапевту</span>&nbsp;
+                    <span class="doctor-name">Олесе Параде</span>.<br>
+                    <span data-translate="user_account_message_8">Как только терапевт подтвердит время, вы получите
+                      уведомление об этом на ваш адрес электронной
+                      почты.</span>
+                  </p>
                 </div>
                 <div class="user-account__session-wrapper">
                   <div class="user-account__doctor">
@@ -186,21 +203,43 @@
                         <svg width="30" height="22" fill="currentColor">
                           <use xlink:href="./img/sprite.svg#envelope"></use>
                         </svg>
-                        <span class="text-green">Написать терапевту</span>
+                        <span class="text-green" data-translate="user_account_contact">Написать терапевту</span>
                       </a>
                     </div>
                     <div class="user-account__doctor-change-request">
-                      <p class="text-25"><span class="doctor-name">Олеся Парада</span> запросила перенос сессии <span
-                          class="session-date">13 июля</span></p>
-                      <p class="text-18">Предложено новое время: <span class="new-date"><b>пятница 14 июля,
-                            16:30</b></span><br>
-                        Если вы согласны, нажмите “Подтвердить”.<br>
-                        Если вас не устраивает предложенное время, нажмите “Предложить другое время”.</p>
+                      <p class="text-25">
+                        <span data-translate="doctor_change_request_msg_1">Терапевт</span>&nbsp;
+                        <span class="doctor-name">Олеся Парада</span>&nbsp;
+                        <span data-translate="doctor_change_request_msg_2">запросил перенос сессии</span>
+                        <span class="session-date">13 июля</span>
+                      </p>
+                      <p class="text-18">
+                        <span data-translate="doctor_change_request_msg_3">Предложено новое время:</span>
+                        <span class="new-date"><b>пятница 14 июля, 16:30</b></span><br>
+                        <span data-translate="doctor_change_request_msg_4">Если вы согласны, нажмите
+                          “Подтвердить”.</span>
+                        <span data-translate="doctor_change_request_msg_5">Если вас не устраивает предложенное время,
+                          нажмите “Предложить другое время”.</span>
+                      </p>
                       <div class="btns">
-                        <button class="btn">Подтвердить</button>
-                        <button class="btn btn--white" utils-btn-main data-id="main-change">Предложить другое
-                          время</button>
-                        <button class="btn btn--white">Отменить сессию</button>
+                        <button type="button" class="btn">
+                          <svg width="32" height="32" fill="currentColor">
+                            <use xlink:href="./img/sprite.svg#calendar-check"></use>
+                          </svg>
+                          <span data-translate="doctor_change_request_btn_1">Подтвердить</span>
+                        </button>
+                        <button type="button" class="btn btn--white" utils-btn-main data-id="main-change">
+                          <svg width="32" height="32" fill="currentColor">
+                            <use xlink:href="./img/sprite.svg#calendar-reschedule"></use>
+                          </svg>
+                          <span data-translate="doctor_change_request_btn_2">Предложить другое время</span>
+                        </button>
+                        <button type="button" class="btn btn--red">
+                          <svg width="32" height="32" fill="currentColor">
+                            <use xlink:href="./img/sprite.svg#calendar-cancel"></use>
+                          </svg>
+                          <span data-translate="doctor_change_request_btn_3">Отменить сессию</span>
+                        </button>
                       </div>
                     </div>
                   </div>
@@ -211,16 +250,16 @@
                       </svg>
                     </div>
                     <div class="next-session">
-                      <p class="text-18">Ближайшая сессия:</p>
+                      <p class="text-18" data-translate="next_session">Ближайшая сессия:</p>
                       <p class="date text-20">6 июля, четверг, 15:00</p>
-                      <p class="date-not-scheduled text-20">нет записи</p>
+                      <p class="date-not-scheduled text-20" data-translate="no_session">нет записи</p>
                       <button class="user-account__change-btn btn" utils-btn-main data-id="main-change">
-                        <span class="change-btn-reschedule">Перенести сессию</span>
-                        <span class="change-btn-schedule">Записаться</span>
+                        <span class="change-btn-reschedule" data-translate="reschedule_session">Перенести сессию</span>
+                        <span class="change-btn-schedule" data-translate="schedule_session">Записаться</span>
                       </button>
                     </div>
                     <div class="requested-session">
-                      <p class="requested-session text-18">Запрошен перенос на:</p>
+                      <p class="requested-session text-18" data-translate="requested_session">Запрошен перенос на:</p>
                       <p class="date text-20">6 июля, четверг, 20:00</p>
                     </div>
                   </div>
@@ -235,7 +274,7 @@
                     </div>
                   </div>
                   <div class="doctor__content-block">
-                    <h2 class="text-25 doctor__title">Расписание</h2>
+                    <h2 class="text-25 doctor__title" data-translate="doctor_schedule_title">Расписание</h2>
                     <form action="" method="post" id="choice-date-form">
                       <div class="doctor__day-wrapper">
                         <p class="doctor__day">
@@ -430,19 +469,19 @@
                         </fieldset>
                       </div>
                       <button type="button" class="doctor__expand-btn">
-                        <span>Показать еще 3 дня</span>
+                        <span data-translate="schedule_show_more">Показать еще 3 дня</span>
                         <svg width="10" height="10" fill="currentColor">
                           <use xlink:href="./img/sprite.svg#dropdown-green"></use>
                         </svg>
                       </button>
                       <button type="submit" class="doctor__submit-btn btn">
-                        <span class="doctor__submit-text">Выбрать&nbsp;</span>
-                        <span class="doctor__submit-date"><time datetime="2024-07-06T20-00"></time></span>
-                        <span class="doctor__submit-text-2">&nbsp;и продолжить</span>
+                        <span class="doctor__submit-text" data-translate="doctor_submit_btn_1">Выбрать</span>&nbsp;
+                        <span class="doctor__submit-date"><time datetime="2024-07-06T20-00"></time></span>&nbsp;
+                        <span class="doctor__submit-text-2" data-translate="doctor_submit_btn_2">и продолжить</span>
                       </button>
-                      <span class="error-message">Пожалуйста, выберите дату</span>
+                      <span class="error-message" data-translate="doctor_submit_err">Пожалуйста, выберите дату</span>
                       <button type="button" class="btn btn--white user-account__session-change-reset" utils-btn-main
-                        data-id="main-confirmed">Отмена</button>
+                        data-id="main-confirmed" data-translate="cancel">Отмена</button>
                     </form>
                   </div>
                 </div>
@@ -460,102 +499,6 @@
         </div>
       </div>
     </footer>
-  </div>
-
-  <div class="modal modal--preload" id="upload-avatar">
-    <div class="modal__wrapper">
-      <div class="modal__overlay" data-close-modal></div>
-      <div class="modal__content modal__content--upload-avatar">
-        <button class="modal__close-btn" type="button" aria-label="Закрыть окно." data-close-modal>
-          <svg width="32" height="32" fill="currentColor">
-            <use xlink:href="./img/sprite.svg#close-modal"></use>
-          </svg>
-        </button>
-        <div class="avatar-upload">
-          <h2 class="modal__title text-31">Загрузите фото</h2>
-          <form action="" method="post" id="avatar-upload-form">
-            <fieldset>
-              <label>
-                <input type="file" name="avatar" id="avatar">
-              </label>
-            </fieldset>
-            <button type="submit" class="avatar-upload__submit-btn btn">Загрузить фото</button>
-          </form>
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <div class="modal modal--preload" id="new-card-popup">
-    <div class="modal__wrapper">
-      <div class="modal__overlay" data-close-modal></div>
-      <div class="modal__content modal__content--new-card">
-        <button class="modal__close-btn" type="button" aria-label="Закрыть окно." data-close-modal>
-          <svg width="32" height="32" fill="currentColor">
-            <use xlink:href="./img/sprite.svg#close-modal"></use>
-          </svg>
-        </button>
-        <h2 class="modal__title text-31">Привязать карту</h2>
-        <div class="card">
-          <div class="card__card-info">
-            <form action="" method="post">
-              <fieldset>
-                <label for="card-owner">
-                  <span>Имя владельца карты</span>
-                  <input type="text" id="card-owner" placeholder="Имя на лицевой стороне карты">
-                </label>
-              </fieldset>
-              <fieldset>
-                <label for="card-number">
-                  <span>Номер карты</span>
-                  <input type="number" id="card-number" placeholder="x x x x    x x x x    x x x x    x x x x">
-                </label>
-              </fieldset>
-              <fieldset>
-                <label for="card-exp">
-                  <span>Срок действия</span>
-                  <input type="number" id="card-exp" placeholder="m m  /  y y">
-                </label>
-                <label for="card-cvc">
-                  <span>Код CVС</span>
-                  <input type="number" id="card-cvc" maxlength="3" placeholder="x x x">
-                </label>
-              </fieldset>
-              <p class="card__permission text-18">
-                Добавляя карту вы принимаете <a href="#" data-open-modal data-modal-id="#payment-terms"
-                  class="text-green">условия сервиса</a>
-              </p>
-              <button type="submit" class="card__submit-btn btn">Добавить карту</button>
-            </form>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <div class="modal modal--preload" id="payment-terms">
-    <div class="modal__wrapper">
-      <div class="modal__overlay" data-close-modal></div>
-      <div class="modal__content modal__content--new-card">
-        <button class="modal__close-btn" type="button" aria-label="Закрыть окно." data-close-modal>
-          <svg width="32" height="32" fill="currentColor">
-            <use xlink:href="./img/sprite.svg#close-modal"></use>
-          </svg>
-        </button>
-        <h2 class="modal__title text-31">Условия сервиса и автосписания</h2>
-        <p class="modal__text text-18"> Пользователю доступна функция безналичной оплаты Видеоконсультаций, в этом
-          случае «Speak your mind» действует по поручению соответствующего Психолога с привлечением уполномоченной
-          платежной системы и является получателем платежа в качестве агента Психолога (далее – «безналичная оплата»).
-        </p>
-        <p class="modal__text text-18">«Speak your mind» не гарантирует отсутствия ошибок и сбоев в работе Сервиса в
-          отношении предоставления
-          возможности безналичной оплаты. Списание денежных средств за Видеоконсультацию осуществляется за 24 часа до
-          момента проведения Видеоконсультации, а если Пользователь записался на Видеоконсультацию менее, чем за 24
-          часа, то списание осуществляется за 12 часов до Видеоконсультации или в момент записи на Видеоконсультацию, в
-          зависимости от того, что наступит ранее. В случае невозможности списания денежных средств за 12 часов до
-          проведения Видеоконсультации, Видеоконсультация подлежит отмене.</p>
-      </div>
-    </div>
   </div>
 
   <script src="js/vendor.min.js"></script>

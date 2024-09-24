@@ -38,7 +38,7 @@
             <form action="" method="post" id="admin-login-form">
               <fieldset>
                 <label>
-                  <input type="email" name="user_email" id="user_email" placeholder="Ваш email">
+                  <input type="email" name="admin_email" id="admin_email" placeholder="Ваш email">
                 </label>
                 <label>
                   <input type="password" name="password" id="password" placeholder="Ваш пароль">
@@ -65,19 +65,42 @@
   </div>
 
   <script>
+    function getAdminData() {
+      const url = "http://127.0.0.1:8000/make_admin";
+
+      fetch(url, {
+        method: 'GET' // Убедитесь, что сервер поддерживает этот метод
+      })
+        .then(response => {
+          if (!response.ok) {
+            throw new Error('Сеть ответила с ошибкой: ' + response.status);
+          }
+          return response.json(); // Убедитесь, что сервер возвращает JSON
+        })
+        .then(data => {
+          console.log(data); // Обработка полученных данных
+        })
+        .catch(error => {
+          console.error('Произошла ошибка:', error); // Обработка ошибок
+        });
+    }
+
     document.addEventListener('DOMContentLoaded', function () {
+
+      getAdminData();
+
       document.getElementById('admin-login-form').addEventListener('submit', function (e) {
         e.preventDefault();
 
-        var user_email = document.getElementById('user_email').value;
+        var admin_email = document.getElementById('admin_email').value;
         var password = document.getElementById('password').value;
 
         var data = {
-          user_email: user_email,
+          email: admin_email,
           password: password
         };
 
-        fetch('http://63.250.47.203:8000/login', {
+        fetch('http://127.0.0.1:8000/make_admin', {
           method: 'POST',
           headers: {
             'Content-Type': 'application/json'
@@ -92,7 +115,8 @@
           })
           .then(function (data) {
             // Обработка успешного ответа от сервера
-            localStorage.setItem('token', data.token); // Сохраняем токен в localStorage
+            localStorage.setItem('email', data.email); // Сохраняем email в localStorage
+            localStorage.setItem('password', data.password); // Сохраняем password в localStorage
             window.location.href = '/admin-main.html';
           })
           .catch(function (error) {

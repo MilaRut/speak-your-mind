@@ -151,6 +151,7 @@
   &__contact {
     display: flex;
     align-items: center;
+    width: fit-content;
     border-radius: 73px;
     border: 1px solid $color-shamrock-green;
     padding: 8px 24px;
@@ -173,6 +174,10 @@
   &__change-btn {
     padding: 8px 24px;
   }
+
+  .choice__thumbs-list {
+    max-width: 965px;
+  }
 }
 
 .change-requested {
@@ -184,6 +189,7 @@
 }
 
 .user-account__session-change-reset {
+  margin-top: 24px;
   margin-left: 10px;
   padding: 16px 24px;
 }
@@ -207,6 +213,10 @@
 
     button {
       padding: 8px 24px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 8px;
     }
   }
 }
@@ -386,6 +396,10 @@
 
   .user-account__session-wrapper {
     display: block;
+  }
+
+  .requested-session {
+    display: none;
   }
 }
 

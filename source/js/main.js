@@ -6,7 +6,7 @@ import {initTabs} from './modules/tabs';
 import {showDropdownList} from './modules/dropdown';
 import {showPassword} from './modules/show-password';
 import {switchReadonly} from './modules/readonly-switch';
-import {validateTextarea} from './modules/textarea';
+// import {validateTextarea} from './modules/textarea';
 import {showTextInput} from './modules/select-other';
 import {setActiveItem} from './modules/clients-list';
 import {initActionsBtns} from './modules/clients-btns';
@@ -42,7 +42,7 @@ window.addEventListener('DOMContentLoaded', () => {
     showDropdownList();
     showPassword();
     switchReadonly();
-    validateTextarea();
+    // validateTextarea();
     showTextInput();
     setActiveItem();
     initActionsBtns();

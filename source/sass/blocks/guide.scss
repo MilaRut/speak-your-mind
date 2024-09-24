@@ -75,6 +75,12 @@
     align-items: center;
     cursor: pointer;
     text-align: center;
+
+    @include hover {
+      .guide__counter {
+        border: 5px solid $color-jade;
+      }
+    }
   }
 
   &__counter {

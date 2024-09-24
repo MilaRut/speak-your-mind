@@ -734,6 +734,12 @@ button {
   line-height: 1.2;
 }
 
+.text-28 {
+  font-size: 28px;
+  font-weight: 400;
+  line-height: 1.2;
+}
+
 .text-25 {
   font-size: 25px;
   font-weight: 400;
@@ -1307,10 +1313,7 @@ button {
 .intro {
   background-color: #f5f3ee;
   padding-bottom: 54px;
-}
-
-.intro:first-child {
-  background-color: #00ac73;
+  background-color: #C5FDEA;
 }
 
 .intro--businnes {
@@ -1331,6 +1334,7 @@ button {
   -webkit-box-align: center;
   -ms-flex-align: center;
   align-items: center;
+  gap: 60px;
 }
 
 .intro__description {
@@ -1341,32 +1345,12 @@ button {
   max-width: 43%;
 }
 
+.intro__text .intro__subtitle {
+  margin-bottom: 24px;
+}
+
 .intro__title {
   margin-bottom: 32px;
-}
-
-.intro__list {
-  padding-left: 60px;
-  margin-top: -16px;
-}
-
-.intro__item {
-  font-family: Montserrat;
-  margin-top: 16px;
-}
-
-.intro__button-wrapper {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-  -ms-flex-direction: column;
-  flex-direction: column;
-  -webkit-box-align: center;
-  -ms-flex-align: center;
-  align-items: center;
-  padding: 80px;
 }
 
 .intro .subtitle {
@@ -1378,8 +1362,23 @@ button {
 }
 
 .intro__btn {
+  width: 100%;
   padding: 24px 32px;
   border-radius: 50px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  margin-top: 32px;
+  font-weight: 900;
+  font-size: 20px;
+  line-height: 110%;
+  text-transform: uppercase;
 }
 
 .intro__btn--businnes {
@@ -1414,6 +1413,7 @@ button {
   align-items: center;
   margin-bottom: 124px;
   padding: 0 60px;
+  text-align: center;
 }
 
 .advantages__image {
@@ -1523,7 +1523,7 @@ button {
 
 .statistics {
   background-color: #f5f3ee;
-  padding: 80px 0;
+  padding: 80px;
 }
 
 .statistics .container {
@@ -1688,6 +1688,13 @@ button {
 .selection__list--first .selection__item {
   max-width: 149px;
   height: 150px;
+  border: 3px solid #f5f3ee;
+  border-radius: 150px;
+  width: 150px;
+  height: 150px;
+  overflow: hidden;
+  -webkit-box-shadow: 0 0 0 2px #039c69;
+  box-shadow: 0 0 0 2px #039c69;
 }
 
 .selection__list--first .selection__item img {
@@ -1936,6 +1943,26 @@ button {
   display: grid;
   -ms-grid-columns: 145px auto;
   grid-template-columns: 145px auto;
+}
+
+.admin .footer {
+  background-color: #f5f3ee;
+}
+
+.admin .footer .container {
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: 173px auto;
+  grid-template-columns: 173px auto;
+  padding: 0;
+}
+
+.admin .footer__left {
+  background-color: #555555;
+}
+
+.admin .footer__copyright {
+  background-color: #f5f3ee;
 }
 
 .login .container {
@@ -2591,6 +2618,10 @@ button {
   line-height: 1;
 }
 
+.choice__item-exp {
+  text-align: center;
+}
+
 .swiper {
   position: relative;
 }
@@ -2789,6 +2820,9 @@ button {
   padding: 16px 24px;
   cursor: pointer;
   opacity: 0.5;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
 }
 
 .doctor__submit-btn .doctor__submit-text-2 {
@@ -3158,6 +3192,9 @@ button {
   -webkit-box-align: center;
   -ms-flex-align: center;
   align-items: center;
+  width: -webkit-fit-content;
+  width: -moz-fit-content;
+  width: fit-content;
   border-radius: 73px;
   border: 1px solid #039c69;
   padding: 8px 24px;
@@ -3181,12 +3218,17 @@ button {
   padding: 8px 24px;
 }
 
+.user-account .choice__thumbs-list {
+  max-width: 965px;
+}
+
 .change-requested .next-session,
 .change-requested .requested-session {
   color: #a3a3a3;
 }
 
 .user-account__session-change-reset {
+  margin-top: 24px;
   margin-left: 10px;
   padding: 16px 24px;
 }
@@ -3214,6 +3256,16 @@ button {
 
 .user-account__doctor-change-request .btns button {
   padding: 8px 24px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  gap: 8px;
 }
 
 .message_error {
@@ -3373,6 +3425,10 @@ button {
 
 .user-account__main[data-utils=payment-error] .user-account__session-wrapper {
   display: block;
+}
+
+.user-account__main[data-utils=payment-error] .requested-session {
+  display: none;
 }
 
 .user-account__settings[data-utils=settings-reg-completed] .message,
@@ -4390,12 +4446,12 @@ button {
 
 .doctor-account {
   min-height: 100%;
-  -webkit-box-flex: 1;
-  -ms-flex-positive: 1;
-  flex-grow: 1;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
+  -webkit-box-flex: 1;
+  -ms-flex-positive: 1;
+  flex-grow: 1;
 }
 
 .doctor-account .container {
@@ -4797,12 +4853,6 @@ button {
   margin-bottom: 48px;
 }
 
-.schedule__tab-btns {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-}
-
 .schedule__tab-btn {
   cursor: pointer;
   padding: 10px 4px;
@@ -4819,183 +4869,88 @@ button {
   color: #000000;
 }
 
-.schedule__calender {
+.schedule .calendar-wrapper {
   width: 100%;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
+  margin: 3em auto;
 }
 
-.schedule__calender-timeoptions {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-  -ms-flex-direction: column;
-  flex-direction: column;
-}
-
-.schedule__calender-timeoptions span:not(.schedule__calender-timeoption) {
+.schedule table {
+  clear: both;
   width: 100%;
-  height: 38px;
-  background-color: #c5fdea;
-  border-bottom: 1px solid #a3a3a3;
+  border: 1px solid #dcdcff;
+  border-radius: 3px;
+  border-collapse: collapse;
+  color: #444;
 }
 
-.schedule__calender-timeoption {
-  width: 130px;
-  height: 64px;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-pack: center;
-  -ms-flex-pack: center;
-  justify-content: center;
-  -webkit-box-align: center;
-  -ms-flex-align: center;
-  align-items: center;
-  border-bottom: 1px solid #a3a3a3;
-}
-
-.schedule__calender-week.is-active {
-  width: 100%;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-}
-
-.schedule__calender-day {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-  -ms-flex-direction: column;
-  flex-direction: column;
-  -webkit-box-align: center;
-  -ms-flex-align: center;
-  align-items: center;
-  width: 130px;
-}
-
-.schedule__calender-day-title {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-align: center;
-  -ms-flex-align: center;
-  align-items: center;
-  -webkit-box-pack: center;
-  -ms-flex-pack: center;
-  justify-content: center;
-  width: 100%;
-  height: 38px;
-  background-color: #c5fdea;
-  border-bottom: 1px solid #a3a3a3;
+.schedule td {
+  height: 48px;
   text-align: center;
+  vertical-align: middle;
+  width: 50px;
 }
 
-.schedule__calender-day-slots {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-  -ms-flex-direction: column;
-  flex-direction: column;
-}
-
-.schedule__calender-day-slots label {
-  position: relative;
-  width: 130px;
-  height: 64px;
+.schedule .days td {
+  background-color: #c5fdea;
   border-bottom: 1px solid #a3a3a3;
+  height: 36px;
 }
 
-.schedule__calender-day-slots label::before {
-  position: absolute;
-  content: "";
-  width: 18px;
-  height: 18px;
-  top: 50%;
-  left: 50%;
-  -webkit-transform: translate(-50%, -50%);
-  -ms-transform: translate(-50%, -50%);
-  transform: translate(-50%, -50%);
-  border-radius: 2px;
-  border: 2px solid #202020;
+.schedule td.not-current {
+  color: #c0c0c0;
 }
 
-.schedule__calender-day-slots label .tooltip {
+.schedule td.today {
+  font-weight: 700;
+  color: #28283b;
+  font-size: 1.5em;
+}
+
+.schedule thead td {
+  border: none;
+  color: #28283b;
+  text-transform: uppercase;
+  font-size: 1.5em;
+}
+
+.schedule td.past {
+  background-color: #eaeaea;
+}
+
+.schedule td.past label {
   display: none;
 }
 
-.schedule__calender-day-slots input[type=checkbox] {
-  opacity: 0;
+.schedule td.check,
+.schedule td.hours {
+  width: 130px;
+  height: 64px;
+  border-bottom: 1px solid #a3a3a3;
 }
 
-.schedule__calender-day-slots label:has(input[type=checkbox]:checked)::before {
-  border-color: #00ac73;
-  background: #00ac73 url("../img/svg/check-small.svg") center no-repeat;
+.schedule .expired {
+  background-color: #f7f6f6;
 }
 
-.schedule__calender-day-slots label:has(.requested)::before {
-  left: 35%;
+.schedule .expired label {
+  pointer-events: none;
 }
 
-.schedule__calender-day-slots label:has(.requested)::after {
+.schedule .send-btn {
   position: absolute;
-  content: "";
-  top: 50%;
-  right: 35%;
-  -webkit-transform: translate(50%, -50%);
-  -ms-transform: translate(50%, -50%);
-  transform: translate(50%, -50%);
-  width: 32px;
-  height: 32px;
-  background: url("../img/svg/requested.svg") center no-repeat;
+  top: 0;
+  right: 0;
+  padding: 10px 20px;
 }
 
-.schedule__calender-day-slots label:has(.scheduled)::after {
-  position: absolute;
-  content: "";
-  width: 32px;
-  height: 32px;
-  background: url("../img/svg/scheduled.svg") center no-repeat;
-  top: 50%;
-  left: 50%;
-  -webkit-transform: translate(-50%, -50%);
-  -ms-transform: translate(-50%, -50%);
-  transform: translate(-50%, -50%);
-}
-
-.schedule__calender-day-slots label:has(.scheduled):hover .tooltip {
-  display: block;
-  position: absolute;
-  bottom: -44px;
-  right: -2px;
-  background-color: #a3a3a3;
-  border-radius: 4px;
-  padding: 10px;
-  z-index: 200;
-}
-
-.schedule__calender-day-slots label:has(.scheduled):hover .tooltip::before {
-  position: absolute;
-  content: "";
-  top: -19px;
-  left: 16px;
-  width: 20px;
-  height: 20px;
-  background: linear-gradient(45deg, #a3a3a3 0%, #a3a3a3 50%, rgba(255, 255, 255, 0) 50%, rgba(255, 255, 255, 0) 100%);
+.schedule .slots {
+  border-bottom: 1px solid #a3a3a3;
 }
 
 .schedule td label {
   position: relative;
-  width: 130px;
-  height: 64px;
-  border-bottom: 1px solid #a3a3a3;
+  padding: 20px 40px;
+  cursor: pointer;
 }
 
 .schedule td label::before {
@@ -5010,6 +4965,7 @@ button {
   transform: translate(-50%, -50%);
   border-radius: 2px;
   border: 2px solid #202020;
+  cursor: pointer;
 }
 
 .schedule td label .tooltip {
@@ -5018,6 +4974,7 @@ button {
 
 .schedule td input[type=checkbox] {
   opacity: 0;
+  cursor: pointer;
 }
 
 .schedule td label:has(input[type=checkbox]:checked)::before {
@@ -5346,55 +5303,30 @@ button {
 }
 
 .admin .header {
-  background-color: #555555;
-}
-
-.admin .header__logo-wrapper {
-  color: #ffffff;
-}
-
-.admin .header__logo-wrapper svg {
-  color: #ffffff;
-  fill: #ffffff;
-}
-
-.admin main {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-pack: center;
-  -ms-flex-pack: center;
-  justify-content: center;
-}
-
-.admin .logged__username,
-.admin .lang-switcher__btn,
-.admin .nav__link {
-  color: #ffffff;
-}
-
-.admin .logged__btn svg,
-.admin .lang-switcher__btn svg {
-  color: #ffffff;
-  fill: #ffffff;
-}
-
-.admin .logged__btn svg path,
-.admin .lang-switcher__btn svg path {
-  stroke: white;
+  display: none;
 }
 
 .admin-content {
   background-color: #F5F3EE;
   width: 100%;
+  min-height: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-flex: 1;
+  -ms-flex-positive: 1;
+  flex-grow: 1;
 }
 
 .admin-content .container {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  height: 100%;
   padding: 0;
+  min-height: 100%;
+  -webkit-box-flex: 1;
+  -ms-flex-positive: 1;
+  flex-grow: 1;
 }
 
 .admin-content__wrapper {
@@ -5402,11 +5334,23 @@ button {
   display: grid;
   -ms-grid-columns: 173px 1fr;
   grid-template-columns: 173px 1fr;
+  gap: 60px;
   width: 100%;
+  height: 100%;
+  min-height: 100%;
+}
+
+.admin-content__left-col,
+.admin-content__right-col {
+  padding-top: 40px;
 }
 
 .admin-content__left-col {
   background-color: #555555;
+}
+
+.admin-content__right-col {
+  padding: 40px 60px;
 }
 
 .admin-content__nav {
@@ -5417,9 +5361,27 @@ button {
   -webkit-box-direction: normal;
   -ms-flex-direction: column;
   flex-direction: column;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+}
+
+.admin-content__nav-logo {
+  width: 72px;
+  height: 72px;
+  overflow: hidden;
+  margin-bottom: 24px;
+}
+
+.admin-content__nav-logo img {
+  width: 100%;
+  height: 100%;
+  -o-object-fit: containx;
+  object-fit: containx;
 }
 
 .admin-content__nav-link {
+  width: 100%;
   color: #ffffff;
   padding: 10px 16px;
   display: -webkit-box;
@@ -5436,10 +5398,6 @@ button {
 
 .admin-content__nav-link.is-active {
   background-color: #00ac73;
-}
-
-.admin-content__right-col {
-  padding: 22px 60px;
 }
 
 .admin-content__heading {
@@ -5536,6 +5494,7 @@ button {
 }
 
 .admin-content__widgets summary svg {
+  stroke: #000000;
   -webkit-transform: rotate(180deg);
   -ms-transform: rotate(180deg);
   transform: rotate(180deg);
@@ -6013,6 +5972,10 @@ button.admin-profile__back-to-profile {
 
   .btn:hover:not(.focus-visible) {
     opacity: 0.8;
+  }
+
+  .guide__dot:hover:not(.focus-visible) .guide__counter {
+    border: 5px solid #00ac73;
   }
 
   .sessions__client-name:hover:not(.focus-visible) {
