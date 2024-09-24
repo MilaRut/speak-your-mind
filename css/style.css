@@ -2618,6 +2618,10 @@ button {
   line-height: 1;
 }
 
+.choice__item-exp {
+  text-align: center;
+}
+
 .swiper {
   position: relative;
 }
@@ -2819,7 +2823,6 @@ button {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  gap: 10px;
 }
 
 .doctor__submit-btn .doctor__submit-text-2 {
@@ -3189,6 +3192,9 @@ button {
   -webkit-box-align: center;
   -ms-flex-align: center;
   align-items: center;
+  width: -webkit-fit-content;
+  width: -moz-fit-content;
+  width: fit-content;
   border-radius: 73px;
   border: 1px solid #039c69;
   padding: 8px 24px;
@@ -3212,12 +3218,17 @@ button {
   padding: 8px 24px;
 }
 
+.user-account .choice__thumbs-list {
+  max-width: 965px;
+}
+
 .change-requested .next-session,
 .change-requested .requested-session {
   color: #a3a3a3;
 }
 
 .user-account__session-change-reset {
+  margin-top: 24px;
   margin-left: 10px;
   padding: 16px 24px;
 }
@@ -3245,6 +3256,16 @@ button {
 
 .user-account__doctor-change-request .btns button {
   padding: 8px 24px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  gap: 8px;
 }
 
 .message_error {
@@ -3404,6 +3425,10 @@ button {
 
 .user-account__main[data-utils=payment-error] .user-account__session-wrapper {
   display: block;
+}
+
+.user-account__main[data-utils=payment-error] .requested-session {
+  display: none;
 }
 
 .user-account__settings[data-utils=settings-reg-completed] .message,

@@ -70,7 +70,7 @@
               <img src="./img/content/user-thumb.png" width="24" height="24" alt="">
             </div>
             <button class="logged__btn js-dropdown-trigger" data-id="#logged-menu">
-              <span class="logged__username">Александр</span>
+              <span class="logged__username">Username</span>
               <svg width="10" height="10" fill="currentColor">
                 <use xlink:href="./img/sprite.svg#dropdown"></use>
               </svg>
@@ -169,12 +169,14 @@
           })
           .then(function (data) {
             localStorage.setItem('user_name', user_name);
-            getToken({
-              user_name: user_name,
-              user_email: user_email,
-              password: password,
-            })
-            console.log(data);
+            // TODO удалить, токен не нужен
+
+            // getToken({
+            //   user_name: user_name,
+            //   user_email: user_email,
+            //   password: password,
+            // })
+            window.location.href = '/user-signup-main.html';
           })
           .catch(function (error) {
             console.error('Ошибка:', error);
@@ -182,30 +184,31 @@
           });
 
 
-        function getToken(loginData) {
-          fetch('http://127.0.0.1:8000/register', {
-            method: 'POST',
-            headers: {
-              'Content-Type': 'application/json'
-            },
-            body: JSON.stringify(loginData)
-          })
-            .then(function (response) {
-              if (!response.ok) {
-                throw new Error('Network response was not ok');
-              }
-              return response.json();
-            })
-            .then(function (data) {
-              localStorage.setItem('token', data.token);
-              window.location.href = '/user-signup-main.html';
-              console.log(data);
-            })
-            .catch(function (error) {
-              console.error('Ошибка:', error);
-              // Обработка ошибки
-            });
-        }
+        // TODO удалить, токен не нужен
+
+        // function getToken(loginData) {
+        //   fetch('http://127.0.0.1:8000/register', {
+        //     method: 'POST',
+        //     headers: {
+        //       'Content-Type': 'application/json'
+        //     },
+        //     body: JSON.stringify(loginData)
+        //   })
+        //     .then(function (response) {
+        //       if (!response.ok) {
+        //         throw new Error('Network response was not ok');
+        //       }
+        //       return response.json();
+        //     })
+        //     .then(function (data) {
+        //       localStorage.setItem('token', data.token);
+        //       console.log(data);
+        //     })
+        //     .catch(function (error) {
+        //       console.error('Ошибка:', error);
+        //       // Обработка ошибки
+        //     });
+        // }
       });
     });
   </script>

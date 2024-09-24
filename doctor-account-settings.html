@@ -70,7 +70,7 @@
               <img src="./img/content/user-thumb.png" width="24" height="24" alt="">
             </div>
             <button class="logged__btn js-dropdown-trigger" data-id="#logged-menu">
-              <span class="logged__username">Александр</span>
+              <span class="logged__username">Username</span>
               <svg width="10" height="10" fill="currentColor">
                 <use xlink:href="./img/sprite.svg#dropdown"></use>
               </svg>
@@ -115,25 +115,25 @@
                   <svg width="25" height="25" fill="currentColor">
                     <use xlink:href="./img/sprite.svg#nav-payment"></use>
                   </svg>
-                  <span>Платежи</span>
+                  <span data-translate="int_nav_payments">Платежи</span>
                 </a>
                 <a href="doctor-account-settings.html" class="doctor-account__nav-link is-active">
                   <svg width="25" height="25" fill="currentColor">
                     <use xlink:href="./img/sprite.svg#nav-settings"></use>
                   </svg>
-                  <span>Профиль</span>
+                  <span data-translate="int_nav_profile">Профиль</span>
                 </a>
                 <a href="/faq.html" class="user-account__nav-link">
                   <svg width="25" height="25" fill="currentColor">
                     <use xlink:href="./img/sprite.svg#nav-help"></use>
                   </svg>
-                  <span>Помощь</span>
+                  <span data-translate="int_nav_help">Помощь</span>
                 </a>
                 <a href="doctor-landing.html" class="user-account__nav-link logout-btn">
                   <svg width="25" height="25" fill="currentColor">
                     <use xlink:href="./img/sprite.svg#nav-logout"></use>
                   </svg>
-                  <span>Выход</span>
+                  <span data-translate="int_nav_logout">Выход</span>
                 </a>
               </nav>
 
@@ -357,14 +357,14 @@
                         <div class="settings__input-wrapper pt25">
                           <p class="text-20">Возраст клиентов</p>
                           <div class="settings__radio">
-                            <input type="radio" id="client_age-16" name="client_age" value="0" checked>
+                            <input type="radio" id="client-age-16" name="client_age" value="0" checked>
                             <label for="client-age-16">
                               <svg width="18" height="18" fill="currentColor">
                                 <use xlink:href="./img/sprite.svg#check-mark"></use>
                               </svg>
                               <span class="text-14">16+</span>
                             </label>
-                            <input type="radio" id="client_age-18" name="client_age" value="1">
+                            <input type="radio" id="client-age-18" name="client_age" value="1">
                             <label for="client-age-18">
                               <svg width="18" height="18" fill="currentColor">
                                 <use xlink:href="./img/sprite.svg#check-mark"></use>
@@ -769,7 +769,7 @@
                         </p>
                       </div>
                       <div class="doctor__content-block" id="doctor__edu">
-                        <h2 class="text-25 doctor__title">Образование</h2>
+                        <h2 class="text-25 doctor__title" data-translate="doc_q_edu_placeholder">Образование</h2>
                         <ul class="doctor__edu-list list-reset">
                           <li class="doctor__edu-item">
                             <!-- <p class="doctor__edu-year">2014</p> -->
@@ -810,11 +810,11 @@
                         </ul>
                       </div>
                       <div class="doctor__content-block schedule-dropdown" id="schedule">
-                        <h2 class="text-25 doctor__title">Расписание</h2>
+                        <h2 class="text-25 doctor__title" data-translate="doctor_schedule_title">Расписание</h2>
                         <div class="schedule-container" id="schedule-container-1"></div>
                         <button type="button" class="doctor__expand-btn schedule__show-more"
                           data-id="#schedule-container-1">
-                          <span>Показать еще 3 дня</span>
+                          <span data-translate="schedule_show_more">Показать еще 3 дня</span>
                           <svg width="10" height="10" fill="currentColor">
                             <use xlink:href="./img/sprite.svg#dropdown-green"></use>
                           </svg>
@@ -890,7 +890,7 @@
               </fieldset>
               <fieldset>
                 <label for="card-exp">
-                  <span>Срок действия</span>
+                  <span data-translate="card_exp">Срок действия</span>
                   <input type="number" id="card-exp" placeholder="m m  /  y y">
                 </label>
                 <label for="card-cvc">
@@ -991,7 +991,7 @@
         <form action="" method="post">
           <div class="schedule-container" id="schedule-container-2"></div>
           <button type="button" class="doctor__expand-btn schedule__show-more" data-id="#schedule-container-2">
-            <span>Показать еще 3 дня</span>
+            <span data-translate="schedule_show_more">Показать еще 3 дня</span>
             <svg width="10" height="10" fill="currentColor">
               <use xlink:href="./img/sprite.svg#dropdown-green"></use>
             </svg>
@@ -1117,6 +1117,7 @@
         document.querySelector('#doctor-birth-month').value = monthNames[month];
         document.querySelector('#doctor-birth-year').value = year;
         document.querySelector('#doc_edu_uni').textContent = data.doc_edu;
+        document.querySelector('#doc_edu-uni-2').textContent = data.doc_edu;
 
         const lang = localStorage.getItem('language') || 'en';
         function getExperienceWord(years) {
@@ -1181,7 +1182,10 @@
         let html = '';
         const now = new Date();
 
-        for (const date in scheduleByDate) {
+        // Получаем и сортируем даты
+        const sortedDates = Object.keys(scheduleByDate).sort((a, b) => new Date(a.split('-').reverse().join('-')) - new Date(b.split('-').reverse().join('-')));
+
+        for (const date of sortedDates) {
           const appointmentDate = new Date(date.split('-').reverse().join('-'));
 
           // Проверка, если дата записи меньше текущей даты
@@ -1191,26 +1195,29 @@
 
           const formattedDate = formatDate(date.split('-').reverse().join('-')); // Преобразуем формат даты
 
+          // Удаление дубликатов времени с помощью Set
+          const uniqueTimes = [...new Set(scheduleByDate[date])];
+
           // Сортировка времени по возрастанию
-          const sortedTimes = scheduleByDate[date].sort((a, b) => {
+          const sortedTimes = uniqueTimes.sort((a, b) => {
             const timeA = new Date(appointmentDate.toISOString().split('T')[0] + 'T' + a + ':00');
             const timeB = new Date(appointmentDate.toISOString().split('T')[0] + 'T' + b + ':00');
             return timeA - timeB; // Сравнение по времени
           });
 
           html += `
-                  <div class="doctor__day-wrapper">
+                <div class="doctor__day-wrapper">
                     <p class="doctor__day">
-                      <time datetime="${date.split('-').reverse().join('-')}">${formattedDate}</time>
+                        <time datetime="${date.split('-').reverse().join('-')}">${formattedDate}</time>
                     </p>
-                  <fieldset>
-                  `;
+                <fieldset>
+                `;
 
           sortedTimes.forEach(time => {
             const appointmentTime = new Date(appointmentDate.toISOString().split('T')[0] + 'T' + time + ':00');
 
-            // Проверка, если время записи больше текущего времени
-            if (appointmentTime > now) {
+            // Проверка, если время записи больше или равно текущему времени
+            if (appointmentTime >= now) {
               html += `
                     <label>
                         <input type="radio" name="appointment-time" value="${time}">
@@ -1221,8 +1228,8 @@
           });
 
           html += `
-                    </fieldset>
-                  </div>
+                </fieldset>
+                </div>
                 `;
         }
 
@@ -1232,6 +1239,7 @@
       }
 
       // Отправка анкеты первичных настроек
+
       document.getElementById('doctor-settings-form').addEventListener('submit', function (e) {
         e.preventDefault();
 
@@ -1266,6 +1274,7 @@
 
 
         const data = {
+          session_token: token,
           doc_date_of_birth: doc_date_of_birth,
           doc_language: doc_language,
           doc_additional_info: doc_additional_info,
@@ -1279,7 +1288,6 @@
         fetch('http://127.0.0.1:8000/update_therapist', {
           method: 'POST',
           headers: {
-            'Authorization': `Bearer ${token}`,
             'Content-Type': 'application/json'
           },
           body: JSON.stringify(data)
@@ -1293,8 +1301,6 @@
           .then(data => {
             // TODO удалить вывод в консоль
             console.log('Данные пользователя:', data);
-            loadDataFromBackend();
-            updateProfile(data);
           })
           .catch(error => {
             console.error('Ошибка при получении данных пользователя:', error);

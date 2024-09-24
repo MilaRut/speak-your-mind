@@ -70,7 +70,7 @@
               <img src="./img/content/user-thumb.png" width="24" height="24" alt="">
             </div>
             <button class="logged__btn js-dropdown-trigger" data-id="#logged-menu">
-              <span class="logged__username">Александр</span>
+              <span class="logged__username gotten-username">Username</span>
               <svg width="10" height="10" fill="currentColor">
                 <use xlink:href="./img/sprite.svg#dropdown"></use>
               </svg>
@@ -349,7 +349,7 @@
                     <span class="text-14" data-translate="therapist_gender_male">С мужчиной</span>
                   </label>
                   <div class="divider"></div>
-                  <input type="radio" id="gender-any" name="therapist-gender" value="gender-any">
+                  <input type="radio" id="gender-any" name="therapist-gender" value="2">
                   <label for="gender-any">
                     <svg width="18" height="18" fill="currentColor">
                       <use xlink:href="./img/sprite.svg#check-mark"></use>
@@ -388,7 +388,7 @@
                 </div>
                 <div class="time-specific-choose">
                   <label for="specific_date_time">
-                    <span>Выберите дату и время</span>
+                    <span data-translate="specific_date_time">Выберите дату и время</span>
                     <input type="datetime-local" name="specific_date_time" id="specific_date_time">
                   </label>
                 </div>
@@ -455,12 +455,12 @@
   </div>
 
   <script>
-    // document.addEventListener('DOMContentLoaded', function () {
-    //   const userName = localStorage.getItem('user_name');
-    //   document.querySelectorAll('.gotten-username').forEach((el) => {
-    //     el.textContent = userName;
-    //   });
-    // });
+    document.addEventListener('DOMContentLoaded', function () {
+      const userName = localStorage.getItem('user_name');
+      document.querySelectorAll('.gotten-username').forEach((el) => {
+        el.textContent = userName;
+      });
+    });
 
     document.getElementById('user-signup-main-form').addEventListener('submit', function (e) {
       e.preventDefault();
