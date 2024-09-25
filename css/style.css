@@ -2057,6 +2057,7 @@ button {
   font-size: 20px;
   font-weight: 700;
   line-height: 1;
+  text-transform: uppercase;
 }
 
 .login__pass-reset {
@@ -2175,6 +2176,7 @@ button {
   font-size: 20px;
   font-weight: 700;
   line-height: 1;
+  text-transform: uppercase;
 }
 
 .signup__links-wrapper {
