@@ -3678,6 +3678,10 @@ details summary::marker {
   width: 100%;
 }
 
+.user-account__rechoice .questions .container {
+  padding: 0;
+}
+
 .session-info {
   display: -webkit-box;
   display: -ms-flexbox;

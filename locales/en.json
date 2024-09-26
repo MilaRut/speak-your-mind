@@ -70,8 +70,6 @@
   "therapy_type": "What type of therapy are you interested in?",
   "therapy_type_individual": "Individual",
   "therapy_type_couples": "Couples",
-  "preferred_language": "What language would you like to communicate in?",
-  "lang_russian": "russian",
   "questions_legend_1": "What would you like to discuss first?",
   "questions_legend_2": "You can skip this question if you are not sure what exactly is bothering you.",
   "symptoms_title_1": "Relationships with yourself",
@@ -111,6 +109,8 @@
   "therapist_gender_female": "With a woman",
   "therapist_gender_male": "With a man",
   "therapist_gender_any": "Don't care",
+  "preferred_language": "What language would you like to communicate in?",
+  "lang_russian": "in Russian",
   "questions_therapy_time": "Session time preferences",
   "questions_therapy_time_any": "Any",
   "questions_therapy_time_closest": "Nearest",
@@ -355,5 +355,7 @@
   "rechoice_what_next_title": "What happens next?",
   "rechoice_what_next_text": "You will be taken to a list of recommended therapists and can choose a new specialist. If your request has changed, you can edit it",
   "here": "here",
-  "return": "Return back"
+  "return": "Return back",
+  "rechoice_title_2": "Change request",
+  "rechoice_subtitle": "Here you can adjust your request if your preferences have changed"
 }

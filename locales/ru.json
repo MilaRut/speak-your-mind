@@ -70,8 +70,6 @@
   "therapy_type": "Какой тип терапии вас интересует?",
   "therapy_type_individual": "Индивидуальная",
   "therapy_type_couples": "Парная",
-  "preferred_language": "На каком языке вы хотели бы общаться?",
-  "lang_russian": "русский",
   "questions_legend_1": "Что бы вы хотели обсудить в первую очередь?",
   "questions_legend_2": "Вы можете пропустить этот вопрос, если не уверены что именно вас беспокоит",
   "symptoms_title_1": "Отношения с собой",
@@ -111,6 +109,8 @@
   "therapist_gender_female": "С женщиной",
   "therapist_gender_male": "С мужчиной",
   "therapist_gender_any": "Все равно",
+  "preferred_language": "На каком языке вы хотите получать терапию?",
+  "lang_russian": "на русском",
   "questions_therapy_time": "Предпочтения по времени сессии",
   "questions_therapy_time_any": "Любое",
   "questions_therapy_time_closest": "Ближайшее",
@@ -355,5 +355,7 @@
   "rechoice_what_next_title": "Что произойдет дальше?",
   "rechoice_what_next_text": "Вы перейдете к списку рекомендованных терапевтов и сможете выбрать нового специалиста. Если ваш запрос изменился, вы можете отредактировать его",
   "here": "здесь",
-  "return": "Вернуться назад"
+  "return": "Вернуться назад",
+  "rechoice_title_2": "Изменение запроса",
+  "rechoice_subtitle": "Здесь вы можете скорректировать ваш запрос, если ваши предпочтения изменились"
 }

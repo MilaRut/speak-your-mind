@@ -151,7 +151,7 @@
                     </label>
                   </div>
                 </div>
-                <div class="questions__main-row questions__main-row--language">
+                <!-- <div class="questions__main-row questions__main-row--language">
                   <p class="text-20" data-translate="preferred_language">На каком языке вы хотели бы общаться?</p>
                   <div class="questions__checkboxes">
                     <div class="inputs-wrapper">
@@ -169,7 +169,7 @@
                       </label>
                     </div>
                   </div>
-                </div>
+                </div> -->
               </fieldset>
               <div class="questions__legend">
                 <p class="text-31" data-translate="questions_legend_1">Что бы вы хотели обсудить в первую очередь?</p>
@@ -359,6 +359,36 @@
                 </div>
               </div>
               <hr>
+              <div class="questions__radio questions__language">
+                <p class="text-20" data-translate="preferred_language">На каком языке вы хотите получать
+                  терапию?</p>
+                <div class="inputs-wrapper">
+                  <input type="radio" id="session_lang_ru" name="session_lang" value="0" checked>
+                  <label for="session_lang_ru">
+                    <svg width="18" height="18" fill="currentColor">
+                      <use xlink:href="./img/sprite.svg#check-mark"></use>
+                    </svg>
+                    <span class="text-14" data-translate="lang_russian">На русском</span>
+                  </label>
+                  <div class="divider"></div>
+                  <input type="radio" id="session_lang_en" name="session_lang" value="1">
+                  <label for="session_lang_en">
+                    <svg width="18" height="18" fill="currentColor">
+                      <use xlink:href="./img/sprite.svg#check-mark"></use>
+                    </svg>
+                    <span class="text-14">in English</span>
+                  </label>
+                  <div class="divider"></div>
+                  <input type="radio" id="session_lang_hu" name="session_lang" value="2">
+                  <label for="session_lang_hu">
+                    <svg width="18" height="18" fill="currentColor">
+                      <use xlink:href="./img/sprite.svg#check-mark"></use>
+                    </svg>
+                    <span class="text-14">magyarul</span>
+                  </label>
+                </div>
+              </div>
+              <hr>
               <div class="questions__radio questions__therapy-time">
                 <p class="text-20" data-translate="questions_therapy_time">Предпочтения по времени сессии</p>
                 <div class="inputs-wrapper">
@@ -469,7 +499,7 @@
       var user_age = document.getElementById('age').value;
       var user_experience = document.querySelector('input[name="experience"]:checked').value;
       var user_type = document.querySelector('input[name="type"]:checked').value;
-      var user_languages = Array.from(document.querySelectorAll('input[name="language"]:checked')).map(checkbox => checkbox.value);
+      var user_language = document.querySelector('input[name="language"]:checked').value;
       var user_symptoms = Array.from(document.querySelectorAll('input[name="symptoms"]:checked')).map(checkbox => checkbox.value);
       var user_therapist_gender = document.querySelector('input[name="therapist-gender"]:checked').value;
       var user_time = document.querySelector('input[name="time"]:checked').value;
