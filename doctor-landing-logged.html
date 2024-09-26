@@ -16,7 +16,7 @@
 </head>
 
 <body>
-  <div class="wrapper user-unlogged">
+  <div class="wrapper user-logged">
     <header class="header">
       <div class="container">
         <div class="header__logo">
@@ -30,10 +30,10 @@
           <div class="nav__wrapper">
             <ul class="nav__list">
               <li class="nav__item nav__item--psychologists">
-                <a class="nav__link" data-translate="nav_doc" href="doctor-landing.html"></a>
+                <a class="nav__link" data-translate="nav_client" href="index.html"></a>
               </li>
               <!-- <li class="nav__item nav__item--businnes">
-                <a class="nav__link href="businnes-landing.html" data-translate="nav_comp"></a>
+                 <a class="nav__link href="businnes-landing.html" data-translate="nav_comp"></a>
               </li> -->
               <li class="nav__item">
                 <a class="nav__link" href="faq.html">FAQ</a>
@@ -61,8 +61,8 @@
           </ul>
         </div>
         <div class="header__unlogged unlogged">
-          <a class="unlogged__login-btn btn btn--white" data-translate="header_login_btn"></a>
-          <a href="user-signup-start.html" class="unlogged__login-btn btn" data-translate="header_signup_btn"></a>
+          <a href="login.html" class="unlogged__login-btn btn btn--white" data-translate="header_login_btn"></a>
+          <a href="doctor-signup.html" class="unlogged__login-btn btn" data-translate="header_signup_btn"></a>
         </div>
         <div class="header__logged logged">
           <div class="logged__wrapper">
@@ -77,7 +77,7 @@
             </button>
             <ul class="logged__menu-list list-reset" id="logged-menu">
               <li class="logged__menu-item">
-                <a href="#" data-translate="to_profile">В личный кабинет</a>
+                <a href="doctor-account-sessions.html" data-translate="to_profile">В личный кабинет</a>
               </li>
               <li class="logged__menu-item">
                 <a href="#" data-translate="logout_btn" class="logout-btn">Выйти</a>
@@ -88,29 +88,62 @@
       </div>
     </header>
     <main>
-      <div class="container">
-        <div class="status-page status-page--404">
-          <p class="status-page__title status-page__title--l">Ошибка</p>
-          <p class="status-page__status">500</p>
-          <p class="status-page__text">Internal Server Error</p>
-          <div class="status-page__links">
-            <a href="javascript:history.back()" class="btn status-page__link status-page__link--back">
-              <svg width="32" height="32" fill="currentColor">
-                <use xlink:href="./img/sprite.svg#chevron-up"></use>
-              </svg>
-              <span>Вернуться назад</span>
-            </a>
-            <a href="index.html" class="btn btn--white status-page__link status-page__link--main">
-              <svg width="32" height="32" fill="currentColor">
-                <use xlink:href="./img/sprite.svg#nav-main"></use>
-              </svg>
-              <span>На главную</span>
-            </a>
+      <section class="intro">
+        <div class="container">
+          <div class="intro__heading">
+            <div class="intro__text">
+              <h1 class="intro__title title">Приглашаем психологов к&nbsp;сотрудничеству</h1>
+              <p class="intro__description text-18">Welcome to the world's most diverse therapy platform. It's
+                Complicated is a
+                community where practitioners come together to grow, manage, and sustain their practices.</p>
+            </div>
+            <div class="intro__image">
+              <img src="./img/content/intro-img.png" width="550" height="309 " alt="">
+            </div>
           </div>
-          <p class="status-page__footer">Остались впросы? Напишите нам на <a href="mailto:support@speakyourmind.help"
-              class="text-green">support@speakyourmind.help</a> и мы постараемся решить вашу проблему</p>
         </div>
-      </div>
+      </section>
+      <section class="terms">
+        <div class="container">
+          <h2 class="terms__title title">Ждем от вас</h2>
+          <ul class="terms__list list-reset">
+            <li class="terms__item">
+              <div class="terms__item-img">
+                <img src="./img/content/placeholder.png" width="400" height="150" alt="">
+              </div>
+            </li>
+            <li class="terms__item">
+              <div class="terms__item-img">
+                <img src="./img/content/placeholder.png" width="400" height="150" alt="">
+              </div>
+            </li>
+            <li class="terms__item">
+              <div class="terms__item-img">
+                <img src="./img/content/placeholder.png" width="400" height="150" alt="">
+              </div>
+            </li>
+          </ul>
+          <h2 class="terms__title title">Вы получите</h2>
+          <ul class="terms__list list-reset">
+            <li class="terms__item">
+              <div class="terms__item-img">
+                <img src="./img/content/placeholder.png" width="400" height="150" alt="">
+              </div>
+            </li>
+            <li class="terms__item">
+              <div class="terms__item-img">
+                <img src="./img/content/placeholder.png" width="400" height="150" alt="">
+              </div>
+            </li>
+            <li class="terms__item">
+              <div class="terms__item-img">
+                <img src="./img/content/placeholder.png" width="400" height="150" alt="">
+              </div>
+            </li>
+          </ul>
+          <a href="doctor-signup.html" class="terms__btn btn text-31">Заполнить анкету</a>
+        </div>
+      </section>
     </main>
     <footer class="footer">
       <div class="container">
@@ -122,7 +155,6 @@
       </div>
     </footer>
   </div>
-
   <script src="js/vendor.min.js"></script>
   <script src="js/main.min.js"></script>
 </body>
