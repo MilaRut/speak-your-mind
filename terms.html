@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Speak your mind">
+  <title>Speak your mind</title>
+  <link rel="icon" type="image/x-icon" href="./favicon.ico">
+  <link rel="icon" type="image/png" sizes="32x32" href="./img/favicon/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="./img/favicon/favicon-16x16.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="./img/favicon/apple-touch-icon.png">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.css">
+  <link rel="stylesheet" href="css/style.min.css">
+</head>
+
+<body>
+  <div class="wrapper user-unlogged">
+    <header class="header">
+      <div class="container">
+        <div class="header__logo">
+          <div class="header__logo-wrapper">
+            <svg width="196" height="24" fill="currentColor">
+              <use xlink:href="./img/sprite.svg#logo"></use>
+            </svg>
+          </div>
+        </div>
+        <nav class="header__nav nav">
+          <div class="nav__wrapper">
+            <ul class="nav__list">
+              <li class="nav__item nav__item--psychologists">
+                <a class="nav__link" data-translate="nav_doc" href="doctor-landing.html"></a>
+              </li>
+              <!-- <li class="nav__item nav__item--businnes">
+                <a class="nav__link href="businnes-landing.html" data-translate="nav_comp"></a>
+              </li> -->
+              <li class="nav__item">
+                <a class="nav__link" href="faq.html">FAQ</a>
+              </li>
+            </ul>
+          </div>
+        </nav>
+        <div class="header__lang-switcher lang-switcher">
+          <button class="lang-switcher__btn js-dropdown-trigger" data-id="#lang-switcher">
+            <span data-translate="current_language"></span>
+            <svg width="10" height="10" fill="currentColor">
+              <use xlink:href="./img/sprite.svg#dropdown"></use>
+            </svg>
+          </button>
+          <ul class="lang-switcher__list list-reset" id="lang-switcher">
+            <!-- <li class="lang-switcher__item">
+              <a href="#" data-lang="hu">Hu</a>
+            </li> -->
+            <li class="lang-switcher__item">
+              <a href="#" data-lang="en">En</a>
+            </li>
+            <li class="lang-switcher__item">
+              <a href="#" data-lang="ru">Ru</a>
+            </li>
+          </ul>
+        </div>
+        <div class="header__unlogged unlogged">
+          <a class="unlogged__login-btn btn btn--white" data-translate="header_login_btn"></a>
+          <a href="user-signup-start.html" class="unlogged__login-btn btn" data-translate="header_signup_btn"></a>
+        </div>
+        <div class="header__logged logged">
+          <div class="logged__wrapper">
+            <div class="logged__user-thumb">
+              <img src="./img/content/user-thumb.png" width="24" height="24" alt="">
+            </div>
+            <button class="logged__btn js-dropdown-trigger" data-id="#logged-menu">
+              <span class="logged__username">Username</span>
+              <svg width="10" height="10" fill="currentColor">
+                <use xlink:href="./img/sprite.svg#dropdown"></use>
+              </svg>
+            </button>
+            <ul class="logged__menu-list list-reset" id="logged-menu">
+              <li class="logged__menu-item">
+                <a href="#" data-translate="logout_btn" class="logout-btn">Выйти</a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </header>
+    <main>
+      <div class="container">
+        <div class="terms-page">
+          <h1 class="terms-page__title">General Terms and Conditions</h1>
+          <p>Speak Your Mind Kft., with the registered office at Leonardo da Vinci utca 7, 2, 1082, Budapest, (the
+            “Operator“ or “we“) and we operate the internet platform available at speakyourmind.help (the “Platform“).
+          </p>
+          <p>These are our terms and conditions (the “Terms and Conditions“) and we recommend you to read them in full
+            extent. If you do not feel so, we would like to highlight some of the rights or obligations arising from the
+            Terms and Conditions which we consider as good to highlight or which may be considered as surprising for
+            you.</p>
+          <ul>
+            <li>Please note that in general we are not the provider of the Sessions; the Sessions are provided to you
+              directly by the Therapist. However, if you attend the Session as a benefit from your employer or your
+              business partner, in that case we provide you with the Session by ourselves.</li>
+            <li>The Terms and Conditions and our mutual relationship is governed by the Hungarian law even if it
+              contains international (foreign) element. However, this provision does not affect any local applicable
+              consumer rights.</li>
+            <li>We may unilaterally change or amend the wording of the Terms and Conditions at any time. The new wording
+              of the Terms and Conditions is effective on 15th day of its publication on the Platform. We will inform
+              you about such a change via e-mail, via the Platform and when you log into your Account. If you do not
+              agree with the new wording of the Terms and Conditions, you may immediately terminate the Contract by
+              e-mail. This shall be done without prejudice to the rights and obligations arising during the period of
+              validity of the previous wording of the Terms and Conditions. In such a case, the Contract will be
+              terminated on the day preceding the effective date of the notified change. If you do not exercise your
+              right to terminate the Contract, the new wording of the Terms and Conditions will be considered as
+              accepted.</li>
+            <li>Providing of any health nor medical services is not part of the Services or the Sessions.</li>
+            <li>You may cancel the Session no later than 24 hours before its time and date. If you cancel it later than
+              24 hours before its time, we will not refund you the price already paid for the Session.</li>
+            <li>Please note that if you provide us with wrong or uncomplete data or information when registering the
+              Account on the Platform or booking the Session, we are not liable for any harm or damage which may be
+              caused by that. Please note that we do not bear any liability for the Sessions held by and the content
+              posted by the Therapist. The Therapist is directly and fully liable for any harm caused by the Session or
+              by provided information by them. However, you are always responsible for your own actions before, during,
+              and after a therapy session. Furthermore, we are not liable for any harm or damage which may be caused by
+              misuse the Platform or for any harm or damage arising as a result of using the Platform or for limitation
+              or interruption of the Platform`s availability.</li>
+            <li>You acknowledge that we are entitled, at our sole discretion, to temporarily or completely disable the
+              use of the Account and to block the Account from booking the Sessions as well, if you breach your
+              obligations under the Contract (including the Terms and Conditions) or in connection with the use of the
+              Platform, or you violate the applicable laws and generally binding legal regulations, depending on the
+              severity of such a violation or if you keep cancelling and rescheduling the therapy sessions without any
+              specific reason.</li>
+            <li>As a consumer, you have, in general, the right to withdraw from the contract entered into online within
+              14 days from the date of conclusion of the contract online without any reason. Please note that you do not
+              have that right to withdraw from the Contract if we have already provided you with the Services under the
+              contract in full extent. This means that once we have entered into the Contract with you and provided you
+              with the Services, you are not entitled to withdraw from the Contract. If you do not agree with this
+              process, we will not provide you with the Services under the contract until 14-day withdrawal period had
+              expired. This also applies to the purchase of vouchers via the Platform.</li>
+          </ul>
+        </div>
+      </div>
+    </main>
+    <footer class="footer">
+      <div class="container">
+        <div class="footer__left"></div>
+        <div class="footer__copyright">
+          <span>&copy; Speak Your Mind 2023</span>
+          <a href="terms.html" class="text-green">Условия предоставления услуг</a>
+        </div>
+      </div>
+    </footer>
+  </div>
+
+  <div class="modal modal--preload feedback" id="feedback">
+    <div class="modal__wrapper">
+      <div class="modal__overlay" data-close-modal></div>
+      <div class="modal__content modal__content--feedback">
+        <button class="modal__close-btn" type="button" aria-label="Закрыть окно." data-close-modal>
+          <svg width="32" height="32" fill="currentColor">
+            <use xlink:href="./img/sprite.svg#close-modal"></use>
+          </svg>
+        </button>
+        <h2 class="feedback__title">Связаться с поддержкой</h2>
+        <div class="fedback__start">
+          <div class="feedback__error">
+            <div class="feedback__error-message">
+              <p><b>Поизошла ошибка</b></p>
+              <p>При отправке сообщения произошла неизвестная ошибка. Попробуйте еще раз.</p>
+            </div>
+          </div>
+          <form action="" id="feedback-form">
+            <label>
+              <span>Представьтесь, пожалуйста</span>
+              <input type="text" name="feedback_name" placeholder="Ваше имя">
+            </label>
+            <label>
+              <input type="email" name="feedback_enail" placeholder="Ваш email">
+            </label>
+            <label>
+              <span>Ваше сообщение</span>
+              <textarea name="feedback_text" id="feedback_text"
+                placeholder="Задайте вопрос или опишите проблему"></textarea>
+            </label>
+            <div class="feedback__agreement">
+              <p>Отправляя сообщение высоглашаетесь на <a href="#" class="text-green
+              ">обработку ваших личных данных</a>.</p>
+            </div>
+            <button type="button" class="btn feedback__submit-btn">
+              <svg width="32" height="32" fill="currentColor">
+                <use xlink:href="./img/sprite.svg#mail"></use>
+              </svg>
+              <span>Отправить</span>
+            </button>
+          </form>
+        </div>
+        <div class="feedback__success">
+          <div class="feedback__success-message">
+            <p><b>Ваше сообщение успешно отправлено</b></p>
+            <p>Спасибо за ваше обращение! Мы постараемся связаться с вами в ближайшее время по электронной почте или
+              одним из способов, укзанных в настройках вашего профиля.</p>
+          </div>
+          <button type="button" class="feedback__success-btn text-green">Отправить новое сообщение</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="js/vendor.min.js"></script>
+  <script src="js/main.min.js"></script>
+</body>
+
+</html>
