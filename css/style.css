@@ -5191,6 +5191,10 @@ details summary::marker {
   border-bottom: 1px solid #a3a3a3;
 }
 
+.schedule td.check:has(input:checked):not(.expired) {
+  background-color: #C5FDEA;
+}
+
 .schedule .expired {
   background-color: #f7f6f6;
 }
