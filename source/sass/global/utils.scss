@@ -126,3 +126,12 @@ button {
   display: block;
   color: #ff0000;
 }
+
+details summary::-webkit-details-marker {
+  display: none;
+}
+
+details summary::marker {
+  display: none;
+  content: '';
+}

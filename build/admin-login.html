@@ -16,7 +16,7 @@
 </head>
 
 <body>
-  <div class="wrapper user-unlogged">
+  <div class="wrapper user-unlogged admin">
     <header class="header">
       <div class="container">
         <div class="header__logo">
@@ -26,6 +26,65 @@
             </svg>
           </div>
         </div>
+        <nav class="header__nav nav">
+          <div class="nav__wrapper">
+            <ul class="nav__list">
+              <li class="nav__item nav__item--psychologists">
+                <a class="nav__link" data-translate="nav_doc" href="doctor-landing.html"></a>
+              </li>
+              <!-- <li class="nav__item nav__item--businnes">
+                <a class="nav__link href="businnes-landing.html" data-translate="nav_comp"></a>
+              </li> -->
+              <li class="nav__item">
+                <a class="nav__link" href="faq.html">FAQ</a>
+              </li>
+            </ul>
+          </div>
+        </nav>
+        <div class="header__lang-switcher lang-switcher">
+          <button class="lang-switcher__btn js-dropdown-trigger" data-id="#lang-switcher">
+            <span class="current-language"></span>
+            <svg width="10" height="10" fill="currentColor">
+              <use xlink:href="./img/sprite.svg#dropdown"></use>
+            </svg>
+          </button>
+          <ul class="lang-switcher__list list-reset" id="lang-switcher">
+            <!-- <li class="lang-switcher__item">
+              <a href="#" data-lang="hu">Hu</a>
+            </li> -->
+            <li class="lang-switcher__item">
+              <a href="#" data-lang="en">En</a>
+            </li>
+            <li class="lang-switcher__item">
+              <a href="#" data-lang="ru">Ru</a>
+            </li>
+          </ul>
+        </div>
+        <div class="header__unlogged unlogged">
+          <a class="unlogged__login-btn btn btn--white" data-translate="header_login_btn"></a>
+          <a href="user-signup-start.html" class="unlogged__login-btn btn" data-translate="header_signup_btn"></a>
+        </div>
+        <div class="header__logged logged">
+          <div class="logged__wrapper">
+            <div class="logged__user-thumb">
+              <img src="./img/content/user-thumb.png" width="24" height="24" alt="">
+            </div>
+            <button class="logged__btn js-dropdown-trigger" data-id="#logged-menu">
+              <span class="logged__username">Username</span>
+              <svg width="10" height="10" fill="currentColor">
+                <use xlink:href="./img/sprite.svg#dropdown"></use>
+              </svg>
+            </button>
+            <ul class="logged__menu-list list-reset" id="logged-menu">
+              <li class="logged__menu-item">
+                <a href="#" data-translate="to_profile">В личный кабинет</a>
+              </li>
+              <li class="logged__menu-item">
+                <a href="#" data-translate="logout_btn" class="logout-btn">Выйти</a>
+              </li>
+            </ul>
+          </div>
+        </div>
       </div>
     </header>
     <main>
@@ -33,19 +92,21 @@
         <div class="container">
           <div class="login__wrapper">
             <div class="login__heading">
-              <h1 class="title">Вход в админ панель</h1>
+              <h1 class="title" data-translate="admin_login_title">Вход в админ панель</h1>
             </div>
             <form action="" method="post" id="admin-login-form">
               <fieldset>
                 <label>
-                  <input type="email" name="admin_email" id="admin_email" placeholder="Ваш email">
+                  <input type="text" name="admin_email" id="admin_email" placeholder="Ваш email"
+                    data-translate="email_placeholder">
                 </label>
                 <label>
-                  <input type="password" name="password" id="password" placeholder="Ваш пароль">
+                  <input type="password" name="password" id="password" placeholder="Ваш пароль"
+                    data-translate="password_placeholder">
                 </label>
               </fieldset>
               <div class="login__btn-wrapper">
-                <button type="submit" class="login__btn btn">Войти</button>
+                <button type="submit" class="login__btn btn" data-translate="login_submit">Войти</button>
               </div>
             </form>
             </p>
@@ -59,6 +120,7 @@
         <div class="footer__left"></div>
         <div class="footer__copyright">
           <span>&copy; Speak Your Mind 2023</span>
+          <a href="terms.html" class="text-green" data-translate="terms">Условия предоставления услуг</a>
         </div>
       </div>
     </footer>
@@ -69,19 +131,19 @@
       const url = "http://www.speakyourmind.help:8000/make_admin";
 
       fetch(url, {
-        method: 'GET' // Убедитесь, что сервер поддерживает этот метод
+        method: 'GET'
       })
         .then(response => {
           if (!response.ok) {
             throw new Error('Сеть ответила с ошибкой: ' + response.status);
           }
-          return response.json(); // Убедитесь, что сервер возвращает JSON
+          return response.json();
         })
         .then(data => {
-          console.log(data); // Обработка полученных данных
+          console.log(data);
         })
         .catch(error => {
-          console.error('Произошла ошибка:', error); // Обработка ошибок
+          console.error('Произошла ошибка:', error);
         });
     }
 

@@ -42,8 +42,52 @@
     margin-bottom: 7px;
 
     a:hover {
-      font-weight: 700;
-      color: $color-jade;
+      color: $color-shamrock-green;
+    }
+  }
+}
+
+.nav-lang-switcher {
+  position: relative;
+  cursor: pointer;
+
+  span + svg {
+    margin-left: 5px;
+  }
+
+  &.is-active {
+    span + svg {
+      transform: rotate(180deg);
+    }
+  }
+
+  .lang-switcher__list {
+    background-color: #555555;
+    border-radius: 0;
+    max-width: 106px;
+    padding: 0;
+  }
+
+  .lang-switcher__item {
+    width: 100%;
+    padding: 6px 8px;
+    display: flex;
+    align-items: center;
+    margin-bottom: 0;
+
+    &:not(:last-child) {
+      border-bottom: 1px solid #f5f3ee;
+    }
+
+    a {
+      color: $color-default-white;
+      text-transform: capitalize;
+      font-weight: 500;
+      font-size: 16px;
+
+      @include hover {
+        opacity: 0.7;
+      }
     }
   }
 }

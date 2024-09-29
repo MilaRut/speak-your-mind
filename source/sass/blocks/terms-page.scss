@@ -1,0 +1,21 @@
+.terms-page {
+  max-width: 900px;
+  padding-bottom: 89px;
+
+  ul,
+  li,
+  p {
+    max-width: 720px;
+    margin-bottom: 24px;
+    font-weight: 300;
+    font-size: 18px;
+    line-height: 1.2;
+  }
+}
+
+.terms-page__title {
+  font-weight: 700;
+  font-size: 55px;
+  line-height: 1.2;
+  margin-bottom: 36px;
+}

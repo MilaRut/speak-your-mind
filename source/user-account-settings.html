@@ -43,7 +43,7 @@
         </nav>
         <div class="header__lang-switcher lang-switcher">
           <button class="lang-switcher__btn js-dropdown-trigger" data-id="#lang-switcher">
-            <span data-translate="current_language"></span>
+            <span class="current-language"></span>
             <svg width="10" height="10" fill="currentColor">
               <use xlink:href="./img/sprite.svg#dropdown"></use>
             </svg>
@@ -77,6 +77,9 @@
             </button>
             <ul class="logged__menu-list list-reset" id="logged-menu">
               <li class="logged__menu-item">
+                <a href="#" data-translate="to_profile">В личный кабинет</a>
+              </li>
+              <li class="logged__menu-item">
                 <a href="#" data-translate="logout_btn" class="logout-btn">Выйти</a>
               </li>
             </ul>
@@ -91,7 +94,9 @@
             <div class="user-account__left-col">
               <nav class="user-account__nav">
                 <div class="user-account__nav-logo">
-                  <img src="./img/svg/nav-logo.svg" width="72" height="72" alt="Speak your mind.">
+                  <a href="user-account-main.html">
+                    <img src="./img/svg/nav-logo.svg" width="72" height="72" alt="Speak your mind.">
+                  </a>
                 </div>
                 <a href="user-account-main.html" class="user-account__nav-link">
                   <svg width="25" height="25" fill="currentColor">
@@ -111,18 +116,40 @@
                   </svg>
                   <span data-translate="int_nav_profile">Профиль</span>
                 </a>
-                <a href="/faq.html" class="user-account__nav-link">
+                </a>
+                <div href="#" class="user-account__nav-link nav-lang-switcher js-dropdown-trigger"
+                  data-id="#nav-lang-switcher">
+                  <svg width="25" height="25" fill="currentColor">
+                    <use xlink:href="./img/sprite.svg#nav-language"></use>
+                  </svg>
+                  <span class="current-language"></span>
+                  <svg width="10" height="10" fill="currentColor">
+                    <use xlink:href="./img/sprite.svg#dropdown"></use>
+                  </svg>
+                  </span>
+                  <ul class="lang-switcher__list list-reset" id="nav-lang-switcher">
+                    <!-- <li class="lang-switcher__item">
+                      <a href="#" data-lang="hu">Hu</a>
+                    </li> -->
+                    <li class="lang-switcher__item">
+                      <a href="#" data-lang="en">English</a>
+                    </li>
+                    <li class="lang-switcher__item">
+                      <a href="#" data-lang="ru" data-translate="doc_q_language_ru">Русский</a>
+                    </li>
+                  </ul>
+                </div>
+                <a href="user-account-help.html" class="user-account__nav-link">
                   <svg width="25" height="25" fill="currentColor">
                     <use xlink:href="./img/sprite.svg#nav-help"></use>
                   </svg>
                   <span data-translate="int_nav_help">Помощь</span>
-                </a>
-                <a href="index.html" class="user-account__nav-link logout-btn">
-                  <svg width="25" height="25" fill="currentColor">
-                    <use xlink:href="./img/sprite.svg#nav-logout"></use>
-                  </svg>
-                  <span data-translate="int_nav_logout">Выход</span>
-                </a>
+                  <a href="index.html" class="user-account__nav-link logout-btn">
+                    <svg width="25" height="25" fill="currentColor">
+                      <use xlink:href="./img/sprite.svg#nav-logout"></use>
+                    </svg>
+                    <span data-translate="int_nav_logout">Выход</span>
+                  </a>
               </nav>
 
               <!-- Временное вспомогательное меню  -->
@@ -153,10 +180,7 @@
                       личные данные и переподобрать терапевта,
                       если выбранный ранее вас по каким-то причинам не устраивает.</span>
                   </p>
-                  <p class="text-25 text-success">
-                    <svg width="36" height="36" fill="currentColor">
-                      <use xlink:href="./img/sprite.svg#success"></use>
-                    </svg>
+                  <p class="text-18 text-success">
                     <span data-translate="user_settings_text_success">Карта успешно привязана</span>
                   </p>
                   <div class="settings__heading">
@@ -319,9 +343,11 @@
                         </div>
                       </fieldset>
                       <p class="text-20" data-translate="rechoice_what_next_title">Что произойдет дальше?</p>
-                      <p class="text-18" data-translate="rechoice_what_next_text">Вы перейдете к списку рекомендованных
-                        терапевтов и сможете выбрать нового
-                        специалиста. Если ваш запрос изменился, вы можете отредактировать его
+                      <p class="text-18">
+                        <span data-translate="rechoice_what_next_text">
+                          Вы перейдете к списку рекомендованных терапевтов и сможете выбрать нового специалиста. Если
+                          ваш запрос изменился, вы можете отредактировать его
+                        </span>
                         <a class="text-green" href="user-account-rechoice.html" data-translate="here">здесь</a>.
                       </p>
                       <button type="button" class="rechoice__back-btn btn btn--white" utils-btn-settings
@@ -470,7 +496,8 @@
                         <div class="doctor__content">
                           <div class="doctor__heading">
                             <p class="doctor__name">Сергей Никитин</p>
-                            <p class="doctor__experience"><span data-translate="doctor__experience">Опыт</span> 6 лет</p>
+                            <p class="doctor__experience"><span data-translate="doctor__experience">Опыт</span> 6 лет
+                            </p>
                             <p class="doctor__details">
                               <span class="doctor__type">Индивидуальная сессия</span>
                               <span class="divider">&#8226;</span>
@@ -478,8 +505,10 @@
                               <span class="divider">&#8226;</span>
                               <span class="doctor__price">10&nbsp;000 HUF</span>
                             </p>
-                            <p class="doctor__themes" data-translate="doctor_themes">Работает со всеми темами вашей анкеты</p>
-                            <a href="#schedule" class="doctor__btn doctor__schedule-btn btn" data-translate="doctor_schedule_btn">Выбрать время сессии</a>
+                            <p class="doctor__themes" data-translate="doctor_themes">Работает со всеми темами вашей
+                              анкеты</p>
+                            <a href="#schedule" class="doctor__btn doctor__schedule-btn btn"
+                              data-translate="doctor_schedule_btn">Выбрать время сессии</a>
                           </div>
                           <div class="doctor__content-block" id="about-doctor">
                             <h2 class="text-25 doctor__title" data-translate="about_doctor">О специалисте</h2>
@@ -776,6 +805,7 @@
         <div class="footer__left"></div>
         <div class="footer__copyright">
           <span>&copy; Speak Your Mind 2023</span>
+          <a href="terms.html" class="text-green" data-translate="terms">Условия предоставления услуг</a>
         </div>
       </div>
     </footer>

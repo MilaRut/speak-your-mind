@@ -1,5 +1,6 @@
 import {iosVhFix} from './utils/ios-vh-fix';
 import {loadLanguage} from './modules/localisation';
+import {setLangBtn} from './modules/lang-switcher';
 import {logOut} from './modules/logout';
 import {initSlider} from './modules/slider';
 import {initTabs} from './modules/tabs';
@@ -32,6 +33,7 @@ window.addEventListener('DOMContentLoaded', () => {
   iosVhFix();
   loadLanguage(savedLanguage);
   logOut();
+  setLangBtn();
 
   // Modules
   // ---------------------------------

@@ -1,1 +1,6 @@
-<svg width="30" height="23" viewBox="0 0 30 23" fill="none" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" clip-rule="evenodd" d="M21.942 18.3328C23.4652 16.4561 24.375 14.0819 24.375 11.5C24.375 5.42487 19.3382 0.5 13.125 0.5C6.9118 0.5 1.875 5.42487 1.875 11.5C1.875 17.2664 6.41294 21.9965 12.1875 22.4623V22.5H13.125H27.1875L21.942 18.3328Z" fill="#00AC73"/><ellipse cx="8.90625" cy="11.958" rx="1.40625" ry="1.375" fill="white"/><ellipse cx="13.5938" cy="11.958" rx="1.40625" ry="1.375" fill="white"/><ellipse cx="18.2812" cy="11.958" rx="1.40625" ry="1.375" fill="white"/></svg>
+<svg width="30" height="23" viewBox="0 0 30 23" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path fill-rule="evenodd" clip-rule="evenodd" d="M21.942 18.3328C23.4652 16.4561 24.375 14.0819 24.375 11.5C24.375 5.42487 19.3382 0.5 13.125 0.5C6.9118 0.5 1.875 5.42487 1.875 11.5C1.875 17.2664 6.41294 21.9965 12.1875 22.4623V22.5H13.125H27.1875L21.942 18.3328Z" fill="#00AC73"/>
+<ellipse cx="8.90625" cy="11.958" rx="1.40625" ry="1.375" fill="white"/>
+<ellipse cx="13.5938" cy="11.958" rx="1.40625" ry="1.375" fill="white"/>
+<ellipse cx="18.2812" cy="11.958" rx="1.40625" ry="1.375" fill="white"/>
+</svg>

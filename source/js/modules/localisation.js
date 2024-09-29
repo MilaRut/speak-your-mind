@@ -1,16 +1,13 @@
-const switcherEn = document.querySelector('[data-lang="en"]');
-const switcherRu = document.querySelector('[data-lang="ru"]');
+const switchElements = document.querySelectorAll('[data-lang]');
 // Функция для загрузки JSON-файла
 function loadLanguage(lang) {
-  if (switcherEn) {
 
-    fetch(`./locales/${lang}.json`)
-        .then((response) => response.json())
-        .then((translations) => {
-          translatePage(translations);
-        })
-        .catch((error) => console.error('Error loading language file:', error));
-  }
+  fetch(`./locales/${lang}.json`)
+      .then((response) => response.json())
+      .then((translations) => {
+        translatePage(translations);
+      })
+      .catch((error) => console.error('Error loading language file:', error));
 }
 
 // Функция для замены текста на странице
@@ -32,21 +29,39 @@ function translatePage(translations) {
   }
 
   // Обработчики событий для кнопок выбора языка
-  switcherEn.addEventListener('click', (e) => {
-    e.preventDefault();
-    loadLanguage('en');
-    saveLanguage('en');
-  });
-  switcherRu.addEventListener('click', (e) => {
-    e.preventDefault();
-    loadLanguage('ru');
-    saveLanguage('ru');
+  switchElements.forEach((el) => {
+    el.addEventListener('click', (e) => {
+      e.preventDefault();
+      const lang = el.getAttribute('data-lang');
+      loadLanguage(lang);
+      saveLanguage(lang);
+      setButtonText(lang);
+    });
   });
 }
 
 // Сохранение выбранного языка
 function saveLanguage(lang) {
   localStorage.setItem('language', lang);
+}
+
+function setButtonText(lang) {
+  const currentLanguage = document.querySelectorAll('.current-language');
+  currentLanguage.forEach((el) => {
+    switch (lang) {
+      case 'ru':
+        el.textContent = 'Русский';
+        break;
+      case 'en':
+        el.textContent = 'English';
+        break;
+      case 'hu':
+        el.textContent = 'Magyar';
+        break;
+      default:
+        el.textContent = 'English';
+    }
+  });
 }
 
 export {loadLanguage};

@@ -43,7 +43,7 @@
         </nav>
         <div class="header__lang-switcher lang-switcher">
           <button class="lang-switcher__btn js-dropdown-trigger" data-id="#lang-switcher">
-            <span data-translate="current_language"></span>
+            <span class="current-language"></span>
             <svg width="10" height="10" fill="currentColor">
               <use xlink:href="./img/sprite.svg#dropdown"></use>
             </svg>
@@ -76,6 +76,9 @@
               </svg>
             </button>
             <ul class="logged__menu-list list-reset" id="logged-menu">
+              <li class="logged__menu-item">
+                <a href="#" data-translate="to_profile">В личный кабинет</a>
+              </li>
               <li class="logged__menu-item">
                 <a href="#" data-translate="logout_btn" class="logout-btn">Выйти</a>
               </li>
@@ -324,6 +327,7 @@
         <div class="footer__left"></div>
         <div class="footer__copyright">
           <span>&copy; Speak Your Mind 2023</span>
+          <a href="terms.html" class="text-green" data-translate="terms">Условия предоставления услуг</a>
         </div>
       </div>
     </footer>

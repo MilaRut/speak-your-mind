@@ -37,10 +37,6 @@
   background-color: $color-matterhorn;
 }
 
-.admin-content__right-col {
-  padding: 40px 60px;
-}
-
 .admin-content__nav {
   display: flex;
   flex-direction: column;
@@ -73,6 +69,10 @@
 
   &.is-active {
     background-color: $color-jade;
+  }
+
+  &.nav-lang-switcher.is-active {
+    background-color: transparent;
   }
 }
 
@@ -221,7 +221,7 @@
   }
 
   td {
-    padding: 5px 0;
+    padding: 5px;
   }
 }
 
@@ -468,6 +468,7 @@ input.personal {
       top: 50%;
       transform: translateY(-50%);
       left: 0;
+      background-color: $color-default-white;
       border-radius: 2px;
       border: 2px solid $color-nero;
     }

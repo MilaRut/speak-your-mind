@@ -43,7 +43,7 @@
         </nav>
         <div class="header__lang-switcher lang-switcher">
           <button class="lang-switcher__btn js-dropdown-trigger" data-id="#lang-switcher">
-            <span data-translate="current_language"></span>
+            <span class="current-language"></span>
             <svg width="10" height="10" fill="currentColor">
               <use xlink:href="./img/sprite.svg#dropdown"></use>
             </svg>
@@ -77,6 +77,9 @@
             </button>
             <ul class="logged__menu-list list-reset" id="logged-menu">
               <li class="logged__menu-item">
+                <a href="#" data-translate="to_profile">В личный кабинет</a>
+              </li>
+              <li class="logged__menu-item">
                 <a href="#" data-translate="logout_btn" class="logout-btn">Выйти</a>
               </li>
             </ul>
@@ -97,19 +100,19 @@
                   <svg width="25" height="25" fill="currentColor">
                     <use xlink:href="./img/sprite.svg#nav-sessions"></use>
                   </svg>
-                  <span>Сессии</span>
+                  <span data-translate="int_nav_sessions">Сессии</span>
                 </a>
                 <a href="doctor-account-schedule.html" class="doctor-account__nav-link">
                   <svg width="25" height="25" fill="currentColor">
                     <use xlink:href="./img/sprite.svg#nav-schedule"></use>
                   </svg>
-                  <span>Расписание</span>
+                  <span data-translate="int_nav_schedule">Расписание</span>
                 </a>
                 <a href="doctor-account-clients.html" class="doctor-account__nav-link">
                   <svg width="25" height="25" fill="currentColor">
                     <use xlink:href="./img/sprite.svg#nav-clients"></use>
                   </svg>
-                  <span>Клиенты</span>
+                  <span data-translate="int_nav_clients">Клиенты</span>
                 </a>
                 <a href="doctor-account-payments.html" class="doctor-account__nav-link">
                   <svg width="25" height="25" fill="currentColor">
@@ -123,7 +126,29 @@
                   </svg>
                   <span data-translate="int_nav_profile">Профиль</span>
                 </a>
-                <a href="/faq.html" class="user-account__nav-link">
+                <div href="#" class="doctor-account__nav-link nav-lang-switcher js-dropdown-trigger"
+                  data-id="#nav-lang-switcher">
+                  <svg width="25" height="25" fill="currentColor">
+                    <use xlink:href="./img/sprite.svg#nav-language"></use>
+                  </svg>
+                  <span class="current-language"></span>
+                  <svg width="10" height="10" fill="currentColor">
+                    <use xlink:href="./img/sprite.svg#dropdown"></use>
+                  </svg>
+                  </span>
+                  <ul class="lang-switcher__list list-reset" id="nav-lang-switcher">
+                    <!-- <li class="lang-switcher__item">
+                      <a href="#" data-lang="hu">Hu</a>
+                    </li> -->
+                    <li class="lang-switcher__item">
+                      <a href="#" data-lang="en">English</a>
+                    </li>
+                    <li class="lang-switcher__item">
+                      <a href="#" data-lang="ru" data-translate="doc_q_language_ru">Русский</a>
+                    </li>
+                  </ul>
+                </div>
+                <a href="doctor-account-help.html" class="user-account__nav-link">
                   <svg width="25" height="25" fill="currentColor">
                     <use xlink:href="./img/sprite.svg#nav-help"></use>
                   </svg>
@@ -140,22 +165,26 @@
             <div class="doctor-account__right-col">
               <div class="doctor-account__sessions sessions">
                 <div class="doctor-account__heading">
-                  <h2 class="text-40">Ваши сессии</h2>
+                  <h2 class="text-40" data-translate="sessions_title">Ваши сессии</h2>
                 </div>
                 <div class="sessions__requests">
                   <ul class="sessions__requests-list list-reset">
                     <li class="sessions__requests-item sessions__requests-item--reschedule">
                       <p class="text-25">
-                        Запрос на перенос сессии от клиента: <a href="#" class="sessions__requests-client"
-                          data-open-modal data-modal-id="#client-card">Ксения</a>&nbsp;<span
-                          class="sessions__requests-date">13 июля</span>
+                        <span data-translate="sessions_requests_item_reschedule">Запрос на перенос сессии от
+                          клиента:</span>&nbsp;
+                        <a href="#" class="sessions__requests-client" data-open-modal
+                          data-modal-id="#client-card">Ксения</a>&nbsp;<span class="sessions__requests-date">13
+                          июля</span>
                       </p>
                       <p class="text-18">
                         <span data-translate="doctor_change_request_msg_3">Предложено новое время:</span>&nbsp;
                         <b><span class="sessions__requests-new-date">пятница 14 июля, 16:00</span></b>
                       </p>
-                      <p class="text-18"> Если вы согласны, нажмите “Подтвердить”.</p>
-                      <p class="text-18">Если вас не устраивает предложенное время, нажмите “Предложить другое время”.
+                      <p class="text-18" data-translate="sessions_requests_reschedule_confirm">Если вы согласны, нажмите
+                        “Подтвердить”.</p>
+                      <p class="text-18" data-translate="doctor_change_request_msg_5">Если вас не устраивает
+                        предложенное время, нажмите “Предложить другое время”.
                       </p>
                       <div class="sessions__requests-btns">
                         <button type="button" class="btn">
@@ -180,11 +209,16 @@
                     </li>
                     <li class="sessions__requests-item sessions__requests-item--schedule">
                       <p class="text-25">
-                        Запрос на новую сессию от клиента: <a href="#" class="sessions__requests-client" data-open-modal
+                        <span data-translate="sessions_requests_item_schedule">Запрос на новую сессию от
+                          клиента:</span>&nbsp;
+                        <a href="#" class="sessions__requests-client" data-open-modal
                           data-modal-id="#client-card">Ксения</a>
                       </p>
-                      <p class="text-18">Выбранное время: <b><span class="sessions__requests-new-date">пятница 14
-                            июля, 16:00</span></b></p>
+                      <p class="text-18">
+                        <span data-translate="sessions_requests_choosen_time"> Выбранное время:</span>&nbsp;
+                        <b><span class="sessions__requests-new-date">пятница 14
+                            июля, 16:00</span></b>
+                      </p>
                       <p class="text-18" data-translate="doctor_change_request_msg_4"> Если вы согласны, нажмите
                         “Подтвердить”.</p>
                       <p class="text-18" data-translate="doctor_change_request_msg_5">Если вас не устраивает
@@ -217,7 +251,7 @@
                   <div class="sessions__clients">
                     <details open>
                       <summary>
-                        <span class="text-20">Записанные</span>
+                        <span class="text-20" data-translate="clients_signed_up">Записанные</span>
                         <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
                           <path d="M3.2002 11.2002L8.0002 6.4002L12.8002 11.2002" stroke="#202020" stroke-width="2"
                             stroke-linecap="round" stroke-linejoin="round" />
@@ -230,8 +264,8 @@
                             <p class="sessions__client-name" data-open-modal data-modal-id="#client-card">Ксения</p>
                             <span class="sessions__client-id visually-hidden">#663385</span>
                             <p class="sessions__info">
-                              <span class="sessions__count">12 сессия</span>
-                              <span class="sessions__date"><time>06 июля, 15:00</time></span>
+                              <span class="sessions__count">12 <span data-translate="session">сессия</span></span>
+                              <span class="sessions__date"><time>07 июля, 20:00</time></span>
                             </p>
                           </div>
                         </li>
@@ -240,7 +274,7 @@
                             <p class="sessions__client-name" data-open-modal data-modal-id="#client-card">Ирина</p>
                             <span class="sessions__client-id visually-hidden">#1111111</span>
                             <p class="sessions__info">
-                              <span class="sessions__count">12 сессия</span>
+                              <span class="sessions__count">12 <span data-translate="session">сессия</span></span>
                               <span class="sessions__date"><time>07 июля, 20:00</time></span>
                             </p>
                           </div>
@@ -250,8 +284,8 @@
                             <p class="sessions__client-name" data-open-modal data-modal-id="#client-card">Николай</p>
                             <span class="sessions__client-id visually-hidden">#2222222</span>
                             <p class="sessions__info">
-                              <span class="sessions__count">12 сессия</span>
-                              <span class="sessions__date"><time>08 июля, 09:00</time></span>
+                              <span class="sessions__count">12 <span data-translate="session">сессия</span></span>
+                              <span class="sessions__date"><time>07 июля, 20:00</time></span>
                             </p>
                           </div>
                         </li>
@@ -259,7 +293,7 @@
                     </details>
                     <details open>
                       <summary>
-                        <span class="text-20">Не записанные</span>
+                        <span class="text-20" data-translate="clients_not_signed_up">Не записанные</span>
                         <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
                           <path d="M3.2002 11.2002L8.0002 6.4002L12.8002 11.2002" stroke="#202020" stroke-width="2"
                             stroke-linecap="round" stroke-linejoin="round" />
@@ -271,10 +305,10 @@
                             <p class="sessions__client-name" data-open-modal data-modal-id="#client-card">Ксения</p>
                             <span class="sessions__client-id visually-hidden">#663385</span>
                             <p class="sessions__info">
-                              <span class="sessions__count">1 сессия</span>
-                              <span class="sessions__date"><span class="sessions__last">Последняя сессия
-                                  <br></span><time>06
-                                  июля, 15:00</time></span>
+                              <span class="sessions__count">1 <span data-translate="session">сессия</span></span>
+                              <span class="sessions__date"><span class="sessions__last"
+                                  data-translate="last_session">Последняя сессия
+                                  <br></span>&nbsp;<time>06 июля, 15:00</time></span>
                             </p>
                           </div>
                         </li>
@@ -283,10 +317,10 @@
                             <p class="sessions__client-name" data-open-modal data-modal-id="#client-card">Ксения</p>
                             <span class="sessions__client-id visually-hidden">#663385</span>
                             <p class="sessions__info">
-                              <span class="sessions__count">1 сессия</span>
-                              <span class="sessions__date"><span class="sessions__last">Последняя сессия
-                                  <br></span><time>06
-                                  июля, 15:00</time></span>
+                              <span class="sessions__count">1 <span data-translate="session">сессия</span></span>
+                              <span class="sessions__date"><span class="sessions__last"
+                                  data-translate="last_session">Последняя сессия
+                                  <br></span>&nbsp;<time>06 июля, 15:00</time></span>
                             </p>
                           </div>
                         </li>
@@ -295,10 +329,10 @@
                             <p class="sessions__client-name" data-open-modal data-modal-id="#client-card">Ксения</p>
                             <span class="sessions__client-id visually-hidden">#663385</span>
                             <p class="sessions__info">
-                              <span class="sessions__count">1 сессия</span>
-                              <span class="sessions__date"><span class="sessions__last">Последняя сессия
-                                  <br></span><time>06
-                                  июля, 15:00</time></span>
+                              <span class="sessions__count">1 <span data-translate="session">сессия</span></span>
+                              <span class="sessions__date"><span class="sessions__last"
+                                  data-translate="last_session">Последняя сессия
+                                  <br></span>&nbsp;<time>06 июля, 15:00</time></span>
                             </p>
                           </div>
                         </li>
@@ -307,16 +341,17 @@
                             <p class="sessions__client-name" data-open-modal data-modal-id="#client-card">Ксения</p>
                             <span class="sessions__client-id visually-hidden">#663385</span>
                             <p class="sessions__info">
-                              <span class="sessions__count">1 сессия</span>
-                              <span class="sessions__date"><span class="sessions__last">Последняя сессия
-                                  <br></span><time>06
-                                  июля, 15:00</time></span>
+                              <span class="sessions__count">1 <span data-translate="session">сессия</span></span>
+                              <span class="sessions__date"><span class="sessions__last"
+                                  data-translate="last_session">Последняя сессия
+                                  <br></span>&nbsp;<time>06 июля, 15:00</time></span>
                             </p>
                           </div>
                         </li>
                       </ul>
                     </details>
-                    <a href="doctor-account-clients.html" class="sessions__expand-btn btn">Все клиенты</a>
+                    <a href="doctor-account-clients.html" class="sessions__expand-btn btn"
+                      data-translate="clients_all">Все клиенты</a>
                   </div>
                   <div class="sessions__videochat videochat">
                     <h3 class="videochat__heading">
@@ -330,21 +365,24 @@
                         </div>
                       </div>
                       <div class="next-session">
-                        <p class="text-18">Ближайшая сессия:</p>
+                        <p class="text-18" data-translate="next_session">Ближайшая сессия:</p>
                         <p class="videochat__date text-20"></p>
                       </div>
                     </div>
                     <div class="videochat__buttons-wrapper">
-                      <a href="#" class="videochat__btn btn btn--white text-20" id="cancel-session">Отменить</a>
-                      <a href="#" class="videochat__btn btn btn--white text-20" id="reschedule-session">Перенести
+                      <a href="#" class="videochat__btn btn btn--white text-20" id="cancel-session"
+                        data-translate="cancel_session_btn">Отменить</a>
+                      <a href="#" class="videochat__btn btn btn--white text-20" id="reschedule-session"
+                        data-translate="reschedule_session_btn">Перенести
                         сессию</a>
-                      <a href="#" class="videochat__btn btn btn--white text-20" id="schedule-session">Назначить
+                      <a href="#" class="videochat__btn btn btn--white text-20" id="schedule-session"
+                        data-translate="schedule_session_btn">Назначить
                         сессию</a>
                       <a href="#" class="videochat__btn btn btn--white text-20" id="chat-with-client">
                         <svg width="30" height="22" fill="currentColor">
                           <use xlink:href="./img/sprite.svg#chat"></use>
                         </svg>
-                        <span>Чат с клиентом</span>
+                        <span data-translate="chat_with_client_btn">Чат с клиентом</span>
                       </a>
                     </div>
                   </div>
@@ -360,105 +398,10 @@
         <div class="footer__left"></div>
         <div class="footer__copyright">
           <span>&copy; Speak Your Mind 2023</span>
+          <a href="terms.html" class="text-green" data-translate="terms">Условия предоставления услуг</a>
         </div>
       </div>
     </footer>
-  </div>
-
-  <div class="modal modal--preload" id="upload-avatar">
-    <div class="modal__wrapper">
-      <div class="modal__overlay" data-close-modal></div>
-      <div class="modal__content modal__content--upload-avatar">
-        <button class="modal__close-btn" type="button" aria-label="Закрыть окно." data-close-modal>
-          <svg width="32" height="32" fill="currentColor">
-            <use xlink:href="./img/sprite.svg#close-modal"></use>
-          </svg>
-        </button>
-        <div class="avatar-upload">
-          <h2 class="modal__title text-31">Загрузите фото</h2>
-          <form action="" method="post" id="avatar-upload-form">
-            <fieldset>
-              <label>
-                <input type="file" name="avatar" id="avatar">
-              </label>
-            </fieldset>
-            <button type="submit" class="avatar-upload__submit-btn btn">Загрузить фото</button>
-          </form>
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <div class="modal modal--preload" id="new-card-popup">
-    <div class="modal__wrapper">
-      <div class="modal__overlay" data-close-modal></div>
-      <div class="modal__content modal__content--new-card">
-        <button class="modal__close-btn" type="button" aria-label="Закрыть окно." data-close-modal>
-          <svg width="32" height="32" fill="currentColor">
-            <use xlink:href="./img/sprite.svg#close-modal"></use>
-          </svg>
-        </button>
-        <h2 class="modal__title text-31">Привязать карту</h2>
-        <div class="card">
-          <div class="card__card-info">
-            <form action="" method="post">
-              <fieldset>
-                <label for="card-owner">
-                  <span>Имя владельца карты</span>
-                  <input type="text" id="card-owner" placeholder="Имя на лицевой стороне карты">
-                </label>
-              </fieldset>
-              <fieldset>
-                <label for="card-number">
-                  <span>Номер карты</span>
-                  <input type="number" id="card-number" placeholder="x x x x    x x x x    x x x x    x x x x">
-                </label>
-              </fieldset>
-              <fieldset>
-                <label for="card-exp">
-                        <span data-translate="card_exp">Срок действия</span>
-                  <input type="number" id="card-exp" placeholder="m m  /  y y">
-                </label>
-                <label for="card-cvc">
-                  <span>Код CVС</span>
-                  <input type="number" id="card-cvc" maxlength="3" placeholder="x x x">
-                </label>
-              </fieldset>
-              <p class="card__permission text-18">
-                Добавляя карту вы принимаете <a href="#" data-open-modal data-modal-id="#payment-terms"
-                  class="text-green">условия сервиса</a>
-              </p>
-              <button type="submit" class="card__submit-btn btn">Добавить карту</button>
-            </form>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <div class="modal modal--preload" id="payment-terms">
-    <div class="modal__wrapper">
-      <div class="modal__overlay" data-close-modal></div>
-      <div class="modal__content modal__content--new-card">
-        <button class="modal__close-btn" type="button" aria-label="Закрыть окно." data-close-modal>
-          <svg width="32" height="32" fill="currentColor">
-            <use xlink:href="./img/sprite.svg#close-modal"></use>
-          </svg>
-        </button>
-        <h2 class="modal__title text-31">Условия сервиса и автосписания</h2>
-        <p class="modal__text text-18"> Пользователю доступна функция безналичной оплаты Видеоконсультаций, в этом
-          случае «Speak your mind» действует по поручению соответствующего Психолога с привлечением уполномоченной
-          платежной системы и является получателем платежа в качестве агента Психолога (далее – «безналичная оплата»).
-        </p>
-        <p class="modal__text text-18">«Speak your mind» не гарантирует отсутствия ошибок и сбоев в работе Сервиса в
-          отношении предоставления
-          возможности безналичной оплаты. Списание денежных средств за Видеоконсультацию осуществляется за 24 часа до
-          момента проведения Видеоконсультации, а если Пользователь записался на Видеоконсультацию менее, чем за 24
-          часа, то списание осуществляется за 12 часов до Видеоконсультации или в момент записи на Видеоконсультацию, в
-          зависимости от того, что наступит ранее. В случае невозможности списания денежных средств за 12 часов до
-          проведения Видеоконсультации, Видеоконсультация подлежит отмене.</p>
-      </div>
-    </div>
   </div>
 
   <div class="modal modal--preload" id="client-card">
@@ -475,20 +418,21 @@
           <span class="text-31 client-card__userid">#663385</span>
         </p>
         <p class="client-card__info">
-          <span class="text-20 client-card__info-subhead">Возраст</span>
+          <span class="text-20 client-card__info-subhead" data-translate="client_card_age">Возраст</span>
           <span><span class="text-20 client-card__age">36</span> лет</span>
         </p>
         <p class="client-card__info">
-          <span class="text-20 client-card__info-subhead">Сессий</span>
+          <span class="text-20 client-card__info-subhead" data-translate="client_card_sessions_amount">Сессий</span>
           <span class="text-20 client-card__sessions-amount">11</span>
         </p>
         <p class="client-card__info">
-          <span class="text-20 client-card__info-subhead">Следующая сессия</span>
+          <span class="text-20 client-card__info-subhead" data-translate="client_card_next_session">Следующая
+            сессия</span>
           <span class="text-20 client-card__next-session">05 июля 15:00</span>
         </p>
         <p class="client-card__info">
-          <span class="text-20 client-card__info-subhead">Запрос</span>
-          <span class="text-20 client-card__next-session">Депрессивные состояния, одиночество, отношения с родителями,
+          <span class="text-20 client-card__info-subhead" data-translate="client_card_request">Запрос</span>
+          <span class="text-20 client-card__request">Депрессивные состояния, одиночество, отношения с родителями,
             “не знаю, чем хочу заниматься”</span>
         </p>
         <div class="client-card__btns-wrapper">
@@ -496,9 +440,9 @@
             <svg width="30" height="22" fill="currentColor">
               <use xlink:href="./img/sprite.svg#chat"></use>
             </svg>
-            <span>Чат с клиентом</span>
+            <span data-translate="chat_with_client_btn">Чат с клиентом</span>
           </a>
-          <a href="#" class="client-card__btn client-card__btn--notes btn btn--white">Заметки</a>
+          <a href="#" class="client-card__btn client-card__btn--notes btn btn--white" data-translate="notes">Заметки</a>
         </div>
       </div>
     </div>
@@ -513,7 +457,7 @@
             <use xlink:href="./img/sprite.svg#close-modal"></use>
           </svg>
         </button>
-        <h2 class="text-25 doctor__title">Мое расписание</h2>
+        <h2 class="text-25 doctor__title" data-translate="my_schedule">Мое расписание</h2>
         <form action="" method="post">
           <div class="doctor__day-wrapper">
             <p class="doctor__day">
@@ -714,7 +658,7 @@
             </svg>
           </button>
           <button type="submit" class="doctor__submit-btn btn">
-            <span class="doctor__submit-text">Выбрать&nbsp;</span>
+            <span class="doctor__submit-text" data-translate="doctor_submit_btn_1">Выбрать&nbsp;</span>
           </button>
         </form>
       </div>

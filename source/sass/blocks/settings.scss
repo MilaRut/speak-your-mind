@@ -13,17 +13,26 @@
   }
 
   .text-success {
-    display: flex;
-    align-items: center;
-    margin-bottom: 72px;
-    background-color: #f5f3ee;
-    border: 1px solid #a3a3a3;
-    border-radius: 16px;
-    padding: 16px;
-    width: fit-content;
+    position: relative;
+    background-color: #0f9c03;
+    border-radius: 8px;
+    padding: 8px 12px 8px 50px;
+    max-width: 600px;
+    font-weight: 300;
+    font-size: 18px;
+    line-height: 120%;
+    color: $color-default-white;
 
-    svg {
-      margin-right: 10px;
+    &::before {
+      position: absolute;
+      content: "";
+      top: 50%;
+      transform: translateY(-50%);
+      left: 16px;
+      width: 24px;
+      height: 24px;
+      border-radius: 50%;
+      background: $color-default-white url("../../img/svg/success-mark.svg") center no-repeat;
     }
   }
 
@@ -135,6 +144,13 @@
 
   &__doctor-heading {
     margin-bottom: 23px;
+  }
+
+  &__methods {
+    .settings__checkboxes.readonly {
+      pointer-events: none;
+      opacity: 0.5;
+    }
   }
 }
 
