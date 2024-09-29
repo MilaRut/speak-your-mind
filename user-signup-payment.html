@@ -43,7 +43,7 @@
         </nav>
         <div class="header__lang-switcher lang-switcher">
           <button class="lang-switcher__btn js-dropdown-trigger" data-id="#lang-switcher">
-            <span data-translate="current_language"></span>
+            <span class="current-language"></span>
             <svg width="10" height="10" fill="currentColor">
               <use xlink:href="./img/sprite.svg#dropdown"></use>
             </svg>
@@ -103,13 +103,14 @@
         <div class="container">
           <div class="card__heading">
             <h2 class="title" data-translate="card_title">Привяжите карту для записи</h2>
-            <p class="text-18"><span data-translate="card_subtitle_1">Запрос на назначение сессии на </span><span
-                class="card__session-time">15:00 6 июля</span><span data-translate="card_subtitle_2"> отправлен.
-                Терапевт: </span><span class="card__doctor-name">Олеся Парада</span>.</p>
           </div>
           <div class="card__description">
             <!-- .card__description-wrapper--start по умолчанию имеет класс .is-active.  При ошибке привязки карты, класс удаляется -->
             <div class="card__description-wrapper card__description-wrapper--start is-active">
+              <p class="text-18 card__request-sent"><span data-translate="card_subtitle_1">Запрос на назначение сессии
+                  на </span><span class="card__session-time">15:00 6 июля</span><span data-translate="card_subtitle_2">
+                  отправлен.
+                  Терапевт: </span><span class="card__doctor-name">Олеся Парада</span>.</p>
               <p class="text-25" data-translate="card_description_start_1">Что произойдет дальше?</p>
               <p class="text-18" data-translate="card_description_start_2">Терапевт подтвердит ваш запрос или предложит
                 альтернативное время.</p>
@@ -134,15 +135,11 @@
             </div>
             <!-- .card__description-wrapper--error по умолчанию скрыт. При ошибке привязки карты, добавлется класс .is-active -->
             <div class="card__description-wrapper card__description-wrapper--error">
-              <p class="text-error text-25">
-                <svg width="36" height="36" fill="currentColor">
-                  <use xlink:href="./img/sprite.svg#error"></use>
-                </svg>
-                <span data-translate="card_description_error_1">Произошла ошибка.</span>
-              </p>
-              <p class="text-18" data-translate="card_description_error_2">Не удалось привязать карту. Проверьте данные
-                карты и повторите попытку или привяжите
-                другую карту</p>
+              <div class="card__error-message">
+                <p class="text-18" data-translate="card_description_error_1"><b>Произошла ошибка</b></p>
+                <p class="text-18" data-translate="card_description_error_2">Не удалось привязать карту. Проверьте
+                  данные карты и повторите попытку или привяжите другую карту</p>
+              </div>
             </div>
           </div>
           <div class="card__card-info">
@@ -171,14 +168,15 @@
                 </label>
               </fieldset>
               <p class="card__permission text-18">
-                <span data-translate="card_permission_1">Добавляя карту вы принимаете </span><a href="#"
-                  class="text-green" data-open-modal data-modal-id="#payment-terms"><span
-                    data-translate="card_permission_1">условия сервиса</span></a><span
-                  data-translate="card_permission_3"> и разрешаете </span>
-                <a href="#" class="text-green" data-open-modal data-modal-id="#payment-terms"><span
-                    data-translate="card_permission_4">автосписания</span></a>
+                <span data-translate="card_permission_1">Добавляя карту вы принимаете</span>&nbsp;
+                <a href="#" class="text-green" data-open-modal data-modal-id="#payment-terms"
+                  data-translate="card_permission_2">условия сервиса</a>&nbsp;
+                <span data-translate="card_permission_3">и разрешаете</span>&nbsp;
+                <a href="#" class="text-green" data-open-modal data-modal-id="#payment-terms"
+                  data-translate="card_permission_4">автосписания</a>
               </p>
-              <button type="submit" class="card__submit-btn btn" data-translate="card_submit_btn">Добавить карту</button>
+              <button type="submit" class="card__submit-btn btn" data-translate="card_submit_btn">Добавить
+                карту</button>
             </form>
           </div>
         </div>
@@ -189,7 +187,7 @@
         <div class="footer__left"></div>
         <div class="footer__copyright">
           <span>&copy; Speak Your Mind 2023</span>
-          <a href="terms.html" class="text-green">Условия предоставления услуг</a>
+          <a href="terms.html" class="text-green" data-translate="terms">Условия предоставления услуг</a>
         </div>
       </div>
     </footer>

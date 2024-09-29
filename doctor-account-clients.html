@@ -43,7 +43,7 @@
         </nav>
         <div class="header__lang-switcher lang-switcher">
           <button class="lang-switcher__btn js-dropdown-trigger" data-id="#lang-switcher">
-            <span data-translate="current_language"></span>
+            <span class="current-language"></span>
             <svg width="10" height="10" fill="currentColor">
               <use xlink:href="./img/sprite.svg#dropdown"></use>
             </svg>
@@ -128,6 +128,28 @@
                   </svg>
                   <span data-translate="int_nav_profile">Профиль</span>
                 </a>
+                <div href="#" class="doctor-account__nav-link nav-lang-switcher js-dropdown-trigger"
+                  data-id="#nav-lang-switcher">
+                  <svg width="25" height="25" fill="currentColor">
+                    <use xlink:href="./img/sprite.svg#nav-language"></use>
+                  </svg>
+                  <span class="current-language"></span>
+                  <svg width="10" height="10" fill="currentColor">
+                    <use xlink:href="./img/sprite.svg#dropdown"></use>
+                  </svg>
+                  </span>
+                  <ul class="lang-switcher__list list-reset" id="nav-lang-switcher">
+                    <!-- <li class="lang-switcher__item">
+                    <a href="#" data-lang="hu">Hu</a>
+                  </li> -->
+                    <li class="lang-switcher__item">
+                      <a href="#" data-lang="en">English</a>
+                    </li>
+                    <li class="lang-switcher__item">
+                      <a href="#" data-lang="ru" data-translate="doc_q_language_ru">Русский</a>
+                    </li>
+                  </ul>
+                </div>
                 <a href="/faq.html" class="user-account__nav-link">
                   <svg width="25" height="25" fill="currentColor">
                     <use xlink:href="./img/sprite.svg#nav-help"></use>
@@ -145,17 +167,17 @@
             <div class="doctor-account__right-col">
               <div class="doctor-account__clients clients">
                 <div class="doctor-account__heading">
-                  <h2 class="text-40">Клиенты</h2>
+                  <h2 class="text-40" data-translate="int_nav_clients">Клиенты</h2>
                 </div>
                 <div class="clients__table">
                   <table>
                     <tr>
-                      <th>Клиент</th>
-                      <th>Имя</th>
-                      <th>Возраст</th>
-                      <th>Всего сессий</th>
-                      <th>Следующая сессия</th>
-                      <th>Статус сессии</th>
+                      <th data-translate="table_client">Клиент</th>
+                      <th data-translate="table_name">Имя</th>
+                      <th data-translate="table_age">Возраст</th>
+                      <th data-translate="table_sessions_amount">Всего сессий</th>
+                      <th data-translate="table_next_session">Следующая сессия</th>
+                      <th data-translate="table_session_status">Статус сессии</th>
                     </tr>
                     <tr class="clients__item clients__item--scheduled">
                       <td><span class="clients__client-id">#663385</span></td>
@@ -165,19 +187,22 @@
                       <td><span class="clients__sessions-amount">11</span></td>
                       <td><span class="clients__next-session"><time>05 июля, 15:00</time></span></td>
                       <td>
-                        <span class="clients__session-status">Запланирована</span>
+                        <span class="clients__session-status"
+                          data-translate="session_status_scheduled">Запланирована</span>
                         <div class="clients__actions">
-                          <button type="button"
-                            class="clients__actions-btn clients__actions-btn--confirm">Подтвердить</button>
+                          <button type="button" class="clients__actions-btn clients__actions-btn--confirm"
+                            data-translate="doctor_change_request_btn_1">Подтвердить</button>
                           <button type="button" class="clients__actions-btn clients__actions-btn--timeoffer"
-                            data-open-modal data-modal-id="#doctor-reschedule">Предложить
-                            другое время</button>
-                          <button type="button"
-                            class="clients__actions-btn clients__actions-btn--cancel">Отменить</button>
+                            data-open-modal data-modal-id="#doctor-reschedule"
+                            data-translate="doctor_change_request_btn_2">Предложить другое время</button>
+                          <button type="button" class="clients__actions-btn clients__actions-btn--cancel"
+                            data-translate="cancel_session_btn">Отменить</button>
                           <button type="button" class="clients__actions-btn clients__actions-btn--reschedule"
-                            data-open-modal data-modal-id="#doctor-reschedule">Перенести</button>
+                            data-open-modal data-modal-id="#doctor-reschedule"
+                            data-translate="actions_btn_reschedule">Перенести</button>
                           <button type="button" class="clients__actions-btn clients__actions-btn--schedule"
-                            data-open-modal data-modal-id="#doctor-reschedule">Записать</button>
+                            data-open-modal data-modal-id="#doctor-reschedule"
+                            data-translate="actions_btn_schedule">Записать</button>
                           <button type="button" class="clients__actions-close">+</button>
                         </div>
                       </td>
@@ -190,19 +215,22 @@
                       <td><span class="clients__sessions-amount">48</span></td>
                       <td><span class="clients__next-session"><time>-</time></span></td>
                       <td>
-                        <span class="clients__session-status">Не записан</span>
+                        <span class="clients__session-status" data-translate="session_status_not_scheduled">Не
+                          записан</span>
                         <div class="clients__actions">
-                          <button type="button"
-                            class="clients__actions-btn clients__actions-btn--confirm">Подтвердить</button>
+                          <button type="button" class="clients__actions-btn clients__actions-btn--confirm"
+                            data-translate="doctor_change_request_btn_1">Подтвердить</button>
                           <button type="button" class="clients__actions-btn clients__actions-btn--timeoffer"
-                            data-open-modal data-modal-id="#doctor-reschedule">Предложить
-                            другое время</button>
-                          <button type="button"
-                            class="clients__actions-btn clients__actions-btn--cancel">Отменить</button>
+                            data-open-modal data-modal-id="#doctor-reschedule"
+                            data-translate="doctor_change_request_btn_2">Предложить другое время</button>
+                          <button type="button" class="clients__actions-btn clients__actions-btn--cancel"
+                            data-translate="cancel_session_btn">Отменить</button>
                           <button type="button" class="clients__actions-btn clients__actions-btn--reschedule"
-                            data-open-modal data-modal-id="#doctor-reschedule">Перенести</button>
+                            data-open-modal data-modal-id="#doctor-reschedule"
+                            data-translate="actions_btn_reschedule">Перенести</button>
                           <button type="button" class="clients__actions-btn clients__actions-btn--schedule"
-                            data-open-modal data-modal-id="#doctor-reschedule">Записать</button>
+                            data-open-modal data-modal-id="#doctor-reschedule"
+                            data-translate="actions_btn_schedule">Записать</button>
                           <button type="button" class="clients__actions-close">+</button>
                         </div>
                       </td>
@@ -215,19 +243,22 @@
                       <td><span class="clients__sessions-amount">5</span></td>
                       <td><span class="clients__next-session"><time>06 июля, 12:00</time></span></td>
                       <td>
-                        <span class="clients__session-status">Запрос на сессию</span>
+                        <span class="clients__session-status" data-translate="session_status_requested">Запрос на
+                          сессию</span>
                         <div class="clients__actions">
-                          <button type="button"
-                            class="clients__actions-btn clients__actions-btn--confirm">Подтвердить</button>
+                          <button type="button" class="clients__actions-btn clients__actions-btn--confirm"
+                            data-translate="doctor_change_request_btn_1">Подтвердить</button>
                           <button type="button" class="clients__actions-btn clients__actions-btn--timeoffer"
-                            data-open-modal data-modal-id="#doctor-reschedule">Предложить
-                            другое время</button>
-                          <button type="button"
-                            class="clients__actions-btn clients__actions-btn--cancel">Отменить</button>
+                            data-open-modal data-modal-id="#doctor-reschedule"
+                            data-translate="doctor_change_request_btn_2">Предложить другое время</button>
+                          <button type="button" class="clients__actions-btn clients__actions-btn--cancel"
+                            data-translate="cancel_session_btn">Отменить</button>
                           <button type="button" class="clients__actions-btn clients__actions-btn--reschedule"
-                            data-open-modal data-modal-id="#doctor-reschedule">Перенести</button>
+                            data-open-modal data-modal-id="#doctor-reschedule"
+                            data-translate="actions_btn_reschedule">Перенести</button>
                           <button type="button" class="clients__actions-btn clients__actions-btn--schedule"
-                            data-open-modal data-modal-id="#doctor-reschedule">Записать</button>
+                            data-open-modal data-modal-id="#doctor-reschedule"
+                            data-translate="actions_btn_schedule">Записать</button>
                           <button type="button" class="clients__actions-close">+</button>
                         </div>
                       </td>
@@ -240,19 +271,22 @@
                       <td><span class="clients__sessions-amount">5</span></td>
                       <td><span class="clients__next-session"><time>09 июля, 16:00</time></span></td>
                       <td>
-                        <span class="clients__session-status">Запланирована</span>
+                        <span class="clients__session-status"
+                          data-translate="session_status_scheduled">Запланирована</span>
                         <div class="clients__actions">
-                          <button type="button"
-                            class="clients__actions-btn clients__actions-btn--confirm">Подтвердить</button>
+                          <button type="button" class="clients__actions-btn clients__actions-btn--confirm"
+                            data-translate="doctor_change_request_btn_1">Подтвердить</button>
                           <button type="button" class="clients__actions-btn clients__actions-btn--timeoffer"
-                            data-open-modal data-modal-id="#doctor-reschedule">Предложить
-                            другое время</button>
-                          <button type="button"
-                            class="clients__actions-btn clients__actions-btn--cancel">Отменить</button>
+                            data-open-modal data-modal-id="#doctor-reschedule"
+                            data-translate="doctor_change_request_btn_2">Предложить другое время</button>
+                          <button type="button" class="clients__actions-btn clients__actions-btn--cancel"
+                            data-translate="cancel_session_btn">Отменить</button>
                           <button type="button" class="clients__actions-btn clients__actions-btn--reschedule"
-                            data-open-modal data-modal-id="#doctor-reschedule">Перенести</button>
+                            data-open-modal data-modal-id="#doctor-reschedule"
+                            data-translate="actions_btn_reschedule">Перенести</button>
                           <button type="button" class="clients__actions-btn clients__actions-btn--schedule"
-                            data-open-modal data-modal-id="#doctor-reschedule">Записать</button>
+                            data-open-modal data-modal-id="#doctor-reschedule"
+                            data-translate="actions_btn_schedule">Записать</button>
                           <button type="button" class="clients__actions-close">+</button>
                         </div>
                       </td>
@@ -265,19 +299,22 @@
                       <td><span class="clients__sessions-amount">5</span></td>
                       <td><span class="clients__next-session"><time>09 июля, 16:00</time></span></td>
                       <td>
-                        <span class="clients__session-status">Ожидание<br>подтверждения</span>
+                        <span class="clients__session-status" data-translate="session_status_pending">Ожидание
+                          подтверждения</span>
                         <div class="clients__actions">
-                          <button type="button"
-                            class="clients__actions-btn clients__actions-btn--confirm">Подтвердить</button>
+                          <button type="button" class="clients__actions-btn clients__actions-btn--confirm"
+                            data-translate="doctor_change_request_btn_1">Подтвердить</button>
                           <button type="button" class="clients__actions-btn clients__actions-btn--timeoffer"
-                            data-open-modal data-modal-id="#doctor-reschedule">Предложить
-                            другое время</button>
-                          <button type="button"
-                            class="clients__actions-btn clients__actions-btn--cancel">Отменить</button>
+                            data-open-modal data-modal-id="#doctor-reschedule"
+                            data-translate="doctor_change_request_btn_2">Предложить другое время</button>
+                          <button type="button" class="clients__actions-btn clients__actions-btn--cancel"
+                            data-translate="cancel_session_btn">Отменить</button>
                           <button type="button" class="clients__actions-btn clients__actions-btn--reschedule"
-                            data-open-modal data-modal-id="#doctor-reschedule">Перенести</button>
+                            data-open-modal data-modal-id="#doctor-reschedule"
+                            data-translate="actions_btn_reschedule">Перенести</button>
                           <button type="button" class="clients__actions-btn clients__actions-btn--schedule"
-                            data-open-modal data-modal-id="#doctor-reschedule">Записать</button>
+                            data-open-modal data-modal-id="#doctor-reschedule"
+                            data-translate="actions_btn_schedule">Записать</button>
                           <button type="button" class="clients__actions-close">+</button>
                         </div>
                       </td>
@@ -295,106 +332,10 @@
         <div class="footer__left"></div>
         <div class="footer__copyright">
           <span>&copy; Speak Your Mind 2023</span>
-          <a href="terms.html" class="text-green">Условия предоставления услуг</a>
+          <a href="terms.html" class="text-green" data-translate="terms">Условия предоставления услуг</a>
         </div>
       </div>
     </footer>
-  </div>
-
-  <div class="modal modal--preload" id="upload-avatar">
-    <div class="modal__wrapper">
-      <div class="modal__overlay" data-close-modal></div>
-      <div class="modal__content modal__content--upload-avatar">
-        <button class="modal__close-btn" type="button" aria-label="Закрыть окно." data-close-modal>
-          <svg width="32" height="32" fill="currentColor">
-            <use xlink:href="./img/sprite.svg#close-modal"></use>
-          </svg>
-        </button>
-        <div class="avatar-upload">
-          <h2 class="modal__title text-31">Загрузите фото</h2>
-          <form action="" method="post" id="avatar-upload-form">
-            <fieldset>
-              <label>
-                <input type="file" name="avatar" id="avatar">
-              </label>
-            </fieldset>
-            <button type="submit" class="avatar-upload__submit-btn btn">Загрузить фото</button>
-          </form>
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <div class="modal modal--preload" id="new-card-popup">
-    <div class="modal__wrapper">
-      <div class="modal__overlay" data-close-modal></div>
-      <div class="modal__content modal__content--new-card">
-        <button class="modal__close-btn" type="button" aria-label="Закрыть окно." data-close-modal>
-          <svg width="32" height="32" fill="currentColor">
-            <use xlink:href="./img/sprite.svg#close-modal"></use>
-          </svg>
-        </button>
-        <h2 class="modal__title text-31">Привязать карту</h2>
-        <div class="card">
-          <div class="card__card-info">
-            <form action="" method="post">
-              <fieldset>
-                <label for="card-owner">
-                  <span>Имя владельца карты</span>
-                  <input type="text" id="card-owner" placeholder="Имя на лицевой стороне карты">
-                </label>
-              </fieldset>
-              <fieldset>
-                <label for="card-number">
-                  <span>Номер карты</span>
-                  <input type="number" id="card-number" placeholder="x x x x    x x x x    x x x x    x x x x">
-                </label>
-              </fieldset>
-              <fieldset>
-                <label for="card-exp">
-                  <span data-translate="card_exp">Срок действия</span>
-                  <input type="number" id="card-exp" placeholder="m m  /  y y">
-                </label>
-                <label for="card-cvc">
-                  <span>Код CVС</span>
-                  <input type="number" id="card-cvc" maxlength="3" placeholder="x x x">
-                </label>
-              </fieldset>
-              <p class="card__permission text-18">
-                Добавляя карту вы принимаете <a href="#" data-open-modal data-modal-id="#payment-terms"
-                  class="text-green">условия сервиса</a>
-              </p>
-              <button type="submit" class="card__submit-btn btn">Добавить карту</button>
-            </form>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <div class="modal modal--preload" id="payment-terms">
-    <div class="modal__wrapper">
-      <div class="modal__overlay" data-close-modal></div>
-      <div class="modal__content modal__content--new-card">
-        <button class="modal__close-btn" type="button" aria-label="Закрыть окно." data-close-modal>
-          <svg width="32" height="32" fill="currentColor">
-            <use xlink:href="./img/sprite.svg#close-modal"></use>
-          </svg>
-        </button>
-        <h2 class="modal__title text-31">Условия сервиса и автосписания</h2>
-        <p class="modal__text text-18"> Пользователю доступна функция безналичной оплаты Видеоконсультаций, в этом
-          случае «Speak your mind» действует по поручению соответствующего Психолога с привлечением уполномоченной
-          платежной системы и является получателем платежа в качестве агента Психолога (далее – «безналичная оплата»).
-        </p>
-        <p class="modal__text text-18">«Speak your mind» не гарантирует отсутствия ошибок и сбоев в работе Сервиса в
-          отношении предоставления
-          возможности безналичной оплаты. Списание денежных средств за Видеоконсультацию осуществляется за 24 часа до
-          момента проведения Видеоконсультации, а если Пользователь записался на Видеоконсультацию менее, чем за 24
-          часа, то списание осуществляется за 12 часов до Видеоконсультации или в момент записи на Видеоконсультацию, в
-          зависимости от того, что наступит ранее. В случае невозможности списания денежных средств за 12 часов до
-          проведения Видеоконсультации, Видеоконсультация подлежит отмене.</p>
-      </div>
-    </div>
   </div>
 
   <div class="modal modal--preload" id="client-card">
@@ -411,20 +352,21 @@
           <span class="text-31 client-card__userid">#663385</span>
         </p>
         <p class="client-card__info">
-          <span class="text-20 client-card__info-subhead">Возраст</span>
+          <span class="text-20 client-card__info-subhead" data-translate="client_card_age">Возраст</span>
           <span><span class="text-20 client-card__age">36</span> лет</span>
         </p>
         <p class="client-card__info">
-          <span class="text-20 client-card__info-subhead">Сессий</span>
+          <span class="text-20 client-card__info-subhead" data-translate="client_card_sessions_amount">Сессий</span>
           <span class="text-20 client-card__sessions-amount">11</span>
         </p>
         <p class="client-card__info">
-          <span class="text-20 client-card__info-subhead">Следующая сессия</span>
+          <span class="text-20 client-card__info-subhead" data-translate="client_card_next_session">Следующая
+            сессия</span>
           <span class="text-20 client-card__next-session">05 июля 15:00</span>
         </p>
         <p class="client-card__info">
-          <span class="text-20 client-card__info-subhead">Запрос</span>
-          <span class="text-20 client-card__next-session">Депрессивные состояния, одиночество, отношения с родителями,
+          <span class="text-20 client-card__info-subhead" data-translate="client_card_request">Запрос</span>
+          <span class="text-20 client-card__request">Депрессивные состояния, одиночество, отношения с родителями,
             “не знаю, чем хочу заниматься”</span>
         </p>
         <div class="client-card__btns-wrapper">
@@ -432,14 +374,13 @@
             <svg width="30" height="22" fill="currentColor">
               <use xlink:href="./img/sprite.svg#chat"></use>
             </svg>
-            <span>Чат с клиентом</span>
+            <span data-translate="chat_with_client_btn">Чат с клиентом</span>
           </a>
-          <a href="#" class="client-card__btn client-card__btn--notes btn btn--white">Заметки</a>
+          <a href="#" class="client-card__btn client-card__btn--notes btn btn--white" data-translate="notes">Заметки</a>
         </div>
       </div>
     </div>
   </div>
-
   <div class="modal modal--preload" id="doctor-reschedule">
     <div class="modal__wrapper">
       <div class="modal__overlay" data-close-modal></div>
@@ -449,7 +390,7 @@
             <use xlink:href="./img/sprite.svg#close-modal"></use>
           </svg>
         </button>
-        <h2 class="text-25 doctor__title">Мое расписание</h2>
+        <h2 class="text-25 doctor__title" data-translate="my_schedule">Мое расписание</h2>
         <form action="" method="post">
           <div class="schedule-container" id="schedule-container-2"></div>
           <button type="button" class="doctor__expand-btn schedule__show-more" data-id="#schedule-container-2">
@@ -459,7 +400,7 @@
             </svg>
           </button>
           <button type="submit" class="doctor__submit-btn btn">
-            <span class="doctor__submit-text">Выбрать&nbsp;</span>
+            <span class="doctor__submit-text" data-translate="doctor_submit_btn_1">Выбрать&nbsp;</span>
           </button>
         </form>
       </div>

@@ -43,7 +43,7 @@
         </nav>
         <div class="header__lang-switcher lang-switcher">
           <button class="lang-switcher__btn js-dropdown-trigger" data-id="#lang-switcher">
-            <span data-translate="current_language"></span>
+            <span class="current-language"></span>
             <svg width="10" height="10" fill="currentColor">
               <use xlink:href="./img/sprite.svg#dropdown"></use>
             </svg>
@@ -128,6 +128,28 @@
                   </svg>
                   <span data-translate="int_nav_profile">Профиль</span>
                 </a>
+                <div href="#" class="doctor-account__nav-link nav-lang-switcher js-dropdown-trigger"
+                  data-id="#nav-lang-switcher">
+                  <svg width="25" height="25" fill="currentColor">
+                    <use xlink:href="./img/sprite.svg#nav-language"></use>
+                  </svg>
+                  <span class="current-language"></span>
+                  <svg width="10" height="10" fill="currentColor">
+                    <use xlink:href="./img/sprite.svg#dropdown"></use>
+                  </svg>
+                  </span>
+                  <ul class="lang-switcher__list list-reset" id="nav-lang-switcher">
+                    <!-- <li class="lang-switcher__item">
+                    <a href="#" data-lang="hu">Hu</a>
+                  </li> -->
+                    <li class="lang-switcher__item">
+                      <a href="#" data-lang="en">English</a>
+                    </li>
+                    <li class="lang-switcher__item">
+                      <a href="#" data-lang="ru" data-translate="doc_q_language_ru">Русский</a>
+                    </li>
+                  </ul>
+                </div>
                 <a href="doctor-account-help.html" class="user-account__nav-link">
                   <svg width="25" height="25" fill="currentColor">
                     <use xlink:href="./img/sprite.svg#nav-help"></use>
@@ -145,16 +167,16 @@
             <div class="doctor-account__right-col">
               <div class="doctor-account__payments payments">
                 <div class="doctor-account__heading">
-                  <h2 class="text-40">Выплаты</h2>
+                  <h2 class="text-40" data-translate="doctor_payments_title">Выплаты</h2>
                 </div>
                 <div class="payments__history">
                   <table>
                     <tr>
                       <th>No</th>
-                      <th>Сессия</th>
-                      <th>Сумма</th>
-                      <th>Дата выплаты</th>
-                      <th>Статус</th>
+                      <th data-translate="table_session">Сессия</th>
+                      <th data-translate="table_sum">Сумма</th>
+                      <th data-translate="table_payment_date">Дата выплаты</th>
+                      <th data-translate="table_payment_status">Статус</th>
                     </tr>
                     <tr>
                       <td><span class="payments__transaction-number">2558736</span></td>
@@ -229,7 +251,7 @@
         <div class="footer__left"></div>
         <div class="footer__copyright">
           <span>&copy; Speak Your Mind 2023</span>
-          <a href="terms.html" class="text-green">Условия предоставления услуг</a>
+          <a href="terms.html" class="text-green" data-translate="terms">Условия предоставления услуг</a>
         </div>
       </div>
     </footer>

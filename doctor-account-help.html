@@ -43,7 +43,7 @@
         </nav>
         <div class="header__lang-switcher lang-switcher">
           <button class="lang-switcher__btn js-dropdown-trigger" data-id="#lang-switcher">
-            <span data-translate="current_language"></span>
+            <span class="current-language"></span>
             <svg width="10" height="10" fill="currentColor">
               <use xlink:href="./img/sprite.svg#dropdown"></use>
             </svg>
@@ -128,6 +128,28 @@
                   </svg>
                   <span data-translate="int_nav_profile">Профиль</span>
                 </a>
+                <div href="#" class="doctor-account__nav-link nav-lang-switcher js-dropdown-trigger"
+                  data-id="#nav-lang-switcher">
+                  <svg width="25" height="25" fill="currentColor">
+                    <use xlink:href="./img/sprite.svg#nav-language"></use>
+                  </svg>
+                  <span class="current-language"></span>
+                  <svg width="10" height="10" fill="currentColor">
+                    <use xlink:href="./img/sprite.svg#dropdown"></use>
+                  </svg>
+                  </span>
+                  <ul class="lang-switcher__list list-reset" id="nav-lang-switcher">
+                    <!-- <li class="lang-switcher__item">
+                    <a href="#" data-lang="hu">Hu</a>
+                  </li> -->
+                    <li class="lang-switcher__item">
+                      <a href="#" data-lang="en">English</a>
+                    </li>
+                    <li class="lang-switcher__item">
+                      <a href="#" data-lang="ru" data-translate="doc_q_language_ru">Русский</a>
+                    </li>
+                  </ul>
+                </div>
                 <a href="#" class="user-account__nav-link is-active">
                   <svg width="25" height="25" fill="currentColor">
                     <use xlink:href="./img/sprite.svg#nav-help"></use>
@@ -144,51 +166,62 @@
             </div>
             <div class="doctor-account__right-col">
               <section class="faq">
-                <h1 class="title">Ответы на частые вопросы</h1>
-                <p class="faq__description">Если ответа на ваш вопрос нет среди нижеперечисленного, вы можете задать его
-                  администратору
-                  сайта, написав ему на почту <a href="mailto:support@speakyourmind.hu"
-                    class="text-green">support@speakyourmind.hu</a> или заполнив <a data-open-modal
-                    data-modal-id="#feedback" class="text-green">форму обратной связи</a>.</p>
+                <h1 class="title" data-translate="faq_title">Ответы на частые вопросы</h1>
+                <p class="faq__description">
+                  <span data-translate="faq_text1">
+                    Если ответа на ваш вопрос нет среди нижеперечисленного, вы можете задать его
+                    администратору сайта, написав ему на почту</span>&nbsp;
+                  <a href="mailto:support@speakyourmind.hu" class="text-green">support@speakyourmind.hu</a>&nbsp;
+                  <span data-translate="faq_text2">или заполнив</span>&nbsp;
+                  <a data-open-modal data-modal-id="#feedback" class="text-green" data-translate="faq_text3">форму
+                    обратной
+                    связи</a>.
+                </p>
                 <div class="faq__content">
                   <details>
                     <summary>
-                      <p class="faq__question text-25">Как работает ваше веб-приложение по подбору психолога?</p>
+                      <p class="faq__question text-25" data-translate="faq_q1">Как работает ваше веб-приложение по
+                        подбору психолога?</p>
                       <div class="faq__icon">
                         <svg width="32" height="32" fill="currentColor">
                           <use xlink:href="./img/sprite.svg#chevron-up"></use>
                         </svg>
                       </div>
                     </summary>
-                    <p class="faq__answer text-18">Наше веб-приложение использует алгоритмы и данные, чтобы помочь
+                    <p class="faq__answer text-18" data-translate="faq_a1">Наше веб-приложение использует алгоритмы и
+                      данные, чтобы помочь
                       пользователям найти подходящего психолога. Мы собираем информацию о вашей личности, пристрастиях,
                       проблемах и предпочтениях, и на основе этих данных предлагаем наилучшие варианты психологов,
                       отвечающих вашим потребностям.</p>
                   </details>
                   <details>
                     <summary>
-                      <p class="faq__question text-25">Какие критерии используются для подбора психологов?</p>
+                      <p class="faq__question text-25" data-translate="faq_q2">Какие критерии используются для подбора
+                        психологов?</p>
                       <div class="faq__icon">
                         <svg width="32" height="32" fill="currentColor">
                           <use xlink:href="./img/sprite.svg#chevron-up"></use>
                         </svg>
                       </div>
                     </summary>
-                    <p class="faq__answer text-18">Мы учитываем множество факторов при подборе психологов для вас.
+                    <p class="faq__answer text-18" data-translate="faq_a2">Мы учитываем множество факторов при подборе
+                      психологов для вас.
                       Некоторые из них включают специализацию психолога (например, депрессия, тревога, стресс), их опыт,
                       методы и техники, которые они используют, и их географическое местоположение (если вам важно иметь
                       психолога из определенного региона).</p>
                   </details>
                   <details>
                     <summary>
-                      <p class="faq__question text-25">Как мне начать использовать ваше приложение?</p>
+                      <p class="faq__question text-25" data-translate="faq_q3">Как мне начать использовать ваше
+                        приложение?</p>
                       <div class="faq__icon">
                         <svg width="32" height="32" fill="currentColor">
                           <use xlink:href="./img/sprite.svg#chevron-up"></use>
                         </svg>
                       </div>
                     </summary>
-                    <p class="faq__answer text-18">Чтобы начать использовать наше веб-приложение, вам необходимо пройти
+                    <p class="faq__answer text-18" data-translate="faq_a3">Чтобы начать использовать наше
+                      веб-приложение, вам необходимо пройти
                       простую регистрацию. Затем вам нужно будет заполнить некоторую информацию о себе и вашей проблеме.
                       После этого вы получите список психологов, соответствующих вашим потребностям, и вы сможете
                       выбрать их из списка.
@@ -196,7 +229,8 @@
                   </details>
                   <details>
                     <summary>
-                      <p class="faq__question text-25">Я не уверен, подходит ли мне конкретный психолог. Могу ли я
+                      <p class="faq__question text-25" data-translate="faq_q4">Я не уверен, подходит ли мне конкретный
+                        психолог. Могу ли я
                         изменить свой выбор?</p>
                       <div class="faq__icon">
                         <svg width="32" height="32" fill="currentColor">
@@ -204,13 +238,15 @@
                         </svg>
                       </div>
                     </summary>
-                    <p class="faq__answer text-18">Конечно, вы всегда можете изменить свой выбор психолога. Если вы
+                    <p class="faq__answer text-18" data-translate="faq_a4">Конечно, вы всегда можете изменить свой выбор
+                      психолога. Если вы
                       обнаружили, что выбранный психолог не соответствует вашим ожиданиям или не подходит вам по другим
                       причинам, просто сообщите нам, и мы поможем вам найти другого психолога.</p>
                   </details>
                   <details>
                     <summary>
-                      <p class="faq__question text-25">Какие методы платежа можно использовать на вашем веб-приложении?
+                      <p class="faq__question text-25" data-translate="faq_q5">Какие методы платежа можно использовать
+                        на вашем веб-приложении?
                       </p>
                       <div class="faq__icon">
                         <svg width="32" height="32" fill="currentColor">
@@ -218,13 +254,15 @@
                         </svg>
                       </div>
                     </summary>
-                    <p class="faq__answer text-18">Мы принимаем различные методы оплаты, включая кредитные и дебетовые
+                    <p class="faq__answer text-18" data-translate="faq_a5">Мы принимаем различные методы оплаты, включая
+                      кредитные и дебетовые
                       карты, электронные платежные системы, такие как PayPal и Stripe. Вы можете выбрать наиболее
                       удобный способ оплаты при бронировании сеанса с психологом.</p>
                   </details>
                   <details>
                     <summary>
-                      <p class="faq__question text-25">Могу ли я получить дополнительную информацию о психологе, прежде
+                      <p class="faq__question text-25" data-translate="faq_q6">Могу ли я получить дополнительную
+                        информацию о психологе, прежде
                         чем сделать выбор?
                       </p>
                       <div class="faq__icon">
@@ -233,7 +271,8 @@
                         </svg>
                       </div>
                     </summary>
-                    <p class="faq__answer text-18">Да, в нашем веб-приложении вы можете получить дополнительную
+                    <p class="faq__answer text-18" data-translate="faq_a6">Да, в нашем веб-приложении вы можете получить
+                      дополнительную
                       информацию о каждом психологе. У каждого профиля психолога есть описание, где указаны их
                       образование, специализация, сертификации и опыт работы. Вы также можете прочитать отзывы от других
                       пользователей о психологе.
@@ -241,7 +280,8 @@
                   </details>
                   <details>
                     <summary>
-                      <p class="faq__question text-25">Как обеспечивается конфиденциальность моих персональных данных?
+                      <p class="faq__question text-25" data-translate="faq_q7">Как обеспечивается конфиденциальность
+                        моих персональных данных?
                       </p>
                       <div class="faq__icon">
                         <svg width="32" height="32" fill="currentColor">
@@ -249,14 +289,16 @@
                         </svg>
                       </div>
                     </summary>
-                    <p class="faq__answer text-18">Мы придерживаемся строгих политик конфиденциальности и безопасности
+                    <p class="faq__answer text-18" data-translate="faq_a7">Мы придерживаемся строгих политик
+                      конфиденциальности и безопасности
                       данных. Все ваши персональные данные обрабатываются в соответствии с законодательством о защите
                       данных. Мы не передаем информацию третьим лицам без вашего согласия, за исключением случаев, когда
                       это необходимо для проведения сеанса с психологом.</p>
                   </details>
                   <details>
                     <summary>
-                      <p class="faq__question text-25">Могу ли я получить возврат средств, если не доволен услугами
+                      <p class="faq__question text-25" data-translate="faq_q8">Могу ли я получить возврат средств, если
+                        не доволен услугами
                         психолога?</p>
                       <div class="faq__icon">
                         <svg width="32" height="32" fill="currentColor">
@@ -264,89 +306,101 @@
                         </svg>
                       </div>
                     </summary>
-                    <p class="faq__answer text-18">Мы стремимся обеспечить высококачественные услуги, однако, если вы не
+                    <p class="faq__answer text-18" data-translate="faq_a8">Мы стремимся обеспечить высококачественные
+                      услуги, однако, если вы не
                       удовлетворены сеансом с психологом, вы можете обратиться к нам и запросить возврат средств в
                       соответствии с нашей политикой возврата. Мы стараемся удовлетворить потребности и желания наших
                       клиентов и готовы рассмотреть каждую ситуацию индивидуально.</p>
                   </details>
                   <details>
                     <summary>
-                      <p class="faq__question text-25">Могу ли я использовать ваше приложение для онлайн-терапии?</p>
+                      <p class="faq__question text-25" data-translate="faq_q9">Могу ли я использовать ваше приложение
+                        для онлайн-терапии?</p>
                       <div class="faq__icon">
                         <svg width="32" height="32" fill="currentColor">
                           <use xlink:href="./img/sprite.svg#chevron-up"></use>
                         </svg>
                       </div>
                     </summary>
-                    <p class="faq__answer text-18">Да, наше веб-приложение также предоставляет возможность
+                    <p class="faq__answer text-18" data-translate="faq_q9">Да, наше веб-приложение также предоставляет
+                      возможность
                       онлайн-терапии. Вы можете выбрать психолога, который предоставляет услуги онлайн, и проводить
                       сеансы через видеосвязь или чат. Это удобный способ получить помощь и поддержку, даже если вы
                       находитесь в удаленном месте.</p>
                   </details>
                   <details>
                     <summary>
-                      <p class="faq__question text-25">Как узнать, сколько стоит сеанс с психологом?</p>
+                      <p class="faq__question text-25" data-translate="faq_q10">Как узнать, сколько стоит сеанс с
+                        психологом?</p>
                       <div class="faq__icon">
                         <svg width="32" height="32" fill="currentColor">
                           <use xlink:href="./img/sprite.svg#chevron-up"></use>
                         </svg>
                       </div>
                     </summary>
-                    <p class="faq__answer text-18">Стоимость сеанса с психологом может варьироваться в зависимости от
+                    <p class="faq__answer text-18" data-translate="faq_a10">Стоимость сеанса с психологом может
+                      варьироваться в зависимости от
                       множества факторов, включая специализацию психолога, длительность сеанса и его местоположение. Вы
                       можете узнать точную цену, просмотрев профиль каждого психолога. Там будет указана информация о
                       стоимости и доступных пакетах или скидках.</p>
                   </details>
                   <details>
                     <summary>
-                      <p class="faq__question text-25">Как долго длится сеанс с психологом?</p>
+                      <p class="faq__question text-25" data-translate="faq_q11">Как долго длится сеанс с психологом?</p>
                       <div class="faq__icon">
                         <svg width="32" height="32" fill="currentColor">
                           <use xlink:href="./img/sprite.svg#chevron-up"></use>
                         </svg>
                       </div>
                     </summary>
-                    <p class="faq__answer text-18">Длительность сеанса с психологом может варьироваться, обычно
+                    <p class="faq__answer text-18" data-translate="faq_a11">Длительность сеанса с психологом может
+                      варьироваться, обычно
                       составляет от 45 до 60 минут. Однако, продолжительность может быть настроена и уточнена
                       индивидуально с каждым психологом, учитывая ваши потребности и предпочтения.</p>
                   </details>
                   <details>
                     <summary>
-                      <p class="faq__question text-25">Какую поддержку я могу получить в случае экстренной ситуации?</p>
+                      <p class="faq__question text-25" data-translate="faq_q12">Какую поддержку я могу получить в случае
+                        экстренной ситуации?</p>
                       <div class="faq__icon">
                         <svg width="32" height="32" fill="currentColor">
                           <use xlink:href="./img/sprite.svg#chevron-up"></use>
                         </svg>
                       </div>
                     </summary>
-                    <p class="faq__answer text-18">Мы осознаем важность экстренных случаев. В случае, если вы оказались
+                    <p class="faq__answer text-18" data-translate="faq_a12">Мы осознаем важность экстренных случаев. В
+                      случае, если вы оказались
                       в кризисной ситуации или нуждаетесь в экстренной поддержке, рекомендуется обратиться к местным
                       службам экстренной помощи, таким как служба спасения или горячая линия.</p>
                   </details>
                   <details>
                     <summary>
-                      <p class="faq__question text-25">Какую поддержку получат мои данные после завершения сеанса?</p>
+                      <p class="faq__question text-25" data-translate="faq_q13">Какую поддержку получат мои данные после
+                        завершения сеанса?</p>
                       <div class="faq__icon">
                         <svg width="32" height="32" fill="currentColor">
                           <use xlink:href="./img/sprite.svg#chevron-up"></use>
                         </svg>
                       </div>
                     </summary>
-                    <p class="faq__answer text-18">Мы серьезно относимся к защите ваших данных и личной информации. Все
+                    <p class="faq__answer text-18" data-translate="faq_a13">Мы серьезно относимся к защите ваших данных
+                      и личной информации. Все
                       данные, полученные в процессе использования нашего веб-приложения, будут храниться в соответствии
                       с нашей политикой конфиденциальности и могут быть удалены по вашему запросу. Они не будут
                       использоваться без вашего согласия и не будут передаваться третьим лицам.</p>
                   </details>
                   <details>
                     <summary>
-                      <p class="faq__question text-25">Какие преимущества предоставляет онлайн-терапия?</p>
+                      <p class="faq__question text-25" data-translate="faq_q14">Какие преимущества предоставляет
+                        онлайн-терапия?</p>
                       <div class="faq__icon">
                         <svg width="32" height="32" fill="currentColor">
                           <use xlink:href="./img/sprite.svg#chevron-up"></use>
                         </svg>
                       </div>
                     </summary>
-                    <p class="faq__answer text-18">Онлайн-терапия предлагает ряд преимуществ, включая удобство
+                    <p class="faq__answer text-18" data-translate="faq_a14">Онлайн-терапия предлагает ряд преимуществ,
+                      включая удобство
                       использования из дома, гибкий график сеансов, доступ к психологу из любого места, а также более
                       анонимную и комфортную обстановку для тех, кто предпочитает не ходить на традиционные приемы.</p>
                   </details>
@@ -362,7 +416,7 @@
         <div class="footer__left"></div>
         <div class="footer__copyright">
           <span>&copy; Speak Your Mind 2023</span>
-          <a href="terms.html" class="text-green">Условия предоставления услуг</a>
+          <a href="terms.html" class="text-green" data-translate="terms">Условия предоставления услуг</a>
         </div>
       </div>
     </footer>
@@ -377,36 +431,38 @@
             <use xlink:href="./img/sprite.svg#close-modal"></use>
           </svg>
         </button>
-        <h2 class="feedback__title">Связаться с поддержкой</h2>
+        <h2 class="feedback__title" data-translate="feedback_title">Связаться с поддержкой</h2>
         <div class="fedback__start">
           <p class="feedback__text">
-            <span class="user-name">Александр</span>,
-            <span> добро пожаловать в службу поддержки Speak You Mind!</span>
+            <span class="user-name">Александр</span>,&nbsp;
+            <span data-translate="feedback_text">добро пожаловать в службу поддержки Speak You Mind!</span>
           </p>
           <div class="feedback__error">
             <div class="feedback__error-message">
-              <p><b>Поизошла ошибка</b></p>
-              <p>При отправке сообщения произошла неизвестная ошибка. Попробуйте еще раз.</p>
+              <p data-translate="feedback_error_msg1"><b>Произошла ошибка</b></p>
+              <p data-translate="feedback_error_msg2">При отправке сообщения произошла неизвестная ошибка. Попробуйте
+                еще раз.</p>
             </div>
           </div>
           <form action="" id="feedback-form">
-            <textarea name="feedback_text" id="feedback_text"
-              placeholder="Задайте вопрос или опишите проблему"></textarea>
+            <textarea name="feedback_text" id="feedback_text" placeholder="Задайте вопрос или опишите проблему"
+              data-translate="feedback_placeholder"></textarea>
             <button type="button" class="btn feedback__submit-btn">
               <svg width="32" height="32" fill="currentColor">
                 <use xlink:href="./img/sprite.svg#mail"></use>
               </svg>
-              <span>Отправить</span>
+              <span data-translate="feedback_submit_btn">Отправить</span>
             </button>
           </form>
         </div>
         <div class="feedback__success">
           <div class="feedback__success-message">
-            <p><b>Ваше сообщение успешно отправлено</b></p>
-            <p>Спасибо за ваше обращение! Мы постараемся связаться с вами в ближайшее время по электронной почте или
-              одним из способов, укзанных в настройках вашего профиля.</p>
+            <p data-translate="feedback_success_msg1"><b>Ваше сообщение успешно отправлено</b></p>
+            <p data-translate="feedback_success_msg2">Спасибо за ваше обращение! Мы постараемся связаться с вами в
+              ближайшее время по электронной почте или одним из способов, укзанных в настройках вашего профиля.</p>
           </div>
-          <button type="button" class="feedback__success-btn text-green">Отправить новое сообщение</button>
+          <button type="button" class="feedback__success-btn text-green" data-translate="feedback_success_btn">Отправить
+            новое сообщение</button>
         </div>
       </div>
     </div>

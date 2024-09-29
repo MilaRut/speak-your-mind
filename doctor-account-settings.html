@@ -43,7 +43,7 @@
         </nav>
         <div class="header__lang-switcher lang-switcher">
           <button class="lang-switcher__btn js-dropdown-trigger" data-id="#lang-switcher">
-            <span data-translate="current_language"></span>
+            <span class="current-language"></span>
             <svg width="10" height="10" fill="currentColor">
               <use xlink:href="./img/sprite.svg#dropdown"></use>
             </svg>
@@ -128,6 +128,28 @@
                   </svg>
                   <span data-translate="int_nav_profile">Профиль</span>
                 </a>
+                <div href="#" class="doctor-account__nav-link nav-lang-switcher js-dropdown-trigger"
+                  data-id="#nav-lang-switcher">
+                  <svg width="25" height="25" fill="currentColor">
+                    <use xlink:href="./img/sprite.svg#nav-language"></use>
+                  </svg>
+                  <span class="current-language"></span>
+                  <svg width="10" height="10" fill="currentColor">
+                    <use xlink:href="./img/sprite.svg#dropdown"></use>
+                  </svg>
+                  </span>
+                  <ul class="lang-switcher__list list-reset" id="nav-lang-switcher">
+                    <!-- <li class="lang-switcher__item">
+                    <a href="#" data-lang="hu">Hu</a>
+                  </li> -->
+                    <li class="lang-switcher__item">
+                      <a href="#" data-lang="en">English</a>
+                    </li>
+                    <li class="lang-switcher__item">
+                      <a href="#" data-lang="ru" data-translate="doc_q_language_ru">Русский</a>
+                    </li>
+                  </ul>
+                </div>
                 <a href="doctor-account-help.html" class="user-account__nav-link">
                   <svg width="25" height="25" fill="currentColor">
                     <use xlink:href="./img/sprite.svg#nav-help"></use>
@@ -147,11 +169,10 @@
 
               <details
                 style="position: fixed; min-width: 300px; z-index: 100; cursor: pointer; display: flex; flex-direction: column; top: 0; right: 0; background-color: lightgray;">
-                <summary>Варианты состояний</summary>
-                <p><b>Настройки:</b></p>
-                <div utils-btn-settings data-id="settings-main-start">настройки первичная (карта не привязана)</div>
-                <div utils-btn-settings data-id="settings-main">настройки основная (карта привязана)</div>
-                <div utils-btn-settings data-id="settings-user-view">вид профиля для клиентов</div>
+                <summary>Temporary menu - profile variants</summary>
+                <p><b>Settings:</b></p>
+                <div utils-btn-settings data-id="settings-main-start">primary settings (card is not linked)</div>
+                <div utils-btn-settings data-id="settings-main">regular settings (card is linked)</div>
               </details>
 
               <!-- TODO: удалить -->
@@ -162,8 +183,10 @@
               <div class="doctor-account__settings settings" data-utils="settings-main-start">
                 <div class="settings__main-content">
                   <div class="doctor-account__heading settings__heading">
-                    <h2 class="text-40">Ваш профиль</h2>
-                    <p class="text-18">Ссылка на ваш профиль, каким его видят клиенты:
+                    <h2 class="text-40" data-translate="doctor_profile_title">Ваш профиль</h2>
+                    <p class="text-18">
+                      <span data-translate="doctor_profile_view">Ссылка на ваш профиль, каким его видят
+                        клиенты</span>&#58;
                       <button class="settings__doctor-name text-green" utils-btn-settings
                         data-id="settings-user-view">Олеся Парада</button>
                     </p>
@@ -171,48 +194,54 @@
                   <div class="settings__form">
                     <form action="" method="post" id="doctor-settings-form">
                       <fieldset class="settings__personal">
-                        <h3 class="text-31">Личные данные</h3>
+                        <h3 class="text-31" data-translate="doctor_profile_personal">Личные данные</h3>
                         <div class="settings__input-wrapper">
-                          <p class="text-20">Имя, Фамилия</p>
+                          <p class="text-20" data-translate="doctor_profile_name">Имя, Фамилия</p>
                           <label>
                             <input type="text" name="doctor-name" id="doctor-name" readonly value="Олеся Парада">
                             <svg width="24" height="17" fill="currentColor">
                               <use xlink:href="./img/sprite.svg#tooltip"></use>
                             </svg>
-                            <span class="settings__tooltip">Чтобы отредактировать, обратитесь к менеджеру:
-                              <a href="mailto:admin@speakyourmind.help">admin@speakyourmind.help</a></span>
+                            <span class="settings__tooltip">
+                              <span data-translate="doctor_profile_tooltip">Чтобы отредактировать, обратитесь к
+                                менеджеру:</span>&nbsp;
+                              <a href="mailto:admin@speakyourmind.help">admin@speakyourmind.help</a>
+                            </span>
                           </label>
                         </div>
                         <div class="settings__input-wrapper">
-                          <p class="text-20">Пол</p>
+                          <p class="text-20" data-translate="doctor_profile_gender">Пол</p>
                           <label>
                             <input type="text" name="doctor-gender" id="doctor-gender" readonly value="женский">
                             <svg width="24" height="17" fill="currentColor">
                               <use xlink:href="./img/sprite.svg#tooltip"></use>
                             </svg>
-                            <span class="settings__tooltip">Чтобы отредактировать, обратитесь к менеджеру:
-                              <a href="mailto:admin@speakyourmind.help">admin@speakyourmind.help</a></span>
+                            <span class="settings__tooltip">
+                              <span data-translate="doctor_profile_tooltip">Чтобы отредактировать, обратитесь к
+                                менеджеру:</span>&nbsp;
+                              <a href="mailto:admin@speakyourmind.help">admin@speakyourmind.help</a>
+                            </span>
                           </label>
                         </div>
                         <div class="settings__input-wrapper">
-                          <p class="text-20">Дата рождения</p>
+                          <p class="text-20" data-translate="doctor_profile_dob">Дата рождения</p>
                           <div class="settings__input-birthday">
                             <label>
                               <input type="number" name="doctor-birth-day" id="doctor-birth-day">
                             </label>
                             <select name="doctor-birth-month" id="doctor-birth-month">
-                              <option value="jan">января</option>
-                              <option value="feb">февраля</option>
-                              <option value="mar">марта</option>
-                              <option value="apr">апреля</option>
-                              <option value="may">мая</option>
-                              <option value="jun">июня</option>
-                              <option value="jul">июля</option>
-                              <option value="aug">августа</option>
-                              <option value="sep">сентября</option>
-                              <option value="oct">октября</option>
-                              <option value="nov">ноября</option>
-                              <option value="dec">декабря</option>
+                              <option value="01" data-translate="jan">январь</option>
+                              <option value="02" data-translate="feb">февраль</option>
+                              <option value="03" data-translate="mar">март</option>
+                              <option value="04" data-translate="apr">апрель</option>
+                              <option value="05" data-translate="may">май</option>
+                              <option value="06" data-translate="jun">июнь</option>
+                              <option value="07" data-translate="jul">июль</option>
+                              <option value="08" data-translate="aug">август</option>
+                              <option value="09" data-translate="sep">сентябрь</option>
+                              <option value="10" data-translate="oct">октябрь</option>
+                              <option value="11" data-translate="nov">ноябрь</option>
+                              <option value="12" data-translate="dec">декабрь</option>
                             </select>
                             <label>
                               <input type="number" name="doctor-birth-year" id="doctor-birth-year">
@@ -220,22 +249,22 @@
                           </div>
                         </div>
                         <div class="settings__input-wrapper">
-                          <p class="text-20">Фотография</p>
+                          <p class="text-20" data-translate="doctor_profile_photo">Фотография</p>
                           <div class="settings__avatar-wrapper">
                             <div class="settings__avatar">
                               <img src="./img/content/user-thumb.png" width="100" height="100" alt="">
                             </div>
                             <button type="button" class="settings__edit-avatar-btn text-green" data-open-modal
-                              data-modal-id="#upload-avatar">Редактировать</button>
+                              data-modal-id="#upload-avatar" data-translate="edit">Редактировать</button>
                           </div>
                           <input type="hidden" name="doc_avatar" id="doc_avatar">
                         </div>
                         <div class="settings__input-wrapper">
-                          <p class="text-20">Язык консультаций</p>
+                          <p class="text-20" data-translate="doc_q_language_title">Язык консультаций</p>
                           <div class="settings__checkboxes">
                             <label>
                               <input type="checkbox" id="doc_language_ru" name="doc_language" value="0">
-                              <span>русский</span>
+                              <span data-translate="doc_q_language_ru">русский</span>
                             </label>
                             <label>
                               <input type="checkbox" id="doc_language_ma" name="doc_language" value="1">
@@ -248,7 +277,7 @@
                           </div>
                         </div>
                         <div class="settings__input-wrapper">
-                          <p class="text-20">Начало практики</p>
+                          <p class="text-20" data-translate="doctor_start">Начало практики</p>
                           <label>
                             <input type="text" name="doctor-start" id="doctor-start" readonly value="Февраль, 1999">
                             <svg width="24" height="17" fill="currentColor">
@@ -259,108 +288,119 @@
                           </label>
                         </div>
                         <div class="settings__input-wrapper">
-                          <p class="text-20">О себе</p>
+                          <p class="text-20" data-translate="doctor_about">О себе</p>
                           <label>
                             <div class="settings__textarea-wrapper">
                               <textarea name="doc_additional_info" id="doc_additional_info" cols="30" rows="10"
                                 maxlength="2000"></textarea>
-                              <p class="text-18">Осталось <span class="symbols-count text-green"
-                                  id="symbols-count">2000</span> символов</p>
+                              <p class="text-18">
+                                <span class="symbols-count text-green" id="symbols-count">2000</span>&nbsp;
+                                <span data-translate="characters_left">символов осталось</span>
+                              </p>
                             </div>
                           </label>
                         </div>
                         <div class="settings__input-wrapper">
-                          <p class="text-20">Ваш email<br><span class="text-14">(нажмите "редактировать", чтобы
-                              изменить)</span></p>
+                          <p class="text-20">
+                            <span data-translate="email_placeholder">Ваш email</span><br>
+                            <span class="text-14" data-translate="email_edit">(нажмите "редактировать", чтобы
+                              изменить)</span>
+                          </p>
                           <label>
                             <input type="text" name="doc_email" id="doc_email" value="doctor@mail.hu" readonly>
-                            <button type="button"
-                              class="settings__edit-btn settings__edit-btn--email text-green">Редактировать</button>
+                            <button type="button" class="settings__edit-btn settings__edit-btn--email text-green"
+                              data-translate="edit">Редактировать</button>
                           </label>
                         </div>
                       </fieldset>
                       <hr>
                       <fieldset class="settings__methods">
-                        <h3 class="text-31">Методы терапии</h3>
+                        <h3 class="text-31" data-translate="doctor_profile_methods">Методы терапии</h3>
                         <div class="settings__input-wrapper">
-                          <p class="text-20">Выберите 1-2 метода, в которых вы работаете онлайн</p>
-                          <div class="settings__checkboxes">
+                          <p class="text-20" data-translate="doc_q_method_title">Выберите 1-2 метода, в которых вы
+                            работаете онлайн</p>
+                          <div class="settings__checkboxes readonly">
                             <div class="inputs-wrapper">
                               <label>
                                 <input type="checkbox" id="doc_method-0" name="doc_method" value="0">
-                                <span>Психоанализ</span>
+                                <span data-translate="doc_q_method_0">Психоанализ</span>
                               </label>
                               <label>
                                 <input type="checkbox" id="doc_method-1" name="doc_method" value="1">
-                                <span>Терапия внутренних семейных систем (IFS)</span>
+                                <span data-translate="doc_q_method_1">Терапия внутренних семейных систем (IFS)</span>
                               </label>
                               <label>
                                 <input type="checkbox" id="doc_method-2" name="doc_method" value="2">
-                                <span>Когнитивно-поведенческая терапия (КПТ)</span>
+                                <span data-translate="doc_q_method_2">Когнитивно-поведенческая терапия (КПТ)</span>
                               </label>
                               <label>
                                 <input type="checkbox" id="doc_method-3" name="doc_method" value="3">
-                                <span>Травма-фокусированный КПТ</span>
+                                <span data-translate="doc_q_method_3">Травма-фокусированный КПТ</span>
                               </label>
                               <label>
                                 <input type="checkbox" id="doc_method-4" name="doc_method" value="4">
-                                <span>Терапия, сфокусированная на сострадании (CFT)</span>
+                                <span data-translate="doc_q_method_4">Терапия, сфокусированная на сострадании
+                                  (CFT)</span>
                               </label>
                               <label>
                                 <input type="checkbox" id="doc_method-5" name="doc_method" value="5">
-                                <span>Диалектическая поведенческая терапия (ДБТ/DBT)</span>
+                                <span data-translate="doc_q_method_5">Диалектическая поведенческая терапия
+                                  (ДБТ/DBT)</span>
                               </label>
                               <label>
                                 <input type="checkbox" id="doc_method-6" name="doc_method" value="6">
-                                <span>Гештальт-терапия</span>
+                                <span data-translate="doc_q_method_6">Гештальт-терапия</span>
                               </label>
                               <label>
                                 <input type="checkbox" id="doc_method-7" name="doc_method" value="7">
-                                <span>Системная семейная терапия</span>
+                                <span data-translate="doc_q_method_7">Системная семейная терапия</span>
                               </label>
                               <label>
                                 <input type="checkbox" id="doc_method-8" name="doc_method" value="8">
-                                <span>Системная сексуальная терапия</span>
+                                <span data-translate="doc_q_method_8">Системная сексуальная терапия</span>
                               </label>
                             </div>
                             <div class="inputs-wrapper">
                               <label>
                                 <input type="checkbox" id="doc_method-9" name="doc_method" value="9">
-                                <span>Терапия принятия и ответственности</span>
+                                <span data-translate="doc_q_method_9">Терапия принятия и ответственности</span>
                               </label>
                               <label>
                                 <input type="checkbox" id="doc_method-10" name="doc_method" value="10">
-                                <span>Схема-терапия (CBT)</span>
+                                <span data-translate="doc_q_method_10">Схема-терапия (CBT)</span>
                               </label>
                               <label>
                                 <input type="checkbox" id="doc_method-11" name="doc_method" value="11">
-                                <span>Экзистенциальная психотерапия(лого и клиент-центрированная)</span>
+                                <span data-translate="doc_q_method_11">Экзистенциальная психотерапия(лого и
+                                  клиент-центрированная)</span>
                               </label>
                               <label>
                                 <input type="checkbox" id="doc_method-12" name="doc_method" value="12">
-                                <span>Трансактный анализ</span>
+                                <span data-translate="doc_q_method_12">Трансактный анализ</span>
                               </label>
                               <label>
                                 <input type="checkbox" id="doc_method-13" name="doc_method" value="13">
-                                <span>Десенсибилизация и переработка движением глаз(EMDR/ДПДГ)</span>
+                                <span data-translate="doc_q_method_13">Десенсибилизация и переработка движением
+                                  глаз(EMDR/ДПДГ)</span>
                               </label>
                               <label>
                                 <input type="checkbox" id="doc_method-14" name="doc_method" value="14">
-                                <span>Рационально эмоционально поведенческая терапия(REBT)</span>
+                                <span data-translate="doc_q_method_14">Рационально эмоционально поведенческая
+                                  терапия(REBT)</span>
                               </label>
                               <label>
                                 <input type="checkbox" id="doc_method-15" name="doc_method" value="15">
-                                <span>Эмоционально-фокусированная терапия (ЭФТ)</span>
+                                <span data-translate="doc_q_method_15">Эмоционально-фокусированная терапия (ЭФТ)</span>
                               </label>
                               <label>
                                 <input type="checkbox" id="doc_method-16" name="doc_method" value="16">
-                                <span>Арт-терапия</span>
+                                <span data-translate="doc_q_method_16">Арт-терапия</span>
                               </label>
                             </div>
                           </div>
                         </div>
                         <div class="settings__input-wrapper pt25">
-                          <p class="text-20">Возраст клиентов</p>
+                          <p class="text-20" data-translate="clients_age">Возраст клиентов</p>
                           <div class="settings__radio">
                             <input type="radio" id="client-age-16" name="client_age" value="0" checked>
                             <label for="client-age-16">
@@ -379,33 +419,33 @@
                           </div>
                         </div>
                         <div class="settings__input-wrapper">
-                          <p class="text-20">Опыт работы с LGBTQ+</p>
+                          <p class="text-20" data-translate="lgbt_exp">Опыт работы с LGBTQ+</p>
                           <div class="settings__radio">
                             <input type="radio" id="lgbtq-yes" name="lgbtq" value="0" checked>
                             <label for="lgbtq-yes">
                               <svg width="18" height="18" fill="currentColor">
                                 <use xlink:href="./img/sprite.svg#check-mark"></use>
                               </svg>
-                              <span class="text-14">Да</span>
+                              <span class="text-14" data-translate="yes">Да</span>
                             </label>
                             <input type="radio" id="lgbtq-no" name="lgbtq" value="1">
                             <label for="lgbtq-no">
                               <svg width="18" height="18" fill="currentColor">
                                 <use xlink:href="./img/sprite.svg#check-mark"></use>
                               </svg>
-                              <span class="text-14">Нет</span>
+                              <span class="text-14" data-translate="no">Нет</span>
                             </label>
                           </div>
                         </div>
                         <div class="settings__input-wrapper pb40">
-                          <p class="text-20">Вид терапии</p>
+                          <p class="text-20" data-translate="doctor_therapy_type">Вид терапии</p>
                           <div class="settings__radio">
                             <input type="radio" id="therapy_type-indiv" name="therapy_type" value="0" checked>
                             <label for="therapy_type-indiv">
                               <svg width="18" height="18" fill="currentColor">
                                 <use xlink:href="./img/sprite.svg#check-mark"></use>
                               </svg>
-                              <span class="text-14">Индивидуальная</span>
+                              <span class="text-14" data-translate="therapy_type_individual">Индивидуальная</span>
                             </label>
                             <div class="divider"></div>
                             <input type="radio" id="therapy_type-couple" name="therapy_type" value="1">
@@ -413,7 +453,7 @@
                               <svg width="18" height="18" fill="currentColor">
                                 <use xlink:href="./img/sprite.svg#check-mark"></use>
                               </svg>
-                              <span class="text-14">Парная</span>
+                              <span class="text-14" data-translate="therapy_type_couples">Парная</span>
                             </label>
                             <div class="divider"></div>
                             <input type="radio" id="therapy_type-both" name="therapy_type" value="2">
@@ -421,163 +461,164 @@
                               <svg width="18" height="18" fill="currentColor">
                                 <use xlink:href="./img/sprite.svg#check-mark"></use>
                               </svg>
-                              <span class="text-14">Оба варианта</span>
+                              <span class="text-14" data-translate="both_variants">Оба варианта</span>
                             </label>
                           </div>
                         </div>
                         <div class="settings__symptoms">
-                          <p class="text-20 settings__symptoms-title">Симптомы клиентов, на которых вы специализируетесь
+                          <p class="text-20 settings__symptoms-title" data-translate="doctor_symptoms_title">Симптомы
+                            клиентов, на которых вы специализируетесь
                           </p>
                           <div class="settings__symptoms-wrapper">
-                            <p class="text-18">Отношения с собой</p>
+                            <p class="text-20" data-translate="symptoms_title_1">Отношения с собой</p>
                             <div class="settings__checkboxes">
                               <div class="inputs-wrapper">
                                 <label>
-                                  <input type="checkbox" id="symptoms-0" name="symptoms" value="0">
-                                  <span>Усталость</span>
+                                  <input type="checkbox" id="symptoms_0" name="symptoms" value="0">
+                                  <span data-translate="symptoms_0">Усталость</span>
                                 </label>
                                 <label>
-                                  <input type="checkbox" id="symptoms-1" name="symptoms" value="1">
-                                  <span>Депрессивные состояния</span>
+                                  <input type="checkbox" id="symptoms_1" name="symptoms" value="1" checked>
+                                  <span data-translate="symptoms_1">Депрессивные состояния</span>
                                 </label>
                                 <label>
-                                  <input type="checkbox" id="symptoms-2" name="symptoms" value="2">
-                                  <span>Раздражительность</span>
+                                  <input type="checkbox" id="symptoms_2" name="symptoms" value="2">
+                                  <span data-translate="symptoms_2">Раздражительность</span>
                                 </label>
                                 <label>
-                                  <input type="checkbox" id="symptoms-3" name="symptoms" value="3">
-                                  <span>Тревожность</span>
-                                </label>
-                              </div>
-                              <div class="inputs-wrapper">
-                                <label>
-                                  <input type="checkbox" id="symptoms-4" name="symptoms" value="4">
-                                  <span>Панические атаки</span>
-                                </label>
-                                <label>
-                                  <input type="checkbox" id="symptoms-5" name="symptoms" value="5">
-                                  <span>Самооценка</span>
-                                </label>
-                                <label>
-                                  <input type="checkbox" id="symptoms-6" name="symptoms" value="6">
-                                  <span>Одиночество</span>
-                                </label>
-                                <label>
-                                  <input type="checkbox" id="symptoms-7" name="symptoms" value="7">
-                                  <span>Поведенческая зависимость</span>
+                                  <input type="checkbox" id="symptoms_3" name="symptoms" value="3">
+                                  <span data-translate="symptoms_3">Тревожность</span>
                                 </label>
                               </div>
                               <div class="inputs-wrapper">
                                 <label>
-                                  <input type="checkbox" id="symptoms-8" name="symptoms" value="8">
-                                  <span>Химические зависимости</span>
+                                  <input type="checkbox" id="symptoms_4" name="symptoms" value="4">
+                                  <span data-translate="symptoms_4">Панические атаки</span>
                                 </label>
                                 <label>
-                                  <input type="checkbox" id="symptoms-9" name="symptoms" value="9">
-                                  <span>Критические состояния</span>
+                                  <input type="checkbox" id="symptoms_5" name="symptoms" value="5">
+                                  <span data-translate="symptoms_5">Самооценка</span>
                                 </label>
                                 <label>
-                                  <input type="checkbox" id="symptoms-10" name="symptoms" value="10">
-                                  <span>ЛГБТ+</span>
+                                  <input type="checkbox" id="symptoms_6" name="symptoms" value="6" checked>
+                                  <span data-translate="symptoms_6">Одиночество</span>
+                                </label>
+                                <label>
+                                  <input type="checkbox" id="symptoms_7" name="symptoms" value="7">
+                                  <span data-translate="symptoms_7">Поведенческая зависимость</span>
+                                </label>
+                              </div>
+                              <div class="inputs-wrapper">
+                                <label>
+                                  <input type="checkbox" id="symptoms_8" name="symptoms" value="8">
+                                  <span data-translate="symptoms_8">Химические зависимости</span>
+                                </label>
+                                <label>
+                                  <input type="checkbox" id="symptoms_9" name="symptoms" value="9">
+                                  <span data-translate="symptoms_9">Критические состояния</span>
+                                </label>
+                                <label>
+                                  <input type="checkbox" id="symptoms_10" name="symptoms" value="10">
+                                  <span data-translate="symptoms_10">ЛГБТ+</span>
                                 </label>
                               </div>
                             </div>
                           </div>
                           <div class="settings__symptoms-wrapper">
-                            <p class="text-18">Отношения с другими</p>
+                            <p class="text-20" data-translate="symptoms_title_2">Отношения с другими</p>
                             <div class="settings__checkboxes">
                               <div class="inputs-wrapper">
                                 <label>
-                                  <input type="checkbox" id="symptoms-11" name="symptoms" value="11">
-                                  <span>C партнером</span>
+                                  <input type="checkbox" id="symptoms_11" name="symptoms" value="11">
+                                  <span data-translate="symptoms_11">C партнером</span>
                                 </label>
                                 <label>
-                                  <input type="checkbox" id="symptoms-12" name="symptoms" value="12">
-                                  <span>С родителями</span>
+                                  <input type="checkbox" id="symptoms_12" name="symptoms" value="12">
+                                  <span data-translate="symptoms_12">С родителями</span>
                                 </label>
                                 <label>
-                                  <input type="checkbox" id="symptoms-13" name="symptoms" value="13">
-                                  <span>Сексуальные</span>
+                                  <input type="checkbox" id="symptoms_13" name="symptoms" value="13">
+                                  <span data-translate="symptoms_13">Сексуальные</span>
                                 </label>
                               </div>
                               <div class="inputs-wrapper">
                                 <label>
-                                  <input type="checkbox" id="symptoms-14" name="symptoms" value="14">
-                                  <span>В целом, с окружающими</span>
+                                  <input type="checkbox" id="symptoms_14" name="symptoms" value="14">
+                                  <span data-translate="symptoms_14">В целом, с окружающими</span>
                                 </label>
                                 <label>
-                                  <input type="checkbox" id="symptoms-15" name="symptoms" value="15">
-                                  <span>С детьми</span>
+                                  <input type="checkbox" id="symptoms_15" name="symptoms" value="15">
+                                  <span data-translate="symptoms_15">С детьми</span>
                                 </label>
                                 <label>
-                                  <input type="checkbox" id="symptoms-16" name="symptoms" value="16">
-                                  <span>Сложности с ориентацией, ее поиск</span>
+                                  <input type="checkbox" id="symptoms_16" name="symptoms" value="16">
+                                  <span data-translate="symptoms_16">Сложности с ориентацией, ее поиск</span>
                                 </label>
                               </div>
                             </div>
                           </div>
                           <div class="settings__symptoms-wrapper">
-                            <p class="text-18">Работа, учеба</p>
+                            <p class="text-20" data-translate="symptoms_title_3">Работа, учеба</p>
                             <div class="settings__checkboxes">
                               <div class="inputs-wrapper">
                                 <label>
-                                  <input type="checkbox" id="symptoms-17" name="symptoms" value="17">
-                                  <span>Недостаток мотивации</span>
+                                  <input type="checkbox" id="symptoms_17" name="symptoms" value="17">
+                                  <span data-translate="symptoms_17">Недостаток мотивации</span>
                                 </label>
                                 <label>
-                                  <input type="checkbox" id="symptoms-18" name="symptoms" value="18">
-                                  <span>“Не знаю, чем хочу заниматься”</span>
+                                  <input type="checkbox" id="symptoms_18" name="symptoms" value="18">
+                                  <span data-translate="symptoms_18">“Не знаю, чем хочу заниматься”</span>
                                 </label>
                                 <label>
-                                  <input type="checkbox" id="symptoms-19" name="symptoms" value="19">
-                                  <span>Отсутствие цели</span>
+                                  <input type="checkbox" id="symptoms_19" name="symptoms" value="19">
+                                  <span data-translate="symptoms_19">Отсутствие цели</span>
                                 </label>
                               </div>
                               <div class="inputs-wrapper">
                                 <label>
-                                  <input type="checkbox" id="symptoms-20" name="symptoms" value="20>
-                                  <span>Выгорание</span>
+                                  <input type="checkbox" id="symptoms_20" name="symptoms" value="20">
+                                  <span data-translate="symptoms_20">Выгорание</span>
                                 </label>
                                 <label>
-                                  <input type=" checkbox" id="symptoms-21" name="symptoms" value="21">
-                                  <span>Прокрастинация</span>
+                                  <input type="checkbox" id="symptoms_21" name="symptoms" value="21">
+                                  <span data-translate="symptoms_21">Прокрастинация</span>
                                 </label>
                                 <label>
-                                  <input type="checkbox" id="symptoms-22" name="symptoms" value="22">
-                                  <span>Смена, потеря работы</span>
+                                  <input type="checkbox" id="symptoms_22" name="symptoms" value="22">
+                                  <span data-translate="symptoms_22">Смена, потеря работы</span>
                                 </label>
                               </div>
                             </div>
                           </div>
                           <div class="settings__symptoms-wrapper">
-                            <p class="text-18">Работа, учеба</p>
+                            <p class="text-20" data-translate="symptoms_title_4">События жизни</p>
                             <div class="settings__checkboxes">
                               <div class="inputs-wrapper">
                                 <label>
-                                  <input type="checkbox" id="symptoms-23" name="symptoms" value="23">
-                                  <span>Переезд, эмиграция</span>
+                                  <input type="checkbox" id="symptoms_23" name="symptoms" value="23">
+                                  <span data-translate="symptoms_23">Переезд, эмиграция</span>
                                 </label>
                                 <label>
-                                  <input type="checkbox" id="symptoms-24" name="symptoms" value="24">
-                                  <span>Разрыв отношений, развод</span>
+                                  <input type="checkbox" id="symptoms_24" name="symptoms" value="24">
+                                  <span data-translate="symptoms_24">Разрыв отношений, развод</span>
                                 </label>
                                 <label>
-                                  <input type="checkbox" id="symptoms-25" name="symptoms" value="25">
-                                  <span>Утрата близкого человека</span>
+                                  <input type="checkbox" id="symptoms_25" name="symptoms" value="25">
+                                  <span data-translate="symptoms_25">Утрата близкого человека</span>
                                 </label>
                               </div>
                               <div class="inputs-wrapper">
                                 <label>
-                                  <input type="checkbox" id="symptoms-26" name="symptoms" value="26">
-                                  <span>Беременность, рождение ребенка</span>
+                                  <input type="checkbox" id="symptoms_26" name="symptoms" value="26">
+                                  <span data-translate="symptoms_26">Беременность, рождение ребенка</span>
                                 </label>
                                 <label>
-                                  <input type="checkbox" id="symptoms-27" name="symptoms" value="27">
-                                  <span>Финансовые изменения</span>
+                                  <input type="checkbox" id="symptoms_27" name="symptoms" value="27">
+                                  <span data-translate="symptoms_27">Финансовые изменения</span>
                                 </label>
                                 <label>
-                                  <input type="checkbox" id="symptoms-28" name="symptoms" value="28">
-                                  <span>Болезнь, своя или близких</span>
+                                  <input type="checkbox" id="symptoms_28" name="symptoms" value="28">
+                                  <span data-translate="symptoms_28">Болезнь, своя или близких</span>
                                 </label>
                               </div>
                             </div>
@@ -586,8 +627,10 @@
                       </fieldset>
                       <hr>
                       <fieldset class="settings__edu">
-                        <h3 class="text-31">Опыт и образование</h3>
-                        <p class="text-18">Для внесения изменений, свяжитесь с менеджером,
+                        <h3 class="text-31" data-translate="doctor_profile_edu">Опыт и образование</h3>
+                        <p class="text-18">
+                          <span data-translate="contact_manager">Для внесения изменений свяжитесь с
+                            менеджером</span>&nbsp;
                           <a href="mailto:admin@speakyourmind.help" class="text-green">admin@speakyourmind.help</a>
                         </p>
                         <div class="settings__edu-wrapper">
@@ -625,7 +668,7 @@
                       </fieldset>
                       <hr>
                       <div class="settings__pricing pricing">
-                        <h3 class="text-31">Стоимость сессии</h3>
+                        <h3 class="text-31" data-translate="pricing_title">Стоимость сессии</h3>
                         <div class="pricing__tab-btns">
                           <div class="pricing__tab-btn is-active" tab-btn data-tab="#pricing-10">от 19500 HUF / 50EUR
                           </div>
@@ -635,103 +678,115 @@
                         <div class="pricing__tab-content">
                           <ul class="pricing__list list-reset is-active" tab-item id="pricing-10">
                             <li class="pricing__item">
-                              <p class="text-18">Текущая стоимость ваших сессий</p>
+                              <p class="text-18" data-translate="pricing_current">Текущая стоимость ваших сессий</p>
                             </li>
                             <li class="pricing__item">
-                              <p class="text-23">Опыт от 3 лет</p>
-                              <p class="text-18">Подтвержденные навыки и кейсы</p>
+                              <p class="text-23" data-translate="pricing_text1">Опыт от 3 лет</p>
+                              <p class="text-18" data-translate="pricing_text2">Подтвержденные навыки и кейсы</p>
                             </li>
                             <li class="pricing__item">
-                              <p class="text-23">Психологическое образование</p>
-                              <p class="text-18">Высшее или смежное</p>
+                              <p class="text-23" data-translate="pricing_text3">Психологическое образование</p>
+                              <p class="text-18" data-translate="pricing_text4">Высшее или смежное</p>
                             </li>
                             <li class="pricing__item">
-                              <p class="text-23">Более 500 часов обучения методу</p>
-                              <p class="text-18">Подтверждено сертификатами</p>
+                              <p class="text-23" data-translate="pricing_text5">Более 500 часов обучения методу</p>
+                              <p class="text-18" data-translate="pricing_text6">Подтверждено сертификатами</p>
                             </li>
                             <li class="pricing__item">
-                              <p class="text-23">Рекомендации</p>
-                              <p class="text-18">От коллег и преподавателей</p>
+                              <p class="text-23" data-translate="pricing_text7">Рекомендации</p>
+                              <p class="text-18" data-translate="pricing_text8">От коллег и преподавателей</p>
                             </li>
                             <li class="pricing__item">
-                              <p class="text-23">Вступительное собеседование</p>
-                              <p class="text-18">С нашим куратором</p>
+                              <p class="text-23" data-translate="pricing_text9">Вступительное собеседование</p>
+                              <p class="text-18" data-translate="pricing_text10">С нашим куратором</p>
                             </li>
                           </ul>
                           <ul class="pricing__list list-reset" tab-item id="pricing-25">
                             <li class="pricing__item">
-                              <p class="text-18">Условия для перехода на этот уровень:</p>
+                              <p class="text-18" data-translate="pricing_conditions">Условия для перехода на этот
+                                уровень:</p>
                             </li>
                             <li class="pricing__item">
-                              <p class="text-23">Опыт от 5 лет</p>
-                              <p class="text-18">Подтвержденные навыки и кейсы</p>
+                              <p class="text-23" data-translate="pricing_text11">Опыт от 5 лет</p>
+                              <p class="text-18" data-translate="pricing_text12">Подтвержденные навыки и кейсы</p>
                             </li>
                             <li class="pricing__item">
-                              <p class="text-23">На платформе более 12 месяцев</p>
+                              <p class="text-23" data-translate="pricing_text13">На платформе более 12 месяцев</p>
                             </li>
                             <li class="pricing__item">
-                              <p class="text-23">Более 20 клиентов</p>
-                              <p class="text-18">с которыми была хотя бы одна сессия</p>
+                              <p class="text-23" data-translate="pricing_text14">Более 20 клиентов</p>
+                              <p class="text-18" data-translate="pricing_text15">с которыми была хотя бы одна сессия</p>
                             </li>
                             <li class="pricing__item">
-                              <p class="text-23">Средняя длительность терапии 9 сессий</p>
-                              <p class="text-18">Среднее количество сессий на одного клиента</p>
+                              <p class="text-23" data-translate="pricing_text16">Средняя длительность терапии 9 сессий
+                              </p>
+                              <p class="text-18" data-translate="pricing_text17">Среднее количество сессий на одного
+                                клиента</p>
                             </li>
                             <li class="pricing__item">
-                              <p class="text-23">Устойчивость терапии 75 %</p>
-                              <p class="text-18">Доля клиентов, записавшихся на 7+ сессий</p>
+                              <p class="text-23" data-translate="pricing_text18">Устойчивость терапии 75 %</p>
+                              <p class="text-18" data-translate="pricing_text19">Доля клиентов, записавшихся на 7+
+                                сессий</p>
                             </li>
                           </ul>
                           <ul class="pricing__list list-reset" tab-item id="pricing-40">
                             <li class="pricing__item">
-                              <p class="text-18">Условия для перехода на этот уровень:</p>
+                              <p class="text-18" data-translate="pricing_conditions">Условия для перехода на этот
+                                уровень:</p>
                             </li>
                             <li class="pricing__item">
-                              <p class="text-23">Опыт от 7 лет</p>
-                              <p class="text-18">Подтвержденные навыки и кейсы</p>
+                              <p class="text-23" data-translate="pricing_text20">Опыт от 7 лет</p>
+                              <p class="text-18" data-translate="pricing_text21">Подтвержденные навыки и кейсы</p>
                             </li>
                             <li class="pricing__item">
-                              <p class="text-23">На платформе более 18 месяцев</p>
+                              <p class="text-23" data-translate="pricing_text22">На платформе более 18 месяцев</p>
                             </li>
                             <li class="pricing__item">
-                              <p class="text-23">Более 20 клиентов</p>
-                              <p class="text-18">с которыми была хотя бы одна сессия</p>
+                              <p class="text-23" data-translate="pricing_text23">Более 20 клиентов</p>
+                              <p class="text-18" data-translate="pricing_text24">с которыми была хотя бы одна сессия</p>
                             </li>
                             <li class="pricing__item">
-                              <p class="text-23">Средняя длительность терапии 13 сессий</p>
-                              <p class="text-18">Среднее количество сессий на одного клиента</p>
+                              <p class="text-23" data-translate="pricing_text25">Средняя длительность терапии 13 сессий
+                              </p>
+                              <p class="text-18" data-translate="pricing_text26">Среднее количество сессий на одного
+                                клиента</p>
                             </li>
                             <li class="pricing__item">
-                              <p class="text-23">Устойчивость терапии 85 %</p>
-                              <p class="text-18">Доля клиентов, записавшихся на 8+ сессий</p>
+                              <p class="text-23" data-translate="pricing_text27">Устойчивость терапии 85 %</p>
+                              <p class="text-18" data-translate="pricing_text28">Доля клиентов, записавшихся на 8+
+                                сессий</p>
                             </li>
                           </ul>
                         </div>
                       </div>
                     </form>
                     <div class="settings__payment-info">
-                      <h3 class="text-31">Способы получения выплат</h3>
-                      <p class="text-18 settings__payment-no-card">У вас пока нет привязанных карт</p>
-                      <p class="text-18 settings__payment-card">Оплата производится с карты <span class="card-num">4276
-                          55ХХ ХХХХ 3200</span></p>
+                      <h3 class="text-31" data-translate="withdrawal_method">Способы получения выплат</h3>
+                      <p class="text-18 settings__payment-no-card" data-translate="payment_no_card">У вас пока нет
+                        привязанных карт</p>
+                      <p class="text-18 settings__payment-card">
+                        <span data-translate="payment_from_card">Оплата производится на карту</span>&nbsp;
+                        <span class="card-num">4276 55ХХ ХХХХ 3200</span>
+                      </p>
                       <button class="settings__payment-btn btn btn--white" data-open-modal
                         data-modal-id="#new-card-popup">
-                        <span class="settings__payment-add-card">Привязать карту</span>
-                        <span class="settings__payment-change-card">Изменить</span>
+                        <span class="settings__payment-add-card" data-translate="modal_card_title">Привязать
+                          карту</span>
+                        <span class="settings__payment-change-card" data-translate="change">Изменить</span>
                       </button>
-                      <a class="settings__payment-show-history text-18 text-green"
-                        href="doctor-account-payments.html">Посмотреть историю выплат</a>
+                      <a class="settings__payment-show-history text-18 text-green" href="doctor-account-payments.html"
+                        data-translate="doctor_payments_history">Посмотреть историю выплат</a>
                     </div>
                     <div class="settings__btn-wrapper">
-                      <button type="submit" class="settings__submit-btn btn" form="doctor-settings-form">Сохранить
-                        изменения</button>
+                      <button type="submit" class="settings__submit-btn btn" form="doctor-settings-form"
+                        data-translate="save_changes_btn">Сохранить изменения</button>
                     </div>
                   </div>
                 </div>
                 <div class="settings__user-view">
-                  <p class="text-18">Ссылка на ваш профиль, каким его видят клиенты</p>
-                  <button class="settings__user-view-btn text-green" utils-btn-settings data-id="settings-main">Назад
-                    к настройкам</button>
+                  <p class="text-18" data-translate="doctor_profile_view_title">Ваш профиль, каким его видят клиенты</p>
+                  <button class="settings__user-view-btn text-green" utils-btn-settings data-id="settings-main"
+                    data-translate="back_to_settings">Назад к настройкам</button>
                   <div class="doctor">
                     <div class="doctor__image">
                       <img src="./img/content/doctor-thumb.png" width="300" height="300" alt="">
@@ -743,14 +798,15 @@
                         <p class="doctor__details">
                           <span class="doctor__type">Индивидуальная сессия</span>
                           <span class="divider">&#8226;</span>
-                          <span class="doctor__time">50 мин</span>
+                          <span class="doctor__time">50 <span data-translate="doctor_time_min">мин</span></span>
                           <span class="divider">&#8226;</span>
                           <span class="doctor__price">19&nbsp;500 HUF</span>
                         </p>
-                        <p class="doctor__themes">Работает со всеми темами вашей анкеты</p>
+                        <p class="doctor__themes" data-translate="doctor_themes">Работает со всеми темами вашей анкеты
+                        </p>
                       </div>
                       <div class="doctor__content-block" id="about-doctor">
-                        <h2 class="text-25 doctor__title">О специалисте</h2>
+                        <h2 class="text-25 doctor__title" data-translate="about_doctor">О специалисте</h2>
                         <p class="text-18">Вице-президент Южной Региональной Ассоциации Психодраматерапевтов,
                           психолог-консультант, психодраматерапевт, экономист, менеджер.
                           <br>
@@ -839,7 +895,7 @@
         <div class="footer__left"></div>
         <div class="footer__copyright">
           <span>&copy; Speak Your Mind 2023</span>
-          <a href="terms.html" class="text-green">Условия предоставления услуг</a>
+          <a href="terms.html" class="text-green" data-translate="terms">Условия предоставления услуг</a>
         </div>
       </div>
     </footer>
@@ -855,14 +911,15 @@
           </svg>
         </button>
         <div class="avatar-upload">
-          <h2 class="modal__title text-31">Загрузите фото</h2>
+          <h2 class="modal__title text-31" data-translate="avatar_upload">Загрузите фото</h2>
           <form action="" method="post" id="avatar-upload-form">
             <fieldset>
               <label>
                 <input type="file" name="avatar" id="avatar">
               </label>
             </fieldset>
-            <button type="submit" class="avatar-upload__submit-btn btn">Загрузить фото</button>
+            <button type="submit" class="avatar-upload__submit-btn btn" data-translate="avatar_upload_btn">Загрузить
+              фото</button>
           </form>
         </div>
       </div>
@@ -878,19 +935,20 @@
             <use xlink:href="./img/sprite.svg#close-modal"></use>
           </svg>
         </button>
-        <h2 class="modal__title text-31">Привязать карту</h2>
+        <h2 class="modal__title text-31" data-translate="modal_card_title">Привязать карту</h2>
         <div class="card">
           <div class="card__card-info">
             <form action="" method="post">
               <fieldset>
                 <label for="card-owner">
-                  <span>Имя владельца карты</span>
-                  <input type="text" id="card-owner" placeholder="Имя на лицевой стороне карты">
+                  <span data-translate="card_owner_name">Имя владельца карты</span>
+                  <input type="text" id="card-owner" placeholder="Имя на лицевой стороне карты"
+                    data-translate="card_owner_name_placeholder">
                 </label>
               </fieldset>
               <fieldset>
                 <label for="card-number">
-                  <span>Номер карты</span>
+                  <span data-translate="card_number">Номер карты</span>
                   <input type="number" id="card-number" placeholder="x x x x    x x x x    x x x x    x x x x">
                 </label>
               </fieldset>
@@ -900,15 +958,73 @@
                   <input type="number" id="card-exp" placeholder="m m  /  y y">
                 </label>
                 <label for="card-cvc">
-                  <span>Код CVС</span>
+                  <span data-translate="card_cvc">Код CVС</span>
                   <input type="number" id="card-cvc" maxlength="3" placeholder="x x x">
                 </label>
               </fieldset>
               <p class="card__permission text-18">
-                Добавляя карту вы принимаете <a href="#" data-open-modal data-modal-id="#payment-terms"
-                  class="text-green">условия сервиса</a>
+                <span data-translate="card_permission_1">Добавляя карту вы принимаете</span>&nbsp;
+                <a href="#" class="text-green" data-open-modal data-modal-id="#payment-terms"
+                  data-translate="card_permission_2">условия сервиса</a>&nbsp;
+                <span data-translate="card_permission_3">и разрешаете</span>&nbsp;
+                <a href="#" class="text-green" data-open-modal data-modal-id="#payment-terms"
+                  data-translate="card_permission_4">автосписания</a>
               </p>
-              <button type="submit" class="card__submit-btn btn">Добавить карту</button>
+              <button type="submit" class="card__submit-btn btn" data-translate="card_submit_btn">Добавить
+                карту</button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="modal modal--preload" id="new-card-popup">
+    <div class="modal__wrapper">
+      <div class="modal__overlay" data-close-modal></div>
+      <div class="modal__content modal__content--new-card">
+        <button class="modal__close-btn" type="button" aria-label="Закрыть окно." data-close-modal>
+          <svg width="32" height="32" fill="currentColor">
+            <use xlink:href="./img/sprite.svg#close-modal"></use>
+          </svg>
+        </button>
+        <h2 class="modal__title text-31" data-translate="modal_card_title">Привязать карту</h2>
+        <div class="card">
+          <div class="card__card-info">
+            <form action="" method="post">
+              <fieldset>
+                <label for="card-owner">
+                  <span data-translate="card_owner_name">Имя владельца карты</span>
+                  <input type="text" id="card-owner" placeholder="Имя на лицевой стороне карты"
+                    data-translate="card_owner_name_placeholder">
+                </label>
+              </fieldset>
+              <fieldset>
+                <label for="card-number">
+                  <span data-translate="card_number">Номер карты</span>
+                  <input type="number" id="card-number" placeholder="x x x x    x x x x    x x x x    x x x x">
+                </label>
+              </fieldset>
+              <fieldset>
+                <label for="card-exp">
+                  <span data-translate="card_exp">Срок действия</span>
+                  <input type="number" id="card-exp" placeholder="m m  /  y y">
+                </label>
+                <label for="card-cvc">
+                  <span data-translate="card_cvc">Код CVС</span>
+                  <input type="number" id="card-cvc" maxlength="3" placeholder="x x x">
+                </label>
+              </fieldset>
+              <p class="card__permission text-18">
+                <span data-translate="card_permission_1">Добавляя карту вы принимаете</span>&nbsp;
+                <a href="#" class="text-green" data-open-modal data-modal-id="#payment-terms"
+                  data-translate="card_permission_2">условия сервиса</a>&nbsp;
+                <span data-translate="card_permission_3">и разрешаете</span>&nbsp;
+                <a href="#" class="text-green" data-open-modal data-modal-id="#payment-terms"
+                  data-translate="card_permission_4">автосписания</a>
+              </p>
+              <button type="submit" class="card__submit-btn btn" data-translate="card_submit_btn">Добавить
+                карту</button>
             </form>
           </div>
         </div>
@@ -925,87 +1041,19 @@
             <use xlink:href="./img/sprite.svg#close-modal"></use>
           </svg>
         </button>
-        <h2 class="modal__title text-31">Условия сервиса и автосписания</h2>
-        <p class="modal__text text-18"> Пользователю доступна функция безналичной оплаты Видеоконсультаций, в этом
-          случае «Speak your mind» действует по поручению соответствующего Психолога с привлечением уполномоченной
-          платежной системы и является получателем платежа в качестве агента Психолога (далее – «безналичная оплата»).
+        <h2 class="modal__title text-31" data-translate="payment_terms_title">Условия сервиса и автосписания</h2>
+        <p class="modal__text text-18" data-translate="payment_terms_text_1"> Пользователю доступна функция безналичной
+          оплаты Видеоконсультаций, в этом случае «Speak your mind» действует по поручению соответствующего Психолога с
+          привлечением уполномоченной платежной системы и является получателем платежа в качестве агента Психолога
+          (далее – «безналичная оплата»).
         </p>
-        <p class="modal__text text-18">«Speak your mind» не гарантирует отсутствия ошибок и сбоев в работе Сервиса в
-          отношении предоставления
-          возможности безналичной оплаты. Списание денежных средств за Видеоконсультацию осуществляется за 24 часа до
-          момента проведения Видеоконсультации, а если Пользователь записался на Видеоконсультацию менее, чем за 24
-          часа, то списание осуществляется за 12 часов до Видеоконсультации или в момент записи на Видеоконсультацию, в
-          зависимости от того, что наступит ранее. В случае невозможности списания денежных средств за 12 часов до
-          проведения Видеоконсультации, Видеоконсультация подлежит отмене.</p>
-      </div>
-    </div>
-  </div>
-
-  <div class="modal modal--preload" id="client-card">
-    <div class="modal__wrapper">
-      <div class="modal__overlay" data-close-modal></div>
-      <div class="modal__content modal__content--client-card client-card">
-        <button class="modal__close-btn" type="button" aria-label="Закрыть окно." data-close-modal>
-          <svg width="32" height="32" fill="currentColor">
-            <use xlink:href="./img/sprite.svg#close-modal"></use>
-          </svg>
-        </button>
-        <p class="client-card__heading">
-          <span class="text-31 client-card__username">Ксения</span>
-          <span class="text-31 client-card__userid">#663385</span>
-        </p>
-        <p class="client-card__info">
-          <span class="text-20 client-card__info-subhead">Возраст</span>
-          <span><span class="text-20 client-card__age">36</span> лет</span>
-        </p>
-        <p class="client-card__info">
-          <span class="text-20 client-card__info-subhead">Сессий</span>
-          <span class="text-20 client-card__sessions-amount">11</span>
-        </p>
-        <p class="client-card__info">
-          <span class="text-20 client-card__info-subhead">Следующая сессия</span>
-          <span class="text-20 client-card__next-session">05 июля 15:00</span>
-        </p>
-        <p class="client-card__info">
-          <span class="text-20 client-card__info-subhead">Запрос</span>
-          <span class="text-20 client-card__next-session">Депрессивные состояния, одиночество, отношения с родителями,
-            “не знаю, чем хочу заниматься”</span>
-        </p>
-        <div class="client-card__btns-wrapper">
-          <a href="#" class="client-card__btn client-card__btn--chat btn btn--white">
-            <svg width="30" height="22" fill="currentColor">
-              <use xlink:href="./img/sprite.svg#chat"></use>
-            </svg>
-            <span>Чат с клиентом</span>
-          </a>
-          <a href="#" class="client-card__btn client-card__btn--notes btn btn--white">Заметки</a>
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <div class="modal modal--preload" id="doctor-reschedule">
-    <div class="modal__wrapper">
-      <div class="modal__overlay" data-close-modal></div>
-      <div class="modal__content modal__content--doctor-reschedule doctor-reschedule">
-        <button class="modal__close-btn" type="button" aria-label="Закрыть окно." data-close-modal>
-          <svg width="32" height="32" fill="currentColor">
-            <use xlink:href="./img/sprite.svg#close-modal"></use>
-          </svg>
-        </button>
-        <h2 class="text-25 doctor__title">Мое расписание</h2>
-        <form action="" method="post">
-          <div class="schedule-container" id="schedule-container-2"></div>
-          <button type="button" class="doctor__expand-btn schedule__show-more" data-id="#schedule-container-2">
-            <span data-translate="schedule_show_more">Показать еще 3 дня</span>
-            <svg width="10" height="10" fill="currentColor">
-              <use xlink:href="./img/sprite.svg#dropdown-green"></use>
-            </svg>
-          </button>
-          <button type="submit" class="doctor__submit-btn btn">
-            <span class="doctor__submit-text">Выбрать&nbsp;</span>
-          </button>
-        </form>
+        <p class="modal__text text-18" data-translate="payment_terms_text_2">«Speak your mind» не гарантирует отсутствия
+          ошибок и сбоев в работе Сервиса в отношении предоставления возможности безналичной оплаты. Списание денежных
+          средств за Видеоконсультацию осуществляется за 24 часа до момента проведения Видеоконсультации, а если
+          Пользователь записался на Видеоконсультацию менее, чем за 24 часа, то списание осуществляется за 12 часов до
+          Видеоконсультации или в момент записи на Видеоконсультацию, в зависимости от того, что наступит ранее. В
+          случае невозможности списания денежных средств за 12 часов до проведения Видеоконсультации, Видеоконсультация
+          подлежит отмене.</p>
       </div>
     </div>
   </div>

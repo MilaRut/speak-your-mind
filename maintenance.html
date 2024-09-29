@@ -43,7 +43,7 @@
         </nav>
         <div class="header__lang-switcher lang-switcher">
           <button class="lang-switcher__btn js-dropdown-trigger" data-id="#lang-switcher">
-            <span data-translate="current_language"></span>
+            <span class="current-language"></span>
             <svg width="10" height="10" fill="currentColor">
               <use xlink:href="./img/sprite.svg#dropdown"></use>
             </svg>
@@ -90,24 +90,27 @@
     <main>
       <div class="container">
         <div class="status-page status-page--404">
-          <p class="status-page__title status-page__title--l">Страница в разработке</p>
-          <p class="status-page__text">Cтраница, которую вы ищете, пока не доступна.</p>
+          <p class="status-page__title status-page__title--l" data-translate="status_page_text3">Страница в разработке</p>
+          <p class="status-page__text" data-translate="status_page_text4">Cтраница, которую вы ищете, пока не доступна.</p>
           <div class="status-page__links">
             <a href="javascript:history.back()" class="btn status-page__link status-page__link--back">
               <svg width="32" height="32" fill="currentColor">
                 <use xlink:href="./img/sprite.svg#chevron-up"></use>
               </svg>
-              <span>Вернуться назад</span>
+              <span data-translate="return">Вернуться назад</span>
             </a>
             <a href="index.html" class="btn btn--white status-page__link status-page__link--main">
               <svg width="32" height="32" fill="currentColor">
                 <use xlink:href="./img/sprite.svg#nav-main"></use>
               </svg>
-              <span>На главную</span>
+              <span data-translate="to_main_page">На главную</span>
             </a>
           </div>
-          <p class="status-page__footer">Остались впросы? Напишите нам на <a href="mailto:support@speakyourmind.help"
-              class="text-green">support@speakyourmind.help</a> и мы постараемся решить вашу проблему</p>
+          <p class="status-page__footer">
+            <span data-translate="status_page_footer_msg1">Остались впросы? Напишите нам на</span>&nbsp;
+            <a href="mailto:support@speakyourmind.help" class="text-green">support@speakyourmind.help</a>&nbsp;
+            <span data-translate="status_page_footer_msg2">и мы постараемся решить вашу проблему</span>
+          </p>
         </div>
       </div>
     </main>
@@ -116,7 +119,7 @@
         <div class="footer__left"></div>
         <div class="footer__copyright">
           <span>&copy; Speak Your Mind 2023</span>
-          <a href="terms.html" class="text-green">Условия предоставления услуг</a>
+          <a href="terms.html" class="text-green" data-translate="terms">Условия предоставления услуг</a>
         </div>
       </div>
     </footer>

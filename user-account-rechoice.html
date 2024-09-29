@@ -43,7 +43,7 @@
         </nav>
         <div class="header__lang-switcher lang-switcher">
           <button class="lang-switcher__btn js-dropdown-trigger" data-id="#lang-switcher">
-            <span data-translate="current_language"></span>
+            <span class="current-language"></span>
             <svg width="10" height="10" fill="currentColor">
               <use xlink:href="./img/sprite.svg#dropdown"></use>
             </svg>
@@ -122,6 +122,28 @@
                   </svg>
                   <span data-translate="int_nav_help">Помощь</span>
                 </a>
+                <div href="#" class="user-account__nav-link nav-lang-switcher js-dropdown-trigger"
+                  data-id="#nav-lang-switcher">
+                  <svg width="25" height="25" fill="currentColor">
+                    <use xlink:href="./img/sprite.svg#nav-language"></use>
+                  </svg>
+                  <span class="current-language"></span>
+                  <svg width="10" height="10" fill="currentColor">
+                    <use xlink:href="./img/sprite.svg#dropdown"></use>
+                  </svg>
+                  </span>
+                  <ul class="lang-switcher__list list-reset" id="nav-lang-switcher">
+                    <!-- <li class="lang-switcher__item">
+                      <a href="#" data-lang="hu">Hu</a>
+                    </li> -->
+                    <li class="lang-switcher__item">
+                      <a href="#" data-lang="en">English</a>
+                    </li>
+                    <li class="lang-switcher__item">
+                      <a href="#" data-lang="ru" data-translate="doc_q_language_ru">Русский</a>
+                    </li>
+                  </ul>
+                </div>
                 <a href="/doctor-landing.html" class="user-account__nav-link logout-btn">
                   <svg width="25" height="25" fill="currentColor">
                     <use xlink:href="./img/sprite.svg#nav-logout"></use>
@@ -137,7 +159,8 @@
                     <div class="questions__wrapper">
                       <div class="questions__heading">
                         <h1 class="subtitle" data-translate="rechoice_title_2">Изменение запроса</h1>
-                        <p class="text-18" data-translate="rechoice_subtitle">Ответьте, пожалуйста на вопросы, чтобы мы могли предложить вам подходящего
+                        <p class="text-18" data-translate="rechoice_subtitle">Ответьте, пожалуйста на вопросы, чтобы мы
+                          могли предложить вам подходящего
                           специалиста.
                         </p>
                       </div>
@@ -457,7 +480,7 @@
         <div class="footer__left"></div>
         <div class="footer__copyright">
           <span>&copy; Speak Your Mind 2023</span>
-          <a href="terms.html" class="text-green">Условия предоставления услуг</a>
+          <a href="terms.html" class="text-green" data-translate="terms">Условия предоставления услуг</a>
         </div>
       </div>
     </footer>
