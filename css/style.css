@@ -3679,12 +3679,13 @@ details summary::marker {
   position: relative;
   background-color: #0f9c03;
   border-radius: 8px;
-  padding: 8px 12px 8px 50px;
   max-width: 600px;
   font-weight: 300;
   font-size: 18px;
   line-height: 120%;
   color: #ffffff;
+  margin-bottom: 24px;
+  padding: 8px 12px 8px 50px;
 }
 
 .settings .text-success::before {
