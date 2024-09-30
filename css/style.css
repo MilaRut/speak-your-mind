@@ -1123,7 +1123,7 @@ details summary::marker {
   width: 32px;
   height: 32px;
   border-radius: 50%;
-  background: #ffffff url("../../img/svg/feedback-success.svg") center no-repeat;
+  background: #ffffff url("../img/svg/feedback-success.svg") center no-repeat;
   -webkit-box-shadow: 0 4px 4px 0 rgba(0, 0, 0, 0.25);
   box-shadow: 0 4px 4px 0 rgba(0, 0, 0, 0.25);
 }
@@ -1174,7 +1174,7 @@ details summary::marker {
   width: 32px;
   height: 32px;
   border-radius: 50%;
-  background: #ffffff url("../../img/svg/feedback-error.svg") center no-repeat;
+  background: #ffffff url("../img/svg/feedback-error.svg") center no-repeat;
 }
 
 #feedback .feedback__error-message p {
@@ -3261,7 +3261,7 @@ details summary::marker {
   width: 32px;
   height: 32px;
   border-radius: 50%;
-  background: #ffffff url("../../img/svg/feedback-error.svg") center no-repeat;
+  background: #ffffff url("../img/svg/feedback-error.svg") center no-repeat;
 }
 
 .card__error-message p {
@@ -3455,7 +3455,7 @@ details summary::marker {
   width: 24px;
   height: 24px;
   border-radius: 50%;
-  background: #ffffff url("../../img/svg/success-mark.svg") center no-repeat;
+  background: #ffffff url("../img/svg/success-mark.svg") center no-repeat;
 }
 
 .user-account__message--requested,
@@ -3477,12 +3477,12 @@ details summary::marker {
 .user-account__message--error::before {
   position: absolute;
   content: "";
-  top: 16px;
+  top: 8px;
   left: 16px;
   width: 32px;
   height: 32px;
   border-radius: 50%;
-  background: #ffffff url("../../img/svg/feedback-error.svg") center no-repeat;
+  background: #ffffff url("../img/svg/feedback-error.svg") center no-repeat;
 }
 
 .user-account__message--error p {
@@ -3698,7 +3698,7 @@ details summary::marker {
   width: 24px;
   height: 24px;
   border-radius: 50%;
-  background: #ffffff url("../../img/svg/success-mark.svg") center no-repeat;
+  background: #ffffff url("../img/svg/success-mark.svg") center no-repeat;
 }
 
 .settings__heading {
@@ -5040,7 +5040,7 @@ details summary::marker {
   left: 50%;
   width: 48px;
   height: 48px;
-  background: url("../../img/svg/video-icon.svg") center no-repeat;
+  background: url("../img/svg/video-icon.svg") center no-repeat;
 }
 
 .videochat__user-photo {
@@ -5148,7 +5148,7 @@ details summary::marker {
   width: 24px;
   height: 24px;
   border-radius: 50%;
-  background: #ffffff url("../../img/svg/success-mark.svg") center no-repeat;
+  background: #ffffff url("../img/svg/success-mark.svg") center no-repeat;
 }
 
 .schedule__tab-btn {
@@ -5676,6 +5676,10 @@ details summary::marker {
 
 .admin-content__left-col {
   background-color: #555555;
+}
+
+.admin-content__right-col {
+  padding-right: 40px;
 }
 
 .admin-content__nav {
