@@ -13,7 +13,24 @@
     position: absolute;
     top: 0;
     right: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 56px;
+    gap: 10px;
     padding: 10px 20px;
+
+    svg {
+      display: none;
+    }
+
+
+    &.is-loading {
+      svg {
+        display: block;
+        animation: rotate-animation 5s infinite linear;
+      }
+    }
   }
 
   .text-success.is-visible {
@@ -39,18 +56,17 @@
       width: 24px;
       height: 24px;
       border-radius: 50%;
-      background: $color-default-white url("../../img/svg/success-mark.svg") center no-repeat;
+      background: $color-default-white url("../img/svg/success-mark.svg") center no-repeat;
     }
   }
 
   &__tab-btn {
     cursor: pointer;
-    padding: 10px 4px;
+    padding: 10px;
     background-color: transparent;
     border: none;
     border-bottom: 3px solid transparent;
     color: $color-jade;
-    margin-right: 10px;
 
     &.is-active {
       background-color: $color-humming-bird;
@@ -219,5 +235,19 @@
         }
       }
     }
+  }
+}
+
+@keyframes rotate-animation {
+  0% {
+    transform: rotate(0deg);
+  }
+
+  50% {
+    transform: rotate(180deg);
+  }
+
+  100% {
+    transform: rotate(360deg);
   }
 }

@@ -18,12 +18,13 @@
     position: relative;
     background-color: #0f9c03;
     border-radius: 8px;
-    padding: 8px 12px 8px 50px;
     max-width: 600px;
     font-weight: 300;
     font-size: 18px;
     line-height: 120%;
     color: $color-default-white;
+    margin-bottom: 24px;
+    padding: 8px 12px 8px 50px;
 
     &::before {
       position: absolute;
@@ -34,7 +35,7 @@
       width: 24px;
       height: 24px;
       border-radius: 50%;
-      background: $color-default-white url("../../img/svg/success-mark.svg") center no-repeat;
+      background: $color-default-white url("../img/svg/success-mark.svg") center no-repeat;
     }
   }
 
@@ -297,6 +298,7 @@
 
     &__textarea-wrapper {
       width: 100%;
+      max-width: 1000px;
 
       textarea {
         width: 100%;
@@ -425,6 +427,7 @@
     }
 
     &__edu-wrapper {
+      max-width: 1200px;
       margin-top: 32px;
 
       p {

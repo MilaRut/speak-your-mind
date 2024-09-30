@@ -37,6 +37,10 @@
   background-color: $color-matterhorn;
 }
 
+.admin-content__right-col {
+  padding-right: 40px;
+}
+
 .admin-content__nav {
   display: flex;
   flex-direction: column;

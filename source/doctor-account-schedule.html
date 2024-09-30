@@ -174,8 +174,12 @@
                   <p data-translate="doctor_schedule_text">Отметьте, пожалуйста, галочкой то время, когда вы свободны и
                     на которое можно назначать
                     консультации</p>
-                  <button type="button" class="schedule__send-btn btn" id="send-btn"
-                    data-translate="save_changes_btn">Сохранить изменения</button>
+                  <button type="button" class="schedule__send-btn btn" id="send-btn">
+                    <svg width="32" height="32" fill="currentColor">
+                      <use xlink:href="./img/sprite.svg#icon-loader"></use>
+                    </svg>
+                    <span data-translate="save_changes_btn">Сохранить изменения</span>
+                  </button>
                 </div>
                 <div class="calendar-wrapper">
                   <button class="btn-current schedule__tab-btn is-active" id="btn-1"
@@ -563,7 +567,11 @@
 
     // TODO перенести в функцию sendDataToBackend() в then
     function showSuccessMessage() {
-      document.querySelector('.schedule__text-success').classList.add('is-visible');
+      document.querySelector('.schedule__send-btn').classList.add('is-loading');
+      setTimeout(() => {
+        document.querySelector('.schedule__send-btn').classList.remove('is-loading');
+        document.querySelector('.schedule__text-success').classList.add('is-visible');
+      }, 1500);
       setTimeout(() => {
         document.querySelector('.schedule__text-success').classList.remove('is-visible');
       }, 3000);

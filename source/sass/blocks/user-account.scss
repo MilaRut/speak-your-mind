@@ -1,4 +1,5 @@
 .user-account {
+  max-width: 1000px;
   min-height: 100%;
   flex-grow: 1;
   display: flex;
@@ -104,143 +105,122 @@
     }
   }
 
-  .text-success {
-    display: flex;
-    align-items: center;
-    margin-bottom: 72px;
-    background-color: #f5f3ee;
-    border: 1px solid #a3a3a3;
-    border-radius: 16px;
-    padding: 16px;
-    width: fit-content;
-
-    svg {
-      margin-right: 10px;
-    }
-  }
-
-  &__message {
-    margin-bottom: 48px;
-
-    .text-25 {
-      margin-bottom: 24px;
-    }
-  }
-
   &__doctor {
     display: flex;
     align-items: center;
     flex-wrap: wrap;
-    margin-bottom: 56px;
-  }
-
-  &__doctor-image {
-    width: 100px;
-    min-width: 100px;
-    height: 100px;
-    margin-right: 10px;
-  }
-
-  &__doctor-info {
-    width: 70%;
-    p {
-      margin-bottom: 10px;
-    }
-  }
-
-  &__contact {
-    display: flex;
-    align-items: center;
-    width: fit-content;
-    border-radius: 73px;
-    border: 1px solid $color-shamrock-green;
-    padding: 8px 24px;
-
-    svg {
-      margin-right: 8px;
-    }
-
-    span {
-      font-size: 20px;
-      font-weight: 700;
-      line-height: 1;
-    }
-  }
-
-  .session-info {
-    width: 800px;
-  }
-
-  &__change-btn {
-    padding: 8px 24px;
-  }
-
-  .choice__thumbs-list {
-    max-width: 965px;
+    margin-bottom: 18px;
   }
 }
 
-.change-requested {
+.user-account__messages {
+  margin-bottom: 48px;
+  width: 860px;
+}
 
-  .next-session,
-  .requested-session {
-    color: $color-dark-gray;
+.user-account__message {
+  width: 100%;
+  margin: 40px 0 0;
+  border-radius: 16px;
+  font-weight: 300;
+  font-size: 18px;
+  line-height: 1.2;
+  padding: 16px 16px 40px;
+
+  &--welcome {
+    position: relative;
+    background-color: #0f9c03;
+    border-radius: 8px;
+    padding: 8px 12px 8px 50px;
+    color: $color-default-white;
+
+    &::before {
+      position: absolute;
+      content: "";
+      top: 8px;
+      left: 16px;
+      width: 24px;
+      height: 24px;
+      border-radius: 50%;
+      background: $color-default-white url("../img/svg/success-mark.svg") center no-repeat;
+    }
+  }
+
+  &--requested,
+  &--reschedule,
+  &--doctor-change-request {
+    border: 1px solid #A3A3A3;
+    background-color: #F5F3EE;
+  }
+
+  &--error {
+    position: relative;
+    margin: 40px 0 0;
+    background-color: #DF0C4B;
+    border-radius: 8px;
+    padding: 8px 12px 8px 60px;
+    max-width: 800px;
+
+    &::before {
+      position: absolute;
+      content: "";
+      top: 8px;
+      left: 16px;
+      width: 32px;
+      height: 32px;
+      border-radius: 50%;
+      background: $color-default-white url("../img/svg/feedback-error.svg") center no-repeat;
+    }
+
+    p {
+      font-weight: 300;
+      font-size: 18px;
+      line-height: 120%;
+      color: $color-default-white;
+      margin-bottom: 0;
+
+      &:first-child {
+        margin-bottom: 10px;
+      }
+    }
+
+    b {
+      font-weight: 700;
+    }
+  }
+
+  &--doctor-change-request {
+    p:first-child {
+      margin-bottom: 20px;
+    }
+
+    .btns {
+      display: flex;
+      gap: 10px;
+      margin: 30px 0 0;
+
+      button {
+        padding: 8px 24px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 8px;
+      }
+    }
   }
 }
 
 .user-account__session-change-reset {
   margin-top: 24px;
-  margin-left: 10px;
   padding: 16px 24px;
-}
-
-.user-account__doctor-change-request {
-  width: 100%;
-  margin: 40px 0 0;
-  border: 1px solid #A3A3A3;
-  border-radius: 16px;
-  padding: 16px 16px 40px;
-  background-color: #F5F3EE;
-
-  p:first-child {
-    margin-bottom: 20px;
-  }
-
-  .btns {
-    display: flex;
-    gap: 10px;
-    margin: 30px 0 0;
-
-    button {
-      padding: 8px 24px;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      gap: 8px;
-    }
-  }
-}
-
-.message_error {
-  border: 1px solid #a3a3a3;
-  border-radius: 16px;
-  padding: 16px 16px 24px;
-  width: 723px;
-  background-color: #ffcbdb;
-  margin-bottom: 48px;
-
-  p {
-    font-size: 18px;
-    line-height: 1.2;
-    margin-bottom: 16px;
-    color: #df0c4b;
-  }
 }
 
 .user-account__check-card {
   display: flex;
   align-items: center;
-  padding: 8px 24px;
+  padding: 8px 0;
+  background-color: transparent;
+  border: none;
 
   svg {
     color: $color-default-white;
@@ -255,153 +235,294 @@
 
 // состояния кабинета
 
-.user-account__main {
+.user-account__main,
+.user-account__main[data-utils="main-confirmed"] {
 
-  .text-success,
-  .message_1,
-  .message_2,
-  .message_3,
-  .user-account__session-wrapper,
+  .user-account__message,
   .user-account__session-change-wrapper,
-  .date-not-scheduled,
-  .change-btn-schedule,
-  .user-account__doctor-change-request,
-  .message_error {
-    display: none;
-  }
-}
-
-.user-account__main[data-utils="main-1-confirmed"] {
-
-  .message_2,
-  .user-account__session-wrapper {
-    display: block;
-  }
-
-  .requested-session {
+  .videochat__message--requested-session,
+  .videochat__message--requested-reschedule,
+  .videochat__message--no-session {
     display: none;
   }
 }
 
 .user-account__main[data-utils="main-not-confirmed"] {
-  .text-success {
+  .user-account__message--requested {
+    display: block;
+  }
+
+  .videochat__message--next-session {
     display: none;
   }
 
-  .message_1 {
+  .videochat__message--requested-session {
     display: block;
+  }
+
+  .videochat__user-photo-wrapper {
+    filter: grayscale(1);
+    opacity: 0.5;
+  }
+
+  .videochat__message {
+    opacity: 0.5;
+  }
+
+  .videochat__btn {
+    display: none;
   }
 }
 
-.user-account__main[data-utils="main-change-confirmed"],
-.user-account__main[data-utils="main-confirmed"] {
-
-  .text-success,
-  .message_2 {
-    display: none;
-  }
-
-  .user-account__session-wrapper {
+.user-account__main[data-utils="main-1-confirmed"] {
+  .user-account__message--welcome {
     display: block;
-  }
-
-  .requested-session {
-    display: none;
   }
 }
 
 .user-account__main[data-utils="main-not-scheduled"] {
-  .user-account__session-wrapper {
+  .videochat__message--no-session {
     display: block;
   }
 
-  .requested-session {
+  .videochat__message--next-session {
     display: none;
   }
 
-  .date {
-    display: none;
+  .videochat__buttons-wrapper {
+    justify-content: center;
   }
 
-  .date-not-scheduled {
+  .videochat__btn {
+    display: none;
+
+    &#schedule-session {
+      display: flex;
+      width: fit-content;
+      padding: 0 10px;
+    }
+  }
+}
+
+.user-account__main[data-utils="main-session-reschedule-requested"] {
+  .user-account__message--reschedule {
     display: block;
-    text-align: center;
   }
 
-  .change-btn-reschedule {
+  .videochat__user-photo-wrapper {
+    filter: grayscale(1);
+    opacity: 0.5;
+  }
+
+  .videochat__message {
+    opacity: 0.5;
+  }
+
+  .videochat__message--requested-reschedule {
+    display: block;
+  }
+
+  .videochat__buttons-wrapper {
+    justify-content: center;
+  }
+
+  .videochat__btn {
     display: none;
+
+    &#chat-with-therapist {
+      display: flex;
+      width: fit-content;
+      padding: 0 10px;
+    }
+  }
+}
+
+.user-account__main[data-utils="main-doctor-change-requested"] {
+  .user-account__message--doctor-change-request {
+    display: block;
   }
 
-  .change-btn-schedule {
+  .videochat__user-photo-wrapper {
+    filter: grayscale(1);
+    opacity: 0.5;
+  }
+
+  .videochat__message {
+    opacity: 0.5;
+  }
+
+  .videochat__message--requested-reschedule {
+    display: block;
+  }
+
+  .videochat__buttons-wrapper {
+    justify-content: center;
+  }
+
+  .videochat__btn {
+    display: none;
+
+    &#chat-with-therapist {
+      display: flex;
+      width: fit-content;
+      padding: 0 10px;
+    }
+  }
+}
+
+.user-account__main[data-utils="main-payment-error"] {
+  .user-account__message--error {
     display: block;
   }
 }
 
-.user-account__main[data-utils="main-change"] {
+// .user-account__main {
 
-  .title,
-  .user-account__message {
-    display: none;
-  }
+//   .text-success,
+//   .message_1,
+//   .message_2,
+//   .message_3,
+//   .user-account__session-wrapper,
+//   .user-account__session-change-wrapper,
+//   .date-not-scheduled,
+//   .change-btn-schedule,
+//   .user-account__doctor-change-request,
+//   .message_error {
+//     display: none;
+//   }
+// }
 
-  .user-account__session-change-wrapper {
-    display: block;
-  }
-}
+// .user-account__main[data-utils="main-1-confirmed"] {
 
-.user-account__main[data-utils="main-change-not-confirmed"] {
-  .message_3 {
-    display: block;
-  }
+//   .message_2,
+//   .user-account__session-wrapper {
+//     display: block;
+//   }
 
-  .user-account__session-wrapper {
-    display: block;
-  }
+//   .requested-session {
+//     display: none;
+//   }
+// }
 
-  .user-account__change-btn {
-    display: none;
-  }
+// .user-account__main[data-utils="main-not-confirmed"] {
+//   .text-success {
+//     display: none;
+//   }
 
-  .requested-session {
-    display: block;
-  }
+//   .message_1 {
+//     display: block;
+//   }
+// }
 
-  .next-session,
-  .requested-session {
-    color: $color-dark-gray;
-  }
-}
+// .user-account__main[data-utils="main-change-confirmed"],
+// .user-account__main[data-utils="main-confirmed"] {
 
-.user-account__main[data-utils="main-doctor-change"] {
+//   .text-success,
+//   .message_2 {
+//     display: none;
+//   }
 
-  .user-account__session-wrapper {
-    display: block;
-  }
+//   .user-account__session-wrapper {
+//     display: block;
+//   }
 
-  .user-account__doctor-change-request {
-    display: block;
-  }
+//   .requested-session {
+//     display: none;
+//   }
+// }
 
-  .user-account__change-btn,
-  .requested-session {
-    display: none;
-  }
-}
+// .user-account__main[data-utils="main-not-scheduled"] {
+//   .user-account__session-wrapper {
+//     display: block;
+//   }
 
-.user-account__main[data-utils="payment-error"] {
+//   .requested-session {
+//     display: none;
+//   }
 
-  .message_error {
-    display: block;
-  }
+//   .date {
+//     display: none;
+//   }
 
-  .user-account__session-wrapper {
-    display: block;
-  }
+//   .date-not-scheduled {
+//     display: block;
+//     text-align: center;
+//   }
 
-  .requested-session {
-    display: none;
-  }
-}
+//   .change-btn-reschedule {
+//     display: none;
+//   }
+
+//   .change-btn-schedule {
+//     display: block;
+//   }
+// }
+
+// .user-account__main[data-utils="main-change"] {
+
+//   .title,
+//   .user-account__message {
+//     display: none;
+//   }
+
+//   .user-account__session-change-wrapper {
+//     display: block;
+//   }
+// }
+
+// .user-account__main[data-utils="main-change-not-confirmed"] {
+//   .message_3 {
+//     display: block;
+//   }
+
+//   .user-account__session-wrapper {
+//     display: block;
+//   }
+
+//   .user-account__change-btn {
+//     display: none;
+//   }
+
+//   .requested-session {
+//     display: block;
+//   }
+
+//   .next-session,
+//   .requested-session {
+//     color: $color-dark-gray;
+//   }
+// }
+
+// .user-account__main[data-utils="main-doctor-change"] {
+
+//   .user-account__session-wrapper {
+//     display: block;
+//   }
+
+//   .user-account__doctor-change-request {
+//     display: block;
+//   }
+
+//   .user-account__change-btn,
+//   .requested-session {
+//     display: none;
+//   }
+// }
+
+// .user-account__main[data-utils="main-payment-error"] {
+
+//   .message_error {
+//     display: block;
+//   }
+
+//   .user-account__session-wrapper {
+//     display: block;
+//   }
+
+//   .requested-session {
+//     display: none;
+//   }
+// }
 
 .user-account__settings[data-utils="settings-reg-completed"] {
 
@@ -453,10 +574,6 @@
   .settings__rechoice.rechoice-2 {
     display: block;
   }
-}
-
-.first-session-msg {
-  width: 100%;
 }
 
 .user-account__rechoice {
