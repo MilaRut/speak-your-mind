@@ -350,7 +350,7 @@
                         </li>
                       </ul>
                     </details>
-                    <a href="doctor-account-clients.html" class="sessions__expand-btn btn"
+                    <a href="doctor-account-clients.html" class="sessions__expand-btn btn btn--white"
                       data-translate="clients_all">Все клиенты</a>
                   </div>
                   <div class="sessions__videochat videochat">
@@ -358,7 +358,7 @@
                       <span class="text-25 videochat__client-name" data-open-modal data-modal-id="#client-card"></span>
                       <span class="text-18 videochat__client-id"></span>
                     </h3>
-                    <div class="sessions__session-info session-info">
+                    <div class="videochat__session-info session-info">
                       <div class="videochat__user-photo-wrapper">
                         <div class="videochat__user-photo">
                           <img src="./img/temp/doc-1.png" width="150" height="150" alt="User photo.">
@@ -370,14 +370,24 @@
                       </div>
                     </div>
                     <div class="videochat__buttons-wrapper">
-                      <a href="#" class="videochat__btn btn btn--white text-20" id="cancel-session"
-                        data-translate="cancel_session_btn">Отменить</a>
-                      <a href="#" class="videochat__btn btn btn--white text-20" id="reschedule-session"
-                        data-translate="reschedule_session_btn">Перенести
-                        сессию</a>
-                      <a href="#" class="videochat__btn btn btn--white text-20" id="schedule-session"
-                        data-translate="schedule_session_btn">Назначить
-                        сессию</a>
+                      <a href="#" class="videochat__btn btn btn--white text-20" id="cancel-session">
+                        <svg width="32" height="32" fill="currentColor">
+                          <use xlink:href="./img/sprite.svg#calendar-cancel"></use>
+                        </svg>
+                        <span data-translate="cancel_session_btn">Отменить</span>
+                      </a>
+                      <a href="#" class="videochat__btn btn btn--white text-20" id="reschedule-session">
+                        <svg width="32" height="32" fill="currentColor">
+                          <use xlink:href="./img/sprite.svg#calendar-reschedule"></use>
+                        </svg>
+                        <span data-translate="reschedule_session_btn">Перенести сессию</span>
+                      </a>
+                      <a href="#" class="videochat__btn btn btn--white text-20" id="schedule-session">
+                        <svg width="32" height="32" fill="currentColor">
+                          <use xlink:href="./img/sprite.svg#calendar-check"></use>
+                        </svg>
+                        <span data-translate="schedule_session_btn">Назначить сессию</span>
+                      </a>
                       <a href="#" class="videochat__btn btn btn--white text-20" id="chat-with-client">
                         <svg width="30" height="22" fill="currentColor">
                           <use xlink:href="./img/sprite.svg#chat"></use>
@@ -437,12 +447,17 @@
         </p>
         <div class="client-card__btns-wrapper">
           <a href="#" class="client-card__btn client-card__btn--chat btn btn--white">
-            <svg width="30" height="22" fill="currentColor">
+            <svg width="32" height="32" fill="currentColor">
               <use xlink:href="./img/sprite.svg#chat"></use>
             </svg>
             <span data-translate="chat_with_client_btn">Чат с клиентом</span>
           </a>
-          <a href="#" class="client-card__btn client-card__btn--notes btn btn--white" data-translate="notes">Заметки</a>
+          <a href="#" class="client-card__btn client-card__btn--notes btn btn--white">
+            <svg width="32" height="32" fill="currentColor">
+              <use xlink:href="./img/sprite.svg#notes"></use>
+            </svg>
+            <span data-translate="notes">Заметки</span>
+          </a>
         </div>
       </div>
     </div>
