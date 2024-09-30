@@ -3554,6 +3554,157 @@ details summary::marker {
   color: #ffffff;
 }
 
+.user-account__main .user-account__message,
+.user-account__main .user-account__session-change-wrapper,
+.user-account__main .videochat__message--requested-session,
+.user-account__main .videochat__message--requested-reschedule,
+.user-account__main .videochat__message--no-session,
+.user-account__main[data-utils=main-confirmed] .user-account__message,
+.user-account__main[data-utils=main-confirmed] .user-account__session-change-wrapper,
+.user-account__main[data-utils=main-confirmed] .videochat__message--requested-session,
+.user-account__main[data-utils=main-confirmed] .videochat__message--requested-reschedule,
+.user-account__main[data-utils=main-confirmed] .videochat__message--no-session {
+  display: none;
+}
+
+.user-account__main[data-utils=main-not-confirmed] .user-account__message--requested {
+  display: block;
+}
+
+.user-account__main[data-utils=main-not-confirmed] .videochat__message--next-session {
+  display: none;
+}
+
+.user-account__main[data-utils=main-not-confirmed] .videochat__message--requested-session {
+  display: block;
+}
+
+.user-account__main[data-utils=main-not-confirmed] .videochat__user-photo-wrapper {
+  -webkit-filter: grayscale(1);
+  filter: grayscale(1);
+  opacity: 0.5;
+}
+
+.user-account__main[data-utils=main-not-confirmed] .videochat__message {
+  opacity: 0.5;
+}
+
+.user-account__main[data-utils=main-not-confirmed] .videochat__btn {
+  display: none;
+}
+
+.user-account__main[data-utils=main-1-confirmed] .user-account__message--welcome {
+  display: block;
+}
+
+.user-account__main[data-utils=main-not-scheduled] .videochat__message--no-session {
+  display: block;
+}
+
+.user-account__main[data-utils=main-not-scheduled] .videochat__message--next-session {
+  display: none;
+}
+
+.user-account__main[data-utils=main-not-scheduled] .videochat__buttons-wrapper {
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+}
+
+.user-account__main[data-utils=main-not-scheduled] .videochat__btn {
+  display: none;
+}
+
+.user-account__main[data-utils=main-not-scheduled] .videochat__btn#schedule-session {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  width: -webkit-fit-content;
+  width: -moz-fit-content;
+  width: fit-content;
+  padding: 0 10px;
+}
+
+.user-account__main[data-utils=main-session-reschedule-requested] .user-account__message--reschedule {
+  display: block;
+}
+
+.user-account__main[data-utils=main-session-reschedule-requested] .videochat__user-photo-wrapper {
+  -webkit-filter: grayscale(1);
+  filter: grayscale(1);
+  opacity: 0.5;
+}
+
+.user-account__main[data-utils=main-session-reschedule-requested] .videochat__message {
+  opacity: 0.5;
+}
+
+.user-account__main[data-utils=main-session-reschedule-requested] .videochat__message--requested-reschedule {
+  display: block;
+}
+
+.user-account__main[data-utils=main-session-reschedule-requested] .videochat__buttons-wrapper {
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+}
+
+.user-account__main[data-utils=main-session-reschedule-requested] .videochat__btn {
+  display: none;
+}
+
+.user-account__main[data-utils=main-session-reschedule-requested] .videochat__btn#chat-with-therapist {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  width: -webkit-fit-content;
+  width: -moz-fit-content;
+  width: fit-content;
+  padding: 0 10px;
+}
+
+.user-account__main[data-utils=main-doctor-change-requested] .user-account__message--doctor-change-request {
+  display: block;
+}
+
+.user-account__main[data-utils=main-doctor-change-requested] .videochat__user-photo-wrapper {
+  -webkit-filter: grayscale(1);
+  filter: grayscale(1);
+  opacity: 0.5;
+}
+
+.user-account__main[data-utils=main-doctor-change-requested] .videochat__message {
+  opacity: 0.5;
+}
+
+.user-account__main[data-utils=main-doctor-change-requested] .videochat__message--requested-reschedule {
+  display: block;
+}
+
+.user-account__main[data-utils=main-doctor-change-requested] .videochat__buttons-wrapper {
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+}
+
+.user-account__main[data-utils=main-doctor-change-requested] .videochat__btn {
+  display: none;
+}
+
+.user-account__main[data-utils=main-doctor-change-requested] .videochat__btn#chat-with-therapist {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  width: -webkit-fit-content;
+  width: -moz-fit-content;
+  width: fit-content;
+  padding: 0 10px;
+}
+
+.user-account__main[data-utils=main-payment-error] .user-account__message--error {
+  display: block;
+}
+
 .user-account__settings[data-utils=settings-reg-completed] .message,
 .user-account__settings[data-utils=settings-reg-completed] .user-account__contact,
 .user-account__settings[data-utils=settings-reg-completed] .settings__rechoice.rechoice-1,
@@ -5038,7 +5189,7 @@ details summary::marker {
   position: absolute;
   content: "";
   bottom: 0;
-  left: 50%;
+  left: 70%;
   width: 48px;
   height: 48px;
   background: url("../img/svg/video-icon.svg") center no-repeat;
@@ -5079,6 +5230,10 @@ details summary::marker {
 
 .videochat:has(.videochat__buttons-wrapper.unscheduled) .next-session {
   opacity: 0.5;
+}
+
+.videochat__message {
+  text-align: center;
 }
 
 .schedule {

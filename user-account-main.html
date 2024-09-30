@@ -157,14 +157,13 @@
                 style="position: fixed; min-width: 360px; z-index: 100; cursor: pointer; display: flex; flex-direction: column; top: 0; right: 0; background-color: lightgray;">
                 <summary>Temporary menu - profile variants</summary>
                 <p><b>Main:</b></p>
-                <div utils-btn-main data-id="main-not-confirmed">1 session therapist not confirmed</div>
+                <div utils-btn-main data-id="main-confirmed">regular stage - session confirmed</div>
                 <div utils-btn-main data-id="main-1-confirmed">1 session therapist confirmed</div>
-                <div utils-btn-main data-id="main-confirmed">therapist confirmed the session</div>
                 <div utils-btn-main data-id="main-not-scheduled">no current session</div>
-                <div utils-btn-main data-id="main-change">session reschedule</div>
-                <div utils-btn-main data-id="main-change-not-confirmed">session reschedule not confirmed</div>
-                <div utils-btn-main data-id="main-change-confirmed">session reschedule confirmed</div>
-                <div utils-btn-main data-id="main-doctor-change">therapist requested a session reschedule</div>
+                <div utils-btn-main data-id="main-not-confirmed">session requested, not confirmed</div>
+                <div utils-btn-main data-id="main-session-reschedule-requested">session reschedule requested, not confirmed</div>
+                <div utils-btn-main data-id="main-confirmed">session reschedule requested and confirmed</div>
+                <div utils-btn-main data-id="main-doctor-change-requested">therapist requested a session reschedule</div>
                 <div utils-btn-main data-id="main-payment-error">payment error</div>
               </details>
 
@@ -173,7 +172,7 @@
 
             </div>
             <div class="user-account__right-col">
-              <div class="user-account__main" data-utils="main-not-confirmed">
+              <div class="user-account__main" data-utils="main-confirmed">
                 <h2 class="user-account__title title" data-translate="user_account_title">Личный кабинет</h2>
 
                 <div class="user-account__messages">
@@ -192,8 +191,7 @@
                     <span data-translate="user_account_message_2">отправлен терапевту</span>&nbsp;
                     <span class="doctor-name">Олесе Параде</span>.<br>
                     <span data-translate="user_account_message_3">Как только терапевт подтвердит время, вы получите
-                      уведомление об этом на ваш адрес электронной почты, а на этой странице появится окошко для
-                      видео-чата и возможность связаться с терапевтом.</span>
+                      уведомление об этом на ваш адрес электронной почты</span>
                   </p>
                   <!-- запрос на перенос отправлен -->
                   <p class="text-18 user-account__message user-account__message--reschedule">
@@ -262,7 +260,10 @@
                 <div class="user-account__session-wrapper">
                   <div class="user-account__doctor">
                     <div class="user-account__doctor-info">
-                      <p class="text-25">Ваш терапевт: <span class="doctor-name">Олеся Парада</span></p>
+                      <p class="text-25">
+                        <b><span data-translate="user_account_your_doc">Ваш терапевт</span>&#58;&nbsp;</b>
+                        <span class="doctor-name">Олеся Парада</span>
+                      </p>
                     </div>
                   </div>
                   <div class="user-account__videochat videochat">
@@ -277,8 +278,12 @@
                         <p class="date text-20">6 июля, четверг, 15:00</p>
                       </div>
                       <div class="videochat__message videochat__message--requested-session">
-                        <p class="requested-session text-18" data-translate="requested_session">Запрошен перенос на:</p>
-                        <p class="date text-20">6 июля, четверг, 20:00</p>
+                        <p class="text-18" data-translate="session_requested">Запрошена сессия:</p>
+                        <p class="date text-20">6 июля, четверг, 15:00</p>
+                      </div>
+                      <div class="videochat__message videochat__message--requested-reschedule">
+                        <p class="requested-session text-18" data-translate="reschedule_requested">Запрошен перенос на:</p>
+                        <p class="date text-20">7 июля, пятница, 20:00</p>
                       </div>
                       <div class="videochat__message videochat__message--no-session">
                         <p class="date-not-scheduled text-20" data-translate="no_session">нет записи</p>
@@ -301,9 +306,9 @@
                         <svg width="32" height="32" fill="currentColor">
                           <use xlink:href="./img/sprite.svg#calendar-check"></use>
                         </svg>
-                        <span data-translate="schedule_session_btn">Назначить сессию</span>
+                        <span data-translate="schedule_session">Записаться</span>
                       </a>
-                      <a href="#" class="videochat__btn btn btn--white text-20" id="chat-with-client">
+                      <a href="#" class="videochat__btn btn btn--white text-20" id="chat-with-therapist">
                         <svg width="30" height="22" fill="currentColor">
                           <use xlink:href="./img/sprite.svg#envelope"></use>
                         </svg>
