@@ -356,3 +356,21 @@
     }
   }
 }
+
+#new-card-popup {
+  .modal__content {
+    padding: 38px 130px 60px;
+  }
+
+  .card {
+    form {
+      padding: 0;
+    }
+
+    label {
+      span {
+        text-transform: none;
+      }
+    }
+  }
+}

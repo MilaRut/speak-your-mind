@@ -6,12 +6,14 @@
   .container {
     min-height: 100%;
     flex-grow: 1;
+    padding: 0;
+    padding-right: 48px;
   }
 
   &__wrapper {
     display: grid;
     grid-template-columns: 145px auto;
-    gap: 80px;
+    gap: 48px;
     height: 100%;
   }
 

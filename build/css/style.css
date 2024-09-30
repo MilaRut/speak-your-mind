@@ -1187,6 +1187,18 @@ details summary::marker {
   font-weight: 700;
 }
 
+#new-card-popup .modal__content {
+  padding: 38px 130px 60px;
+}
+
+#new-card-popup .card form {
+  padding: 0;
+}
+
+#new-card-popup .card label span {
+  text-transform: none;
+}
+
 .btn {
   display: -webkit-inline-box;
   display: -ms-inline-flexbox;
@@ -2192,6 +2204,8 @@ details summary::marker {
   display: grid;
   -ms-grid-columns: 145px auto;
   grid-template-columns: 145px auto;
+  padding: 0;
+  padding-right: 48px;
 }
 
 .admin.internal .footer {
@@ -3261,18 +3275,6 @@ details summary::marker {
   font-weight: 700;
 }
 
-.modal .modal__content {
-  padding: 38px 130px 60px;
-}
-
-.modal .card form {
-  padding: 0;
-}
-
-.modal .card label span {
-  text-transform: none;
-}
-
 .user-account {
   min-height: 100%;
   -webkit-box-flex: 1;
@@ -3813,6 +3815,10 @@ details summary::marker {
 .session-info .date,
 .session-info .date-not-scheduled {
   margin-bottom: 24px;
+}
+
+.settings {
+  margin-bottom: 48px;
 }
 
 .settings__main .title {
@@ -4503,6 +4509,10 @@ details summary::marker {
   margin-right: 56px;
 }
 
+.faq {
+  margin-bottom: 48px;
+}
+
 .faq .container {
   padding-top: 87px;
   padding-bottom: 41px;
@@ -4806,6 +4816,8 @@ details summary::marker {
   -webkit-box-flex: 1;
   -ms-flex-positive: 1;
   flex-grow: 1;
+  padding: 0;
+  padding-right: 48px;
 }
 
 .doctor-account__wrapper {
@@ -4813,7 +4825,7 @@ details summary::marker {
   display: grid;
   -ms-grid-columns: 145px auto;
   grid-template-columns: 145px auto;
-  gap: 80px;
+  gap: 48px;
   height: 100%;
 }
 
@@ -4966,6 +4978,10 @@ details summary::marker {
   display: block;
 }
 
+.sessions {
+  margin-bottom: 48px;
+}
+
 .sessions__heading h2 {
   margin-bottom: 48px;
 }
@@ -5011,8 +5027,8 @@ details summary::marker {
 .sessions__content {
   display: -ms-grid;
   display: grid;
-  -ms-grid-columns: 367px 640px;
-  grid-template-columns: 367px 640px;
+  -ms-grid-columns: 519px 640px;
+  grid-template-columns: 519px 640px;
   -webkit-column-gap: 40px;
   -moz-column-gap: 40px;
   column-gap: 40px;
@@ -5089,7 +5105,6 @@ details summary::marker {
   text-align: center;
   font-size: 20px;
   font-weight: 700;
-  text-transform: uppercase;
   line-height: 1;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -5116,6 +5131,7 @@ details summary::marker {
 
 .videochat__session-info {
   height: 400px;
+  border-radius: 20px;
 }
 
 .videochat__buttons-wrapper {
@@ -5148,14 +5164,22 @@ details summary::marker {
 
 .videochat__btn {
   padding: 8px 24px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
 }
 
 .videochat__btn svg {
   margin-right: 8px;
+  stroke: #039c69;
 }
 
 .videochat__user-photo-wrapper {
   position: relative;
+  margin-bottom: 16px;
 }
 
 .videochat__user-photo-wrapper::after {
@@ -5193,6 +5217,16 @@ details summary::marker {
   background-color: #EAEAEA;
   font-size: 18px;
   color: #777777;
+}
+
+.videochat:has(.videochat__buttons-wrapper.unscheduled) .videochat__user-photo img {
+  -webkit-filter: grayscale(1);
+  filter: grayscale(1);
+  opacity: 0.5;
+}
+
+.videochat:has(.videochat__buttons-wrapper.unscheduled) .next-session {
+  opacity: 0.5;
 }
 
 .schedule {
@@ -5592,6 +5626,7 @@ details summary::marker {
   -webkit-box-pack: center;
   -ms-flex-pack: center;
   justify-content: center;
+  gap: 10px;
 }
 
 .client-card__btn--chat {

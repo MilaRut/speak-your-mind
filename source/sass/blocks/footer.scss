@@ -46,6 +46,8 @@
       .container {
         display: grid;
         grid-template-columns: 145px auto;
+        padding: 0;
+        padding-right: 48px;
       }
     }
   }
