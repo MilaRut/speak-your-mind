@@ -157,15 +157,15 @@
                 style="position: fixed; min-width: 360px; z-index: 100; cursor: pointer; display: flex; flex-direction: column; top: 0; right: 0; background-color: lightgray;">
                 <summary>Temporary menu - profile variants</summary>
                 <p><b>Main:</b></p>
-                <div utils-btn-main data-id="main-not-confirmed">no therapist confirmation</div>
-                <div utils-btn-main data-id="main-1-confirmed">therapist confirmed 1 session</div>
+                <div utils-btn-main data-id="main-not-confirmed">1 session therapist not confirmed</div>
+                <div utils-btn-main data-id="main-1-confirmed">1 session therapist confirmed</div>
                 <div utils-btn-main data-id="main-confirmed">therapist confirmed the session</div>
                 <div utils-btn-main data-id="main-not-scheduled">no current session</div>
                 <div utils-btn-main data-id="main-change">session reschedule</div>
                 <div utils-btn-main data-id="main-change-not-confirmed">session reschedule not confirmed</div>
                 <div utils-btn-main data-id="main-change-confirmed">session reschedule confirmed</div>
                 <div utils-btn-main data-id="main-doctor-change">therapist requested a session reschedule</div>
-                <div utils-btn-main data-id="payment-error">payment error</div>
+                <div utils-btn-main data-id="main-payment-error">payment error</div>
               </details>
 
               <!-- TODO: удалить -->
@@ -175,23 +175,18 @@
             <div class="user-account__right-col">
               <div class="user-account__main" data-utils="main-not-confirmed">
                 <h2 class="user-account__title title" data-translate="user_account_title">Личный кабинет</h2>
-                <div class="message_error">
-                  <p class="text-18">
-                    <span data-translate="user_account_error_message_1">Невозможно списать средства за сессию,
-                      запланированную на</span>
-                    <span class="session-date">6 июля, 20:00</span>.<br>
-                    <span data-translate="user_account_error_message_2">Пожалуйста, проверьте платежные данные.</span>
+
+                <div class="user-account__messages">
+                  <!-- первая запись -->
+                  <p class="text-18 user-account__message user-account__message--welcome">
+                    <span data-translate="user_account_message_4">Поздравляем, вы успешно записались на первую
+                      сессию. Терапевт подтвердил вашу запись. Ваш терапевт:</span>&nbsp;
+                    <span class="doctor-name">Олеся Парада</span><br>
+                    <span data-translate="user_account_message_5">Мы отправили вам по почте инструкцию, как
+                      подготовиться к первой сессии.</span>
                   </p>
-                  <button type="button" class="btn user-account__check-card">
-                    <svg width="32" height="32" fill="currentColor">
-                      <use xlink:href="./img/sprite.svg#nav-payment"></use>
-                    </svg>
-                    <span data-translate="user_account_check_card">Проверить карту</span>
-                  </button>
-                </div>
-                <div class="user-account__message">
-                  <p class="text-25" data-translate="user_account_your_doc">Ваш терапевт</p>
-                  <p class="text-18 message_1">
+                  <!-- запрос на сессию отправлен -->
+                  <p class="text-18 user-account__message user-account__message--requested">
                     <span data-translate="user_account_message_1">Запрос на назначение сессии на</span>&nbsp;
                     <span class="session-time">15:00 6 июля</span>&nbsp;
                     <span data-translate="user_account_message_2">отправлен терапевту</span>&nbsp;
@@ -200,14 +195,8 @@
                       уведомление об этом на ваш адрес электронной почты, а на этой странице появится окошко для
                       видео-чата и возможность связаться с терапевтом.</span>
                   </p>
-                  <p class="text-18 message_2">
-                    <span data-translate="user_account_message_4">Поздравляем, вы успешно записались на первую
-                      сессию. Терапевт подтвердил вашу запись. Ваш терапевт:</span>&nbsp;
-                    <span class="doctor-name">Олеся Парада</span><br>
-                    <span data-translate="user_account_message_5">Мы отправили вам по почте инструкцию, как
-                      подготовиться к первой сессии.</span>
-                  </p>
-                  <p class="text-18 message_3">
+                  <!-- запрос на перенос отправлен -->
+                  <p class="text-18 user-account__message user-account__message--reschedule">
                     <span data-translate="user_account_message_6">Запрос на перенос сессии на</span>&nbsp;
                     <span class="session-time">20:00 6 июля</span>&nbsp;
                     <span data-translate="user_account_message_7">отправлен терапевту</span>&nbsp;
@@ -216,78 +205,113 @@
                       уведомление об этом на ваш адрес электронной
                       почты.</span>
                   </p>
+                  <!-- терапевт запросил перенос -->
+                  <div class="user-account__message user-account__message--doctor-change-request">
+                    <p class="text-25">
+                      <span data-translate="doctor_change_request_msg_1">Терапевт</span>&nbsp;
+                      <span class="doctor-name">Олеся Парада</span>&nbsp;
+                      <span data-translate="doctor_change_request_msg_2">запросил перенос сессии</span>
+                      <span class="session-date">13 июля</span>
+                    </p>
+                    <p class="text-18">
+                      <span data-translate="doctor_change_request_msg_3">Предложено новое время:</span>
+                      <span class="new-date"><b>пятница 14 июля, 16:30</b></span><br>
+                      <span data-translate="doctor_change_request_msg_4">Если вы согласны, нажмите
+                        “Подтвердить”.</span>
+                      <span data-translate="doctor_change_request_msg_5">Если вас не устраивает предложенное время,
+                        нажмите “Предложить другое время”.</span>
+                    </p>
+                    <div class="btns">
+                      <button type="button" class="btn">
+                        <svg width="32" height="32" fill="currentColor">
+                          <use xlink:href="./img/sprite.svg#calendar-check"></use>
+                        </svg>
+                        <span class="text-20" data-translate="doctor_change_request_btn_1">Подтвердить</span>
+                      </button>
+                      <button type="button" class="btn btn--white" utils-btn-main data-id="main-change">
+                        <svg width="32" height="32" fill="currentColor">
+                          <use xlink:href="./img/sprite.svg#calendar-reschedule"></use>
+                        </svg>
+                        <span class="text-20" data-translate="doctor_change_request_btn_2">Предложить другое
+                          время</span>
+                      </button>
+                      <button type="button" class="btn btn--red">
+                        <svg width="32" height="32" fill="currentColor">
+                          <use xlink:href="./img/sprite.svg#calendar-cancel"></use>
+                        </svg>
+                        <span class="text-20" data-translate="doctor_change_request_btn_3">Отменить сессию</span>
+                      </button>
+                    </div>
+                  </div>
+                  <div class="user-account__message user-account__message--error">
+                    <p class="text-18">
+                      <span data-translate="user_account_error_message_1">Невозможно списать средства за сессию,
+                        запланированную на</span>
+                      <span class="session-date">6 июля, 20:00</span>.<br>
+                      <span data-translate="user_account_error_message_2">Пожалуйста, проверьте платежные данные.</span>
+                    </p>
+                    <button type="button" class="btn user-account__check-card">
+                      <svg width="32" height="32" fill="currentColor">
+                        <use xlink:href="./img/sprite.svg#nav-payment"></use>
+                      </svg>
+                      <span data-translate="user_account_check_card">Проверить карту</span>
+                    </button>
+                  </div>
                 </div>
+
                 <div class="user-account__session-wrapper">
                   <div class="user-account__doctor">
-                    <div class="user-account__doctor-image">
-                      <img src="./img/temp/doc-9.png" width="100" height="100" alt="">
-                    </div>
                     <div class="user-account__doctor-info">
-                      <p class="text-31">Олеся Парада</p>
-                      <a class="user-account__contact" href="#">
+                      <p class="text-25">Ваш терапевт: <span class="doctor-name">Олеся Парада</span></p>
+                    </div>
+                  </div>
+                  <div class="user-account__videochat videochat">
+                    <div class="videochat__session-info session-info">
+                      <div class="videochat__user-photo-wrapper">
+                        <div class="videochat__user-photo">
+                          <img src="./img/temp/doc-9.png" width="150" height="150" alt="User photo.">
+                        </div>
+                      </div>
+                      <div class="videochat__message videochat__message--next-session">
+                        <p class="text-18" data-translate="next_session">Ближайшая сессия:</p>
+                        <p class="date text-20">6 июля, четверг, 15:00</p>
+                      </div>
+                      <div class="videochat__message videochat__message--requested-session">
+                        <p class="requested-session text-18" data-translate="requested_session">Запрошен перенос на:</p>
+                        <p class="date text-20">6 июля, четверг, 20:00</p>
+                      </div>
+                      <div class="videochat__message videochat__message--no-session">
+                        <p class="date-not-scheduled text-20" data-translate="no_session">нет записи</p>
+                      </div>
+                    </div>
+                    <div class="videochat__buttons-wrapper">
+                      <a href="#" class="videochat__btn btn btn--white text-20" id="cancel-session">
+                        <svg width="32" height="32" fill="currentColor">
+                          <use xlink:href="./img/sprite.svg#calendar-cancel"></use>
+                        </svg>
+                        <span data-translate="cancel_session_btn">Отменить</span>
+                      </a>
+                      <a href="#" class="videochat__btn btn btn--white text-20" id="reschedule-session">
+                        <svg width="32" height="32" fill="currentColor">
+                          <use xlink:href="./img/sprite.svg#calendar-reschedule"></use>
+                        </svg>
+                        <span data-translate="reschedule_session_btn">Перенести сессию</span>
+                      </a>
+                      <a href="#" class="videochat__btn btn btn--white text-20" id="schedule-session">
+                        <svg width="32" height="32" fill="currentColor">
+                          <use xlink:href="./img/sprite.svg#calendar-check"></use>
+                        </svg>
+                        <span data-translate="schedule_session_btn">Назначить сессию</span>
+                      </a>
+                      <a href="#" class="videochat__btn btn btn--white text-20" id="chat-with-client">
                         <svg width="30" height="22" fill="currentColor">
                           <use xlink:href="./img/sprite.svg#envelope"></use>
                         </svg>
                         <span class="text-green" data-translate="user_account_contact">Написать терапевту</span>
                       </a>
                     </div>
-                    <div class="user-account__doctor-change-request">
-                      <p class="text-25">
-                        <span data-translate="doctor_change_request_msg_1">Терапевт</span>&nbsp;
-                        <span class="doctor-name">Олеся Парада</span>&nbsp;
-                        <span data-translate="doctor_change_request_msg_2">запросил перенос сессии</span>
-                        <span class="session-date">13 июля</span>
-                      </p>
-                      <p class="text-18">
-                        <span data-translate="doctor_change_request_msg_3">Предложено новое время:</span>
-                        <span class="new-date"><b>пятница 14 июля, 16:30</b></span><br>
-                        <span data-translate="doctor_change_request_msg_4">Если вы согласны, нажмите
-                          “Подтвердить”.</span>
-                        <span data-translate="doctor_change_request_msg_5">Если вас не устраивает предложенное время,
-                          нажмите “Предложить другое время”.</span>
-                      </p>
-                      <div class="btns">
-                        <button type="button" class="btn">
-                          <svg width="32" height="32" fill="currentColor">
-                            <use xlink:href="./img/sprite.svg#calendar-check"></use>
-                          </svg>
-                          <span data-translate="doctor_change_request_btn_1">Подтвердить</span>
-                        </button>
-                        <button type="button" class="btn btn--white" utils-btn-main data-id="main-change">
-                          <svg width="32" height="32" fill="currentColor">
-                            <use xlink:href="./img/sprite.svg#calendar-reschedule"></use>
-                          </svg>
-                          <span data-translate="doctor_change_request_btn_2">Предложить другое время</span>
-                        </button>
-                        <button type="button" class="btn btn--red">
-                          <svg width="32" height="32" fill="currentColor">
-                            <use xlink:href="./img/sprite.svg#calendar-cancel"></use>
-                          </svg>
-                          <span data-translate="doctor_change_request_btn_3">Отменить сессию</span>
-                        </button>
-                      </div>
-                    </div>
                   </div>
-                  <div class="user-account__session-info session-info">
-                    <div class="icon">
-                      <svg width="59" height="41" fill="currentColor">
-                        <use xlink:href="./img/sprite.svg#video"></use>
-                      </svg>
-                    </div>
-                    <div class="next-session">
-                      <p class="text-18" data-translate="next_session">Ближайшая сессия:</p>
-                      <p class="date text-20">6 июля, четверг, 15:00</p>
-                      <p class="date-not-scheduled text-20" data-translate="no_session">нет записи</p>
-                      <button class="user-account__change-btn btn" utils-btn-main data-id="main-change">
-                        <span class="change-btn-reschedule" data-translate="reschedule_session">Перенести сессию</span>
-                        <span class="change-btn-schedule" data-translate="schedule_session">Записаться</span>
-                      </button>
-                    </div>
-                    <div class="requested-session">
-                      <p class="requested-session text-18" data-translate="requested_session">Запрошен перенос на:</p>
-                      <p class="date text-20">6 июля, четверг, 20:00</p>
-                    </div>
-                  </div>
+
                 </div>
                 <div class="user-account__session-change-wrapper">
                   <div class="user-account__doctor">

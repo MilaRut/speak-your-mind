@@ -707,6 +707,11 @@ details summary::marker {
   padding: 0 80px;
 }
 
+.internal .container {
+  max-width: 1920px;
+  padding: 0;
+}
+
 .title {
   font-size: 51px;
   font-weight: 700;
@@ -3276,6 +3281,7 @@ details summary::marker {
 }
 
 .user-account {
+  max-width: 1000px;
   min-height: 100%;
   -webkit-box-flex: 1;
   -ms-flex-positive: 1;
@@ -3406,35 +3412,6 @@ details summary::marker {
   margin-bottom: 10px;
 }
 
-.user-account .text-success {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-align: center;
-  -ms-flex-align: center;
-  align-items: center;
-  margin-bottom: 72px;
-  background-color: #f5f3ee;
-  border: 1px solid #a3a3a3;
-  border-radius: 16px;
-  padding: 16px;
-  width: -webkit-fit-content;
-  width: -moz-fit-content;
-  width: fit-content;
-}
-
-.user-account .text-success svg {
-  margin-right: 10px;
-}
-
-.user-account__message {
-  margin-bottom: 48px;
-}
-
-.user-account__message .text-25 {
-  margin-bottom: 24px;
-}
-
 .user-account__doctor {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -3444,86 +3421,91 @@ details summary::marker {
   align-items: center;
   -ms-flex-wrap: wrap;
   flex-wrap: wrap;
-  margin-bottom: 56px;
+  margin-bottom: 18px;
 }
 
-.user-account__doctor-image {
-  width: 100px;
-  min-width: 100px;
-  height: 100px;
-  margin-right: 10px;
+.user-account__messages {
+  margin-bottom: 48px;
+  width: 860px;
 }
 
-.user-account__doctor-info {
-  width: 70%;
-}
-
-.user-account__doctor-info p {
-  margin-bottom: 10px;
-}
-
-.user-account__contact {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-align: center;
-  -ms-flex-align: center;
-  align-items: center;
-  width: -webkit-fit-content;
-  width: -moz-fit-content;
-  width: fit-content;
-  border-radius: 73px;
-  border: 1px solid #039c69;
-  padding: 8px 24px;
-}
-
-.user-account__contact svg {
-  margin-right: 8px;
-}
-
-.user-account__contact span {
-  font-size: 20px;
-  font-weight: 700;
-  line-height: 1;
-}
-
-.user-account .session-info {
-  width: 800px;
-}
-
-.user-account__change-btn {
-  padding: 8px 24px;
-}
-
-.user-account .choice__thumbs-list {
-  max-width: 965px;
-}
-
-.change-requested .next-session,
-.change-requested .requested-session {
-  color: #a3a3a3;
-}
-
-.user-account__session-change-reset {
-  margin-top: 24px;
-  margin-left: 10px;
-  padding: 16px 24px;
-}
-
-.user-account__doctor-change-request {
+.user-account__message {
   width: 100%;
   margin: 40px 0 0;
-  border: 1px solid #A3A3A3;
   border-radius: 16px;
+  font-weight: 300;
+  font-size: 18px;
+  line-height: 1.2;
   padding: 16px 16px 40px;
+}
+
+.user-account__message--welcome {
+  position: relative;
+  background-color: #0f9c03;
+  border-radius: 8px;
+  padding: 8px 12px 8px 50px;
+  color: #ffffff;
+}
+
+.user-account__message--welcome::before {
+  position: absolute;
+  content: "";
+  top: 8px;
+  left: 16px;
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  background: #ffffff url("../../img/svg/success-mark.svg") center no-repeat;
+}
+
+.user-account__message--requested,
+.user-account__message--reschedule,
+.user-account__message--doctor-change-request {
+  border: 1px solid #A3A3A3;
   background-color: #F5F3EE;
 }
 
-.user-account__doctor-change-request p:first-child {
+.user-account__message--error {
+  position: relative;
+  margin: 40px 0 0;
+  background-color: #DF0C4B;
+  border-radius: 8px;
+  padding: 8px 12px 8px 60px;
+  max-width: 800px;
+}
+
+.user-account__message--error::before {
+  position: absolute;
+  content: "";
+  top: 16px;
+  left: 16px;
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  background: #ffffff url("../../img/svg/feedback-error.svg") center no-repeat;
+}
+
+.user-account__message--error p {
+  font-weight: 300;
+  font-size: 18px;
+  line-height: 120%;
+  color: #ffffff;
+  margin-bottom: 0;
+}
+
+.user-account__message--error p:first-child {
+  margin-bottom: 10px;
+}
+
+.user-account__message--error b {
+  font-weight: 700;
+}
+
+.user-account__message--doctor-change-request p:first-child {
   margin-bottom: 20px;
 }
 
-.user-account__doctor-change-request .btns {
+.user-account__message--doctor-change-request .btns {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -3531,7 +3513,7 @@ details summary::marker {
   margin: 30px 0 0;
 }
 
-.user-account__doctor-change-request .btns button {
+.user-account__message--doctor-change-request .btns button {
   padding: 8px 24px;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -3545,20 +3527,9 @@ details summary::marker {
   gap: 8px;
 }
 
-.message_error {
-  border: 1px solid #a3a3a3;
-  border-radius: 16px;
-  padding: 16px 16px 24px;
-  width: 723px;
-  background-color: #ffcbdb;
-  margin-bottom: 48px;
-}
-
-.message_error p {
-  font-size: 18px;
-  line-height: 1.2;
-  margin-bottom: 16px;
-  color: #df0c4b;
+.user-account__session-change-reset {
+  margin-top: 24px;
+  padding: 16px 24px;
 }
 
 .user-account__check-card {
@@ -3568,7 +3539,9 @@ details summary::marker {
   -webkit-box-align: center;
   -ms-flex-align: center;
   align-items: center;
-  padding: 8px 24px;
+  padding: 8px 0;
+  background-color: transparent;
+  border: none;
 }
 
 .user-account__check-card svg {
@@ -3579,133 +3552,6 @@ details summary::marker {
 .user-account__check-card span {
   font-size: 20px;
   color: #ffffff;
-}
-
-.user-account__main .text-success,
-.user-account__main .message_1,
-.user-account__main .message_2,
-.user-account__main .message_3,
-.user-account__main .user-account__session-wrapper,
-.user-account__main .user-account__session-change-wrapper,
-.user-account__main .date-not-scheduled,
-.user-account__main .change-btn-schedule,
-.user-account__main .user-account__doctor-change-request,
-.user-account__main .message_error {
-  display: none;
-}
-
-.user-account__main[data-utils=main-1-confirmed] .message_2,
-.user-account__main[data-utils=main-1-confirmed] .user-account__session-wrapper {
-  display: block;
-}
-
-.user-account__main[data-utils=main-1-confirmed] .requested-session {
-  display: none;
-}
-
-.user-account__main[data-utils=main-not-confirmed] .text-success {
-  display: none;
-}
-
-.user-account__main[data-utils=main-not-confirmed] .message_1 {
-  display: block;
-}
-
-.user-account__main[data-utils=main-change-confirmed] .text-success,
-.user-account__main[data-utils=main-change-confirmed] .message_2,
-.user-account__main[data-utils=main-confirmed] .text-success,
-.user-account__main[data-utils=main-confirmed] .message_2 {
-  display: none;
-}
-
-.user-account__main[data-utils=main-change-confirmed] .user-account__session-wrapper,
-.user-account__main[data-utils=main-confirmed] .user-account__session-wrapper {
-  display: block;
-}
-
-.user-account__main[data-utils=main-change-confirmed] .requested-session,
-.user-account__main[data-utils=main-confirmed] .requested-session {
-  display: none;
-}
-
-.user-account__main[data-utils=main-not-scheduled] .user-account__session-wrapper {
-  display: block;
-}
-
-.user-account__main[data-utils=main-not-scheduled] .requested-session {
-  display: none;
-}
-
-.user-account__main[data-utils=main-not-scheduled] .date {
-  display: none;
-}
-
-.user-account__main[data-utils=main-not-scheduled] .date-not-scheduled {
-  display: block;
-  text-align: center;
-}
-
-.user-account__main[data-utils=main-not-scheduled] .change-btn-reschedule {
-  display: none;
-}
-
-.user-account__main[data-utils=main-not-scheduled] .change-btn-schedule {
-  display: block;
-}
-
-.user-account__main[data-utils=main-change] .title,
-.user-account__main[data-utils=main-change] .user-account__message {
-  display: none;
-}
-
-.user-account__main[data-utils=main-change] .user-account__session-change-wrapper {
-  display: block;
-}
-
-.user-account__main[data-utils=main-change-not-confirmed] .message_3 {
-  display: block;
-}
-
-.user-account__main[data-utils=main-change-not-confirmed] .user-account__session-wrapper {
-  display: block;
-}
-
-.user-account__main[data-utils=main-change-not-confirmed] .user-account__change-btn {
-  display: none;
-}
-
-.user-account__main[data-utils=main-change-not-confirmed] .requested-session {
-  display: block;
-}
-
-.user-account__main[data-utils=main-change-not-confirmed] .next-session,
-.user-account__main[data-utils=main-change-not-confirmed] .requested-session {
-  color: #a3a3a3;
-}
-
-.user-account__main[data-utils=main-doctor-change] .user-account__session-wrapper {
-  display: block;
-}
-
-.user-account__main[data-utils=main-doctor-change] .user-account__doctor-change-request {
-  display: block;
-}
-
-.user-account__main[data-utils=main-doctor-change] .user-account__change-btn,
-.user-account__main[data-utils=main-doctor-change] .requested-session {
-  display: none;
-}
-
-.user-account__main[data-utils=payment-error] .message_error {
-  display: block;
-}
-
-.user-account__main[data-utils=payment-error] .user-account__session-wrapper {
-  display: block;
-}
-
-.user-account__main[data-utils=payment-error] .requested-session {
-  display: none;
 }
 
 .user-account__settings[data-utils=settings-reg-completed] .message,
@@ -3750,10 +3596,6 @@ details summary::marker {
   display: block;
 }
 
-.first-session-msg {
-  width: 100%;
-}
-
 .user-account__rechoice .questions .container {
   padding: 0;
 }
@@ -3773,8 +3615,9 @@ details summary::marker {
   -ms-flex-pack: center;
   justify-content: center;
   width: 100%;
-  height: 450px;
+  height: 400px;
   background: #eaeaea;
+  border-radius: 20px;
 }
 
 .session-info .icon {
@@ -4149,6 +3992,7 @@ details summary::marker {
 
 .doctor-account .settings__textarea-wrapper {
   width: 100%;
+  max-width: 1000px;
 }
 
 .doctor-account .settings__textarea-wrapper textarea {
@@ -4296,6 +4140,7 @@ details summary::marker {
 }
 
 .doctor-account .settings__edu-wrapper {
+  max-width: 1200px;
   margin-top: 32px;
 }
 
@@ -4987,6 +4832,7 @@ details summary::marker {
 }
 
 .sessions__requests {
+  max-width: 1200px;
   margin-bottom: 24px;
 }
 
@@ -5144,6 +4990,7 @@ details summary::marker {
   -webkit-box-align: center;
   -ms-flex-align: center;
   align-items: center;
+  gap: 10px;
   margin-top: 24px;
 }
 
@@ -5163,13 +5010,17 @@ details summary::marker {
 }
 
 .videochat__btn {
-  padding: 8px 24px;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
   -webkit-box-align: center;
   -ms-flex-align: center;
   align-items: center;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  width: 100%;
+  height: 48px;
 }
 
 .videochat__btn svg {
@@ -5245,7 +5096,28 @@ details summary::marker {
   position: absolute;
   top: 0;
   right: 0;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  height: 56px;
+  gap: 10px;
   padding: 10px 20px;
+}
+
+.schedule__send-btn svg {
+  display: none;
+}
+
+.schedule__send-btn.is-loading svg {
+  display: block;
+  -webkit-animation: rotate-animation 5s infinite linear;
+  animation: rotate-animation 5s infinite linear;
 }
 
 .schedule .text-success.is-visible {
@@ -5281,12 +5153,11 @@ details summary::marker {
 
 .schedule__tab-btn {
   cursor: pointer;
-  padding: 10px 4px;
+  padding: 10px;
   background-color: transparent;
   border: none;
   border-bottom: 3px solid transparent;
   color: #00ac73;
-  margin-right: 10px;
 }
 
 .schedule__tab-btn.is-active {
@@ -5454,6 +5325,40 @@ details summary::marker {
   width: 20px;
   height: 20px;
   background: linear-gradient(45deg, #a3a3a3 0%, #a3a3a3 50%, rgba(255, 255, 255, 0) 50%, rgba(255, 255, 255, 0) 100%);
+}
+
+@-webkit-keyframes rotate-animation {
+  0% {
+    -webkit-transform: rotate(0deg);
+    transform: rotate(0deg);
+  }
+
+  50% {
+    -webkit-transform: rotate(180deg);
+    transform: rotate(180deg);
+  }
+
+  100% {
+    -webkit-transform: rotate(360deg);
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes rotate-animation {
+  0% {
+    -webkit-transform: rotate(0deg);
+    transform: rotate(0deg);
+  }
+
+  50% {
+    -webkit-transform: rotate(180deg);
+    transform: rotate(180deg);
+  }
+
+  100% {
+    -webkit-transform: rotate(360deg);
+    transform: rotate(360deg);
+  }
 }
 
 .clients__table table {
