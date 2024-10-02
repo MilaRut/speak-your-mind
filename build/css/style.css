@@ -2709,7 +2709,7 @@ details summary::marker {
   transform: translateY(-50%);
   left: 0;
   border-radius: 2px;
-  border: 2px solid #202020;
+  border: 1px solid #202020;
 }
 
 .questions__checkboxes input[type=checkbox]:checked + span::before {
@@ -4211,7 +4211,7 @@ details summary::marker {
   transform: translateY(-50%);
   left: 0;
   border-radius: 2px;
-  border: 2px solid #202020;
+  border: 1px solid #202020;
 }
 
 .doctor-account .settings__checkboxes input[type=checkbox]:checked + span::before {
@@ -4431,7 +4431,7 @@ details summary::marker {
   transform: translateY(-50%);
   left: 0;
   border-radius: 2px;
-  border: 2px solid #202020;
+  border: 1px solid #202020;
 }
 
 .rechoice fieldset .inputs-wrapper--checkboxes input[type=checkbox]:checked + span::before {
@@ -4622,9 +4622,8 @@ details summary::marker {
   margin-top: 16px;
   padding: 0 10px;
   border: 1px solid #202020;
+  border-radius: 4px;
   background: #ffffff;
-  -webkit-box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.25) inset;
-  box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.25) inset;
 }
 
 .doc-questionary select:invalid {
@@ -4640,6 +4639,7 @@ details summary::marker {
   min-height: 150px;
   margin-top: 16px;
   padding: 16px;
+  border-radius: 4px;
 }
 
 .doc-questionary .text-18,
@@ -4657,6 +4657,14 @@ details summary::marker {
   flex-direction: column;
   margin-right: 40px;
   margin-top: 30px;
+}
+
+.doc-questionary__checkboxes.row {
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+  -ms-flex-direction: row;
+  flex-direction: row;
+  gap: 35px;
 }
 
 .doc-questionary__checkboxes input[type=checkbox] {
@@ -4687,12 +4695,12 @@ details summary::marker {
   transform: translateY(-50%);
   left: 0;
   border-radius: 2px;
-  border: 2px solid #202020;
+  border: 1px solid #202020;
 }
 
 .doc-questionary__checkboxes input[type=checkbox]:checked + span::before {
-  border-color: #00ac73;
-  background: #00ac73 url("../img/svg/check-small.svg") center no-repeat;
+  border-color: #039c69;
+  background: #039c69 url("../img/svg/check-small.svg") center no-repeat;
 }
 
 .doc-questionary .input-file {
@@ -4726,7 +4734,7 @@ details summary::marker {
   max-width: fit-content;
   height: 40px;
   margin: 16px 0 50px;
-  border: 1px solid #00ac73;
+  border: 1px solid #039c69;
   border-radius: 38px;
   overflow: hidden;
 }
@@ -4764,12 +4772,12 @@ details summary::marker {
 .doc-questionary__radio .divider {
   height: 100%;
   width: 1px;
-  background-color: #00ac73;
+  background-color: #039c69;
 }
 
 .doc-questionary__radio input[type=radio]:checked + label {
   color: #ffffff;
-  background-color: #00ac73;
+  background-color: #039c69;
 }
 
 .doc-questionary__submit-btn {
@@ -4796,6 +4804,78 @@ details summary::marker {
   font-weight: 900;
   font-size: 20px;
   line-height: 1.1;
+}
+
+.doc-questionary__wrapper--edu {
+  width: 100%;
+  max-width: 710px;
+}
+
+.doc-questionary__wrapper--edu fieldset {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  gap: 10px;
+}
+
+.doc-questionary__wrapper--edu input[type=text] {
+  max-width: 100%;
+  width: 100%;
+}
+
+.doc-questionary__wrapper--edu input[name=edu_year] {
+  max-width: 100px;
+}
+
+.doc-questionary__wrapper--edu input[name=edu_faculty] {
+  max-width: 400px;
+}
+
+.doc-questionary__inputs-wrapper {
+  margin-bottom: 16px;
+}
+
+.doc-questionary__add-edu-btn {
+  position: relative;
+  background-color: transparent;
+  border: none;
+  width: -webkit-fit-content;
+  width: -moz-fit-content;
+  width: fit-content;
+  height: 44px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  font-size: 14px;
+  line-height: 1;
+  font-weight: 400;
+  color: #039c69;
+  cursor: pointer;
+  -webkit-transition: opacity 0.3s ease;
+  transition: opacity 0.3s ease;
+}
+
+.doc-questionary__add-edu-btn .plus-icon {
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  background-color: #039c69;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  margin-right: 8px;
 }
 
 .doctor-account {
@@ -5414,7 +5494,7 @@ details summary::marker {
   -ms-transform: translate(-50%, -50%);
   transform: translate(-50%, -50%);
   border-radius: 2px;
-  border: 2px solid #202020;
+  border: 1px solid #202020;
   cursor: pointer;
 }
 
@@ -6374,7 +6454,7 @@ input.personal {
   left: 0;
   background-color: #ffffff;
   border-radius: 2px;
-  border: 2px solid #202020;
+  border: 1px solid #202020;
 }
 
 .admin-profile__checkboxes input[type=checkbox]:checked + span::before {
@@ -6607,6 +6687,10 @@ button.admin-profile__back-to-profile {
 
   .faq__description a:hover:not(.focus-visible) {
     opacity: 0.7;
+  }
+
+  .doc-questionary__add-edu-btn:hover:not(.focus-visible) {
+    opacity: 0.5;
   }
 
   .sessions__client-name:hover:not(.focus-visible) {
