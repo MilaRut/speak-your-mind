@@ -17,76 +17,6 @@
 
 <body>
   <div class="wrapper internal user-logged user-logged-doctor">
-    <header class="header">
-      <div class="container">
-        <div class="header__logo">
-          <div class="header__logo-wrapper">
-            <svg width="196" height="24" fill="currentColor">
-              <use xlink:href="./img/sprite.svg#logo"></use>
-            </svg>
-          </div>
-        </div>
-        <nav class="header__nav nav">
-          <div class="nav__wrapper">
-            <ul class="nav__list">
-              <li class="nav__item nav__item--psychologists">
-                <a class="nav__link" data-translate="nav_doc" href="doctor-landing.html"></a>
-              </li>
-              <!-- <li class="nav__item nav__item--businnes">
-                <a class="nav__link href="businnes-landing.html" data-translate="nav_comp"></a>
-              </li> -->
-              <li class="nav__item">
-                <a class="nav__link" href="faq.html">FAQ</a>
-              </li>
-            </ul>
-          </div>
-        </nav>
-        <div class="header__lang-switcher lang-switcher">
-          <button class="lang-switcher__btn js-dropdown-trigger" data-id="#lang-switcher">
-            <span class="current-language"></span>
-            <svg width="10" height="10" fill="currentColor">
-              <use xlink:href="./img/sprite.svg#dropdown"></use>
-            </svg>
-          </button>
-          <ul class="lang-switcher__list list-reset" id="lang-switcher">
-            <!-- <li class="lang-switcher__item">
-              <a href="#" data-lang="hu">Hu</a>
-            </li> -->
-            <li class="lang-switcher__item">
-              <a href="#" data-lang="en">En</a>
-            </li>
-            <li class="lang-switcher__item">
-              <a href="#" data-lang="ru">Ru</a>
-            </li>
-          </ul>
-        </div>
-        <div class="header__unlogged unlogged">
-          <a class="unlogged__login-btn btn btn--white" data-translate="header_login_btn"></a>
-          <a href="user-signup-start.html" class="unlogged__login-btn btn" data-translate="header_signup_btn"></a>
-        </div>
-        <div class="header__logged logged">
-          <div class="logged__wrapper">
-            <div class="logged__user-thumb">
-              <img src="./img/content/user-thumb.png" width="24" height="24" alt="">
-            </div>
-            <button class="logged__btn js-dropdown-trigger" data-id="#logged-menu">
-              <span class="logged__username">Username</span>
-              <svg width="10" height="10" fill="currentColor">
-                <use xlink:href="./img/sprite.svg#dropdown"></use>
-              </svg>
-            </button>
-            <ul class="logged__menu-list list-reset" id="logged-menu">
-              <li class="logged__menu-item">
-                <a href="#" data-translate="to_profile">В личный кабинет</a>
-              </li>
-              <li class="logged__menu-item">
-                <a href="#" data-translate="logout_btn" class="logout-btn">Выйти</a>
-              </li>
-            </ul>
-          </div>
-        </div>
-      </div>
-    </header>
     <main>
       <section class="doctor-account">
         <div class="container">
@@ -317,8 +247,11 @@
                       <fieldset class="settings__methods">
                         <h3 class="text-31" data-translate="doctor_profile_methods">Методы терапии</h3>
                         <div class="settings__input-wrapper">
-                          <p class="text-20" data-translate="doc_q_method_title">Выберите 1-2 метода, в которых вы
-                            работаете онлайн</p>
+                          <p class="text-14">
+                            <span data-translate="doctor_profile_methods_msg">Если вы хотите отредактировать этот
+                              раздел, напишите адмнистратору:</span>
+                            <a href="mailto:admin@speakyourmind.help" class="text-green">admin@speakyourmind.help</a>
+                          </p>
                           <div class="settings__checkboxes readonly">
                             <div class="inputs-wrapper">
                               <label>
@@ -777,6 +710,15 @@
                       <a class="settings__payment-show-history text-18 text-green" href="doctor-account-payments.html"
                         data-translate="doctor_payments_history">Посмотреть историю выплат</a>
                     </div>
+                    <div class="settings__payment-hidden">
+                      <input type="text" name="card-owner-hidden" id="card-owner-hidden">
+                      <input type="text" name="card-number-hidden" id="card-number-hidden">
+                      <input type="text" name="card-exp-hidden" id="card-exp-hidden">
+                      <input type="text" name="card-cvc-hidden" id="card-cvc-hidden">
+                    </div>
+                    <div class="settings__avatar-hidden">
+                      <input type="file" name="card-name-hidden" id="avatar-hidden">
+                    </div>
                     <div class="settings__btn-wrapper">
                       <button type="submit" class="settings__submit-btn btn" form="doctor-settings-form"
                         data-translate="save_changes_btn">Сохранить изменения</button>
@@ -938,60 +880,7 @@
         <h2 class="modal__title text-31" data-translate="modal_card_title">Привязать карту</h2>
         <div class="card">
           <div class="card__card-info">
-            <form action="" method="post">
-              <fieldset>
-                <label for="card-owner">
-                  <span data-translate="card_owner_name">Имя владельца карты</span>
-                  <input type="text" id="card-owner" placeholder="Имя на лицевой стороне карты"
-                    data-translate="card_owner_name_placeholder">
-                </label>
-              </fieldset>
-              <fieldset>
-                <label for="card-number">
-                  <span data-translate="card_number">Номер карты</span>
-                  <input type="number" id="card-number" placeholder="x x x x    x x x x    x x x x    x x x x">
-                </label>
-              </fieldset>
-              <fieldset>
-                <label for="card-exp">
-                  <span data-translate="card_exp">Срок действия</span>
-                  <input type="number" id="card-exp" placeholder="m m  /  y y">
-                </label>
-                <label for="card-cvc">
-                  <span data-translate="card_cvc">Код CVС</span>
-                  <input type="number" id="card-cvc" maxlength="3" placeholder="x x x">
-                </label>
-              </fieldset>
-              <p class="card__permission text-18">
-                <span data-translate="card_permission_1">Добавляя карту вы принимаете</span>&nbsp;
-                <a href="#" class="text-green" data-open-modal data-modal-id="#payment-terms"
-                  data-translate="card_permission_2">условия сервиса</a>&nbsp;
-                <span data-translate="card_permission_3">и разрешаете</span>&nbsp;
-                <a href="#" class="text-green" data-open-modal data-modal-id="#payment-terms"
-                  data-translate="card_permission_4">автосписания</a>
-              </p>
-              <button type="submit" class="card__submit-btn btn" data-translate="card_submit_btn">Добавить
-                карту</button>
-            </form>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <div class="modal modal--preload" id="new-card-popup">
-    <div class="modal__wrapper">
-      <div class="modal__overlay" data-close-modal></div>
-      <div class="modal__content modal__content--new-card">
-        <button class="modal__close-btn" type="button" aria-label="Закрыть окно." data-close-modal>
-          <svg width="32" height="32" fill="currentColor">
-            <use xlink:href="./img/sprite.svg#close-modal"></use>
-          </svg>
-        </button>
-        <h2 class="modal__title text-31" data-translate="modal_card_title">Привязать карту</h2>
-        <div class="card">
-          <div class="card__card-info">
-            <form action="" method="post">
+            <form action="" method="post" id="card-popup-form">
               <fieldset>
                 <label for="card-owner">
                   <span data-translate="card_owner_name">Имя владельца карты</span>
@@ -1153,22 +1042,9 @@
         // дата рождения
         const dateOfBirth = data.doc_date_of_birth;
         const [year, month, day] = dateOfBirth.split('-');
-        const monthNames = {
-          "01": "jan",
-          "02": "feb",
-          "03": "mar",
-          "04": "apr",
-          "05": "may",
-          "06": "jun",
-          "07": "jul",
-          "08": "aug",
-          "09": "sep",
-          "10": "oct",
-          "11": "nov",
-          "12": "dec"
-        };
+
         document.querySelector('#doctor-birth-day').value = day;
-        document.querySelector('#doctor-birth-month').value = monthNames[month];
+        document.querySelector('#doctor-birth-month').value = month;
         document.querySelector('#doctor-birth-year').value = year;
         document.querySelector('#doc_edu_uni').textContent = data.doc_edu;
         document.querySelector('#doc_edu-uni-2').textContent = data.doc_edu;
@@ -1297,7 +1173,13 @@
       document.getElementById('doctor-settings-form').addEventListener('submit', function (e) {
         e.preventDefault();
 
-        const doc_date_of_birth = document.getElementById('doctor-birth-day').value;
+        const session_token = localStorage.getItem('token');
+        const day = document.getElementById('doctor-birth-day').value.padStart(2, '0'); // Добавляем ведущий ноль
+        const month = document.getElementById('doctor-birth-month').value; // Месяц уже в нужном формате
+        const year = document.getElementById('doctor-birth-year').value;
+
+        // Формируем строку даты
+        const doc_date_of_birth = `${year}-${month}-${day}`;
 
         // массив языков
         const languages = document.querySelectorAll('[name="doc_language"]');
@@ -1326,9 +1208,22 @@
         const lgbtq = document.querySelector('input[name="lgbtq"]:checked').value;
         const therapy_type = document.querySelector('input[name="therapy_type"]:checked').value;
 
+        // данные карты
+        const card_owner = document.querySelector('#card-owner-hidden');
+        const card_number = document.querySelector('#card-number-hidden');
+        const card_exp = document.querySelector('#card-exp-hidden');
+        const card_cvc = document.querySelector('#card-cvc-hidden');
+        const doctor_card = {
+          name: card_owner.value,
+          number: card_number.value,
+          exp: card_exp.value,
+          cvc: card_cvc.value
+        };
+        // аватар
+        const avatar = document.querySelector('#avatar-hidden');
 
-        const data = {
-          session_token: token,
+        const dataToUpdate = {
+          session_token: session_token,
           doc_date_of_birth: doc_date_of_birth,
           doc_language: doc_language,
           doc_additional_info: doc_additional_info,
@@ -1336,29 +1231,75 @@
           client_age: client_age,
           lgbtq: lgbtq,
           therapy_type: therapy_type,
-          symptoms: doc_symptoms
+          symptoms: doc_symptoms,
+          doctor_card: doctor_card,
         };
 
-        fetch('http://www.speakyourmind.help:8000/update_therapist', {
-          method: 'POST',
-          headers: {
-            'Content-Type': 'application/json'
-          },
-          body: JSON.stringify(data)
-        })
-          .then(response => {
-            if (!response.ok) {
-              throw new Error('Сеть не в порядке');
-            }
-            return response.json();
+        // Читаем файл и преобразуем его в Base64
+        const file = avatar.files[0];
+        if (file) {
+          const reader = new FileReader();
+          reader.onloadend = function () {
+            const base64data = reader.result; // Это будет строка Base64
+
+            // Добавляем Base64 в объект
+            dataToUpdate.avatar = base64data;
+
+            // Отправляем данные на бэкенд
+            fetch('http://www.speakyourmind.help:8000/update_therapist', {
+              method: 'POST',
+              headers: {
+                'Content-Type': 'application/json'
+              },
+              body: JSON.stringify({ dataToUpdate })
+            })
+              .then(response => response.json())
+              .then(data => {
+                console.log('Успех:', data);
+              })
+              .catch((error) => {
+                console.error('Ошибка:', error);
+              });
+          };
+          reader.readAsDataURL(file); // Читаем файл как Data URL (Base64)
+        } else {
+          // Если файл не выбран, отправляем данные без него
+          fetch('/your-endpoint', {
+            method: 'POST',
+            headers: {
+              'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({ dataToUpdate })
           })
-          .then(data => {
-            // TODO удалить вывод в консоль
-            console.log('Данные пользователя:', data);
-          })
-          .catch(error => {
-            console.error('Ошибка при получении данных пользователя:', error);
-          });
+            .then(response => response.json())
+            .then(data => {
+              console.log('Успех:', data);
+            })
+            .catch((error) => {
+              console.error('Ошибка:', error);
+            });
+        }
+
+        // fetch('http://www.speakyourmind.help:8000/update_therapist', {
+        //   mode: 'no-cors',
+        //   method: 'POST',
+        //   headers: {
+        //     'Content-Type': 'application/json'
+        //   },
+        //   body: JSON.stringify(data)
+        // })
+        //   .then(response => {
+        //     if (!response.ok) {
+        //       throw new Error('Сеть не в порядке');
+        //     }
+        //     return response.json();
+        //   })
+        //   .then(data => {
+        //     console.log('Данные пользователя обновленные:', data);
+        //   })
+        //   .catch(error => {
+        //     console.error('Ошибка при получении данных пользователя:', error);
+        //   });
       });
 
     });

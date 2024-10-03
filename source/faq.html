@@ -16,7 +16,7 @@
 </head>
 
 <body>
-  <div class="wrapper user-unlogged">
+  <div class="wrapper">
     <header class="header">
       <div class="container">
         <div class="header__logo">
@@ -69,20 +69,9 @@
             <div class="logged__user-thumb">
               <img src="./img/content/user-thumb.png" width="24" height="24" alt="">
             </div>
-            <button class="logged__btn js-dropdown-trigger" data-id="#logged-menu">
+            <button class="logged__btn" id="#logged-menu">
               <span class="logged__username">Username</span>
-              <svg width="10" height="10" fill="currentColor">
-                <use xlink:href="./img/sprite.svg#dropdown"></use>
-              </svg>
             </button>
-            <ul class="logged__menu-list list-reset" id="logged-menu">
-              <li class="logged__menu-item">
-                <a href="doctor-account-sessions.html" data-translate="to_profile">В личный кабинет</a>
-              </li>
-              <li class="logged__menu-item">
-                <a href="#" data-translate="logout_btn" class="logout-btn">Выйти</a>
-              </li>
-            </ul>
           </div>
         </div>
       </div>

@@ -7,9 +7,9 @@ function logOut() {
   logoutBtns.forEach((btn) => {
     btn.addEventListener('click', (e) => {
       e.preventDefault();
-      localStorage.removeItem('token');
-      localStorage.removeItem('is_therapist');
-      localStorage.removeItem('checkboxData');
+      const savedLang = localStorage.getItem('language') || 'en';
+      localStorage.clear();
+      localStorage.setItem('language', savedLang);
       window.location.href = '/index.html';
     });
   });
