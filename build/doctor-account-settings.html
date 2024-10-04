@@ -184,8 +184,12 @@
                             <div class="settings__avatar">
                               <img src="./img/content/user-thumb.png" width="100" height="100" alt="">
                             </div>
-                            <button type="button" class="settings__edit-avatar-btn text-green" data-open-modal
-                              data-modal-id="#upload-avatar" data-translate="edit">Редактировать</button>
+                            <p>
+                              <span>Если вы хотите поменять фото профиля, напишите об этом на адрес</span>&nbsp;
+                              <a href="mailto:admin@speakyourmind.help"
+                                class="text-green">admin@speakyourmind.help</a>&nbsp;
+                              <span>и приложите новое фото к письму</span>.
+                            </p>
                           </div>
                           <input type="hidden" name="doc_avatar" id="doc_avatar">
                         </div>
@@ -411,7 +415,7 @@
                                   <span data-translate="symptoms_0">Усталость</span>
                                 </label>
                                 <label>
-                                  <input type="checkbox" id="symptoms_1" name="symptoms" value="1" checked>
+                                  <input type="checkbox" id="symptoms_1" name="symptoms" value="1">
                                   <span data-translate="symptoms_1">Депрессивные состояния</span>
                                 </label>
                                 <label>
@@ -433,7 +437,7 @@
                                   <span data-translate="symptoms_5">Самооценка</span>
                                 </label>
                                 <label>
-                                  <input type="checkbox" id="symptoms_6" name="symptoms" value="6" checked>
+                                  <input type="checkbox" id="symptoms_6" name="symptoms" value="6">
                                   <span data-translate="symptoms_6">Одиночество</span>
                                 </label>
                                 <label>
@@ -561,43 +565,12 @@
                       <hr>
                       <fieldset class="settings__edu">
                         <h3 class="text-31" data-translate="doctor_profile_edu">Опыт и образование</h3>
-                        <p class="text-18">
+                        <p class="text-18 settings__edu-subtitle">
                           <span data-translate="contact_manager">Для внесения изменений свяжитесь с
                             менеджером</span>&nbsp;
                           <a href="mailto:admin@speakyourmind.help" class="text-green">admin@speakyourmind.help</a>
                         </p>
-                        <div class="settings__edu-wrapper">
-                          <!-- <p class="text-18 settings__edu-year">2014</p> -->
-                          <p class="text-18 settings__edu-uni" id="doc_edu_uni">Германская Профессиональная
-                            Психодраматическая
-                            Ассоциация. Морено – Институт Юберлинген/Эндкобен. Психодраматерапевт, ведущий групповой
-                            психодраматерапии и консультирования.</p>
-                        </div>
-                        <!-- <div class="settings__edu-wrapper">
-                          <p class="text-18 settings__edu-year">2008</p>
-                          <p class="text-18 settings__edu-uni">Южно-Российский гуманитарный институт. Современные методы
-                            психодрамы и социометрии</p>
-                        </div>
-                        <div class="settings__edu-wrapper">
-                          <p class="text-18 settings__edu-year">2008</p>
-                          <p class="text-18 settings__edu-uni">Южно-Российский гуманитарный институт. Психологический
-                            коучинг: структура и функции</p>
-                        </div>
-                        <div class="settings__edu-wrapper">
-                          <p class="text-18 settings__edu-year">2007</p>
-                          <p class="text-18 settings__edu-uni">Южно-Российский гуманитарный институт. Современные методы
-                            психологического бизнес-тренинга (тренинг тренеров)</p>
-                        </div>
-                        <div class="settings__edu-wrapper">
-                          <p class="text-18 settings__edu-year">1997</p>
-                          <p class="text-18 settings__edu-uni">Пятигорский государственный лингвистический университет.
-                            Психолог-консультант</p>
-                        </div>
-                        <div class="settings__edu-wrapper">
-                          <p class="text-18 settings__edu-year">1995</p>
-                          <p class="text-18 settings__edu-uni">Ростовская Государственная Экономическая Академию.
-                            Менеджмент (управление персоналом)</p>
-                        </div> -->
+                        <ul class="settings__edu-list list-reset"></ul>
                       </fieldset>
                       <hr>
                       <div class="settings__pricing pricing">
@@ -710,15 +683,6 @@
                       <a class="settings__payment-show-history text-18 text-green" href="doctor-account-payments.html"
                         data-translate="doctor_payments_history">Посмотреть историю выплат</a>
                     </div>
-                    <div class="settings__payment-hidden">
-                      <input type="text" name="card-owner-hidden" id="card-owner-hidden">
-                      <input type="text" name="card-number-hidden" id="card-number-hidden">
-                      <input type="text" name="card-exp-hidden" id="card-exp-hidden">
-                      <input type="text" name="card-cvc-hidden" id="card-cvc-hidden">
-                    </div>
-                    <div class="settings__avatar-hidden">
-                      <input type="file" name="card-name-hidden" id="avatar-hidden">
-                    </div>
                     <div class="settings__btn-wrapper">
                       <button type="submit" class="settings__submit-btn btn" form="doctor-settings-form"
                         data-translate="save_changes_btn">Сохранить изменения</button>
@@ -773,44 +737,7 @@
                       </div>
                       <div class="doctor__content-block" id="doctor__edu">
                         <h2 class="text-25 doctor__title" data-translate="doc_q_edu_placeholder">Образование</h2>
-                        <ul class="doctor__edu-list list-reset">
-                          <li class="doctor__edu-item">
-                            <!-- <p class="doctor__edu-year">2014</p> -->
-                            <p class="doctor__edu-uni" id="doc_edu-uni-2">Германская Профессиональная Психодраматическая
-                              Ассоциация.
-                              Морено
-                              –
-                              Институт Юберлинген/Эндкобен. Психодраматерапевт, ведущий групповой психодраматерапии и
-                              консультирования.</p>
-                          </li>
-                          <!-- <li class="doctor__edu-item">
-                            <p class="doctor__edu-year">2008</p>
-                            <p class="doctor__edu-uni">Южно-Российский гуманитарный институт. Современные методы
-                              психодрамы
-                              и социометрии.</p>
-                          </li>
-                          <li class="doctor__edu-item">
-                            <p class="doctor__edu-year">2008</p>
-                            <p class="doctor__edu-uni">Южно-Российский гуманитарный институт. Психологический коучинг:
-                              структура и функции.</p>
-                          </li>
-                          <li class="doctor__edu-item">
-                            <p class="doctor__edu-year">2007</p>
-                            <p class="doctor__edu-uni">Южно-Российский гуманитарный институт. Современные методы
-                              психологического бизнес-тренинга
-                              (тренинг тренеров).</p>
-                          </li>
-                          <li class="doctor__edu-item">
-                            <p class="doctor__edu-year">1996</p>
-                            <p class="doctor__edu-uni">Пятигорский государственный лингвистический университет.
-                              Психолог-консультант.</p>
-                          </li>
-                          <li class="doctor__edu-item">
-                            <p class="doctor__edu-year">1995</p>
-                            <p class="doctor__edu-uni">Ростовская Государственная Экономическая Академия. Менеджмент
-                              (управление персоналом).</p>
-                          </li> -->
-                        </ul>
+                        <ul class="settings__edu-list list-reset"></ul>
                       </div>
                       <div class="doctor__content-block schedule-dropdown" id="schedule">
                         <h2 class="text-25 doctor__title" data-translate="doctor_schedule_title">Расписание</h2>
@@ -964,7 +891,7 @@
         });
 
         // Отправка запроса на сервер для получения расписания
-        fetch('http://www.speakyourmind.help:8000/doctor_schedule', {
+        fetch('http://127.0.0.1:8000/doctor_schedule', {
           method: 'POST',
           headers: {
             'Authorization': `Bearer ${token}`,
@@ -992,7 +919,7 @@
 
       if (token) {
         // Отправка запроса на сервер для получения данных пользования
-        fetch('http://www.speakyourmind.help:8000/get_doc_data', {
+        fetch('http://127.0.0.1:8000/get_doc_data', {
           method: 'POST',
           headers: {
             'Authorization': `Bearer ${token}`,
@@ -1046,8 +973,44 @@
         document.querySelector('#doctor-birth-day').value = day;
         document.querySelector('#doctor-birth-month').value = month;
         document.querySelector('#doctor-birth-year').value = year;
-        document.querySelector('#doc_edu_uni').textContent = data.doc_edu;
-        document.querySelector('#doc_edu-uni-2').textContent = data.doc_edu;
+
+        // образование
+
+        const eduData = data.doc_edu;
+        const eduBlock = document.querySelectorAll('.settings__edu-list')
+
+        eduBlock.forEach((block) => {
+          renderEducation(block);
+        });
+
+        function renderEducation(parent) {
+          eduData.forEach((el) => {
+            const wrapper = document.createElement('li');
+            wrapper.className = 'settings__edu-item';
+
+            const year = document.createElement('p');
+            year.className = 'settings__edu-field settings__edu-field--year';
+            year.textContent = el.year;
+
+            const university = document.createElement('p');
+            university.className = 'settings__edu-field settings__edu-field--university';
+            university.textContent = el.university;
+
+            const faculty = document.createElement('p');
+            faculty.className = 'settings__edu-field  settings__edu-field--faculty';
+            faculty.textContent = el.faculty;
+
+            const degree = document.createElement('p');
+            degree.className = 'settings__edu-field  settings__edu-field--degree';
+            degree.textContent = el.degree;
+
+            wrapper.appendChild(year);
+            wrapper.appendChild(university);
+            wrapper.appendChild(faculty);
+            wrapper.appendChild(degree);
+            parent.appendChild(wrapper);
+          })
+        }
 
         const lang = localStorage.getItem('language') || 'en';
         function getExperienceWord(years) {
@@ -1085,6 +1048,8 @@
 
         document.querySelector('#about-doctor > p').textContent = data.doc_additional_info;
       }
+
+      // апдейт расписания
 
       function updateDocSchedule(data) {
         console.log('Расписание:', data);
@@ -1188,12 +1153,11 @@
           .map(checkbox => checkbox.value); // Преобразуем строку в число
         const doc_language = languagesValues;
 
-        // массив методов
-        const methods = document.querySelectorAll('[name="doc_method"]');
-        const methodsValues = Array.from(methods)
-          .filter(checkbox => checkbox.checked)
-          .map(checkbox => checkbox.value); // Преобразуем строку в число
-        const doc_method = methodsValues;
+        const doc_additional_info = document.getElementById('doc_additional_info').value;
+        const doc_email = document.getElementById('doc_email').value;
+        const client_age = document.querySelector('input[name="client_age"]:checked').value;
+        const lgbtq = document.querySelector('input[name="lgbtq"]:checked').value;
+        const therapy_type = document.querySelector('input[name="therapy_type"]:checked').value;
 
         // массив симптомов
         const symptoms = document.querySelectorAll('[name="symptoms"]');
@@ -1202,91 +1166,26 @@
           .map(checkbox => checkbox.value); // Преобразуем строку в число
         const doc_symptoms = symptomsValues;
 
-        const doc_additional_info = document.getElementById('doc_additional_info').value;
-        const doc_email = document.getElementById('doc_email').value;
-        const client_age = document.querySelector('input[name="client_age"]:checked').value;
-        const lgbtq = document.querySelector('input[name="lgbtq"]:checked').value;
-        const therapy_type = document.querySelector('input[name="therapy_type"]:checked').value;
-
-        // данные карты
-        const card_owner = document.querySelector('#card-owner-hidden');
-        const card_number = document.querySelector('#card-number-hidden');
-        const card_exp = document.querySelector('#card-exp-hidden');
-        const card_cvc = document.querySelector('#card-cvc-hidden');
-        const doctor_card = {
-          name: card_owner.value,
-          number: card_number.value,
-          exp: card_exp.value,
-          cvc: card_cvc.value
-        };
-        // аватар
-        const avatar = document.querySelector('#avatar-hidden');
-
         const dataToUpdate = {
           session_token: session_token,
           doc_date_of_birth: doc_date_of_birth,
           doc_language: doc_language,
           doc_additional_info: doc_additional_info,
-          doc_method: doc_method,
+          doc_email: doc_email,
           client_age: client_age,
           lgbtq: lgbtq,
           therapy_type: therapy_type,
           symptoms: doc_symptoms,
-          doctor_card: doctor_card,
         };
 
-        // Читаем файл и преобразуем его в Base64
-        const file = avatar.files[0];
-        if (file) {
-          const reader = new FileReader();
-          reader.onloadend = function () {
-            const base64data = reader.result; // Это будет строка Base64
+        console.log(JSON.stringify(dataToUpdate));
 
-            // Добавляем Base64 в объект
-            dataToUpdate.avatar = base64data;
-
-            // Отправляем данные на бэкенд
-            fetch('http://www.speakyourmind.help:8000/update_therapist', {
-              method: 'POST',
-              headers: {
-                'Content-Type': 'application/json'
-              },
-              body: JSON.stringify({ dataToUpdate })
-            })
-              .then(response => response.json())
-              .then(data => {
-                console.log('Успех:', data);
-              })
-              .catch((error) => {
-                console.error('Ошибка:', error);
-              });
-          };
-          reader.readAsDataURL(file); // Читаем файл как Data URL (Base64)
-        } else {
-          // Если файл не выбран, отправляем данные без него
-          fetch('/your-endpoint', {
-            method: 'POST',
-            headers: {
-              'Content-Type': 'application/json'
-            },
-            body: JSON.stringify({ dataToUpdate })
-          })
-            .then(response => response.json())
-            .then(data => {
-              console.log('Успех:', data);
-            })
-            .catch((error) => {
-              console.error('Ошибка:', error);
-            });
-        }
-
-        // fetch('http://www.speakyourmind.help:8000/update_therapist', {
-        //   mode: 'no-cors',
+        // fetch('http://127.0.0.1:8000/update_therapist', {
         //   method: 'POST',
         //   headers: {
         //     'Content-Type': 'application/json'
         //   },
-        //   body: JSON.stringify(data)
+        //   body: JSON.stringify(dataToUpdate)
         // })
         //   .then(response => {
         //     if (!response.ok) {

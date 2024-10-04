@@ -1,5 +1,5 @@
 import {iosVhFix} from './utils/ios-vh-fix';
-import {checkAuth} from './modules/check-auth';
+import {setWrapperClass} from './modules/wapper';
 import {loadLanguage} from './modules/localisation';
 import {setLangBtn} from './modules/lang-switcher';
 import {logOut} from './modules/logout';
@@ -36,7 +36,7 @@ window.addEventListener('DOMContentLoaded', () => {
   // ---------------------------------
 
   iosVhFix();
-  checkAuth();
+  setWrapperClass();
   loadLanguage(savedLanguage);
   logOut();
   setLangBtn();

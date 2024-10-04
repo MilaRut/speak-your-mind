@@ -700,6 +700,16 @@ details summary::marker {
   content: "";
 }
 
+.form-error-message {
+  display: none;
+}
+
+.form-error-message.is-active {
+  display: block;
+  color: #dc0000;
+  font-size: 14px;
+}
+
 .container {
   width: 100%;
   max-width: 1440px;
@@ -797,19 +807,43 @@ details summary::marker {
   color: #ffffff;
 }
 
-.user-unlogged .logged {
+.user-logged.client .nav__item--clients {
   display: none;
 }
 
-.user-logged .unlogged {
-  display: none;
-}
-
-.user-logged .nav__item--psychologists {
+.user-logged.therapist .nav__item--psychologists {
   display: none;
 }
 
 .internal .header {
+  display: none;
+}
+
+.wrapper:not(.client) .logged,
+.wrapper:not(.therapist) .logged {
+  display: none;
+}
+
+.wrapper:not(.client) .unlogged,
+.wrapper:not(.therapist) .unlogged {
+  display: block;
+}
+
+.wrapper.client .logged,
+.wrapper.therapist .logged {
+  display: block;
+}
+
+.wrapper.client .unlogged,
+.wrapper.therapist .unlogged {
+  display: none;
+}
+
+.wrapper.client .nav__item--clients {
+  display: none;
+}
+
+.wrapper.therapist .nav__item--psychologists {
   display: none;
 }
 
@@ -4045,6 +4079,7 @@ details summary::marker {
   -webkit-box-align: center;
   -ms-flex-align: center;
   align-items: center;
+  gap: 16px;
 }
 
 .doctor-account .settings label {
@@ -4190,6 +4225,7 @@ details summary::marker {
 
 .doctor-account .settings__checkboxes label {
   margin-bottom: 30px;
+  cursor: pointer;
 }
 
 .doctor-account .settings__checkboxes span {
@@ -4345,6 +4381,61 @@ details summary::marker {
   font-weight: 900;
   font-size: 20px;
   line-height: 1.1;
+}
+
+.settings__edu-subtitle {
+  margin-bottom: 32px;
+}
+
+.settings__edu-item {
+  margin-bottom: 32px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+  flex-wrap: wrap;
+  gap: 16px;
+}
+
+.settings__edu-field {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  max-width: 100%;
+  height: 32px;
+  padding: 0 10px;
+  border: 1px solid #a3a3a3;
+  border-radius: 4px;
+  background: #eaeaea;
+  color: #a3a3a3;
+  font-size: 18px;
+  line-height: 1.2;
+  width: 100%;
+}
+
+.settings__edu-field--year {
+  width: 62px;
+}
+
+.settings__edu-field--university {
+  min-width: 70%;
+  -webkit-box-flex: 1;
+  -ms-flex: 1;
+  flex: 1;
+}
+
+.settings__edu-field--faculty {
+  width: 30%;
+}
+
+.settings__edu-field--degree {
+  min-width: 60%;
+  -webkit-box-flex: 1;
+  -ms-flex: 1;
+  flex: 1;
 }
 
 .avatar-upload fieldset {

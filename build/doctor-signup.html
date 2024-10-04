@@ -29,8 +29,8 @@
         <nav class="header__nav nav">
           <div class="nav__wrapper">
             <ul class="nav__list">
-              <li class="nav__item nav__item--psychologists">
-                <a class="nav__link" data-translate="nav_client" href="user-landing.html"></a>
+              <li class="nav__item nav__item--clients">
+                <a class="nav__link" data-translate="nav_client" href="index.html"></a>
               </li>
               <!-- <li class="nav__item nav__item--businnes">
                 <a class="nav__link href="businnes-landing.html" data-translate="nav_comp"></a>
@@ -159,32 +159,7 @@
                 <b><span data-translate="doc_q_method_title">Ваш основной метод?</span>*</b>
               </p>
               <div class="checkboxes-wrapper">
-                <select name="doc_method" id="doc_method">
-                  <option>Выбрать</option>
-                  <option value="0" data-translate="doc_q_method_0">Психоанализ</option>
-                  <option value="1" data-translate="doc_q_method_1">Терапия внутренних семейных систем (IFS)</option>
-                  <option value="2" data-translate="doc_q_method_2">Когнитивно-поведенческая терапия (КПТ)</option>
-                  <option value="3" data-translate="doc_q_method_3">Травма-фокусированный КПТ</option>
-                  <option value="4" data-translate="doc_q_method_4">Терапия, сфокусированная на сострадании (CFT)
-                  </option>
-                  <option value="5" data-translate="doc_q_method_5">Диалектическая поведенческая терапия (ДБТ/DBT)
-                  </option>
-                  <option value="6" data-translate="doc_q_method_6">Гештальт-терапия</option>
-                  <option value="7" data-translate="doc_q_method_7">Системная семейная терапия</option>
-                  <option value="8" data-translate="doc_q_method_8">Системная сексуальная терапия</option>
-                  <option value="9" data-translate="doc_q_method_9">Терапия принятия и ответственности</option>
-                  <option value="10" data-translate="doc_q_method_10">Схема-терапия (CBT)</option>
-                  <option value="11" data-translate="doc_q_method_11">Экзистенциальная психотерапия(лого и
-                    клиент-центрированная)</option>
-                  <option value="12" data-translate="doc_q_method_12">Трансактный анализ</option>
-                  <option value="13" data-translate="doc_q_method_13">Десенсибилизация и переработка движением
-                    глаз(EMDR/ДПДГ)</option>
-                  <option value="14" data-translate="doc_q_method_14">Рационально эмоционально поведенческая
-                    терапия(REBT)</option>
-                  <option value="15" data-translate="doc_q_method_15">Эмоционально-фокусированная терапия (ЭФТ)</option>
-                  <option value="16" data-translate="doc_q_method_16">Арт-терапия</option>
-                </select>
-                <!-- <div class="doc-questionary__checkboxes">
+                <div class="doc-questionary__checkboxes">
                   <label>
                     <input type="checkbox" id="doc_method-0" name="doc_method" value="0">
                     <span data-translate="doc_q_method_0">Психоанализ</span>
@@ -257,7 +232,7 @@
                     <input type="checkbox" id="doc_method-16" name="doc_method" value="16">
                     <span data-translate="doc_q_method_16">Арт-терапия</span>
                   </label>
-                </div> -->
+                </div>
               </div>
             </div>
             <div class="doc-questionary__wrapper">
@@ -554,6 +529,13 @@
   </div>
 
   <script>
+    // очистка localStorage перед регистрацией
+    function clearLocStorage() {
+      const savedLang = localStorage.getItem('language') || 'en';
+      localStorage.clear();
+      localStorage.setItem('language', savedLang);
+    }
+
     // добавление новых полей образования
     const placeholders = {
       ru: {
@@ -607,7 +589,7 @@
     addEduInputs();
 
     const form = document.querySelector('#register-therapist-form');
-    const url = 'http://www.speakyourmind.help:8000/register_therapist';
+    const url = 'http://127.0.0.1:8000/register_therapist';
 
     form.addEventListener('submit', function (e) {
       e.preventDefault();
@@ -616,14 +598,12 @@
       const doc_date_of_birth = document.querySelector('#doc_date_of_birth').value;
       const doc_gender = document.querySelector('#doc_gender').value;
 
-      // const doc_edu = document.querySelector('#doc_edu').value;
-
       // массив методов
-      // const methods = document.querySelectorAll('[name="doc_method"]');
-      // const methodsValues = Array.from(methods)
-      //   .filter(checkbox => checkbox.checked)
-      //   .map(checkbox => checkbox.value);
-      // const doc_method = methodsValues;
+      const methods = document.querySelectorAll('[name="doc_method"]');
+      const methodsValues = Array.from(methods)
+        .filter(checkbox => checkbox.checked)
+        .map(checkbox => checkbox.value);
+      const doc_method = methodsValues;
 
       // объект с образованием
       const doc_edu = [];
@@ -637,17 +617,12 @@
 
         // Добавляем объект с данными в массив
         doc_edu.push({
-          year: year,
-          university: university,
-          faculty: faculty,
-          degree: degree
+          'year': year,
+          'university': university,
+          'faculty': faculty,
+          'degree': degree
         });
       });
-
-      console.log(doc_edu);
-
-      const doc_method_select = document.querySelector('#doc_method').value;
-      const doc_method = Array.from(doc_method_select);
 
       // массив языков
       const languages = document.querySelectorAll('[name="doc_language"]');

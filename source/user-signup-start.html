@@ -29,6 +29,9 @@
         <nav class="header__nav nav">
           <div class="nav__wrapper">
             <ul class="nav__list">
+              <li class="nav__item nav__item--clients">
+                <a class="nav__link" data-translate="nav_client" href="index.html"></a>
+              </li>
               <li class="nav__item nav__item--psychologists">
                 <a class="nav__link" data-translate="nav_doc" href="doctor-landing.html"></a>
               </li>
@@ -100,6 +103,7 @@
                     data-translate="password_placeholder">
                   <!-- <button type="button" class="show-password-btn">Показать пароль</button> -->
                 </label>
+                <span class="form-error-message">Something wrong. Do something</span>
               </fieldset>
               <div class="signup__btn-wrapper">
                 <button type="submit" class="signup__btn btn" data-translate="signup_submit_btn"></button>
@@ -147,7 +151,7 @@
           password: password
         };
 
-        fetch('http://www.speakyourmind.help:8000/register', {
+        fetch('http://127.0.0.1:8000/register', {
           method: 'POST',
           headers: {
             'Content-Type': 'application/json'
@@ -181,7 +185,7 @@
         // TODO удалить, токен не нужен
 
         // function getToken(loginData) {
-        //   fetch('http://www.speakyourmind.help:8000/register', {
+        //   fetch('http://127.0.0.1:8000/register', {
         //     method: 'POST',
         //     headers: {
         //       'Content-Type': 'application/json'
