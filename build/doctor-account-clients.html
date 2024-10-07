@@ -16,7 +16,7 @@
 </head>
 
 <body>
-  <div class="wrapper internal user-logged user-logged-doctor">
+  <div class="wrapper internal">
     <main>
       <section class="doctor-account">
         <div class="container">
@@ -359,8 +359,7 @@
         });
 
         // Отправка запроса на сервер для получения расписания
-        fetch('http://www.speakyourmind.help:8000/doctor_schedule', {
-          // mode: 'no-cors',
+        fetch('http://127.0.0.1:8000/doctor_schedule', {
           method: 'POST',
           headers: {
             'Authorization': `Bearer ${token}`,
@@ -388,8 +387,7 @@
 
       if (token) {
         // Отправка запроса на сервер для получения данных пользования
-        fetch('http://www.speakyourmind.help:8000/get_doc_data', {
-          // mode: 'no-cors',
+        fetch('http://127.0.0.1:8000/get_doc_data', {
           method: 'POST',
           headers: {
             'Authorization': `Bearer ${token}`,

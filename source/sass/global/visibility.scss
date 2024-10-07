@@ -1,17 +1,22 @@
-.user-unlogged {
-  .logged {
-    display: none;
-  }
-}
+// .user-unlogged {
+//   .logged {
+//     display: none;
+//   }
+// }
 
 .user-logged {
-  .unlogged {
-    display: none;
+  // .unlogged {
+  //   display: none;
+  // }
+
+  &.client {
+    .nav__item--clients {
+      display: none;
+    }
   }
 
-  .nav__item {
-
-    &--psychologists {
+  &.therapist {
+    .nav__item--psychologists {
       display: none;
     }
   }
@@ -20,5 +25,41 @@
 .internal {
   .header {
     display: none;
+  }
+}
+
+.wrapper:not(.client),
+.wrapper:not(.therapist) {
+  .logged {
+    display: none;
+  }
+
+  .unlogged {
+    display: block;
+  }
+}
+
+.wrapper.client,
+.wrapper.therapist {
+  .logged {
+    display: block;
+  }
+
+  .unlogged {
+    display: none;
+  }
+}
+
+.wrapper {
+  &.client {
+    .nav__item--clients {
+      display: none;
+    }
+  }
+
+  &.therapist {
+    .nav__item--psychologists {
+      display: none;
+    }
   }
 }

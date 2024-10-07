@@ -700,6 +700,16 @@ details summary::marker {
   content: "";
 }
 
+.form-error-message {
+  display: none;
+}
+
+.form-error-message.is-active {
+  display: block;
+  color: #dc0000;
+  font-size: 14px;
+}
+
 .container {
   width: 100%;
   max-width: 1440px;
@@ -797,19 +807,43 @@ details summary::marker {
   color: #ffffff;
 }
 
-.user-unlogged .logged {
+.user-logged.client .nav__item--clients {
   display: none;
 }
 
-.user-logged .unlogged {
-  display: none;
-}
-
-.user-logged .nav__item--psychologists {
+.user-logged.therapist .nav__item--psychologists {
   display: none;
 }
 
 .internal .header {
+  display: none;
+}
+
+.wrapper:not(.client) .logged,
+.wrapper:not(.therapist) .logged {
+  display: none;
+}
+
+.wrapper:not(.client) .unlogged,
+.wrapper:not(.therapist) .unlogged {
+  display: block;
+}
+
+.wrapper.client .logged,
+.wrapper.therapist .logged {
+  display: block;
+}
+
+.wrapper.client .unlogged,
+.wrapper.therapist .unlogged {
+  display: none;
+}
+
+.wrapper.client .nav__item--clients {
+  display: none;
+}
+
+.wrapper.therapist .nav__item--psychologists {
   display: none;
 }
 
@@ -2259,7 +2293,7 @@ details summary::marker {
   -ms-flex-align: center;
   align-items: center;
   width: 100%;
-  max-width: 749px;
+  max-width: 636px;
   background-color: #F5F3EE;
   border-radius: 24px;
   padding: 40px;
@@ -2280,6 +2314,19 @@ details summary::marker {
   margin: 0 auto;
 }
 
+.login form {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+}
+
 .login fieldset {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -2289,6 +2336,10 @@ details summary::marker {
   -ms-flex-direction: column;
   flex-direction: column;
   margin-bottom: 24px;
+}
+
+.login fieldset:has(input#one_time_psswd) {
+  width: 100%;
 }
 
 .login label {
@@ -2308,6 +2359,10 @@ details summary::marker {
   font-size: 20px;
   font-weight: 400;
   line-height: 1;
+}
+
+.login input#one_time_psswd {
+  width: 100%;
 }
 
 .login__btn-wrapper {
@@ -2331,6 +2386,11 @@ details summary::marker {
 .login__pass-reset {
   display: inline-block;
   margin-bottom: 20px;
+}
+
+.login__text {
+  color: #777777;
+  margin-bottom: 48px;
 }
 
 .signup .container {
@@ -2376,6 +2436,13 @@ details summary::marker {
 
 .signup form {
   width: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -ms-flex-direction: column;
+  flex-direction: column;
 }
 
 .signup fieldset {
@@ -2387,6 +2454,10 @@ details summary::marker {
   -ms-flex-direction: column;
   flex-direction: column;
   margin-bottom: 48px;
+}
+
+.signup fieldset:has(input#one_time_psswd) {
+  width: 100%;
 }
 
 .signup label {
@@ -2408,6 +2479,10 @@ details summary::marker {
   margin-bottom: 24px;
 }
 
+.signup label:has(input#one_time_psswd) {
+  padding-right: 0;
+}
+
 .signup input {
   min-width: 350px;
   height: 54px;
@@ -2417,6 +2492,10 @@ details summary::marker {
   font-size: 20px;
   font-weight: 400;
   line-height: 1;
+}
+
+.signup input#one_time_psswd {
+  width: 100%;
 }
 
 .signup__btn-wrapper {
@@ -2692,6 +2771,7 @@ details summary::marker {
 
 .questions__checkboxes span {
   position: relative;
+  display: block;
   font-size: 18px;
   font-weight: 400;
   line-height: 1.2;
@@ -3539,9 +3619,9 @@ details summary::marker {
   -webkit-box-align: center;
   -ms-flex-align: center;
   align-items: center;
-  padding: 8px 0;
+  padding: 5px 16px;
   background-color: transparent;
-  border: none;
+  border: 2px solid #ffffff;
 }
 
 .user-account__check-card svg {
@@ -4045,6 +4125,7 @@ details summary::marker {
   -webkit-box-align: center;
   -ms-flex-align: center;
   align-items: center;
+  gap: 16px;
 }
 
 .doctor-account .settings label {
@@ -4190,6 +4271,7 @@ details summary::marker {
 
 .doctor-account .settings__checkboxes label {
   margin-bottom: 30px;
+  cursor: pointer;
 }
 
 .doctor-account .settings__checkboxes span {
@@ -4345,6 +4427,61 @@ details summary::marker {
   font-weight: 900;
   font-size: 20px;
   line-height: 1.1;
+}
+
+.settings__edu-subtitle {
+  margin-bottom: 32px;
+}
+
+.settings__edu-item {
+  margin-bottom: 32px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+  flex-wrap: wrap;
+  gap: 16px;
+}
+
+.settings__edu-field {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  max-width: 100%;
+  height: 32px;
+  padding: 0 10px;
+  border: 1px solid #a3a3a3;
+  border-radius: 4px;
+  background: #eaeaea;
+  color: #a3a3a3;
+  font-size: 18px;
+  line-height: 1.2;
+  width: 100%;
+}
+
+.settings__edu-field--year {
+  width: 62px;
+}
+
+.settings__edu-field--university {
+  min-width: 70%;
+  -webkit-box-flex: 1;
+  -ms-flex: 1;
+  flex: 1;
+}
+
+.settings__edu-field--faculty {
+  width: 30%;
+}
+
+.settings__edu-field--degree {
+  min-width: 60%;
+  -webkit-box-flex: 1;
+  -ms-flex: 1;
+  flex: 1;
 }
 
 .avatar-upload fieldset {

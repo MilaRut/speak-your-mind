@@ -29,8 +29,11 @@
         <nav class="header__nav nav">
           <div class="nav__wrapper">
             <ul class="nav__list">
+              <li class="nav__item nav__item--clients">
+                <a class="nav__link" data-translate="nav_client" href="index.html"></a>
+              </li>
               <li class="nav__item nav__item--psychologists">
-                <a class="nav__link" data-translate="nav_doc" href="login.html"></a>
+                <a class="nav__link" data-translate="nav_doc" href="doctor-landing.html"></a>
               </li>
               <!-- <li class="nav__item nav__item--businnes">
                 <a class="nav__link href="businnes-landing.html" data-translate="nav_comp"></a>
@@ -62,7 +65,7 @@
         </div>
         <div class="header__unlogged unlogged">
           <a class="unlogged__login-btn btn btn--white" data-translate="header_login_btn"></a>
-          <a href="doctor-signup.html" class="unlogged__login-btn btn" data-translate="header_signup_btn"></a>
+          <a href="user-signup-start.html" class="unlogged__login-btn btn" data-translate="header_signup_btn"></a>
         </div>
         <div class="header__logged logged">
           <div class="logged__wrapper">
@@ -81,33 +84,53 @@
         <div class="container">
           <div class="login__wrapper">
             <div class="login__heading">
-              <h2 data-translate="login_title"></h2>
+              <h2 data-translate="login_title">Login to your account</h2>
             </div>
-            <form action="" method="post" id="user-login-form">
+            <form action="" method="post" id="login-get-password-form">
               <fieldset>
                 <label>
-                  <input type="email" name="user_email" id="user_email" placeholder=""
+                  <input type="email" name="user_email" id="user_email" placeholder="Your email"
                     data-translate="email_placeholder">
                 </label>
+                <span class="form-error-message">Something wrong. Do something</span>
+              </fieldset>
+              <p class="text-18 login__text" data-translate="login_message">Введите email, который вы указали при
+                регистрации. На него мы вышлем вам одноразовый пароль для входа.</p>
+              <div class="login__btn-wrapper">
+                <button type="submit" class="login__btn btn" id="get-password-btn"
+                  data-translate="get_password">Получить пароль</button>
+              </div>
+            </form>
+
+            <form action="" method="post" id="user-login-form" style="display: none;">
+              <p class="text-18 login__text">
+                <span data-translate="login_message2">Мы отправили вам одноразовый пароль на</span>&nbsp;
+                <span class="user-email">vetego@gmail.com</span><br>
+                <span data-translate="login_message3">Введите его, чтобы продолжить регистрацию.</span>
+              </p>
+              <fieldset>
                 <label>
-                  <input type="password" name="password" id="password" placeholder=""
-                    data-translate="password_placeholder">
+                  <input type="text" name="one_time_psswd" id="one_time_psswd" placeholder="Одноразовый пароль из почты"
+                    data-translate="onetime_psswd_placeholder">
                 </label>
+                <span class="form-error-message">Something wrong. Do something</span>
               </fieldset>
               <div class="login__btn-wrapper">
-                <button type="submit" class="login__btn btn" data-translate="login_submit"></button>
+                <button type="submit" class="login__btn btn" id="get-password-btn"
+                  data-translate="login_submit">Войти</button>
               </div>
             </form>
             <div class="login__links-wrapper">
               <p class="text-18">
                 <span data-translate="signup_text_client"></span>
                 <a href="user-signup-start.html" class="login__signup-link text-green"
-                  data-translate="signup_link_client"></a>
+                  data-translate="signup_link_client">Register as a client</a>
               </p>
               <br>
               <p class="text-18">
                 <span data-translate="signup_text_doc"></span>
-                <a href="doctor-signup.html" class="login__signup-link text-green" data-translate="signup_link_doc"></a>
+                <a href="doctor-signup.html" class="login__signup-link text-green" data-translate="signup_link_doc">Fill
+                  out the form</a>
               </p>
             </div>
           </div>
@@ -128,18 +151,50 @@
 
   <script>
     document.addEventListener('DOMContentLoaded', function () {
+      const getPasswordForm = document.querySelector('#login-get-password-form');
+      const userLoginForm = document.querySelector('#user-login-form');
+      getPasswordForm.addEventListener('submit', (e) => {
+        e.preventDefault();
+        // TODO: добавить валидацию
+        // TODO: добавить запрос на бэкенд на получение пароля
+
+        // TODO: удалить, для демонстрации
+        getPasswordForm.style.display = 'none';
+        userLoginForm.style.display = 'flex';
+        document.querySelector('.login__links-wrapper').style.display = 'none';
+      });
+
+      userLoginForm.addEventListener('submit', (e) => {
+        e.preventDefault();
+        // TODO: добавить валидацию
+        alert('Далее будет настроен редирект на нужную страницу')
+      });
+    });
+  </script>
+
+  <!-- <script>
+
+    document.addEventListener('DOMContentLoaded', function () {
+      const errorMsg = document.querySelector('.form-error-message')
+      function clearLocStorage() {
+        const savedLang = localStorage.getItem('language') || 'en';
+        localStorage.clear();
+        localStorage.setItem('language', savedLang);
+      }
+
       document.getElementById('user-login-form').addEventListener('submit', function (e) {
         e.preventDefault();
+        clearLocStorage();
 
-        const user_email = document.getElementById('user_email').value;
-        const password = document.getElementById('password').value;
+        var user_email = document.getElementById('user_email').value;
+        var password = document.getElementById('password').value;
 
-        const data = {
+        var data = {
           user_email: user_email,
           password: password
         };
 
-        fetch('http://www.speakyourmind.help:8000/login', {
+        fetch('http://127.0.0.1:8000/login', {
           method: 'POST',
           headers: {
             'Content-Type': 'application/json'
@@ -153,22 +208,43 @@
             return response.json();
           })
           .then(function (data) {
+            // кладем токен в LS
+            localStorage.setItem('token', data.token);
             // Обработка успешного ответа от сервера
             if (!data.status) {
-              alert('Ошибка');
+              errorMsg.classList.add('is-active');
+              if (data.error) {
+                errorMsg.textContent = data.error;
+              }
             } else {
-              localStorage.setItem('token', data.token); // Сохраняем токен в localStorage
-              window.location.href = '/doctor-account-settings.html';
-            }
+              if (data.is_therapist) {
+                localStorage.setItem('is_therapist', true);
+                window.location.href = '/doctor-account-settings.html'
+              } else {
+                localStorage.setItem('name', data.name);
+                localStorage.setItem('is_therapist', false);
+                window.location.href = '/user-signup-main.html';
+              }
+
+              // Доп проверка и редиректы:
+              // is_therapist && !карта - doctor-account-settings.html
+              // is_therapist && карта - doctor-account-sessions.html
+              // !is_therapist && !анкета && !терапевт && !карта - user-signup-main.html
+              // !is_therapist && анкета && !терапевт && !карта - user-signup-choice.html
+              // !is_therapist && анкета && терапевт && !карта - user-signup-payment.html
+              // !is_therapist && анкета && терапевт && карта - user-account-main.html
+            };
           })
           .catch(function (error) {
             // Обработка ошибки
             // добавить обработку ошибки по статусам
-            alert('Ошибка');
+            console.log(error);
+            errorMsg.classList.add('is-active');
+            errorMsg.textContent = error;
           });
       });
     });
-  </script>
+  </script> -->
 
   <script src="js/vendor.min.js"></script>
   <script src="js/main.min.js"></script>

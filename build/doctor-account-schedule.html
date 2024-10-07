@@ -16,7 +16,7 @@
 </head>
 
 <body>
-  <div class="wrapper internal user-logged user-logged-doctor">
+  <div class="wrapper internal">
     <main>
       <section class="doctor-account">
         <div class="container">
@@ -356,11 +356,10 @@
 
       if (token) {
         // URL для получения данных пользователя
-        const url = 'http://www.speakyourmind.help:8000/doctor_schedule';
+        const url = 'http://127.0.0.1:8000/doctor_schedule';
 
         // Отправка запроса на сервер
         fetch(url, {
-          // mode: 'no-cors',
           method: 'POST',
           headers: {
             'Authorization': `Bearer ${token}`,
@@ -519,7 +518,7 @@
         timezone: currentTimeZoneOffsetInHours
       });
 
-      fetch('http://www.speakyourmind.help:8000/doctor_schedule', {
+      fetch('http://127.0.0.1:8000/doctor_schedule', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json'

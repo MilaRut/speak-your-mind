@@ -218,9 +218,9 @@
 .user-account__check-card {
   display: flex;
   align-items: center;
-  padding: 8px 0;
+  padding: 5px 16px;
   background-color: transparent;
-  border: none;
+  border: 2px solid $color-default-white;
 
   svg {
     color: $color-default-white;

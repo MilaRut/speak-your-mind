@@ -209,6 +209,7 @@
     &__avatar-wrapper {
       display: flex;
       align-items: center;
+      gap: 16px;
     }
 
     label {
@@ -338,6 +339,7 @@
 
       label {
         margin-bottom: 30px;
+        cursor: pointer;
       }
 
       span {
@@ -478,4 +480,47 @@
   font-weight: 900;
   font-size: 20px;
   line-height: 1.1;
+}
+
+.settings__edu-subtitle {
+  margin-bottom: 32px;
+}
+
+.settings__edu-item {
+  margin-bottom: 32px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px;
+}
+
+.settings__edu-field {
+  display: flex;
+  align-items: center;
+  max-width: 100%;
+  height: 32px;
+  padding: 0 10px;
+  border: 1px solid #a3a3a3;
+  border-radius: 4px;
+  background: #eaeaea;
+  color: #a3a3a3;
+  font-size: 18px;
+  line-height: 1.2;
+  width: 100%;
+
+  &--year {
+    width: 62px;
+  }
+
+  &--university {
+    min-width: 70%;
+    flex: 1;
+  }
+
+  &--faculty {
+    width: 30%;
+  }
+  &--degree {
+    min-width: 60%;
+    flex: 1;
+  }
 }

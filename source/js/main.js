@@ -1,5 +1,5 @@
 import {iosVhFix} from './utils/ios-vh-fix';
-import {checkAuth} from './modules/check-auth';
+import {setWrapperClass} from './modules/wapper';
 import {loadLanguage} from './modules/localisation';
 import {setLangBtn} from './modules/lang-switcher';
 import {logOut} from './modules/logout';
@@ -18,8 +18,6 @@ import {initSwiper} from './modules/my-swiper';
 import {setChoiceBtn} from './modules/pickdate';
 import {showPopup, showClientProfile} from './modules/admin';
 import {initScheduleDropdown, expandList} from './modules/schedule';
-import {saveAvatarData} from './modules/avatar-data';
-import {saveCardData} from './modules/card-data';
 import {redirectToProfile} from './modules/redirect-profile';
 // TODO: delete
 import {setUtilsBtns} from './modules/utils-btns';
@@ -36,7 +34,7 @@ window.addEventListener('DOMContentLoaded', () => {
   // ---------------------------------
 
   iosVhFix();
-  checkAuth();
+  setWrapperClass();
   loadLanguage(savedLanguage);
   logOut();
   setLangBtn();
@@ -65,8 +63,6 @@ window.addEventListener('DOMContentLoaded', () => {
     // TODO: delete
     setUtilsBtns();
     // END TODO
-    saveAvatarData();
-    saveCardData();
     redirectToProfile();
   });
 });

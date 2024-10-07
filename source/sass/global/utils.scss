@@ -135,3 +135,13 @@ details summary::marker {
   display: none;
   content: '';
 }
+
+.form-error-message {
+  display: none;
+}
+
+.form-error-message.is-active {
+  display: block;
+  color: $color-red;
+  font-size: 14px;
+}
