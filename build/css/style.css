@@ -2293,7 +2293,7 @@ details summary::marker {
   -ms-flex-align: center;
   align-items: center;
   width: 100%;
-  max-width: 749px;
+  max-width: 636px;
   background-color: #F5F3EE;
   border-radius: 24px;
   padding: 40px;
@@ -2314,6 +2314,19 @@ details summary::marker {
   margin: 0 auto;
 }
 
+.login form {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+}
+
 .login fieldset {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -2323,6 +2336,10 @@ details summary::marker {
   -ms-flex-direction: column;
   flex-direction: column;
   margin-bottom: 24px;
+}
+
+.login fieldset:has(input#one_time_psswd) {
+  width: 100%;
 }
 
 .login label {
@@ -2342,6 +2359,10 @@ details summary::marker {
   font-size: 20px;
   font-weight: 400;
   line-height: 1;
+}
+
+.login input#one_time_psswd {
+  width: 100%;
 }
 
 .login__btn-wrapper {
@@ -2365,6 +2386,11 @@ details summary::marker {
 .login__pass-reset {
   display: inline-block;
   margin-bottom: 20px;
+}
+
+.login__text {
+  color: #777777;
+  margin-bottom: 48px;
 }
 
 .signup .container {
@@ -2410,6 +2436,13 @@ details summary::marker {
 
 .signup form {
   width: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -ms-flex-direction: column;
+  flex-direction: column;
 }
 
 .signup fieldset {
@@ -2421,6 +2454,10 @@ details summary::marker {
   -ms-flex-direction: column;
   flex-direction: column;
   margin-bottom: 48px;
+}
+
+.signup fieldset:has(input#one_time_psswd) {
+  width: 100%;
 }
 
 .signup label {
@@ -2442,6 +2479,10 @@ details summary::marker {
   margin-bottom: 24px;
 }
 
+.signup label:has(input#one_time_psswd) {
+  padding-right: 0;
+}
+
 .signup input {
   min-width: 350px;
   height: 54px;
@@ -2451,6 +2492,10 @@ details summary::marker {
   font-size: 20px;
   font-weight: 400;
   line-height: 1;
+}
+
+.signup input#one_time_psswd {
+  width: 100%;
 }
 
 .signup__btn-wrapper {
@@ -2726,6 +2771,7 @@ details summary::marker {
 
 .questions__checkboxes span {
   position: relative;
+  display: block;
   font-size: 18px;
   font-weight: 400;
   line-height: 1.2;
@@ -3573,9 +3619,9 @@ details summary::marker {
   -webkit-box-align: center;
   -ms-flex-align: center;
   align-items: center;
-  padding: 8px 0;
+  padding: 5px 16px;
   background-color: transparent;
-  border: none;
+  border: 2px solid #ffffff;
 }
 
 .user-account__check-card svg {

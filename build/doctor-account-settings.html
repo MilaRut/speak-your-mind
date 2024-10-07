@@ -11,12 +11,12 @@
   <link rel="icon" type="image/png" sizes="32x32" href="./img/favicon/favicon-32x32.png">
   <link rel="icon" type="image/png" sizes="16x16" href="./img/favicon/favicon-16x16.png">
   <link rel="apple-touch-icon" sizes="180x180" href="./img/favicon/apple-touch-icon.png">
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.css">
+  <!-- <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.css"> -->
   <link rel="stylesheet" href="css/style.min.css">
 </head>
 
 <body>
-  <div class="wrapper internal user-logged user-logged-doctor">
+  <div class="wrapper internal">
     <main>
       <section class="doctor-account">
         <div class="container">
@@ -882,7 +882,7 @@
 
       // получение расписания с бэкенда
 
-      function loadDataFromBackend() {
+      function loadScheduleFromBackend() {
 
         const dataToSend = JSON.stringify({
           session_token: token,
@@ -916,35 +916,38 @@
           });
       }
 
-
-      if (token) {
-        // Отправка запроса на сервер для получения данных пользования
-        fetch('http://127.0.0.1:8000/get_doc_data', {
-          method: 'POST',
-          headers: {
-            'Authorization': `Bearer ${token}`,
-            'Content-Type': 'application/json'
-          },
-          body: JSON.stringify({ session_token: token })
-        })
-          .then(response => {
-            if (!response.ok) {
-              throw new Error('Сеть не в порядке');
-            }
-            return response.json();
+      function getTherapistDataFromBackend() {
+        if (token) {
+          // Отправка запроса на сервер для получения данных пользования
+          fetch('http://127.0.0.1:8000/get_doc_data', {
+            method: 'POST',
+            headers: {
+              'Authorization': `Bearer ${token}`,
+              'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({ session_token: token })
           })
-          .then(data => {
-            // TODO удалить вывод в консоль
-            console.log('Данные пользователя:', data);
-            loadDataFromBackend();
-            updateProfile(data);
-          })
-          .catch(error => {
-            console.error('Ошибка при получении данных пользователя:', error);
-          });
-      } else {
-        console.log('Токен не найден. Пожалуйста, войдите в систему.');
+            .then(response => {
+              if (!response.ok) {
+                throw new Error('Сеть не в порядке');
+              }
+              return response.json();
+            })
+            .then(data => {
+              // TODO удалить вывод в консоль
+              console.log('Данные пользователя:', data);
+              loadScheduleFromBackend();
+              updateProfile(data);
+            })
+            .catch(error => {
+              console.error('Ошибка при получении данных пользователя:', error);
+            });
+        } else {
+          console.log('Токен не найден. Пожалуйста, войдите в систему.');
+        }
       }
+
+      getTherapistDataFromBackend();
 
       // Рендеринг личного кабинета терапевта
       function updateProfile(data) {
@@ -954,18 +957,20 @@
         document.querySelector('#doctor-gender').value = data.doc_gender === 0 ? 'мужской' : 'женский';
         document.querySelector('#doctor-start').value = data.doc_practice_start;
         document.querySelector('#doc_additional_info').value = data.doc_additional_info;
-        // TODO: переработать обработку языков
+        // языки
         document.querySelectorAll('input[name="doc_language"]').forEach((checkbox) => {
           const value = Number(checkbox.value);
           checkbox.checked = data.doc_language.includes(value);
         })
         document.querySelector('#doc_email').value = data.doc_email;
-        // TODO: переработать обработку метода
+
+        // методы
         document.querySelectorAll('input[name="doc_method"]').forEach((checkbox) => {
           // Преобразуем значение чекбокса в число для корректного сравнения
           const value = Number(checkbox.value);
           checkbox.checked = data.doc_method.includes(value);
         })
+
         // дата рождения
         const dateOfBirth = data.doc_date_of_birth;
         const [year, month, day] = dateOfBirth.split('-');
@@ -975,7 +980,6 @@
         document.querySelector('#doctor-birth-year').value = year;
 
         // образование
-
         const eduData = data.doc_edu;
         const eduBlock = document.querySelectorAll('.settings__edu-list')
 
@@ -1047,6 +1051,38 @@
         }
 
         document.querySelector('#about-doctor > p').textContent = data.doc_additional_info;
+
+        // данные отправляемые на /update_therapist
+
+        // симптомы
+        document.querySelectorAll('input[name="symptoms"]').forEach((checkbox) => {
+          const value = Number(checkbox.value);
+          checkbox.checked = data.doc_symptoms.includes(value);
+        })
+
+        // возраст
+        const clientAgeValue = data.doc_client_age;
+        document.querySelectorAll('input[name="client_age"]').forEach((radio) => {
+          if (radio.value == String(clientAgeValue)) {
+            radio.checked = true;
+          }
+        });
+
+        // лгбт
+        const lgbtValue = data.doc_lgbtq;
+        document.querySelectorAll('input[name="lgbtq"]').forEach((radio) => {
+          if (radio.value == String(lgbtValue)) {
+            radio.checked = true;
+          }
+        });
+
+        // тип терапии
+        const therapyTypeValue = data.doc_therapy_type;
+        document.querySelectorAll('input[name="therapy_type"]').forEach((radio) => {
+          if (radio.value == String(therapyTypeValue)) {
+            radio.checked = true;
+          }
+        });
       }
 
       // апдейт расписания
@@ -1155,15 +1191,15 @@
 
         const doc_additional_info = document.getElementById('doc_additional_info').value;
         const doc_email = document.getElementById('doc_email').value;
-        const client_age = document.querySelector('input[name="client_age"]:checked').value;
-        const lgbtq = document.querySelector('input[name="lgbtq"]:checked').value;
-        const therapy_type = document.querySelector('input[name="therapy_type"]:checked').value;
+        const doc_client_age = Number(document.querySelector('input[name="client_age"]:checked').value);
+        const doc_lgbtq = Number(document.querySelector('input[name="lgbtq"]:checked').value);
+        const doc_therapy_type = Number(document.querySelector('input[name="therapy_type"]:checked').value);
 
         // массив симптомов
         const symptoms = document.querySelectorAll('[name="symptoms"]');
         const symptomsValues = Array.from(symptoms)
           .filter(checkbox => checkbox.checked)
-          .map(checkbox => checkbox.value); // Преобразуем строку в число
+          .map(checkbox => Number(checkbox.value));
         const doc_symptoms = symptomsValues;
 
         const dataToUpdate = {
@@ -1172,35 +1208,33 @@
           doc_language: doc_language,
           doc_additional_info: doc_additional_info,
           doc_email: doc_email,
-          client_age: client_age,
-          lgbtq: lgbtq,
-          therapy_type: therapy_type,
-          symptoms: doc_symptoms,
+          doc_client_age: doc_client_age,
+          doc_lgbtq: doc_lgbtq,
+          doc_therapy_type: doc_therapy_type,
+          doc_therapy_type: doc_therapy_type,
+          symptoms: doc_symptoms
         };
 
-        console.log(JSON.stringify(dataToUpdate));
-
-        // fetch('http://127.0.0.1:8000/update_therapist', {
-        //   method: 'POST',
-        //   headers: {
-        //     'Content-Type': 'application/json'
-        //   },
-        //   body: JSON.stringify(dataToUpdate)
-        // })
-        //   .then(response => {
-        //     if (!response.ok) {
-        //       throw new Error('Сеть не в порядке');
-        //     }
-        //     return response.json();
-        //   })
-        //   .then(data => {
-        //     console.log('Данные пользователя обновленные:', data);
-        //   })
-        //   .catch(error => {
-        //     console.error('Ошибка при получении данных пользователя:', error);
-        //   });
+        fetch('http://127.0.0.1:8000/update_therapist', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json'
+          },
+          body: JSON.stringify(dataToUpdate)
+        })
+          .then(response => {
+            if (!response.ok) {
+              throw new Error('Сеть не в порядке');
+            }
+            return response.json();
+          })
+          .then(data => {
+            console.log('Данные пользователя обновлены');
+          })
+          .catch(error => {
+            console.error('Ошибка при получении данных пользователя:', error);
+          });
       });
-
     });
   </script>
 

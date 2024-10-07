@@ -3,7 +3,11 @@ const wrapper = document.querySelector('.wrapper');
 
 function setWrapperClass() {
   if (isTherapist === null || isTherapist === '') {
-    wrapper.classList = 'wrapper';
+    if (wrapper.classList.contains('internal')) {
+      wrapper.classList = 'wrapper internal';
+    } else {
+      wrapper.classList = 'wrapper';
+    }
   }
 
   if (isTherapist === 'false') {

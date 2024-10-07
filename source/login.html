@@ -111,7 +111,8 @@
               <br>
               <p class="text-18">
                 <span data-translate="signup_text_doc"></span>
-                <a href="doctor-signup.html" class="login__signup-link text-green" data-translate="signup_link_doc">Fill out the form</a>
+                <a href="doctor-signup.html" class="login__signup-link text-green" data-translate="signup_link_doc">Fill
+                  out the form</a>
               </p>
             </div>
           </div>
@@ -132,6 +133,7 @@
   <script>
 
     document.addEventListener('DOMContentLoaded', function () {
+      const errorMsg = document.querySelector('.form-error-message')
       function clearLocStorage() {
         const savedLang = localStorage.getItem('language') || 'en';
         localStorage.clear();
@@ -164,15 +166,20 @@
             return response.json();
           })
           .then(function (data) {
+            // кладем токен в LS
+            localStorage.setItem('token', data.token);
             // Обработка успешного ответа от сервера
             if (!data.status) {
-              document.querySelector('.form-error-message').classList.add('is-active');
+              errorMsg.classList.add('is-active');
+              if (data.error) {
+                errorMsg.textContent = data.error;
+              }
             } else {
-              localStorage.setItem('name', data.name);
               if (data.is_therapist) {
                 localStorage.setItem('is_therapist', true);
                 window.location.href = '/doctor-account-settings.html'
               } else {
+                localStorage.setItem('name', data.name);
                 localStorage.setItem('is_therapist', false);
                 window.location.href = '/user-signup-main.html';
               }
@@ -190,7 +197,8 @@
             // Обработка ошибки
             // добавить обработку ошибки по статусам
             console.log(error);
-            document.querySelector('.form-error-message').classList.add('is-active');
+            errorMsg.classList.add('is-active');
+            errorMsg.textContent = error;
           });
       });
     });
