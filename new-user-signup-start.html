@@ -103,7 +103,7 @@
                 <span class="form-error-message">Something wrong. Do something</span>
               </fieldset>
               <div class="signup__btn-wrapper">
-                <button type="submit" class="signup__btn btn" data-translate="signup_submit_btn"></button>
+                <button type="submit" class="signup__btn btn" data-translate="get_password"></button>
               </div>
             </form>
 
@@ -122,7 +122,7 @@
               </fieldset>
               <div class="login__btn-wrapper">
                 <button type="submit" class="login__btn btn" id="get-password-btn"
-                  data-translate="signup__btn">Создать аккаунт</button>
+                  data-translate="signup_btn">Создать аккаунт</button>
               </div>
             </form>
             <div class="signup__links-wrapper">
@@ -164,7 +164,7 @@
         // TODO: удалить, для демонстрации
         getPasswordForm.style.display = 'none';
         userSignupForm.style.display = 'flex';
-        document.querySelector('.login__links-wrapper').style.display = 'none';
+        document.querySelector('.signup__links-wrapper').style.display = 'none';
       });
 
       userSignupForm.addEventListener('submit', (e) => {
