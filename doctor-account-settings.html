@@ -947,6 +947,8 @@
         }
       }
 
+      getTherapistDataFromBackend();
+
       // Рендеринг личного кабинета терапевта
       function updateProfile(data) {
         document.querySelector('.settings__doctor-name').textContent = data.doc_name;
@@ -1060,29 +1062,27 @@
 
         // возраст
         const clientAgeValue = data.doc_client_age;
-        if (clientAgeValue === 1) {
-          document.getElementById('client-age-18').checked = true;
-        } else {
-          document.getElementById('client-age-16').checked = true;
-        }
+        document.querySelectorAll('input[name="client_age"]').forEach((radio) => {
+          if (radio.value == String(clientAgeValue)) {
+            radio.checked = true;
+          }
+        });
 
         // лгбт
         const lgbtValue = data.doc_lgbtq;
-        if (lgbtValue === 1) {
-          document.getElementById('lgbtq-no').checked = true;
-        } else {
-          document.getElementById('lgbtq-yes').checked = true;
-        }
+        document.querySelectorAll('input[name="lgbtq"]').forEach((radio) => {
+          if (radio.value == String(lgbtValue)) {
+            radio.checked = true;
+          }
+        });
 
         // тип терапии
         const therapyTypeValue = data.doc_therapy_type;
-        if (therapyTypeValue === 2) {
-          document.getElementById('therapy_type-both').checked = true;
-        } else if (therapyTypeValue === 1) {
-          document.getElementById('therapy_type-couple').checked = true;
-        } else {
-          document.getElementById('therapy_type-indiv').checked = true;
-        }
+        document.querySelectorAll('input[name="therapy_type"]').forEach((radio) => {
+          if (radio.value == String(therapyTypeValue)) {
+            radio.checked = true;
+          }
+        });
       }
 
       // апдейт расписания
