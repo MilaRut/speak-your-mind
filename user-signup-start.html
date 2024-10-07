@@ -138,6 +138,7 @@
 
   <script>
     document.addEventListener('DOMContentLoaded', function () {
+      const errorMsg = document.querySelector('.form-error-message')
       document.getElementById('user-signup-form').addEventListener('submit', function (e) {
         e.preventDefault();
 
@@ -165,48 +166,21 @@
             return response.json();
           })
           .then(function (data) {
-            localStorage.setItem('user_name', user_name);
-            localStorage.setItem('is_therapist', 'false');
-            // TODO удалить, токен не нужен
-
-            // getToken({
-            //   user_name: user_name,
-            //   user_email: user_email,
-            //   password: password,
-            // })
-            window.location.href = '/user-signup-main.html';
+            if (!data.status) {
+              errorMsg.classList.add('is-active');
+              if (data.error) {
+                errorMsg.textContent = data.error;
+              }
+            } else {
+              localStorage.setItem('user_name', user_name);
+              localStorage.setItem('is_therapist', 'false');
+              window.location.href = '/user-signup-main.html';
+            };
           })
           .catch(function (error) {
             console.error('Ошибка:', error);
             // Обработка ошибки
           });
-
-
-        // TODO удалить, токен не нужен
-
-        // function getToken(loginData) {
-        //   fetch('http://127.0.0.1:8000/register', {
-        //     method: 'POST',
-        //     headers: {
-        //       'Content-Type': 'application/json'
-        //     },
-        //     body: JSON.stringify(loginData)
-        //   })
-        //     .then(function (response) {
-        //       if (!response.ok) {
-        //         throw new Error('Network response was not ok');
-        //       }
-        //       return response.json();
-        //     })
-        //     .then(function (data) {
-        //       localStorage.setItem('token', data.token);
-        //       console.log(data);
-        //     })
-        //     .catch(function (error) {
-        //       console.error('Ошибка:', error);
-        //       // Обработка ошибки
-        //     });
-        // }
       });
     });
   </script>
