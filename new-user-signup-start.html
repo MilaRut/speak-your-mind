@@ -121,8 +121,8 @@
                 <span class="form-error-message">Something wrong. Do something</span>
               </fieldset>
               <div class="login__btn-wrapper">
-                <button type="submit" class="login__btn btn" id="get-password-btn"
-                  data-translate="signup_btn">Создать аккаунт</button>
+                <button type="submit" class="login__btn btn" id="get-password-btn" data-translate="signup_btn">Создать
+                  аккаунт</button>
               </div>
             </form>
             <div class="signup__links-wrapper">
@@ -153,45 +153,30 @@
   </div>
 
   <script>
+
     document.addEventListener('DOMContentLoaded', function () {
       const getPasswordForm = document.querySelector('#signup-get-password-form');
       const userSignupForm = document.querySelector('#user-signup-form');
+      const errorMsg = document.querySelector('.form-error-message')
+
+      function clearLocStorage() {
+        const savedLang = localStorage.getItem('language') || 'en';
+        localStorage.clear();
+        localStorage.setItem('language', savedLang);
+      }
+
+      // запрос на получение одноразового пароля
       getPasswordForm.addEventListener('submit', (e) => {
         e.preventDefault();
-        // TODO: добавить валидацию
-        // TODO: добавить запрос на бэкенд на получение пароля
+        clearLocStorage();
 
-        // TODO: удалить, для демонстрации
-        getPasswordForm.style.display = 'none';
-        userSignupForm.style.display = 'flex';
-        document.querySelector('.signup__links-wrapper').style.display = 'none';
-      });
+        const user_email = document.getElementById('user_email').value;
 
-      userSignupForm.addEventListener('submit', (e) => {
-        e.preventDefault();
-        // TODO: добавить валидацию
-        alert('Далее будет настроен редирект на нужную страницу')
-      });
-    });
-  </script>
-
-  <!-- <script>
-    document.addEventListener('DOMContentLoaded', function () {
-      const errorMsg = document.querySelector('.form-error-message')
-      document.getElementById('user-signup-form').addEventListener('submit', function (e) {
-        e.preventDefault();
-
-        var user_name = document.getElementById('user_name').value;
-        var user_email = document.getElementById('user_email').value;
-        var password = document.getElementById('password').value;
-
-        var data = {
-          user_name: user_name,
+        const data = {
           user_email: user_email,
-          password: password
         };
 
-        fetch('http://127.0.0.1:8000/register', {
+        fetch('http://www.speakyourmind.help:8000/generate_password', {
           method: 'POST',
           headers: {
             'Content-Type': 'application/json'
@@ -211,18 +196,77 @@
                 errorMsg.textContent = data.error;
               }
             } else {
+              // TODO - удалить, пока добавлено для тестов и дебага
+              document.querySelector('#one_time_psswd').value = data.password;
+              // END TODO
+              getPasswordForm.style.display = 'none';
+              userSignupForm.style.display = 'flex';
+              document.querySelector('.login__links-wrapper').style.display = 'none';
+            };
+          })
+          .catch(function (error) {
+            // Обработка ошибки
+            // добавить обработку ошибки по статусам
+            console.log(error);
+            errorMsg.classList.add('is-active');
+            errorMsg.textContent = error;
+          });
+      });
+
+
+      // запрос на регистрацию
+      userSignupForm.addEventListener('submit', (e) => {
+        e.preventDefault();
+        clearLocStorage();
+
+        const user_name = document.getElementById('user_name').value;
+        const user_email = document.getElementById('user_email').value;
+        const password = document.getElementById('one_time_psswd').value;
+
+        const data = {
+          user_name: user_name,
+          user_email: user_email,
+          password: password
+        };
+
+        fetch('http://www.speakyourmind.help:8000/register', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json'
+          },
+          body: JSON.stringify(data)
+        })
+          .then(function (response) {
+            if (!response.ok) {
+              throw new Error('Network response was not ok');
+            }
+            return response.json();
+          })
+          .then(function (data) {
+            // кладем токен в LS
+            localStorage.setItem('token', data.token);
+            // Обработка успешного ответа от сервера
+            if (!data.status) {
+              errorMsg.classList.add('is-active');
+              if (data.error) {
+                errorMsg.textContent = data.error;
+              }
+            } else {
               localStorage.setItem('user_name', user_name);
               localStorage.setItem('is_therapist', 'false');
               window.location.href = '/user-signup-main.html';
             };
           })
           .catch(function (error) {
-            console.error('Ошибка:', error);
-            // Обработка ошибки
+            errorMsg.classList.add('is-active');
+            errorMsg.textContent = error;
+            // TODO удалить вывод в консоль
+            console.log(error);
+            // END TODO
           });
       });
     });
-  </script> -->
+  </script>
 
   <script src="js/vendor.min.js"></script>
   <script src="js/main.min.js"></script>
