@@ -11,7 +11,7 @@ const placeholders = {
     university: 'University',
     faculty: 'Faculty',
     degree: 'Degree',
-  }
+  },
 };
 
 function getCurrentLanguage() {
@@ -42,8 +42,10 @@ function addEduInputs() {
                     <input type='text' name='edu_faculty' placeholder='' data-translate='doc_q_edu_faculty'>
                     <input type='text' name='edu_degree' placeholder='' data-translate='doc_q_edu_degree'>
                   </fieldset>
+                  <button type="button" class="edu__delete-btn">Удалить</button>
                 </div>
     `;
+    console.log(newInputs);
     setPlaceholders(newInputs);
     parentBlock.append(newInputs);
   });

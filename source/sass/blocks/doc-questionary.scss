@@ -247,3 +247,46 @@
     opacity: 0.5;
   }
 }
+
+.new-inputs {
+  position: relative;
+}
+
+.edu__delete-btn {
+  position: absolute;
+  width: 36px;
+  height: 36px;
+  top: 50%;
+  right: -50px;
+  background-color: transparent;
+  border: 1px solid #777777;
+  border-radius: 50%;
+  font-size: 32px;
+
+  &::before,
+  &::after {
+    position: absolute;
+    content: "";
+    width: 24px;
+    height: 1px;
+    background-color: #777777;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    transition: transform $trans-default;
+  }
+
+  @include hover {
+    border-color: $color-red;
+
+    &::before {
+      background-color: $color-red;
+      transform: translate(-50%, -50%) rotate(-45deg);
+    }
+
+    &::after {
+      transform: translate(-50%, -50%) rotate(45deg);
+      background-color: $color-red;
+    }
+  }
+}

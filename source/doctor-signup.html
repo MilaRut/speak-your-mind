@@ -569,9 +569,9 @@
       document.querySelector('.doc-questionary__add-edu-btn').addEventListener('click', () => {
         const parentBlock = document.querySelector('.doc-questionary__inputs-wrapper');
         const newInputs = document.createElement('div');
+        newInputs.classList.add('new-inputs');
         newInputs.innerHTML = `
                 <br>
-                <div>
                   <fieldset>
                     <input type='number' name='edu_year' placeholder='' data-translate='doc_q_edu_year'>
                     <input type='text' name='edu_university' placeholder='' data-translate='doc_q_edu_university'>
@@ -580,10 +580,16 @@
                     <input type='text' name='edu_faculty' placeholder='' data-translate='doc_q_edu_faculty'>
                     <input type='text' name='edu_degree' placeholder='' data-translate='doc_q_edu_degree'>
                   </fieldset>
-                </div>
+                  <button type="button" class="edu__delete-btn" title='Delete'></button>
     `;
         setPlaceholders(newInputs);
         parentBlock.append(newInputs);
+      });
+
+      document.addEventListener('click', (e) => {
+        if (e.target.classList.contains('edu__delete-btn')) {
+          e.target.closest('.new-inputs').remove();
+        }
       });
     }
     addEduInputs();
