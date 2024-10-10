@@ -5015,6 +5015,40 @@ details summary::marker {
   margin-right: 8px;
 }
 
+.new-inputs {
+  position: relative;
+}
+
+.edu__delete-btn {
+  position: absolute;
+  width: 36px;
+  height: 36px;
+  top: 50%;
+  right: -50px;
+  background-color: transparent;
+  border: 1px solid #777777;
+  border-radius: 50%;
+  font-size: 32px;
+}
+
+.edu__delete-btn::before,
+.edu__delete-btn::after {
+  position: absolute;
+  content: "";
+  width: 24px;
+  height: 1px;
+  background-color: #777777;
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+  -webkit-transition: -webkit-transform 0.3s ease;
+  transition: -webkit-transform 0.3s ease;
+  transition: transform 0.3s ease;
+  transition: transform 0.3s ease, -webkit-transform 0.3s ease;
+}
+
 .doctor-account {
   min-height: 100%;
   display: -webkit-box;
@@ -6828,6 +6862,24 @@ button.admin-profile__back-to-profile {
 
   .doc-questionary__add-edu-btn:hover:not(.focus-visible) {
     opacity: 0.5;
+  }
+
+  .edu__delete-btn:hover:not(.focus-visible) {
+    border-color: #dc0000;
+  }
+
+  .edu__delete-btn:hover:not(.focus-visible)::before {
+    background-color: #dc0000;
+    -webkit-transform: translate(-50%, -50%) rotate(-45deg);
+    -ms-transform: translate(-50%, -50%) rotate(-45deg);
+    transform: translate(-50%, -50%) rotate(-45deg);
+  }
+
+  .edu__delete-btn:hover:not(.focus-visible)::after {
+    -webkit-transform: translate(-50%, -50%) rotate(45deg);
+    -ms-transform: translate(-50%, -50%) rotate(45deg);
+    transform: translate(-50%, -50%) rotate(45deg);
+    background-color: #dc0000;
   }
 
   .sessions__client-name:hover:not(.focus-visible) {
