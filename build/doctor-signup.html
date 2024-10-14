@@ -21,17 +21,16 @@
       <div class="container">
         <div class="header__logo">
           <div class="header__logo-wrapper">
-            <svg width="196" height="24" fill="currentColor">
-              <use xlink:href="./img/sprite.svg#logo"></use>
-            </svg>
+            <a href="/doctor-landing.html">
+              <svg width="196" height="24" fill="currentColor">
+                <use xlink:href="./img/sprite.svg#logo"></use>
+              </svg>
+            </a>
           </div>
         </div>
         <nav class="header__nav nav">
           <div class="nav__wrapper">
             <ul class="nav__list">
-              <li class="nav__item nav__item--clients">
-                <a class="nav__link" data-translate="nav_client" href="index.html"></a>
-              </li>
               <!-- <li class="nav__item nav__item--businnes">
                 <a class="nav__link href="businnes-landing.html" data-translate="nav_comp"></a>
               </li> -->
@@ -61,8 +60,7 @@
           </ul>
         </div>
         <div class="header__unlogged unlogged">
-          <a class="unlogged__login-btn btn btn--white" data-translate="header_login_btn"></a>
-          <a href="user-signup-start.html" class="unlogged__login-btn btn" data-translate="header_signup_btn"></a>
+          <a href="login.html" class="unlogged__login-btn btn btn--white" data-translate="header_login_btn"></a>
         </div>
         <div class="header__logged logged">
           <div class="logged__wrapper">
@@ -513,6 +511,7 @@
                 <p data-translate="doc_contact_other">Ссылка или ваш ник в Telegram*</p>
               </label>
             </div>
+            <span class="form-error-message">Something wrong. Do something</span>
             <button type="submit" class="doc-questionary__submit-btn btn" data-translate="doc_q_submit_btn">Отправить
               анкету</button>
           </form>
@@ -600,6 +599,7 @@
     form.addEventListener('submit', function (e) {
       e.preventDefault();
 
+      const errorMsg = document.querySelector('.form-error-message')
       const doc_name = document.querySelector('#doc_name').value;
       const doc_date_of_birth = document.querySelector('#doc_date_of_birth').value;
       const doc_gender = document.querySelector('#doc_gender').value;
@@ -642,7 +642,7 @@
       const addEducationsValues = Array.from(addEducations)
         .filter(checkbox => checkbox.checked)
         .map(checkbox => checkbox.value);
-      const doc_edu_additional = addEducationsValues;
+      const doc_edu_additional = addEducationsValues.length > 0 ? addEducationsValues : [4];
 
       const doc_comunity = document.querySelector('#doc_comunity').value;
       const doc_practice_start = `${document.querySelector('#doc_practice_start_month').value} ${document.querySelector('#doc_practice_start_year').value}`;
@@ -728,6 +728,8 @@
               // Проверка, если сервер вернул успешный ответ
               if (!response.ok) {
                 throw new Error('Ошибка сети: ' + response.status);
+                errorMsg.classList.add('is-active');
+                errorMsg.textContent = error;
               }
               return response.json(); // Предполагается, что сервер возвращает JSON
             })
@@ -744,16 +746,22 @@
                 window.location.href = '/doctor-account-settings.html';
               } else {
                 console.error('Токен не найден в ответе от сервера');
+                errorMsg.classList.add('is-active');
+                errorMsg.textContent = error;
               }
             })
             .catch(error => {
               // Обработка ошибки
               console.log('Ошибка >' + error);
+              errorMsg.classList.add('is-active');
+              errorMsg.textContent = error;
             });
         })
         .catch(error => {
           // Обработка ошибки чтения файлов
           console.log('Ошибка >>' + error);
+          errorMsg.classList.add('is-active');
+          errorMsg.textContent = error;
         });
     });
 
