@@ -21,20 +21,16 @@
       <div class="container">
         <div class="header__logo">
           <div class="header__logo-wrapper">
-            <svg width="196" height="24" fill="currentColor">
-              <use xlink:href="./img/sprite.svg#logo"></use>
-            </svg>
+            <a href="/index.html">
+              <svg width="196" height="24" fill="currentColor">
+                <use xlink:href="./img/sprite.svg#logo"></use>
+              </svg>
+            </a>
           </div>
         </div>
         <nav class="header__nav nav">
           <div class="nav__wrapper">
             <ul class="nav__list">
-              <li class="nav__item nav__item--clients">
-                <a class="nav__link" data-translate="nav_client" href="index.html"></a>
-              </li>
-              <li class="nav__item nav__item--psychologists">
-                <a class="nav__link" data-translate="nav_doc" href="doctor-landing.html"></a>
-              </li>
               <!-- <li class="nav__item nav__item--businnes">
                 <a class="nav__link href="businnes-landing.html" data-translate="nav_comp"></a>
               </li> -->
@@ -65,7 +61,6 @@
         </div>
         <div class="header__unlogged unlogged">
           <a href="login.html" class="unlogged__login-btn btn btn--white" data-translate="header_login_btn"></a>
-          <a class="unlogged__login-btn btn" data-translate="header_signup_btn"></a>
         </div>
         <div class="header__logged logged">
           <div class="logged__wrapper">
@@ -101,7 +96,6 @@
                   <span class="text-20" data-translate="signup_password"></span>
                   <input type="password" name="password" id="password" placeholder="Пароль"
                     data-translate="password_placeholder">
-                  <!-- <button type="button" class="show-password-btn">Показать пароль</button> -->
                 </label>
                 <span class="form-error-message">Something wrong. Do something</span>
               </fieldset>
@@ -152,7 +146,7 @@
           password: password
         };
 
-        fetch('http://www.speakyourmind.help:8000/register', {
+        fetch('http://127.0.0.1:8000/register', {
           method: 'POST',
           headers: {
             'Content-Type': 'application/json'
@@ -167,8 +161,8 @@
           })
           .then(function (data) {
             if (!data.status) {
-              errorMsg.classList.add('is-active');
               if (data.error) {
+                errorMsg.classList.add('is-active');
                 errorMsg.textContent = data.error;
               }
             } else {
@@ -179,7 +173,8 @@
           })
           .catch(function (error) {
             console.error('Ошибка:', error);
-            // Обработка ошибки
+            errorMsg.classList.add('is-active');
+            errorMsg.textContent = error;
           });
       });
     });
