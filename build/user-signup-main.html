@@ -71,9 +71,6 @@
             </div>
             <button class="logged__btn" id="#logged-menu">
               <span class="logged__username gotten-username">Username</span>
-              <svg width="10" height="10" fill="currentColor">
-                <use xlink:href="./img/sprite.svg#dropdown"></use>
-              </svg>
             </button>
           </div>
         </div>
@@ -146,29 +143,11 @@
                     </label>
                   </div>
                 </div>
-                <!-- <div class="questions__main-row questions__main-row--language">
-                  <p class="text-20" data-translate="preferred_language">На каком языке вы хотели бы общаться?</p>
-                  <div class="questions__checkboxes">
-                    <div class="inputs-wrapper">
-                      <label>
-                        <input type="checkbox" id="lang-ru" name="language" value="0">
-                        <span data-translate="lang_russian">русский</span>
-                      </label>
-                      <label>
-                        <input type="checkbox" id="lang-ma" name="language" value="1">
-                        <span>magyar</span>
-                      </label>
-                      <label>
-                        <input type="checkbox" id="lang-en" name="language" value="2">
-                        <span>english</span>
-                      </label>
-                    </div>
-                  </div>
-                </div> -->
               </fieldset>
               <div class="questions__legend">
                 <p class="text-31" data-translate="questions_legend_1">Что бы вы хотели обсудить в первую очередь?</p>
-                <p class="text-18" data-translate="questions_legend_2">Вы можете пропустить этот вопрос, если не уверены что именно вас беспокоит</p>
+                <p class="text-18" data-translate="questions_legend_2">Вы можете пропустить этот вопрос, если не уверены
+                  что именно вас беспокоит</p>
               </div>
               <div class="questions__checkboxes questions__checkboxes--1">
                 <p class="text-20" data-translate="symptoms_title_1">Отношения с собой</p>
@@ -179,7 +158,7 @@
                       <span data-translate="symptoms_0">Усталость</span>
                     </label>
                     <label>
-                      <input type="checkbox" id="symptoms_1" name="symptoms" value="1" checked>
+                      <input type="checkbox" id="symptoms_1" name="symptoms" value="1">
                       <span data-translate="symptoms_1">Депрессивные состояния</span>
                     </label>
                     <label>
@@ -201,7 +180,7 @@
                       <span data-translate="symptoms_5">Самооценка</span>
                     </label>
                     <label>
-                      <input type="checkbox" id="symptoms_6" name="symptoms" value="6" checked>
+                      <input type="checkbox" id="symptoms_6" name="symptoms" value="6">
                       <span data-translate="symptoms_6">Одиночество</span>
                     </label>
                     <label>
@@ -358,7 +337,7 @@
                 <p class="text-20" data-translate="preferred_language">На каком языке вы хотите получать
                   терапию?</p>
                 <div class="inputs-wrapper">
-                  <input type="radio" id="session_lang_ru" name="session_lang" value="0" checked>
+                  <input type="radio" id="session_lang_ru" name="language" value="0" checked>
                   <label for="session_lang_ru">
                     <svg width="18" height="18" fill="currentColor">
                       <use xlink:href="./img/sprite.svg#check-mark"></use>
@@ -366,7 +345,7 @@
                     <span class="text-14" data-translate="lang_russian">На русском</span>
                   </label>
                   <div class="divider"></div>
-                  <input type="radio" id="session_lang_en" name="session_lang" value="1">
+                  <input type="radio" id="session_lang_en" name="language" value="1">
                   <label for="session_lang_en">
                     <svg width="18" height="18" fill="currentColor">
                       <use xlink:href="./img/sprite.svg#check-mark"></use>
@@ -374,7 +353,7 @@
                     <span class="text-14">in English</span>
                   </label>
                   <div class="divider"></div>
-                  <input type="radio" id="session_lang_hu" name="session_lang" value="2">
+                  <input type="radio" id="session_lang_hu" name="language" value="2">
                   <label for="session_lang_hu">
                     <svg width="18" height="18" fill="currentColor">
                       <use xlink:href="./img/sprite.svg#check-mark"></use>
@@ -420,7 +399,8 @@
               </div>
               <hr>
               <div class="questions__radio questions__therapy-price">
-                <p class="text-20" data-translate="questions_therapy_price">Какая цена за сессию будет для вас комфортна?</p>
+                <p class="text-20" data-translate="questions_therapy_price">Какая цена за сессию будет для вас
+                  комфортна?</p>
                 <div class="inputs-wrapper">
                   <input type="radio" id="price-any" name="price" value="0" checked>
                   <label for="price-any">
@@ -457,9 +437,11 @@
               </div>
               <hr>
               <div class="questions__phone">
-                <p class="text-20" data-translate="questions_phone">Укажите пожалуйста ваш номер телефона (опционально, это нужно для экстренной связи с
+                <p class="text-20" data-translate="questions_phone">Укажите пожалуйста ваш номер телефона (опционально,
+                  это нужно для экстренной связи с
                   вами в случае необходимости)</p>
-                <input type="text" name="user-phone" id="user-phone" placeholder="Ваш номер телефона" data-translate="questions_phone_placeholder">
+                <input type="text" name="user-phone" id="user-phone" placeholder="Ваш номер телефона"
+                  data-translate="questions_phone_placeholder">
               </div>
               <div class="questions__btn-wrapper">
                 <button type="submit" class="questions__btn btn" data-translate="questions_submit_btn"></button>
@@ -482,92 +464,153 @@
 
   <script>
     document.addEventListener('DOMContentLoaded', function () {
-      const userName = localStorage.getItem('user_name');
-      document.querySelectorAll('.gotten-username').forEach((el) => {
-        el.textContent = userName;
-      });
-    });
+      const session_token = localStorage.getItem('token');
 
-    document.getElementById('user-signup-main-form').addEventListener('submit', function (e) {
-      e.preventDefault();
+      // получение данных клиента с бэкенда
+      function getUserDataFromBackend() {
+        if (session_token) {
+          fetch('http://127.0.0.1:8000/get_client_data', {
+            method: 'POST',
+            headers: {
+              'Authorization': `Bearer ${session_token}`,
+              'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({ session_token: session_token })
+          })
+            .then(response => {
+              if (!response.ok) {
+                throw new Error('Сеть не в порядке');
+              }
+              return response.json();
+            })
+            .then(data => {
+              // TODO удалить вывод в консоль
+              console.log('Данные пользователя:', data);
+              updateProfile(data);
+            })
+            .catch(error => {
+              console.error('Ошибка при получении данных пользователя:', error);
+            });
+        } else {
+          console.log('Токен не найден. Пожалуйста, войдите в систему.');
+        }
+      }
 
-      var user_age = document.getElementById('age').value;
-      var user_experience = document.querySelector('input[name="experience"]:checked').value;
-      var user_type = document.querySelector('input[name="type"]:checked').value;
-      var user_language = document.querySelector('input[name="language"]:checked').value;
-      var user_symptoms = Array.from(document.querySelectorAll('input[name="symptoms"]:checked')).map(checkbox => checkbox.value);
-      var user_therapist_gender = document.querySelector('input[name="therapist-gender"]:checked').value;
-      var user_time = document.querySelector('input[name="time"]:checked').value;
-      var user_specific_date_time = document.querySelector('input[name="specific_date_time"]').value;
-      var user_price = document.querySelector('input[name="price"]:checked').value;
-      var user_phone = document.getElementById('user-phone').value;
+      getUserDataFromBackend();
 
-      var data = {
-        user_age: user_age,
-        user_experience: user_experience,
-        user_type: user_type,
-        user_languages: user_languages,
-        user_symptoms: user_symptoms,
-        user_therapist_gender: user_therapist_gender,
-        user_time: user_time,
-        user_specific_date_time: user_specific_date_time,
-        user_price: user_price,
-        user_phone: user_phone
+      function updateProfile(data) {
+        // имя
+        document.querySelectorAll('.gotten-username').forEach((el) => {
+          el.textContent = data.name;
+        });
+
+        // дата рождения
+        document.querySelector('#age').value = data.user_age;
+
+        // опыт терапии
+        const experienceRadioBtns = document.querySelector(`input[name="experience"][value="${data.user_experience}"]`);
+        if (experienceRadioBtns) {
+          experienceRadioBtns.checked = true;
+        }
+
+        // тип терапии
+        const typeRadioBtns = document.querySelector(`input[name="type"][value="${data.user_type}"]`);
+        if (typeRadioBtns) {
+          typeRadioBtns.checked = true;
+        }
+
+        // симптомы
+        document.querySelectorAll('input[name="symptoms"]').forEach((checkbox) => {
+          const value = Number(checkbox.value);
+          checkbox.checked = data.user_symptoms.includes(value);
+        })
+
+        // пол терапевта
+        const genderRadioBtns = document.querySelector(`input[name="therapist-gender"][value="${data.user_therapist_gender}"]`);
+        if (genderRadioBtns) {
+          genderRadioBtns.checked = true;
+        }
+        // язык
+        const languageRadioBtns = document.querySelector(`input[name="language"][value="${data.user_languages}"]`);
+        if (languageRadioBtns) {
+          languageRadioBtns.checked = true;
+        }
+        // время
+        const timeRadioBtns = document.querySelector(`input[name="time"][value="${data.user_time}"]`);
+        if (timeRadioBtns) {
+          timeRadioBtns.checked = true;
+        }
+
+        // прайс
+        const priceRadioBtns = document.querySelector(`input[name="price"][value="${data.user_price}"]`);
+        if (priceRadioBtns) {
+          priceRadioBtns.checked = true;
+        }
+        // конкретное время
+        document.querySelector('input[name="specific_date_time"]').value = data.user_specific_date_time;
+
+        // телефон
+        document.querySelector('#user-phone').value = data.user_phone;
       };
 
-      console.log(data);
+      // отправка первичной анкеты на бэк
+      document.getElementById('user-signup-main-form').addEventListener('submit', function (e) {
+        e.preventDefault();
 
-      // fetch('http://127.0.0.1:8000/register', {
-      //   method: 'POST',
-      //   headers: {
-      //     'Content-Type': 'application/json'
-      //   },
-      //   body: JSON.stringify(data)
-      // })
-      //   .then(function (response) {
-      //     if (!response.ok) {
-      //       throw new Error('Network response was not ok');
-      //     }
-      //     return response.json();
-      //   })
-      //   .then(function (data) {
-      //     localStorage.setItem('user_name', user_name);
-      //     getToken({
-      //       user_name: user_name,
-      //       user_email: user_email,
-      //       password: password,
-      //     })
-      //     console.log(data);
-      //   })
-      //   .catch(function (error) {
-      //     console.error('Ошибка:', error);
-      //     alert('Ошибка:', error)
-      //   });
+        var user_age = document.getElementById('age').value;
+        var user_experience = Number(document.querySelector('input[name="experience"]:checked').value);
+        var user_type = Number(document.querySelector('input[name="type"]:checked').value);
+        var user_languages = Array.from(document.querySelectorAll('input[name="language"]:checked')).map(checkbox => Number(checkbox.value));
+        var user_symptoms = Array.from(document.querySelectorAll('input[name="symptoms"]:checked')).map(checkbox => Number(checkbox.value));
+        var user_therapist_gender = Number(document.querySelector('input[name="therapist-gender"]:checked').value);
+        var user_time = document.querySelector('input[name="time"]:checked').value;
+        var user_specific_date_time = document.querySelector('input[name="specific_date_time"]').value;
+        var user_price = Number(document.querySelector('input[name="price"]:checked').value);
+        var user_phone = document.getElementById('user-phone').value;
 
+        var dataToSend = {
+          session_token: session_token,
+          user_age: user_age,
+          user_experience: user_experience,
+          user_type: user_type,
+          user_languages: user_languages,
+          user_symptoms: user_symptoms,
+          user_therapist_gender: user_therapist_gender,
+          user_time: user_time,
+          user_specific_date_time: user_specific_date_time,
+          user_price: user_price,
+          user_phone: user_phone
+        };
 
-      // function getToken(loginData) {
-      //   fetch('http://127.0.0.1:8000/login', {
-      //     method: 'POST',
-      //     headers: {
-      //       'Content-Type': 'application/json'
-      //     },
-      //     body: JSON.stringify(loginData)
-      //   })
-      //     .then(function (response) {
-      //       if (!response.ok) {
-      //         throw new Error('Network response was not ok');
-      //       }
-      //       return response.json();
-      //     })
-      //     .then(function (data) {
-      //       localStorage.setItem('token', data.token);
-      //       window.location.href = '/user-signup-main.html';
-      //       console.log(data);
-      //     })
-      //     .catch(function (error) {
-      //       console.error('Ошибка:', error);
-      //     });
-      // }
+        console.log(dataToSend);
+        if (user_age === '' || user_age === null) {
+          localStorage.setItem('user_form', 'empty');
+        } else {
+          localStorage.setItem('user_form', 'fullfilled');
+        }
+
+        fetch('http://127.0.0.1:8000/update_client_data', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json'
+          },
+          body: JSON.stringify(dataToSend)
+        })
+          .then(response => {
+            if (!response.ok) {
+              throw new Error('Сеть не в порядке');
+            }
+            return response.json();
+          })
+          .then(data => {
+            console.log('Данные пользователя обновлены');
+            console.log(data);
+            window.location.href = '/user-signup-choice.html'
+          })
+          .catch(error => {
+            console.error('Ошибка при получении данных пользователя:', error);
+          });
+      });
     });
   </script>
 

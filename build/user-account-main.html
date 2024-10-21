@@ -205,7 +205,7 @@
                       </div>
                       <div class="videochat__message videochat__message--next-session">
                         <p class="text-18" data-translate="next_session">Ближайшая сессия:</p>
-                        <p class="date text-20">6 июля, четверг, 15:00</p>
+                        <p class="date date-next-session text-20">6 июля, четверг, 15:00</p>
                       </div>
                       <div class="videochat__message videochat__message--requested-session">
                         <p class="text-18" data-translate="session_requested">Запрошена сессия:</p>
@@ -485,6 +485,14 @@
       </div>
     </footer>
   </div>
+
+  <script>
+        document.addEventListener('DOMContentLoaded', function () {
+          document.querySelector('.user-account__doctor-info .doctor-name').textContent = localStorage.getItem('selected_therapist_name');
+          // TODO переписать в удобный формат
+          document.querySelector('.videochat__message--next-session .date-next-session').textContent = localStorage.getItem('session_datetime');
+        });
+  </script>
 
   <script src="js/vendor.min.js"></script>
   <script src="js/main.min.js"></script>

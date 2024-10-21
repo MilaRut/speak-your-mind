@@ -135,20 +135,21 @@
                           <button type="button" class="settings__edit-btn settings__edit-btn--email text-green"
                             data-translate="edit">Редактировать</button>
                         </label>
-                        <label>
+                        <!-- <label>
                           <span class="text-20" data-translate="change_password">Изменить пароль</span>
                           <input type="password" name="password" id="password" value="password-value" readonly>
                           <button type="button" class="settings__edit-btn settings__edit-btn--password text-green"
                             data-translate="edit">Редактировать</button>
                           <button type="button" class="show-password-btn" data-translate="show_password">Показать
                             пароль</button>
-                        </label>
+                        </label> -->
                         <label>
-                          <span class="text-20" data-translate="ui_language">Язык интерфейса</span>
-                          <select name="ui_language" id="ui_language">
-                            <option value="ru" data-translate="lang_russian">русский</option>
-                            <option value="en">english</option>
-                            <option value="hu">magyar</option>
+                          <span class="text-20" data-translate="ui_language">Язык терепии</span>
+                          <select name="therapy_language" id="therapy_language">
+                            <option>Выберите</option>
+                            <option value="0" data-translate="lang_russian">русский</option>
+                            <option value="1">english</option>
+                            <option value="2">magyar</option>
                           </select>
                         </label>
                         <label>
@@ -168,7 +169,7 @@
                       <img src="./img/content/doctor-thumb.png" width="100" height="100" alt="">
                     </div>
                     <div class="user-account__doctor-info">
-                      <p class="text-31">Олеся Парада</p>
+                      <p class="doctor-name" class="text-23">Олеся Парада</p>
                       <button class="user-account__contact btn btn--white" utils-btn-settings
                         data-id="settings-rechoice-1">
                         <span class="text-green" data-translate="change_therapist">Сменить терапевта</span>
@@ -205,7 +206,7 @@
                               понимают</span>
                           </label>
                           <label>
-                            <input type="checkbox" id="rechoice-2" name="rechoice-reason" checked>
+                            <input type="checkbox" id="rechoice-2" name="rechoice-reason">
                             <span data-translate="rechoice_reason_2">Психолог опоздал на сессию</span>
                           </label>
                           <label>
@@ -765,6 +766,67 @@
       </div>
     </div>
   </div>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+      const urlParams = new URLSearchParams(window.location.search);
+      const fromPage = urlParams.get('from');
+      const settings = document.querySelector('.user-account__settings');
+
+      if (fromPage === 'payment') {
+        settings.setAttribute('data-utils', 'settings-reg-completed');
+      } else {
+        settings.setAttribute('data-utils', 'settings-main');
+      }
+
+      // Получение токена из Local Storage
+      const session_token = localStorage.getItem('token');
+
+      // получение данных клиента с бэкенда
+      function getUserDataFromBackend() {
+        if (session_token) {
+          fetch('http://127.0.0.1:8000/get_client_data', {
+            method: 'POST',
+            headers: {
+              'Authorization': `Bearer ${session_token}`,
+              'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({ session_token: session_token })
+          })
+            .then(response => {
+              if (!response.ok) {
+                throw new Error('Сеть не в порядке');
+              }
+              return response.json();
+            })
+            .then(data => {
+              // TODO удалить вывод в консоль
+              console.log('Данные пользователя:', data);
+              updateProfile(data);
+            })
+            .catch(error => {
+              console.error('Ошибка при получении данных пользователя:', error);
+            });
+        } else {
+          console.log('Токен не найден. Пожалуйста, войдите в систему.');
+        }
+      }
+
+      getUserDataFromBackend();
+
+      function updateProfile(data) {
+        document.querySelector('#user_name').value = data.name;
+        document.querySelector('#email').value = localStorage.getItem('user_email');
+        document.querySelector('.doctor-name').textContent = localStorage.getItem('selected_therapist_name');
+        document.querySelector('.doc-name').textContent = localStorage.getItem('selected_therapist_name');
+        // TODO переписать в удобный формат
+        document.querySelector('.first-session-msg .session-time').textContent = localStorage.getItem('session_datetime');
+        document.querySelector('#email').value = localStorage.getItem('user_email');
+        document.querySelector('#therapy_language').value = data.user_languages;
+
+      }
+    });
+  </script>
 
   <script src="js/vendor.min.js"></script>
   <script src="js/main.min.js"></script>
