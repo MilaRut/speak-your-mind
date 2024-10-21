@@ -19,7 +19,6 @@
 
   &__thumbs-list {
     display: flex;
-    justify-content: space-between;
     max-width: 1127px;
     margin: 0 auto;
   }
@@ -60,5 +59,9 @@
 }
 
 .choice__item-exp {
+  text-align: center;
+}
+
+.choice__item-name {
   text-align: center;
 }

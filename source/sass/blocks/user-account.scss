@@ -109,7 +109,21 @@
     display: flex;
     align-items: center;
     flex-wrap: wrap;
+    gap: 16px;
     margin-bottom: 18px;
+
+    .doctor-name {
+      font-size: 23px;
+      font-weight: 600;
+      margin-bottom: 10px;
+    }
+
+    .user-account__contact {
+      padding: 8px 24px;
+      font-size: 20px;
+      font-weight: 600;
+
+    }
   }
 }
 
@@ -375,154 +389,6 @@
     display: block;
   }
 }
-
-// .user-account__main {
-
-//   .text-success,
-//   .message_1,
-//   .message_2,
-//   .message_3,
-//   .user-account__session-wrapper,
-//   .user-account__session-change-wrapper,
-//   .date-not-scheduled,
-//   .change-btn-schedule,
-//   .user-account__doctor-change-request,
-//   .message_error {
-//     display: none;
-//   }
-// }
-
-// .user-account__main[data-utils="main-1-confirmed"] {
-
-//   .message_2,
-//   .user-account__session-wrapper {
-//     display: block;
-//   }
-
-//   .requested-session {
-//     display: none;
-//   }
-// }
-
-// .user-account__main[data-utils="main-not-confirmed"] {
-//   .text-success {
-//     display: none;
-//   }
-
-//   .message_1 {
-//     display: block;
-//   }
-// }
-
-// .user-account__main[data-utils="main-change-confirmed"],
-// .user-account__main[data-utils="main-confirmed"] {
-
-//   .text-success,
-//   .message_2 {
-//     display: none;
-//   }
-
-//   .user-account__session-wrapper {
-//     display: block;
-//   }
-
-//   .requested-session {
-//     display: none;
-//   }
-// }
-
-// .user-account__main[data-utils="main-not-scheduled"] {
-//   .user-account__session-wrapper {
-//     display: block;
-//   }
-
-//   .requested-session {
-//     display: none;
-//   }
-
-//   .date {
-//     display: none;
-//   }
-
-//   .date-not-scheduled {
-//     display: block;
-//     text-align: center;
-//   }
-
-//   .change-btn-reschedule {
-//     display: none;
-//   }
-
-//   .change-btn-schedule {
-//     display: block;
-//   }
-// }
-
-// .user-account__main[data-utils="main-change"] {
-
-//   .title,
-//   .user-account__message {
-//     display: none;
-//   }
-
-//   .user-account__session-change-wrapper {
-//     display: block;
-//   }
-// }
-
-// .user-account__main[data-utils="main-change-not-confirmed"] {
-//   .message_3 {
-//     display: block;
-//   }
-
-//   .user-account__session-wrapper {
-//     display: block;
-//   }
-
-//   .user-account__change-btn {
-//     display: none;
-//   }
-
-//   .requested-session {
-//     display: block;
-//   }
-
-//   .next-session,
-//   .requested-session {
-//     color: $color-dark-gray;
-//   }
-// }
-
-// .user-account__main[data-utils="main-doctor-change"] {
-
-//   .user-account__session-wrapper {
-//     display: block;
-//   }
-
-//   .user-account__doctor-change-request {
-//     display: block;
-//   }
-
-//   .user-account__change-btn,
-//   .requested-session {
-//     display: none;
-//   }
-// }
-
-// .user-account__main[data-utils="main-payment-error"] {
-
-//   .message_error {
-//     display: block;
-//   }
-
-//   .user-account__session-wrapper {
-//     display: block;
-//   }
-
-//   .requested-session {
-//     display: none;
-//   }
-// }
 
 .user-account__settings[data-utils="settings-reg-completed"] {
 

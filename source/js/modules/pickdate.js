@@ -1,5 +1,4 @@
 const choiceDateForm = document.querySelector('#choice-date-form');
-// const months = ['января', 'февраля', 'марта', 'aпреля', 'мая', 'июня', 'июля', 'августа', 'сентября', 'ноября', 'декабря'];
 
 function setChoiceBtn() {
   if (!choiceDateForm) {
@@ -26,17 +25,6 @@ function setChoiceBtn() {
       submitBtn.classList.add('is-enabled');
       const currentDatetime = slot.closest('label').querySelector('span').textContent;
       const currentDay = slot.closest('.doctor__day-wrapper').querySelector('time').textContent;
-      console.log(currentDatetime);
-      console.log(currentDay);
-      // const day = currentDatetime.slice(8, 10);
-      // const month = currentDatetime.slice(5, 7);
-      // const time = currentDatetime.slice(11);
-
-      // const monthNum = month[0] === '0' ? Number(month[1]) : Number(month);
-      // const dayText = day[0] === '0' ? day[1] : day;
-      // const monthText = months[monthNum - 1];
-
-      // dateTime.setAttribute('datetime', currentDatetime);
       dateTime.textContent = ` ${currentDatetime} ${currentDay} `;
 
     });

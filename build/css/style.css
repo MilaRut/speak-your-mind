@@ -2916,9 +2916,6 @@ details summary::marker {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  -webkit-box-pack: justify;
-  -ms-flex-pack: justify;
-  justify-content: space-between;
   max-width: 1127px;
   margin: 0 auto;
 }
@@ -2970,6 +2967,10 @@ details summary::marker {
 }
 
 .choice__item-exp {
+  text-align: center;
+}
+
+.choice__item-name {
   text-align: center;
 }
 
@@ -3501,7 +3502,20 @@ details summary::marker {
   align-items: center;
   -ms-flex-wrap: wrap;
   flex-wrap: wrap;
+  gap: 16px;
   margin-bottom: 18px;
+}
+
+.user-account__doctor .doctor-name {
+  font-size: 23px;
+  font-weight: 600;
+  margin-bottom: 10px;
+}
+
+.user-account__doctor .user-account__contact {
+  padding: 8px 24px;
+  font-size: 20px;
+  font-weight: 600;
 }
 
 .user-account__messages {

@@ -68,7 +68,7 @@
               <img src="./img/content/user-thumb.png" width="24" height="24" alt="">
             </div>
             <button class="logged__btn" id="#logged-menu">
-              <span class="logged__username">Username</span>
+              <span class="logged__username gotten-username">Username</span>
             </button>
           </div>
         </div>
@@ -133,8 +133,16 @@
   <script>
     document.addEventListener('DOMContentLoaded', function () {
       const errorMsg = document.querySelector('.form-error-message')
+
+      function clearLocStorage() {
+        const savedLang = localStorage.getItem('language') || 'en';
+        localStorage.clear();
+        localStorage.setItem('language', savedLang);
+      };
+
       document.getElementById('user-signup-form').addEventListener('submit', function (e) {
         e.preventDefault();
+        clearLocStorage();
 
         var user_name = document.getElementById('user_name').value;
         var user_email = document.getElementById('user_email').value;
@@ -160,6 +168,8 @@
             return response.json();
           })
           .then(function (data) {
+            // кладем токен в LS
+            localStorage.setItem('token', data.token);
             if (!data.status) {
               if (data.error) {
                 errorMsg.classList.add('is-active');
@@ -167,7 +177,9 @@
               }
             } else {
               localStorage.setItem('user_name', user_name);
+              localStorage.setItem('user_email', user_email);
               localStorage.setItem('is_therapist', 'false');
+              localStorage.setItem('user_form', 'empty');
               window.location.href = '/user-signup-main.html';
             };
           })

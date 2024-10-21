@@ -2,6 +2,7 @@ import {iosVhFix} from './utils/ios-vh-fix';
 import {setWrapperClass} from './modules/wapper';
 import {loadLanguage} from './modules/localisation';
 import {setLangBtn} from './modules/lang-switcher';
+import {setName} from './modules/setName';
 import {logOut} from './modules/logout';
 import {initSlider} from './modules/slider';
 import {initTabs} from './modules/tabs';
@@ -38,6 +39,7 @@ window.addEventListener('DOMContentLoaded', () => {
   loadLanguage(savedLanguage);
   logOut();
   setLangBtn();
+  setName();
 
   // Modules
   // ---------------------------------
