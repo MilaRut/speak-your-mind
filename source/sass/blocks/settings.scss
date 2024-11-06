@@ -92,8 +92,8 @@
       max-width: fit-content;
     }
 
-    input[id="email"],
-    input[id="password"] {
+    input[id="user_name"],
+    input[id="user_email"] {
       padding: 4px 10px;
       border: 1px solid $color-nero;
       background: $color-default-white;
@@ -476,10 +476,16 @@
 }
 
 .settings__submit-btn {
+  width: fit-content;
+  height: 66px;
   text-transform: uppercase;
   font-weight: 900;
   font-size: 20px;
   line-height: 1.1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
 }
 
 .settings__edu-subtitle {
@@ -519,6 +525,7 @@
   &--faculty {
     width: 30%;
   }
+
   &--degree {
     min-width: 60%;
     flex: 1;

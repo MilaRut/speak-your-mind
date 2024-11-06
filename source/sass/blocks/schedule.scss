@@ -19,18 +19,6 @@
     height: 56px;
     gap: 10px;
     padding: 10px 20px;
-
-    svg {
-      display: none;
-    }
-
-
-    &.is-loading {
-      svg {
-        display: block;
-        animation: rotate-animation 5s infinite linear;
-      }
-    }
   }
 
   .text-success.is-visible {
@@ -235,19 +223,5 @@
         }
       }
     }
-  }
-}
-
-@keyframes rotate-animation {
-  0% {
-    transform: rotate(0deg);
-  }
-
-  50% {
-    transform: rotate(180deg);
-  }
-
-  100% {
-    transform: rotate(360deg);
   }
 }

@@ -344,7 +344,7 @@
           </svg>
         </button>
         <h2 class="feedback__title" data-translate="feedback_title">Связаться с поддержкой</h2>
-        <div class="fedback__start">
+        <div class="feedback__start">
           <div class="feedback__error">
             <div class="feedback__error-message">
               <p data-translate="feedback_error_msg1"><b>Произошла ошибка</b></p>
@@ -355,15 +355,17 @@
           <form action="" id="feedback-form">
             <label>
               <span data-translate="feedback_form_title">Представьтесь, пожалуйста</span>
-              <input type="text" name="feedback_name" placeholder="Ваше имя" data-translate="name_placeholder">
+              <input type="text" name="feedback_name" id="feedback_name" placeholder="Ваше имя"
+                data-translate="name_placeholder" required>
             </label>
             <label>
-              <input type="email" name="feedback_email" placeholder="Ваш email" data-translate="email_placeholder">
+              <input type="email" name="feedback_email" id="feedback_email" placeholder="Ваш email"
+                data-translate="email_placeholder" required>
             </label>
             <label>
               <span data-translate="feedback_your_msg">Ваше сообщение</span>
               <textarea name="feedback_text" id="feedback_text" placeholder="Задайте вопрос или опишите проблему"
-                data-translate="feedback_placeholder"></textarea>
+                data-translate="feedback_placeholder" required></textarea>
             </label>
             <div class="feedback__agreement">
               <p>
@@ -371,7 +373,12 @@
                 <a href="#" class="text-green" data-translate="feedback_agreement2">обработку ваших личных данных</a>.
               </p>
             </div>
-            <button type="button" class="btn feedback__submit-btn">
+            <button type="submit" class="btn feedback__submit-btn">
+              <span class="icon-loader">
+                <svg width="32" height="32" fill="currentColor">
+                  <use xlink:href="./img/sprite.svg#icon-loader"></use>
+                </svg>
+              </span>
               <svg width="32" height="32" fill="currentColor">
                 <use xlink:href="./img/sprite.svg#mail"></use>
               </svg>
@@ -391,6 +398,85 @@
       </div>
     </div>
   </div>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+      const form = document.getElementById('feedback-form');
+      const submitButton = document.querySelector('.feedback__submit-btn');
+
+      form.addEventListener('submit', function (e) {
+        e.preventDefault();
+
+        const user_name = document.querySelector('#feedback_name').value;
+        const user_email = document.querySelector('#feedback_email').value;
+        const report_text = document.querySelector('#feedback_text').value;
+
+        const dataToSend = {
+          session_token: '',
+          user_name: user_name,
+          user_email: user_email,
+          report_subject: 'REPORT',
+          report_text: report_text,
+        };
+
+        submitButton.classList.add('is-loading');
+
+        fetch('http://127.0.0.1:8000/report_to_admin', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json'
+          },
+          body: JSON.stringify(dataToSend)
+        })
+          .then(response => {
+            if (!response.ok) {
+              throw new Error('Сеть не в порядке');
+              submitButton.classList.remove('is-loading');
+              showErrorMsg();
+            }
+            return response.json();
+          })
+          .then(data => {
+            console.log('Форма отправлена');
+            form.reset();
+            showSuccessMessage();
+          })
+          .catch(error => {
+            console.error('Ошибка при получении данных пользователя:', error);
+            submitButton.classList.remove('is-loading');
+            showErrorMsg();
+          })
+          .finally(() => {
+          submitButton.classList.remove('is-loading');
+        });
+      });
+
+      function showSuccessMessage() {
+        document.querySelector('.feedback__error').style.display = 'none';
+        document.querySelector('.feedback__start').style.display = 'none';
+        document.querySelector('.feedback__success').style.display = 'block';
+        document.querySelector('.feedback__success-btn').addEventListener('click', () => {
+          resetForm();
+        });
+      }
+
+      function showErrorMsg() {
+        document.querySelector('.feedback__error').style.display = 'block';
+      }
+
+      function resetForm() {
+        document.querySelector('.feedback__start').style.display = 'block';
+        document.querySelector('.feedback__success').style.display = 'none';
+        document.querySelector('.feedback__error').style.display = 'none';
+        document.querySelector('#feedback_text').value = '';
+      }
+
+      document.querySelector('.modal__close-btn').addEventListener('click', () => {
+        resetForm()
+      });
+    });
+
+  </script>
 
   <script src="js/vendor.min.js"></script>
   <script src="js/main.min.js"></script>

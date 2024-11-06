@@ -84,10 +84,10 @@
       document.getElementById('admin-login-form').addEventListener('submit', function (e) {
         e.preventDefault();
 
-        var admin_email = document.getElementById('admin_email').value;
-        var password = document.getElementById('password').value;
+        const admin_email = document.getElementById('admin_email').value;
+        const password = document.getElementById('password').value;
 
-        var data = {
+        const data = {
           email: admin_email,
           password: password
         };

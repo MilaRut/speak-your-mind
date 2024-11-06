@@ -306,7 +306,7 @@
             </svg>
             <span data-translate="chat_with_client_btn">Чат с клиентом</span>
           </a>
-                   <a href="#" class="client-card__btn client-card__btn--notes btn btn--white">
+          <a href="#" class="client-card__btn client-card__btn--notes btn btn--white">
             <svg width="32" height="32" fill="currentColor">
               <use xlink:href="./img/sprite.svg#notes"></use>
             </svg>
@@ -345,48 +345,10 @@
   <script>
     document.addEventListener('DOMContentLoaded', function () {
 
-      // Получение токена из Local Storage
       const token = localStorage.getItem('token');
 
-      // получение расписания с бэкенда
-
-      function loadDataFromBackend() {
-
-        const dataToSend = JSON.stringify({
-          session_token: token,
-          schedule: [],
-          timezone: ''
-        });
-
-        // Отправка запроса на сервер для получения расписания
-        fetch('http://127.0.0.1:8000/doctor_schedule', {
-          method: 'POST',
-          headers: {
-            'Authorization': `Bearer ${token}`,
-            'Content-Type': 'application/json'
-          },
-          body: dataToSend
-        })
-          .then(response => {
-            if (!response.ok) {
-              throw new Error('Сеть не в порядке');
-            }
-            return response.json();
-          })
-          .then(data => {
-            // Обновляем dataObject и localStorage на основе полученных данных
-            if (data.schedule) {
-              updateDocSchedule(data);
-            }
-          })
-          .catch(error => {
-            console.error('Ошибка при получении данных:', error);
-          });
-      }
-
-
+      // получение данных терапевта с бэкенда
       if (token) {
-        // Отправка запроса на сервер для получения данных пользования
         fetch('http://127.0.0.1:8000/get_doc_data', {
           method: 'POST',
           headers: {
@@ -404,7 +366,7 @@
           .then(data => {
             // TODO удалить вывод в консоль
             console.log('Данные пользователя:', data);
-            loadDataFromBackend();
+            loadScheduleFromBackend();
           })
           .catch(error => {
             console.error('Ошибка при получении данных пользователя:', error);
@@ -412,6 +374,69 @@
       } else {
         console.log('Токен не найден. Пожалуйста, войдите в систему.');
       }
+
+      // получение расписания с бэкенда
+      function loadScheduleFromBackend() {
+
+        const dataToSend = JSON.stringify({
+          session_token: token,
+          schedule: [],
+          timezone: ''
+        });
+
+        fetch('http://127.0.0.1:8000/doctor_schedule', {
+          method: 'POST',
+          headers: {
+            'Authorization': `Bearer ${token}`,
+            'Content-Type': 'application/json'
+          },
+          body: dataToSend
+        })
+          .then(response => {
+            if (!response.ok) {
+              throw new Error('Сеть не в порядке');
+            }
+            return response.json();
+          })
+          .then(data => {
+            if (data.schedule) {
+              updateDocSchedule(data);
+            }
+          })
+          .catch(error => {
+            console.error('Ошибка при получении данных:', error);
+          });
+      }
+
+      // получение списка клиентов с бэкенда
+      // if (token) {
+      //   fetch('http://127.0.0.1:8000/url', {
+      //     method: 'POST',
+      //     headers: {
+      //       'Authorization': `Bearer ${token}`,
+      //       'Content-Type': 'application/json'
+      //     },
+      //     body: JSON.stringify({ session_token: token })
+      //   })
+      //     .then(response => {
+      //       if (!response.ok) {
+      //         throw new Error('Сеть не в порядке');
+      //       }
+      //       return response.json();
+      //     })
+      //     .then(data => {
+      //       // TODO удалить вывод в консоль
+      //       console.log('Список клиентов:', data);
+      //       // рендеринг списка клиентов
+      //       // renderClientsList();
+      //     })
+      //     .catch(error => {
+      //       console.error('Ошибка при получении списка клиентов:', error);
+      //     });
+      // } else {
+      //   console.log('Токен не найден. Пожалуйста, войдите в систему.');
+      // }
+
 
       function updateDocSchedule(data) {
         console.log('Расписание:', data);
@@ -443,12 +468,12 @@
           const dayOfWeek = new Date(date.split('-').reverse().join('-')).toLocaleString('ru-RU', { weekday: 'long' });
 
           html += `
-        <div class="doctor__day-wrapper">
-            <p class="doctor__day">
-                <time datetime="${date.split('-').reverse().join('-')}">${formattedDate}</time>
-            </p>
-            <fieldset>
-    `;
+              <div class="doctor__day-wrapper">
+                <p class="doctor__day">
+                  <time datetime="${date.split('-').reverse().join('-')}">${formattedDate}</time>
+                </p>
+              <fieldset>
+              `;
 
           scheduleByDate[date].forEach(time => {
             html += `
@@ -456,22 +481,19 @@
                     <input type="radio" name="appointment-time" value="${time}">
                     <span class="time-value">${time}</span>
                 </label>
-        `;
+                `;
           });
 
           html += `
             </fieldset>
-        </div>
-    `;
+              </div>
+            `;
         }
 
-        // Вставка HTML в нужное место на странице
-        // document.getElementById('schedule-container').innerHTML = html;
         document.querySelectorAll('.schedule-container').forEach((el) => {
           el.innerHTML = html;
-        })
+        });
       }
-
     });
   </script>
 

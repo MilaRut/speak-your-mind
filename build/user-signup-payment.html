@@ -210,6 +210,11 @@
 
   <script>
     document.addEventListener('DOMContentLoaded', function () {
+      const doc_name = localStorage.getItem('selected_therapist_name');
+      const session_datetime = localStorage.getItem('session_datetime');
+      document.querySelector('.card__doctor-name').textContent = doc_name;
+      document.querySelector('.card__session-time').textContent = session_datetime;
+
       document.getElementById('user-card-form').addEventListener('submit', function (e) {
         e.preventDefault();
         // TODO когда будет добавлен блок с привязкой карты -

@@ -107,11 +107,33 @@
 
   &__submit-btn,
   &__back-btn {
-    padding: 16px 24px;
-    margin-top: 48px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 52px;
+    padding: 0 24px;
   }
+}
 
-  &__back-btn {
-    margin-right: 56px;
+.rechoice__btns-wrapper {
+  display: flex;
+  gap: 50px;
+  padding-top: 48px;
+}
+
+.rechoice__submit-btn {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+
+  svg {
+    display: none;
   }
+}
+
+.rechoice__change-request-btn {
+  background-color: transparent;
+  border: none;
+  padding: 0;
 }

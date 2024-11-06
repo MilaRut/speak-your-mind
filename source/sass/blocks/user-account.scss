@@ -112,7 +112,8 @@
     gap: 16px;
     margin-bottom: 18px;
 
-    .doctor-name {
+    .doctor-name,
+    .doctor-name-changed {
       font-size: 23px;
       font-weight: 600;
       margin-bottom: 10px;
@@ -394,16 +395,14 @@
 
   .message,
   .user-account__contact,
-  .settings__rechoice.rechoice-1,
-  .settings__rechoice.rechoice-2 {
+  .settings__rechoice.rechoice-1 {
     display: none;
   }
 }
 
 .user-account__settings[data-utils="settings-main"] {
 
-  .settings__rechoice.rechoice-1,
-  .settings__rechoice.rechoice-2 {
+  .settings__rechoice.rechoice-1 {
     display: none;
   }
 
@@ -414,30 +413,12 @@
   }
 }
 
-.user-account__settings[data-utils="settings-rechoice-1"] {
+.user-account__settings[data-utils="settings-request"] {
   .settings__main {
     display: none;
   }
 
   .settings__rechoice.rechoice-1 {
-    display: block;
-  }
-
-  .settings__rechoice.rechoice-2 {
-    display: none;
-  }
-}
-
-.user-account__settings[data-utils="settings-rechoice-2"] {
-  .settings__main {
-    display: none;
-  }
-
-  .settings__rechoice.rechoice-1 {
-    display: none;
-  }
-
-  .settings__rechoice.rechoice-2 {
     display: block;
   }
 }
@@ -447,5 +428,13 @@
     .container {
       padding: 0;
     }
+  }
+}
+
+.first-session-msg {
+  .doctor-name {
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 24px;
   }
 }
