@@ -349,7 +349,7 @@
 
       // получение данных терапевта с бэкенда
       if (token) {
-        fetch('http://127.0.0.1:8000/get_doc_data', {
+        fetch('http://www.speakyourmind.help:8000/get_doc_data', {
 
           method: 'POST',
           headers: {
@@ -385,7 +385,7 @@
           timezone: ''
         });
 
-        fetch('http://127.0.0.1:8000/doctor_schedule', {
+        fetch('http://www.speakyourmind.help:8000/doctor_schedule', {
           method: 'POST',
           headers: {
             'Authorization': `Bearer ${token}`,
@@ -411,7 +411,7 @@
 
       // получение списка клиентов с бэкенда
       // if (token) {
-      //   fetch('http://127.0.0.1:8000/url', {
+      //   fetch('http://www.speakyourmind.help:8000/url', {
       //     method: 'POST',
       //     headers: {
       //       'Authorization': `Bearer ${token}`,
