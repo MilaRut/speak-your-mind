@@ -11,7 +11,7 @@ import {showPassword} from './modules/show-password';
 import {switchReadonly} from './modules/readonly-switch';
 // import {validateTextarea} from './modules/textarea';
 import {showTextInput} from './modules/select-other';
-import {setActiveItem} from './modules/clients-list';
+// import {setActiveItem} from './modules/clients-list';
 import {initActionsBtns} from './modules/clients-btns';
 import {initModal} from './modules/modal';
 import {setClientCard} from './modules/client-card';
@@ -52,7 +52,7 @@ window.addEventListener('DOMContentLoaded', () => {
     switchReadonly();
     // validateTextarea();
     showTextInput();
-    setActiveItem();
+    // setActiveItem();
     initActionsBtns();
     initModal();
     setClientCard();

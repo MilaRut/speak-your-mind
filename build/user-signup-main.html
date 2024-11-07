@@ -557,18 +557,18 @@
       document.getElementById('user-signup-main-form').addEventListener('submit', function (e) {
         e.preventDefault();
 
-        var user_age = document.getElementById('age').value;
-        var user_experience = Number(document.querySelector('input[name="experience"]:checked').value);
-        var user_type = Number(document.querySelector('input[name="type"]:checked').value);
-        var user_languages = Array.from(document.querySelectorAll('input[name="language"]:checked')).map(checkbox => Number(checkbox.value));
-        var user_symptoms = Array.from(document.querySelectorAll('input[name="symptoms"]:checked')).map(checkbox => Number(checkbox.value));
-        var user_therapist_gender = Number(document.querySelector('input[name="therapist-gender"]:checked').value);
-        var user_time = document.querySelector('input[name="time"]:checked').value;
-        var user_specific_date_time = document.querySelector('input[name="specific_date_time"]').value;
-        var user_price = Number(document.querySelector('input[name="price"]:checked').value);
-        var user_phone = document.getElementById('user-phone').value;
+        const user_age = document.getElementById('age').value;
+        const user_experience = Number(document.querySelector('input[name="experience"]:checked').value);
+        const user_type = Number(document.querySelector('input[name="type"]:checked').value);
+        const user_languages = Array.from(document.querySelectorAll('input[name="language"]:checked')).map(checkbox => Number(checkbox.value));
+        const user_symptoms = Array.from(document.querySelectorAll('input[name="symptoms"]:checked')).map(checkbox => Number(checkbox.value));
+        const user_therapist_gender = Number(document.querySelector('input[name="therapist-gender"]:checked').value);
+        const user_time = document.querySelector('input[name="time"]:checked').value;
+        const user_specific_date_time = document.querySelector('input[name="specific_date_time"]').value;
+        const user_price = Number(document.querySelector('input[name="price"]:checked').value);
+        const user_phone = document.getElementById('user-phone').value;
 
-        var dataToSend = {
+        const dataToSend = {
           session_token: session_token,
           user_age: user_age,
           user_experience: user_experience,

@@ -136,10 +136,10 @@
         e.preventDefault();
         clearLocStorage();
 
-        var user_email = document.getElementById('user_email').value;
-        var password = document.getElementById('password').value;
+        const user_email = document.getElementById('user_email').value;
+        const password = document.getElementById('password').value;
 
-        var data = {
+        const data = {
           user_email: user_email,
           password: password
         };
@@ -169,29 +169,16 @@
             } else {
               if (data.is_therapist) {
                 localStorage.setItem('is_therapist', true);
-                // TODO добавить подгрузку данных терпевта с бэка по аналогии с клиентом
-                // getTherapistDataFromBackend();
-
-                // TODO Доп проверка и редиректы:
-                // !карта - doctor-account-settings.html
-                // карта - doctor-account-sessions.html
-                window.location.href = '/doctor-account-settings.html'
+                getDocDataFromBackend();
               } else {
-                localStorage.setItem('user_email', user_email);
                 localStorage.setItem('is_therapist', false);
                 getUserDataFromBackend();
               }
-
-              // Доп проверка и редиректы:
-              // !анкета && !терапевт && !карта - user-signup-main.html
-              //  анкета && !терапевт && !карта - user-signup-choice.html
-              //  анкета && терапевт && !карта - user-signup-payment.html
-              //  анкета && терапевт && карта - user-account-main.html
             };
           })
           .catch(function (error) {
             // Обработка ошибки
-            // добавить обработку ошибки по статусам
+            // TODO добавить обработку ошибки по статусам
             console.log(error);
             errorMsg.classList.add('is-active');
             errorMsg.textContent = error;
@@ -220,6 +207,7 @@
               // TODO удалить вывод в консоль
               console.log('Данные пользователя:', data);
               localStorage.setItem('user_name', data.name);
+              localStorage.setItem('user_email', data.email);
 
               if (data.user_age === '' || data.user_age === null) {
                 localStorage.setItem('user_form', 'empty');
@@ -233,6 +221,53 @@
               } else {
                 window.location.href = '/user-account-main.html';
               }
+
+              // TODO Доп проверка и редиректы:
+              // !анкета && !терапевт && !карта - user-signup-main.html
+              //  анкета && !терапевт && !карта - user-signup-choice.html
+              //  анкета && терапевт && !карта - user-signup-payment.html
+              //  анкета && терапевт && карта - user-account-main.html
+              // END TODO
+            })
+            .catch(error => {
+              console.error('Ошибка при получении данных пользователя:', error);
+            });
+        } else {
+          console.log('Токен не найден. Пожалуйста, войдите в систему.');
+        }
+      }
+
+      // получение данных терапевта с бэкенда
+      function getDocDataFromBackend() {
+        const session_token = localStorage.getItem('token');
+        if (session_token) {
+          fetch('http://127.0.0.1:8000/get_doc_data', {
+            method: 'POST',
+            headers: {
+              'Authorization': `Bearer ${session_token}`,
+              'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({ session_token: session_token })
+          })
+            .then(response => {
+              if (!response.ok) {
+                throw new Error('Сеть не в порядке');
+              }
+              return response.json();
+            })
+            .then(data => {
+              // TODO удалить вывод в консоль
+              console.log('Данные терапевта:', data);
+              // END TODO
+              localStorage.setItem('user_name', data.doc_name);
+              localStorage.setItem('user_email', data.doc_email);
+
+              // TODO Доп проверка и редиректы:
+              // !карта - doctor-account-settings.html
+              // карта - doctor-account-sessions.html
+              // END TODO
+
+              window.location.href = '/doctor-account-settings.html'
             })
             .catch(error => {
               console.error('Ошибка при получении данных пользователя:', error);

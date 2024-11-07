@@ -351,9 +351,9 @@
           </svg>
         </button>
         <h2 class="feedback__title" data-translate="feedback_title">Связаться с поддержкой</h2>
-        <div class="fedback__start">
+        <div class="feedback__start">
           <p class="feedback__text">
-            <span class="user-name">Александр</span>,&nbsp;
+            <span class="user-name gotten-username">Александр</span>,&nbsp;
             <span data-translate="feedback_text">добро пожаловать в службу поддержки Speak You Mind!</span>
           </p>
           <div class="feedback__error">
@@ -365,8 +365,13 @@
           </div>
           <form action="" id="feedback-form">
             <textarea name="feedback_text" id="feedback_text" placeholder="Задайте вопрос или опишите проблему"
-              data-translate="feedback_placeholder"></textarea>
-            <button type="button" class="btn feedback__submit-btn">
+              data-translate="feedback_placeholder" required></textarea>
+            <button type="submit" class="btn feedback__submit-btn">
+              <span class="icon-loader">
+                <svg width="32" height="32" fill="currentColor">
+                  <use xlink:href="./img/sprite.svg#icon-loader"></use>
+                </svg>
+              </span>
               <svg width="32" height="32" fill="currentColor">
                 <use xlink:href="./img/sprite.svg#mail"></use>
               </svg>
@@ -386,6 +391,86 @@
       </div>
     </div>
   </div>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+      const form = document.getElementById('feedback-form');
+      const submitButton = document.querySelector('.feedback__submit-btn');
+
+      form.addEventListener('submit', function (e) {
+        e.preventDefault();
+
+        const session_token = localStorage.getItem('token');
+        const user_name = localStorage.getItem('user_name');
+        const user_email = localStorage.getItem('user_email');
+        const report_text = document.querySelector('#feedback_text').value;
+
+        const dataToSend = {
+          session_token: session_token,
+          user_name: user_name,
+          user_email: user_email,
+          report_subject: 'REPORT',
+          report_text: report_text,
+        };
+
+        submitButton.classList.add('is-loading');
+
+        fetch('http://127.0.0.1:8000/report_to_admin', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json'
+          },
+          body: JSON.stringify(dataToSend)
+        })
+          .then(response => {
+            if (!response.ok) {
+              throw new Error('Сеть не в порядке');
+              submitButton.classList.remove('is-loading');
+              showErrorMsg();
+            }
+            return response.json();
+          })
+          .then(data => {
+            console.log('Форма отправлена');
+            form.reset();
+            showSuccessMessage();
+          })
+          .catch(error => {
+            console.error('Ошибка при получении данных пользователя:', error);
+            submitButton.classList.remove('is-loading');
+            showErrorMsg();
+          })
+          .finally(() => {
+            submitButton.classList.remove('is-loading');
+          });
+      });
+
+      function showSuccessMessage() {
+        document.querySelector('.feedback__error').style.display = 'none';
+        document.querySelector('.feedback__start').style.display = 'none';
+        document.querySelector('.feedback__success').style.display = 'block';
+        document.querySelector('.feedback__success-btn').addEventListener('click', () => {
+          resetForm();
+        });
+      }
+
+      function showErrorMsg() {
+        document.querySelector('.feedback__error').style.display = 'block';
+      }
+
+      function resetForm() {
+        document.querySelector('.feedback__start').style.display = 'block';
+        document.querySelector('.feedback__success').style.display = 'none';
+        document.querySelector('.feedback__error').style.display = 'none';
+        document.querySelector('#feedback_text').value = '';
+      }
+
+      document.querySelector('.modal__close-btn').addEventListener('click', () => {
+        resetForm()
+      });
+    });
+
+  </script>
 
   <script src="js/vendor.min.js"></script>
   <script src="js/main.min.js"></script>

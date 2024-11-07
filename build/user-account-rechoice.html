@@ -28,7 +28,7 @@
                     <img src="./img/svg/nav-logo.svg" width="72" height="72" alt="Speak your mind.">
                   </a>
                 </div>
-                <a href="user-account-main.html" class="user-account__nav-link is-active">
+                <a href="user-account-main.html" class="user-account__nav-link">
                   <svg width="25" height="25" fill="currentColor">
                     <use xlink:href="./img/sprite.svg#nav-main"></use>
                   </svg>
@@ -46,11 +46,6 @@
                   </svg>
                   <span data-translate="int_nav_profile">Профиль</span>
                 </a>
-                <a href="user-account-help.html" class="user-account__nav-link">
-                  <svg width="25" height="25" fill="currentColor">
-                    <use xlink:href="./img/sprite.svg#nav-help"></use>
-                  </svg>
-                  <span data-translate="int_nav_help">Помощь</span>
                 </a>
                 <div href="#" class="user-account__nav-link nav-lang-switcher js-dropdown-trigger"
                   data-id="#nav-lang-switcher">
@@ -74,336 +69,105 @@
                     </li>
                   </ul>
                 </div>
-                <a href="/doctor-landing.html" class="user-account__nav-link logout-btn">
+                <a href="user-account-help.html" class="user-account__nav-link">
                   <svg width="25" height="25" fill="currentColor">
-                    <use xlink:href="./img/sprite.svg#nav-logout"></use>
+                    <use xlink:href="./img/sprite.svg#nav-help"></use>
                   </svg>
-                  <span data-translate="int_nav_logout">Выход</span>
-                </a>
+                  <span data-translate="int_nav_help">Помощь</span>
+                  <a href="index.html" class="user-account__nav-link logout-btn">
+                    <svg width="25" height="25" fill="currentColor">
+                      <use xlink:href="./img/sprite.svg#nav-logout"></use>
+                    </svg>
+                    <span data-translate="int_nav_logout">Выход</span>
+                  </a>
               </nav>
             </div>
             <div class="user-account__right-col">
-              <div class="user-account__rechoice">
-                <section class="questions">
-                  <div class="container">
-                    <div class="questions__wrapper">
-                      <div class="questions__heading">
-                        <h1 class="subtitle" data-translate="rechoice_title_2">Изменение запроса</h1>
-                        <p class="text-18" data-translate="rechoice_subtitle">Ответьте, пожалуйста на вопросы, чтобы мы
-                          могли предложить вам подходящего
-                          специалиста.
-                        </p>
-                      </div>
-                      <form action="" method="post" id="user-rechoice-form">
-                        <div class="questions__legend">
-                          <p class="text-31" data-translate="questions_legend_1">Что бы вы хотели обсудить в первую
-                            очередь?</p>
-                          <p class="text-18" data-translate="questions_legend_2">Вы можете пропустить этот вопрос, если
-                            не уверены
-                            что именно вас беспокоит</p>
-                        </div>
-                        <div class="questions__checkboxes questions__checkboxes--1">
-                          <p class="text-20" data-translate="symptoms_title_1">Отношения с собой</p>
-                          <fieldset>
-                            <div class="inputs-wrapper">
-                              <label>
-                                <input type="checkbox" id="symptoms_0" name="symptoms" value="0">
-                                <span data-translate="symptoms_0">Усталость</span>
-                              </label>
-                              <label>
-                                <input type="checkbox" id="symptoms_1" name="symptoms" value="1" checked>
-                                <span data-translate="symptoms_1">Депрессивные состояния</span>
-                              </label>
-                              <label>
-                                <input type="checkbox" id="symptoms_2" name="symptoms" value="2">
-                                <span data-translate="symptoms_2">Раздражительность</span>
-                              </label>
-                              <label>
-                                <input type="checkbox" id="symptoms_3" name="symptoms" value="3">
-                                <span data-translate="symptoms_3">Тревожность</span>
-                              </label>
-                            </div>
-                            <div class="inputs-wrapper">
-                              <label>
-                                <input type="checkbox" id="symptoms_4" name="symptoms" value="4">
-                                <span data-translate="symptoms_4">Панические атаки</span>
-                              </label>
-                              <label>
-                                <input type="checkbox" id="symptoms_5" name="symptoms" value="5">
-                                <span data-translate="symptoms_5">Самооценка</span>
-                              </label>
-                              <label>
-                                <input type="checkbox" id="symptoms_6" name="symptoms" value="6" checked>
-                                <span data-translate="symptoms_6">Одиночество</span>
-                              </label>
-                              <label>
-                                <input type="checkbox" id="symptoms_7" name="symptoms" value="7">
-                                <span data-translate="symptoms_7">Поведенческая зависимость</span>
-                              </label>
-                            </div>
-                            <div class="inputs-wrapper">
-                              <label>
-                                <input type="checkbox" id="symptoms_8" name="symptoms" value="8">
-                                <span data-translate="symptoms_8">Химические зависимости</span>
-                              </label>
-                              <label>
-                                <input type="checkbox" id="symptoms_9" name="symptoms" value="9">
-                                <span data-translate="symptoms_9">Критические состояния</span>
-                              </label>
-                              <label>
-                                <input type="checkbox" id="symptoms_10" name="symptoms" value="10">
-                                <span data-translate="symptoms_10">ЛГБТ+</span>
-                              </label>
-                            </div>
-                          </fieldset>
-                        </div>
-                        <div class="questions__checkboxes questions__checkboxes--2">
-                          <p class="text-20" data-translate="symptoms_title_2">Отношения с другими</p>
-                          <fieldset>
-                            <div class="inputs-wrapper">
-                              <label>
-                                <input type="checkbox" id="symptoms_11" name="symptoms" value="11">
-                                <span data-translate="symptoms_11">C партнером</span>
-                              </label>
-                              <label>
-                                <input type="checkbox" id="symptoms_12" name="symptoms" value="12">
-                                <span data-translate="symptoms_12">С родителями</span>
-                              </label>
-                              <label>
-                                <input type="checkbox" id="symptoms_13" name="symptoms" value="13">
-                                <span data-translate="symptoms_13">Сексуальные</span>
-                              </label>
-                            </div>
-                            <div class="inputs-wrapper">
-                              <label>
-                                <input type="checkbox" id="symptoms_14" name="symptoms" value="14">
-                                <span data-translate="symptoms_14">В целом, с окружающими</span>
-                              </label>
-                              <label>
-                                <input type="checkbox" id="symptoms_15" name="symptoms" value="15">
-                                <span data-translate="symptoms_15">С детьми</span>
-                              </label>
-                              <label>
-                                <input type="checkbox" id="symptoms_16" name="symptoms" value="16">
-                                <span data-translate="symptoms_16">Сложности с ориентацией, ее поиск</span>
-                              </label>
-                            </div>
-                          </fieldset>
-                        </div>
-                        <div class="questions__checkboxes questions__checkboxes--3">
-                          <p class="text-20" data-translate="symptoms_title_3">Работа, учеба</p>
-                          <fieldset>
-                            <div class="inputs-wrapper">
-                              <label>
-                                <input type="checkbox" id="symptoms_17" name="symptoms" value="17">
-                                <span data-translate="symptoms_17">Недостаток мотивации</span>
-                              </label>
-                              <label>
-                                <input type="checkbox" id="symptoms_18" name="symptoms" value="18">
-                                <span data-translate="symptoms_18">“Не знаю, чем хочу заниматься”</span>
-                              </label>
-                              <label>
-                                <input type="checkbox" id="symptoms_19" name="symptoms" value="19">
-                                <span data-translate="symptoms_19">Отсутствие цели</span>
-                              </label>
-                            </div>
-                            <div class="inputs-wrapper">
-                              <label>
-                                <input type="checkbox" id="symptoms_20" name="symptoms" value="20">
-                                <span data-translate="symptoms_20">Выгорание</span>
-                              </label>
-                              <label>
-                                <input type="checkbox" id="symptoms_21" name="symptoms" value="21">
-                                <span data-translate="symptoms_21">Прокрастинация</span>
-                              </label>
-                              <label>
-                                <input type="checkbox" id="symptoms_22" name="symptoms" value="22">
-                                <span data-translate="symptoms_22">Смена, потеря работы</span>
-                              </label>
-                            </div>
-                          </fieldset>
-                        </div>
-                        <div class="questions__checkboxes questions__checkboxes--4">
-                          <p class="text-20" data-translate="symptoms_title_4">События жизни</p>
-                          <fieldset>
-                            <div class="inputs-wrapper">
-                              <label>
-                                <input type="checkbox" id="symptoms_23" name="symptoms" value="23">
-                                <span data-translate="symptoms_23">Переезд, эмиграция</span>
-                              </label>
-                              <label>
-                                <input type="checkbox" id="symptoms_24" name="symptoms" value="24">
-                                <span data-translate="symptoms_24">Разрыв отношений, развод</span>
-                              </label>
-                              <label>
-                                <input type="checkbox" id="symptoms_25" name="symptoms" value="25">
-                                <span data-translate="symptoms_25">Утрата близкого человека</span>
-                              </label>
-                            </div>
-                            <div class="inputs-wrapper">
-                              <label>
-                                <input type="checkbox" id="symptoms_26" name="symptoms" value="26">
-                                <span data-translate="symptoms_26">Беременность, рождение ребенка</span>
-                              </label>
-                              <label>
-                                <input type="checkbox" id="symptoms_27" name="symptoms" value="27">
-                                <span data-translate="symptoms_27">Финансовые изменения</span>
-                              </label>
-                              <label>
-                                <input type="checkbox" id="symptoms_28" name="symptoms" value="28">
-                                <span data-translate="symptoms_28">Болезнь, своя или близких</span>
-                              </label>
-                            </div>
-                          </fieldset>
-                        </div>
-                        <hr>
-                        <div class="questions__radio questions__therapist-gender">
-                          <p class="text-20" data-translate="therapist_gender">С кем вам было бы комфортнее работать?
-                          </p>
-                          <div class="inputs-wrapper">
-                            <input type="radio" id="gender-female" name="therapist-gender" value="1" checked>
-                            <label for="gender-female">
-                              <svg width="18" height="18" fill="currentColor">
-                                <use xlink:href="./img/sprite.svg#check-mark"></use>
-                              </svg>
-                              <span class="text-14" data-translate="therapist_gender_female">С женщиной</span>
-                            </label>
-                            <div class="divider"></div>
-                            <input type="radio" id="gender-male" name="therapist-gender" value="0">
-                            <label for="gender-male">
-                              <svg width="18" height="18" fill="currentColor">
-                                <use xlink:href="./img/sprite.svg#check-mark"></use>
-                              </svg>
-                              <span class="text-14" data-translate="therapist_gender_male">С мужчиной</span>
-                            </label>
-                            <div class="divider"></div>
-                            <input type="radio" id="gender-any" name="therapist-gender" value="2">
-                            <label for="gender-any">
-                              <svg width="18" height="18" fill="currentColor">
-                                <use xlink:href="./img/sprite.svg#check-mark"></use>
-                              </svg>
-                              <span class="text-14" data-translate="therapist_gender_any">Все равно</span>
-                            </label>
-                          </div>
-                        </div>
-                        <hr>
-                        <div class="questions__radio questions__language">
-                          <p class="text-20" data-translate="preferred_language">На каком языке вы хотите получать
-                            терапию?</p>
-                          <div class="inputs-wrapper">
-                            <input type="radio" id="session_lang_ru" name="session_lang" value="0" checked>
-                            <label for="session_lang_ru">
-                              <svg width="18" height="18" fill="currentColor">
-                                <use xlink:href="./img/sprite.svg#check-mark"></use>
-                              </svg>
-                              <span class="text-14" data-translate="lang_russian">На русском</span>
-                            </label>
-                            <div class="divider"></div>
-                            <input type="radio" id="session_lang_en" name="session_lang" value="1">
-                            <label for="session_lang_en">
-                              <svg width="18" height="18" fill="currentColor">
-                                <use xlink:href="./img/sprite.svg#check-mark"></use>
-                              </svg>
-                              <span class="text-14">in English</span>
-                            </label>
-                            <div class="divider"></div>
-                            <input type="radio" id="session_lang_hu" name="session_lang" value="2">
-                            <label for="session_lang_hu">
-                              <svg width="18" height="18" fill="currentColor">
-                                <use xlink:href="./img/sprite.svg#check-mark"></use>
-                              </svg>
-                              <span class="text-14">magyarul</span>
-                            </label>
-                          </div>
-                        </div>
-                        <hr>
-                        <div class="questions__radio questions__therapy-time">
-                          <p class="text-20" data-translate="questions_therapy_time">Предпочтения по времени сессии</p>
-                          <div class="inputs-wrapper">
-                            <input type="radio" id="time-any" name="time" value="0" checked>
-                            <label for="time-any">
-                              <svg width="18" height="18" fill="currentColor">
-                                <use xlink:href="./img/sprite.svg#check-mark"></use>
-                              </svg>
-                              <span class="text-14" data-translate="questions_therapy_time_any">Любое</span>
-                            </label>
-                            <div class="divider"></div>
-                            <input type="radio" id="time-soon" name="time" value="1">
-                            <label for="time-soon">
-                              <svg width="18" height="18" fill="currentColor">
-                                <use xlink:href="./img/sprite.svg#check-mark"></use>
-                              </svg>
-                              <span class="text-14" data-translate="questions_therapy_time_closest">Ближайшее</span>
-                            </label>
-                            <div class="divider"></div>
-                            <input type="radio" id="time-specific" name="time" value="2">
-                            <label for="time-specific">
-                              <svg width="18" height="18" fill="currentColor">
-                                <use xlink:href="./img/sprite.svg#check-mark"></use>
-                              </svg>
-                              <span class="text-14" data-translate="questions_therapy_time_specific">Конкретное</span>
-                            </label>
-                          </div>
-                          <div class="time-specific-choose">
-                            <label for="specific_date_time">
-                              <span data-translate="specific_date_time">Выберите дату и время</span>
-                              <input type="datetime-local" name="specific_date_time" id="specific_date_time">
-                            </label>
-                          </div>
-                        </div>
-                        <hr>
-                        <div class="questions__radio questions__therapy-price">
-                          <p class="text-20" data-translate="questions_therapy_price">Какая цена за сессию будет для вас
-                            комфортна?</p>
-                          <div class="inputs-wrapper">
-                            <input type="radio" id="price-any" name="price" value="0" checked>
-                            <label for="price-any">
-                              <svg width="18" height="18" fill="currentColor">
-                                <use xlink:href="./img/sprite.svg#check-mark"></use>
-                              </svg>
-                              <span class="text-14" data-translate="questions_therapy_price_any">Не важно</span>
-                            </label>
-                            <div class="divider"></div>
-                            <input type="radio" id="price-10000" name="price" value="1">
-                            <label for="price-10000">
-                              <svg width="18" height="18" fill="currentColor">
-                                <use xlink:href="./img/sprite.svg#check-mark"></use>
-                              </svg>
-                              <span class="text-14">10 000 HUF</span>
-                            </label>
-                            <div class="divider"></div>
-                            <input type="radio" id="price-25000" name="price" value="2">
-                            <label for="price-25000">
-                              <svg width="18" height="18" fill="currentColor">
-                                <use xlink:href="./img/sprite.svg#check-mark"></use>
-                              </svg>
-                              <span class="text-14">25 000 HUF</span>
-                            </label>
-                            <div class="divider"></div>
-                            <input type="radio" id="price-40000" name="price" value="3">
-                            <label for="price-40000">
-                              <svg width="18" height="18" fill="currentColor">
-                                <use xlink:href="./img/sprite.svg#check-mark"></use>
-                              </svg>
-                              <span class="text-14">40 000 HUF</span>
-                            </label>
-                          </div>
-                        </div>
-                        <hr>
-                        <div class="questions__btn-wrapper">
-                          <a href="user-account-main.html" class="btn btn--white questions__btn"
-                            data-translate="back_to_profile">Вернуться в личный кабинет</a>
-                          <button type="submit" class="questions__btn btn"
-                            data-translate="questions_submit_btn">Продолжить</button>
-                        </div>
-                      </form>
-                    </div>
+              <div class="user-account__settings settings" data-utils="settings-reg-completed">
+                <div class="rechoice rechoice-2">
+                  <div class="rechoice__heading">
+                    <h2 class="text-31" data-translate="choice_heading">Лучшие совпадения</h2>
                   </div>
-                </section>
+                  <div class="choice__swiper swiper" id="swiper-1">
+                    <ul class="choice__list choice__thumbs-list list-reset swiper-wrapper"></ul>
+                    <button type="button" class="swiper-btn swiper-btn--prev" aria-label="Previous slide.">
+                      <svg width="30" height="64" fill="currentColor">
+                        <use xlink:href="./img/sprite.svg#swiper-arrow"></use>
+                      </svg>
+                    </button>
+                    <button type="button" class="swiper-btn swiper-btn--next" aria-label="Next slide.">
+                      <svg width="30" height="64" fill="currentColor">
+                        <use xlink:href="./img/sprite.svg#swiper-arrow"></use>
+                      </svg>
+                    </button>
+                  </div>
+                  <div class="choice__doctors">
+                    <ul class="choices__doctors-list list-reset">
+                      <li class="choices__doctors-item doctor">
+                        <div class="doctor__image">
+                          <img src="./img/content/doctor-thumb.png" width="300" height="300" alt="">
+                        </div>
+                        <div class="doctor__content">
+                          <div class="doctor__heading">
+                            <p class="doctor__name"></p>
+                            <p class="doctor__experience"><span data-translate="doctor__experience">Опыт</span> 24 года
+                            </p>
+                            <p class="doctor__details">
+                              <span class="doctor__type">Индивидуальная сессия</span>
+                              <span class="divider">&#8226;</span>
+                              <span class="doctor__time">50 <span data-translate="doctor_time_min">мин</span></span>
+                              <span class="divider">&#8226;</span>
+                              <span class="doctor__price">10&nbsp;000 HUF</span>
+                            </p>
+                            <p class="doctor__themes" data-translate="doctor_themes">Работает со всеми темами вашей
+                              анкеты</p>
+                            <a href="#schedule" class="doctor__btn doctor__schedule-btn btn"
+                              data-translate="doctor_schedule_btn">Выбрать время сессии</a>
+                          </div>
+                          <div class="doctor__content-block" id="about-doctor">
+                            <h2 class="text-25 doctor__title" data-translate="about_doctor">О специалисте</h2>
+                            <p class="text-18 about-doctor-text"></p>
+                          </div>
+                          <div class="doctor__content-block" id="doctor__edu">
+                            <h2 class="text-25 doctor__title" data-translate="doc_q_edu_placeholder">Образование</h2>
+                            <ul class="settings__edu-list doctor__edu-list list-reset"></ul>
+                          </div>
+                          <div class="doctor__content-block" id="schedule">
+                            <h2 class="text-25 doctor__title" data-translate="doctor_schedule_title">Расписание</h2>
+                            <p class="text-18" data-translate="doctor_schedule_subtitle">Выберите дату и время</p>
+                            <br>
+                            <form action="" method="post" id="choice-date-form">
+                              <div class="schedule-container"></div>
+
+                              <button type="button" class="doctor__expand-btn">
+                                <span data-translate="schedule_show_more">Показать еще 3 дня</span>
+                                <svg width="10" height="10" fill="currentColor">
+                                  <use xlink:href="./img/sprite.svg#dropdown-green"></use>
+                                </svg>
+                              </button>
+
+                              <button type="submit" disabled class="doctor__submit-btn btn">
+                                <span class="doctor__submit-text"
+                                  data-translate="doctor_submit_btn_1">Выбрать</span>&nbsp;
+                                <span class="doctor__submit-date"></span>&nbsp;
+                                <span class="doctor__submit-text-2" data-translate="doctor_submit_btn_2">и
+                                  продолжить</span>
+                              </button>
+                              <span class="error-message" data-translate="doctor_submit_err">Пожалуйста, выберите
+                                дату</span>
+                            </form>
+                          </div>
+                        </div>
+                      </li>
+                    </ul>
+                  </div>
+                </div>
               </div>
             </div>
           </div>
+        </div>
       </section>
+
     </main>
     <footer class="footer">
       <div class="container">
@@ -415,6 +179,257 @@
       </div>
     </footer>
   </div>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+      // получение данных клиента
+      const session_token = localStorage.getItem('token');
+      const submitBtn = document.querySelector('.doctor__submit-btn');
+
+      function getUserDataFromBackend() {
+        if (session_token) {
+          fetch('http://127.0.0.1:8000/get_client_data', {
+            method: 'POST',
+            headers: {
+              'Authorization': `Bearer ${session_token}`,
+              'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({ session_token: session_token })
+          })
+            .then(response => {
+              if (!response.ok) {
+                throw new Error('Сеть не в порядке');
+              }
+              return response.json();
+            })
+            .then(data => {
+              // TODO удалить вывод в консоль
+              console.log('Данные пользователя:', data);
+              getTherapistList();
+            })
+            .catch(error => {
+              console.error('Ошибка при получении данных пользователя:', error);
+            });
+        } else {
+          console.log('Токен не найден. Пожалуйста, войдите в систему.');
+        }
+      }
+
+      getUserDataFromBackend();
+
+      // загрузка списка терапевтов
+
+      function getTherapistList() {
+        fetch('http://127.0.0.1:8000/get_therapist_list', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json'
+          },
+          body: JSON.stringify({ session_token: session_token })
+        })
+          .then(response => {
+            if (!response.ok) {
+              throw new Error('Сеть не в порядке');
+            }
+            return response.json();
+          })
+          .then(data => {
+            renderTherapistList(data.list_of_doctors);
+          })
+          .catch(error => {
+            console.error('Ошибка при получении данных пользователя:', error);
+          });
+      }
+
+      function renderTherapistList(data) {
+        console.log(data);
+
+        const slider = document.querySelector('.choice__list');
+        const doctorNameElement = document.querySelector('.doctor__name');
+        const aboutDoctorTextElement = document.querySelector('.about-doctor-text');
+        const eduListElement = document.querySelector('.settings__edu-list');
+        const scheduleContainer = document.querySelector('.schedule-container');
+
+        data.forEach((doc) => {
+          const listItem = document.createElement('li');
+          listItem.className = 'choice__item swiper-slide';
+          listItem.innerHTML = `
+                <div class="choice__item-image">
+                    <img src="./img/content/doctor-thumb.png" width="100" height="100" alt="">
+                </div>
+                <p class="choice__item-name">${doc.doc_name}</p>
+                <p class="choice__item-exp"><span>5 лет</span> опыта</p>
+            `;
+
+          slider.appendChild(listItem);
+
+          listItem.addEventListener('click', () => {
+            doctorNameElement.textContent = doc.doc_name;
+            aboutDoctorTextElement.textContent = doc.doc_additional_info;
+            // Очищаем предыдущие данные об образовании
+            eduListElement.innerHTML = '';
+
+            // Очищаем предыдущие данные о расписании
+            scheduleContainer.innerHTML = '';
+
+            // Рендерим информацию об образовании
+            renderEducation(doc.doc_edu);
+
+            // Рендерим расписание
+            renderSchedule(doc.doc_schedule);
+
+            // сохраняем айди доктора в LS
+            localStorage.setItem('selected_therapist', doc.doc_id);
+            localStorage.setItem('selected_therapist_name', doc.doc_name);
+          });
+        });
+
+        document.querySelectorAll('.choice__item')[0].click();
+
+        function renderEducation(eduData) {
+          // Проверяем, есть ли данные об образовании
+          if (eduData.length === 0) {
+            const noEducationItem = document.createElement('li');
+            noEducationItem.textContent = 'Нет информации об образовании';
+            eduListElement.appendChild(noEducationItem);
+            return;
+          }
+
+          eduData.forEach((el) => {
+            const wrapper = document.createElement('li');
+            wrapper.className = 'settings__edu-item';
+
+            const year = document.createElement('p');
+            year.className = 'settings__edu-field settings__edu-field--year';
+            year.textContent = el.year;
+
+            const university = document.createElement('p');
+            university.className = 'settings__edu-field settings__edu-field--university';
+            university.textContent = el.university;
+
+            const faculty = document.createElement('p');
+            faculty.className = 'settings__edu-field settings__edu-field--faculty';
+            faculty.textContent = el.faculty;
+
+            const degree = document.createElement('p');
+            degree.className = 'settings__edu-field settings__edu-field--degree';
+            degree.textContent = el.degree;
+
+            wrapper.appendChild(year);
+            wrapper.appendChild(university);
+            wrapper.appendChild(faculty);
+            wrapper.appendChild(degree);
+            eduListElement.appendChild(wrapper);
+          });
+        }
+
+        function renderSchedule(scheduleData) {
+          // Группируем расписание по датам
+          const scheduleByDate = {};
+          const now = new Date(); // Получаем текущее время
+
+          scheduleData.forEach((item) => {
+            const date = new Date(item.time);
+            const dateString = date.toISOString().split('T')[0]; // Получаем строку формата YYYY-MM-DD
+            const timeString = date.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' }); // Форматируем время
+
+            // Проверяем, прошло ли время
+            if (date > now) { // Если время в будущем
+              if (!scheduleByDate[dateString]) {
+                scheduleByDate[dateString] = [];
+              }
+              scheduleByDate[dateString].push({ timeString, sh_id: item.sh_id }); // Сохраняем время и sh_id
+            }
+          });
+
+          // Создаем элементы для каждой даты и времени
+          for (const [date, times] of Object.entries(scheduleByDate)) {
+            const dayWrapper = document.createElement('div');
+            dayWrapper.className = 'doctor__day-wrapper';
+
+            const dayElement = document.createElement('p');
+            dayElement.className = 'doctor__day';
+            const dateObj = new Date(date);
+            dayElement.innerHTML = `<time datetime="${date}">${dateObj.getDate()} ${dateObj.toLocaleString('ru-RU', { month: 'long' })}</time><span>, ${dateObj.toLocaleString('ru-RU', { weekday: 'long' })}</span>`;
+
+            const fieldset = document.createElement('fieldset');
+
+            // Создаем элементы для каждого времени
+            times.forEach(({ timeString, sh_id }) => {
+              const label = document.createElement('label');
+              const input = document.createElement('input');
+              input.type = 'radio';
+              input.name = 'appointment-time';
+              input.value = timeString; // Сохраняем время в качестве значения
+              input.setAttribute('data-id', sh_id); // Добавляем data-id
+              input.setAttribute('data-time', date); // Добавляем data-time
+
+              const timeValue = document.createElement('span');
+              timeValue.className = 'time-value';
+              timeValue.textContent = timeString;
+
+              label.appendChild(input);
+              label.appendChild(timeValue);
+              fieldset.appendChild(label);
+
+              input.addEventListener('change', () => {
+                submitBtn.classList.add('is-enabled');
+                submitBtn.setAttribute('sh_id', sh_id);
+                // TODO переписать в удобный формат
+                submitBtn.querySelector('.doctor__submit-date').textContent = `${timeString} ${date}`;
+                submitBtn.querySelector('.doctor__submit-text-2').style.display = 'inline';
+                submitBtn.disabled = false;
+                localStorage.setItem('session_datetime', `${timeString} ${date}`)
+              });
+            });
+
+            // Если есть доступные временные слоты, добавляем их в расписание
+            if (times.length > 0) {
+              dayWrapper.appendChild(dayElement);
+              dayWrapper.appendChild(fieldset);
+              scheduleContainer.appendChild(dayWrapper);
+            }
+          }
+        }
+      }
+
+      // отправка выбора терапевта и даты сессии
+      document.getElementById('choice-date-form').addEventListener('submit', function (e) {
+        e.preventDefault();
+        const doc_id = Number(localStorage.getItem('selected_therapist'));
+        const sh_id = Number(submitBtn.getAttribute('sh_id'));
+
+        const dataToSend = {
+          session_token: session_token,
+          doc_id: doc_id,
+          sh_id: sh_id
+        };
+
+        fetch('http://127.0.0.1:8000/select_slot', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json'
+          },
+          body: JSON.stringify(dataToSend)
+        })
+          .then(response => {
+            if (!response.ok) {
+              throw new Error('Сеть не в порядке');
+            }
+            return response.json();
+          })
+          .then(data => {
+            console.log('Данные пользователя обновлены');
+            console.log(data);
+            localStorage.setItem('has_therapist', 'selected');
+            window.location.href = '/user-account-main.html'
+          })
+          .catch(error => {
+            console.error('Ошибка при получении данных пользователя:', error);
+          });
+      });
+    });
+  </script>
 
   <script src="js/vendor.min.js"></script>
   <script src="js/main.min.js"></script>

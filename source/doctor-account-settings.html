@@ -684,8 +684,14 @@
                         data-translate="doctor_payments_history">Посмотреть историю выплат</a>
                     </div>
                     <div class="settings__btn-wrapper">
-                      <button type="submit" class="settings__submit-btn btn" form="doctor-settings-form"
-                        data-translate="save_changes_btn">Сохранить изменения</button>
+                      <button type="submit" class="settings__submit-btn btn" form="doctor-settings-form">
+                        <span class="icon-loader">
+                          <svg width="32" height="32" fill="currentColor">
+                            <use xlink:href="./img/sprite.svg#icon-loader"></use>
+                          </svg>
+                        </span>
+                        <span data-translate="save_changes_btn">Сохранить изменения</span>
+                      </button>
                     </div>
                   </div>
                 </div>
@@ -881,7 +887,6 @@
       const token = localStorage.getItem('token');
 
       // получение расписания с бэкенда
-
       function loadScheduleFromBackend() {
 
         const dataToSend = JSON.stringify({
@@ -1173,6 +1178,8 @@
 
       document.getElementById('doctor-settings-form').addEventListener('submit', function (e) {
         e.preventDefault();
+        const submitButton = document.querySelector('.settings__submit-btn');
+        submitButton.classList.add('is-loading');
 
         const session_token = localStorage.getItem('token');
         const day = document.getElementById('doctor-birth-day').value.padStart(2, '0'); // Добавляем ведущий ноль
@@ -1233,6 +1240,11 @@
           })
           .catch(error => {
             console.error('Ошибка при получении данных пользователя:', error);
+          })
+          .finally(() => {
+            setTimeout(() => {
+              submitButton.classList.remove('is-loading');
+            }, 1000);
           });
       });
     });

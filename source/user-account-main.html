@@ -91,9 +91,11 @@
                 <div utils-btn-main data-id="main-1-confirmed">1 session therapist confirmed</div>
                 <div utils-btn-main data-id="main-not-scheduled">no current session</div>
                 <div utils-btn-main data-id="main-not-confirmed">session requested, not confirmed</div>
-                <div utils-btn-main data-id="main-session-reschedule-requested">session reschedule requested, not confirmed</div>
+                <div utils-btn-main data-id="main-session-reschedule-requested">session reschedule requested, not
+                  confirmed</div>
                 <div utils-btn-main data-id="main-confirmed">session reschedule requested and confirmed</div>
-                <div utils-btn-main data-id="main-doctor-change-requested">therapist requested a session reschedule</div>
+                <div utils-btn-main data-id="main-doctor-change-requested">therapist requested a session reschedule
+                </div>
                 <div utils-btn-main data-id="main-payment-error">payment error</div>
               </details>
 
@@ -110,40 +112,39 @@
                   <p class="text-18 user-account__message user-account__message--welcome">
                     <span data-translate="user_account_message_4">Поздравляем, вы успешно записались на первую
                       сессию. Терапевт подтвердил вашу запись. Ваш терапевт:</span>&nbsp;
-                    <span class="doctor-name">Олеся Парада</span><br>
+                    <span class="doctor-name">doc_name</span><br>
                     <span data-translate="user_account_message_5">Мы отправили вам по почте инструкцию, как
                       подготовиться к первой сессии.</span>
                   </p>
                   <!-- запрос на сессию отправлен -->
                   <p class="text-18 user-account__message user-account__message--requested">
                     <span data-translate="user_account_message_1">Запрос на назначение сессии на</span>&nbsp;
-                    <span class="session-time">15:00 6 июля</span>&nbsp;
+                    <span class="session-time">чч:мм д м</span>&nbsp;
                     <span data-translate="user_account_message_2">отправлен терапевту</span>&nbsp;
-                    <span class="doctor-name">Олесе Параде</span>.<br>
+                    <span class="doctor-name">doc_name</span>.<br>
                     <span data-translate="user_account_message_3">Как только терапевт подтвердит время, вы получите
                       уведомление об этом на ваш адрес электронной почты</span>
                   </p>
                   <!-- запрос на перенос отправлен -->
                   <p class="text-18 user-account__message user-account__message--reschedule">
                     <span data-translate="user_account_message_6">Запрос на перенос сессии на</span>&nbsp;
-                    <span class="session-time">20:00 6 июля</span>&nbsp;
+                    <span class="session-time">чч:мм д м</span>&nbsp;
                     <span data-translate="user_account_message_7">отправлен терапевту</span>&nbsp;
-                    <span class="doctor-name">Олесе Параде</span>.<br>
+                    <span class="doctor-name">doc_name</span>.<br>
                     <span data-translate="user_account_message_8">Как только терапевт подтвердит время, вы получите
-                      уведомление об этом на ваш адрес электронной
-                      почты.</span>
+                      уведомление об этом на ваш адрес электронной почты.</span>
                   </p>
                   <!-- терапевт запросил перенос -->
                   <div class="user-account__message user-account__message--doctor-change-request">
                     <p class="text-25">
                       <span data-translate="doctor_change_request_msg_1">Терапевт</span>&nbsp;
-                      <span class="doctor-name">Олеся Парада</span>&nbsp;
+                      <span class="doctor-name">doc_name</span>&nbsp;
                       <span data-translate="doctor_change_request_msg_2">запросил перенос сессии</span>
-                      <span class="session-date">13 июля</span>
+                      <span class="session-date">дд мм</span>
                     </p>
                     <p class="text-18">
                       <span data-translate="doctor_change_request_msg_3">Предложено новое время:</span>
-                      <span class="new-date"><b>пятница 14 июля, 16:30</b></span><br>
+                      <span class="new-date"><b>дн дд м, чч:мм</b></span><br>
                       <span data-translate="doctor_change_request_msg_4">Если вы согласны, нажмите
                         “Подтвердить”.</span>
                       <span data-translate="doctor_change_request_msg_5">Если вас не устраивает предложенное время,
@@ -175,7 +176,7 @@
                     <p class="text-18">
                       <span data-translate="user_account_error_message_1">Невозможно списать средства за сессию,
                         запланированную на</span>
-                      <span class="session-date">6 июля, 20:00</span>.<br>
+                      <span class="session-date">д м, чч:мм</span>.<br>
                       <span data-translate="user_account_error_message_2">Пожалуйста, проверьте платежные данные.</span>
                     </p>
                     <button type="button" class="btn user-account__check-card">
@@ -192,7 +193,7 @@
                     <div class="user-account__doctor-info">
                       <p class="text-25">
                         <b><span data-translate="user_account_your_doc">Ваш терапевт</span>&#58;&nbsp;</b>
-                        <span class="doctor-name">Олеся Парада</span>
+                        <span class="doctor-name">doc_name</span>
                       </p>
                     </div>
                   </div>
@@ -205,15 +206,16 @@
                       </div>
                       <div class="videochat__message videochat__message--next-session">
                         <p class="text-18" data-translate="next_session">Ближайшая сессия:</p>
-                        <p class="date date-next-session text-20">6 июля, четверг, 15:00</p>
+                        <p class="date date-next-session text-20">д м, дн, чч:м</p>
                       </div>
                       <div class="videochat__message videochat__message--requested-session">
                         <p class="text-18" data-translate="session_requested">Запрошена сессия:</p>
-                        <p class="date text-20">6 июля, четверг, 15:00</p>
+                        <p class="date text-20">д м, дн, чч:м</p>
                       </div>
                       <div class="videochat__message videochat__message--requested-reschedule">
-                        <p class="requested-session text-18" data-translate="reschedule_requested">Запрошен перенос на:</p>
-                        <p class="date text-20">7 июля, пятница, 20:00</p>
+                        <p class="requested-session text-18" data-translate="reschedule_requested">Запрошен перенос на:
+                        </p>
+                        <p class="date text-20">д м, дн, чч:м</p>
                       </div>
                       <div class="videochat__message videochat__message--no-session">
                         <p class="date-not-scheduled text-20" data-translate="no_session">нет записи</p>
@@ -246,7 +248,6 @@
                       </a>
                     </div>
                   </div>
-
                 </div>
                 <div class="user-account__session-change-wrapper">
                   <div class="user-account__doctor">
@@ -254,7 +255,7 @@
                       <img src="./img/temp/doc-9.png" width="100" height="100" alt="">
                     </div>
                     <div class="user-account__doctor-info">
-                      <p class="text-31">Олеся Парада</p>
+                      <p class="text-31"></p>
                     </div>
                   </div>
                   <div class="doctor__content-block">
@@ -487,11 +488,95 @@
   </div>
 
   <script>
-        document.addEventListener('DOMContentLoaded', function () {
-          document.querySelector('.user-account__doctor-info .doctor-name').textContent = localStorage.getItem('selected_therapist_name');
-          // TODO переписать в удобный формат
-          document.querySelector('.videochat__message--next-session .date-next-session').textContent = localStorage.getItem('session_datetime');
-        });
+    document.addEventListener('DOMContentLoaded', function () {
+
+      // состояния кабинета
+      const sessionState = localStorage.getItem('session_requested')
+      const main = document.querySelector('.user-account__main');
+
+      if (sessionState === 'requested') {
+        main.setAttribute('data-utils', 'main-not-confirmed');
+      } else {
+        main.setAttribute('data-utils', 'main-confirmed');
+      }
+
+      // получение данных клиента
+      const session_token = localStorage.getItem('token');
+      const submitBtn = document.querySelector('.doctor__submit-btn');
+
+      function getUserDataFromBackend() {
+        if (session_token) {
+          fetch('http://127.0.0.1:8000/get_client_data', {
+            method: 'POST',
+            headers: {
+              'Authorization': `Bearer ${session_token}`,
+              'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({ session_token: session_token })
+          })
+            .then(response => {
+              if (!response.ok) {
+                throw new Error('Сеть не в порядке');
+              }
+              return response.json();
+            })
+            .then(data => {
+              // TODO удалить вывод в консоль
+              console.log('Данные пользователя:', data);
+              if (data.has_therapist !== null) {
+                const doc_name = data.has_therapist.doc_name;
+                document.querySelectorAll('.doctor-name').forEach((docname) => {
+                  docname.textContent = doc_name;
+                })
+                renderDate(data.has_therapist.sch_time);
+              }
+            })
+            .catch(error => {
+              console.error('Ошибка при получении данных пользователя:', error);
+            });
+        } else {
+          console.log('Токен не найден. Пожалуйста, войдите в систему.');
+        }
+      }
+
+      getUserDataFromBackend();
+
+      function renderDate(data) {
+        const schTime = data;
+        const date = new Date(schTime);
+        const language = localStorage.getItem('language') || 'en';
+        let optionsDate, optionsTime;
+
+        if (language === 'en') {
+          optionsDate = {
+            day: 'numeric',
+            month: 'long',
+            weekday: 'long'
+          };
+          optionsTime = {
+            hour: '2-digit',
+            minute: '2-digit',
+            hour12: false
+          };
+        } else {
+          optionsDate = {
+            day: 'numeric',
+            month: 'long',
+            weekday: 'long'
+          };
+          optionsTime = {
+            hour: '2-digit',
+            minute: '2-digit',
+            hour12: false
+          };
+        }
+
+        const formattedDate = date.toLocaleString(language === 'en' ? 'en-US' : 'ru-RU', optionsDate);
+        const formattedTime = date.toLocaleString(language === 'en' ? 'en-US' : 'ru-RU', optionsTime);
+        const finalDate = `${formattedDate}, ${formattedTime}`;
+        document.querySelector('.videochat__message--next-session .date-next-session').textContent = finalDate;
+      }
+    });
   </script>
 
   <script src="js/vendor.min.js"></script>
