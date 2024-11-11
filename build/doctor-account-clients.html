@@ -326,9 +326,9 @@
           </svg>
         </button>
         <h2 class="text-25 doctor__title" data-translate="my_schedule">Мое расписание</h2>
-        <form action="" method="post">
+        <form class="schedule-wrapper" action="" method="post">
           <div class="schedule-container" id="schedule-container-2"></div>
-          <button type="button" class="doctor__expand-btn schedule__show-more" data-id="#schedule-container-2">
+          <button type="button" class="schedule__show-more schedule__show-more" data-id="#schedule-container-2">
             <span data-translate="schedule_show_more">Показать еще 3 дня</span>
             <svg width="10" height="10" fill="currentColor">
               <use xlink:href="./img/sprite.svg#dropdown-green"></use>
@@ -349,7 +349,7 @@
 
       // получение данных терапевта с бэкенда
       if (token) {
-        fetch('http://63.250.47.203:8000/get_doc_data', {
+        fetch('http://127.0.0.1:8000/get_doc_data', {
           method: 'POST',
           headers: {
             'Authorization': `Bearer ${token}`,

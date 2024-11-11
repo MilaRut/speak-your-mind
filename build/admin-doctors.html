@@ -15,7 +15,7 @@
   <link rel="stylesheet" href="css/style.min.css">
 </head>
 
-<body>
+<body class="admin">
   <div class="wrapper user-logged internal admin">
     <main>
       <section class="admin__content admin-content">
@@ -119,15 +119,16 @@
                 </div>
                 <div class="admin-table">
                   <table>
-                    <tr class="admin-table__head">
-                      <th>ID</th>
-                      <th data-translate="admin_table_name">Имя</th>
-                      <th>Email</th>
-                      <th data-translate="admin_table_paid">Выплаты</th>
-                      <th data-translate="admin_table_reg_date">Дата регистрации</th>
-                      <th data-translate="admin_table_last_session">Последняя сессия</th>
-                    </tr>
-                    <tr class="admin-table__item admin-table__item--inactive">
+                    <tbody>
+                      <tr class="admin-table__head">
+                        <th>ID</th>
+                        <th data-translate="admin_table_name">Имя</th>
+                        <th>Email</th>
+                        <th data-translate="admin_table_paid">Выплаты</th>
+                        <th data-translate="admin_table_reg_date">Дата регистрации</th>
+                        <th data-translate="admin_table_last_session">Последняя сессия</th>
+                      </tr>
+                      <!-- <tr class="admin-table__item admin-table__item--inactive">
                       <td><span class="admin-table__id">199</span></td>
                       <td><span class="admin-table__name">Zoltan Kiss</span></td>
                       <td><span class="admin-table__email">kisszoltan78@gmail.com</span></td>
@@ -146,127 +147,8 @@
                             data-translate="deactivate">Деактивировать</button>
                         </div>
                       </td>
-                    </tr>
-                    <tr class="admin-table__item admin-table__item--inactive">
-                      <td><span class="admin-table__id">587</span></td>
-                      <td><span class="admin-table__name">Zsuzsa Forgacs</span></td>
-                      <td><span class="admin-table__email">zsuzsika_pillango@gmail.com</span></td>
-                      <td><span class="admin-table__amount">-</span></td>
-                      <td><span class="admin-table__regdate"><time>17.08.2024</time></span></td>
-                      <td><span class="admin-table__last"><time>-</time></span></td>
-                      <td class="admin-table__popup">
-                        <div class="admin-table__popup-wrapper">
-                          <button class="admin-table__popup-btn admin-table__popup-btn--edit text-green"
-                            data-translate="edit">Редактировать</button>
-                          <button class="admin-table__popup-btn admin-table__popup-btn--message text-green"
-                            data-translate="admin_send_message">Написать сообщение</button>
-                          <button class="admin-table__popup-btn admin-table__popup-btn--activate text-green"
-                            data-translate="activate">Активировать</button>
-                          <button class="admin-table__popup-btn admin-table__popup-btn--deactivate text-green"
-                            data-translate="deactivate">Деактивировать</button>
-                        </div>
-                      </td>
-                    </tr>
-                    <tr class="admin-table__item admin-table__item--active">
-                      <td><span class="admin-table__id">707</span></td>
-                      <td><span class="admin-table__name">Misael Conway</span></td>
-                      <td><span class="admin-table__email">erynf@live.com</span></td>
-                      <td><span class="admin-table__amount">362.14</span></td>
-                      <td><span class="admin-table__regdate"><time>10.11.2024</time></span></td>
-                      <td><span class="admin-table__last"><time>13:00 29.07.2024</time></span></td>
-                      <td class="admin-table__popup">
-                        <div class="admin-table__popup-wrapper">
-                          <button class="admin-table__popup-btn admin-table__popup-btn--edit text-green"
-                            data-translate="edit">Редактировать</button>
-                          <button class="admin-table__popup-btn admin-table__popup-btn--message text-green"
-                            data-translate="admin_send_message">Написать сообщение</button>
-                          <button class="admin-table__popup-btn admin-table__popup-btn--activate text-green"
-                            data-translate="activate">Активировать</button>
-                          <button class="admin-table__popup-btn admin-table__popup-btn--deactivate text-green"
-                            data-translate="deactivate">Деактивировать</button>
-                        </div>
-                      </td>
-                    </tr>
-                    <tr class="admin-table__item admin-table__item--inactive">
-                      <td><span class="admin-table__id">956</span></td>
-                      <td><span class="admin-table__name">Jerry Kim</span></td>
-                      <td><span class="admin-table__email">sonnen@live.com</span></td>
-                      <td><span class="admin-table__amount">392.51</span></td>
-                      <td><span class="admin-table__regdate"><time>15.03.2024</time></span></td>
-                      <td><span class="admin-table__last"><time>17:00 28.07.2024</time></span></td>
-                      <td class="admin-table__popup">
-                        <div class="admin-table__popup-wrapper">
-                          <button class="admin-table__popup-btn admin-table__popup-btn--edit text-green"
-                            data-translate="edit">Редактировать</button>
-                          <button class="admin-table__popup-btn admin-table__popup-btn--message text-green"
-                            data-translate="admin_send_message">Написать сообщение</button>
-                          <button class="admin-table__popup-btn admin-table__popup-btn--activate text-green"
-                            data-translate="activate">Активировать</button>
-                          <button class="admin-table__popup-btn admin-table__popup-btn--deactivate text-green"
-                            data-translate="deactivate">Деактивировать</button>
-                        </div>
-                      </td>
-                    </tr>
-                    <tr class="admin-table__item admin-table__item--inactive">
-                      <td><span class="admin-table__id">331</span></td>
-                      <td><span class="admin-table__name">Alena Middleton</span></td>
-                      <td><span class="admin-table__email">sinkou@aol.com</span></td>
-                      <td><span class="admin-table__amount">830.98</span></td>
-                      <td><span class="admin-table__regdate"><time>12.02.2024</time></span></td>
-                      <td><span class="admin-table__last"><time>11:00 29.07.2024</time></span></td>
-                      <td class="admin-table__popup">
-                        <div class="admin-table__popup-wrapper">
-                          <button class="admin-table__popup-btn admin-table__popup-btn--edit text-green"
-                            data-translate="edit">Редактировать</button>
-                          <button class="admin-table__popup-btn admin-table__popup-btn--message text-green"
-                            data-translate="admin_send_message">Написать сообщение</button>
-                          <button class="admin-table__popup-btn admin-table__popup-btn--activate text-green"
-                            data-translate="activate">Активировать</button>
-                          <button class="admin-table__popup-btn admin-table__popup-btn--deactivate text-green"
-                            data-translate="deactivate">Деактивировать</button>
-                        </div>
-                      </td>
-                    </tr>
-                    <tr class="admin-table__item admin-table__item--active">
-                      <td><span class="admin-table__id">310</span></td>
-                      <td><span class="admin-table__name">Edith Maynard</span></td>
-                      <td><span class="admin-table__email">intlprog@yahoo.com</span></td>
-                      <td><span class="admin-table__amount">116.80</span></td>
-                      <td><span class="admin-table__regdate"><time>28.05.2024</time></span></td>
-                      <td><span class="admin-table__last"><time>15:00 27.07.2024</time></span></td>
-                      <td class="admin-table__popup">
-                        <div class="admin-table__popup-wrapper">
-                          <button class="admin-table__popup-btn admin-table__popup-btn--edit text-green"
-                            data-translate="edit">Редактировать</button>
-                          <button class="admin-table__popup-btn admin-table__popup-btn--message text-green"
-                            data-translate="admin_send_message">Написать сообщение</button>
-                          <button class="admin-table__popup-btn admin-table__popup-btn--activate text-green"
-                            data-translate="activate">Активировать</button>
-                          <button class="admin-table__popup-btn admin-table__popup-btn--deactivate text-green"
-                            data-translate="deactivate">Деактивировать</button>
-                        </div>
-                      </td>
-                    </tr>
-                    <tr class="admin-table__item admin-table__item--active">
-                      <td><span class="admin-table__id">835</span></td>
-                      <td><span class="admin-table__name">Sadie Bernard</span></td>
-                      <td><span class="admin-table__email">gtaylor@yahoo.com</span></td>
-                      <td><span class="admin-table__amount">340.01</span></td>
-                      <td><span class="admin-table__regdate"><time>10.10.2024</time></span></td>
-                      <td><span class="admin-table__last"><time>13:00 26.07.2024</time></span></td>
-                      <td class="admin-table__popup">
-                        <div class="admin-table__popup-wrapper">
-                          <button class="admin-table__popup-btn admin-table__popup-btn--edit text-green"
-                            data-translate="edit">Редактировать</button>
-                          <button class="admin-table__popup-btn admin-table__popup-btn--message text-green"
-                            data-translate="admin_send_message">Написать сообщение</button>
-                          <button class="admin-table__popup-btn admin-table__popup-btn--activate text-green"
-                            data-translate="activate">Активировать</button>
-                          <button class="admin-table__popup-btn admin-table__popup-btn--deactivate text-green"
-                            data-translate="deactivate">Деактивировать</button>
-                        </div>
-                      </td>
-                    </tr>
+                    </tr> -->
+                    </tbody>
                   </table>
                 </div>
               </div>
@@ -701,6 +583,99 @@
       </div>
     </footer>
   </div>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+
+      const token = localStorage.getItem('token');
+
+      // функция для форматирования даты
+      function formatDate(dateString) {
+        const dateObj = new Date(dateString);
+        const language = localStorage.getItem('language') || 'en';
+
+        const options = {
+          day: 'numeric',
+          month: 'short',
+          year: 'numeric'
+        };
+
+        const formattedDate = dateObj.toLocaleDateString(language === 'en' ? 'en-US' : 'ru-RU', options);
+        return language === 'ru' ? formattedDate.replace('г.', '').trim() : formattedDate;
+      }
+
+      async function fetchData() {
+        if (token) {
+          try {
+            const response = await fetch('http://127.0.0.1:8000/list_therapists', {
+              method: 'POST',
+              headers: {
+                'Authorization': `Bearer ${token}`,
+                'Content-Type': 'application/json'
+              },
+              body: JSON.stringify({ session_token: token })
+            });
+
+            if (!response.ok) {
+              throw new Error('Сеть не в порядке');
+            }
+
+            const docsData = await response.json();
+
+            const docsList = docsData.list;
+            console.log('Список клиентов:', docsList);
+            const tableBody = document.querySelector('.admin-table tbody');
+
+            for (const doc of docsList) {
+              const row = document.createElement('tr');
+              row.className = 'admin-table__item';
+              row.innerHTML = `
+                    <tr class="admin-table__item admin-table__item--active">
+                      <td><span class="admin-table__id">${doc.doc_id}</span></td>
+                      <td><span class="admin-table__name">${doc.doc_name}</span></td>
+                      <td><span class="admin-table__email">${doc.email}</span></td>
+                      <td><span class="admin-table__amount">-</span></td>
+                      <td><span class="admin-table__regdate"><time>${formatDate(doc.registred_date)}</time></span></td>
+                      <td><span class="admin-table__last"><time>-</time></span></td>
+                      <td class="admin-table__popup">
+                        <div class="admin-table__popup-wrapper">
+                          <button class="admin-table__popup-btn admin-table__popup-btn--edit text-green"
+                            data-translate="edit">Редактировать</button>
+                          <button class="admin-table__popup-btn admin-table__popup-btn--message text-green"
+                            data-translate="admin_send_message">Написать сообщение</button>
+                          <button class="admin-table__popup-btn admin-table__popup-btn--activate text-green"
+                            data-translate="activate">Активировать</button>
+                          <button class="admin-table__popup-btn admin-table__popup-btn--deactivate text-green"
+                            data-translate="deactivate">Деактивировать</button>
+                        </div>
+                      </td>
+                    </tr>
+                    `;
+              tableBody.appendChild(row);
+              row.addEventListener('click', (e) => {
+                document.querySelectorAll('.admin-table tr').forEach((el) => {
+                  el.classList.remove('is-active');
+                });
+                row.classList.add('is-active');
+                e.stopPropagation();
+              });
+              document.addEventListener('click', () => {
+                document.querySelectorAll('.admin-table tr').forEach((el) => {
+                  el.classList.remove('is-active');
+                });
+              });
+            }
+          } catch (error) {
+            console.error('Ошибка при получении данных:', error);
+          }
+        } else {
+          console.log('Токен не найден. Пожалуйста, войдите в систему.');
+        }
+      }
+
+      fetchData();
+    });
+  </script>
 
   <script src="js/vendor.min.js"></script>
   <script src="js/main.min.js"></script>

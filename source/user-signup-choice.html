@@ -156,10 +156,10 @@
                       <h2 class="text-25 doctor__title" data-translate="doctor_schedule_title">Расписание</h2>
                       <p class="text-18" data-translate="doctor_schedule_subtitle">Выберите дату и время</p>
                       <br>
-                      <form action="" method="post" id="choice-date-form">
+                      <form class="choice-date-form schedule-wrapper" action="" method="post" id="choice-date-form">
                         <div class="schedule-container"></div>
 
-                        <button type="button" class="doctor__expand-btn">
+                        <button type="button" class="schedule__show-more">
                           <span data-translate="schedule_show_more">Показать еще 3 дня</span>
                           <svg width="10" height="10" fill="currentColor">
                             <use xlink:href="./img/sprite.svg#dropdown-green"></use>
@@ -370,12 +370,16 @@
 
             const dayElement = document.createElement('p');
             dayElement.className = 'doctor__day';
+
+            const language = localStorage.getItem('language') || 'en';
             const dateObj = new Date(date);
-            dayElement.innerHTML = `<time datetime="${date}">${dateObj.getDate()} ${dateObj.toLocaleString('ru-RU', { month: 'long' })}</time><span>, ${dateObj.toLocaleString('ru-RU', { weekday: 'long' })}</span>`;
 
+            if (language === 'en') {
+              dayElement.innerHTML = `<time datetime="${date}">${dateObj.getDate()} ${dateObj.toLocaleString('en-US', { month: 'long' })}</time>`;
+            } else {
+              dayElement.innerHTML = `<time datetime="${date}">${dateObj.getDate()} ${dateObj.toLocaleString('ru-RU', { month: 'long' })}</time><span>, ${dateObj.toLocaleString('ru-RU', { weekday: 'long' })}</span>`;
+            }
             const fieldset = document.createElement('fieldset');
-
-            // Создаем элементы для каждого времени
             times.forEach(({ timeString, sh_id }) => {
               const label = document.createElement('label');
               const input = document.createElement('input');

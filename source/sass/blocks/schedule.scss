@@ -225,3 +225,25 @@
     }
   }
 }
+
+.schedule__show-more {
+  display: flex;
+  align-items: center;
+  background: transparent;
+  border: none;
+  margin-bottom: 55px;
+  padding: 0;
+  font-size: 20px;
+  line-height: 1;
+  font-weight: 400;
+  color: $color-jade;
+  cursor: pointer;
+
+  &.hidden {
+    display: none;
+  }
+
+  span {
+    margin-right: 8px;
+  }
+}

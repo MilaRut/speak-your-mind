@@ -37,8 +37,7 @@ function expandList() {
 
   showMoreBtn.forEach((btn) => {
     btn.addEventListener('click', () => {
-      const currentId = btn.getAttribute('data-id');
-      const currentList = document.querySelector(currentId);
+      const currentList = btn.closest('.schedule-wrapper').querySelector('.schedule-container');
 
       const items = currentList.querySelectorAll('.doctor__day-wrapper');
 

@@ -15,8 +15,8 @@
   <link rel="stylesheet" href="css/style.min.css">
 </head>
 
-<body>
-  <div class="wrapper user-unlogged admin">
+<body class="admin">
+  <div class="wrapper user-unlogged">
     <main>
       <section class="login">
         <div class="container">
@@ -61,7 +61,7 @@
       const url = "http://63.250.47.203:8000/make_admin";
 
       fetch(url, {
-        method: 'GET'
+        method: 'POST'
       })
         .then(response => {
           if (!response.ok) {
@@ -88,11 +88,12 @@
         const password = document.getElementById('password').value;
 
         const data = {
-          email: admin_email,
+          user_email: admin_email,
           password: password
         };
 
-        fetch('http://63.250.47.203:8000/make_admin', {
+        fetch('http://127.0.0.1:8000/login_admin', {
+
           method: 'POST',
           headers: {
             'Content-Type': 'application/json'
@@ -109,6 +110,8 @@
             // Обработка успешного ответа от сервера
             localStorage.setItem('email', data.email); // Сохраняем email в localStorage
             localStorage.setItem('password', data.password); // Сохраняем password в localStorage
+            localStorage.setItem('token', data.token); // Сохраняем password в localStorage
+            console.log(data);
             window.location.href = '/admin-main.html';
           })
           .catch(function (error) {
