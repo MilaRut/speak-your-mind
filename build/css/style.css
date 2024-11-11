@@ -5410,6 +5410,11 @@ details summary::marker {
   gap: 8px;
 }
 
+.sessions__requests-btns button span,
+.sessions__requests-btns button svg {
+  pointer-events: none;
+}
+
 .sessions__content {
   display: -ms-grid;
   display: grid;
@@ -5453,11 +5458,11 @@ details summary::marker {
   cursor: pointer;
 }
 
-.sessions__clinet-wrapper {
+.sessions__client-wrapper {
   padding: 8px;
 }
 
-.sessions__clients-item.is-active .sessions__clinet-wrapper {
+.sessions__clients-item.is-active .sessions__client-wrapper {
   background-color: #c5fdea;
 }
 

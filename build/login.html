@@ -209,15 +209,13 @@
               localStorage.setItem('user_name', data.name);
               localStorage.setItem('user_email', data.email);
 
-              if (data.user_age === '' || data.user_age === null) {
-                localStorage.setItem('user_form', 'empty');
-              } else {
-                localStorage.setItem('user_form', 'fullfilled');
-              }
+              const isFormFullfiled = data.user_age;
+              const hasTherapist = data.has_therapist;
 
-              const isFormFullfiled = localStorage.getItem('user_form');
-              if (isFormFullfiled === 'empty') {
+              if (!isFormFullfiled || isFormFullfiled === 'empty') {
                 window.location.href = '/user-signup-main.html';
+              } else if (!hasTherapist || hasTherapist === null) {
+                window.location.href = '/user-signup-choice.html';
               } else {
                 window.location.href = '/user-account-main.html';
               }
@@ -267,7 +265,7 @@
               // карта - doctor-account-sessions.html
               // END TODO
 
-              window.location.href = '/doctor-account-settings.html'
+              window.location.href = '/doctor-account-sessions.html'
             })
             .catch(error => {
               console.error('Ошибка при получении данных пользователя:', error);

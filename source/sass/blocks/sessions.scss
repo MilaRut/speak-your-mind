@@ -35,6 +35,11 @@
       align-items: center;
       justify-content: center;
       gap: 8px;
+
+      span,
+      svg {
+        pointer-events: none;
+      }
     }
   }
 
@@ -78,11 +83,11 @@
     cursor: pointer;
   }
 
-  &__clinet-wrapper {
+  &__client-wrapper {
     padding: 8px;
   }
 
-  &__clients-item.is-active &__clinet-wrapper {
+  &__clients-item.is-active &__client-wrapper {
     background-color: $color-humming-bird;
   }
 

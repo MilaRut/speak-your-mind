@@ -181,7 +181,7 @@
                       <p class="first-session-msg">
                         <span data-translate="first_session_msg_1">Запрос на назначение сессии на</span>&nbsp;
                         <span class="session-time"></span>
-                        <span data-translate="first_session_msg_2">отправлен терапевту</span>&nbsp;
+                        <span data-translate="first_session_msg_2">отправлен. Терапевт:</span>&nbsp;
                         <span class="doctor-name">doc_name</span>.
                         <span data-translate="first_session_msg_3">Как только терапевт подтвердит время, вы получите
                           уведомление об этом на ваш адрес электронной почты, а на</span>&nbsp;
@@ -391,6 +391,43 @@
 
       getUserDataFromBackend();
 
+      // форматирование даты
+      function renderDate(data) {
+        const schTime = data;
+        const date = new Date(schTime);
+        const language = localStorage.getItem('language') || 'en';
+        let optionsDate, optionsTime;
+
+        if (language === 'en') {
+          optionsDate = {
+            day: 'numeric',
+            month: 'long',
+            weekday: 'long'
+          };
+          optionsTime = {
+            hour: '2-digit',
+            minute: '2-digit',
+            hour12: false
+          };
+        } else {
+          optionsDate = {
+            day: 'numeric',
+            month: 'long',
+            weekday: 'long'
+          };
+          optionsTime = {
+            hour: '2-digit',
+            minute: '2-digit',
+            hour12: false
+          };
+        }
+
+        const formattedDate = date.toLocaleString(language === 'en' ? 'en-US' : 'ru-RU', optionsDate);
+        const formattedTime = date.toLocaleString(language === 'en' ? 'en-US' : 'ru-RU', optionsTime);
+        const finalDate = `${formattedDate}, ${formattedTime}`;
+        return finalDate;
+      }
+
       function updateProfile(data) {
         document.querySelector('#user_name').value = data.name;
         document.querySelector('#user_email').value = data.email;
@@ -401,7 +438,7 @@
         }
         // TODO переписать в удобный формат
         if (data.has_therapist !== null) {
-          document.querySelector('.first-session-msg .session-time').textContent = data.has_therapist.sch_time;
+          document.querySelector('.first-session-msg .session-time').textContent = renderDate(data.has_therapist.sch_time);
         }
         // END TODO
         document.querySelector('#therapy_language').value = data.user_languages;
