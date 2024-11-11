@@ -455,7 +455,7 @@
       // получаем расписание терапевта с бэкенда
       function getDocScheduleFromBackend() {
         if (session_token) {
-          fetch('http://127.0.0.1:8000/get_clients_therapist_schedule', {
+          fetch('http://63.250.47.203:8000/get_clients_therapist_schedule', {
             method: 'POST',
             headers: {
               'Authorization': `Bearer ${session_token}`,
@@ -589,7 +589,7 @@
           ch_id: 0
         };
 
-        fetch('http://127.0.0.1:8000/client_change_session_time', {
+        fetch('http://63.250.47.203:8000/client_change_session_time', {
           method: 'POST',
           headers: {
             'Content-Type': 'application/json'
@@ -620,7 +620,7 @@
         const dataToSend = {
           session_token: session_token,
         };
-        fetch('http://127.0.0.1:8000/cancel_session', {
+        fetch('http://63.250.47.203:8000/cancel_session', {
           method: 'POST',
           headers: {
             'Content-Type': 'application/json'
