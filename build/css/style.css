@@ -1035,7 +1035,7 @@ details summary::marker {
   max-width: 100%;
 }
 
-.doctor-reschedule .doctor__expand-btn {
+.doctor-reschedule .schedule__show-more {
   margin-bottom: 31px;
 }
 
@@ -2331,11 +2331,11 @@ details summary::marker {
   padding-right: 48px;
 }
 
-.admin.internal .footer {
+.admin .footer {
   background-color: #f5f3ee;
 }
 
-.admin.internal .footer .container {
+.admin .footer .container {
   display: -ms-grid;
   display: grid;
   -ms-grid-columns: 173px auto;
@@ -2343,11 +2343,11 @@ details summary::marker {
   padding: 0;
 }
 
-.admin.internal .footer__left {
+.admin .footer__left {
   background-color: #555555;
 }
 
-.admin.internal .footer__copyright {
+.admin .footer__copyright {
   background-color: #f5f3ee;
 }
 
@@ -3222,33 +3222,8 @@ details summary::marker {
   margin-bottom: 24px;
 }
 
-.doctor__expand-btn {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-align: center;
-  -ms-flex-align: center;
-  align-items: center;
-  background: transparent;
-  border: none;
-  margin-bottom: 55px;
-  padding: 0;
-  font-size: 20px;
-  line-height: 1;
-  font-weight: 400;
-  color: #00ac73;
-  cursor: pointer;
-}
-
-.doctor__expand-btn.hidden {
-  display: none;
-}
-
-.doctor__expand-btn span {
-  margin-right: 8px;
-}
-
-.doctor__submit-btn {
+.doctor__submit-btn,
+.doctor__submit-btn-2 {
   font-weight: 900;
   font-size: 20px;
   line-height: 110%;
@@ -3261,15 +3236,18 @@ details summary::marker {
   display: flex;
 }
 
-.doctor__submit-btn .doctor__submit-text-2 {
+.doctor__submit-btn .doctor__submit-text-2,
+.doctor__submit-btn-2 .doctor__submit-text-2 {
   display: none;
 }
 
-.doctor__submit-btn.is-enabled {
+.doctor__submit-btn.is-enabled,
+.doctor__submit-btn-2.is-enabled {
   opacity: 1;
 }
 
-.doctor__submit-btn.is-enabled .doctor__submit-text-2 {
+.doctor__submit-btn.is-enabled .doctor__submit-text-2,
+.doctor__submit-btn-2.is-enabled .doctor__submit-text-2 {
   display: inline-block;
 }
 
@@ -3706,6 +3684,7 @@ details summary::marker {
   gap: 8px;
 }
 
+.user-account__session-schedule-reset,
 .user-account__session-change-reset {
   margin-top: 24px;
   padding: 16px 24px;
@@ -5571,6 +5550,11 @@ details summary::marker {
 .videochat__btn svg {
   margin-right: 8px;
   stroke: #039c69;
+  pointer-events: none;
+}
+
+.videochat__btn span {
+  pointer-events: none;
 }
 
 .videochat__user-photo-wrapper {
@@ -5864,6 +5848,32 @@ details summary::marker {
   width: 20px;
   height: 20px;
   background: linear-gradient(45deg, #a3a3a3 0%, #a3a3a3 50%, rgba(255, 255, 255, 0) 50%, rgba(255, 255, 255, 0) 100%);
+}
+
+.schedule__show-more {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  background: transparent;
+  border: none;
+  margin-bottom: 55px;
+  padding: 0;
+  font-size: 20px;
+  line-height: 1;
+  font-weight: 400;
+  color: #00ac73;
+  cursor: pointer;
+}
+
+.schedule__show-more.hidden {
+  display: none;
+}
+
+.schedule__show-more span {
+  margin-right: 8px;
 }
 
 .clients__table table {

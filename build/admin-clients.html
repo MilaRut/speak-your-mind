@@ -15,7 +15,7 @@
   <link rel="stylesheet" href="css/style.min.css">
 </head>
 
-<body>
+<body class="admin">
   <div class="wrapper user-logged internal admin">
     <main>
       <section class="admin__content admin-content">
@@ -117,68 +117,16 @@
                 </div>
                 <div class="admin-table">
                   <table>
-                    <tr class="admin-table__head">
-                      <th>ID</th>
-                      <th data-translate="admin_table_name">Имя</th>
-                      <th>Email</th>
-                      <th data-translate="admin_table_sum">Всего оплачено</th>
-                      <th data-translate="admin_table_reg_date">Дата регистрации</th>
-                      <th data-translate="admin_table_last_session">Последняя сессия</th>
-                    </tr>
-                    <tr class="admin-table__item">
-                      <td><span class="admin-table__id">156</span></td>
-                      <td><span class="admin-table__name">Ксения</span></td>
-                      <td><span class="admin-table__email">ksyusha45@gmail.com</span></td>
-                      <td><span class="admin-table__amount">650 500</span></td>
-                      <td><span class="admin-table__regdate"><time>09.07.2024</time></span></td>
-                      <td><span class="admin-table__last"><time>16:00 29.07.2024</time></span></td>
-                      <td class="admin-table__popup">
-                        <div class="admin-table__popup-wrapper">
-                          <button class="admin-table__popup-btn admin-table__popup-btn--edit text-green"
-                            data-translate="edit">Редактировать</button>
-                          <button class="admin-table__popup-btn admin-table__popup-btn--message text-green"
-                            data-translate="admin_send_message">Написать сообщение</button>
-                          <button class="admin-table__popup-btn admin-table__popup-btn--reset text-green"
-                            data-translate="admin_reset_password">Reset password</button>
-                        </div>
-                      </td>
-                    </tr>
-                    <tr class="admin-table__item">
-                      <td><span class="admin-table__id">392</span></td>
-                      <td><span class="admin-table__name">Athena Brennan</span></td>
-                      <td><span class="admin-table__email">erynf@live.com</span></td>
-                      <td><span class="admin-table__amount">650 500</span></td>
-                      <td><span class="admin-table__regdate"><time>15.05.2024</time></span></td>
-                      <td><span class="admin-table__last"><time>11:00 29.07.2024</time></span></td>
-                      <td class="admin-table__popup">
-                        <div class="admin-table__popup-wrapper">
-                          <button class="admin-table__popup-btn admin-table__popup-btn--edit text-green"
-                            data-translate="edit">Редактировать</button>
-                          <button class="admin-table__popup-btn admin-table__popup-btn--message text-green"
-                            data-translate="admin_send_message">Написать сообщение</button>
-                          <button class="admin-table__popup-btn admin-table__popup-btn--reset text-green"
-                            data-translate="admin_reset_password">Reset password</button>
-                        </div>
-                      </td>
-                    </tr>
-                    <tr class="admin-table__item">
-                      <td><span class="admin-table__id">354</span></td>
-                      <td><span class="admin-table__name">Alec Gallegos</span></td>
-                      <td><span class="admin-table__email">unreal@icloud.com</span></td>
-                      <td><span class="admin-table__amount">650 500</span></td>
-                      <td><span class="admin-table__regdate"><time>05.10.2024</time></span></td>
-                      <td><span class="admin-table__last"><time>18:00 06.10.2024</time></span></td>
-                      <td class="admin-table__popup">
-                        <div class="admin-table__popup-wrapper">
-                          <button class="admin-table__popup-btn admin-table__popup-btn--edit text-green"
-                            data-translate="edit">Редактировать</button>
-                          <button class="admin-table__popup-btn admin-table__popup-btn--message text-green"
-                            data-translate="admin_send_message">Написать сообщение</button>
-                          <button class="admin-table__popup-btn admin-table__popup-btn--reset text-green"
-                            data-translate="admin_reset_password">Reset password</button>
-                        </div>
-                      </td>
-                    </tr>
+                    <tbody>
+                      <tr class="admin-table__head">
+                        <th>ID</th>
+                        <th data-translate="admin_table_name">Имя</th>
+                        <th>Email</th>
+                        <th data-translate="admin_table_sum">Всего оплачено</th>
+                        <th data-translate="admin_table_reg_date">Дата регистрации</th>
+                        <th data-translate="admin_table_last_session">Последняя сессия</th>
+                      </tr>
+                    </tbody>
                   </table>
                 </div>
               </div>
@@ -328,6 +276,98 @@
       </div>
     </footer>
   </div>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+
+      const token = localStorage.getItem('token');
+
+      // функция для форматирования даты
+      function formatDate(dateString) {
+        const dateObj = new Date(dateString);
+        const language = localStorage.getItem('language') || 'en';
+
+        const options = {
+          day: 'numeric',
+          month: 'short',
+          year: 'numeric'
+        };
+
+        const formattedDate = dateObj.toLocaleDateString(language === 'en' ? 'en-US' : 'ru-RU', options);
+        return language === 'ru' ? formattedDate.replace('г.', '').trim() : formattedDate;
+      }
+
+      // получение списка клиентов с бэкенда
+      async function fetchData() {
+        if (token) {
+          try {
+            const response = await fetch('http://127.0.0.1:8000/list_clients', {
+              method: 'POST',
+              headers: {
+                'Authorization': `Bearer ${token}`,
+                'Content-Type': 'application/json'
+              },
+              body: JSON.stringify({ session_token: token })
+            });
+
+            if (!response.ok) {
+              throw new Error('Сеть не в порядке');
+            }
+
+            const clientsData = await response.json();
+
+            const clientsList = clientsData.list;
+            console.log('Список клиентов:', clientsList);
+            const tableBody = document.querySelector('.admin-table tbody');
+
+            for (const client of clientsList) {
+              const row = document.createElement('tr');
+              row.className = 'admin-table__item';
+              row.innerHTML = `
+                      <tr class="admin-table__item">
+                      <td><span class="admin-table__id">${client.client_id}</span></td>
+                      <td><span class="admin-table__name">${client.name}</span></td>
+                      <td><span class="admin-table__email">${client.email}</span></td>
+                      <td><span class="admin-table__amount">0</span></td>
+                      <td><span class="admin-table__regdate"><time>${formatDate(client.registred_date)}</time></span></td>
+                      <td><span class="admin-table__last"><time>-</time></span></td>
+                      <td class="admin-table__popup">
+                        <div class="admin-table__popup-wrapper">
+                          <button class="admin-table__popup-btn admin-table__popup-btn--edit text-green"
+                            data-translate="edit">Редактировать</button>
+                          <button class="admin-table__popup-btn admin-table__popup-btn--message text-green"
+                            data-translate="admin_send_message">Написать сообщение</button>
+                          <button class="admin-table__popup-btn admin-table__popup-btn--reset text-green"
+                            data-translate="admin_reset_password">Reset password</button>
+                        </div>
+                      </td>
+                    </tr>
+                    `;
+              tableBody.appendChild(row);
+              row.addEventListener('click', (e) => {
+                document.querySelectorAll('.admin-table tr').forEach((el) => {
+                  el.classList.remove('is-active');
+                });
+                row.classList.add('is-active');
+                e.stopPropagation();
+              });
+              document.addEventListener('click', () => {
+                document.querySelectorAll('.admin-table tr').forEach((el) => {
+                  el.classList.remove('is-active');
+                });
+              });
+            }
+          } catch (error) {
+            console.error('Ошибка при получении данных:', error);
+          }
+        } else {
+          console.log('Токен не найден. Пожалуйста, войдите в систему.');
+        }
+      }
+
+      fetchData();
+    });
+  </script>
 
   <script src="js/vendor.min.js"></script>
   <script src="js/main.min.js"></script>

@@ -192,7 +192,7 @@
                       </div>
                     </div>
                     <div class="videochat__buttons-wrapper">
-                      <a href="#" class="videochat__btn btn btn--white text-20" id="cancel-session">
+                      <a href="#" class="videochat__btn btn btn--white text-20 cancel-session-btn" id="cancel-session">
                         <svg width="32" height="32" fill="currentColor">
                           <use xlink:href="./img/sprite.svg#calendar-cancel"></use>
                         </svg>
@@ -295,9 +295,9 @@
           </svg>
         </button>
         <h2 class="text-25 doctor__title" data-translate="my_schedule">Мое расписание</h2>
-        <form action="" method="post" id="choice-date-form">
+        <form class="choice-date-form schedule-wrapper" action="" method="post" id="choice-date-form">
           <div class="schedule-container"></div>
-          <button type="button" class="doctor__expand-btn">
+          <button type="button" class="schedule__show-more">
             <span data-translate="schedule_show_more">Показать еще 3 дня</span>
             <svg width="10" height="10" fill="currentColor">
               <use xlink:href="./img/sprite.svg#dropdown-green"></use>
@@ -393,9 +393,12 @@
 
       // рендеринг запросов на сессию / на перенос сессии
       function renderRequests(data) {
+        requestsList.innerHTML = '';
+        scheduledList.innerHTML = '';
         // Рендеринг подтвержденных сессий и запросов на сессию
         data.normal_sessions_list.forEach(session => {
           if (session.accepted === 1) {
+            // подтвержденные сессии
             const li = document.createElement('li');
             li.className = 'sessions__clients-item';
             li.innerHTML = `
@@ -421,6 +424,7 @@
               document.querySelector('.videochat__client-id').textContent = `#${session.client_id}`;
               document.querySelector('.videochat__client-name').textContent = session.name;
               document.querySelector('.videochat__date').textContent = renderDate(session.time);
+              document.querySelector('.videochat__btn.cancel-session-btn').setAttribute('data-sh-id', session.sh_id);
               submitBtn.setAttribute('old_sh_id', session.sh_id);
             });
             document.querySelectorAll('.sessions__clients-item')[0].click();
@@ -431,6 +435,7 @@
               getClientData(session.client_id);
             });
           } else {
+            // запросы на новую сессию
             const li = document.createElement('li');
             li.className = 'sessions__requests-item sessions__requests-item--schedule';
             li.setAttribute('data-id', session.client_id);
@@ -452,13 +457,13 @@
                              </svg>
                              <span data-translate="doctor_change_request_btn_1">Подтвердить</span>
                          </button>
-                         <button type="button" class="btn btn--white reschedule-session-btn" data-open-modal data-modal-id="#doctor-reschedule">
+                         <button type="button" class="btn btn--white reschedule-session-btn" data-sh-id="${session.sh_id}">
                              <svg width="32" height="32" fill="currentColor">
                                  <use xlink:href="./img/sprite.svg#calendar-reschedule"></use>
                              </svg>
                              <span data-translate="doctor_change_request_btn_2">Предложить другое время</span>
                          </button>
-                         <button type="button" class="btn btn--red cancel-session-btn" data-open-modal data-modal-id="#doctor-reschedule">
+                         <button type="button" class="btn btn--red cancel-session-btn" data-sh-id="${session.sh_id}">
                              <svg width="32" height="32" fill="currentColor">
                                  <use xlink:href="./img/sprite.svg#calendar-cancel"></use>
                              </svg>
@@ -499,13 +504,13 @@
                              </svg>
                              <span data-translate="doctor_change_request_btn_1">Подтвердить</span>
                          </button>
-                         <button type="button" class="btn btn--white reschedule-session-btn" data-open-modal data-modal-id="#doctor-reschedule">
+                         <button type="button" class="btn btn--white reschedule-session-btn" data-old-sh="${session.old_time}">
                              <svg width="32" height="32" fill="currentColor">
                                  <use xlink:href="./img/sprite.svg#calendar-reschedule"></use>
                              </svg>
                              <span data-translate="doctor_change_request_btn_2">Предложить другое время</span>
                          </button>
-                         <button type="button" class="btn btn--red cancel-session-btn" data-open-modal data-modal-id="#doctor-reschedule">
+                         <button type="button" class="btn btn--red cancel-session-btn">
                              <svg width="32" height="32" fill="currentColor">
                                  <use xlink:href="./img/sprite.svg#calendar-cancel"></use>
                              </svg>
@@ -522,13 +527,22 @@
         });
       }
 
-      // слушатель клика по кнопке в карточке запроса
+      // слушатель клика по кнопке в карточке запроса и под видеочатом
       function addBtnsListener() {
         requestsList.addEventListener('click', (e) => {
           if (e.target.classList.contains('approve-session-btn')) {
             sendApproveToBackend(e.target);
             e.target.closest('li').style.display = 'none';
+            getSessionsFromBackend();
+          } else if (e.target.classList.contains('cancel-session-btn')) {
+            sendCancellationToBackend(e.target);
+            e.target.closest('li').style.display = 'none';
+            getSessionsFromBackend();
           }
+        });
+        document.querySelector('.videochat__btn.cancel-session-btn').addEventListener('click', (e) => {
+          sendCancellationToBackend(e.target);
+          getSessionsFromBackend();
         });
       }
 
@@ -615,6 +629,38 @@
           })
           .then(data => {
             console.log('Сессия подтверждена');
+            scheduledList.innerHTML = '';
+            getSessionsFromBackend();
+          })
+          .catch(error => {
+            console.error('Ошибка при получении данных пользователя:', error);
+          });
+      }
+
+      // отправка отмены сессии на бэкенд
+      function sendCancellationToBackend(el) {
+        const sh_id = Number(el.getAttribute('data-sh-id'));
+
+        const dataToSend = {
+          session_token: session_token,
+          sh_id: sh_id
+        };
+
+        fetch('http://127.0.0.1:8000/cancel_session', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json'
+          },
+          body: JSON.stringify(dataToSend)
+        })
+          .then(response => {
+            if (!response.ok) {
+              throw new Error('Сеть не в порядке');
+            }
+            return response.json();
+          })
+          .then(data => {
+            console.log('Сессия отменена');
           })
           .catch(error => {
             console.error('Ошибка при получении данных пользователя:', error);
@@ -682,6 +728,8 @@
           });
       }
 
+      // апдейт расписания
+
       function updateDocSchedule(data) {
         console.log('Расписание:', data);
         const jsonData = data;
@@ -706,32 +754,57 @@
 
         // Генерация HTML-разметки
         let html = '';
+        const now = new Date();
 
-        for (const date in scheduleByDate) {
+        // Получаем и сортируем даты
+        const sortedDates = Object.keys(scheduleByDate).sort((a, b) => new Date(a.split('-').reverse().join('-')) - new Date(b.split('-').reverse().join('-')));
+
+        for (const date of sortedDates) {
+          const appointmentDate = new Date(date.split('-').reverse().join('-'));
+
+          // Проверка, если дата записи меньше текущей даты
+          if (appointmentDate < now) {
+            continue; // Пропускаем прошедшие дни
+          }
+
           const formattedDate = formatDate(date.split('-').reverse().join('-')); // Преобразуем формат даты
-          const dayOfWeek = new Date(date.split('-').reverse().join('-')).toLocaleString('ru-RU', { weekday: 'long' });
 
-          html += `
-              <div class="doctor__day-wrapper">
-                <p class="doctor__day">
-                  <time datetime="${date.split('-').reverse().join('-')}">${formattedDate}</time>
-                </p>
-              <fieldset>
-              `;
+          // Удаление дубликатов времени с помощью Set
+          const uniqueTimes = [...new Set(scheduleByDate[date])];
 
-          scheduleByDate[date].forEach(time => {
-            html += `
-                <label>
-                    <input type="radio" name="appointment-time" value="${time}">
-                    <span class="time-value">${time}</span>
-                </label>
-                `;
+          // Сортировка времени по возрастанию
+          const sortedTimes = uniqueTimes.sort((a, b) => {
+            const timeA = new Date(appointmentDate.toISOString().split('T')[0] + 'T' + a + ':00');
+            const timeB = new Date(appointmentDate.toISOString().split('T')[0] + 'T' + b + ':00');
+            return timeA - timeB; // Сравнение по времени
           });
 
           html += `
-            </fieldset>
-              </div>
-            `;
+                <div class="doctor__day-wrapper">
+                    <p class="doctor__day">
+                        <time datetime="${date.split('-').reverse().join('-')}">${formattedDate}</time>
+                    </p>
+                <fieldset>
+                `;
+
+          sortedTimes.forEach(time => {
+            const appointmentTime = new Date(appointmentDate.toISOString().split('T')[0] + 'T' + time + ':00');
+
+            // Проверка, если время записи больше или равно текущему времени
+            if (appointmentTime >= now) {
+              html += `
+                    <label>
+                        <input type="radio" name="appointment-time" value="${time}">
+                        <span class="time-value">${time}</span>
+                    </label>
+                    `;
+            }
+          });
+
+          html += `
+                </fieldset>
+                </div>
+                `;
         }
 
         document.querySelectorAll('.schedule-container').forEach((el) => {

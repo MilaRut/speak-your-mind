@@ -15,7 +15,7 @@
   <link rel="stylesheet" href="css/style.min.css">
 </head>
 
-<body>
+<body class="admin">
   <div class="wrapper user-logged internal admin">
     <main>
       <section class="admin__content admin-content">
@@ -171,33 +171,7 @@
                           stroke-linecap="round" stroke-linejoin="round" />
                       </svg>
                     </summary>
-                    <ul class="list-reset">
-                      <li>
-                        <span class="id">257</span>
-                        <span class="name">Ксения</span>
-                        <span class="date">09.07.2024</span>
-                      </li>
-                      <li>
-                        <span class="id">256</span>
-                        <span class="name">Василий</span>
-                        <span class="date">09.07.2024</span>
-                      </li>
-                      <li>
-                        <span class="id">255</span>
-                        <span class="name">Костантин</span>
-                        <span class="date">09.07.2024</span>
-                      </li>
-                      <li>
-                        <span class="id">254</span>
-                        <span class="name">Васисуалий</span>
-                        <span class="date">09.07.2024</span>
-                      </li>
-                      <li>
-                        <span class="id">253</span>
-                        <span class="name">Gyorgy</span>
-                        <span class="date">09.07.2024</span>
-                      </li>
-                    </ul>
+                    <ul class="admin__new-clients list-reset"></ul>
                     <a href="admin-clients.html" class="btn btn--white admin-content__widget-btn"
                       data-translate="admin_manage_clients">Управлять клиентами</a>
                   </details>
@@ -211,33 +185,7 @@
                           stroke-linecap="round" stroke-linejoin="round" />
                       </svg>
                     </summary>
-                    <ul class="list-reset">
-                      <li>
-                        <span class="id">48</span>
-                        <span class="name">Ксения</span>
-                        <span class="date">09.07.2024</span>
-                      </li>
-                      <li>
-                        <span class="id">47</span>
-                        <span class="name">Василий</span>
-                        <span class="date">09.07.2024</span>
-                      </li>
-                      <li>
-                        <span class="id">46</span>
-                        <span class="name">Костантин</span>
-                        <span class="date">09.07.2024</span>
-                      </li>
-                      <li>
-                        <span class="id">45</span>
-                        <span class="name">Васисуалий</span>
-                        <span class="date">09.07.2024</span>
-                      </li>
-                      <li>
-                        <span class="id">44</span>
-                        <span class="name">Gyorgy</span>
-                        <span class="date">09.07.2024</span>
-                      </li>
-                    </ul>
+                    <ul class="admin__new-docs list-reset"></ul>
                     <a href="admin-doctors.html" class="btn btn--white admin-content__widget-btn"
                       data-translate="admin_manage_doctors">Управлять терапевтами</a>
                   </details>
@@ -343,6 +291,113 @@
       </div>
     </footer>
   </div>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+      const token = localStorage.getItem('token');
+
+      // функция для форматирования даты
+      function formatDate(dateString) {
+        const dateObj = new Date(dateString);
+        const language = localStorage.getItem('language') || 'en';
+
+        const options = {
+          day: 'numeric',
+          month: 'numeric',
+          year: 'numeric'
+        };
+
+        const formattedDate = dateObj.toLocaleDateString(language === 'en' ? 'en-US' : 'ru-RU', options);
+        return language === 'ru' ? formattedDate.replace('г.', '').trim() : formattedDate;
+      }
+
+      // получение списка клиентов с бэкенда
+      async function fetchClientsData() {
+        if (token) {
+          try {
+            const response = await fetch('http://127.0.0.1:8000/list_clients', {
+              method: 'POST',
+              headers: {
+                'Authorization': `Bearer ${token}`,
+                'Content-Type': 'application/json'
+              },
+              body: JSON.stringify({ session_token: token })
+            });
+
+            if (!response.ok) {
+              throw new Error('Сеть не в порядке');
+            }
+
+            const clientsData = await response.json();
+
+            const clientsList = clientsData.list;
+            document.querySelector('.admin-stats__wrapper--clients .num').textContent = clientsList.length;
+            console.log('Список клиентов:', clientsList);
+            const newСlientsList = document.querySelector('.admin__new-clients');
+
+            for (const client of clientsList) {
+              const li = document.createElement('li');
+              li.innerHTML = `
+                      <span class="id">${client.client_id}</span>
+                      <span class="name">${client.name}</span>
+                      <span class="date">${formatDate(client.registred_date)}</span>
+                    `;
+              newСlientsList.appendChild(li);
+            }
+          } catch (error) {
+            console.error('Ошибка при получении данных:', error);
+          }
+        } else {
+          console.log('Токен не найден. Пожалуйста, войдите в систему.');
+        }
+      }
+
+      fetchClientsData();
+
+      // получение списка терапевтов с бэкенда
+      async function fetchDocsData() {
+        if (token) {
+          try {
+            const response = await fetch('http://127.0.0.1:8000/list_therapists', {
+              method: 'POST',
+              headers: {
+                'Authorization': `Bearer ${token}`,
+                'Content-Type': 'application/json'
+              },
+              body: JSON.stringify({ session_token: token })
+            });
+
+            if (!response.ok) {
+              throw new Error('Сеть не в порядке');
+            }
+
+            const docsData = await response.json();
+
+            const docsList = docsData.list;
+            console.log('Список терапевтов:', docsList);
+            const newDocsList = document.querySelector('.admin__new-docs');
+            document.querySelector('.admin-stats__wrapper--doctors .num').textContent = docsList.length;
+
+            for (const doc of docsList) {
+              const li = document.createElement('li');
+              li.innerHTML = `
+                      <span class="id">${doc.doc_id}</span>
+                      <span class="name">${doc.doc_name}</span>
+                      <span class="date">${formatDate(doc.registred_date)}</span>
+                    `;
+              newDocsList.appendChild(li);
+            }
+          } catch (error) {
+            console.error('Ошибка при получении данных:', error);
+          }
+        } else {
+          console.log('Токен не найден. Пожалуйста, войдите в систему.');
+        }
+      }
+
+      fetchDocsData();
+    });
+  </script>
 
   <script src="js/vendor.min.js"></script>
   <script src="js/main.min.js"></script>

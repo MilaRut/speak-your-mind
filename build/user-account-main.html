@@ -262,10 +262,9 @@
                   </div>
                   <div class="doctor__content-block">
                     <h2 class="text-25 doctor__title" data-translate="doctor_schedule_title">Расписание</h2>
-                    <form action="" method="post" id="choice-date-form">
-                      <div class="schedule-container"></div>
-
-                      <button type="button" class="doctor__expand-btn">
+                    <form class="choice-date-form schedule-wrapper" action="" method="post" id="choice-date-form">
+                      <div class="schedule-container-1"></div>
+                      <button type="button" class="schedule__show-more">
                         <span data-translate="schedule_show_more">Показать еще 3 дня</span>
                         <svg width="10" height="10" fill="currentColor">
                           <use xlink:href="./img/sprite.svg#dropdown-green"></use>
@@ -278,8 +277,41 @@
                         <span class="doctor__submit-text-2" data-translate="doctor_submit_btn_2">и продолжить</span>
                       </button>
                       <span class="error-message" data-translate="doctor_submit_err">Пожалуйста, выберите дату</span>
-                      <button type="button" class="btn btn--white user-account__session-change-reset" utils-btn-main
-                        data-id="main-confirmed" data-translate="cancel">Отмена</button>
+                      <button type="button" class="btn btn--white user-account__session-change-reset"
+                        data-translate="cancel">Отмена</button>
+                    </form>
+                  </div>
+                </div>
+                <div class="user-account__session-request-wrapper" style="display: none;">
+                  <div class="user-account__doctor">
+                    <div class="user-account__doctor-image">
+                      <img src="./img/content/doctor-thumb.png" width="100" height="100" alt="">
+                    </div>
+                    <div class="user-account__doctor-info">
+                      <p class="text-31">
+                        <span class="doctor-name">doc_name</span>
+                      </p>
+                    </div>
+                  </div>
+                  <div class="doctor__content-block">
+                    <h2 class="text-25 doctor__title" data-translate="doctor_schedule_title">Расписание</h2>
+                    <form class="choice-date-form schedule-wrapper" action="" method="post" id="choice-date-form-2">
+                      <div class="schedule-container-2"></div>
+                      <button type="button" class="schedule__show-more">
+                        <span data-translate="schedule_show_more">Показать еще 3 дня</span>
+                        <svg width="10" height="10" fill="currentColor">
+                          <use xlink:href="./img/sprite.svg#dropdown-green"></use>
+                        </svg>
+                      </button>
+
+                      <button type="submit" disabled class="doctor__submit-btn-2 btn">
+                        <span class="doctor__submit-text" data-translate="doctor_submit_btn_1">Выбрать</span>&nbsp;
+                        <span class="doctor__submit-date"></span>&nbsp;
+                        <span class="doctor__submit-text-2" data-translate="doctor_submit_btn_2">и продолжить</span>
+                      </button>
+                      <span class="error-message" data-translate="doctor_submit_err">Пожалуйста, выберите дату</span>
+                      <button type="button" class="btn btn--white user-account__session-schedule-reset"
+                        data-translate="cancel">Отмена</button>
                     </form>
                   </div>
                 </div>
@@ -308,8 +340,11 @@
       const rescheduleBtn = document.querySelector('#reschedule-session');
       const scheduleBtn = document.querySelector('#schedule-session');
       const rescheduleBtnReset = document.querySelector('.user-account__session-change-reset');
-      const scheduleContainer = document.querySelector('.schedule-container');
+      const scheduleContainer1 = document.querySelector('.schedule-container-1');
+      const scheduleContainer2 = document.querySelector('.schedule-container-2');
       const submitBtn = document.querySelector('.doctor__submit-btn');
+      const submitBtn2 = document.querySelector('.doctor__submit-btn-2');
+      const scheduleBtnReset = document.querySelector('.user-account__session-schedule-reset');
 
       // получение данных клиента c бэкенда
       function getUserDataFromBackend() {
@@ -336,6 +371,7 @@
                 document.querySelectorAll('.doctor-name').forEach((docname) => {
                   docname.textContent = doc_name;
                 })
+                localStorage.setItem('doc_id', data.has_therapist.doc_id);
                 setSessionState(data);
               }
             })
@@ -349,6 +385,7 @@
 
       getUserDataFromBackend();
 
+      // функция рендера даты и времени
       function renderDate(data) {
         const schTime = data;
         const date = new Date(schTime);
@@ -414,26 +451,6 @@
           }
         }
       }
-
-      // запрос на перенос сессии - показать расписание
-      rescheduleBtn.addEventListener('click', () => {
-        document.querySelector('.user-account__session-change-wrapper').style.display = 'block';
-        document.querySelector('.user-account__session-wrapper').style.display = 'none';
-        document.querySelector('.user-account__title').style.display = 'none';
-      })
-
-      rescheduleBtnReset.addEventListener('click', () => {
-        document.querySelector('.user-account__session-change-wrapper').style.display = 'none';
-        document.querySelector('.user-account__session-wrapper').style.display = 'block';
-        document.querySelector('.user-account__title').style.display = 'block';
-      })
-
-      // запрос на назначение сессии - показать расписание
-      scheduleBtn.addEventListener('click', () => {
-        document.querySelector('.user-account__session-change-wrapper').style.display = 'block';
-        document.querySelector('.user-account__session-wrapper').style.display = 'none';
-        document.querySelector('.user-account__title').style.display = 'none';
-      })
 
       // получаем расписание терапевта с бэкенда
       function getDocScheduleFromBackend() {
@@ -506,9 +523,15 @@
 
           const dayElement = document.createElement('p');
           dayElement.className = 'doctor__day';
-          const dateObj = new Date(date);
-          dayElement.innerHTML = `<time datetime="${date}">${dateObj.getDate()} ${dateObj.toLocaleString('ru-RU', { month: 'long' })}</time><span>, ${dateObj.toLocaleString('ru-RU', { weekday: 'long' })}</span>`;
 
+          const language = localStorage.getItem('language') || 'en';
+          const dateObj = new Date(date);
+
+          if (language === 'en') {
+            dayElement.innerHTML = `<time datetime="${date}">${dateObj.getDate()} ${dateObj.toLocaleString('en-US', { month: 'long' })}</time>`;
+          } else {
+            dayElement.innerHTML = `<time datetime="${date}">${dateObj.getDate()} ${dateObj.toLocaleString('ru-RU', { month: 'long' })}</time><span>, ${dateObj.toLocaleString('ru-RU', { weekday: 'long' })}</span>`;
+          }
           const fieldset = document.createElement('fieldset');
 
           // Создаем элементы для каждого времени
@@ -528,26 +551,30 @@
             label.appendChild(input);
             label.appendChild(timeValue);
             fieldset.appendChild(label);
-
-            input.addEventListener('change', () => {
-              submitBtn.classList.add('is-enabled');
-              submitBtn.setAttribute('new_sh_id', sh_id);
-              // TODO переписать в удобный формат
-              submitBtn.querySelector('.doctor__submit-date').textContent = `${timeString} ${date}`;
-              submitBtn.querySelector('.doctor__submit-text-2').style.display = 'inline';
-              submitBtn.disabled = false;
-              localStorage.setItem('session_datetime', `${timeString} ${date}`)
-            });
           });
 
           // Если есть доступные временные слоты, добавляем их в расписание
           if (times.length > 0) {
             dayWrapper.appendChild(dayElement);
             dayWrapper.appendChild(fieldset);
-            scheduleContainer.appendChild(dayWrapper);
+            scheduleContainer1.appendChild(dayWrapper.cloneNode(true));
+            scheduleContainer2.appendChild(dayWrapper.cloneNode(true));
           }
         }
       }
+
+      // запрос на перенос сессии - показать расписание
+      rescheduleBtn.addEventListener('click', () => {
+        document.querySelector('.user-account__session-change-wrapper').style.display = 'block';
+        document.querySelector('.user-account__session-wrapper').style.display = 'none';
+        document.querySelector('.user-account__title').style.display = 'none';
+      })
+
+      rescheduleBtnReset.addEventListener('click', () => {
+        document.querySelector('.user-account__session-change-wrapper').style.display = 'none';
+        document.querySelector('.user-account__session-wrapper').style.display = 'block';
+        document.querySelector('.user-account__title').style.display = 'block';
+      })
 
       // отправка запроса на перенос сессии на бэкенд
       document.getElementById('choice-date-form').addEventListener('submit', function (e) {
@@ -587,7 +614,7 @@
           });
       });
 
-      // отмена сессии
+      // отправка запроса на отмену сессии на бэкенд
       const cancelBtn = document.querySelector('#cancel-session');
       cancelBtn.addEventListener('click', () => {
         const dataToSend = {
@@ -607,8 +634,59 @@
             return response.json();
           })
           .then(data => {
-            console.log('Запрос на перенос сессии отправлен');
+            console.log('Запрос на отмену сессии отправлен');
             document.querySelector('.user-account__session-change-wrapper').style.display = 'none';
+            document.querySelector('.user-account__session-wrapper').style.display = 'block';
+            document.querySelector('.user-account__title').style.display = 'block';
+            getUserDataFromBackend();
+          })
+          .catch(error => {
+            console.error('Ошибка при получении данных пользователя:', error);
+          });
+      });
+
+      // запрос на назначение сессии - показать расписание
+      scheduleBtn.addEventListener('click', () => {
+        document.querySelector('.user-account__session-request-wrapper').style.display = 'block';
+        document.querySelector('.user-account__session-wrapper').style.display = 'none';
+        document.querySelector('.user-account__title').style.display = 'none';
+      })
+
+      scheduleBtnReset.addEventListener('click', () => {
+        document.querySelector('.user-account__session-request-wrapper').style.display = 'none';
+        document.querySelector('.user-account__session-wrapper').style.display = 'block';
+        document.querySelector('.user-account__title').style.display = 'block';
+      })
+
+      // отправка запроса на назначение новой сессии на бэкенд
+      document.getElementById('choice-date-form-2').addEventListener('submit', function (e) {
+        e.preventDefault();
+
+        const doc_id = Number(localStorage.getItem('doc_id'));
+        const sh_id = Number(submitBtn2.getAttribute('data-id'));
+
+        const dataToSend = {
+          session_token: session_token,
+          doc_id: doc_id,
+          sh_id: sh_id
+        };
+
+        fetch('http://127.0.0.1:8000/select_slot', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json'
+          },
+          body: JSON.stringify(dataToSend)
+        })
+          .then(response => {
+            if (!response.ok) {
+              throw new Error('Сеть не в порядке');
+            }
+            return response.json();
+          })
+          .then(data => {
+            console.log('Запрос на новую сессию отправлен');
+            document.querySelector('.user-account__session-request-wrapper').style.display = 'none';
             document.querySelector('.user-account__session-wrapper').style.display = 'block';
             document.querySelector('.user-account__title').style.display = 'block';
             getUserDataFromBackend();

@@ -123,29 +123,8 @@
     margin-bottom: 24px;
   }
 
-  &__expand-btn {
-    display: flex;
-    align-items: center;
-    background: transparent;
-    border: none;
-    margin-bottom: 55px;
-    padding: 0;
-    font-size: 20px;
-    line-height: 1;
-    font-weight: 400;
-    color: $color-jade;
-    cursor: pointer;
-
-    &.hidden {
-      display: none;
-    }
-
-    span {
-      margin-right: 8px;
-    }
-  }
-
-  &__submit-btn {
+  &__submit-btn,
+  &__submit-btn-2 {
     font-weight: 900;
     font-size: 20px;
     line-height: 110%;
