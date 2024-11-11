@@ -36,6 +36,13 @@ function setChoiceBtn() {
     const dateTime = submitBtn.querySelector('.doctor__submit-date');
     const errorMsg = form.querySelector('.error-message');
 
+    if (!slots.length) {
+      setTimeout(() => {
+        setChoiceBtn();
+      }, 200);
+      return;
+    }
+
     slots.forEach((slot) => {
       slot.addEventListener('change', function () {
         errorMsg.classList.remove('is-active');
