@@ -201,7 +201,7 @@
 
       function getUserDataFromBackend() {
         if (session_token) {
-          fetch('http://127.0.0.1:8000/get_client_data', {
+          fetch('http://63.250.47.203:8000/get_client_data', {
             method: 'POST',
             headers: {
               'Authorization': `Bearer ${session_token}`,
@@ -233,7 +233,7 @@
       // загрузка списка терапевтов
 
       function getTherapistList() {
-        fetch('http://127.0.0.1:8000/get_therapist_list', {
+        fetch('http://63.250.47.203:8000/get_therapist_list', {
           method: 'POST',
           headers: {
             'Content-Type': 'application/json'
@@ -428,7 +428,7 @@
 
         console.log(dataToSend);
 
-        fetch('http://127.0.0.1:8000/select_slot', {
+        fetch('http://63.250.47.203:8000/select_slot', {
           method: 'POST',
           headers: {
             'Content-Type': 'application/json'
