@@ -349,8 +349,7 @@
 
       // получение данных терапевта с бэкенда
       if (token) {
-        fetch('http://www.speakyourmind.help:8000/get_doc_data', {
-
+        fetch('http://127.0.0.1:8000/get_doc_data', {
           method: 'POST',
           headers: {
             'Authorization': `Bearer ${token}`,
@@ -366,7 +365,7 @@
           })
           .then(data => {
             // TODO удалить вывод в консоль
-            console.log('Данные пользователя:', data);
+            // console.log('Данные терапевта:', data);
             loadScheduleFromBackend();
           })
           .catch(error => {
@@ -409,38 +408,10 @@
           });
       }
 
-      // получение списка клиентов с бэкенда
-      // if (token) {
-      //   fetch('http://www.speakyourmind.help:8000/url', {
-      //     method: 'POST',
-      //     headers: {
-      //       'Authorization': `Bearer ${token}`,
-      //       'Content-Type': 'application/json'
-      //     },
-      //     body: JSON.stringify({ session_token: token })
-      //   })
-      //     .then(response => {
-      //       if (!response.ok) {
-      //         throw new Error('Сеть не в порядке');
-      //       }
-      //       return response.json();
-      //     })
-      //     .then(data => {
-      //       // TODO удалить вывод в консоль
-      //       console.log('Список клиентов:', data);
-      //       // рендеринг списка клиентов
-      //       // renderClientsList();
-      //     })
-      //     .catch(error => {
-      //       console.error('Ошибка при получении списка клиентов:', error);
-      //     });
-      // } else {
-      //   console.log('Токен не найден. Пожалуйста, войдите в систему.');
-      // }
-
-
+      // рендеринг расписания терапевта
       function updateDocSchedule(data) {
-        console.log('Расписание:', data);
+        // TODO удалить вывод в консоль
+        // console.log('Расписание:', data);
         const jsonData = data;
 
         // Функция для форматирования даты
@@ -494,6 +465,160 @@
         document.querySelectorAll('.schedule-container').forEach((el) => {
           el.innerHTML = html;
         });
+      }
+
+      // получение списка сессий и клиентов с бэкенда
+
+      async function fetchUserData(clientId, token) {
+
+        const dataToSend = {
+          session_token: token,
+          user_id: clientId
+        };
+
+        try {
+          const userResponse = await fetch('http://127.0.0.1:8000/get_user_data', {
+            method: 'POST', // Используем POST
+            headers: {
+              'Authorization': `Bearer ${token}`,
+              'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(dataToSend) // Передаем client_id в теле запроса
+          });
+
+          if (!userResponse.ok) {
+            throw new Error(`Ошибка сети: ${userResponse.status}`);
+          }
+
+          const userData = await userResponse.json();
+          return userData;
+        } catch (error) {
+          console.error('Ошибка при получении данных клиента:', error);
+        }
+      }
+
+      async function fetchData() {
+        if (token) {
+          try {
+            // Получаем список сессий для терапевта
+            const sessionsResponse = await fetch('http://127.0.0.1:8000/recieve_sessions_list_for_therapist', {
+              method: 'POST',
+              headers: {
+                'Authorization': `Bearer ${token}`,
+                'Content-Type': 'application/json'
+              },
+              body: JSON.stringify({ session_token: token })
+            });
+
+            if (!sessionsResponse.ok) {
+              throw new Error('Сеть не в порядке');
+            }
+
+            const sessionsData = await sessionsResponse.json();
+            console.log('Список сессий и клиентов:', sessionsData);
+
+            const clientsList = sessionsData.clients_list; // Список клиентов
+            const tableBody = document.querySelector('.clients__table tbody');
+
+            // Проходим по каждому клиенту
+            for (const client of clientsList) {
+              // Получаем данные о клиенте
+              const userData = await fetchUserData(client.client_id, token);
+              console.log(userData)
+
+              // Получаем сессии для текущего клиента
+              const clientSessions = sessionsData.normal_sessions_list.filter(session => session.client_id === client.client_id);
+              const nextSession = clientSessions.length > 0 ? clientSessions[0] : null;
+              const nextSessionDate = nextSession ? new Date(nextSession.time).toLocaleString() : '-';
+              const status = nextSession ? 'Запланирована' : 'Не запланирована';
+
+              // Добавляем строку в таблицу
+              const row = document.createElement('tr');
+              row.innerHTML = `
+                      <td><span class="clients__client-id">#${userData.client_id}</span></td>
+                      <td><span class="clients__client-name">${userData.name}</span>
+                      </td>
+                      <td><span class="clients__client-age">${getClientAge(userData.age)}</span></td>
+                      <td><span class="clients__sessions-amount">${userData.sessions_count}</span></td>
+                      <td><span class="clients__next-session"><time>${nextSessionDate}</time></span></td>
+                      <td><span class="clients__session-status">${status}</span></td>
+                `;
+              tableBody.appendChild(row);
+              // модалка
+              const name = row.querySelector('.clients__client-name');
+              name.addEventListener('click', () => {
+                document.querySelector('#client-card').classList.add('is-active');
+                document.querySelector('.client-card__username').textContent = userData.name;
+                document.querySelector('.client-card__userid').textContent = `#${userData.client_id}`;
+                document.querySelector('.client-card__age').textContent = getClientAge(userData.age);
+                document.querySelector('.client-card__sessions-amount').textContent = userData.sessions_count;
+                document.querySelector('.client-card__next-session').textContent = nextSessionDate;
+                document.querySelector('.client-card__request').textContent = mapNumbersToStrings(userData.client_symptoms);
+              });
+            }
+          } catch (error) {
+            console.error('Ошибка при получении данных:', error);
+          }
+        } else {
+          console.log('Токен не найден. Пожалуйста, войдите в систему.');
+        }
+      }
+
+      fetchData();
+
+      // получение возраста клиента
+      function getClientAge(birthDate) {
+        const today = new Date();
+        const birth = new Date(birthDate);
+        let age = today.getFullYear() - birth.getFullYear();
+        const monthDifference = today.getMonth() - birth.getMonth();
+
+        // Если день рождения еще не наступил в этом году, уменьшаем возраст на 1
+        if (monthDifference < 0 || (monthDifference === 0 && today.getDate() < birth.getDate())) {
+          age--;
+        }
+
+        return age;
+      }
+
+      // Расшифровка симтомов
+      function mapNumbersToStrings(numbers) {
+        const mapping = {
+          0: 'Усталость',
+          1: 'Депрессивные состояния',
+          2: 'Раздражительность',
+          3: 'Тревожность',
+          4: 'Панические атаки',
+          5: 'Самооценка',
+          6: 'Одиночество',
+          7: 'Поведенческая зависимость',
+          8: 'Химические зависимости',
+          9: 'Критические состояния',
+          10: 'ЛГБТ+',
+          11: 'Отношения с другими',
+          12: 'С партнером',
+          13: 'С родителями',
+          14: 'Сексуальные',
+          15: 'В целом, с окружающими',
+          16: 'С детьми',
+          17: 'Сложности с ориентацией, ее поиск',
+          18: 'Работа, учеба',
+          19: 'Недостаток мотивации',
+          20: 'Не знаю, чем хочу заниматься',
+          21: 'Отсутствие цели',
+          22: 'Выгорание',
+          23: 'Прокрастинация',
+          24: 'Смена, потеря работы',
+          25: 'События жизни',
+          26: 'Переезд, эмиграция',
+          27: 'Разрыв отношений, развод',
+          28: 'Утрата близкого человека',
+          29: 'Беременность, рождение ребенка',
+          30: 'Финансовые изменения',
+          31: 'Болезнь, своя или близких'
+        };
+
+        return numbers.map(num => mapping[num] || '-').join(', ');
       }
     });
   </script>
