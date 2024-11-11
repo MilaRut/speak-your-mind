@@ -570,7 +570,7 @@
         document.querySelector('.client-card__age').textContent = getClientAge(data.age);
         document.querySelector('.client-card__sessions-amount').textContent = data.sessions_count;
         document.querySelector('.client-card__next-session').textContent = renderDate(data.sch_data.old_sh_date_time);
-        document.querySelector('.client-card__request').textContent = data.client_symptoms;
+        document.querySelector('.client-card__request').textContent = mapNumbersToStrings(data.client_symptoms);
       }
 
       // получение возраста клиента
@@ -778,6 +778,46 @@
             console.error('Ошибка при получении данных пользователя:', error);
           });
       });
+
+      // Расшифровка симтомов
+      function mapNumbersToStrings(numbers) {
+        const mapping = {
+          0: 'Усталость',
+          1: 'Депрессивные состояния',
+          2: 'Раздражительность',
+          3: 'Тревожность',
+          4: 'Панические атаки',
+          5: 'Самооценка',
+          6: 'Одиночество',
+          7: 'Поведенческая зависимость',
+          8: 'Химические зависимости',
+          9: 'Критические состояния',
+          10: 'ЛГБТ+',
+          11: 'Отношения с другими',
+          12: 'С партнером',
+          13: 'С родителями',
+          14: 'Сексуальные',
+          15: 'В целом, с окружающими',
+          16: 'С детьми',
+          17: 'Сложности с ориентацией, ее поиск',
+          18: 'Работа, учеба',
+          19: 'Недостаток мотивации',
+          20: 'Не знаю, чем хочу заниматься',
+          21: 'Отсутствие цели',
+          22: 'Выгорание',
+          23: 'Прокрастинация',
+          24: 'Смена, потеря работы',
+          25: 'События жизни',
+          26: 'Переезд, эмиграция',
+          27: 'Разрыв отношений, развод',
+          28: 'Утрата близкого человека',
+          29: 'Беременность, рождение ребенка',
+          30: 'Финансовые изменения',
+          31: 'Болезнь, своя или близких'
+        };
+
+        return numbers.map(num => mapping[num] || '-').join(', ');
+      }
     });
   </script>
 
