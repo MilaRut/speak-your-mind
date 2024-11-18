@@ -2331,11 +2331,11 @@ details summary::marker {
   padding-right: 48px;
 }
 
-.admin .footer {
+.admin .internal .footer {
   background-color: #f5f3ee;
 }
 
-.admin .footer .container {
+.admin .internal .footer .container {
   display: -ms-grid;
   display: grid;
   -ms-grid-columns: 173px auto;
@@ -2343,11 +2343,11 @@ details summary::marker {
   padding: 0;
 }
 
-.admin .footer__left {
+.admin .internal .footer__left {
   background-color: #555555;
 }
 
-.admin .footer__copyright {
+.admin .internal .footer__copyright {
   background-color: #f5f3ee;
 }
 
@@ -6508,10 +6508,6 @@ details summary::marker {
   border: none;
 }
 
-.admin-profile.is-hidden {
-  display: none;
-}
-
 .admin-profile details {
   margin-bottom: 48px;
 }
@@ -6575,6 +6571,11 @@ details summary::marker {
   -ms-flex-pack: center;
   justify-content: center;
   gap: 13px;
+}
+
+.admin-profile__id,
+.admin-profile__phone {
+  font-weight: 700;
 }
 
 .admin-profile__msg-btn {

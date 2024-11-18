@@ -17,7 +17,7 @@ import {initModal} from './modules/modal';
 import {setClientCard} from './modules/client-card';
 import {initSwiper} from './modules/my-swiper';
 import {setChoiceBtn} from './modules/pickdate';
-import {showPopup, showClientProfile} from './modules/admin';
+// import {showClientProfile} from './modules/admin';
 import {initScheduleDropdown, expandList} from './modules/schedule';
 import {redirectToProfile} from './modules/redirect-profile';
 // TODO: delete
@@ -58,8 +58,7 @@ window.addEventListener('DOMContentLoaded', () => {
     setClientCard();
     initSwiper();
     setChoiceBtn();
-    showPopup();
-    showClientProfile();
+    // showClientProfile();
     expandList();
     initScheduleDropdown();
     // TODO: delete

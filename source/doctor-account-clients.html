@@ -349,7 +349,7 @@
 
       // получение данных терапевта с бэкенда
       if (token) {
-        fetch('http://63.250.47.203:8000/get_doc_data', {
+        fetch('http://127.0.0.1:8000/get_doc_data', {
           method: 'POST',
           headers: {
             'Authorization': `Bearer ${token}`,
@@ -477,7 +477,7 @@
         };
 
         try {
-          const userResponse = await fetch('http://63.250.47.203:8000/get_user_data', {
+          const userResponse = await fetch('http://127.0.0.1:8000/get_user_data', {
             method: 'POST', // Используем POST
             headers: {
               'Authorization': `Bearer ${token}`,
@@ -501,7 +501,7 @@
         if (token) {
           try {
             // Получаем список сессий для терапевта
-            const sessionsResponse = await fetch('http://63.250.47.203:8000/recieve_sessions_list_for_therapist', {
+            const sessionsResponse = await fetch('http://127.0.0.1:8000/recieve_sessions_list_for_therapist', {
               method: 'POST',
               headers: {
                 'Authorization': `Bearer ${token}`,

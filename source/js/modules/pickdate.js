@@ -44,6 +44,13 @@ function setChoiceBtn() {
     }
 
     slots.forEach((slot) => {
+      if (!slot.getAttribute('data-id') || slot.getAttribute('data-id') === '') {
+        setTimeout(() => {
+          setChoiceBtn();
+        }, 200);
+        return;
+      }
+
       slot.addEventListener('change', function () {
         errorMsg.classList.remove('is-active');
         submitBtn.disabled = false;
