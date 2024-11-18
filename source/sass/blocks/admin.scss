@@ -294,10 +294,6 @@
 }
 
 .admin-profile {
-  &.is-hidden {
-    display: none;
-  }
-
   details {
     margin-bottom: 48px;
 
@@ -346,6 +342,11 @@
     justify-content: center;
     gap: 13px;
   }
+}
+
+.admin-profile__id,
+.admin-profile__phone {
+  font-weight: 700;
 }
 
 .admin-profile__msg-btn {

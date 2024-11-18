@@ -10,7 +10,12 @@ function logOut() {
       const savedLang = localStorage.getItem('language') || 'en';
       localStorage.clear();
       localStorage.setItem('language', savedLang);
-      window.location.href = '/index.html';
+      const currentUrl = window.location.href;
+      if (currentUrl.includes('admin')) {
+        window.location.href = '/admin-login.html';
+      } else {
+        window.location.href = '/index.html';
+      }
     });
   });
 }

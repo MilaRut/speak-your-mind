@@ -18,6 +18,11 @@
 <body class="admin">
   <div class="wrapper user-unlogged">
     <main>
+      <div class="debug-menu" style="background-color: lightgray;">
+        <h3>Debug menu</h3>
+        <p class="debug-email"></p>
+        <p class="debug-pass"></p>
+      </div>
       <section class="login">
         <div class="container">
           <div class="login__wrapper">
@@ -35,6 +40,7 @@
                     data-translate="password_placeholder">
                 </label>
               </fieldset>
+              <span class="form-error-message">Something wrong. Do something</span>
               <div class="login__btn-wrapper">
                 <button type="submit" class="login__btn btn" data-translate="login_submit">Войти</button>
               </div>
@@ -57,28 +63,29 @@
   </div>
 
   <script>
-    function getAdminData() {
-      const url = "http://63.250.47.203:8000/make_admin";
-
-      fetch(url, {
-        method: 'POST'
-      })
-        .then(response => {
-          if (!response.ok) {
-            throw new Error('Сеть ответила с ошибкой: ' + response.status);
-          }
-          return response.json();
-        })
-        .then(data => {
-          console.log(data);
-        })
-        .catch(error => {
-          console.error('Произошла ошибка:', error);
-        });
-    }
-
     document.addEventListener('DOMContentLoaded', function () {
+      const errorMsg = document.querySelector('.form-error-message');
 
+      function getAdminData() {
+        const url = "http://127.0.0.1:8000/make_admin";
+
+        fetch(url, {
+          method: 'POST'
+        })
+          .then(response => {
+            if (!response.ok) {
+              throw new Error('Сеть ответила с ошибкой: ' + response.status);
+            }
+            return response.json();
+          })
+          .then(data => {
+            document.querySelector('.debug-email').textContent = data.email;
+            document.querySelector('.debug-pass').textContent = data.password;
+          })
+          .catch(error => {
+            console.error('Произошла ошибка:', error);
+          });
+      }
       getAdminData();
 
       document.getElementById('admin-login-form').addEventListener('submit', function (e) {
@@ -107,14 +114,21 @@
           })
           .then(function (data) {
             // Обработка успешного ответа от сервера
-            localStorage.setItem('email', data.email); // Сохраняем email в localStorage
-            localStorage.setItem('password', data.password); // Сохраняем password в localStorage
-            localStorage.setItem('token', data.token); // Сохраняем password в localStorage
-            console.log(data);
-            window.location.href = '/admin-main.html';
+            if (!data.status) {
+              errorMsg.classList.add('is-active');
+              if (data.error) {
+                errorMsg.textContent = data.error;
+              }
+            } else {
+              localStorage.setItem('token', data.token); // Сохраняем password в localStorage
+              window.location.href = '/admin-main.html';
+            }
           })
           .catch(function (error) {
             // Обработка ошибки
+            console.log(error);
+            errorMsg.classList.add('is-active');
+            errorMsg.textContent = error;
           });
       });
     });
