@@ -545,6 +545,10 @@
   }
 }
 
+label[for="user_photo"] {
+  cursor: pointer;
+}
+
 #user_photo {
   opacity: 0;
   width: 1px;

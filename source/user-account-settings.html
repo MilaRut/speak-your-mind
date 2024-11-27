@@ -454,8 +454,8 @@
         }
         //аватарка
         const src = data.user_photo;
-        if (src !== '') {
-          document.querySelector('.settings__avatar img').setAttribute('src', src);
+        if (src !== '' && src !== null) {
+          document.querySelector('.settings__avatar img').src = src;
           document.querySelector('label[for="user_photo"] span').textContent = 'Заменить фото';
         }
       }

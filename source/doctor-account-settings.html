@@ -182,7 +182,8 @@
                           <p class="text-20" data-translate="doctor_profile_photo">Фотография</p>
                           <div class="settings__avatar-wrapper">
                             <div class="settings__avatar">
-                              <img src="./img/content/user-thumb.png" width="100" height="100" alt="">
+                              <img class="uploaded-avatar" src="./img/content/user-thumb.png" width="100" height="100"
+                                alt="">
                             </div>
                             <p>
                               <span>Если вы хотите поменять фото профиля, напишите об этом на адрес</span>&nbsp;
@@ -701,7 +702,7 @@
                     data-translate="back_to_settings">Назад к настройкам</button>
                   <div class="doctor">
                     <div class="doctor__image">
-                      <img src="./img/content/doctor-thumb.png" width="300" height="300" alt="">
+                      <img class="uploaded-avatar" src="./img/content/doctor-thumb.png" width="300" height="300" alt="">
                     </div>
                     <div class="doctor__content">
                       <div class="doctor__heading">
@@ -960,12 +961,20 @@
         document.querySelector('.doctor__name').textContent = data.doc_name;
         document.querySelector('#doctor-name').value = data.doc_name;
         document.querySelector('#doctor-gender').value = data.doc_gender === 0 ? 'мужской' : 'женский';
-        const doc_avatar = data.user_photo;
-        if (doc_avatar) {
-          document.querySelector('.settings__avatar img').setAttribute('src', doc_avatar[0].data);
+
+        // аватарки
+        const docAvatar = data.user_photo;
+        const allAvatars = document.querySelectorAll('.uploaded-avatar');
+        if (docAvatar.length !== 0) {
+          allAvatars.forEach((el) => {
+            el.setAttribute('src', `${docAvatar[0].type};${docAvatar[0].data}`);
+          });
         } else {
-          document.querySelector('.settings__avatar img').setAttribute('src', './img/content/user-thumb.png');
+          allAvatars.forEach((el) => {
+            el.setAttribute('src', './img/content/user-thumb.png');
+          });
         }
+
         document.querySelector('#doctor-start').value = data.doc_practice_start;
         document.querySelector('#doc_additional_info').value = data.doc_additional_info;
         // языки

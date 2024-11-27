@@ -779,8 +779,10 @@
 
         // Аватарки и документы об образовании
 
+        // TODO разобраться почему перепутаны!
         const allDocAvatars = data.doc_photo.document;
         const allDocScans = data.doc_photo.avatar;
+        const avaId = data.doc_avatar;
 
         if (allDocScans && allDocScans.length !== 0) {
           const scans = document.querySelector('.scans-list');
@@ -811,6 +813,9 @@
             radioBtn.setAttribute('type', 'radio');
             radioBtn.setAttribute('name', 'doc-avatar');
             radioBtn.setAttribute('data-id', file.img_id);
+            if (file.img_id === avaId) {
+              radioBtn.checked = true;
+            }
 
             image.appendChild(img);
             avatarWrapper.appendChild(image);
@@ -818,7 +823,6 @@
 
             avatars.appendChild(avatarWrapper);
           });
-          document.querySelectorAll('input[name="doc-avatar"]')[0].checked = true;
         }
       }
 
@@ -838,7 +842,17 @@
         const doc_gender = Number(document.querySelector('input[name="doc-gender"]').getAttribute('data-value'));
         const doc_email = document.querySelector('input[name="doc-email"]').value;
         const doc_phone = document.querySelector('input[name="doc-tel"]').value;
-        const doc_avatar = document.querySelector('input[name="doc-avatar"]') ? Number(document.querySelector('input[name="doc-avatar"]').getAttribute('data-id')) : 0;
+
+        let doc_avatar;
+        const docAvatars = document.querySelectorAll('input[name="doc-avatar"]');
+        if (docAvatars.length !== 0) {
+          docAvatars.forEach((radio) => {
+            if (radio.checked) {
+              doc_avatar = Number(radio.getAttribute('data-id')); // Сохраняем значение выбранной радиокнопки
+            }
+          });
+        }
+
         const prices = document.querySelectorAll('input[name="doc-price"]');
         let doc_session_cost;
         prices.forEach((radio) => {
