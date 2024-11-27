@@ -425,6 +425,7 @@
               document.querySelector('.videochat__client-name').textContent = session.name;
               document.querySelector('.videochat__date').textContent = renderDate(session.time);
               document.querySelector('.videochat__btn.cancel-session-btn').setAttribute('data-sh-id', session.sh_id);
+              document.querySelector('.videochat__btn#reschedule-session').setAttribute('data-sh-id', session.sh_id);
               submitBtn.setAttribute('old_sh_id', session.sh_id);
             });
             document.querySelectorAll('.sessions__clients-item')[0].click();
@@ -477,6 +478,13 @@
             name.addEventListener('click', () => {
               getClientData(session.client_id);
             });
+            // открытие модалки с расписанием для переноса
+            const rescheduleBtn = li.querySelector('.reschedule-session-btn');
+            rescheduleBtn.addEventListener('click', () => {
+              console.log('Перенос!');
+              document.querySelector('#doctor-reschedule').classList.add('is-active');
+              document.querySelector('#doctor-reschedule .doctor__submit-btn').setAttribute('sh_id', session.sh_id);
+            });
           }
         });
 
@@ -523,6 +531,13 @@
           const name = li.querySelector('.sessions__requests-client');
           name.addEventListener('click', () => {
             getClientData(session.client_id);
+          });
+          // открытие модалки с расписанием для переноса
+          const rescheduleBtn = li.querySelector('.reschedule-session-btn');
+          rescheduleBtn.addEventListener('click', () => {
+            console.log('Перенос!');
+            document.querySelector('#doctor-reschedule').classList.add('is-active');
+            document.querySelector('#doctor-reschedule .doctor__submit-btn').setAttribute('sh_id', session.new_sh_id);
           });
         });
       }
@@ -646,7 +661,7 @@
           sh_id: sh_id
         };
 
-        fetch('http://www.speakyourmind.help:8000/cancel_session', {
+        fetch('http://127.0.0.1:8000/cancel_session', {
           method: 'POST',
           headers: {
             'Content-Type': 'application/json'
@@ -842,10 +857,6 @@
           })
           .then(data => {
             console.log('Запрос на перенос сессии отправлен');
-            document.querySelector('.user-account__session-change-wrapper').style.display = 'none';
-            document.querySelector('.user-account__session-wrapper').style.display = 'block';
-            document.querySelector('.user-account__title').style.display = 'block';
-            getUserDataFromBackend();
           })
           .catch(error => {
             console.error('Ошибка при получении данных пользователя:', error);
@@ -866,27 +877,24 @@
           8: 'Химические зависимости',
           9: 'Критические состояния',
           10: 'ЛГБТ+',
-          11: 'Отношения с другими',
-          12: 'С партнером',
-          13: 'С родителями',
-          14: 'Сексуальные',
-          15: 'В целом, с окружающими',
-          16: 'С детьми',
-          17: 'Сложности с ориентацией, ее поиск',
-          18: 'Работа, учеба',
-          19: 'Недостаток мотивации',
-          20: 'Не знаю, чем хочу заниматься',
-          21: 'Отсутствие цели',
-          22: 'Выгорание',
-          23: 'Прокрастинация',
-          24: 'Смена, потеря работы',
-          25: 'События жизни',
-          26: 'Переезд, эмиграция',
-          27: 'Разрыв отношений, развод',
-          28: 'Утрата близкого человека',
-          29: 'Беременность, рождение ребенка',
-          30: 'Финансовые изменения',
-          31: 'Болезнь, своя или близких'
+          11: 'С партнером',
+          12: 'С родителями',
+          13: 'Сексуальные',
+          14: 'В целом, с окружающими',
+          15: 'С детьми',
+          16: 'Сложности с ориентацией, ее поиск',
+          17: 'Недостаток мотивации',
+          18: 'Не знаю, чем хочу заниматься',
+          19: 'Отсутствие цели',
+          20: 'Выгорание',
+          21: 'Прокрастинация',
+          22: 'Смена, потеря работы',
+          23: 'Переезд, эмиграция',
+          24: 'Разрыв отношений, развод',
+          25: 'Утрата близкого человека',
+          26: 'Беременность, рождение ребенка',
+          27: 'Финансовые изменения',
+          28: 'Болезнь, своя или близких'
         };
 
         return numbers.map(num => mapping[num] || '-').join(', ');

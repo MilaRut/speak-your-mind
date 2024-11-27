@@ -112,13 +112,17 @@
                   <p class="text-18 text-success">
                     <span data-translate="user_settings_text_success">Карта успешно привязана</span>
                   </p>
-                  <input type="file" id="user_photo" accept="image/*">
                   <div class="settings__heading">
                     <div class="settings__avatar">
                       <img src="./img/content/user-thumb.png" width="56" height="56" alt="">
                     </div>
-                    <button type="button" class="settings__edit-avatar-btn text-green" data-open-modal
-                      data-modal-id="#upload-avatar" data-translate="avatar_upload_btn">Загрузить фото</button>
+                    <label for="user_photo">
+                      <input type="file" id="user_photo" accept="image/*">
+                      <span class="text-green">Загрузить фото</span>
+                      <p class="settings__avatar-filename"></p>
+                    </label>
+                    <!-- <button type="button" class="settings__edit-avatar-btn text-green" data-open-modal
+                      data-modal-id="#upload-avatar" data-translate="avatar_upload_btn">Загрузить фото</button> -->
                   </div>
                   <div class="settings__userinfo">
                     <form action="" method="post" id="client-settings-form">
@@ -450,7 +454,10 @@
         }
         //аватарка
         const src = data.user_photo;
-        document.querySelector('.settings__avatar img').setAttribute('src', src);
+        if (src !== '' && src !== null) {
+          document.querySelector('.settings__avatar img').src = src;
+          document.querySelector('label[for="user_photo"] span').textContent = 'Заменить фото';
+        }
       }
 
       // отправка на бэк отредактированных данных
@@ -501,7 +508,6 @@
               'Content-Type': 'application/json'
             },
             body: JSON.stringify(dataToSend)
-
           })
             .then(response => {
               if (!response.ok) {
@@ -557,7 +563,7 @@
           call_me: call_me
         };
 
-        fetch('http://www.speakyourmind.help:8000/user_therapist_cancel_review', {
+        fetch('http://127.0.0.1:8000/user_therapist_cancel_review', {
           method: 'POST',
           headers: {
             'Content-Type': 'application/json'
