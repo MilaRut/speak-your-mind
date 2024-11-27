@@ -3424,7 +3424,7 @@ details summary::marker {
 }
 
 .user-account {
-  max-width: 1000px;
+  max-width: 1440px;
   min-height: 100%;
   -webkit-box-flex: 1;
   -ms-flex-positive: 1;
@@ -3439,6 +3439,7 @@ details summary::marker {
   -webkit-box-flex: 1;
   -ms-flex-positive: 1;
   flex-grow: 1;
+  padding-right: 40px;
 }
 
 .user-account__wrapper {
@@ -3710,6 +3711,10 @@ details summary::marker {
 .user-account__check-card span {
   font-size: 20px;
   color: #ffffff;
+}
+
+.user-account__main {
+  max-width: 900px;
 }
 
 .user-account__main .user-account__message,
@@ -4129,7 +4134,15 @@ details summary::marker {
 
 .settings__methods .settings__checkboxes.readonly {
   pointer-events: none;
-  opacity: 0.5;
+}
+
+.settings__methods .settings__checkboxes.readonly input[type=checkbox]:checked + span::before {
+  background-color: #a2a2a2;
+  border-color: #a2a2a2;
+}
+
+.settings__methods .settings__checkboxes.readonly span {
+  color: #a2a2a2;
 }
 
 .doctor-account .settings__heading {
@@ -4565,6 +4578,7 @@ details summary::marker {
 }
 
 .settings__avatar {
+  min-width: 100px;
   width: 100px;
   height: 100px;
   overflow: hidden;

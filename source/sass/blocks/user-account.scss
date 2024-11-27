@@ -1,5 +1,5 @@
 .user-account {
-  max-width: 1000px;
+  max-width: 1440px;
   min-height: 100%;
   flex-grow: 1;
   display: flex;
@@ -7,6 +7,7 @@
   .container {
     min-height: 100%;
     flex-grow: 1;
+    padding-right: 40px;
   }
 
   &__wrapper {
@@ -247,6 +248,10 @@
     font-size: 20px;
     color: $color-default-white;
   }
+}
+
+.user-account__main {
+  max-width: 900px;
 }
 
 // состояния кабинета

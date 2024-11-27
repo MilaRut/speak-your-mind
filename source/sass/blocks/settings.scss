@@ -152,7 +152,15 @@
   &__methods {
     .settings__checkboxes.readonly {
       pointer-events: none;
-      opacity: 0.5;
+
+      input[type=checkbox]:checked+span::before {
+        background-color: $color-light-gray;
+        border-color: $color-light-gray;
+      }
+
+      span {
+        color: $color-light-gray;
+      }
     }
   }
 }
@@ -533,6 +541,7 @@
 }
 
 .settings__avatar {
+  min-width: 100px;
   width: 100px;
   height: 100px;
   overflow: hidden;
