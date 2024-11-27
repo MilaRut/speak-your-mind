@@ -508,6 +508,7 @@
               'Content-Type': 'application/json'
             },
             body: JSON.stringify(dataToSend)
+
           })
             .then(response => {
               if (!response.ok) {
@@ -563,7 +564,7 @@
           call_me: call_me
         };
 
-        fetch('http://127.0.0.1:8000/user_therapist_cancel_review', {
+        fetch('http://www.speakyourmind.help:8000/user_therapist_cancel_review', {
           method: 'POST',
           headers: {
             'Content-Type': 'application/json'
