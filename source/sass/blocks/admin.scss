@@ -522,3 +522,24 @@ button.admin-profile__back-to-profile {
 .admin-content textarea {
   padding: 10px;
 }
+
+.scans-list {
+  display: flex;
+  gap: 24px;
+  flex-wrap: wrap;
+}
+
+.scans-link {
+  color: $color-jade;
+}
+
+.avatars-list {
+  display: flex;
+  gap: 68px;
+}
+
+.avatar-wrapper {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}

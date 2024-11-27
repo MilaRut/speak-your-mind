@@ -187,9 +187,7 @@
                       </div>
                       <div class="admin-profile__item">
                         <span data-translate="doctor_profile_photo">Фотография</span>
-                        <div class="admin-profile__photo">
-                          <img src="./img/content/user-thumb.png" width="64" height="64" alt="User Photo">
-                        </div>
+                        <div class="avatars-list"></div>
                       </div>
                       <div class="admin-profile__item">
                         <span data-translate="admin_personal_card">Привязанная карта</span>
@@ -197,17 +195,17 @@
                       </div>
                       <div class="admin-profile__item">
                         <span data-translate="pricing_title">Стоимость сессии</span>
-                        <fieldset class="admin-profile__checkboxes">
+                        <fieldset class="admin-profile__radios">
                           <label>
-                            <input type="checkbox" id="doc-price-1" name="doc-price" value="19500">
+                            <input type="radio" id="doc-price-1" name="doc-price" value="0" checked>
                             <span>19 500</span>
                           </label>
                           <label>
-                            <input type="checkbox" id="doc-price-2" name="doc-price" value="29500">
+                            <input type="radio" id="doc-price-2" name="doc-price" value="1">
                             <span>29 500</span>
                           </label>
                           <label>
-                            <input type="checkbox" id="doc-price-3" name="doc-price" value="39500">
+                            <input type="radio" id="doc-price-3" name="doc-price" value="2">
                             <span>39 500</span>
                           </label>
                         </fieldset>
@@ -419,33 +417,10 @@
                       <b><span data-translate="doctor_profile_edu">Опыт и образование</span></b>
                     </p>
                     <ul class="edu-list list-reset"></ul>
-                    <!-- <div class="edu" style="display: flex; flex-direction: column; gap: 16px;">
-
-                      <input class="personal" type="email" name="doc-email" value="2014">
-                      <textarea name=""
-                        id="">Германская Профессиональная Психодраматическая Ассоциация. Морено – Институт Юберлинген/Эндкобен. Психодраматерапевт, ведущий групповой психодраматерапии и консультирования.</textarea>
-                      <br>
-                      <input class="personal" type="email" name="doc-email" value="2008">
-                      <textarea name=""
-                        id="">Южно-Российский гуманитарный институт. Современные методы психодрамы и социометрии.</textarea>
-                      <br>
-                      <input class="personal" type="email" name="doc-email" value="2008">
-                      <textarea name=""
-                        id="">Южно-Российский гуманитарный институт.  Психологический коучинг: структура и функции.</textarea>
-                      <br>
-                      <input class="personal" type="email" name="doc-email" value="2007">
-                      <textarea name=""
-                        id="">Южно-Российский гуманитарный институт.  Современные методы психологического бизнес-тренинга (тренинг тренеров)</textarea>
-                      <br>
-                      <input class="personal" type="email" name="doc-email" value="1997">
-                      <textarea name=""
-                        id="">Пятигорский государственный лингвистический университет. Психолог-консультант.</textarea>
-                      <br>
-                      <input class="personal" type="email" name="doc-email" value="1995">
-                      <textarea name=""
-                        id="">Ростовская Государственная Экономическая Академию. Менеджмент (управление персоналом).</textarea>
-                      <br>
-                    </div> -->
+                    <p class="text-25" style="margin-bottom: 22px; padding-top: 24px;">
+                      <b><span data-translate="doctor_profile_scans">Сканы документов</span></b>
+                    </p>
+                    <div class="scans-list"></div>
                   </details>
                 </div>
                 <div class="admin-profile__sessions is-hidden">
@@ -530,8 +505,8 @@
                   <button type="button" class="btn btn--white admin-profile__deactivate-btn">
                     <span class="text-green" data-translate="deactivate">Деактивировать</span>
                   </button>
-                  <a href="admin-doctors.html" class="admin-profile__back-btn text-green" data-translate="admin_back_to_therapists">Назад к
-                    списку терапевтов</a>
+                  <a href="admin-doctors.html" class="admin-profile__back-btn text-green"
+                    data-translate="admin_back_to_therapists">Назад к списку терапевтов</a>
                 </div>
               </div>
             </div>
@@ -550,6 +525,44 @@
     </footer>
   </div>
 
+  <div class="modal modal--preload" id="session-warning">
+    <div class="modal__wrapper">
+      <div class="modal__overlay" data-close-modal></div>
+      <div class="modal__content">
+        <button class="modal__close-btn" type="button" aria-label="Закрыть окно." data-close-modal>
+          <svg width="32" height="32" fill="currentColor">
+            <use xlink:href="./img/sprite.svg#close-modal"></use>
+          </svg>
+        </button>
+        <p style="padding: 40px;">Внимание: при неактивности на странице в течение 15 минут, сессия будет завершена в
+          целях безопасности</p>
+        <button type="button" class="btn btn--white" aria-label="Закрыть окно." data-close-modal
+          style="padding: 16px 24px; display: block; margin: 0 auto;">
+          Понятно
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <div class="modal modal--preload" id="logout-warning">
+    <div class="modal__wrapper">
+      <div class="modal__overlay" data-close-modal></div>
+      <div class="modal__content">
+        <button class="modal__close-btn" type="button" aria-label="Закрыть окно." data-close-modal>
+          <svg width="32" height="32" fill="currentColor">
+            <use xlink:href="./img/sprite.svg#close-modal"></use>
+          </svg>
+        </button>
+        <p style="padding: 40px;">Внимание, через 1 минуту сессия будет завершена. Чтобы продлить сессию, совершите
+          любое действие (например, подвигайте мышью).</p>
+        <button type="button" class="btn btn--white" aria-label="Закрыть окно." data-close-modal
+          style="padding: 16px 24px; display: block; margin: 0 auto;">
+          Понятно
+        </button>
+      </div>
+    </div>
+  </div>
+
   <script>
     document.addEventListener('DOMContentLoaded', function () {
 
@@ -557,7 +570,7 @@
       const url = new URL(window.location.href);
       const user_id = Number(url.searchParams.get('id'));
 
-      // получение данных клиента с бэкенда
+      // получение данных терапевта с бэкенда
       function getDocDataFromBackend() {
 
         const dataToSend = {
@@ -629,42 +642,61 @@
           8: 'Химические зависимости',
           9: 'Критические состояния',
           10: 'ЛГБТ+',
-          11: 'Отношения с другими',
-          12: 'С партнером',
-          13: 'С родителями',
-          14: 'Сексуальные',
-          15: 'В целом, с окружающими',
-          16: 'С детьми',
-          17: 'Сложности с ориентацией, ее поиск',
-          18: 'Работа, учеба',
-          19: 'Недостаток мотивации',
-          20: 'Не знаю, чем хочу заниматься',
-          21: 'Отсутствие цели',
-          22: 'Выгорание',
-          23: 'Прокрастинация',
-          24: 'Смена, потеря работы',
-          25: 'События жизни',
-          26: 'Переезд, эмиграция',
-          27: 'Разрыв отношений, развод',
-          28: 'Утрата близкого человека',
-          29: 'Беременность, рождение ребенка',
-          30: 'Финансовые изменения',
-          31: 'Болезнь, своя или близких'
+          11: 'С партнером',
+          12: 'С родителями',
+          13: 'Сексуальные',
+          14: 'В целом, с окружающими',
+          15: 'С детьми',
+          16: 'Сложности с ориентацией, ее поиск',
+          17: 'Недостаток мотивации',
+          18: 'Не знаю, чем хочу заниматься',
+          19: 'Отсутствие цели',
+          20: 'Выгорание',
+          21: 'Прокрастинация',
+          22: 'Смена, потеря работы',
+          23: 'Переезд, эмиграция',
+          24: 'Разрыв отношений, развод',
+          25: 'Утрата близкого человека',
+          26: 'Беременность, рождение ребенка',
+          27: 'Финансовые изменения',
+          28: 'Болезнь, своя или близких'
         };
 
         return numbers.map(num => mapping[num] || '-').join(', ');
       }
 
+      // Рендеринг профиля терапевта
       function renderDocProfile(data) {
         console.log('Данные терапевта', data);
 
         document.querySelector('.admin-profile__id').textContent = data.doc_id;
         document.querySelector('[name="doc-name"]').value = data.doc_name;
         document.querySelector('[name="doc-gender"]').value = data.doc_gender === 0 ? 'Мужской' : 'Женский';
+        if (data.doc_gender === 0) {
+          document.querySelector('[name="doc-gender"]').setAttribute('data-value', '0');
+        } else {
+          document.querySelector('[name="doc-gender"]').setAttribute('data-value', '1');
+        }
         document.querySelector('[name="doc-email"]').value = data.doc_email;
         document.querySelector('[name="doc-tel"]').value = data.doc_phone;
         document.querySelector('.admin-profile__brthdate').textContent = renderDate(data.doc_date_of_birth);
         document.querySelector('.doc-card').textContent = data.doc_card === null ? '-' : data.doc_card;
+
+        const price = data.doc_session_cost;
+        if (price === null) {
+          document.querySelectorAll('input[name="doc-price"]').forEach((radio) => {
+            if (radio.value === '0') {
+              radio.checked = true;
+            }
+          });
+        } else {
+          document.querySelectorAll('input[name="doc-price"]').forEach((radio) => {
+            if (radio.value == String(price)) {
+              radio.checked = true;
+            }
+          });
+        }
+
         document.querySelector('.admin-profile__total-payments b').textContent = data.doc_payments === null ? '-' : data.doc_payments;
         document.querySelector('.sessions-count b').textContent = data.doc_sessions_count === null ? '0' : data.doc_sessions_count;
         document.querySelectorAll('input[name="doc_language"]').forEach((checkbox) => {
@@ -744,11 +776,128 @@
         eduBlock.forEach((block) => {
           renderEducation(block);
         });
+
+        // Аватарки и документы об образовании
+
+        const allDocAvatars = data.doc_photo.document;
+        const allDocScans = data.doc_photo.avatar;
+
+        if (allDocScans && allDocScans.length !== 0) {
+          const scans = document.querySelector('.scans-list');
+
+          allDocScans.forEach((file) => {
+            const link = document.createElement('a');
+            link.setAttribute('href', file.data);
+            link.setAttribute('download', 'true');
+            link.classList.add('scans-link')
+            link.textContent = `scan-${file.img_id}`;
+            scans.appendChild(link);
+          })
+        }
+
+        if (allDocAvatars && allDocAvatars.length !== 0) {
+          const avatars = document.querySelector('.avatars-list');
+          allDocAvatars.forEach((file) => {
+            const avatarWrapper = document.createElement('div');
+            avatarWrapper.classList.add('avatar-wrapper');
+
+            const image = document.createElement('div');
+            image.classList.add('admin-profile__photo');
+
+            const img = document.createElement('img');
+            img.setAttribute('src', file.data);
+
+            const radioBtn = document.createElement('input');
+            radioBtn.setAttribute('type', 'radio');
+            radioBtn.setAttribute('name', 'doc-avatar');
+            radioBtn.setAttribute('data-id', file.img_id);
+
+            image.appendChild(img);
+            avatarWrapper.appendChild(image);
+            avatarWrapper.appendChild(radioBtn);
+
+            avatars.appendChild(avatarWrapper);
+          });
+          document.querySelectorAll('input[name="doc-avatar"]')[0].checked = true;
+        }
+      }
+
+      // отправка формы по терапевту на бэкенд
+
+      const saveBtns = document.querySelectorAll('.admin-profile__save-btn');
+
+      saveBtns.forEach((btn) => {
+        btn.addEventListener('click', function () {
+          sendUpdatedData();
+        });
+      });
+
+      function sendUpdatedData() {
+        const doc_id = Number(document.querySelector('.admin-profile__id').textContent);
+        const doc_name = document.querySelector('input[name="doc-name"]').value;
+        const doc_gender = Number(document.querySelector('input[name="doc-gender"]').getAttribute('data-value'));
+        const doc_email = document.querySelector('input[name="doc-email"]').value;
+        const doc_phone = document.querySelector('input[name="doc-tel"]').value;
+        const doc_avatar = document.querySelector('input[name="doc-avatar"]') ? Number(document.querySelector('input[name="doc-avatar"]').getAttribute('data-id')) : 0;
+        const prices = document.querySelectorAll('input[name="doc-price"]');
+        let doc_session_cost;
+        prices.forEach((radio) => {
+          if (radio.checked) {
+            doc_session_cost = Number(radio.value); // Сохраняем значение выбранной радиокнопки
+          }
+        });
+
+        const languages = document.querySelectorAll('[name="doc_language"]');
+        const languagesValues = Array.from(languages)
+          .filter(checkbox => checkbox.checked)
+          .map(checkbox => Number(checkbox.value)); // Преобразуем строку в число
+        const doc_language = languagesValues;
+
+        const methods = document.querySelectorAll('[name="doc_method"]');
+        const methodsValues = Array.from(methods)
+          .filter(checkbox => checkbox.checked)
+          .map(checkbox => Number(checkbox.value)); // Преобразуем строку в число
+        const doc_method = methodsValues;
+
+
+        const dataToSend = {
+          session_token: session_token,
+          doc_id: doc_id,
+          doc_name: doc_name,
+          doc_gender: doc_gender,
+          doc_email: doc_email,
+          doc_phone: doc_phone,
+          doc_session_cost: doc_session_cost,
+          doc_avatar: doc_avatar,
+          doc_language: doc_language,
+          doc_method: doc_method,
+        }
+
+        fetch('http://127.0.0.1:8000/admin_update_therapist', {
+          method: 'POST',
+          headers: {
+            'Authorization': `Bearer ${session_token}`,
+            'Content-Type': 'application/json'
+          },
+          body: JSON.stringify(dataToSend)
+        })
+          .then(response => {
+            if (!response.ok) {
+              throw new Error('Сеть не в порядке');
+            }
+            return response.json();
+          })
+          .then(data => {
+            console.log('Данные терапевта обновлены');
+            // renderDocProfile(data);
+          })
+          .catch(error => {
+            console.error('Ошибка при получении данных пользователя:', error);
+          });
       }
 
       // аппрув терапевта
 
-      
     });
   </script>
 

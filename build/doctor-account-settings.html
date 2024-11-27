@@ -960,6 +960,12 @@
         document.querySelector('.doctor__name').textContent = data.doc_name;
         document.querySelector('#doctor-name').value = data.doc_name;
         document.querySelector('#doctor-gender').value = data.doc_gender === 0 ? 'мужской' : 'женский';
+        const doc_avatar = data.user_photo;
+        if (doc_avatar) {
+          document.querySelector('.settings__avatar img').setAttribute('src', doc_avatar[0].data);
+        } else {
+          document.querySelector('.settings__avatar img').setAttribute('src', './img/content/user-thumb.png');
+        }
         document.querySelector('#doctor-start').value = data.doc_practice_start;
         document.querySelector('#doc_additional_info').value = data.doc_additional_info;
         // языки
