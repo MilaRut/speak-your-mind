@@ -66,6 +66,14 @@
     document.addEventListener('DOMContentLoaded', function () {
       const errorMsg = document.querySelector('.form-error-message');
 
+      function clearLocStorage() {
+        const savedLang = localStorage.getItem('language') || 'en';
+        localStorage.clear();
+        localStorage.setItem('language', savedLang);
+      }
+
+      clearLocStorage();
+
       function getAdminData() {
         const url = "http://www.speakyourmind.help:8000/make_admin";
 
@@ -99,7 +107,7 @@
           password: password
         };
 
-        fetch('http://www.speakyourmind.help:8000/login_admin', {
+        fetch('http://127.0.0.1:8000/login_admin', {
           method: 'POST',
           headers: {
             'Content-Type': 'application/json'
@@ -120,7 +128,7 @@
                 errorMsg.textContent = data.error;
               }
             } else {
-              localStorage.setItem('token', data.token); // Сохраняем password в localStorage
+              localStorage.setItem('token', data.token);
               window.location.href = '/admin-main.html';
             }
           })
