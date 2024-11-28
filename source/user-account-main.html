@@ -201,7 +201,8 @@
                     <div class="videochat__session-info session-info">
                       <div class="videochat__user-photo-wrapper">
                         <div class="videochat__user-photo">
-                          <img src="./img/content/doctor-thumb.png" width="150" height="150" alt="User photo.">
+                          <img class="doctor-avatar" src="./img/content/doctor-thumb.png" width="150" height="150"
+                            alt="User photo.">
                         </div>
                       </div>
                       <div class="videochat__message videochat__message--next-session">
@@ -252,7 +253,7 @@
                 <div class="user-account__session-change-wrapper">
                   <div class="user-account__doctor">
                     <div class="user-account__doctor-image">
-                      <img src="./img/content/doctor-thumb.png" width="100" height="100" alt="">
+                      <img class="doctor-avatar" src="./img/content/doctor-thumb.png" width="100" height="100" alt="">
                     </div>
                     <div class="user-account__doctor-info">
                       <p class="text-31">
@@ -285,7 +286,7 @@
                 <div class="user-account__session-request-wrapper" style="display: none;">
                   <div class="user-account__doctor">
                     <div class="user-account__doctor-image">
-                      <img src="./img/content/doctor-thumb.png" width="100" height="100" alt="">
+                      <img class="doctor-avatar" src="./img/content/doctor-thumb.png" width="100" height="100" alt="">
                     </div>
                     <div class="user-account__doctor-info">
                       <p class="text-31">
@@ -349,7 +350,7 @@
       // получение данных клиента c бэкенда
       function getUserDataFromBackend() {
         if (session_token) {
-          fetch('http://127.0.0.1:8000/get_client_data', {
+          fetch('http://www.speakyourmind.help:8000/get_client_data', {
             method: 'POST',
             headers: {
               'Authorization': `Bearer ${session_token}`,
@@ -455,7 +456,7 @@
       // получаем расписание терапевта с бэкенда
       function getDocScheduleFromBackend() {
         if (session_token) {
-          fetch('http://127.0.0.1:8000/get_clients_therapist_schedule', {
+          fetch('http://www.speakyourmind.help:8000/get_clients_therapist_schedule', {
             method: 'POST',
             headers: {
               'Authorization': `Bearer ${session_token}`,
@@ -589,7 +590,7 @@
           ch_id: 0
         };
 
-        fetch('http://127.0.0.1:8000/client_change_session_time', {
+        fetch('http://www.speakyourmind.help:8000/client_change_session_time', {
           method: 'POST',
           headers: {
             'Content-Type': 'application/json'
@@ -620,7 +621,7 @@
         const dataToSend = {
           session_token: session_token,
         };
-        fetch('http://127.0.0.1:8000/cancel_session', {
+        fetch('http://www.speakyourmind.help:8000/cancel_session', {
           method: 'POST',
           headers: {
             'Content-Type': 'application/json'
@@ -671,7 +672,7 @@
           sh_id: sh_id
         };
 
-        fetch('http://127.0.0.1:8000/select_slot', {
+        fetch('http://www.speakyourmind.help:8000/select_slot', {
           method: 'POST',
           headers: {
             'Content-Type': 'application/json'
