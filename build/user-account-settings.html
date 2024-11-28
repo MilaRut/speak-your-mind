@@ -367,7 +367,7 @@
       // получение данных клиента с бэкенда
       function getUserDataFromBackend() {
         if (session_token) {
-          fetch('http://www.speakyourmind.help:8000/get_client_data', {
+          fetch('http://127.0.0.1:8000/get_client_data', {
             method: 'POST',
             headers: {
               'Authorization': `Bearer ${session_token}`,
@@ -502,7 +502,7 @@
             user_photo: user_photo_base64
           };
 
-          fetch('http://www.speakyourmind.help:8000/update_client_main_data', {
+          fetch('http://127.0.0.1:8000/update_client_main_data', {
             method: 'POST',
             headers: {
               'Content-Type': 'application/json'
