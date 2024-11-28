@@ -349,9 +349,7 @@
 
       // получение данных терапевта с бэкенда
       if (token) {
-
         fetch('http://127.0.0.1:8000/get_doc_data', {
-
           method: 'POST',
           headers: {
             'Authorization': `Bearer ${token}`,

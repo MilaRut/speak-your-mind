@@ -132,7 +132,8 @@
                   <div class="doctor__content">
                     <div class="doctor__heading">
                       <p class="doctor__name"></p>
-                      <p class="doctor__experience"><span data-translate="doctor__experience">Опыт</span> 24 года</p>
+                      <p class="doctor__experience"><span data-translate="doctor__experience">Опыт</span> <span
+                          class="doctor__experience-num">24 года</span></p>
                       <p class="doctor__details">
                         <span class="doctor__type">Индивидуальная сессия</span>
                         <span class="divider">&#8226;</span>
@@ -198,6 +199,7 @@
       // получение данных клиента
       const session_token = localStorage.getItem('token');
       const submitBtn = document.querySelector('.doctor__submit-btn');
+      const language = localStorage.getItem('language') || 'en';
 
       function getUserDataFromBackend() {
         if (session_token) {
@@ -258,27 +260,96 @@
         console.log(data);
 
         const slider = document.querySelector('.choice__list');
+        const doctorImageElement = document.querySelector('.doctor__image img');
         const doctorNameElement = document.querySelector('.doctor__name');
+        const doctorExpElement = document.querySelector('.doctor__experience-num');
+        const doctorTypeElement = document.querySelector('.doctor__type');
+        const doctorPriceElement = document.querySelector('.doctor__price');
         const aboutDoctorTextElement = document.querySelector('.about-doctor-text');
         const eduListElement = document.querySelector('.settings__edu-list');
         const scheduleContainer = document.querySelector('.schedule-container');
 
+        const translationsExp = {
+          ru: {
+            experience: 'Опыт:',
+            years: 'л',
+          },
+          en: {
+            experience: 'Experience:',
+            years: 'y'
+          }
+        };
+
+        const therapyTranslations = {
+          ru: {
+            0: 'Индивидуальная сессия',
+            1: 'Парная сессия',
+            2: 'Индивидуальная и парная сессия'
+          },
+          en: {
+            0: 'Individual session',
+            1: 'Couples session',
+            2: 'Individual and couples session',
+          }
+        };
+
+        const therapyPrice = {
+          0: '19 500 HUF',
+          1: '29 500 HUF',
+          2: '39 500 HUF'
+        };
+
+        const experienceText = translationsExp[language].experience;
+        const yearsText = translationsExp[language].years;
+
         data.forEach((doc) => {
           const listItem = document.createElement('li');
           listItem.className = 'choice__item swiper-slide';
-          listItem.innerHTML = `
-                <div class="choice__item-image">
-                    <img src="./img/content/doctor-thumb.png" width="100" height="100" alt="">
-                </div>
+
+          const image = document.createElement('div');
+          image.classList = 'choice__item-image';
+
+          const img = document.createElement('img');
+          img.setAttribute('width', '100');
+          img.setAttribute('height', '100');
+          img.setAttribute('alt', `${doc.doc_name}`);
+          if (doc.user_photo && doc.user_photo !== null) {
+            img.src = doc.user_photo;
+          } else {
+            img.src = "./img/content/doctor-thumb.png";
+          }
+          image.appendChild(img);
+          listItem.appendChild(image);
+
+          listItem.innerHTML += `
                 <p class="choice__item-name">${doc.doc_name}</p>
-                <p class="choice__item-exp"><span>5 лет</span> опыта</p>
+                <p class="choice__item-exp">${calculateExperience(doc.doc_practice_start, language)}</p>
             `;
 
           slider.appendChild(listItem);
 
           listItem.addEventListener('click', () => {
+            // аватар
+            if (doc.user_photo && doc.user_photo !== null) {
+              doctorImageElement.src = doc.user_photo;
+            } else {
+              doctorImageElement.src = "./img/content/doctor-thumb.png";
+            }
+            // имя
             doctorNameElement.textContent = doc.doc_name;
+
+            // опыт
+            doctorExpElement.textContent = calculateExperience(doc.doc_practice_start, language);
+
+            // тип сессии
+            doctorTypeElement.textContent = therapyTranslations[language][doc.doc_therapy_type];
+
+            // цена
+            doctorPriceElement.textContent = therapyPrice[doc.doc_session_cost];
+
+            // о специалисте
             aboutDoctorTextElement.textContent = doc.doc_additional_info;
+
             // Очищаем предыдущие данные об образовании
             eduListElement.innerHTML = '';
 
@@ -298,6 +369,33 @@
         });
 
         document.querySelectorAll('.choice__item')[0].click();
+
+        function calculateExperience(data, language) {
+          const [month, year] = data.split(' ').map(Number);
+          const practiceStartDate = new Date(year, month - 1);
+          const currentDate = new Date();
+          const differenceInMilliseconds = currentDate - practiceStartDate;
+          const differenceInYears = Math.floor(differenceInMilliseconds / (1000 * 60 * 60 * 24 * 365.25));
+          const sliceYear = String(differenceInYears).slice(-1);
+          let experienceText;
+          if (language === 'ru') {
+            if (parseInt(sliceYear, 10) === 1 && (parseInt(sliceYear, 10) < 10 || parseInt(sliceYear, 10) > 20)) {
+              experienceText = `${differenceInYears} год`;
+            } else if ((parseInt(sliceYear, 10) === 2 || parseInt(sliceYear, 10) === 3 || parseInt(sliceYear, 10) === 4) && (parseInt(differenceInYears, 10) < 10 || parseInt(differenceInYears, 10) > 20)) {
+              experienceText = `${differenceInYears} года`;
+            } else {
+              experienceText = `${differenceInYears} лет`;
+            }
+          } else if (language === 'en') {
+            if (parseInt(sliceYear, 10) === 1 && (parseInt(differenceInYears, 10) < 10 || parseInt(differenceInYears, 10) > 20)) {
+              experienceText = `${differenceInYears} year`;
+            } else {
+              experienceText = `${differenceInYears} years`;
+            }
+          }
+
+          return experienceText;
+        }
 
         function renderEducation(eduData) {
           // Проверяем, есть ли данные об образовании
