@@ -23,6 +23,7 @@ import {setUtilsBtns} from './modules/utils-btns';
 // END TODO
 import {uploadUserPhoto} from './modules/upload-user-photo';
 import {initAdminAlerts} from './modules/amin-alerts';
+import {showUploadedFiles} from './modules/uploaded-list';
 
 const savedLanguage = localStorage.getItem('language') || 'en';
 
@@ -65,5 +66,6 @@ window.addEventListener('DOMContentLoaded', () => {
     // END TODO
     redirectToProfile();
     uploadUserPhoto();
+    showUploadedFiles();
   });
 });

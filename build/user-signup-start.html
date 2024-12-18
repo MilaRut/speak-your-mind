@@ -32,7 +32,7 @@
           <div class="nav__wrapper">
             <ul class="nav__list">
               <!-- <li class="nav__item nav__item--businnes">
-                <a class="nav__link href="businnes-landing.html" data-translate="nav_comp"></a>
+                <a class="nav__link href="businnes-landing.html" data-translate="nav_comp">For companies</a>
               </li> -->
               <li class="nav__item">
                 <a class="nav__link" href="faq.html">FAQ</a>
@@ -60,7 +60,7 @@
           </ul>
         </div>
         <div class="header__unlogged unlogged">
-          <a href="login.html" class="unlogged__login-btn btn btn--white" data-translate="header_login_btn"></a>
+          <a href="login.html" class="unlogged__login-btn btn btn--white" data-translate="header_login_btn">Login</a>
         </div>
         <div class="header__logged logged">
           <div class="logged__wrapper">
@@ -79,39 +79,41 @@
         <div class="container">
           <div class="signup__wrapper">
             <div class="signup__heading">
-              <h2 data-translate="signup_title"></h2>
+              <h2 data-translate="signup_title">Create an account</h2>
             </div>
             <form action="" method="post" id="user-signup-form">
               <fieldset>
                 <label>
-                  <span class="text-20" data-translate="signup_name"></span>
-                  <input type="text" name="user_name" id="user_name" placeholder="" data-translate="name_placeholder">
+                  <span class="text-20" data-translate="signup_name">What is your name</span>
+                  <input type="text" name="user_name" id="user_name" placeholder="Your name"
+                    data-translate="name_placeholder">
                 </label>
                 <label>
-                  <span class="text-20" data-translate="email_placeholder"></span>
-                  <input type="email" name="user_email" id="user_email" placeholder="Ваш email"
+                  <span class="text-20" data-translate="email_placeholder">Your email</span>
+                  <input type="email" name="user_email" id="user_email" placeholder="Your email"
                     data-translate="email_placeholder">
                 </label>
                 <label>
-                  <span class="text-20" data-translate="signup_password"></span>
-                  <input type="password" name="password" id="password" placeholder="Пароль"
+                  <span class="text-20" data-translate="signup_password">Create a password</span>
+                  <input type="password" name="password" id="password" placeholder="Your password"
                     data-translate="password_placeholder">
                 </label>
                 <span class="form-error-message">Something wrong. Do something</span>
               </fieldset>
               <div class="signup__btn-wrapper">
-                <button type="submit" class="signup__btn btn" data-translate="signup_submit_btn"></button>
+                <button type="submit" class="signup__btn btn" data-translate="signup_submit_btn">Submit</button>
               </div>
             </form>
             <div class="signup__links-wrapper">
               <p class="text-18">
-                <span data-translate="login_text_client"></span>
-                <a href="login.html" class="signup__signup-link text-green" data-translate="login_submit"></a>
+                <span data-translate="login_text_client">Already have an account?</span>
+                <a href="login.html" class="signup__signup-link text-green" data-translate="login_submit">Login</a>
               </p>
               <br>
               <p class="text-18">
-                <span data-translate="signup_text_doc"></span>
-                <a href="doctor-signup.html" class="login__signup-link text-green" data-translate="signup_link_doc"></a>
+                <span data-translate="signup_text_doc">Want to collaborate as a psychologist?</span>
+                <a href="doctor-signup.html" class="login__signup-link text-green" data-translate="signup_link_doc">Fill
+                  out the form</a>
               </p>
             </div>
           </div>
@@ -124,7 +126,7 @@
         <div class="footer__left"></div>
         <div class="footer__copyright">
           <span>&copy; Speak Your Mind 2023</span>
-          <a href="terms.html" class="text-green" data-translate="terms">Условия предоставления услуг</a>
+          <a href="terms.html" class="text-green" data-translate="terms">Terms of Service</a>
         </div>
       </div>
     </footer>
@@ -154,7 +156,7 @@
           password: password
         };
 
-        fetch('http://www.speakyourmind.help:8000/register', {
+        fetch('http://127.0.0.1:8000/register', {
           method: 'POST',
           headers: {
             'Content-Type': 'application/json'

@@ -32,19 +32,19 @@
                   <svg width="25" height="25" fill="currentColor">
                     <use xlink:href="./img/sprite.svg#nav-main"></use>
                   </svg>
-                  <span data-translate="int_nav_main">Главная</span>
+                  <span data-translate="int_nav_main">Main</span>
                 </a>
                 <a href="user-account-payments.html" class="user-account__nav-link">
                   <svg width="25" height="25" fill="currentColor">
                     <use xlink:href="./img/sprite.svg#nav-payment"></use>
                   </svg>
-                  <span data-translate="int_nav_payments">Платежи</span>
+                  <span data-translate="int_nav_payments">Payments</span>
                 </a>
                 <a href="user-account-settings.html" class="user-account__nav-link is-active">
                   <svg width="25" height="25" fill="currentColor">
                     <use xlink:href="./img/sprite.svg#nav-settings"></use>
                   </svg>
-                  <span data-translate="int_nav_profile">Профиль</span>
+                  <span data-translate="int_nav_profile">Profile</span>
                 </a>
                 </a>
                 <div href="#" class="user-account__nav-link nav-lang-switcher js-dropdown-trigger"
@@ -73,12 +73,12 @@
                   <svg width="25" height="25" fill="currentColor">
                     <use xlink:href="./img/sprite.svg#nav-help"></use>
                   </svg>
-                  <span data-translate="int_nav_help">Помощь</span>
+                  <span data-translate="int_nav_help">Help</span>
                   <a href="index.html" class="user-account__nav-link logout-btn">
                     <svg width="25" height="25" fill="currentColor">
                       <use xlink:href="./img/sprite.svg#nav-logout"></use>
                     </svg>
-                    <span data-translate="int_nav_logout">Выход</span>
+                    <span data-translate="int_nav_logout">Logout</span>
                   </a>
               </nav>
 
@@ -101,16 +101,15 @@
             <div class="user-account__right-col">
               <div class="user-account__settings settings" data-utils="settings-reg-completed">
                 <div class="settings__main">
-                  <h2 class="user-account__title title" data-translate="user_settings_title">Ваш профиль</h2>
+                  <h2 class="user-account__title title" data-translate="user_settings_title">Your profile</h2>
                   <p class="user-account__subtitle">
-                    <span class="welcome-message" data-translate="user_settings_msg_1">Добро пожаловать в приложение
-                      Speak Your Mind!</span>
-                    <span class="message" data-translate="user_settings_msg_2">Здесь вы можете отредактировать ваши
-                      личные данные и переподобрать терапевта,
-                      если выбранный ранее вас по каким-то причинам не устраивает.</span>
+                    <span class="welcome-message" data-translate="user_settings_msg_1">Welcome to the Speak Your Mind
+                      app!</span>
+                    <span class="message" data-translate="user_settings_msg_2">Here you can edit your personal data and
+                      re-select a therapist if the previously selected one does not suit you for some reason.</span>
                   </p>
                   <p class="text-18 text-success">
-                    <span data-translate="user_settings_text_success">Карта успешно привязана</span>
+                    <span data-translate="user_settings_text_success">Card linked successfully</span>
                   </p>
                   <div class="settings__heading">
                     <div class="settings__avatar">
@@ -118,41 +117,38 @@
                     </div>
                     <label for="user_photo">
                       <input type="file" id="user_photo" accept="image/*">
-                      <span class="text-green">Загрузить фото</span>
+                      <span class="text-green" data-translate="avatar_upload">Upload your photo</span>
                       <p class="settings__avatar-filename"></p>
                     </label>
-                    <!-- <button type="button" class="settings__edit-avatar-btn text-green" data-open-modal
-                      data-modal-id="#upload-avatar" data-translate="avatar_upload_btn">Загрузить фото</button> -->
                   </div>
                   <div class="settings__userinfo">
                     <form action="" method="post" id="client-settings-form">
                       <fieldset>
                         <label>
-                          <span class="text-20" data-translate="name_placeholder">Ваше имя</span>
+                          <span class="text-20" data-translate="name_placeholder">Your name</span>
                           <input type="text" name="user_name" id="user_name" value="" readonly>
                           <button type="button" class="settings__edit-btn settings__edit-btn--email text-green"
-                            data-translate="edit">Редактировать</button>
+                            data-translate="edit">Edit</button>
                         </label>
                         <label>
-                          <span class="text-20" data-translate="email_placeholder">Ваш email</span>
-                          <input type="text" name="user_email" id="user_email" value="" readonly>
+                          <span class="text-20" data-translate="email_placeholder">Your email</span>
+                          <input type="text" name="user_email" id="user_email" value="Your email" readonly>
                           <button type="button" class="settings__edit-btn settings__edit-btn--email text-green"
-                            data-translate="edit">Редактировать</button>
+                            data-translate="edit">Edit</button>
                         </label>
                         <label>
-                          <span class="text-20" data-translate="ui_language">Язык терепии</span>
+                          <span class="text-20" data-translate="ui_language">Therapy language</span>
                           <select name="therapy_language" id="therapy_language">
-                            <option disabled>--Выберите--</option>
+                            <option disabled data-translate="choose_option">Select option</option>
                             <option value="0" data-translate="lang_russian">русский</option>
                             <option value="1">english</option>
                             <option value="2">magyar</option>
                           </select>
                         </label>
                         <label>
-                          <span class="text-20" data-translate="user_timezone">Ваш часовой
-                            пояс</span>
+                          <span class="text-20" data-translate="user_timezone">Your timezone</span>
                           <select name="user_timezone" id="user_timezone">
-                            <option disabled selected>--Выберите--</option>
+                            <option disabled selected data-translate="choose_option">Select option</option>
                             <option value="+1">(UTC +01:00) Europe / Budapest</option>
                             <option value="+2">(UTC +02:00) Europe / Finland</option>
                             <option value="+3">(UTC +03:00) Europe / Russia</option>
@@ -167,104 +163,107 @@
                             <use xlink:href="./img/sprite.svg#icon-loader"></use>
                           </svg>
                         </span>
-                        <span data-translate="save">Сохранить</span>
+                        <span data-translate="save">Save</span>
                       </button>
                     </form>
                   </div>
-                  <h2 class="settings__doctor-heading text-25" data-translate="user_account_your_doc">Ваш терапевт</h2>
+                  <h2 class="settings__doctor-heading text-25" data-translate="user_account_your_doc">Your therapist
+                  </h2>
                   <div class="user-account__doctor">
                     <div class="user-account__doctor-image">
-                      <img src="./img/content/doctor-thumb.png" width="100" height="100" alt="">
+                      <img class="doctor-avatar" src="./img/content/doctor-thumb.png" width="100" height="100" alt="">
                     </div>
                     <div class="user-account__doctor-info">
                       <p class="doctor-name" class="text-23">doc_name</p>
                       </p>
                       <button class="user-account__contact btn btn--white" utils-btn-settings
                         data-id="settings-request">
-                        <span class="text-green" data-translate="change_therapist">Сменить терапевта</span>
+                        <span class="text-green" data-translate="change_therapist">Change therapist</span>
                       </button>
                       <p class="first-session-msg">
-                        <span data-translate="first_session_msg_1">Запрос на назначение сессии на</span>&nbsp;
+                        <span data-translate="first_session_msg_1">A request to schedule a session for</span>&nbsp;
                         <span class="session-time"></span>
-                        <span data-translate="first_session_msg_2">отправлен. Терапевт:</span>&nbsp;
+                        <span data-translate="first_session_msg_2">has been sent to therapist</span>&nbsp;
                         <span class="doctor-name">doc_name</span>.
-                        <span data-translate="first_session_msg_3">Как только терапевт подтвердит время, вы получите
-                          уведомление об этом на ваш адрес электронной почты, а на</span>&nbsp;
+                        <span data-translate="first_session_msg_3">Once the therapist confirms the time, you will
+                          receive a notification to your email address, and on the</span>&nbsp;
                         <a href="/user-account-main.html" class="text-green"
-                          data-translate="first_session_msg_4">главной странице приложения</a>
-                        <span data-translate="first_session_msg_5">появится окошко для видео-чата и возможность
-                          связаться с терапевтом.</span>&nbsp;
+                          data-translate="first_session_msg_4">application main page</a>
+                        <span data-translate="first_session_msg_5">there will be a video chat window and the opportunity
+                          to contact the therapist.</span>&nbsp;
                       </p>
                     </div>
                   </div>
                 </div>
                 <div class="settings__rechoice rechoice rechoice-1">
                   <div class="rechoice__heading">
-                    <h2 class="text-31" data-translate="rechoice_title">Смена терапевта</h2>
+                    <h2 class="text-31" data-translate="rechoice_title">Change request</h2>
                   </div>
                   <div class="rechoice__form">
                     <form action="" id="rechoice_form_feedback">
                       <fieldset>
-                        <p class="text-20" data-translate="rechoice_text">Укажите, пожалуйста, причину смены терапевта.
-                          Эта информация не видна
-                          терапевту и позволит нам улучшить работу сервиса</p>
+                        <p class="text-20" data-translate="rechoice_text">Please indicate the reason for changing the
+                          therapist. This information is not visible to the therapist and will allow us to improve the
+                          service</p>
                         <div class="inputs-wrapper inputs-wrapper--checkboxes">
                           <label>
                             <input type="checkbox" id="rechoice-1" name="rechoice-reason" value="0">
-                            <span data-translate="rechoice_reason_1">Не возникло ощущения, что меня слышат,
-                              понимают</span>
+                            <span data-translate="rechoice_reason_1">I didn't feel like I was being heard or
+                              understood</span>
                           </label>
                           <label>
                             <input type="checkbox" id="rechoice-2" name="rechoice-reason" value="1">
-                            <span data-translate="rechoice_reason_2">Психолог опоздал на сессию</span>
+                            <span data-translate="rechoice_reason_2">The psychologist was late for the session</span>
                           </label>
                           <label>
                             <input type="checkbox" id="rechoice-3" name="rechoice-reason" value="2">
-                            <span data-translate="rechoice_reason_3">Психолог не объяснил, как будет строиться наша с
-                              ним работа</span>
+                            <span data-translate="rechoice_reason_3">The psychologist did not explain how our work with
+                              him would be structured</span>
                           </label>
                           <label>
                             <input type="checkbox" id="rechoice-4" name="rechoice-reason" value="3">
-                            <span data-translate="rechoice_reason_4">Не подошли условия психолога</span>
+                            <span data-translate="rechoice_reason_4">The conditions of the psychologist did not
+                              suit</span>
                           </label>
                           <label>
                             <input type="checkbox" id="rechoice-5" name="rechoice-reason" value="4">
-                            <span data-translate="rechoice_reason_5">У психолога не оказалось удобного времени</span>
+                            <span data-translate="rechoice_reason_5">The psychologist did not have a convenient
+                              time</span>
                           </label>
                           <label>
                             <input type="checkbox" id="rechoice-6" name="rechoice-reason" value="5">
-                            <span data-translate="rechoice_reason_6">Психолог все время молчал</span>
+                            <span data-translate="rechoice_reason_6">The psychologist was silent the whole time</span>
                           </label>
                           <label>
                             <input type="checkbox" id="rechoice-7" name="rechoice-reason" value="6">
-                            <span data-translate="rechoice_reason_7">Психолог много говорил, мы не успели обсудить мой
-                              запрос</span>
+                            <span data-translate="rechoice_reason_7">The psychologist talked a lot, we didn't have time
+                              to discuss my request</span>
                           </label>
                           <label>
                             <input type="checkbox" id="rechoice-8" name="rechoice-reason" value="7">
-                            <span data-translate="rechoice_reason_8">Не чувствую результат</span>
+                            <span data-translate="rechoice_reason_8">I don't feel the result</span>
                           </label>
                           <label>
                             <input type="checkbox" id="rechoice-9" name="rechoice-reason" value="8">
-                            <span data-translate="rechoice_reason_9">Сессии не было</span>
+                            <span data-translate="rechoice_reason_9">There was no session</span>
                           </label>
                           <label>
                             <input type="checkbox" id="rechoice-10" name="rechoice-reason" value="9">
-                            <span data-translate="rechoice_reason_10">Проблема решена</span>
+                            <span data-translate="rechoice_reason_10">Problem resolved</span>
                           </label>
                           <label>
                             <input type="checkbox" id="rechoice-11" name="rechoice-reason" value="10">
-                            <span data-translate="rechoice_reason_11">Другое</span>
+                            <span data-translate="rechoice_reason_11">Other</span>
                           </label>
                         </div>
                       </fieldset>
                       <fieldset>
-                        <p class="text-20" data-translate="rechoice_additional">Расскажите подробнее</p>
+                        <p class="text-20" data-translate="rechoice_additional">Tell us more</p>
                         <textarea name="rechoice-comment" id="rechoice-comment" cols="50" rows="5"></textarea>
                       </fieldset>
-                      <p class="text-20" data-translate="rechoice_continue">Как бы вы хотели продолжить</p>
+                      <p class="text-20" data-translate="rechoice_continue">How would you like to continue</p>
                       <fieldset class="fieldset-row">
-                        <span class="text18" data-translate="contact_me">Свяжитесь со мной</span>
+                        <span class="text18" data-translate="contact_me">Contact me</span>
                         <div class="inputs-wrapper inputs-wrapper--radio">
                           <input type="radio" id="contact-email" name="contact" value="1" checked>
                           <label for="contact-email">
@@ -278,29 +277,29 @@
                             <svg width="18" height="18" fill="currentColor">
                               <use xlink:href="./img/sprite.svg#check-mark"></use>
                             </svg>
-                            <span class="text-14" data-translate="no_contact">Не нужно</span>
+                            <span class="text-14" data-translate="no_contact">No need</span>
                           </label>
                         </div>
                       </fieldset>
-                      <p class="text-20" data-translate="rechoice_what_next_title">Что произойдет дальше?</p>
+                      <p class="text-20" data-translate="rechoice_what_next_title">What happens next?</p>
                       <p class="text-18">
                         <span data-translate="rechoice_what_next_text">
-                          Вы перейдете к списку рекомендованных терапевтов и сможете выбрать нового специалиста. Если
-                          ваш запрос изменился, вы можете отредактировать его
+                          You will be taken to a list of recommended therapists and can choose a new specialist. If your
+                          request has changed, you can edit it
                         </span>
                         <button type="button" class="text-green rechoice__feedback-btn rechoice__change-request-btn"
-                          data-translate="here">здесь</button>.
+                          data-translate="here">here</button>.
                       </p>
                       <div class="rechoice__btns-wrapper">
                         <button type="button" class="rechoice__back-btn btn btn--white" utils-btn-settings
-                          data-id="settings-main" data-translate="return">Вернуться назад</button>
+                          data-id="settings-main" data-translate="return">Return back</button>
                         <button type="button" class="rechoice__submit-btn rechoice__feedback-btn btn">
                           <span class="icon-loader">
                             <svg width="32" height="32" fill="currentColor">
                               <use xlink:href="./img/sprite.svg#icon-loader"></use>
                             </svg>
                           </span>
-                          <span data-translate="change_therapist">Сменить терапевта</span>
+                          <span data-translate="change_therapist">Change therapist</span>
                         </button>
                       </div>
                     </form>
@@ -318,7 +317,7 @@
         <div class="footer__left"></div>
         <div class="footer__copyright">
           <span>&copy; Speak Your Mind 2023</span>
-          <a href="terms.html" class="text-green" data-translate="terms">Условия предоставления услуг</a>
+          <a href="terms.html" class="text-green" data-translate="terms">Terms of Service</a>
         </div>
       </div>
     </footer>
@@ -334,15 +333,15 @@
           </svg>
         </button>
         <div class="avatar-upload">
-          <h2 class="modal__title text-31" data-translate="avatar_upload">Загрузите фото</h2>
+          <h2 class="modal__title text-31" data-translate="avatar_upload">Upload your photo</h2>
           <form action="" method="post" id="avatar-upload-form">
             <fieldset>
               <label>
                 <input type="file" name="avatar" id="avatar">
               </label>
             </fieldset>
-            <button type="submit" class="avatar-upload__submit-btn btn" data-translate="avatar_upload_btn">Загрузить
-              фото</button>
+            <button type="submit" class="avatar-upload__submit-btn btn"
+              data-translate="avatar_upload_btn">Upload</button>
           </form>
         </div>
       </div>
@@ -367,7 +366,7 @@
       // получение данных клиента с бэкенда
       function getUserDataFromBackend() {
         if (session_token) {
-          fetch('http://www.speakyourmind.help:8000/get_client_data', {
+          fetch('http://127.0.0.1:8000/get_client_data', {
             method: 'POST',
             headers: {
               'Authorization': `Bearer ${session_token}`,
@@ -385,6 +384,7 @@
               // TODO удалить вывод в консоль
               console.log('Данные пользователя:', data);
               updateProfile(data);
+              renderDocData(data);
             })
             .catch(error => {
               console.error('Ошибка при получении данных пользователя:', error);
@@ -395,6 +395,25 @@
       }
 
       getUserDataFromBackend();
+
+      // рендер аватарки и имени доктора
+
+      function renderDocData(data) {
+        const allDocNames = document.querySelectorAll('.doctor-name');
+        const allDocPhotos = document.querySelectorAll('.doctor-avatar');
+
+        allDocNames.forEach((name) => {
+          name.textContent = data.has_therapist.doc_name
+        });
+
+        allDocPhotos.forEach((photo) => {
+          if (!data.has_therapist.doc_photo || data.has_therapist.doc_photo === 'null' || data.has_therapist.doc_photo === null) {
+            photo.src = './img/content/doctor-thumb.png';
+          } else {
+            photo.src = data.has_therapist.doc_photo;
+          }
+        });
+      }
 
       // форматирование даты
       function renderDate(data) {
@@ -502,7 +521,7 @@
             user_photo: user_photo_base64
           };
 
-          fetch('http://www.speakyourmind.help:8000/update_client_main_data', {
+          fetch('http://127.0.0.1:8000/update_client_main_data', {
             method: 'POST',
             headers: {
               'Content-Type': 'application/json'
@@ -519,6 +538,8 @@
               console.log('Данные пользователя обновлены');
               localStorage.setItem('user_name', user_name);
               localStorage.setItem('user_email', user_email);
+              getUserDataFromBackend();
+              document.querySelector('.settings__avatar-filename').textContent = '';
             })
             .catch(error => {
               console.error('Ошибка при получении данных пользователя:', error);
@@ -563,7 +584,7 @@
           call_me: call_me
         };
 
-        fetch('http://www.speakyourmind.help:8000/user_therapist_cancel_review', {
+        fetch('http://127.0.0.1:8000/user_therapist_cancel_review', {
           method: 'POST',
           headers: {
             'Content-Type': 'application/json'

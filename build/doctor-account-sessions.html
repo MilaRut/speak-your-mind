@@ -30,31 +30,31 @@
                   <svg width="25" height="25" fill="currentColor">
                     <use xlink:href="./img/sprite.svg#nav-sessions"></use>
                   </svg>
-                  <span data-translate="int_nav_sessions">Сессии</span>
+                  <span data-translate="int_nav_sessions">Sessions</span>
                 </a>
                 <a href="doctor-account-schedule.html" class="doctor-account__nav-link">
                   <svg width="25" height="25" fill="currentColor">
                     <use xlink:href="./img/sprite.svg#nav-schedule"></use>
                   </svg>
-                  <span data-translate="int_nav_schedule">Расписание</span>
+                  <span data-translate="int_nav_schedule">Schedule</span>
                 </a>
                 <a href="doctor-account-clients.html" class="doctor-account__nav-link">
                   <svg width="25" height="25" fill="currentColor">
                     <use xlink:href="./img/sprite.svg#nav-clients"></use>
                   </svg>
-                  <span data-translate="int_nav_clients">Клиенты</span>
+                  <span data-translate="int_nav_clients">Clients</span>
                 </a>
                 <a href="doctor-account-payments.html" class="doctor-account__nav-link">
                   <svg width="25" height="25" fill="currentColor">
                     <use xlink:href="./img/sprite.svg#nav-payment"></use>
                   </svg>
-                  <span data-translate="int_nav_payments">Платежи</span>
+                  <span data-translate="int_nav_payments">Payments</span>
                 </a>
                 <a href="doctor-account-settings.html" class="doctor-account__nav-link">
                   <svg width="25" height="25" fill="currentColor">
                     <use xlink:href="./img/sprite.svg#nav-settings"></use>
                   </svg>
-                  <span data-translate="int_nav_profile">Профиль</span>
+                  <span data-translate="int_nav_profile">Profile</span>
                 </a>
                 <div href="#" class="doctor-account__nav-link nav-lang-switcher js-dropdown-trigger"
                   data-id="#nav-lang-switcher">
@@ -82,20 +82,20 @@
                   <svg width="25" height="25" fill="currentColor">
                     <use xlink:href="./img/sprite.svg#nav-help"></use>
                   </svg>
-                  <span data-translate="int_nav_help">Помощь</span>
+                  <span data-translate="int_nav_help">Help</span>
                 </a>
                 <a href="doctor-landing.html" class="user-account__nav-link logout-btn">
                   <svg width="25" height="25" fill="currentColor">
                     <use xlink:href="./img/sprite.svg#nav-logout"></use>
                   </svg>
-                  <span data-translate="int_nav_logout">Выход</span>
+                  <span data-translate="int_nav_logout">Logout</span>
                 </a>
               </nav>
             </div>
             <div class="doctor-account__right-col">
               <div class="doctor-account__sessions sessions">
                 <div class="doctor-account__heading">
-                  <h2 class="text-40" data-translate="sessions_title">Ваши сессии</h2>
+                  <h2 class="text-40" data-translate="sessions_title">Your sessions</h2>
                 </div>
                 <div class="sessions__requests">
                   <ul class="sessions__requests-list list-reset" id="sessions-requests-list"></ul>
@@ -104,7 +104,7 @@
                   <div class="sessions__clients">
                     <details open>
                       <summary>
-                        <span class="text-20" data-translate="clients_signed_up">Записанные</span>
+                        <span class="text-20" data-translate="clients_signed_up">Clients signed up</span>
                         <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
                           <path d="M3.2002 11.2002L8.0002 6.4002L12.8002 11.2002" stroke="#202020" stroke-width="2"
                             stroke-linecap="round" stroke-linejoin="round" />
@@ -115,65 +115,17 @@
                     </details>
                     <details open>
                       <summary>
-                        <span class="text-20" data-translate="clients_not_signed_up">Не записанные</span>
+                        <span class="text-20" data-translate="clients_not_signed_up">Clients not signed up</span>
                         <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
                           <path d="M3.2002 11.2002L8.0002 6.4002L12.8002 11.2002" stroke="#202020" stroke-width="2"
                             stroke-linecap="round" stroke-linejoin="round" />
                         </svg>
                       </summary>
-                      <!-- <ul class="sessions__clients-list sessions__clients-list--unscheduled list-reset">
-                        <li class="sessions__clients-item">
-                          <div class="sessions__client-wrapper">
-                            <p class="sessions__client-name" data-open-modal data-modal-id="#client-card">Ксения</p>
-                            <span class="sessions__client-id visually-hidden">#663385</span>
-                            <p class="sessions__info">
-                              <span class="sessions__count">1 <span data-translate="session">сессия</span></span>
-                              <span class="sessions__date"><span class="sessions__last"
-                                  data-translate="last_session">Последняя сессия
-                                  <br></span>&nbsp;<time>06 июля, 15:00</time></span>
-                            </p>
-                          </div>
-                        </li>
-                        <li class="sessions__clients-item">
-                          <div class="sessions__client-wrapper">
-                            <p class="sessions__client-name" data-open-modal data-modal-id="#client-card">Ксения</p>
-                            <span class="sessions__client-id visually-hidden">#663385</span>
-                            <p class="sessions__info">
-                              <span class="sessions__count">1 <span data-translate="session">сессия</span></span>
-                              <span class="sessions__date"><span class="sessions__last"
-                                  data-translate="last_session">Последняя сессия
-                                  <br></span>&nbsp;<time>06 июля, 15:00</time></span>
-                            </p>
-                          </div>
-                        </li>
-                        <li class="sessions__clients-item">
-                          <div class="sessions__client-wrapper">
-                            <p class="sessions__client-name" data-open-modal data-modal-id="#client-card">Ксения</p>
-                            <span class="sessions__client-id visually-hidden">#663385</span>
-                            <p class="sessions__info">
-                              <span class="sessions__count">1 <span data-translate="session">сессия</span></span>
-                              <span class="sessions__date"><span class="sessions__last"
-                                  data-translate="last_session">Последняя сессия
-                                  <br></span>&nbsp;<time>06 июля, 15:00</time></span>
-                            </p>
-                          </div>
-                        </li>
-                        <li class="sessions__clients-item">
-                          <div class="sessions__client-wrapper">
-                            <p class="sessions__client-name" data-open-modal data-modal-id="#client-card">Ксения</p>
-                            <span class="sessions__client-id visually-hidden">#663385</span>
-                            <p class="sessions__info">
-                              <span class="sessions__count">1 <span data-translate="session">сессия</span></span>
-                              <span class="sessions__date"><span class="sessions__last"
-                                  data-translate="last_session">Последняя сессия
-                                  <br></span>&nbsp;<time>06 июля, 15:00</time></span>
-                            </p>
-                          </div>
-                        </li>
-                      </ul> -->
+                      <ul class="sessions__clients-list sessions__clients-list--unscheduled list-reset"
+                        id="clients-list-unscheduled"></ul>
                     </details>
                     <a href="doctor-account-clients.html" class="sessions__expand-btn btn btn--white"
-                      data-translate="clients_all">Все клиенты</a>
+                      data-translate="clients_all">All clients</a>
                   </div>
                   <div class="sessions__videochat videochat">
                     <h3 class="videochat__heading">
@@ -187,7 +139,9 @@
                         </div>
                       </div>
                       <div class="next-session">
-                        <p class="text-18" data-translate="next_session">Ближайшая сессия:</p>
+                        <p class="next-session-scheduled text-18" data-translate="next_session">Next session:</p>
+                        <p class="next-session-unscheduled text-18" data-translate="admin_table_last_session">Last
+                          session:</p>
                         <p class="videochat__date text-20"></p>
                       </div>
                     </div>
@@ -196,26 +150,26 @@
                         <svg width="32" height="32" fill="currentColor">
                           <use xlink:href="./img/sprite.svg#calendar-cancel"></use>
                         </svg>
-                        <span data-translate="cancel_session_btn">Отменить</span>
+                        <span data-translate="cancel_session_btn">Cancel</span>
                       </a>
                       <a href="#" class="videochat__btn btn btn--white text-20" id="reschedule-session" data-open-modal
                         data-modal-id="#doctor-reschedule">
                         <svg width="32" height="32" fill="currentColor">
                           <use xlink:href="./img/sprite.svg#calendar-reschedule"></use>
                         </svg>
-                        <span data-translate="reschedule_session_btn">Перенести сессию</span>
+                        <span data-translate="reschedule_session_btn">Reschedule</span>
                       </a>
                       <a href="#" class="videochat__btn btn btn--white text-20" id="schedule-session">
                         <svg width="32" height="32" fill="currentColor">
                           <use xlink:href="./img/sprite.svg#calendar-check"></use>
                         </svg>
-                        <span data-translate="schedule_session_btn">Назначить сессию</span>
+                        <span data-translate="schedule_session_btn">Schedule Session</span>
                       </a>
                       <a href="#" class="videochat__btn btn btn--white text-20" id="chat-with-client">
                         <svg width="30" height="22" fill="currentColor">
                           <use xlink:href="./img/sprite.svg#chat"></use>
                         </svg>
-                        <span data-translate="chat_with_client_btn">Чат с клиентом</span>
+                        <span data-translate="chat_with_client_btn">Chat with client</span>
                       </a>
                     </div>
                   </div>
@@ -231,7 +185,7 @@
         <div class="footer__left"></div>
         <div class="footer__copyright">
           <span>&copy; Speak Your Mind 2023</span>
-          <a href="terms.html" class="text-green" data-translate="terms">Условия предоставления услуг</a>
+          <a href="terms.html" class="text-green" data-translate="terms">Terms of Service</a>
         </div>
       </div>
     </footer>
@@ -251,20 +205,19 @@
           <span class="text-31 client-card__userid"></span>
         </p>
         <p class="client-card__info">
-          <span class="text-20 client-card__info-subhead" data-translate="client_card_age">Возраст</span>
+          <span class="text-20 client-card__info-subhead" data-translate="client_card_age">Age</span>
           <span class="text-20 client-card__age"></span>
         </p>
         <p class="client-card__info">
-          <span class="text-20 client-card__info-subhead" data-translate="client_card_sessions_amount">Сессий</span>
+          <span class="text-20 client-card__info-subhead" data-translate="client_card_sessions_amount">Sessions</span>
           <span class="text-20 client-card__sessions-amount"></span>
         </p>
         <p class="client-card__info">
-          <span class="text-20 client-card__info-subhead" data-translate="client_card_next_session">Следующая
-            сессия</span>
+          <span class="text-20 client-card__info-subhead" data-translate="client_card_next_session">Next session</span>
           <span class="text-20 client-card__next-session"></span>
         </p>
         <p class="client-card__info">
-          <span class="text-20 client-card__info-subhead" data-translate="client_card_request">Запрос</span>
+          <span class="text-20 client-card__info-subhead" data-translate="client_card_request">Request</span>
           <span class="text-20 client-card__request"></span>
         </p>
         <div class="client-card__btns-wrapper">
@@ -272,13 +225,13 @@
             <svg width="32" height="32" fill="currentColor">
               <use xlink:href="./img/sprite.svg#chat"></use>
             </svg>
-            <span data-translate="chat_with_client_btn">Чат с клиентом</span>
+            <span data-translate="chat_with_client_btn">Chat with client</span>
           </a>
           <a href="#" class="client-card__btn client-card__btn--notes btn btn--white">
             <svg width="32" height="32" fill="currentColor">
               <use xlink:href="./img/sprite.svg#notes"></use>
             </svg>
-            <span data-translate="notes">Заметки</span>
+            <span data-translate="notes">Notes</span>
           </a>
         </div>
       </div>
@@ -294,17 +247,43 @@
             <use xlink:href="./img/sprite.svg#close-modal"></use>
           </svg>
         </button>
-        <h2 class="text-25 doctor__title" data-translate="my_schedule">Мое расписание</h2>
+        <h2 class="text-25 doctor__title" data-translate="my_schedule">My schedule</h2>
         <form class="choice-date-form schedule-wrapper" action="" method="post" id="choice-date-form">
           <div class="schedule-container"></div>
           <button type="button" class="schedule__show-more">
-            <span data-translate="schedule_show_more">Показать еще 3 дня</span>
+            <span data-translate="schedule_show_more">Show 3 more days</span>
             <svg width="10" height="10" fill="currentColor">
               <use xlink:href="./img/sprite.svg#dropdown-green"></use>
             </svg>
           </button>
           <button type="submit" class="doctor__submit-btn btn">
-            <span class="doctor__submit-text" data-translate="doctor_submit_btn_1">Выбрать&nbsp;</span>
+            <span class="doctor__submit-text" data-translate="doctor_submit_btn_1">Select&nbsp;</span>
+          </button>
+        </form>
+      </div>
+    </div>
+  </div>
+
+  <div class="modal modal--preload" id="schedule-new-session">
+    <div class="modal__wrapper">
+      <div class="modal__overlay" data-close-modal></div>
+      <div class="modal__content modal__content--doctor-reschedule doctor-reschedule">
+        <button class="modal__close-btn" type="button" aria-label="Закрыть окно." data-close-modal>
+          <svg width="32" height="32" fill="currentColor">
+            <use xlink:href="./img/sprite.svg#close-modal"></use>
+          </svg>
+        </button>
+        <h2 class="text-25 doctor__title" data-translate="my_schedule">My schedule</h2>
+        <form class="choice-date-form schedule-wrapper" action="" method="post" id="choice-date-form-new">
+          <div class="schedule-container"></div>
+          <button type="button" class="schedule__show-more">
+            <span data-translate="schedule_show_more">Show 3 more days</span>
+            <svg width="10" height="10" fill="currentColor">
+              <use xlink:href="./img/sprite.svg#dropdown-green"></use>
+            </svg>
+          </button>
+          <button type="submit" class="doctor__submit-btn-new btn">
+            <span class="doctor__submit-text" data-translate="doctor_submit_btn_1">Select&nbsp;</span>
           </button>
         </form>
       </div>
@@ -316,13 +295,16 @@
       const session_token = localStorage.getItem('token');
       const requestsList = document.getElementById('sessions-requests-list');
       const scheduledList = document.getElementById('clients-list-scheduled');
-      const scheduleContainer = document.querySelector('.schedule-container');
+      const unscheduledList = document.getElementById('clients-list-unscheduled');
+      const scheduleContainers = document.querySelectorAll('.schedule-container');
       const submitBtn = document.querySelector('.doctor__submit-btn');
+      const submitBtnNew = document.querySelector('.doctor__submit-btn-new');
+      const newSessionBtn = document.querySelector('#schedule-session');
 
       // получение списка сессий с бэкенда
       function getSessionsFromBackend() {
         if (session_token) {
-          fetch('http://www.speakyourmind.help:8000/recieve_sessions_list_for_therapist', {
+          fetch('http://127.0.0.1:8000/recieve_sessions_list_for_therapist', {
             method: 'POST',
             headers: {
               'Authorization': `Bearer ${session_token}`,
@@ -395,46 +377,98 @@
       function renderRequests(data) {
         requestsList.innerHTML = '';
         scheduledList.innerHTML = '';
+        unscheduledList.innerHTML = '';
         // Рендеринг подтвержденных сессий и запросов на сессию
         data.normal_sessions_list.forEach(session => {
           if (session.accepted === 1) {
             // подтвержденные сессии
-            const li = document.createElement('li');
-            li.className = 'sessions__clients-item';
-            li.innerHTML = `
-                          <div class="sessions__client-wrapper">
-                            <p class="sessions__client-name" data-user-id="${session.client_id}">${session.name}</p>
-                            <span class="sessions__client-id visually-hidden">${session.client_id}</span>
-                            <p class="sessions__info">
-                              <span class="sessions__count">0 <span data-translate="session">сессия</span></span>
-                              <span class="sessions__date"><time>${renderDate(session.time)}</time></span>
-                            </p>
-                          </div>
-                          `
-            scheduledList.appendChild(li);
 
-            // рендеринг данных клиента в окно видеочата
-            li.addEventListener('click', () => {
-              document.querySelectorAll('.sessions__clients-item').forEach((el) => {
-                if (el.classList.contains('is-active')) {
-                  el.classList.remove('is-active');
-                }
+            const now = new Date();
+
+            if (new Date(session.time) > now) {
+              //  записанные
+              const li = document.createElement('li');
+              li.className = 'sessions__clients-item';
+              li.innerHTML = `
+                            <div class="sessions__client-wrapper">
+                              <p class="sessions__client-name" data-user-id="${session.client_id}">${session.name}</p>
+                              <span class="sessions__client-id visually-hidden">${session.client_id}</span>
+                              <p class="sessions__info">
+                                <span class="sessions__count">0 <span data-translate="session">сессия</span></span>
+                                <span class="sessions__date"><time>${renderDate(session.time)}</time></span>
+                              </p>
+                            </div>
+                            `
+              scheduledList.appendChild(li);
+              // рендеринг данных клиента в окно видеочата
+              li.addEventListener('click', () => {
+                document.querySelector('.videochat__buttons-wrapper').classList = 'videochat__buttons-wrapper';
+                document.querySelectorAll('.sessions__clients-item').forEach((el) => {
+                  if (el.classList.contains('is-active')) {
+                    el.classList.remove('is-active');
+                  }
+                });
+                li.classList.add('is-active');
+                document.querySelector('.videochat__client-id').textContent = `#${session.client_id}`;
+                document.querySelector('.videochat__client-name').textContent = session.name;
+                document.querySelector('.videochat__date').textContent = renderDate(session.time);
+                document.querySelector('.videochat__btn.cancel-session-btn').setAttribute('data-sh-id', session.sh_id);
+                document.querySelector('.videochat__btn#reschedule-session').setAttribute('data-sh-id', session.sh_id);
+                submitBtn.setAttribute('old_sh_id', session.sh_id);
+                getClientPhoto(session.client_id);
               });
-              li.classList.add('is-active');
-              document.querySelector('.videochat__client-id').textContent = `#${session.client_id}`;
-              document.querySelector('.videochat__client-name').textContent = session.name;
-              document.querySelector('.videochat__date').textContent = renderDate(session.time);
-              document.querySelector('.videochat__btn.cancel-session-btn').setAttribute('data-sh-id', session.sh_id);
-              document.querySelector('.videochat__btn#reschedule-session').setAttribute('data-sh-id', session.sh_id);
-              submitBtn.setAttribute('old_sh_id', session.sh_id);
-            });
-            document.querySelectorAll('.sessions__clients-item')[0].click();
+              document.querySelectorAll('.sessions__clients-item')[0].click();
 
-            // открытие модалки с карточкой клиента
-            const name = li.querySelector('.sessions__client-name');
-            name.addEventListener('click', () => {
-              getClientData(session.client_id);
-            });
+              // открытие модалки с карточкой клиента
+              const name = li.querySelector('.sessions__client-name');
+              name.addEventListener('click', () => {
+                getClientData(session.client_id);
+              });
+            } else {
+              // записанные
+              const li = document.createElement('li');
+              li.className = 'sessions__clients-item';
+              li.innerHTML = `
+                            <div class="sessions__client-wrapper">
+                              <p class="sessions__client-name" data-user-id="${session.client_id}">${session.name}</p>
+                              <span class="sessions__client-id visually-hidden">${session.client_id}</span>
+                              <p class="sessions__info">
+                                <span class="sessions__count">0 <span data-translate="session">сессия</span></span>
+                                <span class="sessions__date"><span class="sessions__last"
+                                  data-translate="last_session">Последняя</span><br><time>${renderDate(session.time)}</time></span>
+                              </p>
+                            </div>
+                            `
+              unscheduledList.appendChild(li);
+              // рендеринг данных клиента в окно видеочата
+              li.addEventListener('click', () => {
+                document.querySelector('.videochat__buttons-wrapper').classList.add('unscheduled');
+                document.querySelectorAll('.sessions__clients-item').forEach((el) => {
+                  if (el.classList.contains('is-active')) {
+                    el.classList.remove('is-active');
+                  }
+                });
+                li.classList.add('is-active');
+                document.querySelector('.videochat__client-id').textContent = `#${session.client_id}`;
+                document.querySelector('.videochat__client-name').textContent = session.name;
+                document.querySelector('.videochat__date').textContent = renderDate(session.time);
+                document.querySelector('.videochat__btn.cancel-session-btn').setAttribute('data-sh-id', session.sh_id);
+                document.querySelector('.videochat__btn#reschedule-session').setAttribute('data-sh-id', session.sh_id);
+                submitBtnNew.setAttribute('client_id', session.client_id);
+                getClientPhoto(session.client_id);
+              });
+
+              if (scheduledList.childNodes.length === 0) {
+                unscheduledList.querySelectorAll('.sessions__clients-item')[0].click();
+              }
+
+              // открытие модалки с карточкой клиента
+              const name = li.querySelector('.sessions__client-name');
+              name.addEventListener('click', () => {
+                getClientData(session.client_id);
+              });
+            }
+
           } else {
             // запросы на новую сессию
             const li = document.createElement('li');
@@ -481,7 +515,6 @@
             // открытие модалки с расписанием для переноса
             const rescheduleBtn = li.querySelector('.reschedule-session-btn');
             rescheduleBtn.addEventListener('click', () => {
-              console.log('Перенос!');
               document.querySelector('#doctor-reschedule').classList.add('is-active');
               document.querySelector('#doctor-reschedule .doctor__submit-btn').setAttribute('sh_id', session.sh_id);
             });
@@ -540,6 +573,9 @@
             document.querySelector('#doctor-reschedule .doctor__submit-btn').setAttribute('sh_id', session.new_sh_id);
           });
         });
+        document.querySelectorAll('[data-translate]').forEach((el) => {
+          el.style.opacity = '1';
+        });
       }
 
       // слушатель клика по кнопке в карточке запроса и под видеочатом
@@ -561,6 +597,40 @@
         });
       }
 
+      // получение фото для окна видеочата
+      function getClientPhoto(client_id_to_send) {
+
+        const dataToSend = {
+          session_token: session_token,
+          user_id: client_id_to_send
+        };
+
+        fetch('http://127.0.0.1:8000/get_user_data', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json'
+          },
+          body: JSON.stringify(dataToSend)
+        })
+          .then(response => {
+            if (!response.ok) {
+              throw new Error('Сеть не в порядке');
+            }
+            return response.json();
+          })
+          .then(data => {
+            document.querySelector('.videochat__user-photo img').src = '';
+            if (!data.client_photo || data.client_photo === 'null') {
+              document.querySelector('.videochat__user-photo img').src = './img/content/user-thumb.png';
+            } else {
+              document.querySelector('.videochat__user-photo img').src = data.client_photo;
+            }
+          })
+          .catch(error => {
+            console.error('Ошибка при получении данных пользователя:', error);
+          });
+      }
+
       // получение данных клиента для модалки
       function getClientData(client_id_to_send) {
 
@@ -569,7 +639,7 @@
           user_id: client_id_to_send
         };
 
-        fetch('http://www.speakyourmind.help:8000/get_user_data', {
+        fetch('http://127.0.0.1:8000/get_user_data', {
           method: 'POST',
           headers: {
             'Content-Type': 'application/json'
@@ -629,7 +699,7 @@
           approved: 1
         };
 
-        fetch('http://www.speakyourmind.help:8000/approve_time_therapist', {
+        fetch('http://127.0.0.1:8000/approve_time_therapist', {
           method: 'POST',
           headers: {
             'Content-Type': 'application/json'
@@ -645,6 +715,7 @@
           .then(data => {
             console.log('Сессия подтверждена');
             scheduledList.innerHTML = '';
+            unscheduledList.innerHTML = '';
             getSessionsFromBackend();
           })
           .catch(error => {
@@ -661,7 +732,7 @@
           sh_id: sh_id
         };
 
-        fetch('http://www.speakyourmind.help:8000/cancel_session', {
+        fetch('http://127.0.0.1:8000/cancel_session', {
           method: 'POST',
           headers: {
             'Content-Type': 'application/json'
@@ -676,6 +747,9 @@
           })
           .then(data => {
             console.log('Сессия отменена');
+            scheduledList.innerHTML = '';
+            unscheduledList.innerHTML = '';
+            getSessionsFromBackend();
           })
           .catch(error => {
             console.error('Ошибка при получении данных пользователя:', error);
@@ -684,7 +758,7 @@
 
       // получение данных терапевта с бэкенда
       if (session_token) {
-        fetch('http://www.speakyourmind.help:8000/get_doc_data', {
+        fetch('http://127.0.0.1:8000/get_doc_data', {
           method: 'POST',
           headers: {
             'Authorization': `Bearer ${session_token}`,
@@ -719,7 +793,7 @@
           timezone: ''
         });
 
-        fetch('http://www.speakyourmind.help:8000/doctor_schedule', {
+        fetch('http://127.0.0.1:8000/doctor_schedule', {
           method: 'POST',
           headers: {
             'Authorization': `Bearer ${session_token}`,
@@ -743,9 +817,10 @@
           });
       }
 
-      // апдейт расписания
+      // рендеринг расписания терапевта
 
       function updateDocSchedule(data) {
+        // TODO удалить вывод в консоль
         console.log('Расписание:', data);
         const jsonData = data;
 
@@ -759,7 +834,8 @@
         // Группировка расписания по датам
         const scheduleByDate = {};
 
-        jsonData.schedule.forEach(dateTime => {
+        jsonData.schedule.forEach(slot => {
+          const dateTime = slot.date_time;
           const [date, time] = dateTime.split(' ');
           if (!scheduleByDate[date]) {
             scheduleByDate[date] = [];
@@ -822,7 +898,7 @@
                 `;
         }
 
-        document.querySelectorAll('.schedule-container').forEach((el) => {
+        scheduleContainers.forEach((el) => {
           el.innerHTML = html;
         });
       }
@@ -842,7 +918,7 @@
 
         console.log(dataToSend);
 
-        fetch('http://www.speakyourmind.help:8000/therapist_change_session_time', {
+        fetch('http://127.0.0.1:8000/therapist_change_session_time', {
           method: 'POST',
           headers: {
             'Content-Type': 'application/json'
@@ -857,6 +933,63 @@
           })
           .then(data => {
             console.log('Запрос на перенос сессии отправлен');
+          })
+          .catch(error => {
+            console.error('Ошибка при получении данных пользователя:', error);
+          });
+      });
+
+      // открытие модалки для записи не записанного клиента
+      const newScheduleModal = document.querySelector('#schedule-new-session')
+
+      newSessionBtn.addEventListener('click', (e) => {
+        e.preventDefault();
+        newScheduleModal.classList.add('is-active');
+
+        const slots = newScheduleModal.querySelectorAll('input[type="radio"]');
+        slots.forEach((slot) => {
+          slot.addEventListener('change', function () {
+            if (slot.checked) {
+              const selectedDate = slot.closest('.doctor__day-wrapper').querySelector('time').getAttribute('datetime');
+              const selectedTime = slot.value;
+              submitBtnNew.setAttribute('date_time', `${selectedDate} ${selectedTime}`)
+            }
+          });
+        });
+      });
+
+      // запись не записанного клиента
+      document.querySelector('#choice-date-form-new').addEventListener('submit', (e) => {
+        e.preventDefault();
+
+        const user_id = Number(submitBtnNew.getAttribute('client_id'));
+        const date_time = submitBtnNew.getAttribute('date_time');
+
+        const dataToSend = {
+          session_token: session_token,
+          user_id: user_id,
+          date_time: date_time
+        };
+
+        console.log(dataToSend);
+
+        fetch('http://127.0.0.1:8000/doctor_appoint_client', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json'
+          },
+          body: JSON.stringify(dataToSend)
+        })
+          .then(response => {
+            if (!response.ok) {
+              throw new Error('Сеть не в порядке');
+            }
+            return response.json();
+          })
+          .then(data => {
+            console.log('Клиент записан');
+            getSessionsFromBackend();
+            newScheduleModal.classList.remove('is-active');
           })
           .catch(error => {
             console.error('Ошибка при получении данных пользователя:', error);

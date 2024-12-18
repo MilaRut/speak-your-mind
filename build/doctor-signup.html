@@ -32,7 +32,7 @@
           <div class="nav__wrapper">
             <ul class="nav__list">
               <!-- <li class="nav__item nav__item--businnes">
-                <a class="nav__link href="businnes-landing.html" data-translate="nav_comp"></a>
+                <a class="nav__link href="businnes-landing.html" data-translate="nav_comp">For companies</a>
               </li> -->
               <li class="nav__item">
                 <a class="nav__link" href="faq.html">FAQ</a>
@@ -60,7 +60,7 @@
           </ul>
         </div>
         <div class="header__unlogged unlogged">
-          <a href="login.html" class="unlogged__login-btn btn btn--white" data-translate="header_login_btn"></a>
+          <a href="login.html" class="unlogged__login-btn btn btn--white" data-translate="header_login_btn">Login</a>
         </div>
         <div class="header__logged logged">
           <div class="logged__wrapper">
@@ -78,18 +78,19 @@
       <section class="doc-questionary">
         <div class="container">
           <div class="doc-questionary__heading">
-            <h1 class="title" data-translate="doc_q_title">Как начать сотрудничество с нами?</h1>
-            <p class="text-18" data-translate="doc_q_subtitle">Пожалуйста, заполните анкету (поля, помеченные
-              звездочкой, обязатальны)</p>
+            <h1 class="title" data-translate="doc_q_title">How to start cooperation with us?</h1>
+            <p class="text-18" data-translate="doc_q_subtitle">Please fill out the form (fields marked with an asterisk
+              are required)</p>
           </div>
           <form action="" method="post" id="register-therapist-form">
             <div class="doc-questionary__wrapper">
               <p class="text-20">
-                <b><span data-translate="doc_q_language_title2">Язык консультаций</span>*</b><br>
-                <span data-translate="doc_q_language_subtitle">Вы можете выбрать один или несколько языков. Если вы
-                  предполагаете консультировать на двух или
-                  трех языках, некоторые поля анкеты нужно будет заполнить на соответствующих языках, чтобы клиенты
-                  могли видеть информацию о вас на своем языке.</span>
+                <b><span data-translate="doc_q_language_title2">What language are you willing to consult
+                    in?</span>*</b><br>
+                <span data-translate="doc_q_language_subtitle">You can select one or more languages. If you plan to
+                  provide consultations in two or three languages, some fields of the questionnaire will need to be
+                  completed in the appropriate languages so that clients can see information about you in their own
+                  language.</span>
               </p>
               <div class="doc-questionary__checkboxes row">
                 <label>
@@ -107,39 +108,39 @@
               </div>
             </div>
             <div class="doc-questionary__wrapper">
-              <p class="text-20"><b><span data-translate="doc_q_name">Ваши Фамилия Имя Отчество</span>*</b></p>
-              <input class="text-18" type="text" name="doc_name" id="doc_name" placeholder="ФИО"
+              <p class="text-20"><b><span data-translate="doc_q_name">Your name</span>*</b></p>
+              <input class="text-18" type="text" name="doc_name" id="doc_name" placeholder="Your name"
                 data-translate="doc_q_name_placeholder">
             </div>
             <div class="doc-questionary__wrapper">
-              <p class="text-20"><b><span data-translate="doc_q_dob">Ваша дата рождения? Число. Месяц. Год.</span></b>*
+              <p class="text-20"><b><span data-translate="doc_q_dob">Your date of birth</span></b>*
               </p>
               <input class="text-18" type="date" name="doc_date_of_birth" id="doc_date_of_birth">
             </div>
             <div class="doc-questionary__wrapper">
-              <p class="text-20"><b><span data-translate="doc_q_gender">Ваш пол</span></b>*</p>
+              <p class="text-20"><b><span data-translate="doc_q_gender">Your gender</span></b>*</p>
               <select name="doc_gender" id="doc_gender">
-                <option value="" disabled selected hidden data-translate="doc_q_gender_choose">Выбрать</option>
-                <option value="0" data-translate="doc_q_gender_male">Мужской</option>
-                <option value="1" data-translate="doc_q_gender_female">Женский</option>
+                <option value="" disabled selected hidden data-translate="doc_q_gender_choose">Choose</option>
+                <option value="0" data-translate="doc_q_gender_male">Male</option>
+                <option value="1" data-translate="doc_q_gender_female">Female</option>
               </select>
             </div>
             <div class="doc-questionary__wrapper doc-questionary__wrapper--edu">
-              <p class="text-20"><b><span data-translate="doc_q_edu_title">Какое у вас высшее образование?</span></b>*
+              <p class="text-20"><b><span data-translate="doc_q_edu_title">What is your higher education?</span></b>*
               </p>
-              <p class="text-18" data-translate="doc_q_edu_subtitle">Напишите о базовом психологическом (смежном)
-                обучении или переподготовке: 1. Год
-                окончания 2. Название ВУЗа 3. Название факультета и специалитета 4. Укажите академическую степень
-                (бакалавриат, магистратура) или ученую степень (если есть).</p>
+              <p class="text-18" data-translate="doc_q_edu_subtitle">Write about basic psychological (related) training
+                or retraining: 1. Year of graduation 2. Name of university 3. Name of faculty and specialty 4. Indicate
+                academic degree (bachelor's, master's) or academic degree (if any).</p>
               <div class="doc-questionary__inputs-wrapper">
                 <div>
                   <fieldset>
-                    <input type="number" name="edu_year" placeholder="Год" data-translate="doc_q_edu_year">
-                    <input type="text" name="edu_university" placeholder="ВУЗ" data-translate="doc_q_edu_university">
+                    <input type="number" name="edu_year" placeholder="Year" data-translate="doc_q_edu_year">
+                    <input type="text" name="edu_university" placeholder="University"
+                      data-translate="doc_q_edu_university">
                   </fieldset>
                   <fieldset>
-                    <input type="text" name="edu_faculty" placeholder="Факультет" data-translate="doc_q_edu_faculty">
-                    <input type="text" name="edu_degree" placeholder="Степень" data-translate="doc_q_edu_degree">
+                    <input type="text" name="edu_faculty" placeholder="Faculty" data-translate="doc_q_edu_faculty">
+                    <input type="text" name="edu_degree" placeholder="Degree" data-translate="doc_q_edu_degree">
                   </fieldset>
                 </div>
               </div>
@@ -149,216 +150,213 @@
                     <use xlink:href="./img/sprite.svg#icon-plus"></use>
                   </svg>
                 </span>
-                <span data-translate="add_edu_btn">Добавить образование</span>
+                <span data-translate="add_edu_btn">Add education</span>
               </button>
             </div>
             <div class="doc-questionary__wrapper">
               <p class="text-20">
-                <b><span data-translate="doc_q_method_title">Ваш основной метод?</span>*</b>
+                <b><span data-translate="doc_q_method_title">What is your main method?</span>*</b>
               </p>
               <div class="checkboxes-wrapper">
                 <div class="doc-questionary__checkboxes">
                   <label>
                     <input type="checkbox" id="doc_method-0" name="doc_method" value="0">
-                    <span data-translate="doc_q_method_0">Психоанализ</span>
+                    <span data-translate="doc_q_method_0">Psychoanalysis</span>
                   </label>
                   <label>
                     <input type="checkbox" id="doc_method-1" name="doc_method" value="1">
-                    <span data-translate="doc_q_method_1">Терапия внутренних семейных систем (IFS)</span>
+                    <span data-translate="doc_q_method_1">Internal Family Systems (IFS) Therapy</span>
                   </label>
                   <label>
                     <input type="checkbox" id="doc_method-2" name="doc_method" value="2">
-                    <span data-translate="doc_q_method_2">Когнитивно-поведенческая терапия (КПТ)</span>
+                    <span data-translate="doc_q_method_2">Cognitive behavioral therapy (CBT)</span>
                   </label>
                   <label>
                     <input type="checkbox" id="doc_method-3" name="doc_method" value="3">
-                    <span data-translate="doc_q_method_3">Травма-фокусированный КПТ</span>
+                    <span data-translate="doc_q_method_3">Trauma-Focused CBT</span>
                   </label>
                   <label>
                     <input type="checkbox" id="doc_method-4" name="doc_method" value="4">
-                    <span data-translate="doc_q_method_4">Терапия, сфокусированная на сострадании (CFT)</span>
+                    <span data-translate="doc_q_method_4">Compassion Focused Therapy (CFT)</span>
                   </label>
                   <label>
                     <input type="checkbox" id="doc_method-5" name="doc_method" value="5">
-                    <span data-translate="doc_q_method_5">Диалектическая поведенческая терапия (ДБТ/DBT)</span>
+                    <span data-translate="doc_q_method_5">Dialectical Behavior Therapy (DBT)</span>
                   </label>
                   <label>
                     <input type="checkbox" id="doc_method-6" name="doc_method" value="6">
-                    <span data-translate="doc_q_method_6">Гештальт-терапия</span>
+                    <span data-translate="doc_q_method_6">Gestalt therapy</span>
                   </label>
                   <label>
                     <input type="checkbox" id="doc_method-7" name="doc_method" value="7">
-                    <span data-translate="doc_q_method_7">Системная семейная терапия</span>
+                    <span data-translate="doc_q_method_7">Systemic family therapy</span>
                   </label>
                   <label>
                     <input type="checkbox" id="doc_method-8" name="doc_method" value="8">
-                    <span data-translate="doc_q_method_8">Системная сексуальная терапия</span>
+                    <span data-translate="doc_q_method_8">Systemic sexual therapy</span>
                   </label>
                 </div>
                 <div class="doc-questionary__checkboxes">
                   <label>
                     <input type="checkbox" id="doc_method-9" name="doc_method" value="9">
-                    <span data-translate="doc_q_method_9">Терапия принятия и ответственности</span>
+                    <span data-translate="doc_q_method_9">Acceptance and Commitment Therapy</span>
                   </label>
                   <label>
                     <input type="checkbox" id="doc_method-10" name="doc_method" value="10">
-                    <span data-translate="doc_q_method_10">Схема-терапия (CBT)</span>
+                    <span data-translate="doc_q_method_10">Scheme Therapy (CBT)</span>
                   </label>
                   <label>
                     <input type="checkbox" id="doc_method-11" name="doc_method" value="11">
-                    <span data-translate="doc_q_method_11">Экзистенциальная психотерапия(лого и
-                      клиент-центрированная)</span>
+                    <span data-translate="doc_q_method_11">Existential psychotherapy (logo and client-centered)</span>
                   </label>
                   <label>
                     <input type="checkbox" id="doc_method-12" name="doc_method" value="12">
-                    <span data-translate="doc_q_method_12">Трансактный анализ</span>
+                    <span data-translate="doc_q_method_12">Transactional Analysis</span>
                   </label>
                   <label>
                     <input type="checkbox" id="doc_method-13" name="doc_method" value="13">
-                    <span data-translate="doc_q_method_13">Десенсибилизация и переработка движением
-                      глаз(EMDR/ДПДГ)</span>
+                    <span data-translate="doc_q_method_13">Eye Movement Desensitization and Reprocessing (EMDR)</span>
                   </label>
                   <label>
                     <input type="checkbox" id="doc_method-14" name="doc_method" value="14">
-                    <span data-translate="doc_q_method_14">Рационально эмоционально поведенческая терапия(REBT)</span>
+                    <span data-translate="doc_q_method_14">Rational Emotional Behavior Therapy (REBT)</span>
                   </label>
                   <label>
                     <input type="checkbox" id="doc_method-15" name="doc_method" value="15">
-                    <span data-translate="doc_q_method_15">Эмоционально-фокусированная терапия (ЭФТ)</span>
+                    <span data-translate="doc_q_method_15">Emotionally Focused Therapy (EFT)</span>
                   </label>
                   <label>
                     <input type="checkbox" id="doc_method-16" name="doc_method" value="16">
-                    <span data-translate="doc_q_method_16">Арт-терапия</span>
+                    <span data-translate="doc_q_method_16">Art therapy</span>
                   </label>
                 </div>
               </div>
             </div>
             <div class="doc-questionary__wrapper">
               <p class="text-18">
-                <b><span data-translate="doc_edu_additional_title">Выберите, если у вас есть дополнительное
-                    образование, касающееся следующих тем</span></b>
+                <b><span data-translate="doc_edu_additional_title">Select if you have additional education related to
+                    the following topics</span></b>
               </p>
               <div class="doc-questionary__checkboxes">
                 <label>
                   <input type="checkbox" id="doc_edu_add_0" name="doc_edu_additional" value="0">
-                  <span data-translate="doc_edu_additional_0">Зависимости, аддикции</span>
+                  <span data-translate="doc_edu_additional_0">Dependencies, addictions</span>
                 </label>
                 <label>
                   <input type="checkbox" id="doc_edu_add_1" name="doc_edu_additional" value="1">
-                  <span data-translate="doc_edu_additional_1">Растройство пищевого поведения</span>
+                  <span data-translate="doc_edu_additional_1">Eating disorder</span>
                 </label>
                 <label>
                   <input type="checkbox" id="doc_edu_add_2" name="doc_edu_additional" value="2">
-                  <span data-translate="doc_edu_additional_2">Сексология</span>
+                  <span data-translate="doc_edu_additional_2">Sexology</span>
                 </label>
                 <label>
                   <input type="checkbox" id="doc_edu_add_3" name="doc_edu_additional" value="3">
-                  <span data-translate="doc_edu_additional_3">Экстремальные ситуации, ПТСР</span>
+                  <span data-translate="doc_edu_additional_3">Extreme situations, PTSD</span>
                 </label>
                 <label>
                   <input type="checkbox" id="doc_edu_add_4" name="doc_edu_additional" value="4">
-                  <span data-translate="doc_edu_additional_4">Другое</span>
+                  <span data-translate="doc_edu_additional_4">Other</span>
                 </label>
               </div>
             </div>
-            <div class="doc-questionary__wrapper">
+            <div class="doc-questionary__wrapper upload">
               <p class="text-20">
-                <b><span data-translate="doc_edu_upload_title">Пожалуйста, прикрепите фотографии
-                    развернутых дипломов и сертификатов, подтверждающих обучение.</span>*</b>
+                <b><span data-translate="doc_edu_upload_title">Please attach photos of the unfolded diplomas and
+                    certificates confirming your education.</span>*</b>
               </p>
-              <p class="text-18" data-translate="doc_edu_upload_text">Обязательные документы: (1) диплом о базовом
-                психологическом (смежном) обучении /
-                переподготовке (2)документы об обучении методу. ⚠️ Если обучение не окончено, пожалуйста, прикрепите
-                справку из обучающего учреждения.*</p>
+              <p class="text-18" data-translate="doc_edu_upload_text">Required documents: (1) diploma on basic
+                psychological (related) training / retraining (2)documents on method training. ⚠️ If the training is not
+                completed, please attach a certificate from the training institution.</p>
               <label class="input-file">
                 <input type="file" multiple name="doc_edu_upload" id="doc_edu_upload">
-                <span class="btn btn--white" data-translate="doc_file_upload_btn">Выбрать файлы</span>
+                <span class="btn btn--white" data-translate="doc_file_upload_btn">Select files</span>
               </label>
+              <ul class="file-list file-list--edu list-reset"></ul>
             </div>
             <div class="doc-questionary__wrapper">
               <p class="text-20">
                 <b><span data-translate="doc_comunity_title">
-                    Состоите ли вы в каком-либо психотерапевтическом сообществе?
-                  </span>*</b>
+                    Do you belong to any society for psychotherapy?</span>*</b>
               </p>
-              <p class="text-18" data-translate="doc_comunity_text">Если да, то в каком?</p>
-              <textarea class="text-20" name="doc_comunity" id="doc_comunity" placeholder="Ваш ответ"
+              <p class="text-18" data-translate="doc_comunity_text">If you do, please specify?</p>
+              <textarea class="text-20" name="doc_comunity" id="doc_comunity" placeholder="Your answer"
                 data-translate="your_answer"></textarea>
             </div>
             <div class="doc-questionary__wrapper">
               <p class="text-20">
-                <b><span data-translate="doc_practice_start_title">Когда вы начали
-                    консультировать?</span>*</b>
+                <b><span data-translate="doc_practice_start_title">When did you start counseling?</span>*</b>
               </p>
-              <p class="text-18" data-translate="doc_practice_start_text">За деньги, не в рамках учебной программы.
-                Обязательно напишите месяц, не только год.
+              <p class="text-18" data-translate="doc_practice_start_text">For money, not as part of the curriculum. Be
+                sure to indicate the month you started, not just the year.
               </p>
-              <p class="text-13" data-translate="doc_practice_start_example">Например, май 2019</p>
+              <p class="text-13" data-translate="doc_practice_start_example">E.g.: May 2019</p>
 
               <div class="start">
                 <select name="doc_practice_start_month" id="doc_practice_start_month">
-                  <option value="01" data-translate="jan">январь</option>
-                  <option value="02" data-translate="feb">февраль</option>
-                  <option value="03" data-translate="mar">март</option>
-                  <option value="04" data-translate="apr">апрель</option>
-                  <option value="05" data-translate="may">май</option>
-                  <option value="06" data-translate="jun">июнь</option>
-                  <option value="07" data-translate="jul">июль</option>
-                  <option value="08" data-translate="aug">август</option>
-                  <option value="09" data-translate="sep">сентябрь</option>
-                  <option value="10" data-translate="oct">октябрь</option>
-                  <option value="11" data-translate="nov">ноябрь</option>
-                  <option value="12" data-translate="dec">декабрь</option>
+                  <option value="01" data-translate="jan">January</option>
+                  <option value="02" data-translate="feb">February</option>
+                  <option value="03" data-translate="mar">March</option>
+                  <option value="04" data-translate="apr">April</option>
+                  <option value="05" data-translate="may">May</option>
+                  <option value="06" data-translate="jun">June</option>
+                  <option value="07" data-translate="jul">July</option>
+                  <option value="08" data-translate="aug">August</option>
+                  <option value="09" data-translate="sep">September</option>
+                  <option value="10" data-translate="oct">October</option>
+                  <option value="11" data-translate="nov">November</option>
+                  <option value="12" data-translate="dec">December</option>
                 </select>
                 <input class="text-18" type="number" name="doc_practice_start_year" id="doc_practice_start_year"
-                  placeholder="год" data-translate="year">
+                  placeholder="year" data-translate="year">
               </div>
             </div>
             <div class="doc-questionary__wrapper">
-              <p class="text-20"><b><span data-translate="doc_online_experience_title">Есть ли опыт работы
-                    онлайн?</span>*</b></p>
-              <p class="text-18" data-translate="doc_online_experience_text">Если да, то сколько лет?</p>
+              <p class="text-20"><b><span data-translate="doc_online_experience_title">Do you have experience working
+                    online?</span>*</b></p>
+              <p class="text-18" data-translate="doc_online_experience_text">If yes, how many years?</p>
               <input class="text-18" type="number" name="doc_online_experience" id="doc_online_experience"
-                placeholder="Ваш ответ" data-translate="your_answer">
+                placeholder="Your answer" data-translate="your_answer">
             </div>
             <div class="doc-questionary__wrapper">
               <p class="text-20"><b><span data-translate="doc_customers_amount_title">
-                    Сколько клиентов у вас сейчас в практике?</span>*</b>
+                    How many clients do currently have in your practice?</span>*</b>
               </p>
-              <p class="text-18" data-translate="doc_customers_amount_text">Пожалуйста, не за всю историю практики, а на
-                текущий момент</p>
+              <p class="text-18" data-translate="doc_customers_amount_text">Please, indicate the number of your current
+                clients, not the number of clients you’ve had in general.</p>
               <input class="text-18" type="number" name="doc_customers_amount_current" id="doc_customers_amount_current"
-                placeholder="Число" data-translate="number">
+                placeholder="Your answer" data-translate="number">
             </div>
             <div class="doc-questionary__wrapper">
-              <p class="text-20"><b><span data-translate="doc_therapy_length_title">Сколько времени заняла самая
-                    длительная терапия среди ваших клиентов?</span>*</b></p>
-              <p class="text-18" data-translate="doc_therapy_length_text">(Укажите годы, месяцы или число сессий)</p>
-              <p class="text-13" data-translate="doc_therapy_length_example">Например, 20 сессий.</p>
-              <input class="text-18" type="text" name="doc_therapy_length" id="doc_therapy_length" placeholder="Число"
-                data-translate="your_answer">
+              <p class="text-20"><b><span data-translate="doc_therapy_length_title">How long did it take for your
+                    longest therapy with a client?</span>*</b></p>
+              <p class="text-18" data-translate="doc_therapy_length_text">(Indicate years, months, or number os sessions
+                you had with this client)</p>
+              <p class="text-13" data-translate="doc_therapy_length_example">E.g.: 20 sessions</p>
+              <input class="text-18" type="text" name="doc_therapy_length" id="doc_therapy_length"
+                placeholder="Your answer" data-translate="your_answer">
             </div>
             <div class="doc-questionary__wrapper">
-              <p class="text-20"><b><span data-translate="doc_personal_therapy">Проходите ли вы личную
-                    психотерапию?</span>*</b></p>
+              <p class="text-20"><b><span data-translate="doc_personal_therapy">Are you in personal
+                    psychotherapy?</span>*</b></p>
               <div class="doc-questionary__radio">
                 <input type="radio" id="doc_personal_therapy_yes" name="doc_personal_therapy" value="yes" checked>
                 <label for="doc_personal_therapy_yes">
                   <svg width="18" height="18" fill="currentColor">
                     <use xlink:href="./img/sprite.svg#check-mark"></use>
                   </svg>
-                  <span class="text-14" data-translate="yes">Да</span>
+                  <span class="text-14" data-translate="yes">Yes</span>
                 </label>
                 <input type="radio" id="doc_personal_therapy_no" name="doc_personal_therapy" value="no">
                 <label for="doc_personal_therapy_no">
                   <svg width="18" height="18" fill="currentColor">
                     <use xlink:href="./img/sprite.svg#check-mark"></use>
                   </svg>
-                  <span class="text-14" data-translate="no">Нет</span>
+                  <span class="text-14" data-translate="no">No</span>
                 </label>
               </div>
               <p class="text-20">
-                <b><span data-translate="doc_supervision">Проходите ли вы регулярные супервизии?</span>*</b>
+                <b><span data-translate="doc_supervision">Do you get regular supervision?</span>*</b>
               </p>
               <div class="doc-questionary__radio">
                 <input type="radio" id="doc_supervision_yes" name="doc_supervision" value="yes" checked>
@@ -366,154 +364,153 @@
                   <svg width="18" height="18" fill="currentColor">
                     <use xlink:href="./img/sprite.svg#check-mark"></use>
                   </svg>
-                  <span class="text-14" data-translate="yes">Да</span>
+                  <span class="text-14" data-translate="yes">Yes</span>
                 </label>
                 <input type="radio" id="doc_supervision_no" name="doc_supervision" value="no">
                 <label for="doc_supervision_no">
                   <svg width="18" height="18" fill="currentColor">
                     <use xlink:href="./img/sprite.svg#check-mark"></use>
                   </svg>
-                  <span class="text-14" data-translate="no">Нет</span>
+                  <span class="text-14" data-translate="no">No</span>
                 </label>
               </div>
             </div>
             <div class="doc-questionary__wrapper">
               <p class="text-20">
-                <b><span data-translate="doc_another_job_title">Есть ли другая работа кроме психотерапевтической
-                    практики?</span>*</b>
+                <b><span data-translate="doc_another_job_title">Do you hold ay other job besides practicing
+                    psychotherapy?</span>*</b>
               </p>
-              <p class="text-18"><b><span data-translate="doc_another_job_text">Как распределяются интересы и
-                    приоритеты?</span></b></p>
-              <textarea class="text-20" name="doc_another_job" id="doc_another_job" placeholder="Ваш ответ"
+              <p class="text-18"><b><span data-translate="doc_another_job_text">How are your interests and priorities
+                    distributed?</span></b></p>
+              <textarea class="text-20" name="doc_another_job" id="doc_another_job" placeholder="Your answer"
                 data-translate="your_answer"></textarea>
             </div>
             <div class="doc-questionary__wrapper">
               <p class="text-20">
-                <b><span data-translate="doc_customers_slots_title">Какое количество клиентов вы готовы
-                    взять?</span>*</b>
+                <b><span data-translate="doc_customers_slots_title">How many clients are you ready to take
+                    on?</span>*</b>
               </p>
-              <p class="text-18" data-translate="doc_customers_slots_text">Пожалуйста, напишите диапазон «от-до»</p>
+              <p class="text-18" data-translate="doc_customers_slots_text">Please, indicate the number “from - to” </p>
               <input class="text-18" type="text" name="doc_customers_slots_available" id="doc_customers_slots_available"
-                placeholder="Ваш ответ" data-translate="your_answer">
+                placeholder="Your answer" data-translate="your_answer">
             </div>
             <div class="doc-questionary__wrapper">
-              <p class="text-20"><b><span data-translate="doc_socials_links">Ссылки на профили в социальных
-                    сетях</span>*</b></p>
-              <textarea class="text-20" name="doc_socials_links" id="doc_socials_links" placeholder="Ваш ответ"
+              <p class="text-20"><b><span data-translate="doc_socials_links">Links to social media profiles</span>*</b>
+              </p>
+              <textarea class="text-20" name="doc_socials_links" id="doc_socials_links" placeholder="Your answer"
                 data-translate="your_answer"></textarea>
             </div>
-            <div class="doc-questionary__wrapper">
-              <p class="text-20"><b><span data-translate="doc_photo_upload_title">Прикрепите ваши
-                    фотографии.</span>*</b></p>
-              <p data-translate="doc_photo_upload_text_1">Требования к фото:</p>
-              <p data-translate="doc_photo_upload_text_2">1. Цветные;</p>
-              <p data-translate="doc_photo_upload_text_3">2. Лицо по центру и хорошо освещено (не
-                присылайте групповые снимки или фото в полный рост);</p>
-              <p data-translate="doc_photo_upload_text_4">3. Хорошее качество, размер не более 5 МБ;</p>
-              <p data-translate="doc_photo_upload_text_5">4. Не более трех штук.</p>
-              <p class="text-14" data-translate="doc_photo_upload_text_6">Если мы заключим с вами договор, одна из
-                фотографий будет использована на платформе для рассказа о вас клиентам.</p>
+            <div class="doc-questionary__wrapper upload">
+              <p class="text-20"><b><span data-translate="doc_photo_upload_title">Attach your photo</span>*</b></p>
+              <p data-translate="doc_photo_upload_text_1">Photo requirements:</p>
+              <p data-translate="doc_photo_upload_text_2">1. Colored;</p>
+              <p data-translate="doc_photo_upload_text_3">2. Face centered and well lit (do not send group photos or
+                full-length photos);</p>
+              <p data-translate="doc_photo_upload_text_4">3. Good quality, size no more than 5 MB;</p>
+              <p data-translate="doc_photo_upload_text_5">4. No more than three pieces.</p>
+              <p class="text-14" data-translate="doc_photo_upload_text_6">If we enter into a contract with you, one of
+                the photos will be used on the platform to inform customers about you.</p>
               <label class="input-file">
                 <input type="file" multiple name="doc_photo_upload" id="doc_photo_upload">
-                <span class="btn btn--white" data-translate="doc_file_upload_btn">Выбрать файлы</span>
+                <span class="btn btn--white" data-translate="doc_file_upload_btn">Select files</span>
               </label>
+              <ul class="file-list file-list--photo list-reset"></ul>
             </div>
             <div class="doc-questionary__wrapper">
-              <p class="text-20"><b><span data-translate="doc_citizenship_title">Какое у вас гражданство?</span>*</b>
+              <p class="text-20"><b><span data-translate="doc_citizenship_title">Your citizenship?</span>*</b>
               </p>
-              <p class="text-18" data-translate="doc_citizenship_text">Нам это необходимо знать для нашей системы оплаты
-                и налогообложения</p>
+              <p class="text-18" data-translate="doc_citizenship_text">We need to know this for our payment and taxation
+                system</p>
               <select name="doc_citizenship" id="doc_citizenship">
-                <option value="" disabled selected hidden data-translate="choose_option">Выбрать вариант
+                <option value="" disabled selected hidden data-translate="choose_option">Select option
                 </option>
-                <option value="0" data-translate="doc_citizenship_01">РФ</option>
-                <option value="1" data-translate="doc_citizenship_02">Венгрия</option>
-                <option value="2" data-translate="doc_citizenship_03">Казахстан</option>
-                <option value="3" data-translate="doc_citizenship_04">Украина</option>
-                <option value="4" data-translate="doc_citizenship_05">Беларусь</option>
-                <option value="other" data-translate="other">Другое</option>
+                <option value="0" data-translate="doc_citizenship_01">Russia</option>
+                <option value="1" data-translate="doc_citizenship_02">Hungary</option>
+                <option value="2" data-translate="doc_citizenship_03">Kazakhstan</option>
+                <option value="3" data-translate="doc_citizenship_04">Ukraine</option>
+                <option value="4" data-translate="doc_citizenship_05">Belarus</option>
+                <option value="other" data-translate="other">Other</option>
               </select>
               <label class="other-input">
-                <input type="text" name="doc_citizenship_other" id="doc_citizenship_other" placeholder="Ваш вариант"
+                <input type="text" name="doc_citizenship_other" id="doc_citizenship_other" placeholder="Your answer"
                   data-translate="doc_other_option">
               </label>
             </div>
             <div class="doc-questionary__wrapper">
-              <p class="text-20"><b><span data-translate="doc_ref_title">Как вы узнали о наборе терапевтов на нашем
-                    сайте?</span>*</b></p>
+              <p class="text-20"><b><span data-translate="doc_ref_title">How did you find about the therapist
+                    recruitment on our website?</span>*</b></p>
               <select name="doc_ref" id="doc_ref">
-                <option value="" disabled selected hidden data-translate="choose_option">Выбрать вариант</option>
-                <option value="0" data-translate="doc_ref_0">Рассказали коллеги / друзья</option>
-                <option value="1" data-translate="doc_ref_1">Из рекламы во ВКонтакте</option>
-                <option value="2" data-translate="doc_ref_2">Из рекламы в Фейсбук</option>
-                <option value="3" data-translate="doc_ref_3">Из рекламы в Инстаграм</option>
-                <option value="4" data-translate="doc_ref_4">Из вашего аккаунта в Инстаграм</option>
-                <option value="5" data-translate="doc_ref_5">Нашёл/нашла на сайте информацию о наборе</option>
-                <option value="6" data-translate="doc_ref_6">Через поиск работы в интернете</option>
-                <option value="other" data-translate="other">Другое</option>
+                <option value="" disabled selected hidden data-translate="choose_option">Select option</option>
+                <option value="0" data-translate="doc_ref_0">Told by colleagues/friends</option>
+                <option value="1" data-translate="doc_ref_1">From VKontakte advertising</option>
+                <option value="2" data-translate="doc_ref_2">From Facebook advertising</option>
+                <option value="3" data-translate="doc_ref_3">From Instagram advertising</option>
+                <option value="4" data-translate="doc_ref_4">From your Instagram account</option>
+                <option value="5" data-translate="doc_ref_5">I found/found information about the recruitment on the site
+                </option>
+                <option value="6" data-translate="doc_ref_6">Through a job search on the Internet</option>
+                <option value="other" data-translate="other">Other</option>
               </select>
               <label class="other-input">
-                <input type="text" name="doc_ref_other" id="doc_ref_other" placeholder="Ваш вариант"
+                <input type="text" name="doc_ref_other" id="doc_ref_other" placeholder="Your answer"
                   data-translate="doc_other_option">
               </label>
             </div>
             <div class="doc-questionary__wrapper">
-              <p class="text-20"><b><span data-translate="doc_phone_title">Номер телефона для связи</span>*</b></p>
-              <p class="text-18" data-translate="doc_phone_text">Номер должен начинаться с "+" и содержать международный
-                код вашей страны</p>
-              <input class="text-18" type="text" name="doc_phone" id="doc_phone" placeholder="Ваш телефон"
+              <p class="text-20"><b><span data-translate="doc_phone_title">Your contact phone number</span>*</b></p>
+              <p class="text-18" data-translate="doc_phone_text">The number must begin with "+" and contain the
+                international code of your country</p>
+              <input class="text-18" type="text" name="doc_phone" id="doc_phone" placeholder="Your phone number"
                 data-translate="doc_phone_placeholder">
             </div>
             <div class="doc-questionary__wrapper">
-              <p class="text-20"><b><span data-translate="doc_email_title">Адрес электронной почты для связи с
-                    вами</span>*</b></p>
-              <p class="text-18" data-translate="doc_email_text">Всё общение с нами происходит через письма на почту. Мы
-                пришлём вам письмо с итогом по
-                вашей заявке. Пожалуйста, проверьте правильность адреса несколько раз.
+              <p class="text-20"><b><span data-translate="doc_email_title">Your e-mail address</span>*</b></p>
+              <p class="text-18" data-translate="doc_email_text">All communication with us is through emails. We will
+                send you an email with a summary of your application. Please check your address several times.
               </p>
               <input class="text-18" type="email" name="doc_email" id="doc_email" placeholder="Ваш email"
                 data-translate="email_placeholder">
             </div>
             <div class="doc-questionary__wrapper">
-              <p class="text-20"><b><span data-translate="doc_additional_info_title">Расскажите нам о себе в свободной
-                    форме.</span>*</b>
+              <p class="text-20"><b><span data-translate="doc_additional_info_title">Tell us about yourself in free
+                    form.</span>*</b>
               </p>
-              <p class="text-18" data-translate="doc_additional_info_text"> Что считаете нам нужно узнать о вас, чтобы
-                понять, какой вы специалист?</p>
-              <textarea class="text-20" name="doc_additional_info" id="doc_additional_info" placeholder="Ваш ответ"
+              <p class="text-18" data-translate="doc_additional_info_text">What do you think we need to know about you
+                to know what kind of expert you are?</p>
+              <textarea class="text-20" name="doc_additional_info" id="doc_additional_info" placeholder="Your answer"
                 data-translate="your_answer"></textarea>
             </div>
             <div class="doc-questionary__wrapper">
-              <p class="text-20"><b><span data-translate="doc_question_1">Какие вещи вы считаете недопустимыми в
-                    психотерапевтическом процессе? Почему?</span>*</b></p>
-              <textarea class="text-20" name="doc_question_1" id="doc_question_1" placeholder="Ваш ответ"
+              <p class="text-20"><b><span data-translate="doc_question_1">What things do you find unacceptable in the
+                    psychotherapeutic process? Why?</span>*</b></p>
+              <textarea class="text-20" name="doc_question_1" id="doc_question_1" placeholder="Your answer"
                 data-translate="your_answer"></textarea>
             </div>
             <div class="doc-questionary__wrapper">
-              <p class="text-20"><b><span data-translate="doc_question_2">С чем, по-вашему, нельзя работать онлайн?
-                    Почему?</span>*</b></p>
-              <textarea class="text-20" name="doc_question_2" id="doc_question_2" placeholder="Ваш ответ"
+              <p class="text-20"><b><span data-translate="doc_question_2">What do you think you can't work with online?
+                    Why?</span>*</b></p>
+              <textarea class="text-20" name="doc_question_2" id="doc_question_2" placeholder="Your answer"
                 data-translate="your_answer"></textarea>
             </div>
             <div class="doc-questionary__wrapper">
-              <p class="text-20"><b><span data-translate="doc_contact">Каким способом нам связаться с вами?</span>*</b>
+              <p class="text-20"><b><span data-translate="doc_contact">How can we contact you?</span>*</b>
               </p>
               <select name="doc_contact" id="doc_contact">
-                <option value="" disabled selected hidden data-translate="choose_option">Выбрать вариант
+                <option value="" disabled selected hidden data-translate="choose_option">Select option
                 </option>
                 <option value="doc_contact_email">Email</option>
                 <option value="doc_contact_whatsapp">WhatsApp</option>
                 <option value="other">Telegram</option>
               </select>
               <label class="other-input">
-                <input type="text" name="doc_contact_other" id="doc_contact_other" placeholder="Ваш ответ"
+                <input type="text" name="doc_contact_other" id="doc_contact_other" placeholder="Your answer"
                   data-translate="your_answer">
-                <p data-translate="doc_contact_other">Ссылка или ваш ник в Telegram*</p>
+                <p data-translate="doc_contact_other">Link or your nickname in Telegram*</p>
               </label>
             </div>
             <span class="form-error-message">Something wrong. Do something</span>
-            <button type="submit" class="doc-questionary__submit-btn btn" data-translate="doc_q_submit_btn">Отправить
-              анкету</button>
+            <button type="submit" class="doc-questionary__submit-btn btn" data-translate="doc_q_submit_btn">Send the
+              form</button>
           </form>
     </main>
     <footer class="footer">
@@ -521,7 +518,7 @@
         <div class="footer__left"></div>
         <div class="footer__copyright">
           <span>&copy; Speak Your Mind 2023</span>
-          <a href="terms.html" class="text-green" data-translate="terms">Условия предоставления услуг</a>
+          <a href="terms.html" class="text-green" data-translate="terms">Terms of Service</a>
         </div>
       </div>
     </footer>
@@ -596,7 +593,7 @@
       addEduInputs();
 
       const form = document.querySelector('#register-therapist-form');
-      const url = 'http://www.speakyourmind.help:8000/register_therapist';
+      const url = 'http://127.0.0.1:8000/register_therapist';
 
       form.addEventListener('submit', function (e) {
         e.preventDefault();

@@ -57,7 +57,7 @@
           </ul>
         </div>
         <div class="header__unlogged unlogged">
-          <a href="login.html" class="unlogged__login-btn btn btn--white" data-translate="header_login_btn"></a>
+          <a href="login.html" class="unlogged__login-btn btn btn--white" data-translate="header_login_btn">Login</a>
         </div>
         <div class="header__logged logged">
           <div class="logged__wrapper">
@@ -76,56 +76,65 @@
         <div class="container">
           <div class="signup__wrapper">
             <div class="signup__heading">
-              <h2 data-translate="signup_title"></h2>
+              <h2 data-translate="signup_title">Create an account</h2>
             </div>
             <form action="" method="post" id="signup-get-password-form">
               <fieldset>
                 <label>
-                  <span class="text-20" data-translate="signup_name"></span>
-                  <input type="text" name="user_name" id="user_name" placeholder="" data-translate="name_placeholder">
+                  <span class="text-20" data-translate="signup_name">What is your name</span>
+                  <input type="text" name="user_name" id="user_name" placeholder="Your name"
+                    data-translate="name_placeholder">
                 </label>
                 <label>
-                  <span class="text-20" data-translate="email_placeholder"></span>
-                  <input type="email" name="user_email" id="user_email" placeholder="Ваш email"
+                  <span class="text-20" data-translate="email_placeholder">Your email</span>
+                  <input type="email" name="user_email" id="user_email" placeholder="Your email"
                     data-translate="email_placeholder">
                 </label>
-                <p class="text-18 login__text" data-translate="signup_message">Пожалуйста, убедитесь, что у вас есть
-                  доступ к почтовому ящику, который вы указывете. Мы отправим вам на этот адрес одноразовый пароль,
-                  который нужно будет ввести, чтобы продолжить регистрацию.</p>
+                <p class="text-18 login__text" data-translate="signup_message">Please make sure that you have access to
+                  the mailbox you specify. We will send you a one-time password to this address, which you will need to
+                  enter to continue registration.</p>
                 <span class="form-error-message">Something wrong. Do something</span>
               </fieldset>
               <div class="signup__btn-wrapper">
-                <button type="submit" class="signup__btn btn" data-translate="get_password"></button>
+                <button type="submit" class="signup__btn btn">
+                  <span class="icon-loader">
+                    <svg width="32" height="32" fill="currentColor">
+                      <use xlink:href="./img/sprite.svg#icon-loader"></use>
+                    </svg>
+                  </span>
+                  <span data-translate="get_password">Get password</span>
+                </button>
               </div>
             </form>
 
             <form action="" method="post" id="user-signup-form" style="display: none;">
               <p class="text-18 login__text">
-                <span data-translate="login_message2">Мы отправили вам одноразовый пароль на</span>&nbsp;
-                <span class="user-email">vetego@gmail.com</span><br>
-                <span data-translate="signup_message2">Введите его, чтобы продолжить регистрацию.</span>
+                <span data-translate="login_message2">We have sent you a one-time password to</span>&nbsp;
+                <span class="user-email"></span><br>
+                <span data-translate="signup_message2">Please enter this to continue registration.</span>
               </p>
               <fieldset>
                 <label>
-                  <input type="text" name="one_time_psswd" id="one_time_psswd" placeholder="Одноразовый пароль из почты"
+                  <input type="text" name="one_time_psswd" id="one_time_psswd" placeholder="One-time password from mail"
                     data-translate="onetime_psswd_placeholder">
                 </label>
                 <span class="form-error-message form-error-message-2">Something wrong. Do something</span>
               </fieldset>
               <div class="login__btn-wrapper">
-                <button type="submit" class="login__btn btn" id="get-password-btn" data-translate="signup_btn">Создать
-                  аккаунт</button>
+                <button type="submit" class="login__btn btn" id="get-password-btn" data-translate="signup_btn">Create an
+                  account</button>
               </div>
             </form>
             <div class="signup__links-wrapper">
               <p class="text-18">
-                <span data-translate="login_text_client"></span>
-                <a href="login.html" class="signup__signup-link text-green" data-translate="login_submit"></a>
+                <span data-translate="login_text_client">Already have an account?</span>
+                <a href="login.html" class="signup__signup-link text-green" data-translate="login_submit">Login</a>
               </p>
               <br>
               <p class="text-18">
-                <span data-translate="signup_text_doc"></span>
-                <a href="doctor-signup.html" class="login__signup-link text-green" data-translate="signup_link_doc"></a>
+                <span data-translate="signup_text_doc">Want to collaborate as a psychologist?</span>
+                <a href="doctor-signup.html" class="login__signup-link text-green" data-translate="signup_link_doc">Fill
+                  out the form</a>
               </p>
             </div>
           </div>
@@ -138,7 +147,7 @@
         <div class="footer__left"></div>
         <div class="footer__copyright">
           <span>&copy; Speak Your Mind 2023</span>
-          <a href="terms.html" class="text-green" data-translate="terms">Условия предоставления услуг</a>
+          <a href="terms.html" class="text-green" data-translate="terms">Terms of Service</a>
         </div>
       </div>
     </footer>
@@ -150,78 +159,32 @@
       const getPasswordForm = document.querySelector('#signup-get-password-form');
       const userSignupForm = document.querySelector('#user-signup-form');
       const errorMsg = document.querySelector('.form-error-message')
+      const signupBtn = document.querySelector('.signup__btn');
 
       function clearLocStorage() {
         const savedLang = localStorage.getItem('language') || 'en';
         localStorage.clear();
         localStorage.setItem('language', savedLang);
-      }
+      };
 
-      // запрос на получение одноразового пароля
-      getPasswordForm.addEventListener('submit', (e) => {
-        e.preventDefault();
-        clearLocStorage();
-
-        const user_email = document.getElementById('user_email').value;
-
-        const data = {
-          user_email: user_email,
-        };
-
-        fetch('http://www.speakyourmind.help:8000/generate_password', {
-          method: 'POST',
-          headers: {
-            'Content-Type': 'application/json'
-          },
-          body: JSON.stringify(data)
-        })
-          .then(function (response) {
-            if (!response.ok) {
-              throw new Error('Network response was not ok');
-            }
-            return response.json();
-          })
-          .then(function (data) {
-            if (!data.status) {
-              errorMsg.classList.add('is-active');
-              if (data.error) {
-                errorMsg.textContent = data.error;
-              }
-            } else {
-              // TODO - удалить, пока добавлено для тестов и дебага
-              document.querySelector('#one_time_psswd').value = data.password;
-              // END TODO
-              getPasswordForm.style.display = 'none';
-              userSignupForm.style.display = 'flex';
-              document.querySelector('.login__links-wrapper').style.display = 'none';
-            };
-          })
-          .catch(function (error) {
-            // Обработка ошибки
-            // добавить обработку ошибки по статусам
-            console.log(error);
-            errorMsg.classList.add('is-active');
-            errorMsg.textContent = error;
-          });
+      signupBtn.addEventListener('click', () => {
+        signupBtn.classList.add('is-loading');
       });
 
-
-      // запрос на регистрацию
-      userSignupForm.addEventListener('submit', (e) => {
+      // запрос на регистрацию - получение одноразового пароля
+      getPasswordForm.addEventListener('submit', (e) => {
         e.preventDefault();
         clearLocStorage();
 
         const user_name = document.getElementById('user_name').value;
         const user_email = document.getElementById('user_email').value;
-        const password = document.getElementById('one_time_psswd').value;
 
         const data = {
           user_name: user_name,
-          user_email: user_email,
-          password: password
+          user_email: user_email
         };
 
-        fetch('http://www.speakyourmind.help:8000/register', {
+        fetch('http://127.0.0.1:8000/register', {
           method: 'POST',
           headers: {
             'Content-Type': 'application/json'
@@ -237,8 +200,6 @@
             return response.json();
           })
           .then(function (data) {
-            // кладем токен в LS
-            localStorage.setItem('token', data.token);
             // Обработка успешного ответа от сервера
             if (!data.status) {
               if (data.error) {
@@ -246,9 +207,13 @@
                 errorMsg.textContent = data.error;
               }
             } else {
-              localStorage.setItem('user_name', user_name);
-              localStorage.setItem('is_therapist', 'false');
-              window.location.href = '/user-signup-main.html';
+              // TODO - удалить, пока добавлено для тестов и дебага
+              document.querySelector('#one_time_psswd').value = data.password;
+              // END TODO
+
+              getPasswordForm.style.display = 'none';
+              userSignupForm.style.display = 'flex';
+              document.querySelector('.signup__links-wrapper').style.display = 'none';
             };
           })
           .catch(function (error) {
@@ -257,6 +222,53 @@
             // TODO удалить вывод в консоль
             console.log(error);
             // END TODO
+          });
+      });
+
+      // запрос на авторизацию
+      userSignupForm.addEventListener('submit', (e) => {
+        signupBtn.classList.add('is-loading');
+        e.preventDefault();
+
+        const user_email = document.getElementById('user_email').value;
+        const password = document.getElementById('one_time_psswd').value;
+
+        const data = {
+          user_email: user_email,
+          password: password
+        };
+
+        fetch('http://127.0.0.1:8000/login', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json'
+          },
+          body: JSON.stringify(data)
+        })
+          .then(function (response) {
+            if (!response.ok) {
+              throw new Error('Network response was not ok');
+            }
+            return response.json();
+          })
+          .then(function (data) {
+            // кладем токен в LS
+            localStorage.setItem('token', data.token);
+            signupBtn.classList.remove('is-loading');
+            // Обработка успешного ответа от сервера
+            if (!data.status) {
+              if (data.error) {
+                errorMsg.classList.add('is-active');
+                errorMsg.textContent = data.error;
+              }
+            } else {
+              localStorage.setItem('is_therapist', false);
+              window.location.href = '/user-signup-main.html'
+            };
+          })
+          .catch(function (error) {
+            errorMsg.classList.add('is-active');
+            errorMsg.textContent = error;
           });
       });
     });

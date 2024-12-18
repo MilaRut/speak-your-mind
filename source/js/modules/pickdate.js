@@ -1,5 +1,5 @@
 const choiceDateForm = document.querySelectorAll('.choice-date-form');
-
+const isTherapistPage = document.querySelector('.therapist');
 
 // Функция для форматирования даты
 function renderDate(data) {

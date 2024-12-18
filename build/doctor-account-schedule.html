@@ -32,31 +32,31 @@
                   <svg width="25" height="25" fill="currentColor">
                     <use xlink:href="./img/sprite.svg#nav-sessions"></use>
                   </svg>
-                  <span data-translate="int_nav_sessions">Сессии</span>
+                  <span data-translate="int_nav_sessions">Sessions</span>
                 </a>
                 <a href="doctor-account-schedule.html" class="doctor-account__nav-link is-active">
                   <svg width="25" height="25" fill="currentColor">
                     <use xlink:href="./img/sprite.svg#nav-schedule"></use>
                   </svg>
-                  <span data-translate="int_nav_schedule">Расписание</span>
+                  <span data-translate="int_nav_schedule">Schedule</span>
                 </a>
                 <a href="doctor-account-clients.html" class="doctor-account__nav-link">
                   <svg width="25" height="25" fill="currentColor">
                     <use xlink:href="./img/sprite.svg#nav-clients"></use>
                   </svg>
-                  <span data-translate="int_nav_clients">Клиенты</span>
+                  <span data-translate="int_nav_clients">Clients</span>
                 </a>
                 <a href="doctor-account-payments.html" class="doctor-account__nav-link">
                   <svg width="25" height="25" fill="currentColor">
                     <use xlink:href="./img/sprite.svg#nav-payment"></use>
                   </svg>
-                  <span data-translate="int_nav_payments">Платежи</span>
+                  <span data-translate="int_nav_payments">Payments</span>
                 </a>
                 <a href="doctor-account-settings.html" class="doctor-account__nav-link">
                   <svg width="25" height="25" fill="currentColor">
                     <use xlink:href="./img/sprite.svg#nav-settings"></use>
                   </svg>
-                  <span data-translate="int_nav_profile">Профиль</span>
+                  <span data-translate="int_nav_profile">Profile</span>
                 </a>
                 <div href="#" class="doctor-account__nav-link nav-lang-switcher js-dropdown-trigger"
                   data-id="#nav-lang-switcher">
@@ -84,38 +84,37 @@
                   <svg width="25" height="25" fill="currentColor">
                     <use xlink:href="./img/sprite.svg#nav-help"></use>
                   </svg>
-                  <span data-translate="int_nav_help">Помощь</span>
+                  <span data-translate="int_nav_help">Help</span>
                 </a>
                 <a href="doctor-landing.html" class="user-account__nav-link logout-btn">
                   <svg width="25" height="25" fill="currentColor">
                     <use xlink:href="./img/sprite.svg#nav-logout"></use>
                   </svg>
-                  <span data-translate="int_nav_logout">Выход</span>
+                  <span data-translate="int_nav_logout">Logout</span>
                 </a>
               </div>
             </div>
             <div class="doctor-account__right-col">
               <div class="doctor-account__schedule schedule">
                 <div class="doctor-account__heading">
-                  <h2 class="text-40" data-translate="doctor_schedule_title">Расписание</h2>
+                  <h2 class="text-40" data-translate="doctor_schedule_title">Schedule</h2>
                   <p class="text-18 text-success schedule__text-success">
-                    <span data-translate="schedule_text_success">Изменения сохранены</span>
+                    <span data-translate="schedule_text_success">Changes saved</span>
                   </p>
-                  <p data-translate="doctor_schedule_text">Отметьте, пожалуйста, галочкой то время, когда вы свободны и
-                    на которое можно назначать
-                    консультации</p>
+                  <p data-translate="doctor_schedule_text">Please check the box for the time when you are free and for
+                    which consultations can be scheduled</p>
                   <button type="button" class="schedule__send-btn btn" id="send-btn">
                     <span class="icon-loader">
                       <svg width="32" height="32" fill="currentColor">
                         <use xlink:href="./img/sprite.svg#icon-loader"></use>
                       </svg>
                     </span>
-                    <span data-translate="save_changes_btn">Сохранить изменения</span>
+                    <span data-translate="save_changes_btn">Save changes</span>
                   </button>
                 </div>
                 <div class="calendar-wrapper">
                   <button class="btn-current schedule__tab-btn is-active" id="btn-1"
-                    data-translate="schedule_current_week">Текущая неделя</button>
+                    data-translate="schedule_current_week">Сurrent week</button>
                   <button class="btn-2 schedule__tab-btn" id="btn-2"></button>
                   <button class="btn-3 schedule__tab-btn" id="btn-3"></button>
                   <button class="btn-4 schedule__tab-btn" id="btn-4"></button>
@@ -134,7 +133,7 @@
         <div class="footer__left"></div>
         <div class="footer__copyright">
           <span>&copy; Speak Your Mind 2023</span>
-          <a href="terms.html" class="text-green" data-translate="terms">Условия предоставления услуг</a>
+          <a href="terms.html" class="text-green" data-translate="terms">Terms of Service</a>
         </div>
       </div>
     </footer>
@@ -358,7 +357,7 @@
 
       if (token) {
         // URL для получения данных пользователя
-        const url = 'http://www.speakyourmind.help:8000/doctor_schedule';
+        const url = 'http://127.0.0.1:8000/doctor_schedule';
 
         // Отправка запроса на сервер
         fetch(url, {
@@ -379,9 +378,12 @@
             // Обновляем dataObject и localStorage на основе полученных данных
             if (data.schedule) {
               console.log('Расписание:', data);
-              dataObject = data.schedule; // Предполагается, что данные расписания находятся в поле schedule
-              saveDataToLocalStorage(); // Сохраняем обновленные данные в localStorage
-              restoreCheckboxState(); // Обновляем состояние чекбоксов на странице
+              dataObject = data.schedule.map(slot => slot.date_time);
+              saveDataToLocalStorage();
+              restoreCheckboxState();
+
+              // Устанавливаем атрибуты для отмеченных чекбоксов
+              setAttributesForCheckedCheckboxes(data.schedule);
             }
           })
           .catch(error => {
@@ -404,7 +406,7 @@
         setTimeout(() => {
           markExpiredCheckboxes(inputs);
         }, 200);
-        return; // Добавляем return, чтобы избежать дальнейшего выполнения
+        return;
       }
 
       const currentTime = new Date();
@@ -423,6 +425,36 @@
 
         if (checkboxDate < currentDate) {
           checkbox.closest('td').classList.add('past');
+        }
+      });
+    }
+
+    function setAttributesForCheckedCheckboxes(schedule) {
+      const inputs = document.querySelectorAll('input[type="checkbox"]');
+
+      if (!inputs.length) {
+        setTimeout(() => {
+          setAttributesForCheckedCheckboxes(inputs);
+        }, 200);
+        return;
+      }
+
+      inputs.forEach((checkbox) => {
+        const formattedTime = checkbox.value;
+
+        // Найдите соответствующий объект в расписании
+        const slot = schedule.find(item => item.date_time === formattedTime);
+
+        // Если чекбокс отмечен и слот найден, устанавливаем атрибуты
+        if (checkbox.checked && slot) {
+          checkbox.setAttribute('data-sh-id', slot.sh_id);
+          checkbox.setAttribute('data-client-id', slot.client_id);
+          checkbox.setAttribute('data-client-name', slot.client_name);
+        } else {
+          // Если чекбокс не отмечен, можно удалить атрибуты (если нужно)
+          checkbox.removeAttribute('data-sh-id');
+          checkbox.removeAttribute('data-client-id');
+          checkbox.removeAttribute('data-client-name');
         }
       });
     }
@@ -457,7 +489,6 @@
     }
 
     function updateDataObject(checkbox) {
-
       const formattedTime = checkbox.value;
 
       if (checkbox.checked) {
@@ -520,7 +551,7 @@
         timezone: currentTimeZoneOffsetInHours
       });
 
-      fetch('http://www.speakyourmind.help:8000/doctor_schedule', {
+      fetch('http://127.0.0.1:8000/doctor_schedule', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json'
@@ -536,7 +567,8 @@
         })
         .then(data => {
           // Обработка ответа от сервера
-          console.log(data); // Выводим данные в консоль для отладки
+          console.log(data);
+          showSuccessMessage();
         })
         .catch(error => {
           console.error('Произошла ошибка:', error);

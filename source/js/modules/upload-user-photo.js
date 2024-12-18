@@ -10,10 +10,8 @@ function uploadUserPhoto() {
     const files = event.target.files;
     if (files.length > 0) {
       fileName.textContent = files[0].name;
-      hiddenInput.value = visibleInput.value;
     } else {
       fileName.textContent = 'файл не выбран';
-      hiddenInput.value = '';
     }
   });
 }
