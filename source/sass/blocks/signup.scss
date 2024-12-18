@@ -136,12 +136,6 @@
     transition: all 0.5s ease-in;
   }
 
-  &__link:hover {
-    color: $color-default-black;
-    border-bottom: 3px solid $color-shamrock-green;
-    transition: all 0.5s ease-in;
-  }
-
   &__link.is-active {
     font-weight: 700;
     color: $color-default-black;

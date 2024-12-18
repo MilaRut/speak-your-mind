@@ -2677,13 +2677,6 @@ details summary::marker {
   transition: all 0.5s ease-in;
 }
 
-.signup-header__link:hover {
-  color: #000000;
-  border-bottom: 3px solid #039c69;
-  -webkit-transition: all 0.5s ease-in;
-  transition: all 0.5s ease-in;
-}
-
 .signup-header__link.is-active {
   font-weight: 700;
   color: #000000;

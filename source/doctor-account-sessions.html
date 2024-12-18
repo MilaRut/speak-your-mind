@@ -300,6 +300,7 @@
       const submitBtn = document.querySelector('.doctor__submit-btn');
       const submitBtnNew = document.querySelector('.doctor__submit-btn-new');
       const newSessionBtn = document.querySelector('#schedule-session');
+      const rescheduleSessionBtn = document.querySelector('#reschedule-session');
 
       // получение списка сессий с бэкенда
       function getSessionsFromBackend() {
@@ -425,7 +426,7 @@
                 getClientData(session.client_id);
               });
             } else {
-              // записанные
+              // прошедшие
               const li = document.createElement('li');
               li.className = 'sessions__clients-item';
               li.innerHTML = `
@@ -687,7 +688,7 @@
         return age;
       }
 
-      // отправка подтверждения сессии / переноса сессии на бэкенд
+      // отправка подтверждения запроса на сессию / запроса на перенос сессии на бэкенд
       function sendApproveToBackend(el) {
         const sh_id = Number(el.getAttribute('data-sh-id'));
         const ch_id = el.getAttribute('data-ch-id') ? Number(el.getAttribute('data-ch-id')) : 0;
@@ -722,6 +723,42 @@
             console.error('Ошибка при получении данных пользователя:', error);
           });
       }
+
+      // отправка запроса на перенос сессии терапевтом
+      document.getElementById('choice-date-form').addEventListener('submit', function (e) {
+        e.preventDefault();
+        const old_sh_id = Number(submitBtn.getAttribute('old_sh_id'));
+        const new_sh_id = Number(submitBtn.getAttribute('new_sh_id'));
+
+        const dataToSend = {
+          session_token: session_token,
+          old_sh_id: old_sh_id,
+          new_sh_id: new_sh_id,
+          ch_id: 0
+        };
+
+        console.log(dataToSend);
+
+        fetch('http://127.0.0.1:8000/therapist_change_session_time', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json'
+          },
+          body: JSON.stringify(dataToSend)
+        })
+          .then(response => {
+            if (!response.ok) {
+              throw new Error('Сеть не в порядке');
+            }
+            return response.json();
+          })
+          .then(data => {
+            console.log('Запрос на перенос сессии отправлен');
+          })
+          .catch(error => {
+            console.error('Ошибка при получении данных пользователя:', error);
+          });
+      });
 
       // отправка отмены сессии на бэкенд
       function sendCancellationToBackend(el) {
@@ -836,6 +873,8 @@
 
         jsonData.schedule.forEach(slot => {
           const dateTime = slot.date_time;
+          const sh_id = slot.sh_id;
+
           const [date, time] = dateTime.split(' ');
           if (!scheduleByDate[date]) {
             scheduleByDate[date] = [];
@@ -883,12 +922,14 @@
 
             // Проверка, если время записи больше или равно текущему времени
             if (appointmentTime >= now) {
+              const currentSlot = jsonData.schedule.find(slot => slot.date_time === `${date} ${time}`);
+
               html += `
-                    <label>
-                        <input type="radio" name="appointment-time" value="${time}">
-                        <span class="time-value">${time}</span>
-                    </label>
-                    `;
+                <label>
+                  <input type="radio" name="appointment-time" value="${time}" data-date-time="${currentSlot.date_time}" data-sh-id="${currentSlot.sh_id}">
+                  <span class="time-value">${time}</span>
+                </label>
+              `;
             }
           });
 
@@ -900,44 +941,19 @@
 
         scheduleContainers.forEach((el) => {
           el.innerHTML = html;
+          const currentForm = el.closest('.choice-date-form');
+          el.addEventListener('click', (e) => {
+            if (e.target.matches('input[name="appointment-time"]')) {
+              const selectedDateTime = e.target.dataset.dateTime;
+              const selectedShId = e.target.dataset.shId;
+
+              console.log('Selected date and time:', selectedDateTime);
+              console.log('Selected sh_id:', selectedShId);
+              currentForm.querySelector('button[type="submit"]').setAttribute('new_sh_id', e.target.dataset.shId)
+            }
+          });
         });
       }
-
-      // отправка запроса на перенос сессии терапевтом
-      document.getElementById('choice-date-form').addEventListener('submit', function (e) {
-        e.preventDefault();
-        const old_sh_id = Number(submitBtn.getAttribute('old_sh_id'));
-        const new_sh_id = Number(submitBtn.getAttribute('new_sh_id'));
-
-        const dataToSend = {
-          session_token: session_token,
-          old_sh_id: old_sh_id,
-          new_sh_id: new_sh_id,
-          ch_id: 0
-        };
-
-        console.log(dataToSend);
-
-        fetch('http://127.0.0.1:8000/therapist_change_session_time', {
-          method: 'POST',
-          headers: {
-            'Content-Type': 'application/json'
-          },
-          body: JSON.stringify(dataToSend)
-        })
-          .then(response => {
-            if (!response.ok) {
-              throw new Error('Сеть не в порядке');
-            }
-            return response.json();
-          })
-          .then(data => {
-            console.log('Запрос на перенос сессии отправлен');
-          })
-          .catch(error => {
-            console.error('Ошибка при получении данных пользователя:', error);
-          });
-      });
 
       // открытие модалки для записи не записанного клиента
       const newScheduleModal = document.querySelector('#schedule-new-session')

@@ -88,12 +88,10 @@
             </div>
             <div class="signup-header">
               <div class="signup-header__links">
-                <a class="signup-header__link is-active" href="" data-translate="signup_header_link_main">General
+                <a class="signup-header__link is-active" data-translate="signup_header_link_main">General
                   questions</a>
-                <a class="signup-header__link" href="user-signup-choice.html"
-                  data-translate="signup_header_link_choice">Choose a therapist</a>
-                <a class="signup-header__link" href="user-signup-payment.html"
-                  data-translate="signup_header_link_payment">Payment</a>
+                <a class="signup-header__link" data-translate="signup_header_link_choice">Choose a therapist</a>
+                <a class="signup-header__link" data-translate="signup_header_link_payment">Payment</a>
               </div>
             </div>
             <form action="" method="post" id="user-signup-main-form">
@@ -552,6 +550,31 @@
         document.querySelector('#user-phone').value = data.user_phone;
       };
 
+      // проверка возраста
+
+      const ageInput = document.querySelector('input[name="age"]');
+      const submitBtn = document.querySelector('.questions__btn');
+
+      ageInput.addEventListener('change', () => {
+        const userBirthDate = new Date(ageInput.value);
+        const today = new Date();
+        const userAge = today.getFullYear() - userBirthDate.getFullYear();
+        const monthDiff = today.getMonth() - userBirthDate.getMonth();
+
+        console.log(ageInput.value);
+
+        if (monthDiff < 0 || (monthDiff === 0 && today.getDate() < userBirthDate.getDate())) {
+          userAge--;
+        }
+
+        if (userAge < 18) {
+          submitBtn.disabled = true;
+          alert('Вы должны быть старше 18 лет, чтобы отправить эту форму.');
+        } else {
+          submitBtn.disabled = false;
+        }
+      });
+
       // отправка первичной анкеты на бэк
       document.getElementById('user-signup-main-form').addEventListener('submit', function (e) {
         e.preventDefault();
@@ -581,7 +604,6 @@
           user_phone: user_phone
         };
 
-        console.log(dataToSend);
         if (user_age === '' || user_age === null) {
           localStorage.setItem('user_form', 'empty');
         } else {
