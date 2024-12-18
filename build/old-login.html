@@ -144,7 +144,7 @@
           password: password
         };
 
-        fetch('http://127.0.0.1:8000/login', {
+        fetch('http://www.speakyourmind.help:8000/login', {
           method: 'POST',
           headers: {
             'Content-Type': 'application/json'
@@ -189,7 +189,7 @@
       function getUserDataFromBackend() {
         const session_token = localStorage.getItem('token');
         if (session_token) {
-          fetch('http://127.0.0.1:8000/get_client_data', {
+          fetch('http://www.speakyourmind.help:8000/get_client_data', {
             method: 'POST',
             headers: {
               'Authorization': `Bearer ${session_token}`,
@@ -239,7 +239,7 @@
       function getDocDataFromBackend() {
         const session_token = localStorage.getItem('token');
         if (session_token) {
-          fetch('http://127.0.0.1:8000/get_doc_data', {
+          fetch('http://www.speakyourmind.help:8000/get_doc_data', {
             method: 'POST',
             headers: {
               'Authorization': `Bearer ${session_token}`,

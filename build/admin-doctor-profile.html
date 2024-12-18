@@ -563,7 +563,7 @@
         }
 
         if (session_token) {
-          fetch('http://127.0.0.1:8000/admin_get_therapist', {
+          fetch('http://www.speakyourmind.help:8000/admin_get_therapist', {
             method: 'POST',
             headers: {
               'Authorization': `Bearer ${session_token}`,
@@ -871,7 +871,7 @@
           doc_method: doc_method,
         }
 
-        fetch('http://127.0.0.1:8000/admin_update_therapist', {
+        fetch('http://www.speakyourmind.help:8000/admin_update_therapist', {
           method: 'POST',
           headers: {
             'Authorization': `Bearer ${session_token}`,

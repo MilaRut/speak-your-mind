@@ -357,7 +357,7 @@
 
       if (token) {
         // URL для получения данных пользователя
-        const url = 'http://127.0.0.1:8000/doctor_schedule';
+        const url = 'http://www.speakyourmind.help:8000/doctor_schedule';
 
         // Отправка запроса на сервер
         fetch(url, {
@@ -551,7 +551,7 @@
         timezone: currentTimeZoneOffsetInHours
       });
 
-      fetch('http://127.0.0.1:8000/doctor_schedule', {
+      fetch('http://www.speakyourmind.help:8000/doctor_schedule', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json'
