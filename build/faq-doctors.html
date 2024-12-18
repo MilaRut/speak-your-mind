@@ -1,0 +1,469 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Speak your mind">
+  <title>Speak your mind</title>
+  <link rel="icon" type="image/x-icon" href="./favicon.ico">
+  <link rel="icon" type="image/png" sizes="32x32" href="./img/favicon/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="./img/favicon/favicon-16x16.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="./img/favicon/apple-touch-icon.png">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.css">
+  <link rel="stylesheet" href="css/style.min.css">
+</head>
+
+<body>
+  <div class="wrapper">
+    <header class="header">
+      <div class="container">
+        <div class="header__logo">
+          <div class="header__logo-wrapper">
+            <svg width="196" height="24" fill="currentColor">
+              <use xlink:href="./img/sprite.svg#logo"></use>
+            </svg>
+          </div>
+        </div>
+        <nav class="header__nav nav">
+          <div class="nav__wrapper">
+            <ul class="nav__list">
+              <li class="nav__item nav__item--clients">
+                <a class="nav__link" data-translate="nav_client" href="index.html">Find a therapist</a>
+              </li>
+              <li class="nav__item nav__item--psychologists">
+                <a class="nav__link" data-translate="nav_doc" href="doctor-landing.html">For therapists</a>
+              </li>
+              <!-- <li class="nav__item nav__item--businnes">
+                <a class="nav__link href="businnes-landing.html" data-translate="nav_comp">For companies</a>
+              </li> -->
+              <li class="nav__item">
+                <a class="nav__link" href="faq.html">FAQ</a>
+              </li>
+            </ul>
+          </div>
+        </nav>
+        <div class="header__lang-switcher lang-switcher">
+          <button class="lang-switcher__btn js-dropdown-trigger" data-id="#lang-switcher">
+            <span class="current-language"></span>
+            <svg width="10" height="10" fill="currentColor">
+              <use xlink:href="./img/sprite.svg#dropdown"></use>
+            </svg>
+          </button>
+          <ul class="lang-switcher__list list-reset" id="lang-switcher">
+            <!-- <li class="lang-switcher__item">
+              <a href="#" data-lang="hu">Hu</a>
+            </li> -->
+            <li class="lang-switcher__item">
+              <a href="#" data-lang="en">En</a>
+            </li>
+            <li class="lang-switcher__item">
+              <a href="#" data-lang="ru">Ru</a>
+            </li>
+          </ul>
+        </div>
+        <div class="header__unlogged unlogged">
+          <a href="login.html" class="unlogged__login-btn btn btn--white" data-translate="header_login_btn">Login</a>
+          <a href="user-signup-start.html" class="unlogged__login-btn btn" data-translate="header_signup_btn">Signup</a>
+        </div>
+        <div class="header__logged logged">
+          <div class="logged__wrapper">
+            <div class="logged__user-thumb">
+              <img src="./img/content/user-thumb.png" width="24" height="24" alt="">
+            </div>
+            <button class="logged__btn" id="#logged-menu">
+              <span class="logged__username gotten-username">Username</span>
+            </button>
+          </div>
+        </div>
+      </div>
+    </header>
+    <main>
+      <section class="faq">
+        <div class="container">
+          <h1 class="title" data-translate="faq_title">Answers to frequently asked questions</h1>
+          <p class="faq__description">
+            <span data-translate="faq_text1">
+              If the answer to your question is not listed below, you can ask it to the site administrator by writing to
+              him by email</span>&nbsp;
+            <a href="mailto:support@speakyourmind.hu" class="text-green">support@speakyourmind.hu</a>&nbsp;
+            <span data-translate="faq_text2">or by filling in</span>&nbsp;
+            <a data-open-modal data-modal-id="#feedback" class="text-green" data-translate="faq_text3">feedback
+              form</a>.
+          </p>
+          <div class="faq__content">
+            <details>
+              <summary>
+                <p class="faq__question text-25" data-translate="faq_q1">How does your web application for the selection
+                  of a psychologist work?</p>
+                <div class="faq__icon">
+                  <svg width="32" height="32" fill="currentColor">
+                    <use xlink:href="./img/sprite.svg#chevron-up"></use>
+                  </svg>
+                </div>
+              </summary>
+              <p class="faq__answer text-18" data-translate="faq_a1">Our web application uses algorithms and data to
+                help users find the right psychologist. We collect information about your personality, preferences,
+                problems and preferences, and based on this data we offer the best options for psychologists who meet
+                your needs.</p>
+            </details>
+            <details>
+              <summary>
+                <p class="faq__question text-25" data-translate="faq_q2">What criteria are used for the selection of
+                  psychologists?</p>
+                <div class="faq__icon">
+                  <svg width="32" height="32" fill="currentColor">
+                    <use xlink:href="./img/sprite.svg#chevron-up"></use>
+                  </svg>
+                </div>
+              </summary>
+              <p class="faq__answer text-18" data-translate="faq_a2">We take into account many factors when selecting
+                psychologists for you. Some of them include the specialization of the psychologist (for example,
+                depression, anxiety, stress), their experience, the methods and techniques they use, and their
+                geographical location (if it is important for you to have a psychologist from a certain region).</p>
+            </details>
+            <details>
+              <summary>
+                <p class="faq__question text-25" data-translate="faq_q3">How do I start using your app?</p>
+                <div class="faq__icon">
+                  <svg width="32" height="32" fill="currentColor">
+                    <use xlink:href="./img/sprite.svg#chevron-up"></use>
+                  </svg>
+                </div>
+              </summary>
+              <p class="faq__answer text-18" data-translate="faq_a3">To start using our web application, you need to
+                complete a simple registration. Then you will need to fill in some information about yourself and your
+                problem. After that, you will receive a list of psychologists who meet your needs, and you will be able
+                to select them from the list.
+              </p>
+            </details>
+            <details>
+              <summary>
+                <p class="faq__question text-25" data-translate="faq_q4">I'm not sure if a particular psychologist is
+                  good for me. Can I choose another one?</p>
+                <div class="faq__icon">
+                  <svg width="32" height="32" fill="currentColor">
+                    <use xlink:href="./img/sprite.svg#chevron-up"></use>
+                  </svg>
+                </div>
+              </summary>
+              <p class="faq__answer text-18" data-translate="faq_a4">Sure, you can always select another psychologist.
+                If you find that the chosen psychologist does not meet your expectations or does not suit you for other
+                reasons, just let us know and we will help you find another psychologist.</p>
+            </details>
+            <details>
+              <summary>
+                <p class="faq__question text-25" data-translate="faq_q5">What payment methods can be used on your web
+                  application?
+                </p>
+                <div class="faq__icon">
+                  <svg width="32" height="32" fill="currentColor">
+                    <use xlink:href="./img/sprite.svg#chevron-up"></use>
+                  </svg>
+                </div>
+              </summary>
+              <p class="faq__answer text-18" data-translate="faq_a5">We accept various payment methods, including credit
+                and debit cards, electronic payment systems such as PayPal and Stripe. You can choose the most
+                convenient payment method when booking a session with a psychologist.</p>
+            </details>
+            <details>
+              <summary>
+                <p class="faq__question text-25" data-translate="faq_q6">Can I get more information about a psychologist
+                  before making a choice?
+                </p>
+                <div class="faq__icon">
+                  <svg width="32" height="32" fill="currentColor">
+                    <use xlink:href="./img/sprite.svg#chevron-up"></use>
+                  </svg>
+                </div>
+              </summary>
+              <p class="faq__answer text-18" data-translate="faq_a6">Yes, in our web application you can get additional
+                information about each psychologist. Each profile of a psychologist has a description where their
+                education, specialization, certification and work experience are indicated. You can also read reviews
+                from other users about the psychologist.
+              </p>
+            </details>
+            <details>
+              <summary>
+                <p class="faq__question text-25" data-translate="faq_q7">How is the confidentiality of my personal data
+                  ensured?
+                </p>
+                <div class="faq__icon">
+                  <svg width="32" height="32" fill="currentColor">
+                    <use xlink:href="./img/sprite.svg#chevron-up"></use>
+                  </svg>
+                </div>
+              </summary>
+              <p class="faq__answer text-18" data-translate="faq_a7">We adhere to strict privacy and data security
+                policies. All your personal data is processed in accordance with data protection legislation. We do not
+                share information with third parties without your consent, except in cases where it is necessary to
+                conduct a session with a psychologist.</p>
+            </details>
+            <details>
+              <summary>
+                <p class="faq__question text-25" data-translate="faq_q8">Can I get a refund if I am not satisfied with
+                  the services of a psychologist?</p>
+                <div class="faq__icon">
+                  <svg width="32" height="32" fill="currentColor">
+                    <use xlink:href="./img/sprite.svg#chevron-up"></use>
+                  </svg>
+                </div>
+              </summary>
+              <p class="faq__answer text-18" data-translate="faq_a8">We strive to provide high-quality services,
+                however, if you are not satisfied with the session with a psychologist, you can contact us and request a
+                refund in accordance with our refund policy. We try to meet the needs and desires of our customers and
+                are ready to consider each situation individually.</p>
+            </details>
+            <details>
+              <summary>
+                <p class="faq__question text-25" data-translate="faq_q9">Can I use your app for online therapy?</p>
+                <div class="faq__icon">
+                  <svg width="32" height="32" fill="currentColor">
+                    <use xlink:href="./img/sprite.svg#chevron-up"></use>
+                  </svg>
+                </div>
+              </summary>
+              <p class="faq__answer text-18" data-translate="faq_a9">Yes, our web application also provides the
+                possibility of online therapy. You can choose a psychologist who provides online services and conduct
+                sessions via video or chat. This is a convenient way to get help and support, even if you are in a
+                remote location.</p>
+            </details>
+            <details>
+              <summary>
+                <p class="faq__question text-25" data-translate="faq_q10">How do I find out how much a session with a
+                  psychologist costs?
+                </p>
+                <div class="faq__icon">
+                  <svg width="32" height="32" fill="currentColor">
+                    <use xlink:href="./img/sprite.svg#chevron-up"></use>
+                  </svg>
+                </div>
+              </summary>
+              <p class="faq__answer text-18" data-translate="faq_a10">The cost of a session with a psychologist can vary
+                depending on many factors, including specialization of the psychologist, duration of the session and its
+                location. You can find out exact price by viewing the profile of each psychologist. There will be
+                information about the cost and available packages or discounts.</p>
+            </details>
+            <details>
+              <summary>
+                <p class="faq__question text-25" data-translate="faq_q11">How long does the session with the
+                  psychologist last?</p>
+                <div class="faq__icon">
+                  <svg width="32" height="32" fill="currentColor">
+                    <use xlink:href="./img/sprite.svg#chevron-up"></use>
+                  </svg>
+                </div>
+              </summary>
+              <p class="faq__answer text-18" data-translate="faq_a11">The duration of a session with a psychologist can
+                vary, usually from 45 to 60 minutes. However, the duration can be customized and refined individually
+                with each psychologist, taking into account your needs and preferences.</p>
+            </details>
+            <details>
+              <summary>
+                <p class="faq__question text-25" data-translate="faq_q12">What kind of support can I get in case of an
+                  emergency?</p>
+                <div class="faq__icon">
+                  <svg width="32" height="32" fill="currentColor">
+                    <use xlink:href="./img/sprite.svg#chevron-up"></use>
+                  </svg>
+                </div>
+              </summary>
+              <p class="faq__answer text-18" data-translate="faq_a12">We are aware how vital emergencies can be. If you
+                find yourself in a crisis situation or need emergency support, we recommended you contact local
+                emergency services, such as a rescue service or a hotline.</p>
+            </details>
+            <details>
+              <summary>
+                <p class="faq__question text-25" data-translate="faq_q13">What kind of support will my data receive
+                  after the session ends?</p>
+                <div class="faq__icon">
+                  <svg width="32" height="32" fill="currentColor">
+                    <use xlink:href="./img/sprite.svg#chevron-up"></use>
+                  </svg>
+                </div>
+              </summary>
+              <p class="faq__answer text-18" data-translate="faq_a13">We take the protection of your data and personal
+                information seriously. All data obtained during the use of our web application will be stored in
+                accordance with our privacy policy and may be deleted upon your request. They will not be used without
+                your consent and will not be transferred to third parties.</p>
+            </details>
+            <details>
+              <summary>
+                <p class="faq__question text-25" data-translate="faq_q14">What benefits does online therapy provide?</p>
+                <div class="faq__icon">
+                  <svg width="32" height="32" fill="currentColor">
+                    <use xlink:href="./img/sprite.svg#chevron-up"></use>
+                  </svg>
+                </div>
+              </summary>
+              <p class="faq__answer text-18" data-translate="faq_a14">Online therapy offers a number of advantages,
+                including ease of use from home, flexible schedule of sessions, access to a psychologist from anywhere,
+                as well as a more anonymous and comfortable environment for those who prefer not to have traditional
+                face-to-face therapy.</p>
+            </details>
+          </div>
+        </div>
+      </section>
+    </main>
+    <footer class="footer">
+      <div class="container">
+        <div class="footer__left"></div>
+        <div class="footer__copyright">
+          <span>&copy; Speak Your Mind 2023</span>
+          <a href="terms.html" class="text-green" data-translate="terms">Terms of Service</a>
+        </div>
+      </div>
+    </footer>
+  </div>
+
+  <div class="modal modal--preload feedback" id="feedback">
+    <div class="modal__wrapper">
+      <div class="modal__overlay" data-close-modal></div>
+      <div class="modal__content modal__content--feedback">
+        <button class="modal__close-btn" type="button" aria-label="Закрыть окно." data-close-modal>
+          <svg width="32" height="32" fill="currentColor">
+            <use xlink:href="./img/sprite.svg#close-modal"></use>
+          </svg>
+        </button>
+        <h2 class="feedback__title" data-translate="feedback_title">Contact Support</h2>
+        <div class="feedback__start">
+          <div class="feedback__error">
+            <div class="feedback__error-message">
+              <p data-translate="feedback_error_msg1"><b>An error occurred</b></p>
+              <p data-translate="feedback_error_msg2">An unknown error occurred while sending the message. Please try
+                again.</p>
+            </div>
+          </div>
+          <form action="" id="feedback-form">
+            <label>
+              <span data-translate="feedback_form_title">Please introduce yourself</span>
+              <input type="text" name="feedback_name" id="feedback_name" placeholder="Your name"
+                data-translate="name_placeholder" required>
+            </label>
+            <label>
+              <input type="email" name="feedback_email" id="feedback_email" placeholder="Your email"
+                data-translate="email_placeholder" required>
+            </label>
+            <label>
+              <span data-translate="feedback_your_msg">Your message</span>
+              <textarea name="feedback_text" id="feedback_text" placeholder="Ask a question or describe a problem"
+                data-translate="feedback_placeholder" required></textarea>
+            </label>
+            <div class="feedback__agreement">
+              <p>
+                <span data-translate="feedback_agreement1">By sending a message you agree to</span>&nbsp;
+                <a href="#" class="text-green" data-translate="feedback_agreement2">processing of your personal
+                  data</a>.
+              </p>
+            </div>
+            <button type="submit" class="btn feedback__submit-btn">
+              <span class="icon-loader">
+                <svg width="32" height="32" fill="currentColor">
+                  <use xlink:href="./img/sprite.svg#icon-loader"></use>
+                </svg>
+              </span>
+              <svg width="32" height="32" fill="currentColor">
+                <use xlink:href="./img/sprite.svg#mail"></use>
+              </svg>
+              <span data-translate="feedback_submit_btn">Submit</span>
+            </button>
+          </form>
+        </div>
+        <div class="feedback__success">
+          <div class="feedback__success-message">
+            <p data-translate="feedback_success_msg1"><b>Your message was sent successfully</b></p>
+            <p data-translate="feedback_success_msg2">Thank you for your message! We will try to contact you as soon as
+              possible by email or one of the methods specified in your profile settings.</p>
+          </div>
+          <button type="button" class="feedback__success-btn text-green" data-translate="feedback_success_btn">Send new
+            message</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+      const form = document.getElementById('feedback-form');
+      const submitButton = document.querySelector('.feedback__submit-btn');
+
+      form.addEventListener('submit', function (e) {
+        e.preventDefault();
+
+        const user_name = document.querySelector('#feedback_name').value;
+        const user_email = document.querySelector('#feedback_email').value;
+        const report_text = document.querySelector('#feedback_text').value;
+
+        const dataToSend = {
+          session_token: '',
+          user_name: user_name,
+          user_email: user_email,
+          report_subject: 'REPORT',
+          report_text: report_text,
+        };
+
+        submitButton.classList.add('is-loading');
+
+        fetch('http://127.0.0.1:8000/report_to_admin', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json'
+          },
+          body: JSON.stringify(dataToSend)
+        })
+          .then(response => {
+            if (!response.ok) {
+              throw new Error('Сеть не в порядке');
+              submitButton.classList.remove('is-loading');
+              showErrorMsg();
+            }
+            return response.json();
+          })
+          .then(data => {
+            console.log('Форма отправлена');
+            form.reset();
+            showSuccessMessage();
+          })
+          .catch(error => {
+            console.error('Ошибка при получении данных пользователя:', error);
+            submitButton.classList.remove('is-loading');
+            showErrorMsg();
+          })
+          .finally(() => {
+            submitButton.classList.remove('is-loading');
+          });
+      });
+
+      function showSuccessMessage() {
+        document.querySelector('.feedback__error').style.display = 'none';
+        document.querySelector('.feedback__start').style.display = 'none';
+        document.querySelector('.feedback__success').style.display = 'block';
+        document.querySelector('.feedback__success-btn').addEventListener('click', () => {
+          resetForm();
+        });
+      }
+
+      function showErrorMsg() {
+        document.querySelector('.feedback__error').style.display = 'block';
+      }
+
+      function resetForm() {
+        document.querySelector('.feedback__start').style.display = 'block';
+        document.querySelector('.feedback__success').style.display = 'none';
+        document.querySelector('.feedback__error').style.display = 'none';
+        document.querySelector('#feedback_text').value = '';
+      }
+
+      document.querySelector('.modal__close-btn').addEventListener('click', () => {
+        resetForm()
+      });
+    });
+
+  </script>
+
+  <script src="js/vendor.min.js"></script>
+  <script src="js/main.min.js"></script>
+</body>
+
+</html>

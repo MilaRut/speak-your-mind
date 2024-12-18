@@ -20,9 +20,11 @@ function translatePage(translations) {
         if (element.tagName === 'INPUT' || element.tagName === 'TEXTAREA') {
           // Обновление плейсхолдера для инпутов
           element.placeholder = translations[key];
+          element.style.opacity = '1';
         } else {
           // Обновление текста для других элементов
           element.textContent = translations[key];
+          element.style.opacity = '1';
         }
       });
     }

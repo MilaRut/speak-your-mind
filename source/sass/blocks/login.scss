@@ -78,12 +78,25 @@
   }
 
   &__btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 66px;
     margin: 0 auto 24px;
     padding: 16px 24px;
     font-size: 20px;
     font-weight: 700;
     line-height: 1;
     text-transform: uppercase;
+
+    &.is-loading {
+      pointer-events: none;
+      cursor: not-allowed;
+    }
+
+    .icon-loader {
+      margin-right: 10px;
+    }
   }
 
   &__pass-reset {

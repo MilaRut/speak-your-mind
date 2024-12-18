@@ -85,12 +85,22 @@
     align-items: center;
     justify-content: center;
     min-width: 350px;
+    height: 66px;
     margin: 0 auto 24px;
     padding: 16px 24px;
     font-size: 20px;
     font-weight: 700;
     line-height: 1;
     text-transform: uppercase;
+
+    &.is-loading {
+      pointer-events: none;
+      cursor: not-allowed;
+    }
+
+    .icon-loader {
+      margin-right: 10px;
+    }
   }
 
   &__links-wrapper {
@@ -123,12 +133,6 @@
     color: $color-jade;
     text-align: center;
     padding-bottom: 5px;
-    transition: all 0.5s ease-in;
-  }
-
-  &__link:hover {
-    color: $color-default-black;
-    border-bottom: 3px solid $color-shamrock-green;
     transition: all 0.5s ease-in;
   }
 

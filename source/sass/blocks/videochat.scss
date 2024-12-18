@@ -26,6 +26,10 @@
     }
 
     &.unscheduled {
+      .videochat__btn {
+        max-width: fit-content;
+        padding: 0 10px;
+      }
 
       #cancel-session,
       #reschedule-session {
@@ -113,4 +117,18 @@
 
 .videochat__message {
   text-align: center;
+}
+
+.next-session-unscheduled {
+  display: none;
+}
+
+.videochat:has(.videochat__buttons-wrapper.unscheduled) {
+  .next-session-scheduled {
+    display: none;
+  }
+
+  .next-session-unscheduled {
+    display: block;
+  }
 }

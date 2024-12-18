@@ -30,10 +30,10 @@
           <div class="nav__wrapper">
             <ul class="nav__list">
               <li class="nav__item nav__item--psychologists">
-                <a class="nav__link" data-translate="nav_doc" href="doctor-landing.html"></a>
+                <a class="nav__link" data-translate="nav_doc" href="doctor-landing.html">For therapists</a>
               </li>
               <!-- <li class="nav__item nav__item--businnes">
-                <a class="nav__link href="businnes-landing.html" data-translate="nav_comp"></a>
+                <a class="nav__link href="businnes-landing.html" data-translate="nav_comp">For companies</a>
               </li> -->
               <li class="nav__item">
                 <a class="nav__link" href="faq.html">FAQ</a>
@@ -61,8 +61,8 @@
           </ul>
         </div>
         <div class="header__unlogged unlogged">
-          <a class="unlogged__login-btn btn btn--white" data-translate="header_login_btn"></a>
-          <a href="user-signup-start.html" class="unlogged__login-btn btn" data-translate="header_signup_btn"></a>
+          <a class="unlogged__login-btn btn btn--white" data-translate="header_login_btn">Login</a>
+          <a href="user-signup-start.html" class="unlogged__login-btn btn" data-translate="header_signup_btn">Signup</a>
         </div>
         <div class="header__logged logged">
           <div class="logged__wrapper">
@@ -80,12 +80,12 @@
       <div class="signup-header">
         <div class="container">
           <div class="signup-header__links">
-            <a class="signup-header__link" href="user-signup-main.html" data-translate="signup_header_link_main">Общие
-              вопросы</a>
-            <a class="signup-header__link is-active" href="#" data-translate="signup_header_link_choice">Выбор
-              терапевта</a>
+            <a class="signup-header__link" href="user-signup-main.html" data-translate="signup_header_link_main">General
+              questions</a>
+            <a class="signup-header__link is-active" href="#" data-translate="signup_header_link_choice">Choose a
+              therapist</a>
             <a class="signup-header__link" href="user-signup-payment.html"
-              data-translate="signup_header_link_payment">Оплата</a>
+              data-translate="signup_header_link_payment">Payment</a>
           </div>
         </div>
       </div>
@@ -93,25 +93,10 @@
         <div class="container">
           <div class="choice__wrapper">
             <div class="choice__heading">
-              <h2 data-translate="choice_heading">Лучшие совпадения</h2>
+              <h2 data-translate="choice_heading">Best matches</h2>
             </div>
             <div class="choice__swiper swiper" id="swiper-1">
-              <ul class="choice__list choice__thumbs-list list-reset swiper-wrapper">
-                <!-- <li class="choice__item swiper-slide" id="1">
-                  <div class="choice__item-image">
-                    <img src="./img/temp/doc-1.png" width="100" height="100" alt="">
-                  </div>
-                  <p class="choice__item-name">Ирина</p>
-                  <p class="choice__item-exp"><span>13 лет</span> опыта</p>
-                </li>
-                <li class="choice__item swiper-slide" id="2">
-                  <div class="choice__item-image">
-                    <img src="./img/temp/doc-2.png" width="100" height="100" alt="">
-                  </div>
-                  <p class="choice__item-name">Анатолий</p>
-                  <p class="choice__item-exp"><span>6 лет</span> опыта</p>
-                </li> -->
-              </ul>
+              <ul class="choice__list choice__thumbs-list list-reset swiper-wrapper"></ul>
               <button type="button" class="swiper-btn swiper-btn--prev" aria-label="Previous slide.">
                 <svg width="30" height="64" fill="currentColor">
                   <use xlink:href="./img/sprite.svg#swiper-arrow"></use>
@@ -132,47 +117,47 @@
                   <div class="doctor__content">
                     <div class="doctor__heading">
                       <p class="doctor__name"></p>
-                      <p class="doctor__experience"><span data-translate="doctor__experience">Опыт</span> <span
-                          class="doctor__experience-num">24 года</span></p>
+                      <p class="doctor__experience"><span data-translate="doctor__experience">Experience:</span> <span
+                          class="doctor__experience-num"></span></p>
                       <p class="doctor__details">
-                        <span class="doctor__type">Индивидуальная сессия</span>
+                        <span class="doctor__type"></span>
                         <span class="divider">&#8226;</span>
-                        <span class="doctor__time">50 <span data-translate="doctor_time_min">мин</span></span>
+                        <span class="doctor__time">50 <span data-translate="doctor_time_min">min</span></span>
                         <span class="divider">&#8226;</span>
                         <span class="doctor__price">10&nbsp;000 HUF</span>
                       </p>
-                      <p class="doctor__themes" data-translate="doctor_themes">Работает со всеми темами вашей анкеты</p>
+                      <p class="doctor__themes" data-translate="doctor_themes">Works with all themes in your profile</p>
                       <a href="#schedule" class="doctor__btn doctor__schedule-btn btn"
-                        data-translate="doctor_schedule_btn">Выбрать время сессии</a>
+                        data-translate="doctor_schedule_btn">Select session time</a>
                     </div>
                     <div class="doctor__content-block" id="about-doctor">
-                      <h2 class="text-25 doctor__title" data-translate="about_doctor">О специалисте</h2>
+                      <h2 class="text-25 doctor__title" data-translate="about_doctor">About therapist</h2>
                       <p class="text-18 about-doctor-text"></p>
                     </div>
                     <div class="doctor__content-block" id="doctor__edu">
-                      <h2 class="text-25 doctor__title" data-translate="doc_q_edu_placeholder">Образование</h2>
+                      <h2 class="text-25 doctor__title" data-translate="doc_q_edu_placeholder">Education</h2>
                       <ul class="settings__edu-list doctor__edu-list list-reset"></ul>
                     </div>
                     <div class="doctor__content-block" id="schedule">
-                      <h2 class="text-25 doctor__title" data-translate="doctor_schedule_title">Расписание</h2>
-                      <p class="text-18" data-translate="doctor_schedule_subtitle">Выберите дату и время</p>
+                      <h2 class="text-25 doctor__title" data-translate="doctor_schedule_title">Schedule</h2>
+                      <p class="text-18" data-translate="doctor_schedule_subtitle">Select date and time</p>
                       <br>
                       <form class="choice-date-form schedule-wrapper" action="" method="post" id="choice-date-form">
                         <div class="schedule-container"></div>
 
                         <button type="button" class="schedule__show-more">
-                          <span data-translate="schedule_show_more">Показать еще 3 дня</span>
+                          <span data-translate="schedule_show_more">Show 3 more days</span>
                           <svg width="10" height="10" fill="currentColor">
                             <use xlink:href="./img/sprite.svg#dropdown-green"></use>
                           </svg>
                         </button>
 
                         <button type="submit" disabled class="doctor__submit-btn btn">
-                          <span class="doctor__submit-text" data-translate="doctor_submit_btn_1">Выбрать</span>&nbsp;
+                          <span class="doctor__submit-text" data-translate="doctor_submit_btn_1">Select</span>&nbsp;
                           <span class="doctor__submit-date"></span>&nbsp;
-                          <span class="doctor__submit-text-2" data-translate="doctor_submit_btn_2">и продолжить</span>
+                          <span class="doctor__submit-text-2" data-translate="doctor_submit_btn_2"> and continue</span>
                         </button>
-                        <span class="error-message" data-translate="doctor_submit_err">Пожалуйста, выберите дату</span>
+                        <span class="error-message" data-translate="doctor_submit_err">Please select a date</span>
                       </form>
                     </div>
                   </div>
@@ -188,7 +173,7 @@
         <div class="footer__left"></div>
         <div class="footer__copyright">
           <span>&copy; Speak Your Mind 2023</span>
-          <a href="terms.html" class="text-green" data-translate="terms">Условия предоставления услуг</a>
+          <a href="terms.html" class="text-green" data-translate="terms">Terms of Service</a>
         </div>
       </div>
     </footer>
@@ -203,7 +188,7 @@
 
       function getUserDataFromBackend() {
         if (session_token) {
-          fetch('http://www.speakyourmind.help:8000/get_client_data', {
+          fetch('http://127.0.0.1:8000/get_client_data', {
             method: 'POST',
             headers: {
               'Authorization': `Bearer ${session_token}`,
@@ -220,6 +205,7 @@
             .then(data => {
               // TODO удалить вывод в консоль
               console.log('Данные пользователя:', data);
+              document.querySelector('.gotten-username').textContent = data.name;
               getTherapistList();
             })
             .catch(error => {
@@ -235,7 +221,7 @@
       // загрузка списка терапевтов
 
       function getTherapistList() {
-        fetch('http://www.speakyourmind.help:8000/get_therapist_list', {
+        fetch('http://127.0.0.1:8000/get_therapist_list', {
           method: 'POST',
           headers: {
             'Content-Type': 'application/json'
@@ -257,7 +243,7 @@
       }
 
       function renderTherapistList(data) {
-        console.log(data);
+        // console.log('Список терапевтов', data);
 
         const slider = document.querySelector('.choice__list');
         const doctorImageElement = document.querySelector('.doctor__image img');
@@ -362,9 +348,8 @@
             // Рендерим расписание
             renderSchedule(doc.doc_schedule);
 
-            // сохраняем айди доктора в LS
-            localStorage.setItem('selected_therapist', doc.doc_id);
-            localStorage.setItem('selected_therapist_name', doc.doc_name);
+            // сохраняем айди доктора в кнопку
+            submitBtn.setAttribute('doc_id', doc.doc_id);
           });
         });
 
@@ -439,11 +424,19 @@
           const scheduleByDate = {};
           const now = new Date().getTime(); // Получаем текущее время
 
+          console.log("Данные с бэкенда:", scheduleData); // Вывод данных с бэкенда
+
           scheduleData.forEach((item) => {
             const date = new Date(item.time);
-            const scheduledTime = new Date(item.time).getTime();
-            const dateString = date.toISOString().split('T')[0]; // Получаем строку формата YYYY-MM-DD
-            const timeString = date.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' }); // Форматируем время
+            const scheduledTime = date.getTime();
+            // Получаем строку формата YYYY-MM-DD
+            const dateString = date.toISOString().split('T')[0];
+            // Форматируем время
+
+            // Форматирование в строку вида "HH:MM"
+            const hours = String(date.getUTCHours()).padStart(2, '0');
+            const minutes = String(date.getUTCMinutes()).padStart(2, '0');
+            const timeString = `${hours}:${minutes}`;
 
             // Проверяем, прошло ли время
             if (scheduledTime > now) { // Если время в будущем
@@ -458,9 +451,7 @@
           for (const [date, times] of Object.entries(scheduleByDate)) {
             // Сортируем временные слоты по времени
             times.sort((a, b) => {
-              const timeA = new Date(`${date}T${a.timeString}`);
-              const timeB = new Date(`${date}T${b.timeString}`);
-              return timeA - timeB; // Сравниваем по времени
+              return new Date(`${date}T${a.timeString}`) - new Date(`${date}T${b.timeString}`);
             });
 
             const dayWrapper = document.createElement('div');
@@ -477,6 +468,7 @@
             } else {
               dayElement.innerHTML = `<time datetime="${date}">${dateObj.getDate()} ${dateObj.toLocaleString('ru-RU', { month: 'long' })}</time><span>, ${dateObj.toLocaleString('ru-RU', { weekday: 'long' })}</span>`;
             }
+
             const fieldset = document.createElement('fieldset');
             times.forEach(({ timeString, sh_id }) => {
               const label = document.createElement('label');
@@ -502,7 +494,7 @@
                 submitBtn.querySelector('.doctor__submit-date').textContent = `${timeString} ${date}`;
                 submitBtn.querySelector('.doctor__submit-text-2').style.display = 'inline';
                 submitBtn.disabled = false;
-                localStorage.setItem('session_datetime', `${timeString} ${date}`)
+                localStorage.setItem('session_datetime', `${timeString} ${date}`);
               });
             });
 
@@ -519,7 +511,7 @@
       // отправка выбора терапевта и даты сессии
       document.getElementById('choice-date-form').addEventListener('submit', function (e) {
         e.preventDefault();
-        const doc_id = Number(localStorage.getItem('selected_therapist'));
+        const doc_id = Number(submitBtn.getAttribute('doc_id'));
         const sh_id = Number(submitBtn.getAttribute('sh_id'));
 
         const dataToSend = {
@@ -530,7 +522,7 @@
 
         console.log(dataToSend);
 
-        fetch('http://www.speakyourmind.help:8000/select_slot', {
+        fetch('http://127.0.0.1:8000/select_slot', {
           method: 'POST',
           headers: {
             'Content-Type': 'application/json'

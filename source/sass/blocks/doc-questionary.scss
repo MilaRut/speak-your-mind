@@ -290,3 +290,48 @@
     }
   }
 }
+
+.file-list {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+  margin: 5px 0;
+
+  li {
+    position: relative;
+    padding-left: 30px;
+
+    &::before {
+      position: absolute;
+      content: "";
+      top: 50%;
+      transform: translateY(-50%);
+      left: 0;
+      width: 24px;
+      height: 24px;
+    }
+
+    &:not(:last-child) {
+      &::after {
+        position: absolute;
+        content: ",";
+      }
+    }
+  }
+
+  &--photo {
+    li {
+      &::before {
+        background: url("../../img/svg/icon-photo.svg") center no-repeat;
+      }
+    }
+  }
+
+  &--edu {
+    li {
+      &::before {
+        background: url("../../img/svg/icon-files.svg") center no-repeat;
+      }
+    }
+  }
+}

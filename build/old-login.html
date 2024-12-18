@@ -57,7 +57,7 @@
           </ul>
         </div>
         <div class="header__unlogged unlogged">
-          <a href="user-signup-start.html" class="unlogged__login-btn btn" data-translate="header_signup_btn"></a>
+          <a href="user-signup-start.html" class="unlogged__login-btn btn" data-translate="header_signup_btn">Signup</a>
         </div>
         <div class="header__logged logged">
           <div class="logged__wrapper">
@@ -78,49 +78,31 @@
             <div class="login__heading">
               <h2 data-translate="login_title">Login to your account</h2>
             </div>
-            <form action="" method="post" id="login-get-password-form">
+            <form action="" method="post" id="user-login-form">
               <fieldset>
                 <label>
-                  <input type="email" name="user_email" id="user_email" placeholder="Your email"
+                  <input type="email" name="user_email" id="user_email" placeholder="Your name"
                     data-translate="email_placeholder">
                 </label>
-                <span class="form-error-message">Something wrong. Do something</span>
-              </fieldset>
-              <p class="text-18 login__text" data-translate="login_message">Введите email, который вы указали при
-                регистрации. На него мы вышлем вам одноразовый пароль для входа.</p>
-              <div class="login__btn-wrapper">
-                <button type="submit" class="login__btn btn" id="get-password-btn"
-                  data-translate="get_password">Получить пароль</button>
-              </div>
-            </form>
-
-            <form action="" method="post" id="user-login-form" style="display: none;">
-              <p class="text-18 login__text">
-                <span data-translate="login_message2">Мы отправили вам одноразовый пароль на</span>&nbsp;
-                <span class="user-email">vetego@gmail.com</span><br>
-                <span data-translate="login_message3">Введите его, чтобы продолжить регистрацию.</span>
-              </p>
-              <fieldset>
                 <label>
-                  <input type="text" name="one_time_psswd" id="one_time_psswd" placeholder="Одноразовый пароль из почты"
-                    data-translate="onetime_psswd_placeholder">
+                  <input type="password" name="password" id="password" placeholder="Your password"
+                    data-translate="password_placeholder">
                 </label>
                 <span class="form-error-message">Something wrong. Do something</span>
               </fieldset>
               <div class="login__btn-wrapper">
-                <button type="submit" class="login__btn btn" id="get-password-btn"
-                  data-translate="login_submit">Войти</button>
+                <button type="submit" class="login__btn btn" data-translate="login_submit">Login</button>
               </div>
             </form>
             <div class="login__links-wrapper">
               <p class="text-18">
-                <span data-translate="signup_text_client"></span>
+                <span data-translate="signup_text_client">Don't have an account?</span>
                 <a href="user-signup-start.html" class="login__signup-link text-green"
                   data-translate="signup_link_client">Register as a client</a>
               </p>
               <br>
               <p class="text-18">
-                <span data-translate="signup_text_doc"></span>
+                <span data-translate="signup_text_doc">Want to collaborate as a psychologist?</span>
                 <a href="doctor-signup.html" class="login__signup-link text-green" data-translate="signup_link_doc">Fill
                   out the form</a>
               </p>
@@ -135,88 +117,34 @@
         <div class="footer__left"></div>
         <div class="footer__copyright">
           <span>&copy; Speak Your Mind 2023</span>
-          <a href="terms.html" class="text-green" data-translate="terms">Условия предоставления услуг</a>
+          <a href="terms.html" class="text-green" data-translate="terms">Terms of Service</a>
         </div>
       </div>
     </footer>
   </div>
-
   <script>
 
     document.addEventListener('DOMContentLoaded', function () {
-      const getPasswordForm = document.querySelector('#login-get-password-form');
-      const userLoginForm = document.querySelector('#user-login-form');
-      const errorMsg = document.querySelector('.form-error-message')
-
+      const errorMsg = document.querySelector('.form-error-message');
       function clearLocStorage() {
         const savedLang = localStorage.getItem('language') || 'en';
         localStorage.clear();
         localStorage.setItem('language', savedLang);
       }
 
-      // запрос на получение одноразового пароля
-      getPasswordForm.addEventListener('submit', (e) => {
+      document.getElementById('user-login-form').addEventListener('submit', function (e) {
         e.preventDefault();
         clearLocStorage();
 
         const user_email = document.getElementById('user_email').value;
-
-        const data = {
-          user_email: user_email,
-        };
-
-        fetch('http://www.speakyourmind.help:8000/generate_password', {
-          method: 'POST',
-          headers: {
-            'Content-Type': 'application/json'
-          },
-          body: JSON.stringify(data)
-        })
-          .then(function (response) {
-            if (!response.ok) {
-              throw new Error('Network response was not ok');
-            }
-            return response.json();
-          })
-          .then(function (data) {
-            if (!data.status) {
-              errorMsg.classList.add('is-active');
-              if (data.error) {
-                errorMsg.textContent = data.error;
-              }
-            } else {
-              // TODO - удалить, пока добавлено для тестов и дебага
-              document.querySelector('#one_time_psswd').value = data.password;
-              // END TODO
-              getPasswordForm.style.display = 'none';
-              userLoginForm.style.display = 'flex';
-              document.querySelector('.login__links-wrapper').style.display = 'none';
-            };
-          })
-          .catch(function (error) {
-            // Обработка ошибки
-            // добавить обработку ошибки по статусам
-            console.log(error);
-            errorMsg.classList.add('is-active');
-            errorMsg.textContent = error;
-          });
-      });
-
-
-      // запрос на авторизацию
-      userLoginForm.addEventListener('submit', (e) => {
-        e.preventDefault();
-        clearLocStorage();
-
-        const user_email = document.getElementById('user_email').value;
-        const password = document.getElementById('one_time_psswd').value;
+        const password = document.getElementById('password').value;
 
         const data = {
           user_email: user_email,
           password: password
         };
 
-        fetch('http://www.speakyourmind.help:8000/login', {
+        fetch('http://127.0.0.1:8000/login', {
           method: 'POST',
           headers: {
             'Content-Type': 'application/json'
@@ -234,36 +162,118 @@
             localStorage.setItem('token', data.token);
             // Обработка успешного ответа от сервера
             if (!data.status) {
+              errorMsg.classList.add('is-active');
               if (data.error) {
-                errorMsg.classList.add('is-active');
                 errorMsg.textContent = data.error;
               }
             } else {
               if (data.is_therapist) {
                 localStorage.setItem('is_therapist', true);
-                window.location.href = '/doctor-account-settings.html'
+                getDocDataFromBackend();
               } else {
                 localStorage.setItem('is_therapist', false);
-                window.location.href = '/user-signup-main.html';
+                getUserDataFromBackend();
               }
-
-              // Доп проверка и редиректы:
-              // is_therapist && !карта - doctor-account-settings.html
-              // is_therapist && карта - doctor-account-sessions.html
-              // !is_therapist && !анкета && !терапевт && !карта - user-signup-main.html
-              // !is_therapist && анкета && !терапевт && !карта - user-signup-choice.html
-              // !is_therapist && анкета && терапевт && !карта - user-signup-payment.html
-              // !is_therapist && анкета && терапевт && карта - user-account-main.html
             };
           })
           .catch(function (error) {
+            // Обработка ошибки
+            // TODO добавить обработку ошибки по статусам
+            console.log(error);
             errorMsg.classList.add('is-active');
             errorMsg.textContent = error;
-            // TODO удалить вывод в консоль
-            console.log(error);
-            // END TODO
           });
       });
+
+      // получение данных клиента с бэкенда
+      function getUserDataFromBackend() {
+        const session_token = localStorage.getItem('token');
+        if (session_token) {
+          fetch('http://127.0.0.1:8000/get_client_data', {
+            method: 'POST',
+            headers: {
+              'Authorization': `Bearer ${session_token}`,
+              'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({ session_token: session_token })
+          })
+            .then(response => {
+              if (!response.ok) {
+                throw new Error('Сеть не в порядке');
+              }
+              return response.json();
+            })
+            .then(data => {
+              // TODO удалить вывод в консоль
+              console.log('Данные пользователя:', data);
+              localStorage.setItem('user_name', data.name);
+              localStorage.setItem('user_email', data.email);
+
+              const isFormFullfiled = data.user_age;
+              const hasTherapist = data.has_therapist;
+
+              if (!isFormFullfiled || isFormFullfiled === 'empty') {
+                window.location.href = '/user-signup-main.html';
+              } else if (!hasTherapist || hasTherapist === null) {
+                window.location.href = '/user-signup-choice.html';
+              } else {
+                window.location.href = '/user-account-main.html';
+              }
+
+              // TODO Доп проверка и редиректы:
+              // !анкета && !терапевт && !карта - user-signup-main.html
+              //  анкета && !терапевт && !карта - user-signup-choice.html
+              //  анкета && терапевт && !карта - user-signup-payment.html
+              //  анкета && терапевт && карта - user-account-main.html
+              // END TODO
+            })
+            .catch(error => {
+              console.error('Ошибка при получении данных пользователя:', error);
+            });
+        } else {
+          console.log('Токен не найден. Пожалуйста, войдите в систему.');
+        }
+      }
+
+      // получение данных терапевта с бэкенда
+      function getDocDataFromBackend() {
+        const session_token = localStorage.getItem('token');
+        if (session_token) {
+          fetch('http://127.0.0.1:8000/get_doc_data', {
+            method: 'POST',
+            headers: {
+              'Authorization': `Bearer ${session_token}`,
+              'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({ session_token: session_token })
+          })
+            .then(response => {
+              if (!response.ok) {
+                throw new Error('Сеть не в порядке');
+              }
+              return response.json();
+            })
+            .then(data => {
+              // TODO удалить вывод в консоль
+              console.log('Данные терапевта:', data);
+              // END TODO
+              localStorage.setItem('user_name', data.doc_name);
+              localStorage.setItem('user_email', data.doc_email);
+
+              // TODO Доп проверка и редиректы:
+              // !карта - doctor-account-settings.html
+              // карта - doctor-account-sessions.html
+              // END TODO
+
+              window.location.href = '/doctor-account-sessions.html'
+            })
+            .catch(error => {
+              console.error('Ошибка при получении данных пользователя:', error);
+            });
+        } else {
+          console.log('Токен не найден. Пожалуйста, войдите в систему.');
+        }
+      }
     });
   </script>
 

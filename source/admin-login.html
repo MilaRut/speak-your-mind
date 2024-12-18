@@ -32,17 +32,17 @@
             <form action="" method="post" id="admin-login-form">
               <fieldset>
                 <label>
-                  <input type="text" name="admin_email" id="admin_email" placeholder="Ваш email"
+                  <input type="text" name="admin_email" id="admin_email" placeholder="Your email"
                     data-translate="email_placeholder">
                 </label>
                 <label>
-                  <input type="password" name="password" id="password" placeholder="Ваш пароль"
+                  <input type="password" name="password" id="password" placeholder="Your пароль"
                     data-translate="password_placeholder">
                 </label>
               </fieldset>
               <span class="form-error-message">Something wrong. Do something</span>
               <div class="login__btn-wrapper">
-                <button type="submit" class="login__btn btn" data-translate="login_submit">Войти</button>
+                <button type="submit" class="login__btn btn" data-translate="login_submit">Login</button>
               </div>
             </form>
             </p>
@@ -56,7 +56,7 @@
         <div class="footer__left"></div>
         <div class="footer__copyright">
           <span>&copy; Speak Your Mind 2023</span>
-          <a href="terms.html" class="text-green" data-translate="terms">Условия предоставления услуг</a>
+          <a href="terms.html" class="text-green" data-translate="terms">Terms of Service</a>
         </div>
       </div>
     </footer>
@@ -75,7 +75,7 @@
       clearLocStorage();
 
       function getAdminData() {
-        const url = "http://www.speakyourmind.help:8000/make_admin";
+        const url = "http://127.0.0.1:8000/make_admin";
 
         fetch(url, {
           method: 'POST'
@@ -107,7 +107,7 @@
           password: password
         };
 
-        fetch('http://www.speakyourmind.help:8000/login_admin', {
+        fetch('http://127.0.0.1:8000/login_admin', {
           method: 'POST',
           headers: {
             'Content-Type': 'application/json'
