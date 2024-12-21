@@ -799,11 +799,11 @@
         document.querySelector('.user-account__session-change-wrapper').style.display = 'block';
         document.querySelector('.user-account__session-wrapper').style.display = 'none';
         document.querySelector('.user-account__title').style.display = 'none';
-        submitBtn.setAttribute('old_sh_id', rescheduleDocRescheduleBtn.getAttribute('old-sh-id'));
+        submitBtn.setAttribute('old_sh_id', rescheduleDocRescheduleBtn.getAttribute('new-sh-id'));
         submitBtn.setAttribute('ch-id', rescheduleDocRescheduleBtn.getAttribute('ch-id'));
       });
 
-      // отменить сессию
+      // отменить сессию с предложенным переносом
       cancelDocRescheduleBtn.addEventListener('click', (e) => {
         e.preventDefault();
         const sh_id = cancelDocRescheduleBtn.getAttribute('sh_id');
