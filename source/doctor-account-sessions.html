@@ -772,6 +772,7 @@
             rescheduleModal.querySelectorAll(('input[name="appointment-time"]')).forEach((input) => {
               input.checked = false;
             });
+            getSessionsFromBackend();
           })
           .catch(error => {
             console.error('Ошибка при получении данных пользователя:', error);

@@ -486,9 +486,17 @@
             document.querySelector('.user-account__message--doctor-change-request .new-date b').textContent = renderDate(data.has_therapist.new_sch_time);
             document.querySelector('.videochat__message--next-session .date-next-session').textContent = renderDate(data.has_therapist.sch_time);
             document.querySelector('.videochat__message--requested-reschedule .date').textContent = renderDate(data.has_therapist.new_sch_time);
-            approveDocRescheduleBtn.setAttribute('');
-            console.log(rescheduleDocRescheduleBtn);
-            console.log(cancelDocRescheduleBtn);
+
+            const ch_id = data.has_therapist.ch_id ? Number(data.has_therapist.ch_id) : 0;
+
+            approveDocRescheduleBtn.setAttribute('sh-id', data.has_therapist.new_sh_id);
+            approveDocRescheduleBtn.setAttribute('ch-id', ch_id);
+
+            rescheduleDocRescheduleBtn.setAttribute('new-sh-id', data.has_therapist.new_sh_id);
+            rescheduleDocRescheduleBtn.setAttribute('old-sh-id', data.has_therapist.sh_id);
+            rescheduleDocRescheduleBtn.setAttribute('ch-id', ch_id);
+
+            cancelDocRescheduleBtn.setAttribute('sh-id', data.has_therapist.new_sh_id);
           } else {
             main.setAttribute('data-utils', 'main-not-scheduled');
             console.log('нет записи');
@@ -745,6 +753,84 @@
           .catch(error => {
             console.error('Ошибка при получении данных пользователя:', error);
             document.getElementById('choice-date-form-2').querySelector('error-message').textContent = error;
+          });
+      });
+
+      // обработка запроса на перенос от терапевта
+
+      // подтверждение переноса
+      approveDocRescheduleBtn.addEventListener('click', (e) => {
+        const sh_id = approveDocRescheduleBtn.getAttribute('sh-id');
+        const ch_id = approveDocRescheduleBtn.getAttribute('ch-id');
+        e.preventDefault();
+        const dataToSend = {
+          session_token: session_token,
+          sh_id: sh_id,
+          ch_id: ch_id,
+          approved: 1
+        };
+
+        fetch('http://127.0.0.1:8000/approve_time_client', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json'
+          },
+          body: JSON.stringify(dataToSend)
+        })
+          .then(response => {
+            if (!response.ok) {
+              throw new Error('Сеть не в порядке');
+            }
+            return response.json();
+          })
+          .then(data => {
+            console.log('Запрос на отмену сессии отправлен');
+            getUserDataFromBackend();
+          })
+          .catch(error => {
+            console.error('Ошибка при получении данных пользователя:', error);
+          });
+      });
+
+      // предложить новое время
+      rescheduleDocRescheduleBtn.addEventListener('click', (e) => {
+        e.preventDefault();
+        const dataToSend = {
+          session_token: session_token,
+          old_sh_id: old_sh_id,
+          new_sh_id: new_sh_id,
+          ch_id: ch_id,
+        };
+      });
+
+      // отменить сессию
+      cancelDocRescheduleBtn.addEventListener('click', (e) => {
+        e.preventDefault();
+        const sh_id = cancelDocRescheduleBtn.getAttribute('sh_id');
+        const dataToSend = {
+          session_token: session_token,
+          sh_id: sh_id
+        };
+
+        fetch('http://127.0.0.1:8000/cancel_session', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json'
+          },
+          body: JSON.stringify(dataToSend)
+        })
+          .then(response => {
+            if (!response.ok) {
+              throw new Error('Сеть не в порядке');
+            }
+            return response.json();
+          })
+          .then(data => {
+            console.log('Запрос на отмену сессии отправлен');
+            getUserDataFromBackend();
+          })
+          .catch(error => {
+            console.error('Ошибка при получении данных пользователя:', error);
           });
       });
     });
