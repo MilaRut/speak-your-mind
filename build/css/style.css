@@ -3308,6 +3308,20 @@ details summary::marker {
   position: relative;
 }
 
+.doctor__submit-btn-2 {
+  height: 66px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+}
+
+.doctor__submit-btn-2 .icon-loader {
+  margin-right: 7px;
+}
+
 .card .container {
   padding-top: 44px;
   padding-bottom: 150px;

@@ -154,3 +154,13 @@
 #choice-date-form {
   position: relative;
 }
+
+.doctor__submit-btn-2 {
+  height: 66px;
+  display: flex;
+  align-items: center;
+
+  .icon-loader {
+    margin-right: 7px;
+  }
+}

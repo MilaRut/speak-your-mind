@@ -302,7 +302,8 @@
       const submitBtn = document.querySelector('.doctor__submit-btn');
       const submitBtnNew = document.querySelector('.doctor__submit-btn-new');
       const newSessionBtn = document.querySelector('#schedule-session');
-      const rescheduleSessionBtn = document.querySelector('#reschedule-session');
+      const rescheduleSubmitBtn = document.querySelector('#reschedule-submit-btn');
+      const rescheduleModal = document.querySelector('#doctor-reschedule');
 
       // получение списка сессий с бэкенда
       function getSessionsFromBackend() {
@@ -521,7 +522,6 @@
 
             // открытие модалки с расписанием для переноса
             const rescheduleBtn = li.querySelector('.reschedule-session-btn');
-            const rescheduleModal = document.querySelector('#doctor-reschedule');
 
             rescheduleBtn.addEventListener('click', () => {
               console.log('Перенос новой сессии');
@@ -532,7 +532,8 @@
               inputs.forEach((input) => {
                 input.addEventListener('change', () => {
                   const newShId = input.getAttribute('data-sh-id');
-                  document.querySelector('#reschedule-submit-btn').setAttribute('new_sh_id', newShId);
+                  rescheduleSubmitBtn.setAttribute('new_sh_id', newShId);
+                  rescheduleSubmitBtn.classList.add('is-enabled');
                 });
               });
             });
@@ -542,7 +543,8 @@
         // Рендеринг запросов на перенос сессии
         data.pending_sessions_list.forEach(session => {
           if (session.pending === 2) {
-            console.log('перенос от терапевта');
+            console.log('есть перенос от терапевта');
+            // TODO возмозжно где-то также стоит отображать, что отправлен перенос
           } else {
             const li = document.createElement('li');
             li.className = 'sessions__requests-item sessions__requests-item--reschedule';
@@ -594,12 +596,13 @@
               console.log('Перенос запроса на перенос');
               rescheduleModal.classList.add('is-active');
               document.querySelector('#reschedule-submit-btn').setAttribute('old_sh_id', session.old_sh_id);
-              document.querySelector('#reschedule-submit-btn').setAttribute('ch_id', session.ch_id);
+              rescheduleSubmitBtn.setAttribute('ch_id', session.ch_id);
               const inputs = rescheduleModal.querySelectorAll('input[name="appointment-time"]');
               inputs.forEach((input) => {
                 input.addEventListener('change', () => {
                   const newShId = input.getAttribute('data-sh-id');
-                  document.querySelector('#reschedule-submit-btn').setAttribute('new_sh_id', newShId);
+                  rescheduleSubmitBtn.setAttribute('new_sh_id', newShId);
+                  rescheduleSubmitBtn.classList.add('is-enabled');
                 });
               });
             });
@@ -982,7 +985,8 @@
             if (slot.checked) {
               const selectedDate = slot.closest('.doctor__day-wrapper').querySelector('time').getAttribute('datetime');
               const selectedTime = slot.value;
-              submitBtnNew.setAttribute('date_time', `${selectedDate} ${selectedTime}`)
+              submitBtnNew.setAttribute('date_time', `${selectedDate} ${selectedTime}`);
+              submitBtnNew.classList.add('is-enabled');
             }
           });
         });

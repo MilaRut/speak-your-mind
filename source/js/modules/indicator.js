@@ -37,9 +37,10 @@ function getSessionsFromBackend() {
       return response.json();
     })
     .then((data) => {
-      const pending = data.pending_sessions_list.length;
+      const pending = data.pending_sessions_list;
+      const pendingFiltered = pending.filter((item) => item.pending !== 2).length;
       const normal = data.normal_sessions_list.filter((item) => item.accepted === 0).length;
-      totalRequests = normal + pending;
+      totalRequests = normal + pendingFiltered;
       if (totalRequests > 0) {
         indicator.textContent = `(${totalRequests})`;
       } else {
