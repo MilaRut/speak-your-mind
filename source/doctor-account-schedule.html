@@ -33,12 +33,14 @@
                     <use xlink:href="./img/sprite.svg#nav-sessions"></use>
                   </svg>
                   <span data-translate="int_nav_sessions">Sessions</span>
+                  <span class="requests-indicator"></span>
                 </a>
                 <a href="doctor-account-schedule.html" class="doctor-account__nav-link is-active">
                   <svg width="25" height="25" fill="currentColor">
                     <use xlink:href="./img/sprite.svg#nav-schedule"></use>
                   </svg>
                   <span data-translate="int_nav_schedule">Schedule</span>
+                  <span class="requests-indicator"></span>
                 </a>
                 <a href="doctor-account-clients.html" class="doctor-account__nav-link">
                   <svg width="25" height="25" fill="currentColor">
@@ -137,49 +139,6 @@
         </div>
       </div>
     </footer>
-  </div>
-
-  <div class="modal modal--preload" id="client-card">
-    <div class="modal__wrapper">
-      <div class="modal__overlay" data-close-modal></div>
-      <div class="modal__content modal__content--client-card client-card">
-        <button class="modal__close-btn" type="button" aria-label="Закрыть окно." data-close-modal>
-          <svg width="32" height="32" fill="currentColor">
-            <use xlink:href="./img/sprite.svg#close-modal"></use>
-          </svg>
-        </button>
-        <p class="client-card__heading">
-          <span class="text-31 client-card__username">Ксения</span>
-          <span class="text-31 client-card__userid">#663385</span>
-        </p>
-        <p class="client-card__info">
-          <span class="text-20 client-card__info-subhead">Возраст</span>
-          <span><span class="text-20 client-card__age">36</span> лет</span>
-        </p>
-        <p class="client-card__info">
-          <span class="text-20 client-card__info-subhead">Сессий</span>
-          <span class="text-20 client-card__sessions-amount">11</span>
-        </p>
-        <p class="client-card__info">
-          <span class="text-20 client-card__info-subhead">Следующая сессия</span>
-          <span class="text-20 client-card__next-session">05 июля 15:00</span>
-        </p>
-        <p class="client-card__info">
-          <span class="text-20 client-card__info-subhead">Запрос</span>
-          <span class="text-20 client-card__next-session">Депрессивные состояния, одиночество, отношения с родителями,
-            “не знаю, чем хочу заниматься”</span>
-        </p>
-        <div class="client-card__btns-wrapper">
-          <a href="#" class="client-card__btn client-card__btn--chat btn btn--white">
-            <svg width="32" height="32" fill="currentColor">
-              <use xlink:href="./img/sprite.svg#chat"></use>
-            </svg>
-            <span>Чат с клиентом</span>
-          </a>
-          <a href="#" class="client-card__btn client-card__btn--notes btn btn--white">Заметки</a>
-        </div>
-      </div>
-    </div>
   </div>
 
   <script>
@@ -450,6 +409,30 @@
           checkbox.setAttribute('data-sh-id', slot.sh_id);
           checkbox.setAttribute('data-client-id', slot.client_id);
           checkbox.setAttribute('data-client-name', slot.client_name);
+          if (slot.client_id !== null) {
+            const label = checkbox.closest('label');
+            const tooltip = document.createElement('span');
+            tooltip.classList.add('tooltip');
+            tooltip.setAttribute('data_id', slot.client_id);
+            tooltip.setAttribute('data_name', slot.client_name);
+            if (slot.accepted == 1) {
+              tooltip.classList.add('accepted');
+            } else if (slot.accepted === 0 && slot.pending_change === 0) {
+              tooltip.classList.add('not-accepted');
+            } else {
+              tooltip.classList.add('pending');
+            }
+            label.append(tooltip);
+            tooltip.addEventListener('mouseover', () => {
+              tooltip.classList.add('is-hovered');
+            });
+            tooltip.addEventListener('mouseout', () => {
+              tooltip.classList.remove('is-hovered');
+            });
+            label.addEventListener('click', (e) => {
+              e.preventDefault();
+            });
+          }
         } else {
           // Если чекбокс не отмечен, можно удалить атрибуты (если нужно)
           checkbox.removeAttribute('data-sh-id');
@@ -527,9 +510,10 @@
       });
     }
 
-    // TODO перенести в функцию sendDataToBackend() в then
+    const saveButton = document.getElementById('send-btn');
+
     function showSuccessMessage() {
-      document.querySelector('.schedule__send-btn').classList.add('is-loading');
+      // document.querySelector('.schedule__send-btn').classList.add('is-loading');
       setTimeout(() => {
         document.querySelector('.schedule__send-btn').classList.remove('is-loading');
         document.querySelector('.schedule__text-success').classList.add('is-visible');
@@ -563,11 +547,11 @@
           if (!response.ok) {
             throw new Error('Ошибка сети: ' + response.status);
           }
-          return response.json(); // Предполагается, что сервер возвращает JSON
+          return response.json();
         })
         .then(data => {
-          // Обработка ответа от сервера
           console.log(data);
+          console.log('Расписание обновлено');
           showSuccessMessage();
         })
         .catch(error => {
@@ -575,9 +559,10 @@
         });
     }
 
-    const saveButton = document.getElementById('send-btn');
+
     saveButton.addEventListener('click', function () {
       sendDataToBackend();
+      saveButton.classList.add('is-loading');
       // TODO удалить отсюда и перенести в sendDataToBackend()
       showSuccessMessage();
     });

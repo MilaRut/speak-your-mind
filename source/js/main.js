@@ -24,6 +24,7 @@ import {setUtilsBtns} from './modules/utils-btns';
 import {uploadUserPhoto} from './modules/upload-user-photo';
 import {initAdminAlerts} from './modules/amin-alerts';
 import {showUploadedFiles} from './modules/uploaded-list';
+import {setIndicator} from './modules/indicator';
 
 const savedLanguage = localStorage.getItem('language') || 'en';
 
@@ -40,13 +41,13 @@ window.addEventListener('DOMContentLoaded', () => {
   loadLanguage(savedLanguage);
   logOut();
   setLangBtn();
-  setName();
   initAdminAlerts();
 
   // Modules
   // ---------------------------------
 
   window.addEventListener('load', () => {
+    setName();
     initSlider();
     initTabs();
     showDropdownList();
@@ -67,5 +68,6 @@ window.addEventListener('DOMContentLoaded', () => {
     redirectToProfile();
     uploadUserPhoto();
     showUploadedFiles();
+    setIndicator();
   });
 });

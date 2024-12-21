@@ -444,10 +444,20 @@
 
       // состояния личного кабинета клиента (статус сессии)
       function setSessionState(data) {
+        const nowUtcString = new Date().toUTCString();
+        const currentSessionUtcString = new Date(data.has_therapist.sch_time).toUTCString();
 
-        if (data.has_therapist.accepted === 1) {
-          main.setAttribute('data-utils', 'main-confirmed');
-          document.querySelector('.videochat__message--next-session .date-next-session').textContent = renderDate(data.has_therapist.sch_time);
+        const nowDate = new Date(nowUtcString);
+        const currentSessionDate = new Date(currentSessionUtcString);
+
+        if (data.has_therapist.accepted) {
+          if (currentSessionDate > nowDate) {
+            main.setAttribute('data-utils', 'main-confirmed');
+            document.querySelector('.videochat__message--next-session .date-next-session').textContent = renderDate(data.has_therapist.sch_time);
+          } else {
+            main.setAttribute('data-utils', 'main-not-scheduled');
+            console.log('нет записи');
+          }
         } else {
           if (data.has_therapist.pending === 0) {
             main.setAttribute('data-utils', 'main-not-confirmed');

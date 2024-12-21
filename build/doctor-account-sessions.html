@@ -31,12 +31,14 @@
                     <use xlink:href="./img/sprite.svg#nav-sessions"></use>
                   </svg>
                   <span data-translate="int_nav_sessions">Sessions</span>
+                  <span class="requests-indicator"></span>
                 </a>
                 <a href="doctor-account-schedule.html" class="doctor-account__nav-link">
                   <svg width="25" height="25" fill="currentColor">
                     <use xlink:href="./img/sprite.svg#nav-schedule"></use>
                   </svg>
                   <span data-translate="int_nav_schedule">Schedule</span>
+                  <span class="requests-indicator"></span>
                 </a>
                 <a href="doctor-account-clients.html" class="doctor-account__nav-link">
                   <svg width="25" height="25" fill="currentColor">
@@ -416,7 +418,7 @@
                 document.querySelector('.videochat__btn.cancel-session-btn').setAttribute('data-sh-id', session.sh_id);
                 document.querySelector('.videochat__btn#reschedule-session').setAttribute('data-sh-id', session.sh_id);
                 submitBtn.setAttribute('old_sh_id', session.sh_id);
-                getClientPhoto(session.client_id);
+                document.querySelector('.videochat__user-photo img').src = getClientPhoto(data, session.client_id);
               });
               document.querySelectorAll('.sessions__clients-item')[0].click();
 
@@ -456,7 +458,7 @@
                 document.querySelector('.videochat__btn.cancel-session-btn').setAttribute('data-sh-id', session.sh_id);
                 document.querySelector('.videochat__btn#reschedule-session').setAttribute('data-sh-id', session.sh_id);
                 submitBtnNew.setAttribute('client_id', session.client_id);
-                getClientPhoto(session.client_id);
+                document.querySelector('.videochat__user-photo img').src = getClientPhoto(data, session.client_id);
               });
 
               if (scheduledList.childNodes.length === 0) {
@@ -599,37 +601,17 @@
       }
 
       // получение фото для окна видеочата
-      function getClientPhoto(client_id_to_send) {
-
-        const dataToSend = {
-          session_token: session_token,
-          user_id: client_id_to_send
-        };
-
-        fetch('http://127.0.0.1:8000/get_user_data', {
-          method: 'POST',
-          headers: {
-            'Content-Type': 'application/json'
-          },
-          body: JSON.stringify(dataToSend)
-        })
-          .then(response => {
-            if (!response.ok) {
-              throw new Error('Сеть не в порядке');
-            }
-            return response.json();
-          })
-          .then(data => {
-            document.querySelector('.videochat__user-photo img').src = '';
-            if (!data.client_photo || data.client_photo === 'null') {
-              document.querySelector('.videochat__user-photo img').src = './img/content/user-thumb.png';
+      function getClientPhoto(data, client_id_to_send) {
+        const photos = data.clients_list;
+        for (let i = 0; i < photos.length; i++) {
+          if (Number(photos[i].client_id) === Number(client_id_to_send)) {
+            if (photos[i].avatar !== null) {
+              return photos[i].avatar;
             } else {
-              document.querySelector('.videochat__user-photo img').src = data.client_photo;
+              return './img/content/user-thumb.png';
             }
-          })
-          .catch(error => {
-            console.error('Ошибка при получении данных пользователя:', error);
-          });
+          }
+        }
       }
 
       // получение данных клиента для модалки

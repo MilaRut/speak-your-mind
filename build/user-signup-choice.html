@@ -70,7 +70,13 @@
               <img src="./img/content/user-thumb.png" width="24" height="24" alt="">
             </div>
             <button class="logged__btn" id="#logged-menu">
-              <span class="logged__username gotten-username">Username</span>
+              <span class="logged__username gotten-username"></span>
+            </button>
+            <button type="button" class="header__logout-btn logout-btn">
+              <svg width="25" height="25" fill="currentColor">
+                <use xlink:href="./img/sprite.svg#nav-logout"></use>
+              </svg>
+              <span data-translate="logout_btn">Logout</span>
             </button>
           </div>
         </div>
@@ -80,12 +86,10 @@
       <div class="signup-header">
         <div class="container">
           <div class="signup-header__links">
-            <a class="signup-header__link" href="user-signup-main.html" data-translate="signup_header_link_main">General
+            <a class="signup-header__link" data-translate="signup_header_link_main">General
               questions</a>
-            <a class="signup-header__link is-active" href="#" data-translate="signup_header_link_choice">Choose a
-              therapist</a>
-            <a class="signup-header__link" href="user-signup-payment.html"
-              data-translate="signup_header_link_payment">Payment</a>
+            <a class="signup-header__link is-active" data-translate="signup_header_link_choice">Choose a therapist</a>
+            <a class="signup-header__link" data-translate="signup_header_link_payment">Payment</a>
           </div>
         </div>
       </div>

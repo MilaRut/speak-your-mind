@@ -67,6 +67,12 @@
             <button class="logged__btn" id="#logged-menu">
               <span class="logged__username gotten-username">Username</span>
             </button>
+            <button type="button" class="header__logout-btn logout-btn">
+              <svg width="25" height="25" fill="currentColor">
+                <use xlink:href="./img/sprite.svg#nav-logout"></use>
+              </svg>
+              <span data-translate="logout_btn">Logout</span>
+            </button>
           </div>
         </div>
       </div>
@@ -84,7 +90,7 @@
                   <input type="email" name="user_email" id="user_email" placeholder="Your email"
                     data-translate="email_placeholder">
                 </label>
-                <span class="form-error-message">Something wrong. Do something</span>
+                <span class="error-message error-message--get-pass">Something wrong. Do something</span>
               </fieldset>
               <p class="text-18 login__text" data-translate="login_message">Enter the email you provided during
                 registration. We will send you a one-time login password to it.</p>
@@ -111,11 +117,17 @@
                   <input type="text" name="one_time_psswd" id="one_time_psswd" placeholder="One-time password from mail"
                     data-translate="onetime_psswd_placeholder">
                 </label>
-                <span class="form-error-message">Something wrong. Do something</span>
+                <span class="error-message error-message--auth">Something wrong. Do something</span>
               </fieldset>
               <div class="login__btn-wrapper">
-                <button type="submit" class="login__btn btn" id="get-password-btn"
-                  data-translate="login_submit">Login</button>
+                <button type="submit" class="login__btn btn" id="submit-btn">
+                  <span class="icon-loader">
+                    <svg width="32" height="32" fill="currentColor">
+                      <use xlink:href="./img/sprite.svg#icon-loader"></use>
+                    </svg>
+                  </span>
+                  <span data-translate="login_submit">Login</span>
+                </button>
               </div>
             </form>
             <div class="login__links-wrapper">
@@ -152,8 +164,10 @@
     document.addEventListener('DOMContentLoaded', function () {
       const getPasswordForm = document.querySelector('#login-get-password-form');
       const userLoginForm = document.querySelector('#user-login-form');
-      const errorMsg = document.querySelector('.form-error-message');
-      const loginBtn = document.querySelector('.login__btn');
+      const errorMsgPass = document.querySelector('.error-message--get-pass');
+      const errorMsgAuth = document.querySelector('.error-message--auth');
+      const getPassBtn = document.querySelector('#get-password-btn');
+      const submitBtn = document.querySelector('#submit-btn');
 
       function clearLocStorage() {
         const savedLang = localStorage.getItem('language') || 'en';
@@ -161,8 +175,12 @@
         localStorage.setItem('language', savedLang);
       };
 
-      loginBtn.addEventListener('click', () => {
-        loginBtn.classList.add('is-loading');
+      getPassBtn.addEventListener('click', () => {
+        getPassBtn.classList.add('is-loading');
+      });
+
+      submitBtn.addEventListener('click', () => {
+        submitBtn.classList.add('is-loading');
       });
 
       // запрос на получение одноразового пароля
@@ -186,14 +204,16 @@
           .then(function (response) {
             if (!response.ok) {
               throw new Error('Network response was not ok');
+              getPassBtn.classList.remove('is-loading');
             }
             return response.json();
           })
           .then(function (data) {
             if (!data.status) {
-              errorMsg.classList.add('is-active');
+              errorMsgPass.classList.add('is-active');
+              getPassBtn.classList.remove('is-loading');
               if (data.error) {
-                errorMsg.textContent = data.error;
+                errorMsgPass.textContent = data.error;
               }
             } else {
               // TODO - удалить, пока добавлено для тестов и дебага
@@ -208,8 +228,8 @@
             // Обработка ошибки
             // добавить обработку ошибки по статусам
             console.log(error);
-            errorMsg.classList.add('is-active');
-            errorMsg.textContent = error;
+            errorMsgPass.classList.add('is-active');
+            errorMsgPass.textContent = error;
           });
       });
 
@@ -218,7 +238,6 @@
       userLoginForm.addEventListener('submit', (e) => {
         e.preventDefault();
         clearLocStorage();
-        loginBtn.classList.remove('is-loading');
 
         const user_email = document.getElementById('user_email').value;
         const password = document.getElementById('one_time_psswd').value;
@@ -236,27 +255,23 @@
           body: JSON.stringify(data)
         })
           .then(function (response) {
+            submitBtn.classList.remove('is-loading');
             if (!response.ok) {
               throw new Error('Network response was not ok');
             }
             return response.json();
           })
           .then(function (data) {
-            // кладем токен в LS
             localStorage.setItem('token', data.token);
-            // Обработка успешного ответа от сервера
             if (!data.status) {
               if (data.error) {
-                errorMsg.classList.add('is-active');
-                errorMsg.textContent = data.error;
+                errorMsgAuth.classList.add('is-active');
+                errorMsgAuth.textContent = 'incorrect password';
               }
             } else {
               if (data.is_therapist) {
                 localStorage.setItem('is_therapist', true);
-                window.location.href = '/doctor-account-settings.html'
-                // Доп проверка и редиректы:
-                // is_therapist && !карта - doctor-account-settings.html
-                // is_therapist && карта - doctor-account-sessions.html
+                getDocDataFromBackend(data.token);
               } else {
                 localStorage.setItem('is_therapist', false);
                 getUserDataFromBackend(data.token);
@@ -264,15 +279,15 @@
             };
           })
           .catch(function (error) {
-            errorMsg.classList.add('is-active');
-            errorMsg.textContent = error;
+            errorMsgAuth.classList.add('is-active');
+            errorMsgAuth.textContent = error;
             // TODO удалить вывод в консоль
             console.log(error);
             // END TODO
           });
       });
 
-      // получение данных пользователя с бэкенда
+      // получение данных пользователя с бэкенда и редиректы на нужную страницу
       function getUserDataFromBackend(session_token) {
         fetch('http://127.0.0.1:8000/get_client_data', {
           method: 'POST',
@@ -292,6 +307,7 @@
             // TODO удалить вывод в консоль
             console.log('Данные пользователя:', data);
             // редиректы
+            localStorage.setItem('user_name', data.name);
             if (data.has_therapist !== null) {
               window.location.href = '/user-account-main.html';
             } else {
@@ -310,6 +326,37 @@
           .catch(error => {
             console.error('Ошибка при получении данных пользователя:', error);
           });
+      }
+
+      // получение данных терапевта с бэкенда
+      function getDocDataFromBackend(session_token) {
+        // получение данных терапевта с бэкенда
+        fetch('http://127.0.0.1:8000/get_doc_data', {
+          method: 'POST',
+          headers: {
+            'Authorization': `Bearer ${session_token}`,
+            'Content-Type': 'application/json'
+          },
+          body: JSON.stringify({ session_token: session_token })
+        })
+          .then(response => {
+            if (!response.ok) {
+              throw new Error('Сеть не в порядке');
+            }
+            return response.json();
+          })
+          .then(data => {
+            localStorage.setItem('user_name', data.doc_name);
+            window.location.href = '/doctor-account-settings.html'
+            // Доп проверка и редиректы:
+            // is_therapist && !карта - doctor-account-settings.html
+            // is_therapist && карта - doctor-account-sessions.html
+
+          })
+          .catch(error => {
+            console.error('Ошибка при получении данных пользователя:', error);
+          });
+
       }
     });
   </script>

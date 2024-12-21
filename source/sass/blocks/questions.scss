@@ -21,6 +21,7 @@
   }
 
   &__main-row {
+    position: relative;
     display: grid;
     height: 48px;
     grid-template-columns: 300px auto;

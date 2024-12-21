@@ -158,10 +158,6 @@
       border: 1px solid $color-nero;
       cursor: pointer;
     }
-
-    .tooltip {
-      display: none;
-    }
   }
 
   input[type="checkbox"] {
@@ -245,5 +241,55 @@
 
   span {
     margin-right: 8px;
+  }
+}
+
+.tooltip {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  display: block;
+  width: 32px;
+  height: 32px;
+  z-index: 10;
+
+  &.accepted {
+    background: url("../img/svg/tooltip-accepted.svg") center no-repeat;
+  }
+
+  &.not-accepted {
+    background: url("../img/svg/tooltip-not-accepted.svg") center no-repeat;
+  }
+
+  &.pending {
+    background: url("../img/svg/tooltip-pending.svg") center no-repeat;
+  }
+
+  &.is-hovered {
+    &::before {
+      position: absolute;
+      content: "";
+      bottom: 0px;
+      left: 23px;
+      width: 12px;
+      height: 12px;
+      background: linear-gradient(45deg, rgba(85, 85, 85, 1) 0%, rgba(85, 85, 85, 1) 50%, rgba(255, 255, 255, 0) 50%, rgba(255, 255, 255, 0) 100%);
+    }
+
+    &::after {
+      position: absolute;
+      content: attr(data_name);
+      bottom: -32px;
+      left: 10px;
+      width: fit-content;
+      height: fit-content;
+      background-color: #555555;
+      font-size: 18px;
+      color: #ffffff;
+      padding: 5px 10px;
+      border-radius: 4px;
+      z-index: 50;
+    }
   }
 }

@@ -33,6 +33,7 @@
                     <use xlink:href="./img/sprite.svg#nav-sessions"></use>
                   </svg>
                   <span data-translate="int_nav_sessions">Sessions</span>
+                  <span class="requests-indicator"></span>
                 </a>
                 <a href="doctor-account-schedule.html" class="doctor-account__nav-link">
                   <svg width="25" height="25" fill="currentColor">
@@ -861,6 +862,7 @@
 
       // Получение токена из Local Storage
       const token = localStorage.getItem('token');
+      const lang = localStorage.getItem('language') || 'en';
 
       // получение расписания с бэкенда
       function loadScheduleFromBackend() {
@@ -950,7 +952,30 @@
           });
         }
 
-        document.querySelector('#doctor-start').value = data.doc_practice_start;
+        const docPracticeStart = data.doc_practice_start
+
+        // Функция для преобразования месяца в нужный формат
+        function getFormattedDate(docPracticeStart, lang) {
+          const [month, year] = docPracticeStart.split(' ');
+          const monthNumber = parseInt(month, 10);
+
+          const months = {
+            en: [
+              "January", "February", "March", "April", "May", "June",
+              "July", "August", "September", "October", "November", "December"
+            ],
+            ru: [
+              "январь", "февраль", "март", "апрель", "май", "июнь",
+              "июль", "август", "сентябрь", "октябрь", "ноябрь", "декабрь"
+            ]
+          };
+
+          const monthName = months[lang][monthNumber - 1]; // Получаем название месяца
+          return `${monthName} ${year}`; // Форматируем строку
+        }
+
+        // document.querySelector('#doctor-start').value = data.doc_practice_start;
+        document.querySelector('#doctor-start').value = getFormattedDate(docPracticeStart, lang);
         document.querySelector('#doc_additional_info').value = data.doc_additional_info;
         // языки
         document.querySelectorAll('input[name="doc_language"]').forEach((checkbox) => {
@@ -1011,7 +1036,6 @@
           })
         }
 
-        const lang = localStorage.getItem('language') || 'en';
         function getExperienceWord(years) {
           if (lang === 'en') {
             return years === 1 ? "year" : "years";
@@ -1085,7 +1109,7 @@
       }
 
       // рендеринг расписания терапевта
-      
+
       function updateDocSchedule(data) {
         // TODO удалить вывод в консоль
         console.log('Расписание:', data);

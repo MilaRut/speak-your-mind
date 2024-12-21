@@ -335,3 +335,21 @@
     }
   }
 }
+
+.reset-upload {
+  background-color: transparent;
+  border: none;
+  width: fit-content;
+  font-size: 14px;
+  display: none;
+  align-items: center;
+  gap: 7px;
+
+  &.is-active {
+    display: flex;
+  }
+
+  @include hover {
+    opacity: 0.7;
+  }
+}

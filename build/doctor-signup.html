@@ -265,14 +265,26 @@
                 <b><span data-translate="doc_edu_upload_title">Please attach photos of the unfolded diplomas and
                     certificates confirming your education.</span>*</b>
               </p>
-              <p class="text-18" data-translate="doc_edu_upload_text">Required documents: (1) diploma on basic
-                psychological (related) training / retraining (2)documents on method training. ⚠️ If the training is not
-                completed, please attach a certificate from the training institution.</p>
+              <p class="text-18">
+                <span data-translate="doc_edu_upload_text_1">Required documents:</span><br>
+                <span data-translate="doc_edu_upload_text_2">(1) diploma on basic psychological (related) training /
+                  retraining</span><br>
+                <span data-translate="doc_edu_upload_text_3">(2)documents on method training.</span><br>
+                <span data-translate="doc_edu_upload_text_4">⚠️ If the training is not completed, please attach a
+                  certificate from the training
+                  institution.</span>
+              </p>
               <label class="input-file">
                 <input type="file" multiple name="doc_edu_upload" id="doc_edu_upload">
                 <span class="btn btn--white" data-translate="doc_file_upload_btn">Select files</span>
               </label>
               <ul class="file-list file-list--edu list-reset"></ul>
+              <button type="button" class="reset-upload">
+                <span>Удалить прикрепленные файлы</span>
+                <svg width="12" height="12" fill="currentColor">
+                  <use xlink:href="./img/sprite.svg#close-modal"></use>
+                </svg>
+              </button>
             </div>
             <div class="doc-questionary__wrapper">
               <p class="text-20">
@@ -400,7 +412,7 @@
               <textarea class="text-20" name="doc_socials_links" id="doc_socials_links" placeholder="Your answer"
                 data-translate="your_answer"></textarea>
             </div>
-            <div class="doc-questionary__wrapper upload">
+            <div class="doc-questionary__wrapper upload upload--photos">
               <p class="text-20"><b><span data-translate="doc_photo_upload_title">Attach your photo</span>*</b></p>
               <p data-translate="doc_photo_upload_text_1">Photo requirements:</p>
               <p data-translate="doc_photo_upload_text_2">1. Colored;</p>
@@ -411,10 +423,16 @@
               <p class="text-14" data-translate="doc_photo_upload_text_6">If we enter into a contract with you, one of
                 the photos will be used on the platform to inform customers about you.</p>
               <label class="input-file">
-                <input type="file" multiple name="doc_photo_upload" id="doc_photo_upload">
+                <input type="file" multiple name="doc_photo_upload" id="doc_photo_upload" accept="image/*">
                 <span class="btn btn--white" data-translate="doc_file_upload_btn">Select files</span>
               </label>
               <ul class="file-list file-list--photo list-reset"></ul>
+              <button type="button" class="reset-upload">
+                <span>Удалить прикрепленные файлы</span>
+                <svg width="12" height="12" fill="currentColor">
+                  <use xlink:href="./img/sprite.svg#close-modal"></use>
+                </svg>
+              </button>
             </div>
             <div class="doc-questionary__wrapper">
               <p class="text-20"><b><span data-translate="doc_citizenship_title">Your citizenship?</span>*</b>
@@ -581,8 +599,10 @@
                   `;
           setPlaceholders(newInputs);
           parentBlock.append(newInputs);
+          document.querySelectorAll('[data-translate]').forEach((el) => {
+            el.style.opacity = '1';
+          });
         });
-
 
         document.addEventListener('click', (e) => {
           if (e.target.classList.contains('edu__delete-btn')) {
@@ -590,6 +610,7 @@
           }
         });
       }
+
       addEduInputs();
 
       const form = document.querySelector('#register-therapist-form');
@@ -743,7 +764,6 @@
               }
             };
 
-            // Отправка данных на бэкенд с помощью fetch
             fetch(url, {
               method: 'POST',
               headers: {
@@ -752,22 +772,17 @@
               body: JSON.stringify(userData)
             })
               .then(response => {
-                // Проверка, если сервер вернул успешный ответ
                 if (!response.ok) {
                   throw new Error('Ошибка сети: ' + response.status);
                 }
-                return response.json(); // Предполагается, что сервер возвращает JSON
+                return response.json();
               })
               .then(data => {
                 // Обработка ответа от сервера
-                console.log(data); // Выводим данные в консоль для отладки
+                console.log(data);
 
-                // Предполагается, что токен находится в data.token
                 if (data.token) {
-                  // Сохранение токена в Local Storage
                   localStorage.setItem('token', data.token);
-
-                  // Редирект на страницу /doctor-account-settings.html
                   window.location.href = '/doctor-account-settings.html';
                 } else {
                   console.error('Токен не найден в ответе от сервера');
