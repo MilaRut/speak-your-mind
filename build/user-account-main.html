@@ -472,9 +472,10 @@
           } else if (data.has_therapist.pending === 2) {
             main.setAttribute('data-utils', 'main-doctor-change-requested');
             console.log('Терапевт запросил перенос');
-            // document.querySelector('.user-account__message--reschedule .session-time').textContent = renderDate(data.has_therapist.new_sch_time);
-            // document.querySelector('.videochat__message--next-session .date-next-session').textContent = renderDate(data.has_therapist.sch_time);
-            // document.querySelector('.videochat__message--requested-reschedule .date').textContent = renderDate(data.has_therapist.new_sch_time);
+            document.querySelector('.user-account__message--doctor-change-request .session-date').textContent = renderDate(data.has_therapist.sch_time);
+            document.querySelector('.user-account__message--doctor-change-request .new-date b').textContent = renderDate(data.has_therapist.new_sch_time);
+            document.querySelector('.videochat__message--next-session .date-next-session').textContent = renderDate(data.has_therapist.sch_time);
+            document.querySelector('.videochat__message--requested-reschedule .date').textContent = renderDate(data.has_therapist.new_sch_time);
           } else {
             main.setAttribute('data-utils', 'main-not-scheduled');
             console.log('нет записи');

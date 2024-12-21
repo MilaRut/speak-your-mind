@@ -255,8 +255,8 @@
           body: JSON.stringify(data)
         })
           .then(function (response) {
-            submitBtn.classList.remove('is-loading');
             if (!response.ok) {
+              submitBtn.classList.remove('is-loading');
               throw new Error('Network response was not ok');
             }
             return response.json();

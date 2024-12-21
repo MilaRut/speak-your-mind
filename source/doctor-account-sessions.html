@@ -383,13 +383,16 @@
         unscheduledList.innerHTML = '';
         // Рендеринг подтвержденных сессий и запросов на сессию
         data.normal_sessions_list.forEach(session => {
+          // подтвержденные сессии: записанные и не записанные
           if (session.accepted === 1) {
-            // подтвержденные сессии
+            const nowUtcString = new Date().toUTCString();
+            const currentSessionUtcString = new Date(session.time).toUTCString();
 
-            const now = new Date();
+            const nowDate = new Date(nowUtcString);
+            const currentSessionDate = new Date(currentSessionUtcString);
 
-            if (new Date(session.time) > now) {
-              //  записанные
+            if (currentSessionDate > nowDate) {
+              //  записанные еще не прошедшие
               const li = document.createElement('li');
               li.className = 'sessions__clients-item';
               li.innerHTML = `
@@ -428,7 +431,7 @@
                 getClientData(session.client_id);
               });
             } else {
-              // прошедшие
+              // не записанные - прошедшие
               const li = document.createElement('li');
               li.className = 'sessions__clients-item';
               li.innerHTML = `
@@ -515,11 +518,23 @@
             name.addEventListener('click', () => {
               getClientData(session.client_id);
             });
+
             // открытие модалки с расписанием для переноса
             const rescheduleBtn = li.querySelector('.reschedule-session-btn');
+            const rescheduleModal = document.querySelector('#doctor-reschedule');
+
             rescheduleBtn.addEventListener('click', () => {
-              document.querySelector('#doctor-reschedule').classList.add('is-active');
-              document.querySelector('#doctor-reschedule .doctor__submit-btn').setAttribute('sh_id', session.sh_id);
+              console.log('Перенос новой сессии');
+              rescheduleModal.classList.add('is-active');
+              document.querySelector('#reschedule-submit-btn').setAttribute('old_sh_id', session.sh_id);
+              document.querySelector('#reschedule-submit-btn').setAttribute('ch_id', '0');
+              const inputs = rescheduleModal.querySelectorAll('input[name="appointment-time"]');
+              inputs.forEach((input) => {
+                input.addEventListener('change', () => {
+                  const newShId = input.getAttribute('data-sh-id');
+                  document.querySelector('#reschedule-submit-btn').setAttribute('new_sh_id', newShId);
+                });
+              });
             });
           }
         });
@@ -576,7 +591,7 @@
             const rescheduleBtn = li.querySelector('.reschedule-session-btn');
             const rescheduleModal = document.querySelector('#doctor-reschedule');
             rescheduleBtn.addEventListener('click', () => {
-              console.log('Перенос!');
+              console.log('Перенос запроса на перенос');
               rescheduleModal.classList.add('is-active');
               document.querySelector('#reschedule-submit-btn').setAttribute('old_sh_id', session.old_sh_id);
               document.querySelector('#reschedule-submit-btn').setAttribute('ch_id', session.ch_id);
@@ -750,6 +765,10 @@
           })
           .then(data => {
             console.log('Запрос на перенос сессии отправлен');
+            rescheduleModal.classList.remove('is-active');
+            rescheduleModal.querySelectorAll(('input[name="appointment-time"]')).forEach((input) => {
+              input.checked = false;
+            });
           })
           .catch(error => {
             console.error('Ошибка при получении данных пользователя:', error);
