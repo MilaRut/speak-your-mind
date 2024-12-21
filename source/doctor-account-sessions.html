@@ -258,7 +258,7 @@
               <use xlink:href="./img/sprite.svg#dropdown-green"></use>
             </svg>
           </button>
-          <button type="submit" class="doctor__submit-btn btn">
+          <button type="submit" class="doctor__submit-btn btn" id="reschedule-submit-btn">
             <span class="doctor__submit-text" data-translate="doctor_submit_btn_1">Select&nbsp;</span>
           </button>
         </form>
@@ -526,10 +526,13 @@
 
         // Рендеринг запросов на перенос сессии
         data.pending_sessions_list.forEach(session => {
-          const li = document.createElement('li');
-          li.className = 'sessions__requests-item sessions__requests-item--reschedule';
-          li.setAttribute('data-id', session.client_id);
-          li.innerHTML = `
+          if (session.pending === 2) {
+            console.log('перенос от терапевта');
+          } else {
+            const li = document.createElement('li');
+            li.className = 'sessions__requests-item sessions__requests-item--reschedule';
+            li.setAttribute('data-id', session.client_id);
+            li.innerHTML = `
                      <p class="text-25">
                          <span data-translate="sessions_requests_item_reschedule">Запрос на перенос сессии от клиента:</span>&nbsp;
                          <a href="#" class="sessions__requests-client">${session.name}</a>&nbsp;
@@ -548,7 +551,8 @@
                              </svg>
                              <span data-translate="doctor_change_request_btn_1">Подтвердить</span>
                          </button>
-                         <button type="button" class="btn btn--white reschedule-session-btn" data-old-sh="${session.old_time}">
+                         <button type="button" class="btn btn--white reschedule-session-btn" data-old-sh-id="${session.old_sh_id}"
+                         data-new-sh-id="${session.new_sh_id}" data-ch-id="${session.ch_id}">
                              <svg width="32" height="32" fill="currentColor">
                                  <use xlink:href="./img/sprite.svg#calendar-reschedule"></use>
                              </svg>
@@ -562,19 +566,29 @@
                          </button>
                      </div>
                  `;
-          requestsList.appendChild(li);
-          // открытие модалки с карточкой клиента
-          const name = li.querySelector('.sessions__requests-client');
-          name.addEventListener('click', () => {
-            getClientData(session.client_id);
-          });
-          // открытие модалки с расписанием для переноса
-          const rescheduleBtn = li.querySelector('.reschedule-session-btn');
-          rescheduleBtn.addEventListener('click', () => {
-            console.log('Перенос!');
-            document.querySelector('#doctor-reschedule').classList.add('is-active');
-            document.querySelector('#doctor-reschedule .doctor__submit-btn').setAttribute('sh_id', session.new_sh_id);
-          });
+            requestsList.appendChild(li);
+            // открытие модалки с карточкой клиента
+            const name = li.querySelector('.sessions__requests-client');
+            name.addEventListener('click', () => {
+              getClientData(session.client_id);
+            });
+            // открытие модалки с расписанием для переноса
+            const rescheduleBtn = li.querySelector('.reschedule-session-btn');
+            const rescheduleModal = document.querySelector('#doctor-reschedule');
+            rescheduleBtn.addEventListener('click', () => {
+              console.log('Перенос!');
+              rescheduleModal.classList.add('is-active');
+              document.querySelector('#reschedule-submit-btn').setAttribute('old_sh_id', session.old_sh_id);
+              document.querySelector('#reschedule-submit-btn').setAttribute('ch_id', session.ch_id);
+              const inputs = rescheduleModal.querySelectorAll('input[name="appointment-time"]');
+              inputs.forEach((input) => {
+                input.addEventListener('change', () => {
+                  const newShId = input.getAttribute('data-sh-id');
+                  document.querySelector('#reschedule-submit-btn').setAttribute('new_sh_id', newShId);
+                });
+              });
+            });
+          }
         });
         document.querySelectorAll('[data-translate]').forEach((el) => {
           el.style.opacity = '1';
@@ -709,17 +723,17 @@
       // отправка запроса на перенос сессии терапевтом
       document.getElementById('choice-date-form').addEventListener('submit', function (e) {
         e.preventDefault();
-        const old_sh_id = Number(submitBtn.getAttribute('old_sh_id'));
-        const new_sh_id = Number(submitBtn.getAttribute('new_sh_id'));
+        const rescheduleSubmitBtn = document.querySelector('#reschedule-submit-btn');
+        const old_sh_id = Number(rescheduleSubmitBtn.getAttribute('old_sh_id'));
+        const new_sh_id = Number(rescheduleSubmitBtn.getAttribute('new_sh_id'));
+        const ch_id = Number(rescheduleSubmitBtn.getAttribute('ch_id'));
 
         const dataToSend = {
           session_token: session_token,
           old_sh_id: old_sh_id,
           new_sh_id: new_sh_id,
-          ch_id: 0
+          ch_id: ch_id
         };
-
-        console.log(dataToSend);
 
         fetch('http://127.0.0.1:8000/therapist_change_session_time', {
           method: 'POST',
@@ -854,14 +868,16 @@
         const scheduleByDate = {};
 
         jsonData.schedule.forEach(slot => {
-          const dateTime = slot.date_time;
-          const sh_id = slot.sh_id;
+          if (slot.client_id === null) {
+            const dateTime = slot.date_time;
+            const sh_id = slot.sh_id;
 
-          const [date, time] = dateTime.split(' ');
-          if (!scheduleByDate[date]) {
-            scheduleByDate[date] = [];
+            const [date, time] = dateTime.split(' ');
+            if (!scheduleByDate[date]) {
+              scheduleByDate[date] = [];
+            }
+            scheduleByDate[date].push(time);
           }
-          scheduleByDate[date].push(time);
         });
 
         // Генерация HTML-разметки
@@ -928,9 +944,6 @@
             if (e.target.matches('input[name="appointment-time"]')) {
               const selectedDateTime = e.target.dataset.dateTime;
               const selectedShId = e.target.dataset.shId;
-
-              console.log('Selected date and time:', selectedDateTime);
-              console.log('Selected sh_id:', selectedShId);
               currentForm.querySelector('button[type="submit"]').setAttribute('new_sh_id', e.target.dataset.shId)
             }
           });

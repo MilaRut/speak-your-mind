@@ -15,7 +15,6 @@ function setIndicator() {
 
   if (requestsList) {
     requestsList.addEventListener('click', () => {
-      console.log('click');
       setIndicator();
     });
   }

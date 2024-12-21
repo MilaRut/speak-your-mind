@@ -527,8 +527,14 @@
               </label>
             </div>
             <span class="form-error-message">Something wrong. Do something</span>
-            <button type="submit" class="doc-questionary__submit-btn btn" data-translate="doc_q_submit_btn">Send the
-              form</button>
+            <button type="submit" class="doc-questionary__submit-btn btn">
+              <span class="icon-loader">
+                <svg width="32" height="32" fill="currentColor">
+                  <use xlink:href="./img/sprite.svg#icon-loader"></use>
+                </svg>
+              </span>
+              <span data-translate="doc_q_submit_btn">Send the form</span>
+            </button>
           </form>
     </main>
     <footer class="footer">
@@ -612,6 +618,12 @@
       }
 
       addEduInputs();
+
+      const submitBtn = document.querySelector('.doc-questionary__submit-btn');
+
+      submitBtn.addEventListener('click', () => {
+        submitBtn.classList.add('is-loading');
+      });
 
       const form = document.querySelector('#register-therapist-form');
       const url = 'http://127.0.0.1:8000/register_therapist';
@@ -772,8 +784,9 @@
               body: JSON.stringify(userData)
             })
               .then(response => {
+                submitBtn.classList.remove('is-loading');
                 if (!response.ok) {
-                  throw new Error('Ошибка сети: ' + response.status);
+                  throw new Error('Ошибка сети: ' + response.status + '. Проверьте корректность заполнения всех полей');
                 }
                 return response.json();
               })

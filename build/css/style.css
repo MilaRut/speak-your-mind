@@ -5141,6 +5141,14 @@ label[for=user_photo] {
 
 .doc-questionary__submit-btn {
   padding: 16px 30px;
+  height: 66px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  gap: 7px;
 }
 
 .doc-questionary .checkboxes-wrapper {

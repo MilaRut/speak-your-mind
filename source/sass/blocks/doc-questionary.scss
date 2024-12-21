@@ -168,6 +168,10 @@
 
   &__submit-btn {
     padding: 16px 30px;
+    height: 66px;
+    display: flex;
+    align-items: center;
+    gap: 7px;
   }
 
   .checkboxes-wrapper {

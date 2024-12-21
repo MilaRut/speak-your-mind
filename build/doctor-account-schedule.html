@@ -340,9 +340,9 @@
               dataObject = data.schedule.map(slot => slot.date_time);
               saveDataToLocalStorage();
               restoreCheckboxState();
-
-              // Устанавливаем атрибуты для отмеченных чекбоксов
-              setAttributesForCheckedCheckboxes(data.schedule);
+              setTimeout(() => {
+                setAttributesForCheckedCheckboxes(data.schedule);
+              }, 2000);
             }
           })
           .catch(error => {
@@ -449,6 +449,7 @@
         setTimeout(() => {
           updateCal();
         }, 500);
+        return;
       }
       showValues();
       restoreCheckboxState();
@@ -523,6 +524,11 @@
       }, 3000);
     }
 
+    saveButton.addEventListener('click', function () {
+      saveButton.classList.add('is-loading');
+      sendDataToBackend();
+    });
+
     function sendDataToBackend() {
       const x = new Date();
       const currentTimeZoneOffsetInHours = String(x.getTimezoneOffset() / 60);
@@ -558,14 +564,6 @@
           console.error('Произошла ошибка:', error);
         });
     }
-
-
-    saveButton.addEventListener('click', function () {
-      sendDataToBackend();
-      saveButton.classList.add('is-loading');
-      // TODO удалить отсюда и перенести в sendDataToBackend()
-      showSuccessMessage();
-    });
 
     window.addEventListener('load', function () {
 

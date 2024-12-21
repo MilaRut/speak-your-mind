@@ -1126,12 +1126,14 @@
         const scheduleByDate = {};
 
         jsonData.schedule.forEach(slot => {
-          const dateTime = slot.date_time;
-          const [date, time] = dateTime.split(' ');
-          if (!scheduleByDate[date]) {
-            scheduleByDate[date] = [];
+          if (slot.client_id === null) {
+            const dateTime = slot.date_time;
+            const [date, time] = dateTime.split(' ');
+            if (!scheduleByDate[date]) {
+              scheduleByDate[date] = [];
+            }
+            scheduleByDate[date].push(time);
           }
-          scheduleByDate[date].push(time);
         });
 
         // Генерация HTML-разметки
