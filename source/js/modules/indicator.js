@@ -29,7 +29,7 @@ function setIndicator() {
 
 // получение списка сессий с бэкенда
 function getSessionsFromBackend() {
-  fetch('http://127.0.0.1:8000/recieve_sessions_list_for_therapist', {
+  fetch('https://www.speakyourmind.help:8000/recieve_sessions_list_for_therapist', {
     method: 'POST',
     headers: {
       'Authorization': `Bearer ${session_token}`,

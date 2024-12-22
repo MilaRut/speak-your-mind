@@ -874,7 +874,7 @@
         });
 
         // Отправка запроса на сервер для получения расписания
-        fetch('http://www.speakyourmind.help:8000/doctor_schedule', {
+        fetch('https://www.speakyourmind.help:8000/doctor_schedule', {
           method: 'POST',
           headers: {
             'Authorization': `Bearer ${token}`,
@@ -902,7 +902,7 @@
       function getTherapistDataFromBackend() {
         if (token) {
           // Отправка запроса на сервер для получения данных пользования
-          fetch('http://www.speakyourmind.help:8000/get_doc_data', {
+          fetch('https://www.speakyourmind.help:8000/get_doc_data', {
             method: 'POST',
             headers: {
               'Authorization': `Bearer ${token}`,
@@ -1244,7 +1244,7 @@
           symptoms: doc_symptoms
         };
 
-        fetch('http://www.speakyourmind.help:8000/update_therapist', {
+        fetch('https://www.speakyourmind.help:8000/update_therapist', {
           method: 'POST',
           headers: {
             'Content-Type': 'application/json'

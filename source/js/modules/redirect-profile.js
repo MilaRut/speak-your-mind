@@ -22,7 +22,7 @@ function redirectToProfile() {
 
 function getUserDataFromBackend() {
   if (session_token) {
-    fetch('http://127.0.0.1:8000/get_client_data', {
+    fetch('https://www.speakyourmind.help:8000/get_client_data', {
       method: 'POST',
       headers: {
         'Authorization': `Bearer ${session_token}`,
