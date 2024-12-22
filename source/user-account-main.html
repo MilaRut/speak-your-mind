@@ -150,19 +150,20 @@
                         time, click “Suggest another time”.</span>
                     </p>
                     <div class="btns">
-                      <button type="button" class="btn">
+                      <button type="button" class="btn" id="approve-doc-reschedule">
                         <svg width="32" height="32" fill="currentColor">
                           <use xlink:href="./img/sprite.svg#calendar-check"></use>
                         </svg>
                         <span class="text-20" data-translate="doctor_change_request_btn_1">Confirm</span>
                       </button>
-                      <button type="button" class="btn btn--white" utils-btn-main data-id="main-change">
+                      <button type="button" class="btn btn--white" utils-btn-main data-id="main-change"
+                        id="reschedule-doc-reschedule">
                         <svg width="32" height="32" fill="currentColor">
                           <use xlink:href="./img/sprite.svg#calendar-reschedule"></use>
                         </svg>
                         <span class="text-20" data-translate="doctor_change_request_btn_2">Suggest another time</span>
                       </button>
-                      <button type="button" class="btn btn--red">
+                      <button type="button" class="btn btn--red" id="cancel-doc-reschedule">
                         <svg width="32" height="32" fill="currentColor">
                           <use xlink:href="./img/sprite.svg#calendar-cancel"></use>
                         </svg>
@@ -304,7 +305,13 @@
                         </svg>
                       </button>
 
+                      <span class="error-message"></span>
                       <button type="submit" disabled class="doctor__submit-btn-2 btn">
+                        <span class="icon-loader">
+                          <svg width="32" height="32" fill="currentColor">
+                            <use xlink:href="./img/sprite.svg#icon-loader"></use>
+                          </svg>
+                        </span>
                         <span class="doctor__submit-text" data-translate="doctor_submit_btn_1">Select </span>&nbsp;
                         <span class="doctor__submit-date"></span>&nbsp;
                         <span class="doctor__submit-text-2" data-translate="doctor_submit_btn_2"> and continue</span>
@@ -345,6 +352,9 @@
       const submitBtn = document.querySelector('.doctor__submit-btn');
       const submitBtn2 = document.querySelector('.doctor__submit-btn-2');
       const scheduleBtnReset = document.querySelector('.user-account__session-schedule-reset');
+      const approveDocRescheduleBtn = document.querySelector('#approve-doc-reschedule');
+      const rescheduleDocRescheduleBtn = document.querySelector('#reschedule-doc-reschedule');
+      const cancelDocRescheduleBtn = document.querySelector('#cancel-doc-reschedule');
 
       // получение данных клиента c бэкенда
       function getUserDataFromBackend() {
@@ -444,10 +454,20 @@
 
       // состояния личного кабинета клиента (статус сессии)
       function setSessionState(data) {
+        const nowUtcString = new Date().toUTCString();
+        const currentSessionUtcString = new Date(data.has_therapist.sch_time).toUTCString();
 
-        if (data.has_therapist.accepted === 1) {
-          main.setAttribute('data-utils', 'main-confirmed');
-          document.querySelector('.videochat__message--next-session .date-next-session').textContent = renderDate(data.has_therapist.sch_time);
+        const nowDate = new Date(nowUtcString);
+        const currentSessionDate = new Date(currentSessionUtcString);
+
+        if (data.has_therapist.accepted) {
+          if (currentSessionDate > nowDate) {
+            main.setAttribute('data-utils', 'main-confirmed');
+            document.querySelector('.videochat__message--next-session .date-next-session').textContent = renderDate(data.has_therapist.sch_time);
+          } else {
+            main.setAttribute('data-utils', 'main-not-scheduled');
+            console.log('нет записи');
+          }
         } else {
           if (data.has_therapist.pending === 0) {
             main.setAttribute('data-utils', 'main-not-confirmed');
@@ -462,9 +482,21 @@
           } else if (data.has_therapist.pending === 2) {
             main.setAttribute('data-utils', 'main-doctor-change-requested');
             console.log('Терапевт запросил перенос');
-            // document.querySelector('.user-account__message--reschedule .session-time').textContent = renderDate(data.has_therapist.new_sch_time);
-            // document.querySelector('.videochat__message--next-session .date-next-session').textContent = renderDate(data.has_therapist.sch_time);
-            // document.querySelector('.videochat__message--requested-reschedule .date').textContent = renderDate(data.has_therapist.new_sch_time);
+            document.querySelector('.user-account__message--doctor-change-request .session-date').textContent = renderDate(data.has_therapist.sch_time);
+            document.querySelector('.user-account__message--doctor-change-request .new-date b').textContent = renderDate(data.has_therapist.new_sch_time);
+            document.querySelector('.videochat__message--next-session .date-next-session').textContent = renderDate(data.has_therapist.sch_time);
+            document.querySelector('.videochat__message--requested-reschedule .date').textContent = renderDate(data.has_therapist.new_sch_time);
+
+            const ch_id = data.has_therapist.ch_id ? Number(data.has_therapist.ch_id) : 0;
+
+            approveDocRescheduleBtn.setAttribute('sh-id', data.has_therapist.new_sh_id);
+            approveDocRescheduleBtn.setAttribute('ch-id', ch_id);
+
+            rescheduleDocRescheduleBtn.setAttribute('new-sh-id', data.has_therapist.new_sh_id);
+            rescheduleDocRescheduleBtn.setAttribute('old-sh-id', data.has_therapist.sh_id);
+            rescheduleDocRescheduleBtn.setAttribute('ch-id', ch_id);
+
+            cancelDocRescheduleBtn.setAttribute('sh-id', data.has_therapist.new_sh_id);
           } else {
             main.setAttribute('data-utils', 'main-not-scheduled');
             console.log('нет записи');
@@ -601,12 +633,13 @@
         e.preventDefault();
         const old_sh_id = Number(submitBtn.getAttribute('old_sh_id'));
         const new_sh_id = Number(submitBtn.getAttribute('data-id'));
+        const ch_id = submitBtn.getAttribute('ch_id') ? Number(submitBtn.getAttribute('ch_id')) : 0;
 
         const dataToSend = {
           session_token: session_token,
           old_sh_id: old_sh_id,
           new_sh_id: new_sh_id,
-          ch_id: 0
+          ch_id: ch_id
         };
 
         fetch('http://www.speakyourmind.help:8000/client_change_session_time', {
@@ -678,6 +711,10 @@
         document.querySelector('.user-account__title').style.display = 'block';
       })
 
+      submitBtn2.addEventListener('click', () => {
+        submitBtn2.classList.add('is-loading');
+      });
+
       // отправка запроса на назначение новой сессии на бэкенд
       document.getElementById('choice-date-form-2').addEventListener('submit', function (e) {
         e.preventDefault();
@@ -700,6 +737,9 @@
         })
           .then(response => {
             if (!response.ok) {
+              submitBtn.classList.remove('is-loading');
+              document.getElementById('choice-date-form-2').querySelector('error-message').classList.add('is-active');
+              document.getElementById('choice-date-form-2').querySelector('error-message').textContent = "Ошибка";
               throw new Error('Сеть не в порядке');
             }
             return response.json();
@@ -709,6 +749,84 @@
             document.querySelector('.user-account__session-request-wrapper').style.display = 'none';
             document.querySelector('.user-account__session-wrapper').style.display = 'block';
             document.querySelector('.user-account__title').style.display = 'block';
+            getUserDataFromBackend();
+          })
+          .catch(error => {
+            console.error('Ошибка при получении данных пользователя:', error);
+            document.getElementById('choice-date-form-2').querySelector('error-message').textContent = error;
+          });
+      });
+
+      // обработка запроса на перенос от терапевта
+
+      // подтверждение переноса
+      approveDocRescheduleBtn.addEventListener('click', (e) => {
+        const sh_id = approveDocRescheduleBtn.getAttribute('sh-id');
+        const ch_id = approveDocRescheduleBtn.getAttribute('ch-id');
+        e.preventDefault();
+        const dataToSend = {
+          session_token: session_token,
+          sh_id: sh_id,
+          ch_id: ch_id,
+          approved: 1
+        };
+
+        fetch('http://127.0.0.1:8000/approve_time_client', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json'
+          },
+          body: JSON.stringify(dataToSend)
+        })
+          .then(response => {
+            if (!response.ok) {
+              throw new Error('Сеть не в порядке');
+            }
+            return response.json();
+          })
+          .then(data => {
+            console.log('Запрос на отмену сессии отправлен');
+            getUserDataFromBackend();
+          })
+          .catch(error => {
+            console.error('Ошибка при получении данных пользователя:', error);
+          });
+      });
+
+      // предложить новое время
+      rescheduleDocRescheduleBtn.addEventListener('click', (e) => {
+        e.preventDefault();
+        document.querySelector('.user-account__session-change-wrapper').style.display = 'block';
+        document.querySelector('.user-account__session-wrapper').style.display = 'none';
+        document.querySelector('.user-account__title').style.display = 'none';
+        submitBtn.setAttribute('old_sh_id', rescheduleDocRescheduleBtn.getAttribute('new-sh-id'));
+        submitBtn.setAttribute('ch-id', rescheduleDocRescheduleBtn.getAttribute('ch-id'));
+      });
+
+      // отменить сессию с предложенным переносом
+      cancelDocRescheduleBtn.addEventListener('click', (e) => {
+        e.preventDefault();
+        const sh_id = cancelDocRescheduleBtn.getAttribute('sh_id');
+        const dataToSend = {
+          session_token: session_token,
+          sh_id: sh_id
+        };
+
+        fetch('http://127.0.0.1:8000/cancel_session', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json'
+          },
+          body: JSON.stringify(dataToSend)
+        })
+          .then(response => {
+            if (!response.ok) {
+              throw new Error('Сеть не в порядке');
+            }
+            return response.json();
+          })
+          .then(data => {
+            console.log('Запрос на отмену сессии отправлен');
             getUserDataFromBackend();
           })
           .catch(error => {

@@ -39,6 +39,7 @@
   }
 
   fieldset {
+    position: relative;
     display: flex;
     flex-direction: column;
     margin-bottom: 24px;
@@ -70,6 +71,10 @@
     &#one_time_psswd {
       width: 100%;
     }
+  }
+
+  .error-message {
+    bottom: 0;
   }
 
   &__btn-wrapper {

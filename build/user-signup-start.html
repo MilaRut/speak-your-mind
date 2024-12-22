@@ -67,6 +67,12 @@
             <button class="logged__btn" id="#logged-menu">
               <span class="logged__username gotten-username">Username</span>
             </button>
+            <button type="button" class="header__logout-btn logout-btn">
+              <svg width="25" height="25" fill="currentColor">
+                <use xlink:href="./img/sprite.svg#nav-logout"></use>
+              </svg>
+              <span data-translate="logout_btn">Logout</span>
+            </button>
           </div>
         </div>
       </div>
@@ -93,10 +99,10 @@
                 <p class="text-18 login__text" data-translate="signup_message">Please make sure that you have access to
                   the mailbox you specify. We will send you a one-time password to this address, which you will need to
                   enter to continue registration.</p>
-                <span class="form-error-message">Something wrong. Do something</span>
+                  <span class="error-message error-message--get-pass">Something wrong</span>
               </fieldset>
               <div class="signup__btn-wrapper">
-                <button type="submit" class="signup__btn btn">
+                <button type="submit" class="signup__btn btn" id="get-password-btn">
                   <span class="icon-loader">
                     <svg width="32" height="32" fill="currentColor">
                       <use xlink:href="./img/sprite.svg#icon-loader"></use>
@@ -118,11 +124,17 @@
                   <input type="text" name="one_time_psswd" id="one_time_psswd" placeholder="One-time password from mail"
                     data-translate="onetime_psswd_placeholder">
                 </label>
-                <span class="form-error-message form-error-message-2">Something wrong. Do something</span>
+                <span class="error-message error-message--auth">Something wrong</span>
               </fieldset>
               <div class="login__btn-wrapper">
-                <button type="submit" class="login__btn btn" id="get-password-btn" data-translate="signup_btn">Create an
-                  account</button>
+                <button type="submit" class="login__btn btn" id="submit-btn">
+                  <span class="icon-loader">
+                    <svg width="32" height="32" fill="currentColor">
+                      <use xlink:href="./img/sprite.svg#icon-loader"></use>
+                    </svg>
+                  </span>
+                  <span data-translate="signup_btn">Create an account</span>
+                </button>
               </div>
             </form>
             <div class="signup__links-wrapper">
@@ -159,7 +171,10 @@
       const getPasswordForm = document.querySelector('#signup-get-password-form');
       const userSignupForm = document.querySelector('#user-signup-form');
       const errorMsg = document.querySelector('.form-error-message')
-      const signupBtn = document.querySelector('.signup__btn');
+      const errorMsgPass = document.querySelector('.error-message--get-pass');
+      const errorMsgAuth = document.querySelector('.error-message--auth');
+      const getPassBtn = document.querySelector('#get-password-btn');
+      const submitBtn = document.querySelector('#submit-btn');
 
       function clearLocStorage() {
         const savedLang = localStorage.getItem('language') || 'en';
@@ -167,8 +182,12 @@
         localStorage.setItem('language', savedLang);
       };
 
-      signupBtn.addEventListener('click', () => {
-        signupBtn.classList.add('is-loading');
+      getPassBtn.addEventListener('click', () => {
+        getPassBtn.classList.add('is-loading');
+      });
+
+      submitBtn.addEventListener('click', () => {
+        submitBtn.classList.add('is-loading');
       });
 
       // запрос на регистрацию - получение одноразового пароля
@@ -178,6 +197,7 @@
 
         const user_name = document.getElementById('user_name').value;
         const user_email = document.getElementById('user_email').value;
+        localStorage.setItem('user_name', user_name);
 
         const data = {
           user_name: user_name,
@@ -227,7 +247,7 @@
 
       // запрос на авторизацию
       userSignupForm.addEventListener('submit', (e) => {
-        signupBtn.classList.add('is-loading');
+        getPassBtn.classList.add('is-loading');
         e.preventDefault();
 
         const user_email = document.getElementById('user_email').value;
@@ -246,6 +266,7 @@
           body: JSON.stringify(data)
         })
           .then(function (response) {
+            submitBtn.classList.remove('is-loading');
             if (!response.ok) {
               throw new Error('Network response was not ok');
             }
@@ -254,12 +275,12 @@
           .then(function (data) {
             // кладем токен в LS
             localStorage.setItem('token', data.token);
-            signupBtn.classList.remove('is-loading');
+            getPassBtn.classList.remove('is-loading');
             // Обработка успешного ответа от сервера
             if (!data.status) {
               if (data.error) {
-                errorMsg.classList.add('is-active');
-                errorMsg.textContent = data.error;
+                errorMsgAuth.classList.add('is-active');
+                errorMsgAuth.textContent = 'incorrect password';
               }
             } else {
               localStorage.setItem('is_therapist', false);

@@ -124,7 +124,8 @@
   }
 
   &__submit-btn,
-  &__submit-btn-2 {
+  &__submit-btn-2,
+  &__submit-btn-new {
     font-weight: 900;
     font-size: 20px;
     line-height: 110%;
@@ -152,4 +153,14 @@
 
 #choice-date-form {
   position: relative;
+}
+
+.doctor__submit-btn-2 {
+  height: 66px;
+  display: flex;
+  align-items: center;
+
+  .icon-loader {
+    margin-right: 7px;
+  }
 }

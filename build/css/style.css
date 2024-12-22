@@ -710,6 +710,10 @@ details summary::marker {
   font-size: 14px;
 }
 
+.requests-indicator {
+  font-weight: 700;
+}
+
 .icon-loader {
   display: none;
 }
@@ -1431,6 +1435,18 @@ details summary::marker {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
+}
+
+.header__logout-btn {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  gap: 5px;
+  background-color: transparent;
+  border: none;
 }
 
 .nav {
@@ -2416,6 +2432,7 @@ details summary::marker {
 }
 
 .login fieldset {
+  position: relative;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -2451,6 +2468,10 @@ details summary::marker {
 
 .login input#one_time_psswd {
   width: 100%;
+}
+
+.login .error-message {
+  bottom: 0;
 }
 
 .login__btn-wrapper {
@@ -2553,6 +2574,7 @@ details summary::marker {
 }
 
 .signup fieldset {
+  position: relative;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -2719,6 +2741,7 @@ details summary::marker {
 }
 
 .questions__main-row {
+  position: relative;
   display: -ms-grid;
   display: grid;
   height: 48px;
@@ -3249,7 +3272,8 @@ details summary::marker {
 }
 
 .doctor__submit-btn,
-.doctor__submit-btn-2 {
+.doctor__submit-btn-2,
+.doctor__submit-btn-new {
   font-weight: 900;
   font-size: 20px;
   line-height: 110%;
@@ -3263,22 +3287,39 @@ details summary::marker {
 }
 
 .doctor__submit-btn .doctor__submit-text-2,
-.doctor__submit-btn-2 .doctor__submit-text-2 {
+.doctor__submit-btn-2 .doctor__submit-text-2,
+.doctor__submit-btn-new .doctor__submit-text-2 {
   display: none;
 }
 
 .doctor__submit-btn.is-enabled,
-.doctor__submit-btn-2.is-enabled {
+.doctor__submit-btn-2.is-enabled,
+.doctor__submit-btn-new.is-enabled {
   opacity: 1;
 }
 
 .doctor__submit-btn.is-enabled .doctor__submit-text-2,
-.doctor__submit-btn-2.is-enabled .doctor__submit-text-2 {
+.doctor__submit-btn-2.is-enabled .doctor__submit-text-2,
+.doctor__submit-btn-new.is-enabled .doctor__submit-text-2 {
   display: inline-block;
 }
 
 #choice-date-form {
   position: relative;
+}
+
+.doctor__submit-btn-2 {
+  height: 66px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+}
+
+.doctor__submit-btn-2 .icon-loader {
+  margin-right: 7px;
 }
 
 .card .container {
@@ -5114,6 +5155,14 @@ label[for=user_photo] {
 
 .doc-questionary__submit-btn {
   padding: 16px 30px;
+  height: 66px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  gap: 7px;
 }
 
 .doc-questionary .checkboxes-wrapper {
@@ -5282,6 +5331,26 @@ label[for=user_photo] {
 
 .file-list--edu li::before {
   background: url("../../img/svg/icon-files.svg") center no-repeat;
+}
+
+.reset-upload {
+  background-color: transparent;
+  border: none;
+  width: -webkit-fit-content;
+  width: -moz-fit-content;
+  width: fit-content;
+  font-size: 14px;
+  display: none;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  gap: 7px;
+}
+
+.reset-upload.is-active {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
 }
 
 .doctor-account {
@@ -5923,10 +5992,6 @@ label[for=user_photo] {
   cursor: pointer;
 }
 
-.schedule td label .tooltip {
-  display: none;
-}
-
 .schedule td input[type=checkbox] {
   opacity: 0;
   cursor: pointer;
@@ -6012,6 +6077,60 @@ label[for=user_photo] {
 
 .schedule__show-more span {
   margin-right: 8px;
+}
+
+.tooltip {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+  display: block;
+  width: 32px;
+  height: 32px;
+  z-index: 10;
+}
+
+.tooltip.accepted {
+  background: url("../img/svg/tooltip-accepted.svg") center no-repeat;
+}
+
+.tooltip.not-accepted {
+  background: url("../img/svg/tooltip-not-accepted.svg") center no-repeat;
+}
+
+.tooltip.pending {
+  background: url("../img/svg/tooltip-pending.svg") center no-repeat;
+}
+
+.tooltip.is-hovered::before {
+  position: absolute;
+  content: "";
+  bottom: 0px;
+  left: 23px;
+  width: 12px;
+  height: 12px;
+  background: linear-gradient(45deg, rgb(85, 85, 85) 0%, rgb(85, 85, 85) 50%, rgba(255, 255, 255, 0) 50%, rgba(255, 255, 255, 0) 100%);
+}
+
+.tooltip.is-hovered::after {
+  position: absolute;
+  content: attr(data_name);
+  bottom: -32px;
+  left: 10px;
+  width: -webkit-fit-content;
+  width: -moz-fit-content;
+  width: fit-content;
+  height: -webkit-fit-content;
+  height: -moz-fit-content;
+  height: fit-content;
+  background-color: #555555;
+  font-size: 18px;
+  color: #ffffff;
+  padding: 5px 10px;
+  border-radius: 4px;
+  z-index: 50;
 }
 
 .clients__table table {
@@ -6952,6 +7071,36 @@ button.admin-profile__back-to-profile {
   gap: 10px;
 }
 
+.admin-profile__save-btn.is-loading {
+  pointer-events: none;
+  cursor: not-allowed;
+}
+
+.admin-profile__save-btn.is-loading .save-icon {
+  display: none;
+}
+
+.specialisation {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  gap: 24px;
+}
+
+.specialisation h2 {
+  font-size: 18px;
+  margin-bottom: 10px;
+}
+
+.specialisation ul {
+  margin: 0;
+  padding-left: 20px;
+}
+
+.specialisation li {
+  font-size: 18px;
+}
+
 .status-page {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -7117,6 +7266,10 @@ button.admin-profile__back-to-profile {
     opacity: 0.8;
   }
 
+  .header__logout-btn:hover:not(.focus-visible) {
+    opacity: 0.7;
+  }
+
   .nav-lang-switcher .lang-switcher__item a:hover:not(.focus-visible) {
     opacity: 0.7;
   }
@@ -7157,6 +7310,10 @@ button.admin-profile__back-to-profile {
     -ms-transform: translate(-50%, -50%) rotate(45deg);
     transform: translate(-50%, -50%) rotate(45deg);
     background-color: #dc0000;
+  }
+
+  .reset-upload:hover:not(.focus-visible) {
+    opacity: 0.7;
   }
 
   .sessions__client-name:hover:not(.focus-visible) {

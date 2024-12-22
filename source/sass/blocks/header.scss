@@ -50,3 +50,15 @@
     }
   }
 }
+
+.header__logout-btn {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  background-color: transparent;
+  border: none;
+
+  @include hover {
+    opacity: 0.7;
+  }
+}

@@ -72,6 +72,12 @@
             <button class="logged__btn" id="#logged-menu">
               <span class="logged__username gotten-username">Username</span>
             </button>
+            <button type="button" class="header__logout-btn logout-btn">
+              <svg width="25" height="25" fill="currentColor">
+                <use xlink:href="./img/sprite.svg#nav-logout"></use>
+              </svg>
+              <span data-translate="logout_btn">Logout</span>
+            </button>
           </div>
         </div>
       </div>
@@ -97,6 +103,8 @@
             <form action="" method="post" id="user-signup-main-form">
               <fieldset class="questions__main">
                 <div class="questions__main-row questions__main-row--age">
+                  <span class="error-message error-message-age">Вам должно быть больше 18 лет, чтобы
+                    зарегистрироваться</span>
                   <span class="text-20" data-translate="date_of_birth">Your date of birth</span>
                   <div class="inputs-wrapper">
                     <input type="date" name="age" id="age">
@@ -441,7 +449,8 @@
                   data-translate="questions_phone_placeholder">
               </div>
               <div class="questions__btn-wrapper">
-                <button type="submit" class="questions__btn btn" data-translate="questions_submit_btn">Submit</button>
+                <button type="submit" class="questions__btn btn" data-translate="questions_submit_btn"
+                  disabled>Submit</button>
               </div>
             </form>
           </div>
@@ -558,7 +567,7 @@
       ageInput.addEventListener('change', () => {
         const userBirthDate = new Date(ageInput.value);
         const today = new Date();
-        const userAge = today.getFullYear() - userBirthDate.getFullYear();
+        let userAge = today.getFullYear() - userBirthDate.getFullYear();
         const monthDiff = today.getMonth() - userBirthDate.getMonth();
 
         console.log(ageInput.value);
@@ -567,11 +576,14 @@
           userAge--;
         }
 
+        console.log(userAge);
+
         if (userAge < 18) {
           submitBtn.disabled = true;
-          alert('Вы должны быть старше 18 лет, чтобы отправить эту форму.');
+          document.querySelector('.error-message-age').classList.add('is-active');
         } else {
           submitBtn.disabled = false;
+          document.querySelector('.error-message-age').classList.remove('is-active');
         }
       });
 

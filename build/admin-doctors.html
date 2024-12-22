@@ -282,6 +282,9 @@
                     </tr>
                     `;
               tableBody.appendChild(row);
+              document.querySelectorAll('[data-translate]').forEach((el) => {
+                el.style.opacity = '1';
+              });
               row.addEventListener('click', (e) => {
                 document.querySelectorAll('.admin-table tr').forEach((el) => {
                   el.classList.remove('is-active');
