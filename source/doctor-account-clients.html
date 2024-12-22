@@ -377,7 +377,9 @@
       const rescheduleSubmitBtn = document.querySelector('#reschedule-submit-btn');
       const scheduleNewModal = document.querySelector('#schedule-new-session');
       const scheduleNewSubmitBtn = document.querySelector('#new-schedule-submit-btn');
+      const tableBody = document.querySelector('.clients__table tbody');
 
+      // TODO нужны ли данные терапевта? возможно удалить и просто вызывать расписание
       // получение данных терапевта с бэкенда
       if (token) {
         fetch('https://www.speakyourmind.help:8000/get_doc_data', {
@@ -396,7 +398,7 @@
           })
           .then(data => {
             // TODO удалить вывод в консоль
-            console.log('Данные терапевта:', data);
+            // console.log('Данные терапевта:', data);
             loadScheduleFromBackend();
           })
           .catch(error => {
@@ -443,7 +445,7 @@
 
       function updateDocSchedule(data) {
         // TODO удалить вывод в консоль
-        console.log('Расписание:', data);
+        // console.log('Расписание:', data);
         const jsonData = data;
 
         // Функция для форматирования даты
@@ -577,45 +579,55 @@
             }
 
             const sessionsData = await sessionsResponse.json();
+
             console.log('Список сессий и клиентов:', sessionsData);
 
-            const clientsList = sessionsData.clients_list; // Список клиентов
-            const tableBody = document.querySelector('.clients__table tbody');
+            const allSessionsList = sessionsData.normal_sessions_list.concat(sessionsData.pending_sessions_list);
+            console.log(allSessionsList);
+            for (const session of allSessionsList) {
+              const userData = await fetchUserData(session.client_id, token);
+              const clientId = session.client_id;
+              const clientName = session.name;
+              const clientAge = getClientAge(userData.age);
+              const sessionsCount = userData.sessions_count;
+              let nextSession;
+              let sessionStatus;
 
-            // Проходим по каждому клиенту
-            for (const client of clientsList) {
-              // Получаем данные о клиенте
-              const userData = await fetchUserData(client.client_id, token);
-
-              // Получаем сессии для текущего клиента
-              const clientSessions = sessionsData.normal_sessions_list.filter(session => session.client_id === client.client_id);
-              const nextSession = clientSessions.length > 0 ? clientSessions[0] : null;
-              const nextSessionDate = nextSession ? new Date(nextSession.time).toLocaleString() : '-';
-              const status = nextSession ? 'Запланирована' : 'Не запланирована';
+              if (session.time) {
+                const nowUtcString = new Date().toUTCString();
+                const currentSessionUtcString = new Date(session.time).toUTCString();
+                const nowDate = new Date(nowUtcString);
+                const currentSessionDate = new Date(currentSessionUtcString);
+                nextSession = (currentSessionDate > nowDate) ? session.time : '-';
+                if (session.accepted === 1) {
+                  sessionStatus = (currentSessionDate > nowDate) ? 'Запланировано' : 'Нет записи';
+                } else if (session.accepted === 0) {
+                  sessionStatus = (currentSessionDate > nowDate) ? 'Запрос на сессию' : 'Нет записи';
+                }
+              } else if (session.old_time) {
+                nextSession = session.old_time;
+                if (session.pending && session.pending === 1) {
+                  sessionStatus = 'Запрошен перенос сессии';
+                } else if (session.pending && session.pending === 2) {
+                  sessionStatus = 'Ожидает подтверждения';
+                }
+              } else {
+                nextSession = '-';
+                sessionStatus = '-';
+              }
 
               // Добавляем строку в таблицу
               const row = document.createElement('tr');
               row.innerHTML = `
-                      <td><span class="clients__client-id">#${userData.client_id}</span></td>
-                      <td><span class="clients__client-name">${userData.name}</span>
-                      </td>
-                      <td><span class="clients__client-age">${getClientAge(userData.age)}</span></td>
-                      <td><span class="clients__sessions-amount">${userData.sessions_count}</span></td>
-                      <td><span class="clients__next-session"><time>${nextSessionDate}</time></span></td>
-                      <td><span class="clients__session-status">${status}</span></td>
-                `;
+                        <td><span class="clients__client-id">#${clientId}</span></td>
+                        <td><span class="clients__client-name">${clientName}</span>
+                        </td>
+                        <td><span class="clients__client-age">${clientAge}</span></td>
+                        <td><span class="clients__sessions-amount">${sessionsCount}</span></td>
+                        <td><span class="clients__next-session"><time>${formatDate(nextSession)}</time></span></td>
+                        <td><span class="clients__session-status">${sessionStatus}</span></td>
+                  `;
               tableBody.appendChild(row);
-              // модалка
-              const name = row.querySelector('.clients__client-name');
-              name.addEventListener('click', () => {
-                document.querySelector('#client-card').classList.add('is-active');
-                document.querySelector('.client-card__username').textContent = userData.name;
-                document.querySelector('.client-card__userid').textContent = `#${userData.client_id}`;
-                document.querySelector('.client-card__age').textContent = getClientAge(userData.age);
-                document.querySelector('.client-card__sessions-amount').textContent = userData.sessions_count;
-                document.querySelector('.client-card__next-session').textContent = nextSessionDate;
-                document.querySelector('.client-card__request').textContent = mapNumbersToStrings(userData.client_symptoms);
-              });
             }
           } catch (error) {
             console.error('Ошибка при получении данных:', error);
@@ -626,6 +638,17 @@
       }
 
       fetchData();
+
+      // форматирование даты
+      function formatDate(dateString) {
+        if (dateString !== '-') {
+          const date = new Date(dateString);
+          const options = { day: 'numeric', month: 'numeric', year: 'numeric', hour: 'numeric', minute: 'numeric' };
+          return date.toLocaleString('ru-RU', options);
+        } else {
+          return '-';
+        }
+      }
 
       // получение возраста клиента
       function getClientAge(birthDate) {
