@@ -308,7 +308,7 @@
       // получение списка сессий с бэкенда
       function getSessionsFromBackend() {
         if (session_token) {
-          fetch('http://127.0.0.1:8000/recieve_sessions_list_for_therapist', {
+          fetch('http://www.speakyourmind.help:8000/recieve_sessions_list_for_therapist', {
             method: 'POST',
             headers: {
               'Authorization': `Bearer ${session_token}`,
@@ -654,7 +654,7 @@
           user_id: client_id_to_send
         };
 
-        fetch('http://127.0.0.1:8000/get_user_data', {
+        fetch('http://www.speakyourmind.help:8000/get_user_data', {
           method: 'POST',
           headers: {
             'Content-Type': 'application/json'
@@ -714,7 +714,7 @@
           approved: 1
         };
 
-        fetch('http://127.0.0.1:8000/approve_time_therapist', {
+        fetch('http://www.speakyourmind.help:8000/approve_time_therapist', {
           method: 'POST',
           headers: {
             'Content-Type': 'application/json'
@@ -754,6 +754,7 @@
         };
 
         fetch('http://127.0.0.1:8000/therapist_change_session_time', {
+
           method: 'POST',
           headers: {
             'Content-Type': 'application/json'
@@ -788,7 +789,7 @@
           sh_id: sh_id
         };
 
-        fetch('http://127.0.0.1:8000/cancel_session', {
+        fetch('http://www.speakyourmind.help:8000/cancel_session', {
           method: 'POST',
           headers: {
             'Content-Type': 'application/json'
@@ -814,7 +815,7 @@
 
       // получение данных терапевта с бэкенда
       if (session_token) {
-        fetch('http://127.0.0.1:8000/get_doc_data', {
+        fetch('http://www.speakyourmind.help:8000/get_doc_data', {
           method: 'POST',
           headers: {
             'Authorization': `Bearer ${session_token}`,
@@ -849,7 +850,7 @@
           timezone: ''
         });
 
-        fetch('http://127.0.0.1:8000/doctor_schedule', {
+        fetch('http://www.speakyourmind.help:8000/doctor_schedule', {
           method: 'POST',
           headers: {
             'Authorization': `Bearer ${session_token}`,
@@ -1008,7 +1009,7 @@
 
         console.log(dataToSend);
 
-        fetch('http://127.0.0.1:8000/doctor_appoint_client', {
+        fetch('http://www.speakyourmind.help:8000/doctor_appoint_client', {
           method: 'POST',
           headers: {
             'Content-Type': 'application/json'
