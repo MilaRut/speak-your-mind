@@ -15,9 +15,16 @@ function setIndicator() {
 
   if (requestsList) {
     requestsList.addEventListener('click', () => {
-      setIndicator();
     });
   }
+
+  document.addEventListener('click', (e) => {
+    if (e.target.matches('.doctor__submit-btn') || e.target.matches('.doctor__submit-btn-new') || e.target.matches('.approve-session-btn') || e.target.matches('.cancel-session-btn')) {
+      setTimeout(() => {
+        setIndicator();
+      }, 1000);
+    }
+  });
 }
 
 // получение списка сессий с бэкенда

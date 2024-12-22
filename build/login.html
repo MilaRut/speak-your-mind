@@ -267,6 +267,7 @@
               if (data.error) {
                 errorMsgAuth.classList.add('is-active');
                 errorMsgAuth.textContent = 'incorrect password';
+                submitBtn.classList.remove('is-loading');
               }
             } else {
               if (data.is_therapist) {
@@ -281,9 +282,7 @@
           .catch(function (error) {
             errorMsgAuth.classList.add('is-active');
             errorMsgAuth.textContent = error;
-            // TODO удалить вывод в консоль
-            console.log(error);
-            // END TODO
+            submitBtn.classList.remove('is-loading');
           });
       });
 

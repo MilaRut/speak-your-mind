@@ -405,40 +405,42 @@
         const slot = schedule.find(item => item.date_time === formattedTime);
 
         // Если чекбокс отмечен и слот найден, устанавливаем атрибуты
-        if (checkbox.checked && slot) {
-          checkbox.setAttribute('data-sh-id', slot.sh_id);
-          checkbox.setAttribute('data-client-id', slot.client_id);
-          checkbox.setAttribute('data-client-name', slot.client_name);
-          if (slot.client_id !== null) {
-            const label = checkbox.closest('label');
-            const tooltip = document.createElement('span');
-            tooltip.classList.add('tooltip');
-            tooltip.setAttribute('data_id', slot.client_id);
-            tooltip.setAttribute('data_name', slot.client_name);
-            if (slot.accepted == 1) {
-              tooltip.classList.add('accepted');
-            } else if (slot.accepted === 0 && slot.pending_change === 0) {
-              tooltip.classList.add('not-accepted');
-            } else {
-              tooltip.classList.add('pending');
+        setTimeout(() => {
+          if (checkbox.checked && slot) {
+            checkbox.setAttribute('data-sh-id', slot.sh_id);
+            checkbox.setAttribute('data-client-id', slot.client_id);
+            checkbox.setAttribute('data-client-name', slot.client_name);
+            if (slot.client_id !== null) {
+              const label = checkbox.closest('label');
+              const tooltip = document.createElement('span');
+              tooltip.classList.add('tooltip');
+              tooltip.setAttribute('data_id', slot.client_id);
+              tooltip.setAttribute('data_name', slot.client_name);
+              if (slot.accepted == 1) {
+                tooltip.classList.add('accepted');
+              } else if (slot.accepted === 0 && slot.pending_change === 0) {
+                tooltip.classList.add('not-accepted');
+              } else {
+                tooltip.classList.add('pending');
+              }
+              label.append(tooltip);
+              tooltip.addEventListener('mouseover', () => {
+                tooltip.classList.add('is-hovered');
+              });
+              tooltip.addEventListener('mouseout', () => {
+                tooltip.classList.remove('is-hovered');
+              });
+              label.addEventListener('click', (e) => {
+                e.preventDefault();
+              });
             }
-            label.append(tooltip);
-            tooltip.addEventListener('mouseover', () => {
-              tooltip.classList.add('is-hovered');
-            });
-            tooltip.addEventListener('mouseout', () => {
-              tooltip.classList.remove('is-hovered');
-            });
-            label.addEventListener('click', (e) => {
-              e.preventDefault();
-            });
+          } else {
+            // Если чекбокс не отмечен, можно удалить атрибуты (если нужно)
+            checkbox.removeAttribute('data-sh-id');
+            checkbox.removeAttribute('data-client-id');
+            checkbox.removeAttribute('data-client-name');
           }
-        } else {
-          // Если чекбокс не отмечен, можно удалить атрибуты (если нужно)
-          checkbox.removeAttribute('data-sh-id');
-          checkbox.removeAttribute('data-client-id');
-          checkbox.removeAttribute('data-client-name');
-        }
+        }, 1000);
       });
     }
 
@@ -514,9 +516,8 @@
     const saveButton = document.getElementById('send-btn');
 
     function showSuccessMessage() {
-      // document.querySelector('.schedule__send-btn').classList.add('is-loading');
       setTimeout(() => {
-        document.querySelector('.schedule__send-btn').classList.remove('is-loading');
+        saveButton.classList.remove('is-loading');
         document.querySelector('.schedule__text-success').classList.add('is-visible');
       }, 1500);
       setTimeout(() => {
