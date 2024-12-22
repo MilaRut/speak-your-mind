@@ -75,7 +75,7 @@
       clearLocStorage();
 
       function getAdminData() {
-        const url = "http://www.speakyourmind.help:8000/make_admin";
+        const url = "http://127.0.0.1:8000/make_admin";
 
         fetch(url, {
           method: 'POST'
@@ -107,7 +107,7 @@
           password: password
         };
 
-        fetch('http://www.speakyourmind.help:8000/login_admin', {
+        fetch('http://127.0.0.1:8000/login_admin', {
           method: 'POST',
           headers: {
             'Content-Type': 'application/json'
