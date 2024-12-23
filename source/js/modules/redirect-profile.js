@@ -41,6 +41,8 @@ function getUserDataFromBackend() {
             window.location.href = '/user-signup-main.html';
           } else if (data.has_therapist === null) {
             window.location.href = '/user-signup-choice.html';
+          } else if (data.user_card_data === '') {
+            window.location.href = '/user-signup-payment.html';
           } else {
             window.location.href = '/user-account-main.html';
           }

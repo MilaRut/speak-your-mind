@@ -115,12 +115,12 @@
 .doctor-account__settings[data-utils="settings-main-start"] {
 
   .settings__payment-no-card,
-  .settings__payment-add-card {
+  .settings__payment-btn--add {
     display: block;
   }
 
   .settings__payment-card,
-  .settings__payment-change-card {
+  .settings__payment-btn--update {
     display: none;
   }
 
@@ -139,12 +139,12 @@
   }
 
   .settings__payment-no-card,
-  .settings__payment-add-card {
+  .settings__payment-btn--add {
     display: none;
   }
 
   .settings__payment-card,
-  .settings__payment-change-card {
+  .settings__payment-btn--update {
     display: block;
   }
 

@@ -83,7 +83,7 @@
               <!-- Временное вспомогательное меню  -->
               <!-- TODO: удалить -->
 
-              <details
+              <!-- <details
                 style="position: fixed; min-width: 360px; z-index: 100; cursor: pointer; display: flex; flex-direction: column; top: 0; right: 0; background-color: lightgray;">
                 <summary>Temporary menu - profile variants</summary>
                 <p><b>Main:</b></p>
@@ -97,7 +97,7 @@
                 <div utils-btn-main data-id="main-doctor-change-requested">therapist requested a session reschedule
                 </div>
                 <div utils-btn-main data-id="main-payment-error">payment error</div>
-              </details>
+              </details> -->
 
               <!-- TODO: удалить -->
               <!-- END Временное вспомогательное меню  -->
@@ -198,6 +198,13 @@
                   </div>
                   <div class="user-account__videochat videochat">
                     <div class="videochat__session-info session-info">
+                      <div class="temp-container">
+                        <button class="temp-btn">Получить ссылку на сессию</button>
+                        <div class="temp-link-wrapper">
+                          <span>Ссылка на сессию: </span>
+                          <a href="" target="_blank" class="temp-link" style="text-decoration: underline;">Жмяк</a>
+                        </div>
+                      </div>
                       <div class="videochat__user-photo-wrapper">
                         <div class="videochat__user-photo">
                           <img class="doctor-avatar" src="./img/content/doctor-thumb.png" width="150" height="150"
@@ -828,6 +835,36 @@
           .then(data => {
             console.log('Запрос на отмену сессии отправлен');
             getUserDataFromBackend();
+          })
+          .catch(error => {
+            console.error('Ошибка при получении данных пользователя:', error);
+          });
+      });
+
+      // получение ссылки на сессию
+      const tempBtn = document.querySelector('.temp-btn');
+
+      tempBtn.addEventListener('click', (e) => {
+        e.preventDefault();
+        console.log('получение')
+
+        fetch('http://127.0.0.1:8000/check_session', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json'
+          },
+          body: JSON.stringify({ session_token: session_token })
+        })
+          .then(response => {
+            if (!response.ok) {
+              throw new Error('Сеть не в порядке');
+            }
+            return response.json();
+          })
+          .then(data => {
+            document.querySelector('.temp-link').href = `https://www.speakyourmind.help:8001/room/${data.rooms[0].room}`;
+            document.querySelector('.temp-link').style.color = 'red';
+
           })
           .catch(error => {
             console.error('Ошибка при получении данных пользователя:', error);

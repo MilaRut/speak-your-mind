@@ -135,6 +135,13 @@
                       <span class="text-18 videochat__client-id"></span>
                     </h3>
                     <div class="videochat__session-info session-info">
+                      <div class="temp-container">
+                        <button class="temp-btn">Получить ссылку на сессию</button>
+                        <div class="temp-link-wrapper">
+                          <span>Ссылка на сессию: </span>
+                          <a href="" target="_blank" class="temp-link" style="text-decoration: underline;">Жмяк</a>
+                        </div>
+                      </div>
                       <div class="videochat__user-photo-wrapper">
                         <div class="videochat__user-photo">
                           <img src="./img/content/user-thumb.png" width="150" height="150" alt="User photo.">
@@ -339,6 +346,8 @@
       }
 
       getSessionsFromBackend();
+
+
 
       // Функция для форматирования даты
       function renderDate(data) {
@@ -1067,6 +1076,34 @@
 
         return numbers.map(num => mapping[num] || '-').join(', ');
       }
+
+      // получение ссылки на сессию
+      const tempBtn = document.querySelector('.temp-btn');
+
+      tempBtn.addEventListener('click', (e) => {
+        e.preventDefault();
+
+        fetch('http://127.0.0.1:8000/check_session', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json'
+          },
+          body: JSON.stringify({ session_token: session_token })
+        })
+          .then(response => {
+            if (!response.ok) {
+              throw new Error('Сеть не в порядке');
+            }
+            return response.json();
+          })
+          .then(data => {
+            document.querySelector('.temp-link').href = `https://www.speakyourmind.help:8001/room/${data.rooms[0].room}`;
+            document.querySelector('.temp-link').style.color = 'red';
+          })
+          .catch(error => {
+            console.error('Ошибка при получении данных пользователя:', error);
+          });
+      });
     });
   </script>
 

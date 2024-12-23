@@ -25,6 +25,8 @@ import {uploadUserPhoto} from './modules/upload-user-photo';
 import {initAdminAlerts} from './modules/amin-alerts';
 import {showUploadedFiles} from './modules/uploaded-list';
 import {setIndicator} from './modules/indicator';
+import {formatCardInputs, sendCard} from './modules/add-card';
+import {formatCardInputsUpdate, sendCardUpdate} from './modules/update-card';
 
 const savedLanguage = localStorage.getItem('language') || 'en';
 
@@ -69,5 +71,11 @@ window.addEventListener('DOMContentLoaded', () => {
     uploadUserPhoto();
     showUploadedFiles();
     setIndicator();
+    // TODO объединить похожие функции
+    formatCardInputs();
+    sendCard();
+    formatCardInputsUpdate();
+    sendCardUpdate();
+    // END TODO
   });
 });
