@@ -737,6 +737,38 @@ details summary::marker {
   opacity: 0;
 }
 
+.loader {
+  display: none;
+  pointer-events: none;
+}
+
+.loader.is-active {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.2);
+  -webkit-backdrop-filter: blur(10px);
+  backdrop-filter: blur(10px);
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  z-index: 5000;
+}
+
+.loader.is-active .icon-loader {
+  display: block;
+  -webkit-animation: rotate-animation 5s infinite linear;
+  animation: rotate-animation 5s infinite linear;
+}
+
 @-webkit-keyframes rotate-animation {
   0% {
     -webkit-transform: rotate(0deg);

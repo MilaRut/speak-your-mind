@@ -16,6 +16,13 @@
 </head>
 
 <body>
+  <div class="loader is-active">
+    <span class="icon-loader">
+      <svg width="32" height="32" fill="currentColor">
+        <use xlink:href="./img/sprite.svg#icon-loader"></use>
+      </svg>
+    </span>
+  </div>
   <div class="wrapper internal">
     <main>
       <section class="doctor-account">
@@ -137,10 +144,6 @@
                     <div class="videochat__session-info session-info">
                       <div class="temp-container">
                         <button class="temp-btn">Начать сессию</button>
-                        <!-- <div class="temp-link-wrapper">
-                          <span>Ссылка на сессию: </span>
-                          <a href="" target="_blank" class="temp-link" style="text-decoration: underline;">Жмяк</a>
-                        </div> -->
                       </div>
                       <div class="videochat__user-photo-wrapper">
                         <div class="videochat__user-photo">
@@ -303,6 +306,7 @@
 
   <script>
     document.addEventListener('DOMContentLoaded', function () {
+      const loader = document.querySelector('.loader')
       const session_token = localStorage.getItem('token');
       const requestsList = document.getElementById('sessions-requests-list');
       const scheduledList = document.getElementById('clients-list-scheduled');
@@ -313,6 +317,16 @@
       const newSessionBtn = document.querySelector('#schedule-session');
       const rescheduleSubmitBtn = document.querySelector('#reschedule-submit-btn');
       const rescheduleModal = document.querySelector('#doctor-reschedule');
+
+      function showLoader() {
+        loader.classList.add('is-active');
+      }
+
+      function hideLoader() {
+        loader.classList.remove('is-active');
+      }
+
+      showLoader();
 
       // получение списка сессий с бэкенда
       function getSessionsFromBackend() {
@@ -341,6 +355,7 @@
             })
             .finally(() => {
               addBtnsListener();
+              hideLoader();
             });
         } else {
           console.log('Токен не найден. Пожалуйста, войдите в систему.');
@@ -1100,13 +1115,7 @@
           })
           .then(data => {
             const link = `https://www.speakyourmind.help:8001/room/${data.rooms[0].room}`;
-            // document.querySelector('.temp-link').href = `https://www.speakyourmind.help:8001/room/${data.rooms[0].room}`;
-            // document.querySelector('.temp-link').style.color = 'red';
-          })
-          .then(data => {
-            window.open(link)
-            // document.querySelector('.temp-link').href = `https://www.speakyourmind.help:8001/room/${data.rooms[0].room}`;
-            // document.querySelector('.temp-link').style.color = 'red';
+            window.open(link);
           })
           .catch(error => {
             console.error('Ошибка при получении данных пользователя:', error);
