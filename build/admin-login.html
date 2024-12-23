@@ -42,7 +42,14 @@
               </fieldset>
               <span class="form-error-message">Something wrong. Do something</span>
               <div class="login__btn-wrapper">
-                <button type="submit" class="login__btn btn" data-translate="login_submit">Login</button>
+                <button type="submit" class="login__btn btn">
+                  <span class="icon-loader">
+                    <svg width="32" height="32" fill="currentColor">
+                      <use xlink:href="./img/sprite.svg#icon-loader"></use>
+                    </svg>
+                  </span>
+                  <span data-translate="login_submit">Login</span>
+                </button>
               </div>
             </form>
             </p>
@@ -65,6 +72,7 @@
   <script>
     document.addEventListener('DOMContentLoaded', function () {
       const errorMsg = document.querySelector('.form-error-message');
+      const submitBtn = document.querySelector('.login__btn');
 
       function clearLocStorage() {
         const savedLang = localStorage.getItem('language') || 'en';
@@ -73,6 +81,10 @@
       }
 
       clearLocStorage();
+
+      submitBtn.addEventListener('click', () => {
+        submitBtn.classList.add('is-loading');
+      });
 
       function getAdminData() {
         const url = "http://127.0.0.1:8000/make_admin";
@@ -83,6 +95,7 @@
           .then(response => {
             if (!response.ok) {
               throw new Error('Сеть ответила с ошибкой: ' + response.status);
+              submitBtn.classList.add('is-loading');
             }
             return response.json();
           })
@@ -92,6 +105,7 @@
           })
           .catch(error => {
             console.error('Произошла ошибка:', error);
+            submitBtn.classList.add('is-loading');
           });
       }
       getAdminData();

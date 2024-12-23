@@ -375,8 +375,8 @@
       const token = localStorage.getItem('token');
       const rescheduleModal = document.querySelector('#doctor-reschedule');
       const rescheduleSubmitBtn = document.querySelector('#reschedule-submit-btn');
-      const scheduleNewModal = document.querySelector('#schedule-new-session');
-      const scheduleNewSubmitBtn = document.querySelector('#new-schedule-submit-btn');
+      const newScheduleModal = document.querySelector('#schedule-new-session');
+      const submitBtnNew = document.querySelector('.doctor__submit-btn-new');
       const tableBody = document.querySelector('.clients__table tbody');
 
       // TODO нужны ли данные терапевта? возможно удалить и просто вызывать расписание
@@ -443,9 +443,11 @@
 
       // рендеринг расписания терапевта
 
+      // рендеринг расписания терапевта
+
       function updateDocSchedule(data) {
         // TODO удалить вывод в консоль
-        // console.log('Расписание:', data);
+        console.log('Расписание:', data);
         const jsonData = data;
 
         // Функция для форматирования даты
@@ -511,12 +513,14 @@
 
             // Проверка, если время записи больше или равно текущему времени
             if (appointmentTime >= now) {
+              const currentSlot = jsonData.schedule.find(slot => slot.date_time === `${date} ${time}`);
+
               html += `
-                    <label>
-                        <input type="radio" name="appointment-time" value="${time}">
-                        <span class="time-value">${time}</span>
-                    </label>
-                    `;
+                <label>
+                  <input type="radio" name="appointment-time" value="${time}" data-date-time="${currentSlot.date_time}" data-sh-id="${currentSlot.sh_id}">
+                  <span class="time-value">${time}</span>
+                </label>
+              `;
             }
           });
 
@@ -528,6 +532,14 @@
 
         document.querySelectorAll('.schedule-container').forEach((el) => {
           el.innerHTML = html;
+          const currentForm = el.closest('.choice-date-form');
+          el.addEventListener('click', (e) => {
+            if (e.target.matches('input[name="appointment-time"]')) {
+              const selectedDateTime = e.target.dataset.dateTime;
+              const selectedShId = e.target.dataset.shId;
+              currentForm.querySelector('button[type="submit"]').setAttribute('new_sh_id', e.target.dataset.shId)
+            }
+          });
         });
       }
 
@@ -592,6 +604,8 @@
               let nextSession;
               let sessionStatus;
               let className;
+              let shId = session.sh_id ? session.sh_id : session.new_sh_id;
+              let chId = session.ch_id ? session.ch_id : '0';
 
               if (session.time) {
                 const nowUtcString = new Date().toUTCString();
@@ -604,13 +618,13 @@
                   className = (currentSessionDate > nowDate) ? 'clients__item--scheduled' : 'clients__item--not-scheduled';
                 } else if (session.accepted === 0) {
                   sessionStatus = (currentSessionDate > nowDate) ? 'Запрос на сессию' : 'Нет записи';
-                  className = (currentSessionDate > nowDate) ? 'clients__item--scheduled' : 'clients__item--not-scheduled';
+                  className = (currentSessionDate > nowDate) ? 'clients__item--requested' : 'clients__item--not-scheduled';
                 }
               } else if (session.old_time) {
                 nextSession = session.old_time;
                 if (session.pending && session.pending === 1) {
                   sessionStatus = 'Запрошен перенос сессии';
-                  className = 'clients__item--requested';
+                  className = 'clients__item--requested-reschedule';
                 } else if (session.pending && session.pending === 2) {
                   sessionStatus = 'Ожидает подтверждения';
                   className = 'clients__item--unapproved';
@@ -635,15 +649,25 @@
                           <span class="clients__session-status">${sessionStatus}</span>
                           <div class="clients__actions">
                             <button type="button" class="clients__actions-btn clients__actions-btn--confirm"
-                              data-translate="doctor_change_request_btn_1">Подтвердить</button>
-                            <button type="button" class="clients__actions-btn clients__actions-btn--timeoffer"
-                              data-translate="doctor_change_request_btn_2">Предложить другое время</button>
-                            <button type="button" class="clients__actions-btn clients__actions-btn--cancel"
-                              data-translate="cancel_session_btn">Отменить</button>
-                            <button type="button" class="clients__actions-btn clients__actions-btn--reschedule"
-                              data-translate="actions_btn_reschedule">Перенести</button>
-                            <button type="button" class="clients__actions-btn clients__actions-btn--schedule"
-                              data-translate="actions_btn_schedule">Записать</button>
+                              data-translate="doctor_change_request_btn_1"
+                              data-sh-id="${shId}" data-ch-id="${chId}">Подтвердить</button>
+
+                              <button type="button" class="clients__actions-btn clients__actions-btn--timeoffer"
+                              data-translate="doctor_change_request_btn_2"
+                              data-new-sh-id="${shId}" data-old-sh-id="${shId}" data-ch-id="${chId}">Предложить другое время</button>
+
+                              <button type="button" class="clients__actions-btn clients__actions-btn--cancel"
+                              data-translate="cancel_session_btn"
+                              data-sh-id="${shId}">Отменить</button>
+
+                              <button type="button" class="clients__actions-btn clients__actions-btn--reschedule"
+                              data-translate="actions_btn_reschedule"
+                              data-new-sh-id="${shId}" data-old-sh-id="${shId}" data-ch-id="${chId}">Перенести</button>
+
+                              <button type="button" class="clients__actions-btn clients__actions-btn--schedule"
+                              data-translate="actions_btn_schedule"
+                              data-client-id=${clientId}>Записать</button>
+
                             <button type="button" class="clients__actions-close">+</button>
                           </div></td>
                   `;
@@ -682,21 +706,21 @@
                 button.addEventListener('click', (e) => {
                   e.stopPropagation();
 
-                  console.log(`Client ID: ${clientId}`);
-
                   if (button.classList.contains('clients__actions-btn--confirm')) {
                     // Логика для кнопки "Подтвердить"
-                  } else if (button.classList.contains('clients__actions-btn--timeoffer')) {
-                    // Логика для кнопки "Предложить другое время"
-                    document.querySelector('#doctor-reschedule').classList.add('is-active');
+                    sendApproveToBackend(button);
                   } else if (button.classList.contains('clients__actions-btn--cancel')) {
                     // Логика для кнопки "Отменить"
-                  } else if (button.classList.contains('clients__actions-btn--reschedule')) {
-                    // Логика для кнопки "Перенести"
-                    document.querySelector('#doctor-reschedule').classList.add('is-active');
+                    sendCancellationToBackend(button);
                   } else if (button.classList.contains('clients__actions-btn--schedule')) {
                     // Логика для кнопки "Записать"
-                    document.querySelector('#schedule-new-session').classList.add('is-active');
+                    scheduleNewSession(button);
+                  } else if (button.classList.contains('clients__actions-btn--timeoffer')) {
+                    // Логика для кнопки "Предложить другое время"
+                    sendRescheduleRequest(button);
+                  } else if (button.classList.contains('clients__actions-btn--reschedule')) {
+                    // Логика для кнопки "Перенести"
+                    sendRescheduleRequest(button);
                   }
                 });
               });
@@ -710,6 +734,190 @@
       }
 
       fetchData();
+
+      // открытие модалки для записи не записанного клиента
+      function scheduleNewSession(button) {
+        newScheduleModal.classList.add('is-active');
+        submitBtnNew.setAttribute('client_id', button.getAttribute('data-client-id'));
+        const slots = newScheduleModal.querySelectorAll('input[type="radio"]');
+        slots.forEach((slot) => {
+          slot.addEventListener('change', function () {
+            if (slot.checked) {
+              const selectedDate = slot.closest('.doctor__day-wrapper').querySelector('time').getAttribute('datetime');
+              const selectedTime = slot.value;
+              submitBtnNew.setAttribute('date_time', `${selectedDate} ${selectedTime}`);
+              submitBtnNew.classList.add('is-enabled');
+            }
+          });
+        });
+      }
+
+      // отправка запроса на запись не записанного клиента
+      document.querySelector('#choice-date-form-new').addEventListener('submit', (e) => {
+        e.preventDefault();
+
+        const user_id = Number(submitBtnNew.getAttribute('client_id'));
+        const date_time = submitBtnNew.getAttribute('date_time');
+
+        const dataToSend = {
+          session_token: token,
+          user_id: user_id,
+          date_time: date_time
+        };
+
+        console.log(dataToSend);
+
+        fetch('http://127.0.0.1:8000/doctor_appoint_client', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json'
+          },
+          body: JSON.stringify(dataToSend)
+        })
+          .then(response => {
+            if (!response.ok) {
+              throw new Error('Сеть не в порядке');
+            }
+            return response.json();
+          })
+          .then(data => {
+            console.log('Клиент записан');
+            newScheduleModal.classList.remove('is-active');
+            window.location.reload();
+          })
+          .catch(error => {
+            console.error('Произошла ошибка при отправке запроса:', error);
+            alert('Произошла ошибка при отправке запроса, обратитесь к администратору');
+          });
+      });
+
+      // отправка подтверждения запроса на сессию / запроса на перенос сессии на бэкенд
+      function sendApproveToBackend(el) {
+        const sh_id = Number(el.getAttribute('data-sh-id'));
+        const ch_id = Number(el.getAttribute('data-ch-id'));
+
+        const dataToSend = {
+          session_token: token,
+          sh_id: sh_id,
+          ch_id: ch_id,
+          approved: 1
+        };
+
+        fetch('http://127.0.0.1:8000/approve_time_therapist', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json'
+          },
+          body: JSON.stringify(dataToSend)
+        })
+          .then(response => {
+            if (!response.ok) {
+              throw new Error('Сеть не в порядке');
+              alert('Произошла ошибка при отправке запроса, обратитесь к администратору');
+            }
+            return response.json();
+          })
+          .then(data => {
+            console.log('Сессия подтверждена');
+            window.location.reload();
+          })
+          .catch(error => {
+            console.error('Произошла ошибка при отправке запроса:', error);
+            alert('Произошла ошибка при отправке запроса, обратитесь к администратору');
+          });
+      }
+
+      // отправка отмены сессии на бэкенд
+      function sendCancellationToBackend(el) {
+        const sh_id = Number(el.getAttribute('data-sh-id'));
+
+        const dataToSend = {
+          session_token: token,
+          sh_id: sh_id
+        };
+
+        console.log('Отмена сессии', dataToSend);
+
+        fetch('http://127.0.0.1:8000/cancel_session', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json'
+          },
+          body: JSON.stringify(dataToSend)
+        })
+          .then(response => {
+            if (!response.ok) {
+              throw new Error('Сеть не в порядке');
+              alert('Произошла ошибка при отправке запроса, обратитесь к администратору');
+            }
+            return response.json();
+          })
+          .then(data => {
+            console.log('Сессия отменена');
+            window.location.reload();
+          })
+          .catch(error => {
+            console.error('Произошла ошибка при отправке запроса:', error);
+            alert('Произошла ошибка при отправке запроса, обратитесь к администратору');
+          });
+      }
+
+      // открытие модалки для переноса сессии
+      function sendRescheduleRequest(button) {
+        rescheduleModal.classList.add('is-active');
+        rescheduleSubmitBtn.setAttribute('old_sh_id', button.getAttribute('data-new-sh-id'));
+        rescheduleSubmitBtn.setAttribute('ch_id', button.getAttribute('data-ch-id'));
+
+        const inputs = rescheduleModal.querySelectorAll('input[name="appointment-time"]');
+        inputs.forEach((input) => {
+          input.addEventListener('change', () => {
+            const newShId = input.getAttribute('data-sh-id');
+            rescheduleSubmitBtn.setAttribute('new_sh_id', newShId);
+            rescheduleSubmitBtn.classList.add('is-enabled');
+          });
+        });
+      }
+
+      // отправка запроса на перенос сессии терапевтом
+      document.getElementById('choice-date-form').addEventListener('submit', function (e) {
+        e.preventDefault();
+        const old_sh_id = Number(rescheduleSubmitBtn.getAttribute('old_sh_id'));
+        const ch_id = Number(rescheduleSubmitBtn.getAttribute('ch_id'));
+        const new_sh_id = Number(rescheduleSubmitBtn.getAttribute('new_sh_id'));
+
+        const dataToSend = {
+          session_token: token,
+          old_sh_id: old_sh_id,
+          new_sh_id: new_sh_id,
+          ch_id: ch_id
+        };
+
+        console.log(dataToSend);
+
+        fetch('http://127.0.0.1:8000/therapist_change_session_time', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json'
+          },
+          body: JSON.stringify(dataToSend)
+        })
+          .then(response => {
+            if (!response.ok) {
+              throw new Error('Сеть не в порядке');
+              alert('Произошла ошибка при отправке запроса, обратитесь к администратору');
+            }
+            return response.json();
+          })
+          .then(data => {
+            console.log('Запрос на перенос сессии отправлен');
+            window.location.reload();
+          })
+          .catch(error => {
+            console.error('Произошла ошибка при отправке запроса:', error);
+            alert('Произошла ошибка при отправке запроса, обратитесь к администратору');
+          });
+      });
+
 
       // форматирование даты
       function formatDate(dateString) {

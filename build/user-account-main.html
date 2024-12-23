@@ -199,11 +199,11 @@
                   <div class="user-account__videochat videochat">
                     <div class="videochat__session-info session-info">
                       <div class="temp-container">
-                        <button class="temp-btn">Получить ссылку на сессию</button>
-                        <div class="temp-link-wrapper">
+                        <button class="temp-btn">Начать сессию</button>
+                        <!-- <div class="temp-link-wrapper">
                           <span>Ссылка на сессию: </span>
                           <a href="" target="_blank" class="temp-link" style="text-decoration: underline;">Жмяк</a>
-                        </div>
+                        </div> -->
                       </div>
                       <div class="videochat__user-photo-wrapper">
                         <div class="videochat__user-photo">
@@ -280,6 +280,11 @@
                       </button>
 
                       <button type="submit" disabled class="doctor__submit-btn btn">
+                        <span class="icon-loader">
+                          <svg width="32" height="32" fill="currentColor">
+                            <use xlink:href="./img/sprite.svg#icon-loader"></use>
+                          </svg>
+                        </span>
                         <span class="doctor__submit-text" data-translate="doctor_submit_btn_1">Select</span>&nbsp;
                         <span class="doctor__submit-date"></span>&nbsp;
                         <span class="doctor__submit-text-2" data-translate="doctor_submit_btn_2"> and continue</span>
@@ -718,6 +723,10 @@
         document.querySelector('.user-account__title').style.display = 'block';
       })
 
+      submitBtn.addEventListener('click', () => {
+        submitBtn.classList.add('is-loading');
+      });
+
       submitBtn2.addEventListener('click', () => {
         submitBtn2.classList.add('is-loading');
       });
@@ -744,9 +753,9 @@
         })
           .then(response => {
             if (!response.ok) {
-              submitBtn.classList.remove('is-loading');
               document.getElementById('choice-date-form-2').querySelector('error-message').classList.add('is-active');
               document.getElementById('choice-date-form-2').querySelector('error-message').textContent = "Ошибка";
+              submitBtn2.classList.remove('is-loading');
               throw new Error('Сеть не в порядке');
             }
             return response.json();
@@ -761,6 +770,7 @@
           .catch(error => {
             console.error('Ошибка при получении данных пользователя:', error);
             document.getElementById('choice-date-form-2').querySelector('error-message').textContent = error;
+            submitBtn2.classList.remove('is-loading');
           });
       });
 
@@ -862,8 +872,9 @@
             return response.json();
           })
           .then(data => {
-            document.querySelector('.temp-link').href = `https://www.speakyourmind.help:8001/room/${data.rooms[0].room}`;
-            document.querySelector('.temp-link').style.color = 'red';
+            window.open(`https://www.speakyourmind.help:8001/room/${data.rooms[0].room}`)
+            // document.querySelector('.temp-link').href = `https://www.speakyourmind.help:8001/room/${data.rooms[0].room}`;
+            // document.querySelector('.temp-link').style.color = 'red';
 
           })
           .catch(error => {
