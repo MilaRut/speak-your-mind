@@ -583,7 +583,6 @@
             console.log('Список сессий и клиентов:', sessionsData);
 
             const allSessionsList = sessionsData.normal_sessions_list.concat(sessionsData.pending_sessions_list);
-            console.log(allSessionsList);
             for (const session of allSessionsList) {
               const userData = await fetchUserData(session.client_id, token);
               const clientId = session.client_id;
@@ -592,6 +591,7 @@
               const sessionsCount = userData.sessions_count;
               let nextSession;
               let sessionStatus;
+              let className;
 
               if (session.time) {
                 const nowUtcString = new Date().toUTCString();
@@ -601,15 +601,19 @@
                 nextSession = (currentSessionDate > nowDate) ? session.time : '-';
                 if (session.accepted === 1) {
                   sessionStatus = (currentSessionDate > nowDate) ? 'Запланировано' : 'Нет записи';
+                  className = 'clients__item--scheduled';
                 } else if (session.accepted === 0) {
                   sessionStatus = (currentSessionDate > nowDate) ? 'Запрос на сессию' : 'Нет записи';
+                  className = 'clients__item--not-scheduled';
                 }
               } else if (session.old_time) {
                 nextSession = session.old_time;
                 if (session.pending && session.pending === 1) {
                   sessionStatus = 'Запрошен перенос сессии';
+                  className = 'clients__item--requested';
                 } else if (session.pending && session.pending === 2) {
                   sessionStatus = 'Ожидает подтверждения';
+                  className = 'clients__item--unapproved';
                 }
               } else {
                 nextSession = '-';
@@ -618,6 +622,8 @@
 
               // Добавляем строку в таблицу
               const row = document.createElement('tr');
+              row.className = 'clients__item';
+              row.classList.add(className);
               row.innerHTML = `
                         <td><span class="clients__client-id">#${clientId}</span></td>
                         <td><span class="clients__client-name">${clientName}</span>
@@ -625,9 +631,55 @@
                         <td><span class="clients__client-age">${clientAge}</span></td>
                         <td><span class="clients__sessions-amount">${sessionsCount}</span></td>
                         <td><span class="clients__next-session"><time>${formatDate(nextSession)}</time></span></td>
-                        <td><span class="clients__session-status">${sessionStatus}</span></td>
+                        <td>
+                          <span class="clients__session-status">${sessionStatus}</span>
+                          <div class="clients__actions">
+                            <button type="button" class="clients__actions-btn clients__actions-btn--confirm"
+                              data-translate="doctor_change_request_btn_1">Подтвердить</button>
+                            <button type="button" class="clients__actions-btn clients__actions-btn--timeoffer"
+                              data-open-modal data-modal-id="#doctor-reschedule"
+                              data-translate="doctor_change_request_btn_2">Предложить другое время</button>
+                            <button type="button" class="clients__actions-btn clients__actions-btn--cancel"
+                              data-translate="cancel_session_btn">Отменить</button>
+                            <button type="button" class="clients__actions-btn clients__actions-btn--reschedule"
+                              data-open-modal data-modal-id="#doctor-reschedule"
+                              data-translate="actions_btn_reschedule">Перенести</button>
+                            <button type="button" class="clients__actions-btn clients__actions-btn--schedule"
+                              data-open-modal data-modal-id="#doctor-reschedule"
+                              data-translate="actions_btn_schedule">Записать</button>
+                            <button type="button" class="clients__actions-close">+</button>
+                          </div></td>
                   `;
               tableBody.appendChild(row);
+              document.querySelectorAll('[data-translate]').forEach((el) => {
+                el.style.opacity = '1';
+              });
+              // модалка карточка клиента
+              row.addEventListener('click', (e) => {
+                if (e.target.matches('.clients__client-name')) {
+                  const clientCard = document.querySelector('#client-card');
+                  clientCard.classList.add('is-active');
+                  clientCard.querySelector('.client-card__username').textContent = userData.name;
+                  clientCard.querySelector('.client-card__userid').textContent = `#${userData.client_id}`;
+                  clientCard.querySelector('.client-card__age').textContent = getClientAge(userData.age);
+                  clientCard.querySelector('.client-card__sessions-amount').textContent = userData.sessions_count;
+                  clientCard.querySelector('.client-card__next-session').textContent = formatDate(nextSession);
+                  clientCard.querySelector('.client-card__request').textContent = mapNumbersToStrings(userData.client_symptoms);
+                }
+              });
+              // модалка кнопки
+              row.addEventListener('click', (e) => {
+                if (e.target.matches('.clients__session-status')) {
+                  e.stopPropagation();
+
+                  document.querySelectorAll('.clients__actions.is-active').forEach((el) => {
+                    el.classList.remove('is-active');
+                  });
+
+                  row.querySelector('.clients__actions').classList.toggle('is-active');
+                }
+                if (e.target.matches())
+              });
             }
           } catch (error) {
             console.error('Ошибка при получении данных:', error);
@@ -648,7 +700,7 @@
         } else {
           return '-';
         }
-      }
+      };
 
       // получение возраста клиента
       function getClientAge(birthDate) {
@@ -663,7 +715,7 @@
         }
 
         return age;
-      }
+      };
 
       // Расшифровка симтомов
       function mapNumbersToStrings(numbers) {
@@ -700,7 +752,7 @@
         };
 
         return numbers.map(num => mapping[num] || '-').join(', ');
-      }
+      };
     });
   </script>
 

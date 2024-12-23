@@ -90,10 +90,10 @@
                 <div class="payments__card">
                   <p class="payments__card-info">
                     <span data-translate="user_payments_text">Payment is made from a card</span>
-                    <span>4276 55ХХ ХХХХ 3200</span>
+                    <span>XXXX XXXX XXXX <span id="card-num">XXXX</span></span>
                   </p>
                 </div>
-                <button class="payments__btn btn btn--white" data-open-modal data-modal-id="#new-card-popup"
+                <button class="payments__btn btn btn--white" data-open-modal data-modal-id="#update-card-popup"
                   data-translate="link_new_card">Link new card</button>
                 <div class="payments__heading">
                   <h2 data-translate="payments_history">Payments history</h2>
@@ -180,7 +180,7 @@
     </footer>
   </div>
 
-  <div class="modal modal--preload" id="new-card-popup">
+  <div class="modal modal--preload" id="update-card-popup">
     <div class="modal__wrapper">
       <div class="modal__overlay" data-close-modal></div>
       <div class="modal__content modal__content--new-card">
@@ -189,43 +189,46 @@
             <use xlink:href="./img/sprite.svg#close-modal"></use>
           </svg>
         </button>
-        <h2 class="modal__title text-31" data-translate="modal_card_title">Привязать карту</h2>
+        <h2 class="modal__title text-31" data-translate="modal_card_title">Link your card</h2>
         <div class="card">
           <div class="card__card-info">
-            <form action="" method="post">
+            <form action="" method="post" id="update-card-form">
               <fieldset>
-                <label for="card-owner">
-                  <span data-translate="card_owner_name">Имя владельца карты</span>
-                  <input type="text" id="card-owner" placeholder="Имя на лицевой стороне карты"
+                <label for="update-card-owner">
+                  <span data-translate="card_owner_name">Card owner name</span>
+                  <input type="text" id="update-card-owner" placeholder="Name on the front of the card"
                     data-translate="card_owner_name_placeholder">
                 </label>
               </fieldset>
               <fieldset>
-                <label for="card-number">
-                  <span data-translate="card_number">Номер карты</span>
-                  <input type="number" id="card-number" placeholder="x x x x    x x x x    x x x x    x x x x">
+                <label for="update-card-number">
+                  <span data-translate="card_number">Card number</span>
+                  <input type="text" id="update-card-number" placeholder="x x x x    x x x x    x x x x    x x x x">
                 </label>
               </fieldset>
               <fieldset>
-                <label for="card-exp">
-                  <span data-translate="card_exp">Срок действия</span>
-                  <input type="number" id="card-exp" placeholder="m m  /  y y">
+                <label for="update-card-exp">
+                  <span data-translate="card_exp">Expiration date</span>
+                  <input type="text" id="update-card-exp" placeholder="m m  /  y y">
                 </label>
-                <label for="card-cvc">
-                  <span data-translate="card_cvc">Код CVС</span>
-                  <input type="number" id="card-cvc" maxlength="3" placeholder="x x x">
+                <label for="update-card-cvc">
+                  <span data-translate="card_cvc">CVС code</span>
+                  <input type="text" id="update-card-cvc" maxlength="3" placeholder="x x x">
                 </label>
               </fieldset>
               <p class="card__permission text-18">
-                <span data-translate="card_permission_1">Добавляя карту вы принимаете</span>&nbsp;
+                <span data-translate="card_permission_1">By adding a card you accept</span>&nbsp;
                 <a href="#" class="text-green" data-open-modal data-modal-id="#payment-terms"
-                  data-translate="card_permission_2">условия сервиса</a>&nbsp;
-                <span data-translate="card_permission_3">и разрешаете</span>&nbsp;
-                <a href="#" class="text-green" data-open-modal data-modal-id="#payment-terms"
-                  data-translate="card_permission_4">автосписания</a>
+                  data-translate="card_permission_2">the terms of service</a>&nbsp;
               </p>
-              <button type="submit" class="card__submit-btn btn" data-translate="card_submit_btn">Добавить
-                карту</button>
+              <button type="submit" class="card__submit-btn btn">
+                <span class="icon-loader">
+                  <svg width="32" height="32" fill="currentColor">
+                    <use xlink:href="./img/sprite.svg#icon-loader"></use>
+                  </svg>
+                </span>
+                <span data-translate="card_submit_btn">Add a card</span>
+              </button>
             </form>
           </div>
         </div>
@@ -258,6 +261,44 @@
       </div>
     </div>
   </div>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+      // получение данных клиента
+      const session_token = localStorage.getItem('token');
+
+      function getUserDataFromBackend() {
+        if (session_token) {
+          fetch('https://www.speakyourmind.help:8000/get_client_data', {
+            method: 'POST',
+            headers: {
+              'Authorization': `Bearer ${session_token}`,
+              'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({ session_token: session_token })
+          })
+            .then(response => {
+              if (!response.ok) {
+                throw new Error('Сеть не в порядке');
+              }
+              return response.json();
+            })
+            .then(data => {
+              // TODO удалить вывод в консоль
+              console.log('Данные пользователя:', data);
+              document.querySelector('#card-num').textContent = data.user_card_data ? data.user_card_data : 'XXXX';
+            })
+            .catch(error => {
+              console.error('Ошибка при получении данных пользователя:', error);
+            });
+        } else {
+          console.log('Токен не найден. Пожалуйста, войдите в систему.');
+        }
+      }
+
+      getUserDataFromBackend();
+    });
+  </script>
 
   <script src="js/vendor.min.js"></script>
   <script src="js/main.min.js"></script>

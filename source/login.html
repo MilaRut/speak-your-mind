@@ -307,20 +307,17 @@
             console.log('Данные пользователя:', data);
             // редиректы
             localStorage.setItem('user_name', data.name);
-            if (data.has_therapist !== null) {
+            if (data.has_therapist !== null && data.user_card_data !== '') {
               window.location.href = '/user-account-main.html';
             } else {
               if (data.user_age === null) {
                 window.location.href = '/user-signup-main.html';
+              } else if (data.user_card_data === '') {
+                window.location.href = '/user-signup-payment.html';
               } else {
                 window.location.href = '/user-signup-choice.html';
               }
             }
-            // Доп проверка и редиректы:
-            // !is_therapist && !анкета && !терапевт && !карта - user-signup-main.html
-            // !is_therapist && анкета && !терапевт && !карта - user-signup-choice.html
-            // !is_therapist && анкета && терапевт && !карта - user-signup-payment.html
-            // !is_therapist && анкета && терапевт && карта - user-account-main.html
           })
           .catch(error => {
             console.error('Ошибка при получении данных пользователя:', error);
@@ -346,11 +343,11 @@
           })
           .then(data => {
             localStorage.setItem('user_name', data.doc_name);
-            window.location.href = '/doctor-account-settings.html'
-            // Доп проверка и редиректы:
-            // is_therapist && !карта - doctor-account-settings.html
-            // is_therapist && карта - doctor-account-sessions.html
-
+            if (data.doc_card_data === '') {
+              window.location.href = '/doctor-account-settings.html'
+            } else {
+              window.location.href = '/doctor-account-sessions.html'
+            }
           })
           .catch(error => {
             console.error('Ошибка при получении данных пользователя:', error);

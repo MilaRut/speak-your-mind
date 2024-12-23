@@ -50,9 +50,14 @@
       .clients__actions-btn--schedule {
         display: block;
       }
+
+      .clients__next-session {
+        color: #FF5C00;
+      }
     }
 
     &--requested {
+
       .clients__actions-btn--confirm,
       .clients__actions-btn--timeoffer,
       .clients__actions-btn--cancel {

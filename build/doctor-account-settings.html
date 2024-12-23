@@ -673,12 +673,15 @@
                         linked cards yet</p>
                       <p class="text-18 settings__payment-card">
                         <span data-translate="payment_from_card">Payment is made by card</span>&nbsp;
-                        <span class="card-num">4276 55ХХ ХХХХ 3200</span>
+                        <span>XXXX XXXX XXXX <span id="card-num">XXXX</span></span>
                       </p>
-                      <button class="settings__payment-btn btn btn--white" data-open-modal
+                      <button class="settings__payment-btn settings__payment-btn--add btn btn--white" data-open-modal
                         data-modal-id="#new-card-popup">
-                        <span class="settings__payment-add-card" data-translate="modal_card_title">Link your card</span>
-                        <span class="settings__payment-change-card" data-translate="change">Change</span>
+                        <span data-translate="modal_card_title">Link your card</span>
+                      </button>
+                      <button class="settings__payment-btn settings__payment-btn--update btn btn--white" data-open-modal
+                        data-modal-id="#update-card-popup">
+                        <span data-translate="change">Change</span>
                       </button>
                       <a class="settings__payment-show-history text-18 text-green" href="doctor-account-payments.html"
                         data-translate="doctor_payments_history">View payment history</a>
@@ -791,7 +794,7 @@
         <h2 class="modal__title text-31" data-translate="modal_card_title">Link your card</h2>
         <div class="card">
           <div class="card__card-info">
-            <form action="" method="post" id="card-popup-form">
+            <form action="" method="post" id="add-card-form">
               <fieldset>
                 <label for="card-owner">
                   <span data-translate="card_owner_name">Card owner name</span>
@@ -802,28 +805,87 @@
               <fieldset>
                 <label for="card-number">
                   <span data-translate="card_number">Card number</span>
-                  <input type="number" id="card-number" placeholder="x x x x    x x x x    x x x x    x x x x">
+                  <input type="text" id="card-number" placeholder="x x x x    x x x x    x x x x    x x x x">
                 </label>
               </fieldset>
               <fieldset>
                 <label for="card-exp">
                   <span data-translate="card_exp">Expiration date</span>
-                  <input type="number" id="card-exp" placeholder="m m  /  y y">
+                  <input type="text" id="card-exp" placeholder="m m  /  y y">
                 </label>
                 <label for="card-cvc">
                   <span data-translate="card_cvc">CVС code</span>
-                  <input type="number" id="card-cvc" maxlength="3" placeholder="x x x">
+                  <input type="text" id="card-cvc" maxlength="3" placeholder="x x x">
                 </label>
               </fieldset>
               <p class="card__permission text-18">
                 <span data-translate="card_permission_1">By adding a card you accept</span>&nbsp;
                 <a href="#" class="text-green" data-open-modal data-modal-id="#payment-terms"
                   data-translate="card_permission_2">the terms of service</a>&nbsp;
-                <span data-translate="card_permission_3">and allow</span>&nbsp;
-                <a href="#" class="text-green" data-open-modal data-modal-id="#payment-terms"
-                  data-translate="card_permission_4">auto-debits</a>
               </p>
-              <button type="submit" class="card__submit-btn btn" data-translate="card_submit_btn">Add a card</button>
+              <button type="submit" class="card__submit-btn btn">
+                <span class="icon-loader">
+                  <svg width="32" height="32" fill="currentColor">
+                    <use xlink:href="./img/sprite.svg#icon-loader"></use>
+                  </svg>
+                </span>
+                <span data-translate="card_submit_btn">Add a card</span>
+              </button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="modal modal--preload" id="update-card-popup">
+    <div class="modal__wrapper">
+      <div class="modal__overlay" data-close-modal></div>
+      <div class="modal__content modal__content--new-card">
+        <button class="modal__close-btn" type="button" aria-label="Закрыть окно." data-close-modal>
+          <svg width="32" height="32" fill="currentColor">
+            <use xlink:href="./img/sprite.svg#close-modal"></use>
+          </svg>
+        </button>
+        <h2 class="modal__title text-31" data-translate="modal_card_title">Link your card</h2>
+        <div class="card">
+          <div class="card__card-info">
+            <form action="" method="post" id="update-card-form">
+              <fieldset>
+                <label for="update-card-owner">
+                  <span data-translate="card_owner_name">Card owner name</span>
+                  <input type="text" id="update-card-owner" placeholder="Name on the front of the card"
+                    data-translate="card_owner_name_placeholder">
+                </label>
+              </fieldset>
+              <fieldset>
+                <label for="update-card-number">
+                  <span data-translate="card_number">Card number</span>
+                  <input type="text" id="update-card-number" placeholder="x x x x    x x x x    x x x x    x x x x">
+                </label>
+              </fieldset>
+              <fieldset>
+                <label for="update-card-exp">
+                  <span data-translate="card_exp">Expiration date</span>
+                  <input type="text" id="update-card-exp" placeholder="m m  /  y y">
+                </label>
+                <label for="update-card-cvc">
+                  <span data-translate="card_cvc">CVС code</span>
+                  <input type="text" id="update-card-cvc" maxlength="3" placeholder="x x x">
+                </label>
+              </fieldset>
+              <p class="card__permission text-18">
+                <span data-translate="card_permission_1">By adding a card you accept</span>&nbsp;
+                <a href="#" class="text-green" data-open-modal data-modal-id="#payment-terms"
+                  data-translate="card_permission_2">the terms of service</a>&nbsp;
+              </p>
+              <button type="submit" class="card__submit-btn btn">
+                <span class="icon-loader">
+                  <svg width="32" height="32" fill="currentColor">
+                    <use xlink:href="./img/sprite.svg#icon-loader"></use>
+                  </svg>
+                </span>
+                <span data-translate="card_submit_btn">Add a card</span>
+              </button>
             </form>
           </div>
         </div>
@@ -934,6 +996,12 @@
 
       // Рендеринг личного кабинета терапевта
       function updateProfile(data) {
+        if (data.doc_card_data) {
+          document.querySelector('.doctor-account__settings').setAttribute('data-utils', 'settings-main');
+          document.querySelector('#card-num').textContent = data.doc_card_data;
+        } else {
+          document.querySelector('.doctor-account__settings').setAttribute('data-utils', 'settings-main-start');
+        }
         document.querySelector('.settings__doctor-name').textContent = data.doc_name;
         document.querySelector('.doctor__name').textContent = data.doc_name;
         document.querySelector('#doctor-name').value = data.doc_name;
