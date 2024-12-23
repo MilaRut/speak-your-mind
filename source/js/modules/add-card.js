@@ -92,7 +92,8 @@ function sendCard() {
       })
       .then((data) => {
         console.log(data);
-        // сюда добавить обновление рендеринга ЛК терапевта
+        document.querySelector('.doctor-account__settings').setAttribute('data-utils', 'settings-main');
+        document.querySelector('#card-num').textContent = addNewCardForm.querySelector('#card-number').value.replace(/\s/g, '').slice(-4);
       })
       .catch((error) => {
         submitButton.classList.remove('is-loading');
