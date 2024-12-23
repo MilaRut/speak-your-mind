@@ -137,10 +137,6 @@
                     <div class="videochat__session-info session-info">
                       <div class="temp-container">
                         <button class="temp-btn">Начать сессию</button>
-                        <!-- <div class="temp-link-wrapper">
-                          <span>Ссылка на сессию: </span>
-                          <a href="" target="_blank" class="temp-link" style="text-decoration: underline;">Жмяк</a>
-                        </div> -->
                       </div>
                       <div class="videochat__user-photo-wrapper">
                         <div class="videochat__user-photo">
@@ -1100,13 +1096,7 @@
           })
           .then(data => {
             const link = `https://www.speakyourmind.help:8001/room/${data.rooms[0].room}`;
-            // document.querySelector('.temp-link').href = `https://www.speakyourmind.help:8001/room/${data.rooms[0].room}`;
-            // document.querySelector('.temp-link').style.color = 'red';
-          })
-          .then(data => {
-            window.open(link)
-            // document.querySelector('.temp-link').href = `https://www.speakyourmind.help:8001/room/${data.rooms[0].room}`;
-            // document.querySelector('.temp-link').style.color = 'red';
+            window.open(link);
           })
           .catch(error => {
             console.error('Ошибка при получении данных пользователя:', error);
