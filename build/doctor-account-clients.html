@@ -285,19 +285,19 @@
         </p>
         <p class="client-card__info">
           <span class="text-20 client-card__info-subhead" data-translate="client_card_age">Age</span>
-          <span><span class="text-20 client-card__age">client_age</span></span>
+          <span><span class="text-20 client-card__age"></span></span>
         </p>
         <p class="client-card__info">
           <span class="text-20 client-card__info-subhead" data-translate="client_card_sessions_amount">Sessions</span>
-          <span class="text-20 client-card__sessions-amount">sessions_num</span>
+          <span class="text-20 client-card__sessions-amount"></span>
         </p>
         <p class="client-card__info">
           <span class="text-20 client-card__info-subhead" data-translate="client_card_next_session">Next session</span>
-          <span class="text-20 client-card__next-session">date_time</span>
+          <span class="text-20 client-card__next-session"></span>
         </p>
         <p class="client-card__info">
           <span class="text-20 client-card__info-subhead" data-translate="client_card_request">Request</span>
-          <span class="text-20 client-card__request">clent_request</span>
+          <span class="text-20 client-card__request"></span>
         </p>
         <div class="client-card__btns-wrapper">
           <a href="#" class="client-card__btn client-card__btn--chat btn btn--white">
@@ -601,10 +601,10 @@
                 nextSession = (currentSessionDate > nowDate) ? session.time : '-';
                 if (session.accepted === 1) {
                   sessionStatus = (currentSessionDate > nowDate) ? 'Запланировано' : 'Нет записи';
-                  className = 'clients__item--scheduled';
+                  className = (currentSessionDate > nowDate) ? 'clients__item--scheduled' : 'clients__item--not-scheduled';
                 } else if (session.accepted === 0) {
                   sessionStatus = (currentSessionDate > nowDate) ? 'Запрос на сессию' : 'Нет записи';
-                  className = 'clients__item--not-scheduled';
+                  className = (currentSessionDate > nowDate) ? 'clients__item--scheduled' : 'clients__item--not-scheduled';
                 }
               } else if (session.old_time) {
                 nextSession = session.old_time;
@@ -637,15 +637,12 @@
                             <button type="button" class="clients__actions-btn clients__actions-btn--confirm"
                               data-translate="doctor_change_request_btn_1">Подтвердить</button>
                             <button type="button" class="clients__actions-btn clients__actions-btn--timeoffer"
-                              data-open-modal data-modal-id="#doctor-reschedule"
                               data-translate="doctor_change_request_btn_2">Предложить другое время</button>
                             <button type="button" class="clients__actions-btn clients__actions-btn--cancel"
                               data-translate="cancel_session_btn">Отменить</button>
                             <button type="button" class="clients__actions-btn clients__actions-btn--reschedule"
-                              data-open-modal data-modal-id="#doctor-reschedule"
                               data-translate="actions_btn_reschedule">Перенести</button>
                             <button type="button" class="clients__actions-btn clients__actions-btn--schedule"
-                              data-open-modal data-modal-id="#doctor-reschedule"
                               data-translate="actions_btn_schedule">Записать</button>
                             <button type="button" class="clients__actions-close">+</button>
                           </div></td>
@@ -678,7 +675,30 @@
 
                   row.querySelector('.clients__actions').classList.toggle('is-active');
                 }
-                if (e.target.matches())
+              });
+              // После создания строки и добавления ее в таблицу
+              const actionsButtons = row.querySelectorAll('.clients__actions-btn');
+              actionsButtons.forEach((button) => {
+                button.addEventListener('click', (e) => {
+                  e.stopPropagation();
+
+                  console.log(`Client ID: ${clientId}`);
+
+                  if (button.classList.contains('clients__actions-btn--confirm')) {
+                    // Логика для кнопки "Подтвердить"
+                  } else if (button.classList.contains('clients__actions-btn--timeoffer')) {
+                    // Логика для кнопки "Предложить другое время"
+                    document.querySelector('#doctor-reschedule').classList.add('is-active');
+                  } else if (button.classList.contains('clients__actions-btn--cancel')) {
+                    // Логика для кнопки "Отменить"
+                  } else if (button.classList.contains('clients__actions-btn--reschedule')) {
+                    // Логика для кнопки "Перенести"
+                    document.querySelector('#doctor-reschedule').classList.add('is-active');
+                  } else if (button.classList.contains('clients__actions-btn--schedule')) {
+                    // Логика для кнопки "Записать"
+                    document.querySelector('#schedule-new-session').classList.add('is-active');
+                  }
+                });
               });
             }
           } catch (error) {
