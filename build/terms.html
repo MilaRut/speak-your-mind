@@ -73,7 +73,7 @@
               <img src="./img/content/user-thumb.png" width="24" height="24" alt="">
             </div>
             <button class="logged__btn" id="#logged-menu">
-              <span class="logged__username gotten-username">Username</span>
+              <span class="logged__username gotten-username"></span>
             </button>
           </div>
         </div>
@@ -143,60 +143,6 @@
         </div>
       </div>
     </footer>
-  </div>
-
-  <div class="modal modal--preload feedback" id="feedback">
-    <div class="modal__wrapper">
-      <div class="modal__overlay" data-close-modal></div>
-      <div class="modal__content modal__content--feedback">
-        <button class="modal__close-btn" type="button" aria-label="Закрыть окно." data-close-modal>
-          <svg width="32" height="32" fill="currentColor">
-            <use xlink:href="./img/sprite.svg#close-modal"></use>
-          </svg>
-        </button>
-        <h2 class="feedback__title">Связаться с поддержкой</h2>
-        <div class="fedback__start">
-          <div class="feedback__error">
-            <div class="feedback__error-message">
-              <p><b>Произошла ошибка</b></p>
-              <p>При отправке сообщения произошла неизвестная ошибка. Попробуйте еще раз.</p>
-            </div>
-          </div>
-          <form action="" id="feedback-form">
-            <label>
-              <span>Представьтесь, пожалуйста</span>
-              <input type="text" name="feedback_name" placeholder="Ваше имя">
-            </label>
-            <label>
-              <input type="email" name="feedback_enail" placeholder="Ваш email">
-            </label>
-            <label>
-              <span>Ваше сообщение</span>
-              <textarea name="feedback_text" id="feedback_text"
-                placeholder="Задайте вопрос или опишите проблему"></textarea>
-            </label>
-            <div class="feedback__agreement">
-              <p>Отправляя сообщение высоглашаетесь на <a href="#" class="text-green
-              ">обработку ваших личных данных</a>.</p>
-            </div>
-            <button type="button" class="btn feedback__submit-btn">
-              <svg width="32" height="32" fill="currentColor">
-                <use xlink:href="./img/sprite.svg#mail"></use>
-              </svg>
-              <span>Отправить</span>
-            </button>
-          </form>
-        </div>
-        <div class="feedback__success">
-          <div class="feedback__success-message">
-            <p><b>Ваше сообщение успешно отправлено</b></p>
-            <p>Спасибо за ваше обращение! Мы постараемся связаться с вами в ближайшее время по электронной почте или
-              одним из способов, указанных в настройках вашего профиля.</p>
-          </div>
-          <button type="button" class="feedback__success-btn text-green">Отправить новое сообщение</button>
-        </div>
-      </div>
-    </div>
   </div>
 
   <script src="js/vendor.min.js"></script>
