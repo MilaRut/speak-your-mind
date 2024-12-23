@@ -449,8 +449,14 @@
                   data-translate="questions_phone_placeholder">
               </div>
               <div class="questions__btn-wrapper">
-                <button type="submit" class="questions__btn btn" data-translate="questions_submit_btn"
-                  disabled>Submit</button>
+                <button type="submit" class="questions__btn btn" disabled>
+                  <span class="icon-loader">
+                    <svg width="32" height="32" fill="currentColor">
+                      <use xlink:href="./img/sprite.svg#icon-loader"></use>
+                    </svg>
+                  </span>
+                  <span data-translate="questions_submit_btn">Submit</span>
+                </button>
               </div>
             </form>
           </div>
@@ -471,6 +477,7 @@
   <script>
     document.addEventListener('DOMContentLoaded', function () {
       const session_token = localStorage.getItem('token');
+      const submitBtn = document.querySelector('.questions__btn');
 
       // получение данных клиента с бэкенда
       function getUserDataFromBackend() {
@@ -562,7 +569,6 @@
       // проверка возраста
 
       const ageInput = document.querySelector('input[name="age"]');
-      const submitBtn = document.querySelector('.questions__btn');
 
       ageInput.addEventListener('change', () => {
         const userBirthDate = new Date(ageInput.value);
@@ -585,6 +591,10 @@
           submitBtn.disabled = false;
           document.querySelector('.error-message-age').classList.remove('is-active');
         }
+      });
+
+      submitBtn.addEventListener('click', () => {
+        submitBtn.classList.add('is-loading');
       });
 
       // отправка первичной анкеты на бэк
@@ -632,6 +642,7 @@
           .then(response => {
             if (!response.ok) {
               throw new Error('Сеть не в порядке');
+              submitBtn.classList.remove('is-loading');
             }
             return response.json();
           })
@@ -642,6 +653,8 @@
           })
           .catch(error => {
             console.error('Ошибка при получении данных пользователя:', error);
+            submitBtn.classList.remove('is-loading');
+            alert('Возникла ошибка при отправке формы, обратитесь к администатору admin@speakyourmind.help');
           });
       });
     });

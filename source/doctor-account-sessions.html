@@ -136,11 +136,11 @@
                     </h3>
                     <div class="videochat__session-info session-info">
                       <div class="temp-container">
-                        <button class="temp-btn">Получить ссылку на сессию</button>
-                        <div class="temp-link-wrapper">
+                        <button class="temp-btn">Начать сессию</button>
+                        <!-- <div class="temp-link-wrapper">
                           <span>Ссылка на сессию: </span>
                           <a href="" target="_blank" class="temp-link" style="text-decoration: underline;">Жмяк</a>
-                        </div>
+                        </div> -->
                       </div>
                       <div class="videochat__user-photo-wrapper">
                         <div class="videochat__user-photo">
@@ -292,7 +292,9 @@
             </svg>
           </button>
           <button type="submit" class="doctor__submit-btn-new btn">
-            <span class="doctor__submit-text" data-translate="doctor_submit_btn_1">Select&nbsp;</span>
+            <span class="doctor__submit-text" data-translate="doctor_submit_btn_1">
+              <span>Select&nbsp;</span>
+            </span>
           </button>
         </form>
       </div>
@@ -1097,8 +1099,14 @@
             return response.json();
           })
           .then(data => {
-            document.querySelector('.temp-link').href = `https://www.speakyourmind.help:8001/room/${data.rooms[0].room}`;
-            document.querySelector('.temp-link').style.color = 'red';
+            const link = `https://www.speakyourmind.help:8001/room/${data.rooms[0].room}`;
+            // document.querySelector('.temp-link').href = `https://www.speakyourmind.help:8001/room/${data.rooms[0].room}`;
+            // document.querySelector('.temp-link').style.color = 'red';
+          })
+          .then(data => {
+            window.open(link)
+            // document.querySelector('.temp-link').href = `https://www.speakyourmind.help:8001/room/${data.rooms[0].room}`;
+            // document.querySelector('.temp-link').style.color = 'red';
           })
           .catch(error => {
             console.error('Ошибка при получении данных пользователя:', error);

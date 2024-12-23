@@ -6201,7 +6201,13 @@ label[for=user_photo] {
   display: block;
 }
 
-.clients__item--requested .clients__next-session {
+.clients__item--requested-reschedule .clients__actions-btn--confirm,
+.clients__item--requested-reschedule .clients__actions-btn--timeoffer,
+.clients__item--requested-reschedule .clients__actions-btn--cancel {
+  display: block;
+}
+
+.clients__item--requested-reschedule .clients__next-session {
   color: #FF5C00;
 }
 

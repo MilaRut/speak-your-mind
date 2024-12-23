@@ -157,6 +157,11 @@
                         </button>
 
                         <button type="submit" disabled class="doctor__submit-btn btn">
+                          <span class="icon-loader">
+                            <svg width="32" height="32" fill="currentColor">
+                              <use xlink:href="./img/sprite.svg#icon-loader"></use>
+                            </svg>
+                          </span>
                           <span class="doctor__submit-text" data-translate="doctor_submit_btn_1">Select</span>&nbsp;
                           <span class="doctor__submit-date"></span>&nbsp;
                           <span class="doctor__submit-text-2" data-translate="doctor_submit_btn_2"> and continue</span>
@@ -512,6 +517,10 @@
         }
       }
 
+      submitBtn.addEventListener('click', () => {
+        submitBtn.classList.add('is-loading');
+      });
+
       // отправка выбора терапевта и даты сессии
       document.getElementById('choice-date-form').addEventListener('submit', function (e) {
         e.preventDefault();
@@ -536,6 +545,7 @@
           .then(response => {
             if (!response.ok) {
               throw new Error('Сеть не в порядке');
+              submitBtn.classList.remove('is-loading');
             }
             return response.json();
           })
@@ -548,6 +558,8 @@
           })
           .catch(error => {
             console.error('Ошибка при получении данных пользователя:', error);
+            submitBtn.classList.remove('is-loading');
+            alert('Возникла ошибка при отправке формы, обратитесь к администатору admin@speakyourmind.help');
           });
       });
     });

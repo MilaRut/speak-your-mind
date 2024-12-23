@@ -63,6 +63,14 @@
       .clients__actions-btn--cancel {
         display: block;
       }
+    }
+
+    &--requested-reschedule {
+      .clients__actions-btn--confirm,
+      .clients__actions-btn--timeoffer,
+      .clients__actions-btn--cancel {
+        display: block;
+      }
 
       .clients__next-session {
         color: #FF5C00;
