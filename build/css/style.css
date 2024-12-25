@@ -769,6 +769,11 @@ details summary::marker {
   animation: rotate-animation 5s infinite linear;
 }
 
+pre {
+  font-family: inherit;
+  white-space: break-spaces;
+}
+
 @-webkit-keyframes rotate-animation {
   0% {
     -webkit-transform: rotate(0deg);
@@ -1609,7 +1614,6 @@ details summary::marker {
 
 .nav-lang-switcher .lang-switcher__item {
   width: 100%;
-  padding: 6px 8px;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -1624,10 +1628,12 @@ details summary::marker {
 }
 
 .nav-lang-switcher .lang-switcher__item a {
+  width: 100%;
   color: #ffffff;
   text-transform: capitalize;
   font-weight: 500;
   font-size: 16px;
+  padding: 6px 8px;
 }
 
 .unlogged {
@@ -2556,6 +2562,11 @@ details summary::marker {
   margin-bottom: 48px;
 }
 
+.error-message--auth.is-active,
+.error-message--get-pass.is-active {
+  position: relative;
+}
+
 .signup .container {
   padding-top: 73px;
   display: -webkit-box;
@@ -2988,6 +2999,14 @@ details summary::marker {
 }
 
 .questions__btn {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  gap: 7px;
+  height: 66px;
   font-weight: 900;
   font-size: 20px;
   line-height: 110%;
@@ -3309,6 +3328,7 @@ details summary::marker {
 .doctor__submit-btn,
 .doctor__submit-btn-2,
 .doctor__submit-btn-new {
+  height: 66px;
   font-weight: 900;
   font-size: 20px;
   line-height: 110%;
@@ -3319,12 +3339,21 @@ details summary::marker {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
 }
 
 .doctor__submit-btn .doctor__submit-text-2,
 .doctor__submit-btn-2 .doctor__submit-text-2,
 .doctor__submit-btn-new .doctor__submit-text-2 {
   display: none;
+}
+
+.doctor__submit-btn .icon-loader,
+.doctor__submit-btn-2 .icon-loader,
+.doctor__submit-btn-new .icon-loader {
+  margin-right: 7px;
 }
 
 .doctor__submit-btn.is-enabled,
@@ -5018,6 +5047,7 @@ label[for=user_photo] {
 }
 
 .doc-questionary__wrapper {
+  position: relative;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -7324,7 +7354,7 @@ button.admin-profile__back-to-profile {
   }
 
   .nav-lang-switcher .lang-switcher__item a:hover:not(.focus-visible) {
-    opacity: 0.7;
+    color: rgba(255, 255, 255, 0.5);
   }
 
   .guide__dot:hover:not(.focus-visible) .guide__counter {

@@ -114,3 +114,8 @@
     margin-bottom: 48px;
   }
 }
+
+.error-message--auth.is-active,
+.error-message--get-pass.is-active {
+  position: relative;
+}

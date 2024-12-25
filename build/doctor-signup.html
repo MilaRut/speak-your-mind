@@ -84,6 +84,38 @@
           </div>
           <form action="" method="post" id="register-therapist-form">
             <div class="doc-questionary__wrapper">
+              <p class="text-20"><b><span data-translate="doc_q_timezone">Your timezone</span></b>*</p>
+              <select name="doc_timezone" id="doc_timezone">
+                <option disabled selected data-translate="choose_option">Select option</option>
+                <option value="-12" data-value="-12">(UTC -12:00) Baker Island</option>
+                <option value="-11" data-value="-11">(UTC -11:00) American Samoa</option>
+                <option value="-10" data-value="-10">(UTC -10:00) Hawaii</option>
+                <option value="-9" data-value="-09">(UTC -09:00) Alaska</option>
+                <option value="-8" data-value="-08">(UTC -08:00) Pacific Time (US & Canada)</option>
+                <option value="-7" data-value="-07">(UTC -07:00) Mountain Time (US & Canada)</option>
+                <option value="-6" data-value="-06">(UTC -06:00) Central Time (US & Canada)</option>
+                <option value="-5" data-value="-05">(UTC -05:00) Eastern Time (US & Canada)</option>
+                <option value="-4" data-value="-04">(UTC -04:00) Atlantic Time (Canada)</option>
+                <option value="-3" data-value="-03">(UTC -03:00) Brazil</option>
+                <option value="-2" data-value="-02">(UTC -02:00) South Georgia</option>
+                <option value="-1" data-value="-01">(UTC -01:00) Azores</option>
+                <option value="+0" data-value="+00">(UTC +00:00) London</option>
+                <option value="+1" data-value="+01">(UTC +01:00) Europe / Budapest</option>
+                <option value="+2" data-value="+02">(UTC +02:00) Europe / Finland</option>
+                <option value="+3" data-value="+03">(UTC +03:00) Europe / Moscow</option>
+                <option value="+4" data-value="+04">(UTC +04:00) Europe / Georgia</option>
+                <option value="+5" data-value="+05">(UTC +05:00) Europe / Kazakhstan</option>
+                <option value="+6" data-value="+06">(UTC +06:00) Asia / Dhaka</option>
+                <option value="+7" data-value="+07">(UTC +07:00) Asia / Bangkok</option>
+                <option value="+8" data-value="+08">(UTC +08:00) Asia / Singapore</option>
+                <option value="+9" data-value="+09">(UTC +09:00) Asia / Tokyo</option>
+                <option value="+10" data-value="+10">(UTC +10:00) Australia / Sydney</option>
+                <option value="+11" data-value="+11">(UTC +11:00) Solomon Islands</option>
+                <option value="+12" data-value="+12">(UTC +12:00) Fiji</option>
+              </select>
+              <span class="error-message" data-translate="validate_msg">Please fill out this field</span>
+            </div>
+            <div class="doc-questionary__wrapper">
               <p class="text-20">
                 <b><span data-translate="doc_q_language_title2">What language are you willing to consult
                     in?</span>*</b><br>
@@ -106,16 +138,19 @@
                   <span>english</span>
                 </label>
               </div>
+              <span class="error-message" data-translate="validate_msg">Please fill out this field</span>
             </div>
             <div class="doc-questionary__wrapper">
               <p class="text-20"><b><span data-translate="doc_q_name">Your name</span>*</b></p>
               <input class="text-18" type="text" name="doc_name" id="doc_name" placeholder="Your name"
                 data-translate="doc_q_name_placeholder">
+              <span class="error-message" data-translate="validate_msg">Please fill out this field</span>
             </div>
             <div class="doc-questionary__wrapper">
               <p class="text-20"><b><span data-translate="doc_q_dob">Your date of birth</span></b>*
               </p>
               <input class="text-18" type="date" name="doc_date_of_birth" id="doc_date_of_birth">
+              <span class="error-message" data-translate="validate_msg">Please fill out this field</span>
             </div>
             <div class="doc-questionary__wrapper">
               <p class="text-20"><b><span data-translate="doc_q_gender">Your gender</span></b>*</p>
@@ -124,6 +159,7 @@
                 <option value="0" data-translate="doc_q_gender_male">Male</option>
                 <option value="1" data-translate="doc_q_gender_female">Female</option>
               </select>
+              <span class="error-message" data-translate="validate_msg">Please fill out this field</span>
             </div>
             <div class="doc-questionary__wrapper doc-questionary__wrapper--edu">
               <p class="text-20"><b><span data-translate="doc_q_edu_title">What is your higher education?</span></b>*
@@ -152,6 +188,7 @@
                 </span>
                 <span data-translate="add_edu_btn">Add education</span>
               </button>
+              <span class="error-message" data-translate="validate_msg">Please fill out this field</span>
             </div>
             <div class="doc-questionary__wrapper">
               <p class="text-20">
@@ -231,6 +268,7 @@
                   </label>
                 </div>
               </div>
+              <span class="error-message" data-translate="validate_msg">Please fill out this field</span>
             </div>
             <div class="doc-questionary__wrapper">
               <p class="text-18">
@@ -259,6 +297,7 @@
                   <span data-translate="doc_edu_additional_4">Other</span>
                 </label>
               </div>
+              <span class="error-message" data-translate="validate_msg">Please fill out this field</span>
             </div>
             <div class="doc-questionary__wrapper upload">
               <p class="text-20">
@@ -285,6 +324,7 @@
                   <use xlink:href="./img/sprite.svg#close-modal"></use>
                 </svg>
               </button>
+              <span class="error-message" data-translate="validate_msg">Please fill out this field</span>
             </div>
             <div class="doc-questionary__wrapper">
               <p class="text-20">
@@ -294,6 +334,7 @@
               <p class="text-18" data-translate="doc_comunity_text">If you do, please specify?</p>
               <textarea class="text-20" name="doc_comunity" id="doc_comunity" placeholder="Your answer"
                 data-translate="your_answer"></textarea>
+              <span class="error-message" data-translate="validate_msg">Please fill out this field</span>
             </div>
             <div class="doc-questionary__wrapper">
               <p class="text-20">
@@ -322,6 +363,7 @@
                 <input class="text-18" type="number" name="doc_practice_start_year" id="doc_practice_start_year"
                   placeholder="year" data-translate="year">
               </div>
+              <span class="error-message" data-translate="validate_msg">Please fill out this field</span>
             </div>
             <div class="doc-questionary__wrapper">
               <p class="text-20"><b><span data-translate="doc_online_experience_title">Do you have experience working
@@ -329,6 +371,7 @@
               <p class="text-18" data-translate="doc_online_experience_text">If yes, how many years?</p>
               <input class="text-18" type="number" name="doc_online_experience" id="doc_online_experience"
                 placeholder="Your answer" data-translate="your_answer">
+              <span class="error-message" data-translate="validate_msg">Please fill out this field</span>
             </div>
             <div class="doc-questionary__wrapper">
               <p class="text-20"><b><span data-translate="doc_customers_amount_title">
@@ -338,6 +381,7 @@
                 clients, not the number of clients you’ve had in general.</p>
               <input class="text-18" type="number" name="doc_customers_amount_current" id="doc_customers_amount_current"
                 placeholder="Your answer" data-translate="number">
+              <span class="error-message" data-translate="validate_msg">Please fill out this field</span>
             </div>
             <div class="doc-questionary__wrapper">
               <p class="text-20"><b><span data-translate="doc_therapy_length_title">How long did it take for your
@@ -347,6 +391,7 @@
               <p class="text-13" data-translate="doc_therapy_length_example">E.g.: 20 sessions</p>
               <input class="text-18" type="text" name="doc_therapy_length" id="doc_therapy_length"
                 placeholder="Your answer" data-translate="your_answer">
+              <span class="error-message" data-translate="validate_msg">Please fill out this field</span>
             </div>
             <div class="doc-questionary__wrapper">
               <p class="text-20"><b><span data-translate="doc_personal_therapy">Are you in personal
@@ -386,6 +431,7 @@
                   <span class="text-14" data-translate="no">No</span>
                 </label>
               </div>
+              <span class="error-message" data-translate="validate_msg">Please fill out this field</span>
             </div>
             <div class="doc-questionary__wrapper">
               <p class="text-20">
@@ -396,6 +442,7 @@
                     distributed?</span></b></p>
               <textarea class="text-20" name="doc_another_job" id="doc_another_job" placeholder="Your answer"
                 data-translate="your_answer"></textarea>
+              <span class="error-message" data-translate="validate_msg">Please fill out this field</span>
             </div>
             <div class="doc-questionary__wrapper">
               <p class="text-20">
@@ -405,12 +452,14 @@
               <p class="text-18" data-translate="doc_customers_slots_text">Please, indicate the number “from - to” </p>
               <input class="text-18" type="text" name="doc_customers_slots_available" id="doc_customers_slots_available"
                 placeholder="Your answer" data-translate="your_answer">
+              <span class="error-message" data-translate="validate_msg">Please fill out this field</span>
             </div>
             <div class="doc-questionary__wrapper">
               <p class="text-20"><b><span data-translate="doc_socials_links">Links to social media profiles</span>*</b>
               </p>
               <textarea class="text-20" name="doc_socials_links" id="doc_socials_links" placeholder="Your answer"
                 data-translate="your_answer"></textarea>
+              <span class="error-message" data-translate="validate_msg">Please fill out this field</span>
             </div>
             <div class="doc-questionary__wrapper upload upload--photos">
               <p class="text-20"><b><span data-translate="doc_photo_upload_title">Attach your photo</span>*</b></p>
@@ -433,6 +482,7 @@
                   <use xlink:href="./img/sprite.svg#close-modal"></use>
                 </svg>
               </button>
+              <span class="error-message" data-translate="validate_msg">Please fill out this field</span>
             </div>
             <div class="doc-questionary__wrapper">
               <p class="text-20"><b><span data-translate="doc_citizenship_title">Your citizenship?</span>*</b>
@@ -453,6 +503,7 @@
                 <input type="text" name="doc_citizenship_other" id="doc_citizenship_other" placeholder="Your answer"
                   data-translate="doc_other_option">
               </label>
+              <span class="error-message" data-translate="validate_msg">Please fill out this field</span>
             </div>
             <div class="doc-questionary__wrapper">
               <p class="text-20"><b><span data-translate="doc_ref_title">How did you find about the therapist
@@ -473,6 +524,7 @@
                 <input type="text" name="doc_ref_other" id="doc_ref_other" placeholder="Your answer"
                   data-translate="doc_other_option">
               </label>
+              <span class="error-message" data-translate="validate_msg">Please fill out this field</span>
             </div>
             <div class="doc-questionary__wrapper">
               <p class="text-20"><b><span data-translate="doc_phone_title">Your contact phone number</span>*</b></p>
@@ -480,6 +532,7 @@
                 international code of your country</p>
               <input class="text-18" type="text" name="doc_phone" id="doc_phone" placeholder="Your phone number"
                 data-translate="doc_phone_placeholder">
+              <span class="error-message" data-translate="validate_msg">Please fill out this field</span>
             </div>
             <div class="doc-questionary__wrapper">
               <p class="text-20"><b><span data-translate="doc_email_title">Your e-mail address</span>*</b></p>
@@ -488,6 +541,7 @@
               </p>
               <input class="text-18" type="email" name="doc_email" id="doc_email" placeholder="Ваш email"
                 data-translate="email_placeholder">
+              <span class="error-message" data-translate="validate_msg">Please fill out this field</span>
             </div>
             <div class="doc-questionary__wrapper">
               <p class="text-20"><b><span data-translate="doc_additional_info_title">Tell us about yourself in free
@@ -497,18 +551,21 @@
                 to know what kind of expert you are?</p>
               <textarea class="text-20" name="doc_additional_info" id="doc_additional_info" placeholder="Your answer"
                 data-translate="your_answer"></textarea>
+              <span class="error-message" data-translate="validate_msg">Please fill out this field</span>
             </div>
             <div class="doc-questionary__wrapper">
               <p class="text-20"><b><span data-translate="doc_question_1">What things do you find unacceptable in the
                     psychotherapeutic process? Why?</span>*</b></p>
               <textarea class="text-20" name="doc_question_1" id="doc_question_1" placeholder="Your answer"
                 data-translate="your_answer"></textarea>
+              <span class="error-message" data-translate="validate_msg">Please fill out this field</span>
             </div>
             <div class="doc-questionary__wrapper">
               <p class="text-20"><b><span data-translate="doc_question_2">What do you think you can't work with online?
                     Why?</span>*</b></p>
               <textarea class="text-20" name="doc_question_2" id="doc_question_2" placeholder="Your answer"
                 data-translate="your_answer"></textarea>
+              <span class="error-message" data-translate="validate_msg">Please fill out this field</span>
             </div>
             <div class="doc-questionary__wrapper">
               <p class="text-20"><b><span data-translate="doc_contact">How can we contact you?</span>*</b>
@@ -525,6 +582,7 @@
                   data-translate="your_answer">
                 <p data-translate="doc_contact_other">Link or your nickname in Telegram*</p>
               </label>
+              <span class="error-message" data-translate="validate_msg">Please fill out this field</span>
             </div>
             <span class="form-error-message">Something wrong. Do something</span>
             <button type="submit" class="doc-questionary__submit-btn btn">
@@ -543,6 +601,8 @@
         <div class="footer__copyright">
           <span>&copy; Speak Your Mind 2023</span>
           <a href="terms.html" class="text-green" data-translate="terms">Terms of Service</a>
+          <span>Site developed by <a target="_blank" rel="nofollow noreferrer noopener" href="https://sleeps.co/"
+              class="text-green">S-CATS</a></span>
         </div>
       </div>
     </footer>
@@ -556,6 +616,25 @@
         localStorage.clear();
         localStorage.setItem('language', savedLang);
       }
+
+      // определение часового пояса
+      function setCurrentTimezone() {
+
+        // Получаем локальный часовой пояс пользователя
+        const timezoneOffset = new Date().getTimezoneOffset();
+        const hoursOffset = Math.abs(timezoneOffset / 60);
+        const sign = timezoneOffset > 0 ? '-' : '+';
+        const userTimezone = sign + hoursOffset.toString().padStart(2, '0');
+        // Находим соответствующий option и отмечаем его
+        const selectElement = document.getElementById('doc_timezone');
+        for (let option of selectElement.options) {
+          if (option.getAttribute('data-value') === userTimezone) {
+            option.selected = true;
+            break;
+          }
+        }
+      };
+      setCurrentTimezone();
 
       // добавление новых полей образования
       const placeholders = {
@@ -626,12 +705,14 @@
       });
 
       const form = document.querySelector('#register-therapist-form');
+      const errorMsg = document.querySelector('.form-error-message');
       const url = 'https://www.speakyourmind.help:8000/register_therapist';
+      let isValid = false;
 
       form.addEventListener('submit', function (e) {
         e.preventDefault();
 
-        const errorMsg = document.querySelector('.form-error-message');
+        const doc_timezone = document.querySelector('#doc_timezone').value;
         const doc_name = document.querySelector('#doc_name').value;
         const doc_date_of_birth = document.querySelector('#doc_date_of_birth').value;
         const doc_gender = document.querySelector('#doc_gender').value;
@@ -678,7 +759,7 @@
 
         const doc_comunity = document.querySelector('#doc_comunity').value;
         const doc_practice_start = `${document.querySelector('#doc_practice_start_month').value} ${document.querySelector('#doc_practice_start_year').value}`;
-        const doc_online_experience = document.querySelector('#doc_online_experience').value;
+        const doc_online_experience = document.querySelector('#doc_online_experience').value !== '' ? document.querySelector('#doc_online_experience').value : '0';
         const doc_customers_amount_current = document.querySelector('#doc_customers_amount_current').value;
         const doc_therapy_length = document.querySelector('#doc_therapy_length').value;
         const doc_personal_therapy = document.querySelector('[name="doc_personal_therapy"]').value;
@@ -696,6 +777,7 @@
         const doc_question_1 = document.querySelector('#doc_question_1').value;
         const doc_question_2 = document.querySelector('#doc_question_2').value;
         const doc_contact = document.querySelector('#doc_contact').value;
+        const doc_contact_other = document.querySelector('#doc_contact_other').value;
 
         const fileInputs = {
           avatar: document.querySelectorAll('#doc_photo_upload'),
@@ -742,6 +824,7 @@
         Promise.all([...filePromises.avatar, ...filePromises.documents])
           .then((base64Files) => {
             const userData = {
+              doc_timezone: doc_timezone,
               is_therapist: true,
               doc_name: doc_name,
               doc_date_of_birth: doc_date_of_birth,
@@ -770,45 +853,65 @@
               doc_question_1: doc_question_1,
               doc_question_2: doc_question_2,
               doc_contact: doc_contact,
+              doc_contact_other: doc_contact_other,
               user_photo: {
                 avatar: base64Files.slice(0, avatarFiles.length), // Первые файлы - аватары
                 documents: base64Files.slice(avatarFiles.length) // Остальные файлы - документы
               }
             };
 
-            fetch(url, {
-              method: 'POST',
-              headers: {
-                'Content-Type': 'application/json'
-              },
-              body: JSON.stringify(userData)
-            })
-              .then(response => {
-                submitBtn.classList.remove('is-loading');
-                if (!response.ok) {
-                  throw new Error('Ошибка сети: ' + response.status + '. Проверьте корректность заполнения всех полей');
-                }
-                return response.json();
-              })
-              .then(data => {
-                // Обработка ответа от сервера
-                console.log(data);
+            validateForm();
 
-                if (data.token) {
-                  localStorage.setItem('token', data.token);
-                  window.location.href = '/doctor-account-settings.html';
-                } else {
-                  console.error('Токен не найден в ответе от сервера');
-                  errorMsg.classList.add('is-active');
-                  errorMsg.textContent = 'Токен не найден в ответе от сервера';
-                }
+            if (!isValid) {
+              console.log('no valid');
+              submitBtn.classList.remove('is-loading');
+              errorMsg.classList.add('is-active');
+              errorMsg.textContent = 'Заполните, пожалуйста, все поля анкеты'
+              return;
+            }
+
+            if (isValid) {
+              fetch(url, {
+                method: 'POST',
+                headers: {
+                  'Content-Type': 'application/json'
+                },
+                body: JSON.stringify(userData)
               })
-              .catch(error => {
-                // Обработка ошибки
-                console.log('Ошибка >' + error);
-                errorMsg.classList.add('is-active');
-                errorMsg.textContent = error;
-              });
+                .then(response => {
+                  submitBtn.classList.remove('is-loading');
+                  if (!response.ok) {
+                    throw new Error('Ошибка сети: ' + response.status + '. Проверьте корректность заполнения всех полей');
+                  }
+                  return response.json();
+                })
+                .then(data => {
+                  // Обработка ответа от сервера
+                  console.log(data);
+
+                  if (data.error) {
+                    errorMsg.textContent = data.error;
+                  }
+
+                  if (data.token) {
+                    localStorage.setItem('token', data.token);
+                    console.log('анкета корректна и отправлена!')
+                    window.location.href = '/doctor-account-settings.html';
+                  } else if (data.error) {
+                    errorMsg.textContent = data.error;
+                  } else {
+                    console.error('Токен не найден в ответе от сервера');
+                    errorMsg.classList.add('is-active');
+                    errorMsg.textContent = 'Токен не найден в ответе от сервера';
+                  }
+                })
+                .catch(error => {
+                  // Обработка ошибки
+                  console.log('Ошибка >' + error);
+                  errorMsg.classList.add('is-active');
+                  errorMsg.textContent = error;
+                });
+            }
           })
           .catch(error => {
             // Обработка ошибки чтения файлов
@@ -817,6 +920,203 @@
             errorMsg.textContent = error;
           });
       });
+
+      // показ сообщений о невалидности полей формы
+      function showErrorMsg(el) {
+        el.closest('.doc-questionary__wrapper').scrollIntoView({ behavior: 'smooth' });
+        el.closest('.doc-questionary__wrapper').querySelector('.error-message').classList.add('is-active');
+      }
+
+      // валидация формы
+      function validateForm() {
+        document.querySelectorAll('.error-message').forEach((msg) => {
+          if (msg.classList.contains('is-active')) {
+            msg.classList.remove('is-active');
+          }
+        });
+
+        // часовой пояс
+        const docTimezone = document.querySelector('#doc_timezone');
+        if (docTimezone.value.trim() === '') {
+          showErrorMsg(docTimezone);
+          return;
+        }
+
+        // языки
+        const languages = document.querySelectorAll('input[name="doc_language"]');
+        const languagesChecked = document.querySelectorAll('input[name="doc_language"]:checked');
+        if (languagesChecked.length === 0) {
+          showErrorMsg(languages[0]);
+          return;
+        }
+
+        // ФИО
+        const name = document.querySelector('#doc_name');
+        if (name.value.trim() === '') {
+          showErrorMsg(name);
+          return;
+        }
+
+        // возраст
+        const age = document.querySelector('#doc_date_of_birth');
+        if (age.value.trim() === '') {
+          showErrorMsg(age);
+          return;
+        }
+
+        // генедер
+        const gender = document.querySelector('#doc_gender');
+        if (gender.value.trim() === '') {
+          showErrorMsg(gender);
+          return;
+        }
+
+        // образование
+        const year = document.querySelector('input[name="edu_year"]');
+        const university = document.querySelector('input[name="edu_university"]');
+        const faculty = document.querySelector('input[name="edu_faculty"]');
+        const degree = document.querySelector('input[name="edu_degree"]');
+
+        if (year.value.trim() === '' || university.value.trim() === '' || faculty.value.trim() === '' || degree.value.trim() === '') {
+          showErrorMsg(year);
+          return;
+        }
+
+        // методы
+        const methods = document.querySelectorAll('input[name="doc_method"]');
+        const methodsChecked = document.querySelectorAll('input[name="doc_method"]:checked');
+        if (methodsChecked.length === 0) {
+          showErrorMsg(methods[0]);
+          return;
+        }
+
+        // сканы
+        const scans = document.querySelector('#doc_edu_upload');
+        if (scans.value === '') {
+          showErrorMsg(scans);
+          return;
+        }
+
+        // сообщество
+        const comunity = document.querySelector('#doc_comunity');
+        if (comunity.value.trim() === '') {
+          showErrorMsg(comunity);
+          return;
+        }
+
+        // начало практики
+        const start = document.querySelector('#doc_practice_start_year');
+        if (start.value.trim() === '') {
+          showErrorMsg(start);
+          return;
+        }
+
+        // начало практики
+        const customersAmount = document.querySelector('#doc_customers_amount_current');
+        if (customersAmount.value === '') {
+          showErrorMsg(customersAmount);
+          return;
+        }
+
+        // длительность терапии
+        const therapyLength = document.querySelector('#doc_therapy_length');
+        if (therapyLength.value === '') {
+          showErrorMsg(therapyLength);
+          return;
+        }
+
+        // другая работа
+        const anotherJob = document.querySelector('#doc_another_job');
+        if (anotherJob.value.trim() === '') {
+          showErrorMsg(anotherJob);
+          return;
+        }
+
+        // сколько клиентов готовы взять
+        const slotsAvailable = document.querySelector('#doc_customers_slots_available');
+        if (slotsAvailable.value.trim() === '') {
+          showErrorMsg(slotsAvailable);
+          return;
+        }
+
+        // соцсети
+        const socials = document.querySelector('#doc_socials_links');
+        if (socials.value.trim() === '') {
+          showErrorMsg(socials);
+          return;
+        }
+
+        // сканы
+        const photos = document.querySelector('#doc_photo_upload');
+        if (photos.value === '') {
+          showErrorMsg(photos);
+          return;
+        }
+
+        // гражданство
+        const citizenship = document.querySelector('#doc_citizenship');
+        if (citizenship.value === '') {
+          showErrorMsg(citizenship);
+          return;
+        }
+
+        // откуда узнали
+        const ref = document.querySelector('#doc_ref');
+        if (ref.value === '') {
+          showErrorMsg(ref);
+          return;
+        }
+
+        // телефон
+        const phone = document.querySelector('#doc_phone');
+        if (phone.value === '') {
+          showErrorMsg(phone);
+          return;
+        }
+
+        // email
+        const email = document.querySelector('#doc_email');
+        if (email.value === '') {
+          showErrorMsg(email);
+          return;
+        }
+
+        // инфо о докторе
+        const additional = document.querySelector('#doc_additional_info');
+        if (additional.value.trim() === '') {
+          showErrorMsg(additional);
+          return;
+        }
+
+        // доп вопросы 1
+        const question1 = document.querySelector('#doc_question_1');
+        if (question1.value.trim() === '') {
+          showErrorMsg(question1);
+          return;
+        }
+
+        // доп вопросы 2
+        const question2 = document.querySelector('#doc_question_2');
+        if (question2.value.trim() === '') {
+          showErrorMsg(question2);
+          return;
+        }
+
+        // способ связаться
+        const contact = document.querySelector('#doc_contact');
+        const contactOther = document.querySelector('#doc_contact_other');
+        if (contact.value === '') {
+          showErrorMsg(contact);
+          return;
+        }
+        if (contact.value === 'other') {
+          if (contactOther.value.trim() === '') {
+            showErrorMsg(contact);
+            return;
+          }
+        }
+        isValid = true;
+      }
     });
 
   </script>

@@ -160,6 +160,7 @@
         <div class="footer__copyright">
           <span>&copy; Speak Your Mind 2023</span>
           <a href="terms.html" class="text-green" data-translate="terms">Terms of Service</a>
+          <span>Site developed by <a target="_blank" rel="nofollow noreferrer noopener" href="https://sleeps.co/" class="text-green">S-CATS</a></span>
         </div>
       </div>
     </footer>
@@ -170,7 +171,6 @@
     document.addEventListener('DOMContentLoaded', function () {
       const getPasswordForm = document.querySelector('#signup-get-password-form');
       const userSignupForm = document.querySelector('#user-signup-form');
-      const errorMsg = document.querySelector('.form-error-message')
       const errorMsgPass = document.querySelector('.error-message--get-pass');
       const errorMsgAuth = document.querySelector('.error-message--auth');
       const getPassBtn = document.querySelector('#get-password-btn');
@@ -214,8 +214,8 @@
           .then(function (response) {
             if (!response.ok) {
               throw new Error('Network response was not ok');
-              errorMsg.classList.add('is-active');
-              errorMsg.textContent = error;
+              errorMsgPass.classList.add('is-active');
+              errorMsgPass.textContent = 'Network response was not ok';
             }
             return response.json();
           })
@@ -223,12 +223,12 @@
             // Обработка успешного ответа от сервера
             if (!data.status) {
               if (data.error) {
-                errorMsg.classList.add('is-active');
-                errorMsg.textContent = data.error;
+                errorMsgPass.classList.add('is-active');
+                errorMsgPass.textContent = data.error;
               }
             } else {
               // TODO - удалить, пока добавлено для тестов и дебага
-              document.querySelector('#one_time_psswd').value = data.password;
+              // document.querySelector('#one_time_psswd').value = data.password;
               // END TODO
 
               getPasswordForm.style.display = 'none';
@@ -237,8 +237,8 @@
             };
           })
           .catch(function (error) {
-            errorMsg.classList.add('is-active');
-            errorMsg.textContent = error;
+            errorMsgPass.classList.add('is-active');
+            errorMsgPass.textContent = error;
             // TODO удалить вывод в консоль
             console.log(error);
             // END TODO
@@ -268,7 +268,10 @@
           .then(function (response) {
             submitBtn.classList.remove('is-loading');
             if (!response.ok) {
+              errorMsgAuth.classList.add('is-active');
+              errorMsgAuth.textContent = 'Network response was not ok';
               throw new Error('Network response was not ok');
+              submitBtn.classList.remove('is-loading');
             }
             return response.json();
           })
@@ -288,8 +291,8 @@
             };
           })
           .catch(function (error) {
-            errorMsg.classList.add('is-active');
-            errorMsg.textContent = error;
+            errorMsgAuth.classList.add('is-active');
+            errorMsgAuth.textContent = error;
           });
       });
     });

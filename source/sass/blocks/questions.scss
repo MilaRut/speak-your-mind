@@ -191,6 +191,10 @@
   }
 
   &__btn {
+    display: flex;
+    align-items: center;
+    gap: 7px;
+    height: 66px;
     font-weight: 900;
     font-size: 20px;
     line-height: 110%;

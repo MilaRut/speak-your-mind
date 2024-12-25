@@ -70,7 +70,6 @@
 
   .lang-switcher__item {
     width: 100%;
-    padding: 6px 8px;
     display: flex;
     align-items: center;
     margin-bottom: 0;
@@ -80,13 +79,15 @@
     }
 
     a {
+      width: 100%;
       color: $color-default-white;
       text-transform: capitalize;
       font-weight: 500;
       font-size: 16px;
+      padding: 6px 8px;
 
       @include hover {
-        opacity: 0.7;
+        color: rgba(255, 255, 255, 0.5);
       }
     }
   }

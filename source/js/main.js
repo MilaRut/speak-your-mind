@@ -18,9 +18,7 @@ import {initSwiper} from './modules/my-swiper';
 import {setChoiceBtn} from './modules/pickdate';
 import {initScheduleDropdown, expandList} from './modules/schedule';
 import {redirectToProfile} from './modules/redirect-profile';
-// TODO: delete
 import {setUtilsBtns} from './modules/utils-btns';
-// END TODO
 import {uploadUserPhoto} from './modules/upload-user-photo';
 import {initAdminAlerts} from './modules/amin-alerts';
 import {showUploadedFiles} from './modules/uploaded-list';
@@ -64,9 +62,7 @@ window.addEventListener('DOMContentLoaded', () => {
     setChoiceBtn();
     expandList();
     initScheduleDropdown();
-    // TODO: delete
     setUtilsBtns();
-    // END TODO
     redirectToProfile();
     uploadUserPhoto();
     showUploadedFiles();
