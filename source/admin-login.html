@@ -18,11 +18,6 @@
 <body class="admin">
   <div class="wrapper user-unlogged">
     <main>
-      <!-- <div class="debug-menu" style="background-color: lightgray;">
-        <h3>Debug menu</h3>
-        <p class="debug-email"></p>
-        <p class="debug-pass"></p>
-      </div> -->
       <section class="login">
         <div class="container">
           <div class="login__wrapper">
@@ -133,33 +128,6 @@
           });
       });
     });
-
-
-    // document.addEventListener('DOMContentLoaded', function () {
-    //   function getAdminData() {
-    //     const url = "https://www.speakyourmind.help:8000/make_admin";
-
-    //     fetch(url, {
-    //       method: 'POST'
-    //     })
-    //       .then(response => {
-    //         if (!response.ok) {
-    //           throw new Error('Сеть ответила с ошибкой: ' + response.status);
-    //           submitBtn.classList.add('is-loading');
-    //         }
-    //         return response.json();
-    //       })
-    //       .then(data => {
-    //         document.querySelector('.debug-email').textContent = data.email;
-    //         document.querySelector('.debug-pass').textContent = data.password;
-    //       })
-    //       .catch(error => {
-    //         console.error('Произошла ошибка:', error);
-    //         submitBtn.classList.add('is-loading');
-    //       });
-    //   }
-    //   getAdminData();
-    // });
   </script>
 
   <script src="js/vendor.min.js"></script>

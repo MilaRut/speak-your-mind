@@ -153,8 +153,11 @@
                       </svg>
                       <span class="text-green" data-translate="admin_contact">Contact</span>
                     </button>
-                    <button type="button" class="btn btn--white admin-profile__deactivate-btn">
+                    <button type="button" class="btn btn--white admin-profile__deactivate-btn doc-deactivate-btn">
                       <span class="text-green" data-translate="deactivate">Deactivate</span>
+                    </button>
+                    <button type="button" class="btn btn--white admin-profile__activate-btn doc-activate-btn">
+                      <span class="text-green" data-translate="activate">Activate</span>
                     </button>
                   </div>
                 </div>
@@ -359,49 +362,6 @@
                       <b><span data-translate="admin_doctor_symptoms">Symptoms Specialization</span></b>
                     </p>
                     <div class="specialisation"></div>
-                    <!-- <div class="specialisation-wrapper" style="display: flex; gap: 24px;">
-                      <div class="specialisation">
-                        <p class="text-18">
-                          <b><span data-translate="symptoms_title_1">Отношения с собой</span></b>
-                        </p>
-                        <ul>
-                          <li>Депрессивные состояния</li>
-                          <li>Одиночество</li>
-                          <li>ЛГБТ+</li>
-                        </ul>
-                      </div>
-                      <div class="specialisation">
-                        <p class="text-18">
-                          <b><span data-translate="symptoms_title_2">Отношения с другими</span></b>
-                        </p>
-                        <ul>
-                          <li>С родителями</li>
-                        </ul>
-                      </div>
-                      <div class="specialisation">
-                        <p class="text-18">
-                          <b><span data-translate="symptoms_title_3">Работа, учеба</span></b>
-                        </p>
-                        <ul>
-                          <li>Недостаток мотивации</li>
-                          <li>“Не знаю, чем хочу заниматься”</li>
-                          <li>Отсутствие цели</li>
-                          <li>Выгорание</li>
-                          <li>Прокрастинация</li>
-                        </ul>
-                      </div>
-                      <div class="specialisation">
-                        <p class="text-18">
-                          <b><span data-translate="symptoms_title_4">События жизни</span></b>
-                        </p>
-                        <ul>
-                          <li>Переезд, эмиграция</li>
-                          <li>Разрыв отношений, развод</li>
-                          <li>Утрата близкого человека</li>
-                          <li>Болезнь, своя или близких</li>
-                        </ul>
-                      </div>
-                    </div> -->
                     <p class="text-25" style="margin-bottom: 22px; padding-top: 24px;">
                       <b><span data-translate="doctor_profile_edu">Education and Experience</span></b>
                     </p>
@@ -412,6 +372,7 @@
                     <div class="scans-list"></div>
                   </details>
                 </div>
+                <button class="full-info-btn">Скачать полную анкету</button>
                 <div class="admin-profile__sessions is-hidden">
                   <details open>
                     <summary>
@@ -431,7 +392,7 @@
                           <th data-translate="table_sum">Sum</th>
                           <th data-translate="admin_table_client">Client</th>
                         </tr>
-                        <tr class="admin-table__item">
+                        <!-- <tr class="admin-table__item">
                           <td><span class="admin-table__date">16:00 29.07.2024</span></td>
                           <td><span class="admin-table__status">В процессе</span></td>
                           <td><span class="admin-table__payment">Заморожена</span></td>
@@ -462,7 +423,7 @@
                           <td><span class="admin-table__payment-date">15:56 15.07.2024</span></td>
                           <td><span class="admin-table__sum">19 500</span></td>
                           <td><span class="admin-table__doctor text-green">Ксения</span></td>
-                        </tr>
+                        </tr> -->
                       </table>
                     </div>
                   </details>
@@ -498,8 +459,11 @@
                     </svg>
                     <span class="text-green" data-translate="admin_contact_doctor">Contact therapist</span>
                   </button>
-                  <button type="button" class="btn btn--white admin-profile__deactivate-btn">
+                  <button type="button" class="btn btn--white admin-profile__deactivate-btn doc-deactivate-btn">
                     <span class="text-green" data-translate="deactivate">Deactivate</span>
+                  </button>
+                  <button type="button" class="btn btn--white admin-profile__activate-btn doc-activate-btn">
+                    <span class="text-green" data-translate="activate">Activate</span>
                   </button>
                   <a href="admin-doctors.html" class="admin-profile__back-btn text-green"
                     data-translate="admin_back_to_therapists">Back to therapist list</a>
@@ -516,7 +480,8 @@
         <div class="footer__copyright">
           <span>&copy; Speak Your Mind 2023</span>
           <a href="terms.html" class="text-green" data-translate="terms">Terms of Service</a>
-          <span>Site developed by <a target="_blank" rel="nofollow noreferrer noopener" href="https://sleeps.co/" class="text-green">S-CATS</a></span>
+          <span>Site developed by <a target="_blank" rel="nofollow noreferrer noopener" href="https://sleeps.co/"
+              class="text-green">S-CATS</a></span>
         </div>
       </div>
     </footer>
@@ -756,6 +721,17 @@
       // Рендеринг профиля терапевта
       function renderDocProfile(data) {
         console.log('Данные терапевта', data);
+
+        const profileClass = data.approved === 0 ? 'admin__profile--doctor-inactive' : 'admin__profile--doctor-active';
+        document.querySelector('.admin__profile--doctor').classList.add(profileClass);
+
+        document.querySelectorAll('.doc-deactivate-btn').forEach((btn) => {
+          btn.setAttribute('data-id', data.doc_id);
+        });
+
+        document.querySelectorAll('.doc-activate-btn').forEach((btn) => {
+          btn.setAttribute('data-id', data.doc_id);
+        });
 
         document.querySelector('.admin-profile__id').textContent = data.doc_id;
         document.querySelector('[name="doc-name"]').value = data.doc_name;
@@ -1018,9 +994,6 @@
             console.error('Ошибка при получении данных пользователя:', error);
           });
       }
-
-      // аппрув терапевта
-
     });
   </script>
 

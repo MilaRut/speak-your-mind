@@ -169,7 +169,8 @@
         <div class="footer__copyright">
           <span>&copy; Speak Your Mind 2023</span>
           <a href="terms.html" class="text-green" data-translate="terms">Terms of Service</a>
-          <span>Site developed by <a target="_blank" rel="nofollow noreferrer noopener" href="https://sleeps.co/" class="text-green">S-CATS</a></span>
+          <span>Site developed by <a target="_blank" rel="nofollow noreferrer noopener" href="https://sleeps.co/"
+              class="text-green">S-CATS</a></span>
         </div>
       </div>
     </footer>
@@ -257,9 +258,10 @@
 
             for (const doc of docsList) {
               const row = document.createElement('tr');
+              const itemActiveClass = doc.approved === 1 ? 'admin-table__item--active' : 'admin-table__item--inactive'
               row.className = 'admin-table__item';
+              row.classList.add(itemActiveClass);
               row.innerHTML = `
-                    <tr class="admin-table__item admin-table__item--active">
                       <td><span class="admin-table__id">${doc.doc_id}</span></td>
                       <td><span class="admin-table__name">${doc.doc_name}</span></td>
                       <td><span class="admin-table__email">${doc.email}</span></td>
@@ -274,13 +276,12 @@
                             Редактировать</a>
                           <button class="admin-table__popup-btn admin-table__popup-btn--message text-green"
                             data-translate="admin_send_message">Написать сообщение</button>
-                          <button class="admin-table__popup-btn admin-table__popup-btn--activate text-green"
+                          <button class="admin-table__popup-btn admin-table__popup-btn--activate doc-activate-btn text-green"
                             data-translate="activate" data-id=${doc.doc_id}>Активировать</button>
-                          <button class="admin-table__popup-btn admin-table__popup-btn--deactivate text-green"
-                            data-translate="deactivate">Деактивировать</button>
+                          <button class="admin-table__popup-btn admin-table__popup-btn--deactivate doc-deactivate-btn text-green"
+                            data-translate="deactivate" data-id=${doc.doc_id}>Деактивировать</button>
                         </div>
                       </td>
-                    </tr>
                     `;
               tableBody.appendChild(row);
               document.querySelectorAll('[data-translate]').forEach((el) => {
@@ -291,7 +292,7 @@
                   el.classList.remove('is-active');
                 });
                 row.classList.add('is-active');
-                if (!e.target.classList.contains('admin-table__popup-btn--activate')) {
+                if (!e.target.classList.contains('admin-table__popup-btn--activate') && !e.target.classList.contains('admin-table__popup-btn--deactivate')) {
                   e.stopPropagation();
                 }
               });
@@ -310,48 +311,6 @@
       }
 
       fetchData();
-
-      // аппрув терапевта
-      document.addEventListener('click', (e) => {
-        console.log(e.target);
-        const target = e.target;
-        if (target.classList.contains('admin-table__popup-btn--activate')) {
-          const id = e.target.getAttribute('data-id');
-          approveDoc(id);
-        }
-      });
-
-      function approveDoc(id) {
-        const dataToSend = {
-          session_token: localStorage.getItem('token'),
-          doc_id: id
-        };
-
-        if (token) {
-          fetch('https://www.speakyourmind.help:8000/approve_therapist', {
-            method: 'POST',
-            headers: {
-              'Authorization': `Bearer ${token}`,
-              'Content-Type': 'application/json'
-            },
-            body: JSON.stringify(dataToSend)
-          })
-            .then(response => {
-              if (!response.ok) {
-                throw new Error('Сеть не в порядке');
-              }
-              return response.json();
-            })
-            .then(data => {
-              console.log('Доктор заапрувлен');
-            })
-            .catch(error => {
-              console.error('Ошибка при получении данных пользователя:', error);
-            });
-        } else {
-          console.log('Токен не найден. Пожалуйста, войдите в систему.');
-        }
-      }
     });
   </script>
 

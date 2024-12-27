@@ -7184,6 +7184,26 @@ button.admin-profile__back-to-profile {
   font-size: 18px;
 }
 
+.doc-activate-btn span,
+.doc-deactivate-btn span {
+  pointer-events: none;
+}
+
+.admin__profile--doctor-active .doc-activate-btn {
+  display: none;
+}
+
+.admin__profile--doctor-inactive .doc-deactivate-btn {
+  display: none;
+}
+
+.full-info-btn {
+  background-color: transparent;
+  border: none;
+  color: #00ac73;
+  margin-bottom: 40px;
+}
+
 .status-page {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -7412,6 +7432,10 @@ button.admin-profile__back-to-profile {
   }
 
   .admin-profile__back-btn:hover:not(.focus-visible) {
+    opacity: 0.7;
+  }
+
+  .full-info-btn:hover:not(.focus-visible) {
     opacity: 0.7;
   }
 

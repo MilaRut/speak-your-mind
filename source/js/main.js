@@ -25,6 +25,8 @@ import {showUploadedFiles} from './modules/uploaded-list';
 import {setIndicator} from './modules/indicator';
 import {formatCardInputs, sendCard} from './modules/add-card';
 import {formatCardInputsUpdate, sendCardUpdate} from './modules/update-card';
+import {initDocActivation} from './modules/doc-activatation';
+import {downloadFullInfo} from './modules/full-doc-info';
 
 const savedLanguage = localStorage.getItem('language') || 'en';
 
@@ -73,5 +75,7 @@ window.addEventListener('DOMContentLoaded', () => {
     formatCardInputsUpdate();
     sendCardUpdate();
     // END TODO
+    initDocActivation();
+    downloadFullInfo();
   });
 });
