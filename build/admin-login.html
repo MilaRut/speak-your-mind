@@ -40,7 +40,7 @@
                     data-translate="password_placeholder">
                 </label>
               </fieldset>
-              <span class="form-error-message">Something wrong. Do something</span>
+              <span class="form-error-message"></span>
               <div class="login__btn-wrapper">
                 <button type="submit" class="login__btn btn">
                   <span class="icon-loader">
@@ -64,7 +64,8 @@
         <div class="footer__copyright">
           <span>&copy; Speak Your Mind 2023</span>
           <a href="terms.html" class="text-green" data-translate="terms">Terms of Service</a>
-          <span>Site developed by <a target="_blank" rel="nofollow noreferrer noopener" href="https://sleeps.co/" class="text-green">S-CATS</a></span>
+          <span>Site developed by <a target="_blank" rel="nofollow noreferrer noopener" href="https://sleeps.co/"
+              class="text-green">S-CATS</a></span>
         </div>
       </div>
     </footer>
@@ -87,30 +88,6 @@
         submitBtn.classList.add('is-loading');
       });
 
-      function getAdminData() {
-        const url = "https://www.speakyourmind.help:8000/make_admin";
-
-        fetch(url, {
-          method: 'POST'
-        })
-          .then(response => {
-            if (!response.ok) {
-              throw new Error('Сеть ответила с ошибкой: ' + response.status);
-              submitBtn.classList.add('is-loading');
-            }
-            return response.json();
-          })
-          .then(data => {
-            document.querySelector('.debug-email').textContent = data.email;
-            document.querySelector('.debug-pass').textContent = data.password;
-          })
-          .catch(error => {
-            console.error('Произошла ошибка:', error);
-            submitBtn.classList.add('is-loading');
-          });
-      }
-      getAdminData();
-
       document.getElementById('admin-login-form').addEventListener('submit', function (e) {
         e.preventDefault();
 
@@ -132,6 +109,7 @@
           .then(function (response) {
             if (!response.ok) {
               throw new Error('Network response was not ok');
+              submitBtn.classList.add('is-loading');
             }
             return response.json();
           })
@@ -155,6 +133,33 @@
           });
       });
     });
+
+
+    // document.addEventListener('DOMContentLoaded', function () {
+    //   function getAdminData() {
+    //     const url = "https://www.speakyourmind.help:8000/make_admin";
+
+    //     fetch(url, {
+    //       method: 'POST'
+    //     })
+    //       .then(response => {
+    //         if (!response.ok) {
+    //           throw new Error('Сеть ответила с ошибкой: ' + response.status);
+    //           submitBtn.classList.add('is-loading');
+    //         }
+    //         return response.json();
+    //       })
+    //       .then(data => {
+    //         document.querySelector('.debug-email').textContent = data.email;
+    //         document.querySelector('.debug-pass').textContent = data.password;
+    //       })
+    //       .catch(error => {
+    //         console.error('Произошла ошибка:', error);
+    //         submitBtn.classList.add('is-loading');
+    //       });
+    //   }
+    //   getAdminData();
+    // });
   </script>
 
   <script src="js/vendor.min.js"></script>
