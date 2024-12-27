@@ -573,3 +573,33 @@ button.admin-profile__back-to-profile {
     font-size: 18px;
   }
 }
+
+.doc-activate-btn,
+.doc-deactivate-btn {
+  span {
+    pointer-events: none;
+  }
+}
+
+.admin__profile--doctor-active {
+  .doc-activate-btn {
+    display: none;
+  }
+}
+
+.admin__profile--doctor-inactive {
+  .doc-deactivate-btn {
+    display: none;
+  }
+}
+
+.full-info-btn {
+  background-color: transparent;
+  border: none;
+  color: $color-jade;
+  margin-bottom: 40px;
+
+  @include hover {
+    opacity: 0.7;
+  }
+}

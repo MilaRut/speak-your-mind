@@ -126,6 +126,7 @@
   &__submit-btn,
   &__submit-btn-2,
   &__submit-btn-new {
+    height: 66px;
     font-weight: 900;
     font-size: 20px;
     line-height: 110%;
@@ -134,9 +135,14 @@
     cursor: pointer;
     opacity: 0.5;
     display: flex;
+    align-items: center;
 
     .doctor__submit-text-2 {
       display: none;
+    }
+
+    .icon-loader {
+      margin-right: 7px;
     }
 
     &.is-enabled {
@@ -146,8 +152,6 @@
         display: inline-block;
       }
     }
-
-
   }
 }
 

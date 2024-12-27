@@ -9,7 +9,7 @@
   "logout_btn": "Logout",
   "land_intro_title": "Consultations with a psychologist ",
   "land_intro_title_online": "online",
-  "land_intro_subtitle": "— Available prices from 19 990 HUF",
+  "land_intro_subtitle": "— Available prices from 19 500 HUF",
   "land_intro_p_1": "Find the path to yourself and your ideal life.",
   "land_intro_p_2": "Find a psychologist who will help you with this.",
   "land_intro_btn": "Select a psychologist",
@@ -169,6 +169,7 @@
   "doc_q_name": "Your name",
   "doc_q_name_placeholder": "Your name",
   "doc_q_dob": "Your date of birth",
+  "doc_q_timezone": "Your timezone",
   "doc_q_gender": "Your gender",
   "doc_q_gender_choose": "Choose",
   "doc_q_gender_male": "Male",
@@ -593,5 +594,6 @@
   "feedback_success_btn": "Send new message",
   "feedback_agreement1": "By sending a message you agree to",
   "feedback_agreement2": "processing of your personal data",
-  "terms": "Terms of Service"
+  "terms": "Terms of Service",
+  "validate_msg": "Please fill out this field"
 }

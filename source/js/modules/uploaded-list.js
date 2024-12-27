@@ -1,22 +1,46 @@
+/* eslint-disable no-console */
 const upload = document.querySelectorAll('.upload');
 
 function handleFileUpload(event) {
   const maxFiles = 3;
   const files = event.target.files;
 
+  // проверка изображение ли
   for (let i = 0; i < files.length; i++) {
     if (!files[i].type.startsWith('image/')) {
-      alert('Вы можете загружать только изображения.');
+      event.target.closest('.doc-questionary__wrapper').querySelector('.error-message').classList.add('is-active');
+      event.target.closest('.doc-questionary__wrapper').querySelector('.error-message').textContent = 'Images only are allowed to upload';
       event.target.value = '';
       return;
     }
   }
 
+  // проверка количества файлов
   if (files.length > maxFiles) {
-    alert(`Вы можете загрузить не более ${maxFiles} файлов.`);
+    event.target.closest('.doc-questionary__wrapper').querySelector('.error-message').classList.add('is-active');
+    event.target.closest('.doc-questionary__wrapper').querySelector('.error-message').textContent = 'You can upload no more than 3 files.';
     event.target.value = '';
   } else {
     console.log('Файлы успешно выбраны:', files);
+    event.target.closest('.doc-questionary__wrapper').querySelector('.error-message').classList.remove('is-active');
+    event.target.closest('.doc-questionary__wrapper').querySelector('.error-message').textContent = '';
+  }
+}
+
+function handleFileSizeUpload(event) {
+  const files = event.target.files;
+  const maxSize = 15 * 1024 * 1024;
+  let totalSize = 0;
+
+  // Проверка общего размера файлов
+  for (let i = 0; i < files.length; i++) {
+    totalSize += files[i].size;
+  }
+
+  if (totalSize > maxSize) {
+    event.target.closest('.doc-questionary__wrapper').querySelector('.error-message').classList.add('is-active');
+    event.target.closest('.doc-questionary__wrapper').querySelector('.error-message').textContent = `Общий размер файлов не должен превышать ${maxSize / (1024 * 1024)} Мб.`;
+    event.target.value = '';
   }
 }
 
@@ -34,6 +58,8 @@ function showUploadedFiles() {
       if (el.classList.contains('upload--photos')) {
         handleFileUpload(e);
       }
+
+      handleFileSizeUpload(e);
 
       fileList.innerHTML = '';
 

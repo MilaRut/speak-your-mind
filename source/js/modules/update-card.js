@@ -4,6 +4,7 @@
 /* eslint-disable camelcase */
 const updateCardForm = document.querySelector('#update-card-form');
 const token = localStorage.getItem('token');
+let lastNums;
 
 function formatCardInputsUpdate() {
 
@@ -53,7 +54,6 @@ function sendCardUpdate() {
   const submitButton = updateCardForm.querySelector('.card__submit-btn');
   submitButton.addEventListener('click', () => {
     submitButton.classList.add('is-loading');
-
   });
 
   updateCardForm.addEventListener('submit', (e) => {
@@ -62,6 +62,7 @@ function sendCardUpdate() {
     const expiryDate = updateCardForm.querySelector('#update-card-exp').value;
     const month = expiryDate.slice(0, 2);
     const year = `${expiryDate.slice(5, 7)}`;
+    lastNums = updateCardForm.querySelector('#update-card-number').value.replace(/\s/g, '').slice(-4);
 
     const dataToSend = {
       session_token: token,
@@ -71,7 +72,6 @@ function sendCardUpdate() {
       card_valid_to: `${month}-${year}`,
     };
 
-    console.log(dataToSend);
     setTimeout(() => {
       submitButton.classList.remove('is-loading');
     }, 1000);
@@ -92,7 +92,10 @@ function sendCardUpdate() {
       })
       .then((data) => {
         console.log(data);
-        // сюда добавить обновление рендеринга ЛК терапевта
+        updateCardForm.reset();
+        if (document.querySelector('#card-num')) {
+          document.querySelector('#card-num').textContent = lastNums;
+        }
       })
       .catch((error) => {
         submitButton.classList.remove('is-loading');

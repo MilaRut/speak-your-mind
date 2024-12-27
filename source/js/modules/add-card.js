@@ -4,6 +4,7 @@
 /* eslint-disable camelcase */
 const addNewCardForm = document.querySelector('#add-card-form');
 const token = localStorage.getItem('token');
+let lastNums;
 
 function formatCardInputs() {
 
@@ -53,7 +54,6 @@ function sendCard() {
   const submitButton = addNewCardForm.querySelector('.card__submit-btn');
   submitButton.addEventListener('click', () => {
     submitButton.classList.add('is-loading');
-
   });
 
   addNewCardForm.addEventListener('submit', (e) => {
@@ -62,6 +62,8 @@ function sendCard() {
     const expiryDate = addNewCardForm.querySelector('#card-exp').value;
     const month = expiryDate.slice(0, 2);
     const year = `${expiryDate.slice(5, 7)}`;
+    lastNums = addNewCardForm.querySelector('#card-number').value.replace(/\s/g, '').slice(-4);
+
 
     const dataToSend = {
       session_token: token,
@@ -71,7 +73,6 @@ function sendCard() {
       card_valid_to: `${month}-${year}`,
     };
 
-    console.log(dataToSend);
     setTimeout(() => {
       submitButton.classList.remove('is-loading');
     }, 1000);
@@ -92,8 +93,13 @@ function sendCard() {
       })
       .then((data) => {
         console.log(data);
-        document.querySelector('.doctor-account__settings').setAttribute('data-utils', 'settings-main');
-        document.querySelector('#card-num').textContent = addNewCardForm.querySelector('#card-number').value.replace(/\s/g, '').slice(-4);
+        addNewCardForm.reset();
+        if (document.querySelector('#card-num')) {
+          document.querySelector('#card-num').textContent = lastNums;
+        }
+        if (document.querySelector('.doctor-account__settings')) {
+          document.querySelector('.doctor-account__settings').setAttribute('data-utils', 'settings-main');
+        }
       })
       .catch((error) => {
         submitButton.classList.remove('is-loading');

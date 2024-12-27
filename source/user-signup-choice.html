@@ -128,7 +128,7 @@
                         <span class="divider">&#8226;</span>
                         <span class="doctor__time">50 <span data-translate="doctor_time_min">min</span></span>
                         <span class="divider">&#8226;</span>
-                        <span class="doctor__price">10&nbsp;000 HUF</span>
+                        <span class="doctor__price"></span>
                       </p>
                       <p class="doctor__themes" data-translate="doctor_themes">Works with all themes in your profile</p>
                       <a href="#schedule" class="doctor__btn doctor__schedule-btn btn"
@@ -136,7 +136,7 @@
                     </div>
                     <div class="doctor__content-block" id="about-doctor">
                       <h2 class="text-25 doctor__title" data-translate="about_doctor">About therapist</h2>
-                      <p class="text-18 about-doctor-text"></p>
+                      <pre class="text-18 about-doctor-text"></pre>
                     </div>
                     <div class="doctor__content-block" id="doctor__edu">
                       <h2 class="text-25 doctor__title" data-translate="doc_q_edu_placeholder">Education</h2>
@@ -183,6 +183,7 @@
         <div class="footer__copyright">
           <span>&copy; Speak Your Mind 2023</span>
           <a href="terms.html" class="text-green" data-translate="terms">Terms of Service</a>
+          <span>Site developed by <a target="_blank" rel="nofollow noreferrer noopener" href="https://sleeps.co/" class="text-green">S-CATS</a></span>
         </div>
       </div>
     </footer>
@@ -289,9 +290,9 @@
         };
 
         const therapyPrice = {
-          0: '19 500 HUF',
-          1: '29 500 HUF',
-          2: '39 500 HUF'
+          0: '19 500 HUF / 50 EUR',
+          1: '29 500 HUF / 75 EUR',
+          2: '39 500 HUF / 100 EUR'
         };
 
         const experienceText = translationsExp[language].experience;
@@ -432,8 +433,6 @@
           // Группируем расписание по датам
           const scheduleByDate = {};
           const now = new Date().getTime(); // Получаем текущее время
-
-          console.log("Данные с бэкенда:", scheduleData); // Вывод данных с бэкенда
 
           scheduleData.forEach((item) => {
             const date = new Date(item.time);

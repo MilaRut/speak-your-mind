@@ -154,6 +154,8 @@
         <div class="footer__copyright">
           <span>&copy; Speak Your Mind 2023</span>
           <a href="terms.html" class="text-green" data-translate="terms">Terms of Service</a>
+          <span>Site developed by <a target="_blank" rel="nofollow noreferrer noopener" href="https://sleeps.co/"
+              class="text-green">S-CATS</a></span>
         </div>
       </div>
     </footer>
@@ -217,7 +219,7 @@
               }
             } else {
               // TODO - удалить, пока добавлено для тестов и дебага
-              document.querySelector('#one_time_psswd').value = data.password;
+              // document.querySelector('#one_time_psswd').value = data.password;
               // END TODO
               getPasswordForm.style.display = 'none';
               userLoginForm.style.display = 'flex';
@@ -307,16 +309,14 @@
             console.log('Данные пользователя:', data);
             // редиректы
             localStorage.setItem('user_name', data.name);
-            if (data.has_therapist !== null && data.user_card_data !== '') {
-              window.location.href = '/user-account-main.html';
+            if (data.user_age === null) {
+              window.location.href = '/user-signup-main.html';
+            } else if (data.has_therapist === null) {
+              window.location.href = '/user-signup-choice.html';
+            } else if (data.user_card_data === '') {
+              window.location.href = '/user-signup-payment.html';
             } else {
-              if (data.user_age === null) {
-                window.location.href = '/user-signup-main.html';
-              } else if (data.user_card_data === '') {
-                window.location.href = '/user-signup-payment.html';
-              } else {
-                window.location.href = '/user-signup-choice.html';
-              }
+              window.location.href = '/user-account-main.html';
             }
           })
           .catch(error => {
@@ -329,7 +329,6 @@
 
       // получение данных терапевта с бэкенда
       function getDocDataFromBackend(session_token) {
-        // получение данных терапевта с бэкенда
         fetch('http://127.0.0.1:8000/get_doc_data', {
           method: 'POST',
           headers: {

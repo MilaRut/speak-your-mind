@@ -18,15 +18,15 @@ import {initSwiper} from './modules/my-swiper';
 import {setChoiceBtn} from './modules/pickdate';
 import {initScheduleDropdown, expandList} from './modules/schedule';
 import {redirectToProfile} from './modules/redirect-profile';
-// TODO: delete
 import {setUtilsBtns} from './modules/utils-btns';
-// END TODO
 import {uploadUserPhoto} from './modules/upload-user-photo';
 import {initAdminAlerts} from './modules/amin-alerts';
 import {showUploadedFiles} from './modules/uploaded-list';
 import {setIndicator} from './modules/indicator';
 import {formatCardInputs, sendCard} from './modules/add-card';
 import {formatCardInputsUpdate, sendCardUpdate} from './modules/update-card';
+import {initDocActivation} from './modules/doc-activatation';
+import {downloadFullInfo} from './modules/full-doc-info';
 
 const savedLanguage = localStorage.getItem('language') || 'en';
 
@@ -64,9 +64,7 @@ window.addEventListener('DOMContentLoaded', () => {
     setChoiceBtn();
     expandList();
     initScheduleDropdown();
-    // TODO: delete
     setUtilsBtns();
-    // END TODO
     redirectToProfile();
     uploadUserPhoto();
     showUploadedFiles();
@@ -77,5 +75,7 @@ window.addEventListener('DOMContentLoaded', () => {
     formatCardInputsUpdate();
     sendCardUpdate();
     // END TODO
+    initDocActivation();
+    downloadFullInfo();
   });
 });
