@@ -617,6 +617,8 @@
         localStorage.setItem('language', savedLang);
       }
 
+      clearLocStorage();
+
       // определение часового пояса
       function setCurrentTimezone() {
 
@@ -894,9 +896,11 @@
                   }
 
                   if (data.token) {
-                    localStorage.setItem('token', data.token);
-                    console.log('анкета корректна и отправлена!')
-                    window.location.href = '/doctor-account-settings.html';
+                    // localStorage.setItem('token', data.token);
+                    alert('Спасибо! Ваша анкета отправлена! Ожидайте проверки, с вами свяжутся для проведения собеседования.')
+                    clearLocStorage();
+                    // window.location.href = '/doctor-account-settings.html';
+                    window.location.href = '/doctor-landing.html';
                   } else if (data.error) {
                     errorMsg.textContent = data.error;
                   } else {
