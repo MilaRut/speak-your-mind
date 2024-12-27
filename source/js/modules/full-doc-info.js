@@ -138,7 +138,7 @@ function transformData(data) {
     'Начало практики': data.doc_practice_start,
     'Сколько лет опыта работы онлайн': data.doc_online_experience,
     'Гражданство': citizenshipMap[data.doc_citizenship],
-    'Гражданство (если выбрано "другое")': data.doc_citizenship_other,
+    'Гражданство (если выбран пункт Другое)': data.doc_citizenship_other,
     'Email': data.doc_email,
     'Телефон': data.doc_phone,
     'О себе': data.doc_additional_info,
@@ -153,10 +153,10 @@ function transformData(data) {
     'Ссылки на соцсети': data.doc_socials_links,
     'Стоимость сессии': sessionCostMap[data.doc_session_cost],
     'Способ связи': contactMap[data.doc_contact],
-    'Ник в телеграм (если выбран)': data.doc_contact_other,
+    'Ник в телеграм (если выбран пункт Телеграм)': data.doc_contact_other,
     'Часовой пояс': data.doc_timezone,
     'Как узнали о наборе терапевтов': refMap[data.doc_ref],
-    'Как узнали о наборе терапевтов (если выбрано "Другое")': data.doc_ref_other,
+    'Как узнали о наборе терапевтов (если выбран пункт Другое)': data.doc_ref_other,
     'Возраст клиентов': data.doc_client_age === 0 ? '16+' : '18+',
     'Опыт работы с LGBTQ+': data.doc_lgbtq === 0 ? 'Да' : 'Нет',
     'Вид терапии': therapyTypeMap[data.doc_therapy_type],
@@ -202,7 +202,7 @@ function downloadFullInfo() {
           const downloadUrl = URL.createObjectURL(blob);
           const a = document.createElement('a');
           a.href = downloadUrl;
-          a.download = 'document.txt';
+          a.download = `id-${user_id}.json`;
           document.body.appendChild(a);
           a.click();
           document.body.removeChild(a);
