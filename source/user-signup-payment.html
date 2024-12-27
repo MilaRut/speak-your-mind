@@ -241,7 +241,7 @@
               // TODO удалить вывод в консоль
               console.log('Данные пользователя:', data);
               document.querySelector('.card__doctor-name').textContent = data.has_therapist.doc_name;
-              document.querySelector('.card__session-time').textContent = `${new Date(data.has_therapist.sch_time).toLocaleString()}, UTC±0:00`;
+              document.querySelector('.card__session-time').textContent = new Date(data.has_therapist.sch_time).toLocaleString();
             })
             .catch(error => {
               console.error('Ошибка при получении данных пользователя:', error);
